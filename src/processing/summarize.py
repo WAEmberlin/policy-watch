@@ -2,7 +2,8 @@ import os
 import json
 from datetime import datetime
 from collections import defaultdict
-import pytz
+from zoneinfo import ZoneInfo
+
 
 # Paths
 OUTPUT_DIR = "src/output"
@@ -24,9 +25,9 @@ else:
     items = []
 
 # Timezone setup
-central = pytz.timezone("US/Central")
+central = ZoneInfo("America/Chicago")
 now_central = datetime.now(central)
-last_updated = now_central.strftime("%B %d, %Y at %I:%M %p %Z")
+last_updated = datetime.now(central).strftime("%B %d, %Y at %I:%M %p %Z")
 
 # Group items by date → source
 grouped = defaultdict(lambda: defaultdict(list))
