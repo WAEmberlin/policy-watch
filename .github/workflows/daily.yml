@@ -1,0 +1,9 @@
+name: Daily Policy Watch Update
+
+on:
+  schedule:
+    - cron: "30 23 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
