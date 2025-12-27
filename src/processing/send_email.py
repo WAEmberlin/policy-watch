@@ -1,60 +1,72 @@
+import os
 import json
 import smtplib
-import os
-from datetime import datetime, timedelta, timezone
-from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from datetime import datetime, timezone
 
-# Load feed data
-with open("src/output/daily.json", "r", encoding="utf-8") as f:
-    data = json.load(f)
+OUTPUT_FILE = "src/output/items.json"
 
+EMAIL_HOST = os.environ.get("EMAIL_HOST")
+EMAIL_PORT = int(os.environ.get("EMAIL_PORT", 587))
+EMAIL_USER = os.environ.get("EMAIL_USER")
+EMAIL_PASS = os.environ.get("EMAIL_PASS")
+EMAIL_TO = os.environ.get("EMAIL_TO")
+
+# Load items
+if os.path.exists(OUTPUT_FILE):
+    with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
+        items = json.load(f)
+else:
+    items = []
+
+# Filter last 24 hours
 now = datetime.now(timezone.utc)
-cutoff = now - timedelta(hours=24)
+recent_items = []
 
-items = []
-for item in data["items"]:
+for item in items:
     try:
-        published = datetime.fromisoformat(item["published"])
-        if published >= cutoff:
-            items.append(item)
+        ts = datetime.fromisoformat(item["published"].replace("Z", "+00:00"))
+        if (now - ts).total_seconds() <= 86400:
+            recent_items.append(item)
     except Exception:
         continue
 
-if not items:
-    print("No new items in last 24 hours.")
-    exit(0)
 
-# Build HTML email
-html_parts = []
-html_parts.append("<h2>Policy Watch — Last 24 Hours</h2>")
+# Build email content
+if recent_items:
+    html_body = "<h2>Policy Watch – Updates in the Last 24 Hours</h2><ul>"
+    for item in recent_items:
+        html_body += f"""
+        <li>
+          <strong>{item.get("title","(no title)")}</strong><br>
+          <a href="{item.get("link")}">{item.get("link")}</a><br>
+          <p>{item.get("summary","")}</p>
+        </li>
+        <hr>
+        """
+    html_body += "</ul>"
+    subject = f"Policy Watch — {len(recent_items)} new updates"
+else:
+    html_body = """
+    <h2>Policy Watch Daily Update</h2>
+    <p>No new legislative or policy updates were published in the last 24 hours.</p>
+    <p>Your monitoring system is running normally.</p>
+    """
+    subject = "Policy Watch — No new updates today"
 
-grouped = {}
-for item in items:
-    grouped.setdefault(item["source"], []).append(item)
-
-for source, entries in grouped.items():
-    html_parts.append(f"<h3>{source}</h3><ul>")
-    for e in entries:
-        html_parts.append(
-            f"<li><a href='{e['link']}'>{e['title']}</a></li>"
-        )
-    html_parts.append("</ul>")
-
-html_body = "\n".join(html_parts)
-
+# Build email
 msg = MIMEMultipart("alternative")
-msg["Subject"] = "Policy Watch – Daily Legislative Update"
-msg["From"] = os.environ["EMAIL_USER"]
-msg["To"] = os.environ["EMAIL_TO"]
+msg["From"] = EMAIL_USER
+msg["To"] = EMAIL_TO
+msg["Subject"] = subject
 
 msg.attach(MIMEText(html_body, "html"))
 
 # Send email
-server = smtplib.SMTP(os.environ["EMAIL_HOST"], int(os.environ["EMAIL_PORT"]))
-server.starttls()
-server.login(os.environ["EMAIL_USER"], os.environ["EMAIL_PASS"])
-server.send_message(msg)
-server.quit()
+with smtplib.SMTP(EMAIL_HOST, EMAIL_PORT) as server:
+    server.starttls()
+    server.login(EMAIL_USER, EMAIL_PASS)
+    server.send_message(msg)
 
 print("Email sent successfully.")
