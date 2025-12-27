@@ -2,8 +2,48 @@ name: Daily Policy Watch Update
 
 on:
   schedule:
-    - cron: "30 23 * * *"
+    - cron: "30 23 * * *"   # 6:30 PM Central
   workflow_dispatch:
 
 permissions:
   contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install feedparser pyyaml
+
+      - name: Fetch feeds
+        run: python src/processing/fetch_feeds.py
+
+      - name: Build HTML digest
+        run: python src/processing/summarize.py
+
+      - name: Send daily email
+        env:
+          EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
+          EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: python src/processing/send_email.py
+
+      - name: Commit updated site
+        run: |
+          git config user.name "policy-watch-bot"
+          git config user.email "actions@github.com"
+          git add docs src/output
+          git commit -m "Automated daily policy update" || echo "No changes"
+          git push
