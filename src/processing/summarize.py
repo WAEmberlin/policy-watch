@@ -1,66 +1,145 @@
 import json
-from datetime import datetime, timezone
-from pathlib import Path
-import html
+from datetime import datetime
+from collections import defaultdict
+from zoneinfo import ZoneInfo
 
-INPUT = Path("src/output/daily.json")
-OUTPUT = Path("docs/index.html")
+INPUT_FILE = "src/output/items.json"
+OUTPUT_FILE = "docs/index.html"
 
-with open(INPUT, "r", encoding="utf-8") as f:
-    data = json.load(f)
+CENTRAL = ZoneInfo("America/Chicago")
 
-grouped = {}
-for item in data["items"]:
-    grouped.setdefault(item["source"], []).append(item)
+# Load items
+with open(INPUT_FILE, "r", encoding="utf-8") as f:
+    items = json.load(f)
 
-html_parts = []
+# Normalize + group by date and source
+grouped = defaultdict(lambda: defaultdict(list))
 
-html_parts.append(f"""
+for item in items:
+    try:
+        published = datetime.fromisoformat(
+            item["published"].replace("Z", "+00:00")
+        ).astimezone(CENTRAL)
+
+        date_key = published.strftime("%Y-%m-%d")
+        source = item.get("source", "Other")
+
+        grouped[date_key][source].append({
+            "title": item.get("title", ""),
+            "link": item.get("link", ""),
+            "summary": item.get("summary", "")
+        })
+
+    except Exception:
+        continue
+
+
+# Sort dates newest → oldest
+sorted_dates = sorted(grouped.keys(), reverse=True)
+
+# Timestamp for header
+last_updated = datetime.now(CENTRAL).strftime("%B %d, %Y at %I:%M %p %Z")
+
+# Known sources (order matters)
+KNOWN_SOURCES = [
+    "Kansas Legislature",
+    "US Congress",
+    "VA News"
+]
+
+html = f"""
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Policy Watch Daily Digest</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Policy Watch</title>
 <style>
 body {{
-  font-family: system-ui, sans-serif;
-  margin: 2rem;
-  background: #f7f7f7;
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background: #fafafa;
 }}
-h1 {{ color: #2c3e50; }}
-h2 {{ margin-top: 2rem; color: #34495e; }}
+
+h1 {{
+    margin-bottom: 0;
+}}
+
+.updated {{
+    color: #555;
+    margin-bottom: 30px;
+}}
+
+.date-block {{
+    margin-top: 40px;
+}}
+
+.source-block {{
+    margin-left: 20px;
+    margin-bottom: 20px;
+}}
+
 .item {{
-  background: white;
-  padding: 1rem;
-  margin: 0.75rem 0;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-left: 20px;
+    margin-bottom: 10px;
 }}
-a {{ text-decoration: none; color: #1a73e8; }}
-.date {{ color: #666; font-size: 0.85rem; }}
+
+a {{
+    text-decoration: none;
+    color: #1a4fb3;
+}}
+
+a:hover {{
+    text-decoration: underline;
+}}
+
+hr {{
+    margin-top: 40px;
+}}
 </style>
 </head>
 <body>
-<h1>Policy Watch — Daily Digest</h1>
-<p>Generated: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}</p>
-""")
 
-for source, items in grouped.items():
-    html_parts.append(f"<h2>{html.escape(source)}</h2>")
-    for item in items:
-        html_parts.append(f"""
-        <div class="item">
-          <a href="{html.escape(item['link'])}" target="_blank">
-            <strong>{html.escape(item['title'])}</strong>
-          </a>
-          <div class="date">{html.escape(item.get("published",""))}</div>
-          <div>{item.get("summary","")}</div>
-        </div>
-        """)
+<h1>Policy Watch</h1>
+<div class="updated"><strong>Last updated:</strong> {last_updated}</div>
+"""
 
-html_parts.append("</body></html>")
+for date in sorted_dates:
+    readable_date = datetime.strptime(date, "%Y-%m-%d").strftime("%B %d, %Y")
 
-OUTPUT.write_text("\n".join(html_parts), encoding="utf-8")
+    html += f"<div class='date-block'>"
+    html += f"<h2>📅 {readable_date}</h2>"
+
+    for source in KNOWN_SOURCES:
+        html += f"<div class='source-block'>"
+        html += f"<h3>{source}</h3>"
+
+        items_for_source = grouped[date].get(source, [])
+
+        if not items_for_source:
+            html += "<p><em>No new updates for this date.</em></p>"
+        else:
+            for item in items_for_source:
+                html += f"""
+                <div class="item">
+                    <a href="{item['link']}" target="_blank">
+                        <strong>{item['title']}</strong>
+                    </a>
+                    <div>{item['summary']}</div>
+                </div>
+                """
+
+        html += "</div>"
+
+    html += "</div><hr>"
+
+html += """
+</body>
+</html>
+"""
+
+with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+    f.write(html)
 
 print("HTML digest generated.")
