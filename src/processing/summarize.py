@@ -1,69 +1,70 @@
+import os
 import json
 from datetime import datetime
 from collections import defaultdict
-from zoneinfo import ZoneInfo
+import pytz
 
-INPUT_FILE = "src/output/items.json"
-OUTPUT_FILE = "docs/index.html"
+# Paths
+OUTPUT_DIR = "src/output"
+INPUT_FILE = os.path.join(OUTPUT_DIR, "items.json")
+HTML_FILE = "docs/index.html"
 
-CENTRAL = ZoneInfo("America/Chicago")
+# Ensure output directories exist
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+os.makedirs("docs", exist_ok=True)
 
-# Load items
-with open(INPUT_FILE, "r", encoding="utf-8") as f:
-    items = json.load(f)
+# Load items safely
+if os.path.exists(INPUT_FILE):
+    try:
+        with open(INPUT_FILE, "r", encoding="utf-8") as f:
+            items = json.load(f)
+    except json.JSONDecodeError:
+        items = []
+else:
+    items = []
 
-# Normalize + group by date and source
+# Timezone setup
+central = pytz.timezone("US/Central")
+now_central = datetime.now(central)
+last_updated = now_central.strftime("%B %d, %Y at %I:%M %p %Z")
+
+# Group items by date → source
 grouped = defaultdict(lambda: defaultdict(list))
 
 for item in items:
+    date = item.get("date", "Unknown Date")
+    source = item.get("source", "Unknown Source")
+
+    grouped[date][source].append(item)
+
+# Sort dates newest → oldest (best effort)
+def parse_date_safe(date_str):
     try:
-        published = datetime.fromisoformat(
-            item["published"].replace("Z", "+00:00")
-        ).astimezone(CENTRAL)
-
-        date_key = published.strftime("%Y-%m-%d")
-        source = item.get("source", "Other")
-
-        grouped[date_key][source].append({
-            "title": item.get("title", ""),
-            "link": item.get("link", ""),
-            "summary": item.get("summary", "")
-        })
-
+        return datetime.strptime(date_str, "%Y-%m-%d")
     except Exception:
-        continue
+        return datetime.min
 
+sorted_dates = sorted(grouped.keys(), key=parse_date_safe, reverse=True)
 
-# Sort dates newest → oldest
-sorted_dates = sorted(grouped.keys(), reverse=True)
+# ---------- Build HTML ----------
+html_parts = []
 
-# Timestamp for header
-last_updated = datetime.now(CENTRAL).strftime("%B %d, %Y at %I:%M %p %Z")
-
-# Known sources (order matters)
-KNOWN_SOURCES = [
-    "Kansas Legislature",
-    "US Congress",
-    "VA News"
-]
-
-html = f"""
+html_parts.append(f"""
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8" />
 <title>Policy Watch</title>
 <style>
 body {{
     font-family: Arial, sans-serif;
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
-    background: #fafafa;
+    margin: 40px;
+    background: #f9f9f9;
+    color: #222;
 }}
 
 h1 {{
-    margin-bottom: 0;
+    margin-bottom: 5px;
 }}
 
 .updated {{
@@ -72,74 +73,91 @@ h1 {{
 }}
 
 .date-block {{
-    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 20px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }}
 
 .source-block {{
-    margin-left: 20px;
-    margin-bottom: 20px;
+    margin-top: 15px;
+    padding-left: 15px;
+    border-left: 4px solid #ccc;
 }}
 
-.item {{
-    margin-left: 20px;
-    margin-bottom: 10px;
+ul {{
+    margin-top: 8px;
 }}
 
-a {{
-    text-decoration: none;
-    color: #1a4fb3;
+li {{
+    margin-bottom: 8px;
 }}
 
-a:hover {{
-    text-decoration: underline;
-}}
-
-hr {{
-    margin-top: 40px;
+.empty {{
+    font-style: italic;
+    color: #777;
 }}
 </style>
 </head>
 <body>
 
 <h1>Policy Watch</h1>
-<div class="updated"><strong>Last updated:</strong> {last_updated}</div>
-"""
+<p class="updated"><strong>Last updated:</strong> {last_updated}</p>
+""")
 
-for date in sorted_dates:
-    readable_date = datetime.strptime(date, "%Y-%m-%d").strftime("%B %d, %Y")
+# If no items at all
+if not grouped:
+    html_parts.append("""
+    <div class="date-block">
+        <p class="empty">No updates available yet.</p>
+    </div>
+    """)
+else:
+    for date in sorted_dates:
+        html_parts.append(f"""
+        <div class="date-block">
+            <h2>{date}</h2>
+        """)
 
-    html += f"<div class='date-block'>"
-    html += f"<h2>📅 {readable_date}</h2>"
+        sources = grouped[date]
 
-    for source in KNOWN_SOURCES:
-        html += f"<div class='source-block'>"
-        html += f"<h3>{source}</h3>"
+        for source, items_list in sources.items():
+            html_parts.append(f"""
+            <div class="source-block">
+                <h3>{source}</h3>
+            """)
 
-        items_for_source = grouped[date].get(source, [])
+            if not items_list:
+                html_parts.append("<p class='empty'>No new updates for this date.</p>")
+            else:
+                html_parts.append("<ul>")
+                for item in items_list:
+                    title = item.get("title", "Untitled")
+                    link = item.get("link", "#")
+                    summary = item.get("summary", "")
 
-        if not items_for_source:
-            html += "<p><em>No new updates for this date.</em></p>"
-        else:
-            for item in items_for_source:
-                html += f"""
-                <div class="item">
-                    <a href="{item['link']}" target="_blank">
-                        <strong>{item['title']}</strong>
-                    </a>
-                    <div>{item['summary']}</div>
-                </div>
-                """
+                    html_parts.append(f"""
+                    <li>
+                        <a href="{link}" target="_blank"><strong>{title}</strong></a><br/>
+                        <small>{summary}</small>
+                    </li>
+                    """)
 
-        html += "</div>"
+                html_parts.append("</ul>")
 
-    html += "</div><hr>"
+            html_parts.append("</div>")
 
-html += """
+        html_parts.append("</div>")
+
+# Close HTML
+html_parts.append("""
 </body>
 </html>
-"""
+""")
 
-with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-    f.write(html)
+# Write file
+with open(HTML_FILE, "w", encoding="utf-8") as f:
+    f.write("\n".join(html_parts))
 
-print("HTML digest generated.")
+print("✅ Website HTML generated successfully.")
