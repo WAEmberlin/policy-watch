@@ -4,7 +4,7 @@ from pathlib import Path
 import html
 
 INPUT = Path("src/output/daily.json")
-OUTPUT = Path("src/output/index.html")
+OUTPUT = Path("docs/index.html")
 
 with open(INPUT, "r", encoding="utf-8") as f:
     data = json.load(f)
