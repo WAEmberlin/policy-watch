@@ -1,140 +1,74 @@
 import feedparser
 import json
-import os
-from datetime import datetime, timedelta
-from zoneinfo import ZoneInfo
+from datetime import datetime, timezone, timedelta
+from pathlib import Path
 
-# -------------------------
-# Configuration
-# -------------------------
+OUTPUT_DIR = Path("src/output")
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-FEEDS = [
-    {
-        "name": "Congress.gov",
-        "url": "https://www.congress.gov/rss/most-viewed.xml",
-    },
-    {
-        "name": "Federal Register",
-        "url": "https://www.federalregister.gov/articles/search.rss",
-    },
-]
+ITEMS_FILE = OUTPUT_DIR / "items.json"
+HISTORY_FILE = OUTPUT_DIR / "history.json"
 
-OUTPUT_DIR = "src/output"
-HISTORY_FILE = os.path.join(OUTPUT_DIR, "history.json")
-ITEMS_FILE = os.path.join(OUTPUT_DIR, "items.json")
+FEEDS = {
+    "Kansas Legislature": "https://www.kslegislature.gov/li/rsshelp/",
+    "US Congress": "https://www.congress.gov/rss/notification.xml",
+    "VA News": "https://news.va.gov/feed/",
+}
 
-os.makedirs(OUTPUT_DIR, exist_ok=True)
+now_utc = datetime.now(timezone.utc)
+cutoff = now_utc - timedelta(days=365)
 
-central = ZoneInfo("America/Chicago")
+# Load existing history
+if HISTORY_FILE.exists():
+    with open(HISTORY_FILE, "r", encoding="utf-8") as f:
+        history = json.load(f)
+else:
+    history = []
 
-# -------------------------
-# Helpers
-# -------------------------
+# Index existing items by link for deduplication
+existing_links = {item["link"] for item in history if "link" in item}
 
-def load_json_safe(path):
-    if os.path.exists(path):
-        try:
-            with open(path, "r", encoding="utf-8") as f:
-                return json.load(f)
-        except Exception:
-            return []
-    return []
+new_items = []
 
-def normalize_date(entry):
-    """
-    Convert feedparser dates → ISO format
-    """
-    if hasattr(entry, "published_parsed") and entry.published_parsed:
-        return datetime(*entry.published_parsed[:6], tzinfo=central).isoformat()
+for source, url in FEEDS.items():
+    feed = feedparser.parse(url)
 
-    if hasattr(entry, "updated_parsed") and entry.updated_parsed:
-        return datetime(*entry.updated_parsed[:6], tzinfo=central).isoformat()
+    for entry in feed.entries:
+        published = None
 
-    return datetime.now(central).isoformat()
+        if hasattr(entry, "published_parsed") and entry.published_parsed:
+            published = datetime(*entry.published_parsed[:6], tzinfo=timezone.utc)
+        else:
+            published = now_utc
 
-# -------------------------
-# Fetch feeds
-# -------------------------
+        if published < cutoff:
+            continue
 
-items = []
+        link = entry.get("link", "").strip()
+        if not link or link in existing_links:
+            continue
 
-for feed in FEEDS:
-    parsed = feedparser.parse(feed["url"])
-
-    for entry in parsed.entries:
         item = {
             "title": entry.get("title", "").strip(),
-            "link": entry.get("link", "").strip(),
-            "source": feed["name"],
-            "published": normalize_date(entry),
+            "link": link,
+            "summary": entry.get("summary", "")[:2000],
+            "source": source,
+            "published": published.isoformat(),
         }
 
-        if item["title"] and item["link"]:
-            items.append(item)
+        history.append(item)
+        new_items.append(item)
+        existing_links.add(link)
 
-# -------------------------
-# Load existing history
-# -------------------------
+# Sort newest first
+history.sort(key=lambda x: x.get("published", ""), reverse=True)
 
-history = load_json_safe(HISTORY_FILE)
-
-# Combine new + old
-combined = history + items
-
-# Deduplicate by link
-seen = set()
-deduped = []
-
-for item in sorted(combined, key=lambda x: x.get("published", ""), reverse=True):
-    link = item.get("link")
-    if link and link not in seen:
-        seen.add(link)
-        deduped.append(item)
-
-# -------------------------
-# Keep only last 365 days
-# -------------------------
-
-cutoff = datetime.now(central) - timedelta(days=365)
-filtered = []
-
-for item in deduped:
-    try:
-        dt = datetime.fromisoformat(item["published"])
-        if dt >= cutoff:
-            filtered.append(item)
-    except Exception:
-        continue
-
-# -------------------------
-# Save full history
-# -------------------------
-
+# Save history
 with open(HISTORY_FILE, "w", encoding="utf-8") as f:
-    json.dump(filtered, f, indent=2)
+    json.dump(history, f, indent=2)
 
-# -------------------------
-# Save last 24 hours for email
-# -------------------------
-
-now = datetime.now(central)
-recent = []
-
-for item in filtered:
-    try:
-        dt = datetime.fromisoformat(item["published"])
-        if (now - dt).total_seconds() <= 86400:
-            recent.append(item)
-    except Exception:
-        continue
-
+# Save "latest run" items
 with open(ITEMS_FILE, "w", encoding="utf-8") as f:
-    json.dump(recent, f, indent=2)
+    json.dump(new_items, f, indent=2)
 
-# -------------------------
-# Summary output
-# -------------------------
-
-print("Fetch complete.")
-print(f"Total stored (last 365 days): {len(filtered)}")
-print(f"Items in last 24 hours: {len(recent)}")
+print(f"Added {len(new_items)} new items.")
