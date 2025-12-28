@@ -282,7 +282,7 @@ def load_existing_legislation() -> List[Dict]:
 
 def deduplicate_bills(new_bills: List[Dict], existing_bills: List[Dict]) -> List[Dict]:
     """
-    Remove duplicates by comparing URLs.
+    Remove duplicates by comparing URLs and bill identifiers.
     
     Args:
         new_bills: Newly fetched bills
@@ -291,19 +291,46 @@ def deduplicate_bills(new_bills: List[Dict], existing_bills: List[Dict]) -> List
     Returns:
         Combined list without duplicates
     """
-    existing_urls = {bill["url"] for bill in existing_bills if "url" in bill}
+    # Create a set of existing bill identifiers (URL + bill number + type for safety)
+    existing_identifiers = set()
+    for bill in existing_bills:
+        if "url" in bill and bill["url"]:
+            existing_identifiers.add(bill["url"])
+        # Also index by bill number + type as backup
+        bill_id = f"{bill.get('bill_type', '')}-{bill.get('bill_number', '')}"
+        if bill_id and bill_id != "-":
+            existing_identifiers.add(bill_id)
+    
+    print(f"Indexed {len(existing_identifiers)} existing bill identifiers for deduplication")
     
     # Keep existing bills
     combined = existing_bills.copy()
     
     # Add new bills that aren't duplicates
     new_count = 0
+    duplicate_count = 0
     for bill in new_bills:
-        if bill["url"] not in existing_urls:
+        bill_url = bill.get("url", "")
+        bill_id = f"{bill.get('bill_type', '')}-{bill.get('bill_number', '')}"
+        
+        # Check if this bill already exists
+        is_duplicate = False
+        if bill_url and bill_url in existing_identifiers:
+            is_duplicate = True
+        elif bill_id and bill_id != "-" and bill_id in existing_identifiers:
+            is_duplicate = True
+        
+        if not is_duplicate:
             combined.append(bill)
-            existing_urls.add(bill["url"])
+            if bill_url:
+                existing_identifiers.add(bill_url)
+            if bill_id and bill_id != "-":
+                existing_identifiers.add(bill_id)
             new_count += 1
+        else:
+            duplicate_count += 1
     
+    print(f"Found {duplicate_count} duplicate bills")
     print(f"Added {new_count} new bills (total: {len(combined)})")
     return combined
 
