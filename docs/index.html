@@ -117,6 +117,129 @@ mark {
     border-radius: 3px;
 }
 
+#view-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.view-tab {
+    padding: 10px 20px;
+    background: #f0f0f0;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: all 0.2s;
+    color: #333;
+}
+
+.view-tab:hover {
+    background: #e0e0e0;
+}
+
+.view-tab.active {
+    background: #1a73e8;
+    color: white;
+    border-color: #1a73e8;
+}
+
+#legislation-filters {
+    margin-bottom: 20px;
+}
+
+.filter-box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#legislation-search {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px 16px;
+    font-size: 1em;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+}
+
+#bill-type-filter {
+    padding: 12px 16px;
+    font-size: 1em;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    background: white;
+}
+
+.bill-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 6px;
+    border-left: 4px solid #4285f4;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.bill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.bill-number {
+    font-weight: 600;
+    color: #1a73e8;
+    font-size: 1.1em;
+}
+
+.bill-type-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    background: #e3f2fd;
+    color: #1976d2;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+.bill-title {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin: 10px 0;
+    color: #333;
+}
+
+.bill-meta {
+    color: #666;
+    font-size: 0.9em;
+    margin: 8px 0;
+}
+
+.bill-summary {
+    margin: 15px 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+.bill-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.bill-link:hover {
+    text-decoration: underline;
+}
+
 #year-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -313,7 +436,27 @@ mark {
         </div>
     </div>
     
+    <div id="view-tabs">
+        <button id="view-feeds" class="view-tab active">RSS Feeds</button>
+        <button id="view-legislation" class="view-tab">Legislation</button>
+    </div>
+    
     <div id="year-tabs"></div>
+    <div id="legislation-filters" style="display: none;">
+        <div class="filter-box">
+            <input type="text" id="legislation-search" placeholder="Search bills by title, summary, sponsor..." />
+            <select id="bill-type-filter">
+                <option value="">All Bill Types</option>
+                <option value="HR">House Bills (HR)</option>
+                <option value="S">Senate Bills (S)</option>
+                <option value="HJRES">House Joint Resolutions</option>
+                <option value="SJRES">Senate Joint Resolutions</option>
+                <option value="HRES">House Resolutions</option>
+                <option value="SRES">Senate Resolutions</option>
+            </select>
+            <button id="clear-legislation-filters" class="clear-btn">Clear Filters</button>
+        </div>
+    </div>
     <div id="content">
         <p class="empty-state">Loading data...</p>
     </div>

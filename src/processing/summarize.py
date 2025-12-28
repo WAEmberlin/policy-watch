@@ -20,6 +20,7 @@ except (ImportError, Exception):
 OUTPUT_DIR = "src/output"
 DOCS_DIR = "docs"
 HISTORY_FILE = os.path.join(OUTPUT_DIR, "history.json")
+LEGISLATION_FILE = os.path.join(OUTPUT_DIR, "legislation.json")
 SITE_DATA_FILE = os.path.join(DOCS_DIR, "site_data.json")
 
 ITEMS_PER_PAGE = 50
@@ -96,6 +97,64 @@ for item in history:
 
 print(f"Processed {processed_count} items into grouped structure.")
 
+# -------------------------
+# Load and process legislation
+# -------------------------
+legislation = []
+if os.path.exists(LEGISLATION_FILE):
+    try:
+        with open(LEGISLATION_FILE, "r", encoding="utf-8") as f:
+            legislation = json.load(f)
+            if not isinstance(legislation, list):
+                print(f"Warning: legislation.json is not a list. Treating as empty.")
+                legislation = []
+            else:
+                print(f"Loaded {len(legislation)} bills from legislation.json")
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"Warning: Could not load legislation.json: {e}")
+
+# Process legislation into the same grouped structure
+legislation_count = 0
+for bill in legislation:
+    try:
+        # Use latest_action_date or published date
+        date_str = bill.get("latest_action_date", bill.get("published", ""))
+        if not date_str:
+            continue
+        
+        try:
+            dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
+        except ValueError:
+            continue
+        
+        year = str(dt.year)
+        date_str_formatted = dt.strftime("%Y-%m-%d")
+        source = "Congress.gov API"
+        
+        # Create item in same format as RSS items for consistency
+        item = {
+            "title": f"{bill.get('bill_type', '')} {bill.get('bill_number', '')}: {bill.get('title', '')}",
+            "link": bill.get("url", ""),
+            "summary": bill.get("summary", ""),
+            "source": source,
+            "published": bill.get("published", date_str),
+            # Additional legislation-specific fields
+            "bill_number": bill.get("bill_number", ""),
+            "bill_type": bill.get("bill_type", ""),
+            "sponsor_name": bill.get("sponsor_name", ""),
+            "latest_action": bill.get("latest_action", ""),
+            "latest_action_date": bill.get("latest_action_date", ""),
+            "congress": bill.get("congress", 119)
+        }
+        
+        grouped[year][date_str_formatted][source].append(item)
+        legislation_count += 1
+    except Exception as e:
+        print(f"Warning: Skipping legislation item due to error: {e}")
+        continue
+
+print(f"Processed {legislation_count} bills into grouped structure.")
+
 # Sort items within each date/source by published time (newest first)
 for year in grouped:
     for date_str in grouped[year]:
@@ -150,9 +209,26 @@ else:
     # zoneinfo or timezone offset
     now = datetime.now(central)
 
+# Prepare legislation data separately for frontend
+legislation_data = []
+for bill in legislation:
+    legislation_data.append({
+        "bill_number": bill.get("bill_number", ""),
+        "bill_type": bill.get("bill_type", ""),
+        "title": bill.get("title", ""),
+        "summary": bill.get("summary", ""),
+        "sponsor_name": bill.get("sponsor_name", ""),
+        "latest_action": bill.get("latest_action", ""),
+        "latest_action_date": bill.get("latest_action_date", ""),
+        "url": bill.get("url", ""),
+        "published": bill.get("published", ""),
+        "congress": bill.get("congress", 119)
+    })
+
 output = {
     "last_updated": now.isoformat(),
-    "years": site_years
+    "years": site_years,
+    "legislation": legislation_data  # Separate legislation array for easy access
 }
 
 with open(SITE_DATA_FILE, "w", encoding="utf-8") as f:

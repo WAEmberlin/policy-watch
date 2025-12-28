@@ -23,10 +23,20 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install feedparser pyyaml
+          pip install feedparser pyyaml requests
 
       - name: Fetch feeds
         run: python src/processing/fetch_feeds.py
+
+      - name: Fetch Congress API legislation
+        env:
+          CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
+        run: |
+          if [ -n "$CONGRESS_API_KEY" ]; then
+            python src/processing/fetch_congress_api.py
+          else
+            echo "CONGRESS_API_KEY not set, skipping Congress API fetch"
+          fi
 
       - name: Build HTML digest
         run: python src/processing/summarize.py
