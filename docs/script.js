@@ -6,6 +6,7 @@ let searchMode = false;
 let searchResults = [];
 let currentView = "feeds"; // "feeds" or "legislation"
 let filteredLegislation = [];
+let legislationPage = 0; // Current page for legislation pagination
 
 async function loadData() {
     try {
@@ -428,11 +429,12 @@ function setupViewSwitching() {
     if (legislationBtn) {
         legislationBtn.onclick = () => {
             currentView = "legislation";
+            legislationPage = 0; // Reset to first page
             updateViewTabs();
             document.getElementById("year-tabs").style.display = "none";
             document.getElementById("legislation-filters").style.display = "block";
             document.getElementById("search-container").style.display = "none";
-            showLegislationView();
+            showLegislationView(0);
         };
     }
 }
@@ -453,67 +455,72 @@ function setupLegislationFilters() {
     const typeFilter = document.getElementById("bill-type-filter");
     const clearBtn = document.getElementById("clear-legislation-filters");
     
-    function applyFilters() {
-        const searchQuery = (searchInput?.value || "").toLowerCase().trim();
-        const billType = typeFilter?.value || "";
-        
-        const legislation = allData?.legislation || [];
-        filteredLegislation = legislation.filter(bill => {
-            // Search filter
-            if (searchQuery) {
-                const title = (bill.title || "").toLowerCase();
-                const summary = (bill.summary || "").toLowerCase();
-                const sponsor = (bill.sponsor_name || "").toLowerCase();
-                const searchText = title + " " + summary + " " + sponsor;
-                if (!searchText.includes(searchQuery)) {
-                    return false;
-                }
-            }
-            
-            // Bill type filter
-            if (billType && bill.bill_type !== billType) {
-                return false;
-            }
-            
-            return true;
-        });
-        
-        displayLegislation();
-    }
-    
     if (searchInput) {
-        searchInput.addEventListener("input", applyFilters);
+        searchInput.addEventListener("input", () => {
+            legislationPage = 0; // Reset to first page when filtering
+            applyLegislationFilters();
+        });
         searchInput.addEventListener("keypress", (e) => {
-            if (e.key === "Enter") applyFilters();
+            if (e.key === "Enter") {
+                legislationPage = 0;
+                applyLegislationFilters();
+            }
         });
     }
     
     if (typeFilter) {
-        typeFilter.addEventListener("change", applyFilters);
+        typeFilter.addEventListener("change", () => {
+            legislationPage = 0; // Reset to first page when filtering
+            applyLegislationFilters();
+        });
     }
     
     if (clearBtn) {
         clearBtn.onclick = () => {
             if (searchInput) searchInput.value = "";
             if (typeFilter) typeFilter.value = "";
-            applyFilters();
+            legislationPage = 0;
+            applyLegislationFilters();
         };
     }
 }
 
-function showLegislationView() {
-    const legislation = allData?.legislation || [];
+function showLegislationView(pageIndex = 0) {
+    legislationPage = pageIndex;
     
-    if (legislation.length === 0) {
+    // Get legislation data (could be array for old format or object with pages for new format)
+    const legislationData = allData?.legislation || {};
+    
+    let allLegislation = [];
+    let totalPages = 0;
+    
+    // Handle both old format (array) and new format (object with pages)
+    if (Array.isArray(legislationData)) {
+        allLegislation = legislationData;
+        // Calculate pages for old format
+        const ITEMS_PER_PAGE = 50;
+        totalPages = Math.ceil(allLegislation.length / ITEMS_PER_PAGE);
+        const startIdx = pageIndex * ITEMS_PER_PAGE;
+        allLegislation = allLegislation.slice(startIdx, startIdx + ITEMS_PER_PAGE);
+    } else if (legislationData.pages) {
+        // New paginated format
+        allLegislation = legislationData.pages[pageIndex] || [];
+        totalPages = legislationData.pages.length;
+    }
+    
+    if (allLegislation.length === 0 && pageIndex === 0) {
         document.getElementById("content").innerHTML = 
             "<p class='empty-state'>No legislation data available. Run the Congress API fetch script to populate.</p>";
         document.getElementById("pagination").innerHTML = "";
         return;
     }
     
-    // Initialize filtered list with all legislation
-    filteredLegislation = legislation;
+    // Apply filters to current page
+    filteredLegislation = allLegislation;
     displayLegislation();
+    
+    // Render pagination
+    renderLegislationPagination(pageIndex, totalPages);
 }
 
 function displayLegislation() {
@@ -526,83 +533,238 @@ function displayLegislation() {
         return;
     }
     
-    const resultsHeader = document.createElement("div");
-    resultsHeader.className = "search-results-header";
-    resultsHeader.innerHTML = `<h2>Legislation (${filteredLegislation.length} bills)</h2>`;
-    container.appendChild(resultsHeader);
+    // Group bills by date (using latest_action_date or published)
+    const groupedByDate = {};
     
-    // Sort by latest action date (newest first)
-    const sorted = [...filteredLegislation].sort((a, b) => {
-        const dateA = a.latest_action_date || a.published || "";
-        const dateB = b.latest_action_date || b.published || "";
-        return dateB.localeCompare(dateA);
+    filteredLegislation.forEach(bill => {
+        // Get date from latest_action_date or published
+        const dateStr = bill.latest_action_date || bill.published || "";
+        if (!dateStr) return;
+        
+        // Extract date part (YYYY-MM-DD)
+        let dateKey = "";
+        try {
+            const dateObj = new Date(dateStr);
+            if (!isNaN(dateObj.getTime())) {
+                dateKey = dateObj.toISOString().split("T")[0]; // YYYY-MM-DD format
+            } else {
+                // Try parsing as string
+                dateKey = dateStr.split("T")[0];
+            }
+        } catch {
+            dateKey = dateStr.split("T")[0];
+        }
+        
+        if (!dateKey) return;
+        
+        if (!groupedByDate[dateKey]) {
+            groupedByDate[dateKey] = [];
+        }
+        groupedByDate[dateKey].push(bill);
     });
     
-    sorted.forEach(bill => {
-        const billDiv = document.createElement("div");
-        billDiv.className = "bill-item";
+    // Sort dates (newest first)
+    const dates = Object.keys(groupedByDate).sort().reverse();
+    
+    if (dates.length === 0) {
+        container.innerHTML = "<p class='empty-state'>No bills with valid dates found.</p>";
+        document.getElementById("pagination").innerHTML = "";
+        return;
+    }
+    
+    // Render each date section
+    dates.forEach(date => {
+        const dateSection = document.createElement("div");
+        dateSection.className = "date-section";
         
-        const header = document.createElement("div");
-        header.className = "bill-header";
+        const dateHeader = document.createElement("h2");
+        dateHeader.textContent = formatDate(date);
+        dateSection.appendChild(dateHeader);
         
-        const billNumber = document.createElement("div");
-        billNumber.className = "bill-number";
-        billNumber.textContent = `${bill.bill_type} ${bill.bill_number}`;
-        header.appendChild(billNumber);
+        // Sort bills within this date by latest action date (newest first)
+        const billsForDate = groupedByDate[date].sort((a, b) => {
+            const dateA = a.latest_action_date || a.published || "";
+            const dateB = b.latest_action_date || b.published || "";
+            return dateB.localeCompare(dateA);
+        });
         
-        if (bill.bill_type) {
-            const badge = document.createElement("span");
-            badge.className = "bill-type-badge";
-            badge.textContent = bill.bill_type;
-            header.appendChild(badge);
-        }
+        // Create a source section for "Congress.gov API" (to match RSS feed structure)
+        const sourceSection = document.createElement("div");
+        sourceSection.className = "source-section";
         
-        billDiv.appendChild(header);
+        const srcHeader = document.createElement("h3");
+        srcHeader.textContent = "Congress.gov API";
+        sourceSection.appendChild(srcHeader);
         
-        const title = document.createElement("div");
-        title.className = "bill-title";
-        title.textContent = bill.title || "(No title)";
-        billDiv.appendChild(title);
+        const ul = document.createElement("ul");
         
-        if (bill.sponsor_name) {
-            const sponsor = document.createElement("div");
-            sponsor.className = "bill-meta";
-            sponsor.textContent = `Sponsor: ${bill.sponsor_name}`;
-            billDiv.appendChild(sponsor);
-        }
+        billsForDate.forEach(bill => {
+            const li = document.createElement("li");
+            
+            // Create bill info with link
+            const billInfo = document.createElement("div");
+            billInfo.style.marginBottom = "8px";
+            
+            // Bill number and type
+            const billNumber = document.createElement("strong");
+            billNumber.style.color = "#1a73e8";
+            billNumber.textContent = `${bill.bill_type || ""} ${bill.bill_number || ""}`.trim();
+            if (billNumber.textContent) {
+                billInfo.appendChild(billNumber);
+                billInfo.appendChild(document.createTextNode(": "));
+            }
+            
+            // Title as link
+            const titleLink = document.createElement("a");
+            titleLink.href = bill.url || "#";
+            titleLink.textContent = bill.title || "(No title)";
+            titleLink.target = "_blank";
+            titleLink.rel = "noopener noreferrer";
+            titleLink.style.color = "#1a73e8";
+            titleLink.style.textDecoration = "none";
+            titleLink.style.fontWeight = "500";
+            titleLink.onmouseover = function() { this.style.textDecoration = "underline"; };
+            titleLink.onmouseout = function() { this.style.textDecoration = "none"; };
+            billInfo.appendChild(titleLink);
+            
+            // Sponsor info (if available)
+            if (bill.sponsor_name) {
+                const sponsor = document.createElement("div");
+                sponsor.style.fontSize = "0.9em";
+                sponsor.style.color = "#666";
+                sponsor.style.marginTop = "4px";
+                sponsor.textContent = `Sponsor: ${bill.sponsor_name}`;
+                billInfo.appendChild(sponsor);
+            }
+            
+            // Latest action (if available)
+            if (bill.latest_action) {
+                const action = document.createElement("div");
+                action.style.fontSize = "0.85em";
+                action.style.color = "#888";
+                action.style.marginTop = "2px";
+                action.style.fontStyle = "italic";
+                action.textContent = bill.latest_action;
+                billInfo.appendChild(action);
+            }
+            
+            li.appendChild(billInfo);
+            ul.appendChild(li);
+        });
         
-        if (bill.latest_action) {
-            const action = document.createElement("div");
-            action.className = "bill-meta";
-            const actionDate = bill.latest_action_date 
-                ? formatDate(bill.latest_action_date.split("T")[0])
-                : "";
-            action.textContent = `Latest Action: ${bill.latest_action}${actionDate ? ` (${actionDate})` : ""}`;
-            billDiv.appendChild(action);
-        }
-        
-        if (bill.summary) {
-            const summary = document.createElement("div");
-            summary.className = "bill-summary";
-            summary.textContent = bill.summary;
-            billDiv.appendChild(summary);
-        }
-        
-        if (bill.url) {
-            const link = document.createElement("a");
-            link.href = bill.url;
-            link.textContent = "View on Congress.gov →";
-            link.className = "bill-link";
-            link.target = "_blank";
-            link.rel = "noopener noreferrer";
-            billDiv.appendChild(link);
-        }
-        
-        container.appendChild(billDiv);
+        sourceSection.appendChild(ul);
+        dateSection.appendChild(sourceSection);
+        container.appendChild(dateSection);
     });
     
-    // Clear pagination for legislation view
-    document.getElementById("pagination").innerHTML = "";
+    // Pagination will be rendered by renderLegislationPagination
+}
+
+function renderLegislationPagination(current, total) {
+    const container = document.getElementById("pagination");
+    container.innerHTML = "";
+    
+    if (total <= 1) return;
+    
+    const paginationInfo = document.createElement("div");
+    paginationInfo.className = "pagination-info";
+    paginationInfo.textContent = `Page ${current + 1} of ${total}`;
+    container.appendChild(paginationInfo);
+    
+    const btnContainer = document.createElement("div");
+    btnContainer.className = "pagination-buttons";
+    
+    // Previous button
+    if (current > 0) {
+        const prevBtn = document.createElement("button");
+        prevBtn.textContent = "← Previous";
+        prevBtn.className = "pagination-btn";
+        prevBtn.onclick = () => {
+            legislationPage = current - 1;
+            applyLegislationFilters();
+        };
+        btnContainer.appendChild(prevBtn);
+    }
+    
+    // Page number buttons
+    const maxButtons = 10;
+    let startPage = Math.max(0, current - Math.floor(maxButtons / 2));
+    let endPage = Math.min(total, startPage + maxButtons);
+    
+    if (endPage - startPage < maxButtons) {
+        startPage = Math.max(0, endPage - maxButtons);
+    }
+    
+    for (let i = startPage; i < endPage; i++) {
+        const btn = document.createElement("button");
+        btn.textContent = i + 1;
+        btn.className = i === current ? "pagination-btn active-page" : "pagination-btn";
+        btn.onclick = () => {
+            legislationPage = i;
+            applyLegislationFilters();
+        };
+        btnContainer.appendChild(btn);
+    }
+    
+    // Next button
+    if (current < total - 1) {
+        const nextBtn = document.createElement("button");
+        nextBtn.textContent = "Next →";
+        nextBtn.className = "pagination-btn";
+        nextBtn.onclick = () => {
+            legislationPage = current + 1;
+            applyLegislationFilters();
+        };
+        btnContainer.appendChild(nextBtn);
+    }
+    
+    container.appendChild(btnContainer);
+}
+
+function applyLegislationFilters() {
+    // Get all legislation (from all pages if paginated)
+    const legislationData = allData?.legislation || {};
+    let allLegislation = [];
+    let totalPages = 0;
+    
+    if (Array.isArray(legislationData)) {
+        allLegislation = legislationData;
+        totalPages = Math.ceil(allLegislation.length / 50);
+    } else if (legislationData.pages) {
+        // Get current page
+        allLegislation = legislationData.pages[legislationPage] || [];
+        totalPages = legislationData.pages.length;
+    }
+    
+    const searchInput = document.getElementById("legislation-search");
+    const typeFilter = document.getElementById("bill-type-filter");
+    
+    const searchQuery = (searchInput?.value || "").toLowerCase().trim();
+    const billType = typeFilter?.value || "";
+    
+    // Apply filters to current page
+    filteredLegislation = allLegislation.filter(bill => {
+        // Search filter
+        if (searchQuery) {
+            const title = (bill.title || "").toLowerCase();
+            const summary = (bill.summary || "").toLowerCase();
+            const sponsor = (bill.sponsor_name || "").toLowerCase();
+            const searchText = title + " " + summary + " " + sponsor;
+            if (!searchText.includes(searchQuery)) {
+                return false;
+            }
+        }
+        
+        // Bill type filter
+        if (billType && bill.bill_type !== billType) {
+            return false;
+        }
+        
+        return true;
+    });
+    
+    displayLegislation();
+    renderLegislationPagination(legislationPage, totalPages);
 }
 
 window.onload = () => {

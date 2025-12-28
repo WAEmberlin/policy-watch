@@ -209,7 +209,7 @@ else:
     # zoneinfo or timezone offset
     now = datetime.now(central)
 
-# Prepare legislation data separately for frontend
+# Prepare legislation data separately for frontend with pagination
 legislation_data = []
 for bill in legislation:
     legislation_data.append({
@@ -225,17 +225,26 @@ for bill in legislation:
         "congress": bill.get("congress", 119)
     })
 
+# Paginate legislation (50 items per page, same as RSS feeds)
+legislation_pages = []
+for i in range(0, len(legislation_data), ITEMS_PER_PAGE):
+    legislation_pages.append(legislation_data[i:i + ITEMS_PER_PAGE])
+
 print(f"Prepared {len(legislation_data)} bills for frontend display.")
+print(f"Split into {len(legislation_pages)} pages ({ITEMS_PER_PAGE} items per page)")
 
 output = {
     "last_updated": now.isoformat(),
     "years": site_years,
-    "legislation": legislation_data  # Separate legislation array for easy access - always include even if empty
+    "legislation": {
+        "total_items": len(legislation_data),
+        "pages": legislation_pages  # Paginated legislation data
+    }
 }
 
 # Ensure legislation key is always present
 if "legislation" not in output:
-    output["legislation"] = []
+    output["legislation"] = {"total_items": 0, "pages": []}
 
 with open(SITE_DATA_FILE, "w", encoding="utf-8") as f:
     json.dump(output, f, indent=2)
