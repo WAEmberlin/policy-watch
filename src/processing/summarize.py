@@ -225,14 +225,21 @@ for bill in legislation:
         "congress": bill.get("congress", 119)
     })
 
+print(f"Prepared {len(legislation_data)} bills for frontend display.")
+
 output = {
     "last_updated": now.isoformat(),
     "years": site_years,
-    "legislation": legislation_data  # Separate legislation array for easy access
+    "legislation": legislation_data  # Separate legislation array for easy access - always include even if empty
 }
+
+# Ensure legislation key is always present
+if "legislation" not in output:
+    output["legislation"] = []
 
 with open(SITE_DATA_FILE, "w", encoding="utf-8") as f:
     json.dump(output, f, indent=2)
 
 print("Site data generated successfully.")
 print(f"Years available: {', '.join(site_years.keys())}")
+print(f"Legislation items in output: {len(output.get('legislation', []))}")
