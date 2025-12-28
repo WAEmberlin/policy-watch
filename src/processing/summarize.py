@@ -1,164 +1,103 @@
-import os
 import json
+import os
 from datetime import datetime
-from collections import defaultdict
 from zoneinfo import ZoneInfo
+from collections import defaultdict
 
-
-# Paths
 OUTPUT_DIR = "src/output"
-INPUT_FILE = os.path.join(OUTPUT_DIR, "items.json")
-HTML_FILE = "docs/index.html"
+DOCS_DIR = "docs"
+HISTORY_FILE = os.path.join(OUTPUT_DIR, "history.json")
+SITE_DATA_FILE = os.path.join(DOCS_DIR, "site_data.json")
 
-# Ensure output directories exist
-os.makedirs(OUTPUT_DIR, exist_ok=True)
-os.makedirs("docs", exist_ok=True)
-
-# Load items safely
-if os.path.exists(INPUT_FILE):
-    try:
-        with open(INPUT_FILE, "r", encoding="utf-8") as f:
-            items = json.load(f)
-    except json.JSONDecodeError:
-        items = []
-else:
-    items = []
-
-# Timezone setup
+ITEMS_PER_PAGE = 50
 central = ZoneInfo("America/Chicago")
-now_central = datetime.now(central)
-last_updated = datetime.now(central).strftime("%B %d, %Y at %I:%M %p %Z")
 
-# Group items by date → source
-grouped = defaultdict(lambda: defaultdict(list))
+# -------------------------
+# Load history
+# -------------------------
+# Ensure docs directory exists
+os.makedirs(DOCS_DIR, exist_ok=True)
 
-for item in items:
-    date = item.get("date", "Unknown Date")
-    source = item.get("source", "Unknown Source")
+if not os.path.exists(HISTORY_FILE):
+    print("No history.json found — creating empty site data.")
+    data = {
+        "last_updated": datetime.now(central).isoformat(),
+        "years": {}
+    }
+    with open(SITE_DATA_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2)
+    exit(0)
 
-    grouped[date][source].append(item)
+with open(HISTORY_FILE, "r", encoding="utf-8") as f:
+    history = json.load(f)
 
-# Sort dates newest → oldest (best effort)
-def parse_date_safe(date_str):
+# -------------------------
+# Group data
+# -------------------------
+grouped = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
+
+for item in history:
     try:
-        return datetime.strptime(date_str, "%Y-%m-%d")
+        dt = datetime.fromisoformat(item["published"])
     except Exception:
-        return datetime.min
+        continue
 
-sorted_dates = sorted(grouped.keys(), key=parse_date_safe, reverse=True)
+    year = str(dt.year)
+    date_str = dt.strftime("%Y-%m-%d")
+    source = item.get("source", "Unknown")
 
-# ---------- Build HTML ----------
-html_parts = []
+    grouped[year][date_str][source].append(item)
 
-html_parts.append(f"""
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<title>Policy Watch</title>
-<style>
-body {{
-    font-family: Arial, sans-serif;
-    margin: 40px;
-    background: #f9f9f9;
-    color: #222;
-}}
+# Sort items within each date/source by published time (newest first)
+for year in grouped:
+    for date_str in grouped[year]:
+        for source in grouped[year][date_str]:
+            grouped[year][date_str][source].sort(
+                key=lambda x: x.get("published", ""), 
+                reverse=True
+            )
 
-h1 {{
-    margin-bottom: 5px;
-}}
+# -------------------------
+# Sort structure
+# -------------------------
+site_years = {}
 
-.updated {{
-    color: #555;
-    margin-bottom: 30px;
-}}
+for year in sorted(grouped.keys(), reverse=True):
+    days_sorted = sorted(grouped[year].keys(), reverse=True)
 
-.date-block {{
-    margin-bottom: 40px;
-    padding: 20px;
-    background: white;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}}
+    flat_items = []
+    for day in days_sorted:
+        for source in grouped[year][day]:
+            for item in grouped[year][day][source]:
+                flat_items.append({
+                    "date": day,
+                    "source": source,
+                    "title": item.get("title"),
+                    "link": item.get("link"),
+                    "published": item.get("published")
+                })
 
-.source-block {{
-    margin-top: 15px;
-    padding-left: 15px;
-    border-left: 4px solid #ccc;
-}}
+    # Pagination
+    pages = []
+    for i in range(0, len(flat_items), ITEMS_PER_PAGE):
+        pages.append(flat_items[i:i + ITEMS_PER_PAGE])
 
-ul {{
-    margin-top: 8px;
-}}
+    site_years[year] = {
+        "total_items": len(flat_items),
+        "pages": pages,
+        "grouped": grouped[year]
+    }
 
-li {{
-    margin-bottom: 8px;
-}}
+# -------------------------
+# Write output
+# -------------------------
+output = {
+    "last_updated": datetime.now(central).isoformat(),
+    "years": site_years
+}
 
-.empty {{
-    font-style: italic;
-    color: #777;
-}}
-</style>
-</head>
-<body>
+with open(SITE_DATA_FILE, "w", encoding="utf-8") as f:
+    json.dump(output, f, indent=2)
 
-<h1>Policy Watch</h1>
-<p class="updated"><strong>Last updated:</strong> {last_updated}</p>
-""")
-
-# If no items at all
-if not grouped:
-    html_parts.append("""
-    <div class="date-block">
-        <p class="empty">No updates available yet.</p>
-    </div>
-    """)
-else:
-    for date in sorted_dates:
-        html_parts.append(f"""
-        <div class="date-block">
-            <h2>{date}</h2>
-        """)
-
-        sources = grouped[date]
-
-        for source, items_list in sources.items():
-            html_parts.append(f"""
-            <div class="source-block">
-                <h3>{source}</h3>
-            """)
-
-            if not items_list:
-                html_parts.append("<p class='empty'>No new updates for this date.</p>")
-            else:
-                html_parts.append("<ul>")
-                for item in items_list:
-                    title = item.get("title", "Untitled")
-                    link = item.get("link", "#")
-                    summary = item.get("summary", "")
-
-                    html_parts.append(f"""
-                    <li>
-                        <a href="{link}" target="_blank"><strong>{title}</strong></a><br/>
-                        <small>{summary}</small>
-                    </li>
-                    """)
-
-                html_parts.append("</ul>")
-
-            html_parts.append("</div>")
-
-        html_parts.append("</div>")
-
-# Close HTML
-html_parts.append("""
-</body>
-</html>
-""")
-
-# Write file
-with open(HTML_FILE, "w", encoding="utf-8") as f:
-    f.write("\n".join(html_parts))
-
-print("✅ Website HTML generated successfully.")
+print("Site data generated successfully.")
+print(f"Years available: {', '.join(site_years.keys())}")

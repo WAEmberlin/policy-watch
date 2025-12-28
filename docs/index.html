@@ -1,64 +1,324 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Policy Watch</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Policy Watch - Legislative & Policy Updates</title>
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 40px;
-    background: #f9f9f9;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f5f5f5;
     color: #222;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 h1 {
-    margin-bottom: 5px;
+    margin: 0 0 10px 0;
+    color: #1a73e8;
+    font-size: 2em;
 }
 
-.updated {
-    color: #555;
+#last-updated {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 0.9em;
+}
+
+#search-container {
     margin-bottom: 30px;
 }
 
-.date-block {
+.search-box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#search-input {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px 16px;
+    font-size: 1em;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    transition: border-color 0.2s;
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: #1a73e8;
+}
+
+.search-btn, .clear-btn {
+    padding: 12px 24px;
+    font-size: 1em;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.search-btn {
+    background: #1a73e8;
+    color: white;
+}
+
+.search-btn:hover {
+    background: #1557b0;
+}
+
+.clear-btn {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.clear-btn:hover {
+    background: #e0e0e0;
+}
+
+.search-results-header {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #e3f2fd;
+    border-radius: 6px;
+    border-left: 4px solid #1a73e8;
+}
+
+.search-results-header h2 {
+    margin: 0 0 10px 0;
+    color: #1a73e8;
+}
+
+.search-results-header p {
+    margin: 0;
+    color: #666;
+}
+
+mark {
+    background: #ffeb3b;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+#year-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.year-tab {
+    padding: 10px 20px;
+    background: #f0f0f0;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: all 0.2s;
+    color: #333;
+}
+
+.year-tab:hover {
+    background: #e0e0e0;
+    border-color: #ccc;
+}
+
+.year-tab.active {
+    background: #1a73e8;
+    color: white;
+    border-color: #1a73e8;
+}
+
+#content {
+    min-height: 200px;
+}
+
+.date-section {
     margin-bottom: 40px;
     padding: 20px;
-    background: white;
+    background: #fafafa;
     border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-left: 4px solid #1a73e8;
 }
 
-.source-block {
-    margin-top: 15px;
-    padding-left: 15px;
-    border-left: 4px solid #ccc;
+.date-section h2 {
+    margin: 0 0 20px 0;
+    color: #1a73e8;
+    font-size: 1.5em;
+    font-weight: 600;
 }
 
-ul {
-    margin-top: 8px;
+.source-section {
+    margin-bottom: 25px;
+    padding: 15px;
+    background: white;
+    border-radius: 4px;
+    border-left: 3px solid #34a853;
 }
 
-li {
-    margin-bottom: 8px;
+.source-section:last-child {
+    margin-bottom: 0;
 }
 
-.empty {
+.source-section h3 {
+    margin: 0 0 15px 0;
+    color: #34a853;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.source-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.source-section li {
+    margin-bottom: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.source-section li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.source-section a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.source-section a:hover {
+    color: #1557b0;
+    text-decoration: underline;
+}
+
+.empty-state {
+    color: #999;
     font-style: italic;
-    color: #777;
+    margin: 10px 0;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 4px;
+}
+
+.error {
+    color: #d32f2f;
+    padding: 20px;
+    background: #ffebee;
+    border-radius: 4px;
+    border-left: 4px solid #d32f2f;
+}
+
+#pagination {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #e0e0e0;
+}
+
+.pagination-info {
+    text-align: center;
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+.pagination-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.pagination-btn {
+    padding: 8px 16px;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: all 0.2s;
+    color: #333;
+}
+
+.pagination-btn:hover {
+    background: #e0e0e0;
+    border-color: #bbb;
+}
+
+.pagination-btn.active-page {
+    background: #1a73e8;
+    color: white;
+    border-color: #1a73e8;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .date-section {
+        padding: 15px;
+    }
+
+    .year-tab {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
 }
 </style>
 </head>
 <body>
-
-<h1>Policy Watch</h1>
-<p class="updated"><strong>Last updated:</strong> December 27, 2025 at 08:08 PM CST</p>
-
-
-    <div class="date-block">
-        <p class="empty">No updates available yet.</p>
+<div class="container">
+    <h1>Policy Watch</h1>
+    <div id="last-updated">Loading...</div>
+    
+    <div id="search-container">
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="Search by keyword (title, summary)..." />
+            <button id="search-button" class="search-btn">Search</button>
+            <button id="clear-search" class="clear-btn">Clear</button>
+        </div>
     </div>
     
-
+    <div id="year-tabs"></div>
+    <div id="content">
+        <p class="empty-state">Loading data...</p>
+    </div>
+    <div id="pagination"></div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
