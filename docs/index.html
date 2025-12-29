@@ -421,6 +421,28 @@ mark {
         font-size: 0.9em;
     }
 }
+
+#weekly-overview-header:hover {
+    background-color: #f0f0f0;
+}
+
+#weekly-overview-section.collapsed #weekly-overview-content {
+    max-height: 0;
+    padding: 0 20px;
+}
+
+#weekly-overview-section.expanded #weekly-overview-content {
+    max-height: 5000px;
+    padding: 0 20px;
+}
+
+#weekly-overview-section.collapsed #weekly-overview-arrow {
+    transform: rotate(-90deg);
+}
+
+#weekly-overview-section.expanded #weekly-overview-arrow {
+    transform: rotate(0deg);
+}
 </style>
 </head>
 <body>
@@ -436,10 +458,17 @@ mark {
     </div>
     
     <!-- Weekly Overview Section -->
-    <div id="weekly-overview-section" style="margin-bottom: 40px; padding: 20px; background: #f9f9f9; border-radius: 8px; border-left: 4px solid #1a73e8;">
-        <h2 style="margin: 0 0 15px 0; color: #1a73e8; font-size: 1.5em;">Weekly CivicWatch Overview</h2>
-        <div id="weekly-overview-content">
-            <p class="empty-state">Loading weekly overview...</p>
+    <div id="weekly-overview-section" style="margin-bottom: 40px; background: #f9f9f9; border-radius: 8px; border-left: 4px solid #1a73e8; overflow: hidden;">
+        <div id="weekly-overview-header" style="padding: 20px; cursor: pointer; user-select: none; display: flex; justify-content: space-between; align-items: center; transition: background-color 0.2s;">
+            <h2 style="margin: 0; color: #1a73e8; font-size: 1.5em; display: flex; align-items: center; gap: 10px;">
+                <span>Weekly CivicWatch Overview</span>
+                <span id="weekly-overview-arrow" style="font-size: 0.8em; transition: transform 0.3s;">▼</span>
+            </h2>
+        </div>
+        <div id="weekly-overview-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease-out; padding: 0 20px;">
+            <div style="padding: 20px 0;">
+                <p class="empty-state">Loading weekly overview...</p>
+            </div>
         </div>
     </div>
     

@@ -1,11 +1,12 @@
 let currentYear = null;
-let currentPage = 0;
+let currentPage = 0;  // Now represents 7-day chunk index (0 = most recent 7 days)
 let allData = null;
 let searchQuery = "";
 let searchMode = false;
 let searchResults = [];
 let selectedSource = "";
 let selectedCategory = "";
+const DAYS_PER_CHUNK = 7;  // Show 7 days per "page"
 
 async function loadData() {
     try {
@@ -168,7 +169,46 @@ function setupFilters() {
     }
 }
 
-function displayUnifiedView(year, pageIndex) {
+function getDateRangeForChunk(chunkIndex) {
+    /**
+     * Calculate the date range for a 7-day chunk.
+     * chunkIndex 0 = most recent 7 days
+     * chunkIndex 1 = previous 7 days (days 8-14)
+     * etc.
+     */
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+    
+    // Calculate end date (most recent day in this chunk)
+    const endDate = new Date(now);
+    endDate.setDate(endDate.getDate() - (chunkIndex * DAYS_PER_CHUNK));
+    
+    // Calculate start date (oldest day in this chunk)
+    const startDate = new Date(endDate);
+    startDate.setDate(startDate.getDate() - (DAYS_PER_CHUNK - 1));
+    
+    return {
+        start: startDate.toISOString().split('T')[0],
+        end: endDate.toISOString().split('T')[0]
+    };
+}
+
+function isDateInRange(dateStr, startDate, endDate) {
+    /**
+     * Check if a date string falls within the given range (inclusive).
+     */
+    if (!dateStr) return false;
+    try {
+        const date = new Date(dateStr + "T00:00:00");
+        const start = new Date(startDate + "T00:00:00");
+        const end = new Date(endDate + "T00:00:00");
+        return date >= start && date <= end;
+    } catch {
+        return false;
+    }
+}
+
+function displayUnifiedView(year, chunkIndex) {
     const yearData = allData.years[year];
     if (!yearData) return;
 
@@ -184,16 +224,34 @@ function displayUnifiedView(year, pageIndex) {
         }
     });
 
-    // Get paginated items from RSS feeds
-    const pages = yearData.pages || [];
-    let page = pages[pageIndex] || [];
+    // Get date range for this chunk
+    const dateRange = getDateRangeForChunk(chunkIndex);
     
-    // Also include legislation items for this year if available
+    // Get all items from RSS feeds for this year
+    const grouped = yearData.grouped || {};
+    let allRssItems = [];
+    Object.keys(grouped).forEach(date => {
+        const dateData = grouped[date];
+        Object.keys(dateData).forEach(source => {
+            const items = dateData[source];
+            items.forEach(item => ({
+                ...item,
+                date: date,
+                source: source
+            }));
+            allRssItems = allRssItems.concat(items.map(item => ({
+                ...item,
+                date: date,
+                source: source
+            })));
+        });
+    });
+    
+    // Get all legislation items for this year
     const legislation = allData.legislation || {};
     let legislationItems = [];
     
     if (legislation.pages) {
-        // Get all legislation pages and filter by year
         const allLegPages = legislation.pages.flat();
         legislationItems = allLegPages.map(bill => ({
             date: bill.latest_action_date ? bill.latest_action_date.split("T")[0] : (bill.published ? bill.published.split("T")[0] : ""),
@@ -202,13 +260,11 @@ function displayUnifiedView(year, pageIndex) {
             link: bill.url || "",
             published: bill.published || bill.latest_action_date || "",
             summary: bill.summary || "",
-            // Keep bill-specific fields
             bill_number: bill.bill_number,
             bill_type: bill.bill_type,
             sponsor_name: bill.sponsor_name,
             latest_action: bill.latest_action
         })).filter(item => {
-            // Filter by year
             if (!item.date) return false;
             try {
                 const itemYear = new Date(item.date + "T00:00:00").getFullYear();
@@ -236,52 +292,57 @@ function displayUnifiedView(year, pageIndex) {
         });
     }
     
-    // Combine RSS feed items and legislation items
-    let allPageItems = [...page, ...legislationItems];
+    // Combine all items
+    let allItems = [...allRssItems, ...legislationItems];
     
-    // Sort combined items by date (newest first)
-    allPageItems.sort((a, b) => {
+    // Filter items to only those in the current 7-day chunk
+    allItems = allItems.filter(item => {
+        const itemDate = item.date || (item.published ? item.published.split("T")[0] : "");
+        return isDateInRange(itemDate, dateRange.start, dateRange.end);
+    });
+    
+    // Sort by date (newest first)
+    allItems.sort((a, b) => {
         const dateA = a.published || a.date || "";
         const dateB = b.published || b.date || "";
         return dateB.localeCompare(dateA);
     });
 
-    if (allPageItems.length === 0) {
-        container.innerHTML = "<p class='empty-state'>No items on this page.</p>";
-        renderPagination(year, pageIndex, pages.length);
-        return;
-    }
-
     // Apply filters
-    let filteredPage = allPageItems;
     if (selectedSource) {
-        filteredPage = filteredPage.filter(item => item.source === selectedSource);
+        allItems = allItems.filter(item => item.source === selectedSource);
     }
     if (selectedCategory) {
-        filteredPage = filteredPage.filter(item => {
+        allItems = allItems.filter(item => {
             const source = item.source || "";
             return source.includes(selectedCategory);
         });
     }
 
     // Group by date and source
-    const grouped = {};
-    filteredPage.forEach(item => {
+    const groupedByDate = {};
+    allItems.forEach(item => {
         const date = item.date || (item.published ? item.published.split("T")[0] : "");
         if (!date) return;
         
-        if (!grouped[date]) grouped[date] = {};
-        if (!grouped[date][item.source]) grouped[date][item.source] = [];
-        grouped[date][item.source].push(item);
+        if (!groupedByDate[date]) groupedByDate[date] = {};
+        if (!groupedByDate[date][item.source]) groupedByDate[date][item.source] = [];
+        groupedByDate[date][item.source].push(item);
     });
 
-    // Get all dates from full grouped structure (for empty state detection)
-    const allDates = Object.keys(yearData.grouped || {}).sort().reverse();
-    const pageDates = Object.keys(grouped).sort().reverse();
+    // Get all dates in this chunk (sorted newest first)
+    const chunkDates = Object.keys(groupedByDate).sort().reverse();
+    
+    // Also get all dates from full data structure to show empty states
+    const allDatesInYear = Object.keys(grouped).sort().reverse();
+    // Filter to only dates in current chunk
+    const allDatesInChunk = allDatesInYear.filter(date => 
+        isDateInRange(date, dateRange.start, dateRange.end)
+    );
 
-    // Render dates (newest first)
-    // Always show all dates that have any items, and show all sources for each date
-    allDates.forEach(date => {
+    // Render dates in this chunk (newest first)
+    // Show all dates in the chunk, even if they have no items (for empty state)
+    allDatesInChunk.forEach(date => {
         const dateSection = document.createElement("div");
         dateSection.className = "date-section";
 
@@ -290,10 +351,10 @@ function displayUnifiedView(year, pageIndex) {
         dateSection.appendChild(dateHeader);
 
         // Get ALL sources for this date from the full grouped structure
-        const rssSources = yearData.grouped[date] || {};
+        const rssSources = grouped[date] || {};
         const allSources = Object.keys(rssSources).sort();
 
-        // Render ALL sources for this date (even if empty on current page)
+        // Render ALL sources for this date (even if empty in this chunk)
         allSources.forEach(source => {
             // Apply source filter
             if (selectedSource && source !== selectedSource) {
@@ -312,29 +373,20 @@ function displayUnifiedView(year, pageIndex) {
             srcHeader.textContent = source;
             sourceSection.appendChild(srcHeader);
 
-            // Get items for this source from the full grouped structure
-            const allItemsForSource = rssSources[source] || [];
-            // Filter to only items on current page (if paginated)
-            const itemsOnPage = grouped[date] && grouped[date][source] 
-                ? grouped[date][source] 
+            // Get items for this source in this chunk
+            const itemsInChunk = groupedByDate[date] && groupedByDate[date][source] 
+                ? groupedByDate[date][source] 
                 : [];
 
-            // Show "No updates" if no items exist for this source on this date
-            if (allItemsForSource.length === 0) {
-                const emptyMsg = document.createElement("p");
-                emptyMsg.className = "empty-state";
-                emptyMsg.textContent = "No updates for this date/source";
-                sourceSection.appendChild(emptyMsg);
-            } else if (itemsOnPage.length === 0) {
-                // Items exist but not on current page (due to pagination)
+            // Show items or empty state
+            if (itemsInChunk.length === 0) {
                 const emptyMsg = document.createElement("p");
                 emptyMsg.className = "empty-state";
                 emptyMsg.textContent = "No updates for this date/source";
                 sourceSection.appendChild(emptyMsg);
             } else {
-                // Show items that are on current page
                 const ul = document.createElement("ul");
-                itemsOnPage.forEach(item => {
+                itemsInChunk.forEach(item => {
                     const li = document.createElement("li");
                     const a = document.createElement("a");
                     a.href = item.link || item.url || "#";
@@ -353,7 +405,24 @@ function displayUnifiedView(year, pageIndex) {
         container.appendChild(dateSection);
     });
 
-    renderPagination(year, pageIndex, pages.length);
+    // Show message if no items in this chunk
+    if (chunkDates.length === 0 && allDatesInChunk.length === 0) {
+        container.innerHTML = `<p class='empty-state'>No items found for ${formatDate(dateRange.start)} - ${formatDate(dateRange.end)}.</p>`;
+    }
+
+    // Calculate total number of chunks available
+    // Find the oldest date in the year
+    const oldestDate = allDatesInYear.length > 0 ? allDatesInYear[allDatesInYear.length - 1] : null;
+    let totalChunks = 1;
+    if (oldestDate) {
+        const oldest = new Date(oldestDate + "T00:00:00");
+        const now = new Date();
+        now.setHours(0, 0, 0, 0);
+        const daysDiff = Math.ceil((now - oldest) / (1000 * 60 * 60 * 24));
+        totalChunks = Math.max(1, Math.ceil(daysDiff / DAYS_PER_CHUNK));
+    }
+
+    renderPagination(year, chunkIndex, totalChunks, dateRange);
 }
 
 function performSearch(query) {
@@ -531,52 +600,45 @@ function formatDate(dateStr) {
     }
 }
 
-function renderPagination(year, current, total) {
+function renderPagination(year, current, total, dateRange) {
     const container = document.getElementById("pagination");
     container.innerHTML = "";
 
     if (total <= 1) return;
 
+    // Format date range for display
+    const startFormatted = formatDate(dateRange.start);
+    const endFormatted = formatDate(dateRange.end);
+    
     const paginationInfo = document.createElement("div");
     paginationInfo.className = "pagination-info";
-    paginationInfo.textContent = `Page ${current + 1} of ${total}`;
+    paginationInfo.textContent = `Showing ${startFormatted} - ${endFormatted} (${current + 1} of ${total} periods)`;
     container.appendChild(paginationInfo);
 
     const btnContainer = document.createElement("div");
     btnContainer.className = "pagination-buttons";
 
-    // Previous button
+    // Previous 7 days button
     if (current > 0) {
         const prevBtn = document.createElement("button");
-        prevBtn.textContent = "← Previous";
+        prevBtn.textContent = "← Previous 7 Days";
         prevBtn.className = "pagination-btn";
-        prevBtn.onclick = () => displayUnifiedView(year, current - 1);
+        prevBtn.onclick = () => {
+            currentPage = current - 1;
+            displayUnifiedView(year, current - 1);
+        };
         btnContainer.appendChild(prevBtn);
     }
 
-    // Page number buttons
-    const maxButtons = 10;
-    let startPage = Math.max(0, current - Math.floor(maxButtons / 2));
-    let endPage = Math.min(total, startPage + maxButtons);
-
-    if (endPage - startPage < maxButtons) {
-        startPage = Math.max(0, endPage - maxButtons);
-    }
-
-    for (let i = startPage; i < endPage; i++) {
-        const btn = document.createElement("button");
-        btn.textContent = i + 1;
-        btn.className = i === current ? "pagination-btn active-page" : "pagination-btn";
-        btn.onclick = () => displayUnifiedView(year, i);
-        btnContainer.appendChild(btn);
-    }
-
-    // Next button
+    // Next 7 days button
     if (current < total - 1) {
         const nextBtn = document.createElement("button");
-        nextBtn.textContent = "Next →";
+        nextBtn.textContent = "Next 7 Days →";
         nextBtn.className = "pagination-btn";
-        nextBtn.onclick = () => displayUnifiedView(year, current + 1);
+        nextBtn.onclick = () => {
+            currentPage = current + 1;
+            displayUnifiedView(year, current + 1);
+        };
         btnContainer.appendChild(nextBtn);
     }
 
@@ -614,7 +676,25 @@ function setupSearch() {
 
 async function loadWeeklyOverview() {
     const container = document.getElementById("weekly-overview-content");
-    if (!container) return;
+    const section = document.getElementById("weekly-overview-section");
+    if (!container || !section) return;
+    
+    // Set up toggle functionality
+    const header = document.getElementById("weekly-overview-header");
+    if (header) {
+        // Start collapsed by default
+        section.classList.add("collapsed");
+        
+        header.addEventListener("click", () => {
+            if (section.classList.contains("collapsed")) {
+                section.classList.remove("collapsed");
+                section.classList.add("expanded");
+            } else {
+                section.classList.remove("expanded");
+                section.classList.add("collapsed");
+            }
+        });
+    }
     
     try {
         const res = await fetch("weekly/latest.json");
@@ -667,10 +747,10 @@ async function loadWeeklyOverview() {
             html += `</div>`;
         }
         
-        container.innerHTML = html;
+        // Wrap content in inner div for proper padding
+        container.innerHTML = `<div style="padding: 20px 0;">${html}</div>`;
     } catch (error) {
         // If weekly overview doesn't exist, hide the section
-        const section = document.getElementById("weekly-overview-section");
         if (section) {
             section.style.display = "none";
         }
