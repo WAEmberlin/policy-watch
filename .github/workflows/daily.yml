@@ -44,6 +44,12 @@ jobs:
       - name: Build HTML digest
         run: python src/processing/summarize.py
 
+      - name: Generate weekly overview
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: |
+          python -m src.processing.weekly_overview || echo "Weekly overview generation failed, continuing..."
+
       - name: Send daily email (only at 6:30 PM Central)
         env:
           EMAIL_HOST: ${{ secrets.EMAIL_HOST }}

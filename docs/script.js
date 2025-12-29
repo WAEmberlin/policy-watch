@@ -16,6 +16,9 @@ async function loadData() {
             "<p class='error'>Error loading data. Please try again later.</p>";
         return;
     }
+    
+    // Load weekly overview
+    loadWeeklyOverview();
 
     // Update last updated timestamp
     const lastUpdatedEl = document.getElementById("last-updated");
@@ -35,6 +38,9 @@ async function loadData() {
 
     // Setup filters
     setupFilters();
+    
+    // Load weekly overview
+    loadWeeklyOverview();
     
     // Load and display data
     const years = Object.keys(allData.years || {});
@@ -603,6 +609,71 @@ function setupSearch() {
             searchInput.value = "";
             performSearch("");
         });
+    }
+}
+
+async function loadWeeklyOverview() {
+    const container = document.getElementById("weekly-overview-content");
+    if (!container) return;
+    
+    try {
+        const res = await fetch("weekly/latest.json");
+        const data = await res.json();
+        
+        // Format week range
+        const weekStart = new Date(data.week_start);
+        const weekEnd = new Date(data.week_end);
+        const weekRange = weekStart.toLocaleDateString("en-US", {
+            month: "long",
+            day: "numeric"
+        }) + " - " + weekEnd.toLocaleDateString("en-US", {
+            month: "long",
+            day: "numeric",
+            year: "numeric"
+        });
+        
+        let html = `<div style="margin-bottom: 15px; color: #666; font-size: 0.9em;">Week of ${weekRange}</div>`;
+        
+        // Audio player if available
+        if (data.audio_available && data.audio_file) {
+            html += `
+                <div style="margin-bottom: 20px;">
+                    <audio controls style="width: 100%; max-width: 500px;">
+                        <source src="${data.audio_file}" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            `;
+        }
+        
+        // Summary text
+        html += `<div style="line-height: 1.8; color: #333;">`;
+        const script = data.script || "";
+        // Convert line breaks to HTML
+        const scriptHtml = script.split("\n").map(line => {
+            if (line.trim() === "") {
+                return "<br>";
+            }
+            return `<p style="margin: 8px 0;">${line}</p>`;
+        }).join("");
+        html += scriptHtml;
+        html += `</div>`;
+        
+        // Item counts
+        const counts = data.item_counts || {};
+        if (counts.congress > 0 || counts.kansas > 0 || counts.va > 0) {
+            html += `<div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #ddd; font-size: 0.9em; color: #666;">`;
+            html += `This week: ${counts.congress} Congress items, ${counts.kansas} Kansas items, ${counts.va} VA items`;
+            html += `</div>`;
+        }
+        
+        container.innerHTML = html;
+    } catch (error) {
+        // If weekly overview doesn't exist, hide the section
+        const section = document.getElementById("weekly-overview-section");
+        if (section) {
+            section.style.display = "none";
+        }
     }
 }
 
