@@ -317,6 +317,22 @@ def generate_audio(script: str, api_key: str) -> bool:
         }
         
         response = requests.post(url, json=data, headers=headers, timeout=60)
+        
+        # Check for specific error codes
+        if response.status_code == 401:
+            print("Error: 401 Unauthorized - API key is invalid or missing")
+            print("Please check:")
+            print("  1. The API key is correct (no extra spaces or quotes)")
+            print("  2. The API key is active in your ElevenLabs account")
+            print("  3. The API key has text-to-speech permissions")
+            print("  4. For local testing, set ELEVENLABS_API_KEY environment variable")
+            print("  5. For GitHub Actions, check the secret is set correctly")
+            return False
+        elif response.status_code == 429:
+            print("Error: 429 Rate Limit - You've exceeded your character limit")
+            print("Free tier allows 10,000 characters per month")
+            return False
+        
         response.raise_for_status()
         
         # Save MP3 file
@@ -330,7 +346,18 @@ def generate_audio(script: str, api_key: str) -> bool:
         print("Warning: requests library not available. Install with: pip install requests")
         return False
     except requests.exceptions.RequestException as e:
-        print(f"Error generating audio with ElevenLabs: {e}")
+        if hasattr(e, 'response') and e.response is not None:
+            status_code = e.response.status_code
+            if status_code == 401:
+                print(f"Error: 401 Unauthorized - API key is invalid or missing")
+                print("Please verify your ElevenLabs API key is correct and active.")
+            elif status_code == 429:
+                print(f"Error: 429 Rate Limit - Character limit exceeded")
+            else:
+                print(f"Error generating audio with ElevenLabs: {e}")
+                print(f"Status code: {status_code}")
+        else:
+            print(f"Error generating audio with ElevenLabs: {e}")
         return False
     except Exception as e:
         print(f"Unexpected error generating audio: {e}")
