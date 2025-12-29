@@ -521,7 +521,10 @@ def fetch_hearings(api_key: str, congress: int) -> List[Dict]:
         
         if hearings_list:
             print(f"  Found {len(hearings_list)} hearings (all chambers)")
-            for hearing_data in hearings_list:
+            normalized_count = 0
+            failed_count = 0
+            
+            for i, hearing_data in enumerate(hearings_list):
                 # Extract chamber from hearing data
                 chamber = hearing_data.get("chamber", "").lower()
                 if not chamber:
@@ -531,6 +534,25 @@ def fetch_hearings(api_key: str, congress: int) -> List[Dict]:
                 normalized = normalize_hearing(hearing_data, congress, chamber)
                 if normalized:
                     hearings.append(normalized)
+                    normalized_count += 1
+                else:
+                    failed_count += 1
+                    # Debug: print first failed hearing to see structure
+                    if failed_count == 1:
+                        print(f"  Debug: First failed hearing - keys: {list(hearing_data.keys())}")
+                        # Print a sample of the data (first 10 keys)
+                        sample_data = {k: str(v)[:100] for k, v in list(hearing_data.items())[:10]}
+                        print(f"  Debug: Sample data: {json.dumps(sample_data, indent=2)}")
+            
+            print(f"  Successfully normalized {normalized_count} of {len(hearings_list)} hearings")
+            if failed_count > 0:
+                print(f"  Failed to normalize {failed_count} hearings (check field names)")
+                else:
+                    # Debug: print first failed hearing to see structure
+                    if normalized_count == 0 and len(hearings) == 0:
+                        print(f"  Debug: First hearing data structure: {json.dumps(hearing_data, indent=2)[:500]}")
+            
+            print(f"  Successfully normalized {normalized_count} of {len(hearings_list)} hearings")
         else:
             # If bulk fetch doesn't work, try per-chamber
             print("  Bulk fetch returned no results, trying per-chamber...")
@@ -653,10 +675,29 @@ def normalize_hearing(hearing_data: Dict, congress: int, chamber: str) -> Option
         Normalized hearing dict, or None if invalid
     """
     try:
-        # Extract basic information
-        title = hearing_data.get("title", "").strip()
+        # Extract basic information - try multiple field names
+        title = (hearing_data.get("title", "") or 
+                hearing_data.get("hearingTitle", "") or
+                hearing_data.get("name", "") or
+                hearing_data.get("description", "") or
+                hearing_data.get("subject", "")).strip()
+        
+        # If still no title, try to construct one from other fields
         if not title:
-            return None
+            # Try to build a title from committee and date
+            committee_part = ""
+            if "committee" in hearing_data:
+                comm = hearing_data["committee"]
+                if isinstance(comm, dict):
+                    committee_part = comm.get("name", "") or comm.get("fullName", "")
+                elif isinstance(comm, str):
+                    committee_part = comm
+            
+            if committee_part:
+                title = f"{committee_part} Hearing"
+            else:
+                # Last resort: use a generic title (don't return None - we want to show these)
+                title = "Congressional Hearing"
         
         # Extract chamber from data if not provided
         hearing_chamber = hearing_data.get("chamber", chamber).lower()
@@ -671,40 +712,62 @@ def normalize_hearing(hearing_data: Dict, congress: int, chamber: str) -> Option
         date_str = (hearing_data.get("date") or 
                    hearing_data.get("hearingDate") or 
                    hearing_data.get("scheduledDate") or
-                   hearing_data.get("eventDate"))
+                   hearing_data.get("eventDate") or
+                   hearing_data.get("startDate") or
+                   hearing_data.get("dateTime") or
+                   hearing_data.get("publishedDate"))
         if date_str:
             try:
-                dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
-                scheduled_date = dt.isoformat()
+                # Handle different date formats
+                if isinstance(date_str, str):
+                    # Try ISO format first
+                    dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
+                    scheduled_date = dt.isoformat()
+                else:
+                    scheduled_date = str(date_str)
             except (ValueError, AttributeError):
-                scheduled_date = date_str
+                scheduled_date = str(date_str) if date_str else ""
         
         # Try different possible time fields
         scheduled_time = (hearing_data.get("time") or 
                          hearing_data.get("hearingTime") or 
                          hearing_data.get("scheduledTime") or
-                         hearing_data.get("eventTime") or "")
+                         hearing_data.get("eventTime") or
+                         hearing_data.get("startTime") or "")
         
         # Extract location
         location = (hearing_data.get("location", "") or 
                    hearing_data.get("room", "") or
                    hearing_data.get("venue", ""))
         
-        # Extract committee information
+        # Extract committee information - try multiple structures
         committee_name = ""
+        
+        # Try committee field (single object)
         if "committee" in hearing_data:
             committee = hearing_data["committee"]
             if isinstance(committee, dict):
-                committee_name = committee.get("name", "").strip()
+                committee_name = (committee.get("name", "") or 
+                                  committee.get("fullName", "") or
+                                  committee.get("committeeName", "") or
+                                  committee.get("displayName", "")).strip()
             elif isinstance(committee, str):
                 committee_name = committee.strip()
-        elif "committees" in hearing_data and hearing_data["committees"]:
+        
+        # Try committees field (array)
+        if not committee_name and "committees" in hearing_data:
             committees_list = hearing_data["committees"]
             if isinstance(committees_list, list) and len(committees_list) > 0:
                 committee = committees_list[0]
                 if isinstance(committee, dict):
-                    committee_name = committee.get("name", "").strip()
+                    committee_name = (committee.get("name", "") or 
+                                    committee.get("fullName", "") or
+                                    committee.get("committeeName", "") or
+                                    committee.get("displayName", "")).strip()
+                elif isinstance(committee, str):
+                    committee_name = committee.strip()
         
+        # Fallback committee name
         if not committee_name:
             committee_name = f"{hearing_chamber.capitalize()} Committee"
         
