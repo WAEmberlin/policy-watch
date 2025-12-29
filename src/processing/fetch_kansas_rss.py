@@ -100,6 +100,19 @@ def normalize_kansas_item(entry: Dict, feed_config: Dict) -> Optional[Dict]:
         if not link:
             return None  # Must have a link
         
+        # Fix links that have example.com - replace with kslegislature.gov
+        # Preserve the rest of the URL path
+        if "example.com" in link:
+            # Replace all variations of example.com
+            link = link.replace("http://example.com", "https://www.kslegislature.gov")
+            link = link.replace("https://example.com", "https://www.kslegislature.gov")
+            link = link.replace("http://www.example.com", "https://www.kslegislature.gov")
+            link = link.replace("https://www.example.com", "https://www.kslegislature.gov")
+            link = link.replace("example.com", "www.kslegislature.gov")
+            # Ensure https
+            if link.startswith("http://"):
+                link = link.replace("http://", "https://", 1)
+        
         # Extract published date
         published = None
         if hasattr(entry, "published_parsed") and entry.published_parsed:
