@@ -547,12 +547,6 @@ def fetch_hearings(api_key: str, congress: int) -> List[Dict]:
             print(f"  Successfully normalized {normalized_count} of {len(hearings_list)} hearings")
             if failed_count > 0:
                 print(f"  Failed to normalize {failed_count} hearings (check field names)")
-                else:
-                    # Debug: print first failed hearing to see structure
-                    if normalized_count == 0 and len(hearings) == 0:
-                        print(f"  Debug: First hearing data structure: {json.dumps(hearing_data, indent=2)[:500]}")
-            
-            print(f"  Successfully normalized {normalized_count} of {len(hearings_list)} hearings")
         else:
             # If bulk fetch doesn't work, try per-chamber
             print("  Bulk fetch returned no results, trying per-chamber...")
