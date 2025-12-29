@@ -89,10 +89,14 @@ for item in history:
         date_str = dt.strftime("%Y-%m-%d")
         source = item.get("source", "Unknown")
         
+        # Skip conference committee items - they go to hearings page only
+        if item.get("feed") == "conference_committees":
+            continue
+        
         # For Kansas items, include category in source for better grouping
         if item.get("type") == "state_legislation" and item.get("category"):
             source = f"{source} - {item.get('category')}"
-
+        
         grouped[year][date_str][source].append(item)
         processed_count += 1
     except Exception as e:
@@ -238,10 +242,12 @@ print(f"Prepared {len(legislation_data)} bills for frontend display.")
 print(f"Split into {len(legislation_pages)} pages ({ITEMS_PER_PAGE} items per page)")
 
 # -------------------------
-# Extract upcoming hearings from conference committees
+# Extract upcoming and historical hearings from conference committees
 # -------------------------
 upcoming_hearings = []
+historical_hearings = []
 now_utc = datetime.now(timezone.utc) if hasattr(datetime.now(), 'tzinfo') else datetime.now()
+today_start = now_utc.replace(hour=0, minute=0, second=0, microsecond=0)
 
 for item in history:
     # Check if this is a conference committee item with scheduled date
@@ -250,27 +256,33 @@ for item in history:
         not item.get("is_canceled", False)):
         try:
             scheduled_dt = datetime.fromisoformat(item["scheduled_date"].replace("Z", "+00:00"))
-            # Only include future hearings (or today's hearings)
-            if scheduled_dt >= now_utc.replace(hour=0, minute=0, second=0, microsecond=0):
-                hearing = {
-                    "title": item.get("title", ""),
-                    "scheduled_date": item.get("scheduled_date", ""),
-                    "scheduled_time": item.get("scheduled_time", ""),
-                    "location": item.get("location", ""),
-                    "committees": item.get("committees", ""),
-                    "bill": item.get("bill", ""),
-                    "link": item.get("link", ""),
-                    "published": item.get("published", "")
-                }
+            hearing = {
+                "title": item.get("title", ""),
+                "scheduled_date": item.get("scheduled_date", ""),
+                "scheduled_time": item.get("scheduled_time", ""),
+                "location": item.get("location", ""),
+                "committees": item.get("committees", ""),
+                "bill": item.get("bill", ""),
+                "link": item.get("link", ""),
+                "published": item.get("published", "")
+            }
+            
+            # Separate into upcoming (today or future) and historical (past)
+            if scheduled_dt >= today_start:
                 upcoming_hearings.append(hearing)
+            else:
+                historical_hearings.append(hearing)
         except (ValueError, KeyError) as e:
             # Skip items with invalid dates
             continue
 
 # Sort upcoming hearings by scheduled date (soonest first)
 upcoming_hearings.sort(key=lambda x: x.get("scheduled_date", ""))
+# Sort historical hearings by scheduled date (most recent first)
+historical_hearings.sort(key=lambda x: x.get("scheduled_date", ""), reverse=True)
 
 print(f"Found {len(upcoming_hearings)} upcoming conference committee hearings.")
+print(f"Found {len(historical_hearings)} historical conference committee hearings.")
 
 output = {
     "last_updated": now.isoformat(),
@@ -279,7 +291,8 @@ output = {
         "total_items": len(legislation_data),
         "pages": legislation_pages  # Paginated legislation data
     },
-    "upcoming_hearings": upcoming_hearings  # Upcoming conference committee hearings
+    "upcoming_hearings": upcoming_hearings,  # Upcoming conference committee hearings
+    "historical_hearings": historical_hearings  # Past conference committee hearings
 }
 
 # Ensure legislation key is always present

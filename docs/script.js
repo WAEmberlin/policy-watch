@@ -274,12 +274,8 @@ function displayUnifiedView(year, pageIndex) {
     const pageDates = Object.keys(grouped).sort().reverse();
 
     // Render dates (newest first)
+    // Always show all dates that have any items, and show all sources for each date
     allDates.forEach(date => {
-        // Skip dates that don't have items on current page after filtering
-        if (pageDates.length > 0 && !pageDates.includes(date)) {
-            return;
-        }
-
         const dateSection = document.createElement("div");
         dateSection.className = "date-section";
 
@@ -287,17 +283,11 @@ function displayUnifiedView(year, pageIndex) {
         dateHeader.textContent = formatDate(date);
         dateSection.appendChild(dateHeader);
 
-        // Get sources from both RSS feeds and legislation for this date
+        // Get ALL sources for this date from the full grouped structure
         const rssSources = yearData.grouped[date] || {};
-        const pageSources = grouped[date] || {};
-        
-        // Combine all sources (from RSS and from current page)
-        const allSourcesSet = new Set();
-        Object.keys(rssSources).forEach(s => allSourcesSet.add(s));
-        Object.keys(pageSources).forEach(s => allSourcesSet.add(s));
-        const allSources = Array.from(allSourcesSet).sort();
+        const allSources = Object.keys(rssSources).sort();
 
-        // Render sources
+        // Render ALL sources for this date (even if empty on current page)
         allSources.forEach(source => {
             // Apply source filter
             if (selectedSource && source !== selectedSource) {
@@ -316,19 +306,29 @@ function displayUnifiedView(year, pageIndex) {
             srcHeader.textContent = source;
             sourceSection.appendChild(srcHeader);
 
-            // Get items for this source on current page
-            const items = grouped[date] && grouped[date][source] 
+            // Get items for this source from the full grouped structure
+            const allItemsForSource = rssSources[source] || [];
+            // Filter to only items on current page (if paginated)
+            const itemsOnPage = grouped[date] && grouped[date][source] 
                 ? grouped[date][source] 
                 : [];
 
-            if (items.length === 0) {
+            // Show "No updates" if no items exist for this source on this date
+            if (allItemsForSource.length === 0) {
+                const emptyMsg = document.createElement("p");
+                emptyMsg.className = "empty-state";
+                emptyMsg.textContent = "No updates for this date/source";
+                sourceSection.appendChild(emptyMsg);
+            } else if (itemsOnPage.length === 0) {
+                // Items exist but not on current page (due to pagination)
                 const emptyMsg = document.createElement("p");
                 emptyMsg.className = "empty-state";
                 emptyMsg.textContent = "No updates for this date/source";
                 sourceSection.appendChild(emptyMsg);
             } else {
+                // Show items that are on current page
                 const ul = document.createElement("ul");
-                items.forEach(item => {
+                itemsOnPage.forEach(item => {
                     const li = document.createElement("li");
                     const a = document.createElement("a");
                     a.href = item.link || item.url || "#";

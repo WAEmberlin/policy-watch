@@ -197,45 +197,73 @@ h1 .watch {
     
     <h2>Upcoming Conference Committee Hearings</h2>
     
-    <div id="hearings-container" class="hearings-list">
+    <div id="upcoming-hearings-container" class="hearings-list">
         <div class="loading">Loading upcoming hearings...</div>
+    </div>
+    
+    <h2 style="margin-top: 60px;">Historical Hearings</h2>
+    
+    <div id="historical-hearings-container" class="hearings-list">
+        <div class="loading">Loading historical hearings...</div>
     </div>
 </div>
 
 <script>
-async function loadHearings() {
-    const container = document.getElementById("hearings-container");
-    
+function formatDate(dateStr) {
     try {
-        const res = await fetch("site_data.json");
-        const data = await res.json();
-        
-        const hearings = data.upcoming_hearings || [];
-        
-        if (hearings.length === 0) {
-            container.innerHTML = `
-                <div class="empty-state">
-                    <p><strong>No upcoming hearings scheduled</strong></p>
-                    <p>Check back later for new conference committee hearings.</p>
-                </div>
-            `;
-            return;
+        const date = new Date(dateStr + "T00:00:00");
+        return date.toLocaleDateString("en-US", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            timeZone: "America/Chicago"
+        });
+    } catch {
+        return dateStr;
+    }
+}
+
+function renderHearings(hearings, container, emptyMessage) {
+    if (hearings.length === 0) {
+        container.innerHTML = `
+            <div class="empty-state">
+                <p><strong>${emptyMessage}</strong></p>
+            </div>
+        `;
+        return;
+    }
+    
+    container.innerHTML = "";
+    
+    // Group hearings by date
+    const groupedByDate = {};
+    hearings.forEach(hearing => {
+        const dateKey = hearing.scheduled_date ? hearing.scheduled_date.split("T")[0] : "unknown";
+        if (!groupedByDate[dateKey]) {
+            groupedByDate[dateKey] = [];
         }
+        groupedByDate[dateKey].push(hearing);
+    });
+    
+    // Sort dates
+    const dates = Object.keys(groupedByDate).sort();
+    
+    dates.forEach(dateKey => {
+        const dateSection = document.createElement("div");
+        dateSection.className = "date-section";
+        dateSection.style.marginBottom = "30px";
         
-        container.innerHTML = "";
+        const dateHeader = document.createElement("h2");
+        dateHeader.textContent = formatDate(dateKey);
+        dateHeader.style.marginBottom = "15px";
+        dateSection.appendChild(dateHeader);
         
-        hearings.forEach(hearing => {
+        const hearingsForDate = groupedByDate[dateKey];
+        
+        hearingsForDate.forEach(hearing => {
             const card = document.createElement("div");
             card.className = "hearing-card";
-            
-            const scheduledDate = hearing.scheduled_date ? new Date(hearing.scheduled_date) : null;
-            const dateStr = scheduledDate ? scheduledDate.toLocaleDateString("en-US", {
-                weekday: "long",
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-                timeZone: "America/Chicago"
-            }) : "Date TBD";
             
             const title = hearing.title || "Conference Committee Hearing";
             const isCanceled = title.toUpperCase().includes("CANCELED") || title.toUpperCase().includes("MEETING CANCELED");
@@ -244,19 +272,14 @@ async function loadHearings() {
                 card.classList.add("canceled");
             }
             
+            // Show time next to title
+            const titleWithTime = hearing.scheduled_time 
+                ? `${title} - ${hearing.scheduled_time}`
+                : title;
+            
             card.innerHTML = `
-                <h2>${title}</h2>
+                <h2>${titleWithTime}</h2>
                 <div class="hearing-meta">
-                    <div class="meta-item">
-                        <span class="meta-label">Date</span>
-                        <span class="meta-value">${dateStr}</span>
-                    </div>
-                    ${hearing.scheduled_time ? `
-                    <div class="meta-item">
-                        <span class="meta-label">Time</span>
-                        <span class="meta-value">${hearing.scheduled_time}</span>
-                    </div>
-                    ` : ""}
                     ${hearing.location ? `
                     <div class="meta-item">
                         <span class="meta-label">Location</span>
@@ -283,17 +306,36 @@ async function loadHearings() {
                 ` : ""}
             `;
             
-            container.appendChild(card);
+            dateSection.appendChild(card);
         });
         
+        container.appendChild(dateSection);
+    });
+}
+
+async function loadHearings() {
+    const upcomingContainer = document.getElementById("upcoming-hearings-container");
+    const historicalContainer = document.getElementById("historical-hearings-container");
+    
+    try {
+        const res = await fetch("site_data.json");
+        const data = await res.json();
+        
+        const upcoming = data.upcoming_hearings || [];
+        const historical = data.historical_hearings || [];
+        
+        renderHearings(upcoming, upcomingContainer, "No upcoming hearings scheduled");
+        renderHearings(historical, historicalContainer, "No historical hearings available");
+        
     } catch (error) {
-        container.innerHTML = `
+        upcomingContainer.innerHTML = `
             <div class="error">
                 <strong>Error loading hearings</strong>
                 <p>${error.message}</p>
                 <p>Please try again later.</p>
             </div>
         `;
+        historicalContainer.innerHTML = "";
     }
 }
 
