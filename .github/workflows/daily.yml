@@ -44,17 +44,29 @@ jobs:
       - name: Build HTML digest
         run: python src/processing/summarize.py
 
-      - name: Generate weekly overview
+      - name: Generate weekly overview (Fridays at 11pm Central only)
         env:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
         run: |
-          # Debug: Check if secret is set (without exposing it)
-          if [ -z "$ELEVENLABS_API_KEY" ]; then
-            echo "Warning: ELEVENLABS_API_KEY secret is not set or empty"
+          # Only generate weekly overview on Fridays at 11pm Central Time
+          # 11pm Central = 5am UTC (CST) or 4am UTC (CDT) the next day (Saturday)
+          # Check for Saturday at 4am or 5am UTC to cover both CST and CDT
+          CURRENT_DAY=$(date -u +%u)  # 1=Monday, 6=Saturday
+          CURRENT_HOUR=$(date -u +%H)
+          
+          if [ "$CURRENT_DAY" = "6" ] && ([ "$CURRENT_HOUR" = "4" ] || [ "$CURRENT_HOUR" = "5" ]); then
+            echo "Generating weekly overview (Friday 11pm Central / Saturday $CURRENT_HOUR:00 UTC)..."
+            # Debug: Check if secret is set (without exposing it)
+            if [ -z "$ELEVENLABS_API_KEY" ]; then
+              echo "Warning: ELEVENLABS_API_KEY secret is not set or empty"
+            else
+              echo "ELEVENLABS_API_KEY is set (length: ${#ELEVENLABS_API_KEY} characters)"
+            fi
+            python -m src.processing.weekly_overview || echo "Weekly overview generation failed, continuing..."
           else
-            echo "ELEVENLABS_API_KEY is set (length: ${#ELEVENLABS_API_KEY} characters)"
+            echo "Skipping weekly overview (only generated on Fridays at 11pm Central)"
+            echo "Current day: $CURRENT_DAY (6=Saturday for Friday 11pm Central), Current hour: $CURRENT_HOUR"
           fi
-          python -m src.processing.weekly_overview || echo "Weekly overview generation failed, continuing..."
 
       - name: Send daily email (only at 6:30 PM Central)
         env:
