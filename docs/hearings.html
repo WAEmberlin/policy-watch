@@ -277,8 +277,12 @@ function renderHearings(hearings, container, emptyMessage) {
                 ? `${title} - ${hearing.scheduled_time}`
                 : title;
             
+            // Show source (State vs Federal)
+            const source = hearing.source || "Unknown";
+            const sourceBadge = `<span style="display: inline-block; padding: 4px 8px; background: ${source.includes('Federal') ? '#1a73e8' : '#34a853'}; color: white; border-radius: 4px; font-size: 0.8em; font-weight: 600; margin-left: 10px;">${source}</span>`;
+            
             card.innerHTML = `
-                <h2>${titleWithTime}</h2>
+                <h2>${titleWithTime}${sourceBadge}</h2>
                 <div class="hearing-meta">
                     ${hearing.location ? `
                     <div class="meta-item">

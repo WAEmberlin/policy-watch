@@ -21,6 +21,7 @@ OUTPUT_DIR = "src/output"
 DOCS_DIR = "docs"
 HISTORY_FILE = os.path.join(OUTPUT_DIR, "history.json")
 LEGISLATION_FILE = os.path.join(OUTPUT_DIR, "legislation.json")
+FEDERAL_HEARINGS_FILE = os.path.join(OUTPUT_DIR, "federal_hearings.json")
 SITE_DATA_FILE = os.path.join(DOCS_DIR, "site_data.json")
 
 ITEMS_PER_PAGE = 50
@@ -264,7 +265,8 @@ for item in history:
                 "committees": item.get("committees", ""),
                 "bill": item.get("bill", ""),
                 "link": item.get("link", ""),
-                "published": item.get("published", "")
+                "published": item.get("published", ""),
+                "source": "State (Kansas Legislature)"  # Mark as state hearing
             }
             
             # Separate into upcoming (today or future) and historical (past)
@@ -284,6 +286,52 @@ historical_hearings.sort(key=lambda x: x.get("scheduled_date", ""), reverse=True
 print(f"Found {len(upcoming_hearings)} upcoming conference committee hearings.")
 print(f"Found {len(historical_hearings)} historical conference committee hearings.")
 
+# -------------------------
+# Load and process federal hearings
+# -------------------------
+federal_hearings = []
+if os.path.exists(FEDERAL_HEARINGS_FILE):
+    try:
+        with open(FEDERAL_HEARINGS_FILE, "r", encoding="utf-8") as f:
+            federal_hearings = json.load(f)
+            if not isinstance(federal_hearings, list):
+                print(f"Warning: federal_hearings.json is not a list. Treating as empty.")
+                federal_hearings = []
+            else:
+                print(f"Loaded {len(federal_hearings)} federal hearings from {FEDERAL_HEARINGS_FILE}")
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"Warning: Could not load federal_hearings.json: {e}")
+
+# Separate federal hearings into upcoming and historical
+federal_upcoming = []
+federal_historical = []
+
+for hearing in federal_hearings:
+    if hearing.get("scheduled_date"):
+        try:
+            scheduled_dt = datetime.fromisoformat(hearing["scheduled_date"].replace("Z", "+00:00"))
+            if scheduled_dt >= today_start:
+                federal_upcoming.append(hearing)
+            else:
+                federal_historical.append(hearing)
+        except (ValueError, KeyError):
+            continue
+
+# Sort federal hearings
+federal_upcoming.sort(key=lambda x: x.get("scheduled_date", ""))
+federal_historical.sort(key=lambda x: x.get("scheduled_date", ""), reverse=True)
+
+# Combine state and federal hearings
+all_upcoming_hearings = upcoming_hearings + federal_upcoming
+all_historical_hearings = historical_hearings + federal_historical
+
+# Sort combined lists
+all_upcoming_hearings.sort(key=lambda x: x.get("scheduled_date", ""))
+all_historical_hearings.sort(key=lambda x: x.get("scheduled_date", ""), reverse=True)
+
+print(f"Total upcoming hearings: {len(all_upcoming_hearings)} ({len(upcoming_hearings)} state, {len(federal_upcoming)} federal)")
+print(f"Total historical hearings: {len(all_historical_hearings)} ({len(historical_hearings)} state, {len(federal_historical)} federal)")
+
 output = {
     "last_updated": now.isoformat(),
     "years": site_years,
@@ -291,8 +339,8 @@ output = {
         "total_items": len(legislation_data),
         "pages": legislation_pages  # Paginated legislation data
     },
-    "upcoming_hearings": upcoming_hearings,  # Upcoming conference committee hearings
-    "historical_hearings": historical_hearings  # Past conference committee hearings
+    "upcoming_hearings": all_upcoming_hearings,  # Upcoming hearings (state + federal)
+    "historical_hearings": all_historical_hearings  # Past hearings (state + federal)
 }
 
 # Ensure legislation key is always present

@@ -150,14 +150,37 @@ def normalize_bill(bill_data: Dict, congress: int) -> Optional[Dict]:
             elif isinstance(summary_text, dict):
                 summary = summary_text.get("text", "").strip()
         
-        # Extract sponsor
+        # Extract sponsor information
         sponsor_name = ""
+        sponsor_party = ""
+        sponsor_state = ""
+        sponsor_district = ""
+        cosponsors = []
+        
         if "sponsors" in bill_data and bill_data["sponsors"]:
             sponsors = bill_data["sponsors"]
             if isinstance(sponsors, list) and len(sponsors) > 0:
                 sponsor = sponsors[0]
                 if isinstance(sponsor, dict):
                     sponsor_name = sponsor.get("fullName", sponsor.get("firstName", "") + " " + sponsor.get("lastName", "")).strip()
+                    sponsor_party = sponsor.get("party", "")
+                    sponsor_state = sponsor.get("state", "")
+                    sponsor_district = sponsor.get("district", "")
+        
+        # Extract cosponsors
+        if "cosponsors" in bill_data and bill_data["cosponsors"]:
+            cosponsors_list = bill_data["cosponsors"]
+            if isinstance(cosponsors_list, list):
+                for cosponsor in cosponsors_list:
+                    if isinstance(cosponsor, dict):
+                        cosp_name = cosponsor.get("fullName", cosponsor.get("firstName", "") + " " + cosponsor.get("lastName", "")).strip()
+                        cosp_party = cosponsor.get("party", "")
+                        cosp_state = cosponsor.get("state", "")
+                        cosponsors.append({
+                            "name": cosp_name,
+                            "party": cosp_party,
+                            "state": cosp_state
+                        })
         
         # Extract latest action
         latest_action = ""
@@ -170,18 +193,79 @@ def normalize_bill(bill_data: Dict, congress: int) -> Optional[Dict]:
                 action_date = action.get("actionDate", "")
                 if action_date:
                     try:
-                        # Parse and format date
                         dt = datetime.fromisoformat(action_date.replace("Z", "+00:00"))
                         latest_action_date = dt.isoformat()
                     except (ValueError, AttributeError):
                         latest_action_date = action_date
         
+        # Extract all actions
+        actions = []
+        if "actions" in bill_data and bill_data["actions"]:
+            actions_list = bill_data["actions"]
+            if isinstance(actions_list, list):
+                for action in actions_list:
+                    if isinstance(action, dict):
+                        actions.append({
+                            "text": action.get("text", "").strip(),
+                            "actionDate": action.get("actionDate", ""),
+                            "type": action.get("type", "")
+                        })
+        
+        # Extract committee information
+        committees = []
+        if "committees" in bill_data and bill_data["committees"]:
+            committees_list = bill_data["committees"]
+            if isinstance(committees_list, list):
+                for committee in committees_list:
+                    if isinstance(committee, dict):
+                        committees.append({
+                            "name": committee.get("name", "").strip(),
+                            "systemCode": committee.get("systemCode", "")
+                        })
+        
+        # Extract policy areas/subjects
+        policy_areas = []
+        if "policyArea" in bill_data and bill_data["policyArea"]:
+            policy_area = bill_data["policyArea"]
+            if isinstance(policy_area, dict):
+                policy_areas.append(policy_area.get("name", "").strip())
+        
+        if "subjects" in bill_data and bill_data["subjects"]:
+            subjects_list = bill_data["subjects"]
+            if isinstance(subjects_list, list):
+                for subject in subjects_list:
+                    if isinstance(subject, dict):
+                        policy_areas.append(subject.get("name", "").strip())
+        
+        # Extract status
+        status = ""
+        if "latestAction" in bill_data and bill_data["latestAction"]:
+            action = bill_data["latestAction"]
+            if isinstance(action, dict):
+                status = action.get("text", "").strip()
+        
+        # Extract votes information
+        votes = []
+        if "votes" in bill_data and bill_data["votes"]:
+            votes_list = bill_data["votes"]
+            if isinstance(votes_list, list):
+                for vote in votes_list:
+                    if isinstance(vote, dict):
+                        votes.append({
+                            "rollNumber": vote.get("rollNumber", ""),
+                            "chamber": vote.get("chamber", ""),
+                            "date": vote.get("date", ""),
+                            "result": vote.get("result", "")
+                        })
+        
         # Use introduced date as published date if available
         published_date = latest_action_date
+        introduced_date = ""
         if "introducedDate" in bill_data and bill_data["introducedDate"]:
             try:
                 dt = datetime.fromisoformat(bill_data["introducedDate"].replace("Z", "+00:00"))
                 published_date = dt.isoformat()
+                introduced_date = dt.isoformat()
             except (ValueError, AttributeError):
                 pass
         
@@ -195,8 +279,18 @@ def normalize_bill(bill_data: Dict, congress: int) -> Optional[Dict]:
             "title": title,
             "summary": summary[:2000] if summary else "",  # Limit summary length
             "sponsor_name": sponsor_name,
+            "sponsor_party": sponsor_party,
+            "sponsor_state": sponsor_state,
+            "sponsor_district": sponsor_district,
+            "cosponsors": cosponsors,
             "latest_action": latest_action,
             "latest_action_date": latest_action_date,
+            "actions": actions,
+            "committees": committees,
+            "policy_areas": policy_areas,
+            "status": status,
+            "votes": votes,
+            "introduced_date": introduced_date,
             "url": url,
             "published": published_date,
             "source": "Congress.gov API",
@@ -372,6 +466,174 @@ def main():
     except Exception as e:
         print(f"\nError saving legislation: {e}")
         raise
+    
+    # Fetch and save federal hearings
+    try:
+        federal_hearings = fetch_hearings(api_key, CONGRESS_NUMBER)
+        if federal_hearings:
+            HEARINGS_FILE = OUTPUT_DIR / "federal_hearings.json"
+            with open(HEARINGS_FILE, "w", encoding="utf-8") as f:
+                json.dump(federal_hearings, f, indent=2)
+            print(f"\nSuccessfully saved {len(federal_hearings)} federal hearings to {HEARINGS_FILE}")
+        else:
+            print("\nNo federal hearings fetched.")
+    except Exception as e:
+        print(f"\nError fetching/saving federal hearings: {e}")
+        # Don't fail the whole script if hearings fail
+
+
+def fetch_hearings(api_key: str, congress: int) -> List[Dict]:
+    """
+    Fetch upcoming hearings from House and Senate committees.
+    
+    Args:
+        api_key: Congress.gov API key
+        congress: Congress number
+    
+    Returns:
+        List of normalized hearing dictionaries
+    """
+    hearings = []
+    
+    # Fetch House committee hearings
+    print("Fetching House committee hearings...")
+    house_hearings = fetch_committee_hearings(api_key, congress, "house")
+    hearings.extend(house_hearings)
+    
+    # Fetch Senate committee hearings
+    print("Fetching Senate committee hearings...")
+    senate_hearings = fetch_committee_hearings(api_key, congress, "senate")
+    hearings.extend(senate_hearings)
+    
+    print(f"Total federal hearings fetched: {len(hearings)}")
+    return hearings
+
+
+def fetch_committee_hearings(api_key: str, congress: int, chamber: str) -> List[Dict]:
+    """
+    Fetch hearings for a specific chamber (house or senate).
+    
+    Args:
+        api_key: Congress.gov API key
+        congress: Congress number
+        chamber: "house" or "senate"
+    
+    Returns:
+        List of normalized hearing dictionaries
+    """
+    hearings = []
+    offset = 0
+    page = 1
+    
+    while True:
+        url = f"{API_BASE_URL}/committee/{chamber}/{congress}/hearings"
+        
+        params = {
+            "api_key": api_key,
+            "format": "json",
+            "limit": 250,
+            "offset": offset
+        }
+        
+        try:
+            response = requests.get(url, params=params, timeout=30)
+            response.raise_for_status()
+            time.sleep(REQUEST_DELAY)
+            
+            data = response.json()
+            hearings_list = data.get("hearings", [])
+            
+            if not hearings_list or len(hearings_list) == 0:
+                break
+            
+            for hearing_data in hearings_list:
+                normalized = normalize_hearing(hearing_data, congress, chamber)
+                if normalized:
+                    hearings.append(normalized)
+            
+            offset += len(hearings_list)
+            
+            # Check pagination
+            pagination = data.get("pagination", {})
+            total_count = pagination.get("count", 0)
+            
+            if offset >= total_count:
+                break
+            
+            page += 1
+            
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching {chamber} hearings (offset {offset}): {e}")
+            break
+    
+    return hearings
+
+
+def normalize_hearing(hearing_data: Dict, congress: int, chamber: str) -> Optional[Dict]:
+    """
+    Normalize a hearing from the API response.
+    
+    Args:
+        hearing_data: Raw hearing data from API
+        congress: Congress number
+        chamber: "house" or "senate"
+    
+    Returns:
+        Normalized hearing dict, or None if invalid
+    """
+    try:
+        # Extract basic information
+        title = hearing_data.get("title", "").strip()
+        if not title:
+            return None
+        
+        # Extract date and time
+        scheduled_date = ""
+        scheduled_time = ""
+        if "date" in hearing_data:
+            date_str = hearing_data["date"]
+            try:
+                dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
+                scheduled_date = dt.isoformat()
+            except (ValueError, AttributeError):
+                scheduled_date = date_str
+        
+        if "time" in hearing_data:
+            scheduled_time = hearing_data["time"]
+        
+        # Extract location
+        location = hearing_data.get("location", "")
+        
+        # Extract committee information
+        committee_name = ""
+        if "committees" in hearing_data and hearing_data["committees"]:
+            committees_list = hearing_data["committees"]
+            if isinstance(committees_list, list) and len(committees_list) > 0:
+                committee = committees_list[0]
+                if isinstance(committee, dict):
+                    committee_name = committee.get("name", "").strip()
+        
+        # Extract URL
+        url = hearing_data.get("url", "")
+        if not url and "systemCode" in hearing_data:
+            # Build URL if not provided
+            system_code = hearing_data["systemCode"]
+            url = f"https://www.congress.gov/committee/{chamber}/{system_code}/{congress}"
+        
+        return {
+            "title": title,
+            "scheduled_date": scheduled_date,
+            "scheduled_time": scheduled_time,
+            "location": location,
+            "committee": committee_name,
+            "chamber": chamber.capitalize(),
+            "url": url,
+            "source": "Federal (US Congress)",
+            "congress": congress
+        }
+    except Exception as e:
+        print(f"Error normalizing hearing: {e}")
+        return None
 
 
 if __name__ == "__main__":

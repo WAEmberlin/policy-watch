@@ -34,10 +34,10 @@ Emails are sent only once per day to avoid spam:
 - **Scheduled Workflows**: Minimum 5-minute interval
 
 ### Our Usage
-- **Runs per day**: 144 (every 10 minutes)
+- **Runs per day**: 24 (every hour)
 - **Minutes per run**: ~2-3 minutes
-- **Monthly usage**: ~8,640-12,960 minutes
-- **Status**: ⚠️ **Exceeds free tier limit**
+- **Monthly usage**: ~1,440-2,160 minutes
+- **Status**: ✅ **Within free tier limit** (2,000 minutes/month)
 
 ### Recommendations
 
@@ -69,7 +69,7 @@ on:
 ### Common Cron Patterns
 
 - Every 5 minutes: `*/5 * * * *`
-- Every 10 minutes: `*/10 * * * *` (current)
+- Every hour: `0 * * * *` (current)
 - Every 15 minutes: `*/15 * * * *`
 - Every 30 minutes: `*/30 * * * *`
 - Every hour: `0 * * * *`
