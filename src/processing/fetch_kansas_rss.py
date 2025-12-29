@@ -241,22 +241,27 @@ def merge_with_history(kansas_items: List[Dict]) -> List[Dict]:
     """
     Merge Kansas items with existing history, deduplicating by id or link.
     
+    IMPORTANT: This function preserves ALL existing history items and only adds new Kansas items.
+    It does NOT remove or filter any existing items.
+    
     Args:
         kansas_items: New items from Kansas feeds
     
     Returns:
-        Combined history with new Kansas items added
+        Combined history with new Kansas items added (all existing items preserved)
     """
     # Load existing history
     history = []
     existing_identifiers = set()
+    initial_count = 0
     
     if HISTORY_FILE.exists():
         try:
             with open(HISTORY_FILE, "r", encoding="utf-8") as f:
                 loaded_history = json.load(f)
                 if isinstance(loaded_history, list):
-                    history = loaded_history
+                    history = loaded_history.copy()  # Make a copy to ensure we preserve everything
+                    initial_count = len(history)
                     # Index by id and link for deduplication
                     for item in history:
                         if "id" in item and item["id"]:
@@ -264,8 +269,10 @@ def merge_with_history(kansas_items: List[Dict]) -> List[Dict]:
                         if "link" in item and item["link"]:
                             existing_identifiers.add(item["link"])
                     print(f"Loaded {len(history)} existing items from history.json")
+                else:
+                    print(f"Warning: history.json is not a list (type: {type(loaded_history)}). Starting fresh.")
         except Exception as e:
-            print(f"Warning: Could not load history.json: {e}")
+            print(f"Warning: Could not load history.json: {e}. Starting fresh.")
     
     # Add new Kansas items that aren't duplicates
     new_count = 0
@@ -287,7 +294,14 @@ def merge_with_history(kansas_items: List[Dict]) -> List[Dict]:
             existing_identifiers.add(item_link)
         new_count += 1
     
-    print(f"Added {new_count} new Kansas items to history (total: {len(history)})")
+    # Safety check: ensure we didn't lose any existing items
+    if initial_count > 0 and len(history) < initial_count:
+        print(f"ERROR: History count dropped from {initial_count} to {len(history)}!")
+        print("This should not happen - all existing items should be preserved.")
+        # Try to restore - this shouldn't happen but just in case
+        raise ValueError(f"History preservation failed: lost {initial_count - len(history)} items")
+    
+    print(f"Added {new_count} new Kansas items to history (total: {len(history)}, preserved {initial_count} existing)")
     return history
 
 
