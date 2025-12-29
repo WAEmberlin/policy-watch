@@ -299,17 +299,21 @@ def generate_audio(script: str, api_key: str) -> bool:
         # Using a standard voice available on free tier (Rachel - neutral, professional)
         # Voice ID: 21m00Tcm4TlvDq8ikWAM (Rachel)
         # You can change this to other available voices if desired
+        # Note: Model updated to eleven_turbo_v2_5 (eleven_monolingual_v1 is no longer on free tier)
         url = "https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM"
+        
+        # Clean the API key (remove any whitespace)
+        api_key_clean = api_key.strip()
         
         headers = {
             "Accept": "audio/mpeg",
             "Content-Type": "application/json",
-            "xi-api-key": api_key
+            "xi-api-key": api_key_clean
         }
         
         data = {
             "text": script,
-            "model_id": "eleven_monolingual_v1",  # Free tier model
+            "model_id": "eleven_flash_v2_5",  # Free tier model - Eleven Flash v2.5
             "voice_settings": {
                 "stability": 0.5,
                 "similarity_boost": 0.75
@@ -327,6 +331,15 @@ def generate_audio(script: str, api_key: str) -> bool:
             print("  3. The API key has text-to-speech permissions")
             print("  4. For local testing, set ELEVENLABS_API_KEY environment variable")
             print("  5. For GitHub Actions, check the secret is set correctly")
+            # Try to get more info from the response
+            try:
+                error_detail = response.json()
+                if "detail" in error_detail:
+                    print(f"   API Error Detail: {error_detail.get('detail', {}).get('message', 'Unknown error')}")
+                elif "message" in error_detail:
+                    print(f"   API Error Message: {error_detail.get('message', 'Unknown error')}")
+            except:
+                pass
             return False
         elif response.status_code == 429:
             print("Error: 429 Rate Limit - You've exceeded your character limit")
@@ -415,7 +428,15 @@ def main():
     # Generate audio if API key is available
     api_key = os.environ.get("ELEVENLABS_API_KEY")
     if api_key:
-        print("Generating audio with ElevenLabs...")
+        # Debug: Check if key looks valid (without exposing the actual key)
+        api_key_clean = api_key.strip()
+        if len(api_key_clean) != len(api_key):
+            print("Warning: API key has leading/trailing whitespace - trimming it")
+            api_key = api_key_clean
+        
+        print(f"Generating audio with ElevenLabs...")
+        print(f"API key length: {len(api_key)} characters")
+        print(f"API key starts with: {api_key[:4]}...")  # Show first 4 chars for debugging
         success = generate_audio(weekly_script, api_key)
         if success:
             metadata["audio_available"] = True

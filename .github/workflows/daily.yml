@@ -48,6 +48,12 @@ jobs:
         env:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
         run: |
+          # Debug: Check if secret is set (without exposing it)
+          if [ -z "$ELEVENLABS_API_KEY" ]; then
+            echo "Warning: ELEVENLABS_API_KEY secret is not set or empty"
+          else
+            echo "ELEVENLABS_API_KEY is set (length: ${#ELEVENLABS_API_KEY} characters)"
+          fi
           python -m src.processing.weekly_overview || echo "Weekly overview generation failed, continuing..."
 
       - name: Send daily email (only at 6:30 PM Central)
