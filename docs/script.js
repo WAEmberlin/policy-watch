@@ -4,9 +4,8 @@ let allData = null;
 let searchQuery = "";
 let searchMode = false;
 let searchResults = [];
-let currentView = "feeds"; // "feeds" or "legislation"
-let filteredLegislation = [];
-let legislationPage = 0; // Current page for legislation pagination
+let selectedSource = "";
+let selectedCategory = "";
 
 async function loadData() {
     try {
@@ -34,16 +33,17 @@ async function loadData() {
             });
     }
 
-    const yearTabs = document.getElementById("year-tabs");
-    const content = document.getElementById("content");
-
-    yearTabs.innerHTML = "";
-    content.innerHTML = "";
-
+    // Setup filters
+    setupFilters();
+    
+    // Load and display data
     const years = Object.keys(allData.years || {});
+    const yearTabs = document.getElementById("year-tabs");
+    yearTabs.innerHTML = "";
 
     if (years.length === 0) {
-        content.innerHTML = "<p class='empty-state'>No data available. Run the backfill script to populate history.</p>";
+        document.getElementById("content").innerHTML = 
+            "<p class='empty-state'>No data available. Run the backfill script to populate history.</p>";
         return;
     }
 
@@ -59,27 +59,295 @@ async function loadData() {
             document.getElementById("search-input").value = "";
             currentYear = year;
             currentPage = 0;
-            showYear(year, 0);
+            displayUnifiedView(year, 0);
         };
         yearTabs.appendChild(btn);
 
         // Show first year by default
-        if (index === 0 && !searchMode && currentView === "feeds") {
+        if (index === 0) {
             currentYear = year;
             btn.click();
         }
     });
+}
+
+function setupFilters() {
+    // Collect all unique sources and categories from data
+    const sources = new Set();
+    const categories = new Set();
     
-    // Setup view switching
-    setupViewSwitching();
+    // Get sources from RSS feeds (years data)
+    const years = allData.years || {};
+    Object.values(years).forEach(yearData => {
+        const grouped = yearData.grouped || {};
+        Object.values(grouped).forEach(dateData => {
+            Object.keys(dateData).forEach(source => {
+                sources.add(source);
+                // Extract category from source if it's Kansas
+                if (source.includes("Kansas Legislature")) {
+                    const parts = source.split(" - ");
+                    if (parts.length > 1) {
+                        categories.add(parts[1]);
+                    }
+                }
+            });
+        });
+    });
     
-    // Setup legislation filters
-    setupLegislationFilters();
-    
-    // Show initial view
-    if (currentView === "legislation") {
-        showLegislationView();
+    // Get sources from legislation
+    const legislation = allData.legislation || {};
+    if (legislation.pages) {
+        legislation.pages.forEach(page => {
+            page.forEach(bill => {
+                sources.add(bill.source || "Congress.gov API");
+            });
+        });
+    } else if (Array.isArray(legislation)) {
+        legislation.forEach(bill => {
+            sources.add(bill.source || "Congress.gov API");
+        });
     }
+    
+    // Populate source filter
+    const sourceFilter = document.getElementById("source-filter");
+    const categoryFilter = document.getElementById("category-filter");
+    
+    // Sort sources
+    const sortedSources = Array.from(sources).sort();
+    sortedSources.forEach(source => {
+        const option = document.createElement("option");
+        option.value = source;
+        option.textContent = source;
+        sourceFilter.appendChild(option);
+    });
+    
+    // Populate category filter
+    const sortedCategories = Array.from(categories).sort();
+    sortedCategories.forEach(cat => {
+        const option = document.createElement("option");
+        option.value = cat;
+        option.textContent = cat;
+        categoryFilter.appendChild(option);
+    });
+    
+    // Add event listeners
+    sourceFilter.addEventListener("change", () => {
+        selectedSource = sourceFilter.value;
+        currentPage = 0;
+        if (currentYear) {
+            displayUnifiedView(currentYear, 0);
+        }
+    });
+    
+    categoryFilter.addEventListener("change", () => {
+        selectedCategory = categoryFilter.value;
+        currentPage = 0;
+        if (currentYear) {
+            displayUnifiedView(currentYear, 0);
+        }
+    });
+    
+    const clearBtn = document.getElementById("clear-filters");
+    if (clearBtn) {
+        clearBtn.onclick = () => {
+            sourceFilter.value = "";
+            categoryFilter.value = "";
+            selectedSource = "";
+            selectedCategory = "";
+            currentPage = 0;
+            if (currentYear) {
+                displayUnifiedView(currentYear, 0);
+            }
+        };
+    }
+}
+
+function displayUnifiedView(year, pageIndex) {
+    const yearData = allData.years[year];
+    if (!yearData) return;
+
+    const container = document.getElementById("content");
+    container.innerHTML = "";
+
+    // Update active year tab
+    document.querySelectorAll(".year-tab").forEach(btn => {
+        if (btn.getAttribute("data-year") === year) {
+            btn.classList.add("active");
+        } else {
+            btn.classList.remove("active");
+        }
+    });
+
+    // Get paginated items from RSS feeds
+    const pages = yearData.pages || [];
+    let page = pages[pageIndex] || [];
+    
+    // Also include legislation items for this year if available
+    const legislation = allData.legislation || {};
+    let legislationItems = [];
+    
+    if (legislation.pages) {
+        // Get all legislation pages and filter by year
+        const allLegPages = legislation.pages.flat();
+        legislationItems = allLegPages.map(bill => ({
+            date: bill.latest_action_date ? bill.latest_action_date.split("T")[0] : (bill.published ? bill.published.split("T")[0] : ""),
+            source: bill.source || "Congress.gov API",
+            title: `${bill.bill_type || ""} ${bill.bill_number || ""}: ${bill.title || ""}`.trim(),
+            link: bill.url || "",
+            published: bill.published || bill.latest_action_date || "",
+            summary: bill.summary || "",
+            // Keep bill-specific fields
+            bill_number: bill.bill_number,
+            bill_type: bill.bill_type,
+            sponsor_name: bill.sponsor_name,
+            latest_action: bill.latest_action
+        })).filter(item => {
+            // Filter by year
+            if (!item.date) return false;
+            try {
+                const itemYear = new Date(item.date + "T00:00:00").getFullYear();
+                return itemYear.toString() === year;
+            } catch {
+                return false;
+            }
+        });
+    } else if (Array.isArray(legislation)) {
+        legislationItems = legislation.map(bill => ({
+            date: bill.latest_action_date ? bill.latest_action_date.split("T")[0] : (bill.published ? bill.published.split("T")[0] : ""),
+            source: bill.source || "Congress.gov API",
+            title: `${bill.bill_type || ""} ${bill.bill_number || ""}: ${bill.title || ""}`.trim(),
+            link: bill.url || "",
+            published: bill.published || bill.latest_action_date || "",
+            summary: bill.summary || ""
+        })).filter(item => {
+            if (!item.date) return false;
+            try {
+                const itemYear = new Date(item.date + "T00:00:00").getFullYear();
+                return itemYear.toString() === year;
+            } catch {
+                return false;
+            }
+        });
+    }
+    
+    // Combine RSS feed items and legislation items
+    let allPageItems = [...page, ...legislationItems];
+    
+    // Sort combined items by date (newest first)
+    allPageItems.sort((a, b) => {
+        const dateA = a.published || a.date || "";
+        const dateB = b.published || b.date || "";
+        return dateB.localeCompare(dateA);
+    });
+
+    if (allPageItems.length === 0) {
+        container.innerHTML = "<p class='empty-state'>No items on this page.</p>";
+        renderPagination(year, pageIndex, pages.length);
+        return;
+    }
+
+    // Apply filters
+    let filteredPage = allPageItems;
+    if (selectedSource) {
+        filteredPage = filteredPage.filter(item => item.source === selectedSource);
+    }
+    if (selectedCategory) {
+        filteredPage = filteredPage.filter(item => {
+            const source = item.source || "";
+            return source.includes(selectedCategory);
+        });
+    }
+
+    // Group by date and source
+    const grouped = {};
+    filteredPage.forEach(item => {
+        const date = item.date || (item.published ? item.published.split("T")[0] : "");
+        if (!date) return;
+        
+        if (!grouped[date]) grouped[date] = {};
+        if (!grouped[date][item.source]) grouped[date][item.source] = [];
+        grouped[date][item.source].push(item);
+    });
+
+    // Get all dates from full grouped structure (for empty state detection)
+    const allDates = Object.keys(yearData.grouped || {}).sort().reverse();
+    const pageDates = Object.keys(grouped).sort().reverse();
+
+    // Render dates (newest first)
+    allDates.forEach(date => {
+        // Skip dates that don't have items on current page after filtering
+        if (pageDates.length > 0 && !pageDates.includes(date)) {
+            return;
+        }
+
+        const dateSection = document.createElement("div");
+        dateSection.className = "date-section";
+
+        const dateHeader = document.createElement("h2");
+        dateHeader.textContent = formatDate(date);
+        dateSection.appendChild(dateHeader);
+
+        // Get sources from both RSS feeds and legislation for this date
+        const rssSources = yearData.grouped[date] || {};
+        const pageSources = grouped[date] || {};
+        
+        // Combine all sources (from RSS and from current page)
+        const allSourcesSet = new Set();
+        Object.keys(rssSources).forEach(s => allSourcesSet.add(s));
+        Object.keys(pageSources).forEach(s => allSourcesSet.add(s));
+        const allSources = Array.from(allSourcesSet).sort();
+
+        // Render sources
+        allSources.forEach(source => {
+            // Apply source filter
+            if (selectedSource && source !== selectedSource) {
+                return;
+            }
+            
+            // Apply category filter for Kansas items
+            if (selectedCategory && !source.includes(selectedCategory)) {
+                return;
+            }
+
+            const sourceSection = document.createElement("div");
+            sourceSection.className = "source-section";
+
+            const srcHeader = document.createElement("h3");
+            srcHeader.textContent = source;
+            sourceSection.appendChild(srcHeader);
+
+            // Get items for this source on current page
+            const items = grouped[date] && grouped[date][source] 
+                ? grouped[date][source] 
+                : [];
+
+            if (items.length === 0) {
+                const emptyMsg = document.createElement("p");
+                emptyMsg.className = "empty-state";
+                emptyMsg.textContent = "No updates for this date/source";
+                sourceSection.appendChild(emptyMsg);
+            } else {
+                const ul = document.createElement("ul");
+                items.forEach(item => {
+                    const li = document.createElement("li");
+                    const a = document.createElement("a");
+                    a.href = item.link || item.url || "#";
+                    a.textContent = item.title || "(no title)";
+                    a.target = "_blank";
+                    a.rel = "noopener noreferrer";
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                });
+                sourceSection.appendChild(ul);
+            }
+
+            dateSection.appendChild(sourceSection);
+        });
+
+        container.appendChild(dateSection);
+    });
+
+    renderPagination(year, pageIndex, pages.length);
 }
 
 function performSearch(query) {
@@ -87,7 +355,7 @@ function performSearch(query) {
         searchMode = false;
         searchQuery = "";
         if (currentYear) {
-            showYear(currentYear, 0);
+            displayUnifiedView(currentYear, 0);
         }
         return;
     }
@@ -122,6 +390,32 @@ function performSearch(query) {
                 });
             });
         });
+    });
+
+    // Also search legislation
+    const legislation = allData.legislation || {};
+    let legislationItems = [];
+    if (legislation.pages) {
+        legislation.pages.forEach(page => {
+            legislationItems = legislationItems.concat(page);
+        });
+    } else if (Array.isArray(legislation)) {
+        legislationItems = legislation;
+    }
+    
+    legislationItems.forEach(bill => {
+        const title = (bill.title || "").toLowerCase();
+        const summary = (bill.summary || "").toLowerCase();
+        const sponsor = (bill.sponsor_name || "").toLowerCase();
+        const searchText = title + " " + summary + " " + sponsor;
+        
+        if (searchText.includes(searchQuery)) {
+            searchResults.push({
+                ...bill,
+                date: bill.latest_action_date ? bill.latest_action_date.split("T")[0] : bill.published ? bill.published.split("T")[0] : "",
+                source: bill.source || "Congress.gov API"
+            });
+        }
     });
 
     // Sort search results by date (newest first)
@@ -194,7 +488,7 @@ function displaySearchResults() {
             sources[source].forEach(item => {
                 const li = document.createElement("li");
                 const a = document.createElement("a");
-                a.href = item.link;
+                a.href = item.link || item.url || "#";
                 a.textContent = item.title || "(no title)";
                 a.target = "_blank";
                 a.rel = "noopener noreferrer";
@@ -215,102 +509,6 @@ function displaySearchResults() {
 
         container.appendChild(dateSection);
     });
-}
-
-function showYear(year, pageIndex) {
-    if (searchMode) return; // Don't show year view if in search mode
-    
-    const yearData = allData.years[year];
-    if (!yearData) return;
-
-    const container = document.getElementById("content");
-    container.innerHTML = "";
-
-    // Update active year tab
-    document.querySelectorAll(".year-tab").forEach(btn => {
-        if (btn.getAttribute("data-year") === year) {
-            btn.classList.add("active");
-        } else {
-            btn.classList.remove("active");
-        }
-    });
-
-    // Get paginated items
-    const pages = yearData.pages || [];
-    const page = pages[pageIndex] || [];
-
-    if (page.length === 0) {
-        container.innerHTML = "<p class='empty-state'>No items on this page.</p>";
-        renderPagination(year, pageIndex, pages.length);
-        return;
-    }
-
-    // Group page items by date and source
-    const grouped = {};
-    page.forEach(item => {
-        if (!grouped[item.date]) grouped[item.date] = {};
-        if (!grouped[item.date][item.source]) grouped[item.date][item.source] = [];
-        grouped[item.date][item.source].push(item);
-    });
-
-    // Get dates that appear on the current page (newest first)
-    const pageDates = Object.keys(grouped).sort().reverse();
-    
-    // Only render dates that have items on the current page
-    pageDates.forEach(date => {
-        const dateSection = document.createElement("div");
-        dateSection.className = "date-section";
-
-        const dateHeader = document.createElement("h2");
-        dateHeader.textContent = formatDate(date);
-        dateSection.appendChild(dateHeader);
-
-        // Get all sources for this date from the full grouped structure
-        const dateSources = yearData.grouped[date] || {};
-        const allSources = Object.keys(dateSources).sort();
-
-        // Render all sources for this date (even if empty on current page)
-        allSources.forEach(source => {
-            const sourceSection = document.createElement("div");
-            sourceSection.className = "source-section";
-
-            const srcHeader = document.createElement("h3");
-            srcHeader.textContent = source;
-            sourceSection.appendChild(srcHeader);
-
-            // Get items for this source on the current page
-            const items = grouped[date] && grouped[date][source] 
-                ? grouped[date][source] 
-                : [];
-
-            if (items.length === 0) {
-                // Show empty state for this source
-                const emptyMsg = document.createElement("p");
-                emptyMsg.className = "empty-state";
-                emptyMsg.textContent = "No updates for this date/source";
-                sourceSection.appendChild(emptyMsg);
-            } else {
-                const ul = document.createElement("ul");
-                items.forEach(item => {
-                    const li = document.createElement("li");
-                    const a = document.createElement("a");
-                    a.href = item.link;
-                    a.textContent = item.title || "(no title)";
-                    a.target = "_blank";
-                    a.rel = "noopener noreferrer";
-                    li.appendChild(a);
-                    ul.appendChild(li);
-                });
-                sourceSection.appendChild(ul);
-            }
-
-            dateSection.appendChild(sourceSection);
-        });
-
-        container.appendChild(dateSection);
-    });
-
-    renderPagination(year, pageIndex, pages.length);
 }
 
 function formatDate(dateStr) {
@@ -346,7 +544,7 @@ function renderPagination(year, current, total) {
         const prevBtn = document.createElement("button");
         prevBtn.textContent = "← Previous";
         prevBtn.className = "pagination-btn";
-        prevBtn.onclick = () => showYear(year, current - 1);
+        prevBtn.onclick = () => displayUnifiedView(year, current - 1);
         btnContainer.appendChild(prevBtn);
     }
 
@@ -363,7 +561,7 @@ function renderPagination(year, current, total) {
         const btn = document.createElement("button");
         btn.textContent = i + 1;
         btn.className = i === current ? "pagination-btn active-page" : "pagination-btn";
-        btn.onclick = () => showYear(year, i);
+        btn.onclick = () => displayUnifiedView(year, i);
         btnContainer.appendChild(btn);
     }
 
@@ -372,7 +570,7 @@ function renderPagination(year, current, total) {
         const nextBtn = document.createElement("button");
         nextBtn.textContent = "Next →";
         nextBtn.className = "pagination-btn";
-        nextBtn.onclick = () => showYear(year, current + 1);
+        nextBtn.onclick = () => displayUnifiedView(year, current + 1);
         btnContainer.appendChild(nextBtn);
     }
 
@@ -406,365 +604,6 @@ function setupSearch() {
             performSearch("");
         });
     }
-}
-
-// Legislation view functions
-function setupViewSwitching() {
-    const feedsBtn = document.getElementById("view-feeds");
-    const legislationBtn = document.getElementById("view-legislation");
-    
-    if (feedsBtn) {
-        feedsBtn.onclick = () => {
-            currentView = "feeds";
-            updateViewTabs();
-            document.getElementById("year-tabs").style.display = "flex";
-            document.getElementById("legislation-filters").style.display = "none";
-            document.getElementById("search-container").style.display = "block";
-            if (currentYear) {
-                showYear(currentYear, 0);
-            }
-        };
-    }
-    
-    if (legislationBtn) {
-        legislationBtn.onclick = () => {
-            currentView = "legislation";
-            legislationPage = 0; // Reset to first page
-            updateViewTabs();
-            document.getElementById("year-tabs").style.display = "none";
-            document.getElementById("legislation-filters").style.display = "block";
-            document.getElementById("search-container").style.display = "none";
-            showLegislationView(0);
-        };
-    }
-}
-
-function updateViewTabs() {
-    document.querySelectorAll(".view-tab").forEach(btn => {
-        btn.classList.remove("active");
-    });
-    if (currentView === "feeds") {
-        document.getElementById("view-feeds")?.classList.add("active");
-    } else {
-        document.getElementById("view-legislation")?.classList.add("active");
-    }
-}
-
-function setupLegislationFilters() {
-    const searchInput = document.getElementById("legislation-search");
-    const typeFilter = document.getElementById("bill-type-filter");
-    const clearBtn = document.getElementById("clear-legislation-filters");
-    
-    if (searchInput) {
-        searchInput.addEventListener("input", () => {
-            legislationPage = 0; // Reset to first page when filtering
-            applyLegislationFilters();
-        });
-        searchInput.addEventListener("keypress", (e) => {
-            if (e.key === "Enter") {
-                legislationPage = 0;
-                applyLegislationFilters();
-            }
-        });
-    }
-    
-    if (typeFilter) {
-        typeFilter.addEventListener("change", () => {
-            legislationPage = 0; // Reset to first page when filtering
-            applyLegislationFilters();
-        });
-    }
-    
-    if (clearBtn) {
-        clearBtn.onclick = () => {
-            if (searchInput) searchInput.value = "";
-            if (typeFilter) typeFilter.value = "";
-            legislationPage = 0;
-            applyLegislationFilters();
-        };
-    }
-}
-
-function showLegislationView(pageIndex = 0) {
-    legislationPage = pageIndex;
-    
-    // Get legislation data (could be array for old format or object with pages for new format)
-    const legislationData = allData?.legislation || {};
-    
-    let allLegislation = [];
-    let totalPages = 0;
-    
-    // Handle both old format (array) and new format (object with pages)
-    if (Array.isArray(legislationData)) {
-        allLegislation = legislationData;
-        // Calculate pages for old format
-        const ITEMS_PER_PAGE = 50;
-        totalPages = Math.ceil(allLegislation.length / ITEMS_PER_PAGE);
-        const startIdx = pageIndex * ITEMS_PER_PAGE;
-        allLegislation = allLegislation.slice(startIdx, startIdx + ITEMS_PER_PAGE);
-    } else if (legislationData.pages) {
-        // New paginated format
-        allLegislation = legislationData.pages[pageIndex] || [];
-        totalPages = legislationData.pages.length;
-    }
-    
-    if (allLegislation.length === 0 && pageIndex === 0) {
-        document.getElementById("content").innerHTML = 
-            "<p class='empty-state'>No legislation data available. Run the Congress API fetch script to populate.</p>";
-        document.getElementById("pagination").innerHTML = "";
-        return;
-    }
-    
-    // Apply filters to current page
-    filteredLegislation = allLegislation;
-    displayLegislation();
-    
-    // Render pagination
-    renderLegislationPagination(pageIndex, totalPages);
-}
-
-function displayLegislation() {
-    const container = document.getElementById("content");
-    container.innerHTML = "";
-    
-    if (filteredLegislation.length === 0) {
-        container.innerHTML = "<p class='empty-state'>No bills match the current filters.</p>";
-        document.getElementById("pagination").innerHTML = "";
-        return;
-    }
-    
-    // Group bills by date (using latest_action_date or published)
-    const groupedByDate = {};
-    
-    filteredLegislation.forEach(bill => {
-        // Get date from latest_action_date or published
-        const dateStr = bill.latest_action_date || bill.published || "";
-        if (!dateStr) return;
-        
-        // Extract date part (YYYY-MM-DD)
-        let dateKey = "";
-        try {
-            const dateObj = new Date(dateStr);
-            if (!isNaN(dateObj.getTime())) {
-                dateKey = dateObj.toISOString().split("T")[0]; // YYYY-MM-DD format
-            } else {
-                // Try parsing as string
-                dateKey = dateStr.split("T")[0];
-            }
-        } catch {
-            dateKey = dateStr.split("T")[0];
-        }
-        
-        if (!dateKey) return;
-        
-        if (!groupedByDate[dateKey]) {
-            groupedByDate[dateKey] = [];
-        }
-        groupedByDate[dateKey].push(bill);
-    });
-    
-    // Sort dates (newest first)
-    const dates = Object.keys(groupedByDate).sort().reverse();
-    
-    if (dates.length === 0) {
-        container.innerHTML = "<p class='empty-state'>No bills with valid dates found.</p>";
-        document.getElementById("pagination").innerHTML = "";
-        return;
-    }
-    
-    // Render each date section
-    dates.forEach(date => {
-        const dateSection = document.createElement("div");
-        dateSection.className = "date-section";
-        
-        const dateHeader = document.createElement("h2");
-        dateHeader.textContent = formatDate(date);
-        dateSection.appendChild(dateHeader);
-        
-        // Sort bills within this date by latest action date (newest first)
-        const billsForDate = groupedByDate[date].sort((a, b) => {
-            const dateA = a.latest_action_date || a.published || "";
-            const dateB = b.latest_action_date || b.published || "";
-            return dateB.localeCompare(dateA);
-        });
-        
-        // Create a source section for "Congress.gov API" (to match RSS feed structure)
-        const sourceSection = document.createElement("div");
-        sourceSection.className = "source-section";
-        
-        const srcHeader = document.createElement("h3");
-        srcHeader.textContent = "Congress.gov API";
-        sourceSection.appendChild(srcHeader);
-        
-        const ul = document.createElement("ul");
-        
-        billsForDate.forEach(bill => {
-            const li = document.createElement("li");
-            
-            // Create bill info with link
-            const billInfo = document.createElement("div");
-            billInfo.style.marginBottom = "8px";
-            
-            // Bill number and type
-            const billNumber = document.createElement("strong");
-            billNumber.style.color = "#1a73e8";
-            billNumber.textContent = `${bill.bill_type || ""} ${bill.bill_number || ""}`.trim();
-            if (billNumber.textContent) {
-                billInfo.appendChild(billNumber);
-                billInfo.appendChild(document.createTextNode(": "));
-            }
-            
-            // Title as link
-            const titleLink = document.createElement("a");
-            titleLink.href = bill.url || "#";
-            titleLink.textContent = bill.title || "(No title)";
-            titleLink.target = "_blank";
-            titleLink.rel = "noopener noreferrer";
-            titleLink.style.color = "#1a73e8";
-            titleLink.style.textDecoration = "none";
-            titleLink.style.fontWeight = "500";
-            titleLink.onmouseover = function() { this.style.textDecoration = "underline"; };
-            titleLink.onmouseout = function() { this.style.textDecoration = "none"; };
-            billInfo.appendChild(titleLink);
-            
-            // Sponsor info (if available)
-            if (bill.sponsor_name) {
-                const sponsor = document.createElement("div");
-                sponsor.style.fontSize = "0.9em";
-                sponsor.style.color = "#666";
-                sponsor.style.marginTop = "4px";
-                sponsor.textContent = `Sponsor: ${bill.sponsor_name}`;
-                billInfo.appendChild(sponsor);
-            }
-            
-            // Latest action (if available)
-            if (bill.latest_action) {
-                const action = document.createElement("div");
-                action.style.fontSize = "0.85em";
-                action.style.color = "#888";
-                action.style.marginTop = "2px";
-                action.style.fontStyle = "italic";
-                action.textContent = bill.latest_action;
-                billInfo.appendChild(action);
-            }
-            
-            li.appendChild(billInfo);
-            ul.appendChild(li);
-        });
-        
-        sourceSection.appendChild(ul);
-        dateSection.appendChild(sourceSection);
-        container.appendChild(dateSection);
-    });
-    
-    // Pagination will be rendered by renderLegislationPagination
-}
-
-function renderLegislationPagination(current, total) {
-    const container = document.getElementById("pagination");
-    container.innerHTML = "";
-    
-    if (total <= 1) return;
-    
-    const paginationInfo = document.createElement("div");
-    paginationInfo.className = "pagination-info";
-    paginationInfo.textContent = `Page ${current + 1} of ${total}`;
-    container.appendChild(paginationInfo);
-    
-    const btnContainer = document.createElement("div");
-    btnContainer.className = "pagination-buttons";
-    
-    // Previous button
-    if (current > 0) {
-        const prevBtn = document.createElement("button");
-        prevBtn.textContent = "← Previous";
-        prevBtn.className = "pagination-btn";
-        prevBtn.onclick = () => {
-            legislationPage = current - 1;
-            applyLegislationFilters();
-        };
-        btnContainer.appendChild(prevBtn);
-    }
-    
-    // Page number buttons
-    const maxButtons = 10;
-    let startPage = Math.max(0, current - Math.floor(maxButtons / 2));
-    let endPage = Math.min(total, startPage + maxButtons);
-    
-    if (endPage - startPage < maxButtons) {
-        startPage = Math.max(0, endPage - maxButtons);
-    }
-    
-    for (let i = startPage; i < endPage; i++) {
-        const btn = document.createElement("button");
-        btn.textContent = i + 1;
-        btn.className = i === current ? "pagination-btn active-page" : "pagination-btn";
-        btn.onclick = () => {
-            legislationPage = i;
-            applyLegislationFilters();
-        };
-        btnContainer.appendChild(btn);
-    }
-    
-    // Next button
-    if (current < total - 1) {
-        const nextBtn = document.createElement("button");
-        nextBtn.textContent = "Next →";
-        nextBtn.className = "pagination-btn";
-        nextBtn.onclick = () => {
-            legislationPage = current + 1;
-            applyLegislationFilters();
-        };
-        btnContainer.appendChild(nextBtn);
-    }
-    
-    container.appendChild(btnContainer);
-}
-
-function applyLegislationFilters() {
-    // Get all legislation (from all pages if paginated)
-    const legislationData = allData?.legislation || {};
-    let allLegislation = [];
-    let totalPages = 0;
-    
-    if (Array.isArray(legislationData)) {
-        allLegislation = legislationData;
-        totalPages = Math.ceil(allLegislation.length / 50);
-    } else if (legislationData.pages) {
-        // Get current page
-        allLegislation = legislationData.pages[legislationPage] || [];
-        totalPages = legislationData.pages.length;
-    }
-    
-    const searchInput = document.getElementById("legislation-search");
-    const typeFilter = document.getElementById("bill-type-filter");
-    
-    const searchQuery = (searchInput?.value || "").toLowerCase().trim();
-    const billType = typeFilter?.value || "";
-    
-    // Apply filters to current page
-    filteredLegislation = allLegislation.filter(bill => {
-        // Search filter
-        if (searchQuery) {
-            const title = (bill.title || "").toLowerCase();
-            const summary = (bill.summary || "").toLowerCase();
-            const sponsor = (bill.sponsor_name || "").toLowerCase();
-            const searchText = title + " " + summary + " " + sponsor;
-            if (!searchText.includes(searchQuery)) {
-                return false;
-            }
-        }
-        
-        // Bill type filter
-        if (billType && bill.bill_type !== billType) {
-            return false;
-        }
-        
-        return true;
-    });
-    
-    displayLegislation();
-    renderLegislationPagination(legislationPage, totalPages);
 }
 
 window.onload = () => {

@@ -88,6 +88,10 @@ for item in history:
         year = str(dt.year)
         date_str = dt.strftime("%Y-%m-%d")
         source = item.get("source", "Unknown")
+        
+        # For Kansas items, include category in source for better grouping
+        if item.get("type") == "state_legislation" and item.get("category"):
+            source = f"{source} - {item.get('category')}"
 
         grouped[year][date_str][source].append(item)
         processed_count += 1

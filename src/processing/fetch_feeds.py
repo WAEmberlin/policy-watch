@@ -10,10 +10,10 @@ ITEMS_FILE = OUTPUT_DIR / "items.json"
 HISTORY_FILE = OUTPUT_DIR / "history.json"
 
 FEEDS = {
-    "Kansas Legislature": "https://www.kslegislature.gov/li/rsshelp/",
     "US Congress": "https://www.congress.gov/rss/notification.xml",
     "VA News": "https://news.va.gov/feed/",
 }
+# Note: Kansas Legislature feeds are handled by fetch_kansas_rss.py
 
 now_utc = datetime.now(timezone.utc)
 # Only fetch new items from feeds that are less than 365 days old
