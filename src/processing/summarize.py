@@ -1,6 +1,6 @@
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timezone
 from collections import defaultdict
 
 # Handle timezone on Windows (fallback if zoneinfo not available)
@@ -237,13 +237,49 @@ for i in range(0, len(legislation_data), ITEMS_PER_PAGE):
 print(f"Prepared {len(legislation_data)} bills for frontend display.")
 print(f"Split into {len(legislation_pages)} pages ({ITEMS_PER_PAGE} items per page)")
 
+# -------------------------
+# Extract upcoming hearings from conference committees
+# -------------------------
+upcoming_hearings = []
+now_utc = datetime.now(timezone.utc) if hasattr(datetime.now(), 'tzinfo') else datetime.now()
+
+for item in history:
+    # Check if this is a conference committee item with scheduled date
+    if (item.get("feed") == "conference_committees" and 
+        item.get("scheduled_date") and 
+        not item.get("is_canceled", False)):
+        try:
+            scheduled_dt = datetime.fromisoformat(item["scheduled_date"].replace("Z", "+00:00"))
+            # Only include future hearings (or today's hearings)
+            if scheduled_dt >= now_utc.replace(hour=0, minute=0, second=0, microsecond=0):
+                hearing = {
+                    "title": item.get("title", ""),
+                    "scheduled_date": item.get("scheduled_date", ""),
+                    "scheduled_time": item.get("scheduled_time", ""),
+                    "location": item.get("location", ""),
+                    "committees": item.get("committees", ""),
+                    "bill": item.get("bill", ""),
+                    "link": item.get("link", ""),
+                    "published": item.get("published", "")
+                }
+                upcoming_hearings.append(hearing)
+        except (ValueError, KeyError) as e:
+            # Skip items with invalid dates
+            continue
+
+# Sort upcoming hearings by scheduled date (soonest first)
+upcoming_hearings.sort(key=lambda x: x.get("scheduled_date", ""))
+
+print(f"Found {len(upcoming_hearings)} upcoming conference committee hearings.")
+
 output = {
     "last_updated": now.isoformat(),
     "years": site_years,
     "legislation": {
         "total_items": len(legislation_data),
         "pages": legislation_pages  # Paginated legislation data
-    }
+    },
+    "upcoming_hearings": upcoming_hearings  # Upcoming conference committee hearings
 }
 
 # Ensure legislation key is always present

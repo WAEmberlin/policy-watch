@@ -10,6 +10,8 @@ Kansas RSS feeds are defined in `src/processing/fetch_kansas_rss.py`:
 - **Senate Actions**: `https://kslegislature.gov/li/rss/senate_action.xml`
 - **Committee Hearings**: `https://kslegislature.gov/li/rss/committee_hearings.xml`
 - **Bill Introductions**: `https://kslegislature.gov/li/rss/bill_introductions.xml`
+- **Events**: `https://kslegislature.gov/li/data/feeds/rss/events/`
+- **Conference Committee Schedules**: `https://kslegislature.gov/li/data/feeds/rss/confcomms/`
 
 ## Data Normalization
 
@@ -21,7 +23,7 @@ Each RSS item is normalized into a unified schema with these fields:
 - `link`: Link to original page
 - `published`: ISO format date string
 - `source`: "Kansas Legislature"
-- `category`: One of "House", "Senate", "Committee", or "Bills"
+- `category`: One of "House", "Senate", "Committee", "Bills", "Events", or "Conference"
 - `type`: "state_legislation"
 - `state`: "KS"
 - `feed`: Internal feed key (house_actions, senate_actions, etc.)

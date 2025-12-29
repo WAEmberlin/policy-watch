@@ -137,6 +137,10 @@ def normalize_bill(bill_data: Dict, congress: int) -> Optional[Dict]:
         if not title:
             title = f"{bill_type} {bill_number}"
         
+        # Filter out reserved bills (e.g., "Reserved for the Speaker", "Reserved for the Minority Leader")
+        if "Reserved for" in title:
+            return None
+        
         # Extract summary (may be in different fields)
         summary = ""
         if "summary" in bill_data and bill_data["summary"]:

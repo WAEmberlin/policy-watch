@@ -6,11 +6,15 @@ This module handles:
 - Senate Actions
 - Committee Hearings
 - Bill Introductions
+- Events (general legislative events)
+- Conference Committee Schedules
 
 All feeds are normalized into a unified schema consistent with the project.
 """
 import feedparser
 import json
+import re
+import html
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -45,6 +49,18 @@ KANSAS_FEEDS = {
         "name": "Kansas Legislature",
         "category": "Bills",
         "feed_key": "bill_introductions"
+    },
+    "events": {
+        "url": "https://kslegislature.gov/li/data/feeds/rss/events/",
+        "name": "Kansas Legislature",
+        "category": "Events",
+        "feed_key": "events"
+    },
+    "conference_committees": {
+        "url": "https://kslegislature.gov/li/data/feeds/rss/confcomms/",
+        "name": "Kansas Legislature",
+        "category": "Conference",
+        "feed_key": "conference_committees"
     }
 }
 
@@ -108,9 +124,79 @@ def normalize_kansas_item(entry: Dict, feed_config: Dict) -> Optional[Dict]:
             "feed": feed_config["feed_key"]  # house_actions, senate_actions, etc.
         }
         
+        # For conference committees, extract scheduled date/time/location
+        if feed_config["feed_key"] == "conference_committees":
+            hearing_info = parse_conference_hearing(summary, title)
+            if hearing_info:
+                item.update(hearing_info)
+        
         return item
     except Exception as e:
         print(f"Error normalizing Kansas RSS item: {e}")
+        return None
+
+
+def parse_conference_hearing(description: str, title: str) -> Optional[Dict]:
+    """
+    Parse conference committee hearing information from description HTML.
+    
+    Extracts: date, time, location, committees, bill (if specified), is_canceled
+    
+    Args:
+        description: HTML description from RSS feed
+        title: Title from RSS feed
+    
+    Returns:
+        Dict with hearing details, or None if parsing fails
+    """
+    try:
+        # Decode HTML entities
+        desc = html.unescape(description)
+        
+        # Check if canceled
+        is_canceled = "MEETING CANCELED" in title.upper() or "MEETING CANCELED" in desc.upper()
+        
+        # Extract date (format: MM/DD/YYYY)
+        date_match = re.search(r'<strong>Date:</strong>\s*(\d{1,2}/\d{1,2}/\d{4})', desc, re.IGNORECASE)
+        scheduled_date = None
+        if date_match:
+            date_str = date_match.group(1)
+            try:
+                # Parse MM/DD/YYYY format
+                scheduled_date = datetime.strptime(date_str, "%m/%d/%Y")
+                # Set to UTC timezone (will adjust in frontend)
+                scheduled_date = scheduled_date.replace(tzinfo=timezone.utc)
+            except ValueError:
+                pass
+        
+        # Extract time
+        time_match = re.search(r'<strong>Time:</strong>\s*([^<]+)', desc, re.IGNORECASE)
+        scheduled_time = time_match.group(1).strip() if time_match else ""
+        
+        # Extract location
+        location_match = re.search(r'<strong>Location:</strong>\s*([^<]+)', desc, re.IGNORECASE)
+        location = location_match.group(1).strip() if location_match else ""
+        
+        # Extract committees
+        committees_match = re.search(r'<strong>Committees:</strong>\s*([^<]+)', desc, re.IGNORECASE)
+        committees = committees_match.group(1).strip() if committees_match else ""
+        
+        # Extract bill number from title if present (e.g., "on SB139")
+        bill_match = re.search(r'\b(?:on|for)\s+([A-Z]{1,3}\d+)', title, re.IGNORECASE)
+        bill = bill_match.group(1) if bill_match else ""
+        
+        result = {
+            "scheduled_date": scheduled_date.isoformat() if scheduled_date else None,
+            "scheduled_time": scheduled_time,
+            "location": location,
+            "committees": committees,
+            "bill": bill,
+            "is_canceled": is_canceled
+        }
+        
+        return result if scheduled_date else None
+    except Exception as e:
+        print(f"Error parsing conference hearing: {e}")
         return None
 
 

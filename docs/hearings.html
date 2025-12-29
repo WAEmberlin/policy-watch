@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Upcoming Hearings - CivicWatch</title>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f5f5f5;
+    color: #222;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+    display: block;
+}
+
+.logo:not([src]) {
+    display: none;
+}
+
+h1 {
+    margin: 0;
+    color: #1a73e8;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+h1 .civic {
+    color: #001f3f; /* Navy blue */
+}
+
+h1 .watch {
+    color: #ffc107;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.hearings-list {
+    margin-top: 30px;
+}
+
+.hearing-card {
+    background: #f9f9f9;
+    border-left: 4px solid #1a73e8;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.hearing-card.canceled {
+    border-left-color: #d32f2f;
+    opacity: 0.7;
+}
+
+.hearing-card h2 {
+    margin: 0 0 15px 0;
+    color: #1a73e8;
+    font-size: 1.3em;
+}
+
+.hearing-card.canceled h2 {
+    color: #d32f2f;
+    text-decoration: line-through;
+}
+
+.hearing-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.meta-label {
+    font-size: 0.85em;
+    color: #666;
+    font-weight: 600;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.meta-value {
+    font-size: 1em;
+    color: #222;
+    font-weight: 500;
+}
+
+.hearing-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.hearing-link:hover {
+    text-decoration: underline;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+    font-size: 1.1em;
+}
+
+.empty-state p {
+    margin: 10px 0;
+}
+
+.loading {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+}
+
+.error {
+    color: #d32f2f;
+    padding: 20px;
+    background: #ffebee;
+    border-radius: 4px;
+    border-left: 4px solid #d32f2f;
+    margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .hearing-meta {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="logo-header">
+        <img src="CivicWatch Logo.png" alt="CivicWatch Logo" class="logo" />
+        <h1><span class="civic">Civic</span><span class="watch">Watch</span></h1>
+    </div>
+    
+    <a href="index.html" class="back-link">← Back to Main</a>
+    
+    <h2>Upcoming Conference Committee Hearings</h2>
+    
+    <div id="hearings-container" class="hearings-list">
+        <div class="loading">Loading upcoming hearings...</div>
+    </div>
+</div>
+
+<script>
+async function loadHearings() {
+    const container = document.getElementById("hearings-container");
+    
+    try {
+        const res = await fetch("site_data.json");
+        const data = await res.json();
+        
+        const hearings = data.upcoming_hearings || [];
+        
+        if (hearings.length === 0) {
+            container.innerHTML = `
+                <div class="empty-state">
+                    <p><strong>No upcoming hearings scheduled</strong></p>
+                    <p>Check back later for new conference committee hearings.</p>
+                </div>
+            `;
+            return;
+        }
+        
+        container.innerHTML = "";
+        
+        hearings.forEach(hearing => {
+            const card = document.createElement("div");
+            card.className = "hearing-card";
+            
+            const scheduledDate = hearing.scheduled_date ? new Date(hearing.scheduled_date) : null;
+            const dateStr = scheduledDate ? scheduledDate.toLocaleDateString("en-US", {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                timeZone: "America/Chicago"
+            }) : "Date TBD";
+            
+            const title = hearing.title || "Conference Committee Hearing";
+            const isCanceled = title.toUpperCase().includes("CANCELED") || title.toUpperCase().includes("MEETING CANCELED");
+            
+            if (isCanceled) {
+                card.classList.add("canceled");
+            }
+            
+            card.innerHTML = `
+                <h2>${title}</h2>
+                <div class="hearing-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Date</span>
+                        <span class="meta-value">${dateStr}</span>
+                    </div>
+                    ${hearing.scheduled_time ? `
+                    <div class="meta-item">
+                        <span class="meta-label">Time</span>
+                        <span class="meta-value">${hearing.scheduled_time}</span>
+                    </div>
+                    ` : ""}
+                    ${hearing.location ? `
+                    <div class="meta-item">
+                        <span class="meta-label">Location</span>
+                        <span class="meta-value">${hearing.location}</span>
+                    </div>
+                    ` : ""}
+                    ${hearing.bill ? `
+                    <div class="meta-item">
+                        <span class="meta-label">Bill</span>
+                        <span class="meta-value">${hearing.bill}</span>
+                    </div>
+                    ` : ""}
+                </div>
+                ${hearing.committees ? `
+                <div class="meta-item" style="margin-top: 10px;">
+                    <span class="meta-label">Committees</span>
+                    <span class="meta-value">${hearing.committees}</span>
+                </div>
+                ` : ""}
+                ${hearing.link ? `
+                <a href="${hearing.link}" target="_blank" rel="noopener noreferrer" class="hearing-link">
+                    View Full Schedule →
+                </a>
+                ` : ""}
+            `;
+            
+            container.appendChild(card);
+        });
+        
+    } catch (error) {
+        container.innerHTML = `
+            <div class="error">
+                <strong>Error loading hearings</strong>
+                <p>${error.message}</p>
+                <p>Please try again later.</p>
+            </div>
+        `;
+    }
+}
+
+window.onload = loadHearings;
+</script>
+</body>
+</html>
+
