@@ -246,8 +246,12 @@ function renderHearings(hearings, container, emptyMessage) {
         groupedByDate[dateKey].push(hearing);
     });
     
-    // Sort dates
+    // Sort dates - for historical, reverse to show newest first
+    const isHistorical = container.id === "historical-hearings-container";
     const dates = Object.keys(groupedByDate).sort();
+    if (isHistorical) {
+        dates.reverse(); // Most recent dates first for historical
+    }
     
     dates.forEach(dateKey => {
         const dateSection = document.createElement("div");

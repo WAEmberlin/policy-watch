@@ -468,6 +468,8 @@ def main():
         raise
     
     # Fetch and save federal hearings
+    # Note: Congress.gov API v3 may not have a direct hearings endpoint
+    # This is attempted but may return empty if the API structure doesn't support it
     try:
         federal_hearings = fetch_hearings(api_key, CONGRESS_NUMBER)
         if federal_hearings:
@@ -476,15 +478,18 @@ def main():
                 json.dump(federal_hearings, f, indent=2)
             print(f"\nSuccessfully saved {len(federal_hearings)} federal hearings to {HEARINGS_FILE}")
         else:
-            print("\nNo federal hearings fetched.")
+            print("\nNo federal hearings fetched (API may not support this endpoint).")
+            print("Note: Congress.gov API v3 hearings endpoint structure may differ.")
+            print("Federal hearings feature will be skipped until API structure is confirmed.")
     except Exception as e:
         print(f"\nError fetching/saving federal hearings: {e}")
+        print("Note: This is expected if the API doesn't support the hearings endpoint.")
         # Don't fail the whole script if hearings fail
 
 
 def fetch_hearings(api_key: str, congress: int) -> List[Dict]:
     """
-    Fetch upcoming hearings from House and Senate committees.
+    Fetch upcoming hearings from House and Senate committees using /hearing endpoint.
     
     Args:
         api_key: Congress.gov API key
@@ -495,23 +500,80 @@ def fetch_hearings(api_key: str, congress: int) -> List[Dict]:
     """
     hearings = []
     
-    # Fetch House committee hearings
-    print("Fetching House committee hearings...")
-    house_hearings = fetch_committee_hearings(api_key, congress, "house")
-    hearings.extend(house_hearings)
+    # Try fetching all hearings first (without chamber filter)
+    print("Fetching federal hearings from Congress.gov API...")
+    try:
+        url = f"{API_BASE_URL}/hearing"
+        params = {
+            "api_key": api_key,
+            "format": "json",
+            "congress": congress,
+            "limit": 250,
+            "offset": 0
+        }
+        
+        response = requests.get(url, params=params, timeout=30)
+        response.raise_for_status()
+        time.sleep(REQUEST_DELAY)
+        
+        data = response.json()
+        hearings_list = data.get("hearings", [])
+        
+        if hearings_list:
+            print(f"  Found {len(hearings_list)} hearings (all chambers)")
+            for hearing_data in hearings_list:
+                # Extract chamber from hearing data
+                chamber = hearing_data.get("chamber", "").lower()
+                if not chamber:
+                    # Try to infer from committee or other fields
+                    chamber = "house"  # Default
+                
+                normalized = normalize_hearing(hearing_data, congress, chamber)
+                if normalized:
+                    hearings.append(normalized)
+        else:
+            # If bulk fetch doesn't work, try per-chamber
+            print("  Bulk fetch returned no results, trying per-chamber...")
+            
+            # Fetch House committee hearings
+            print("  Fetching House committee hearings...")
+            house_hearings = fetch_committee_hearings(api_key, congress, "house")
+            hearings.extend(house_hearings)
+            
+            # Fetch Senate committee hearings
+            print("  Fetching Senate committee hearings...")
+            senate_hearings = fetch_committee_hearings(api_key, congress, "senate")
+            hearings.extend(senate_hearings)
+            
+    except requests.exceptions.RequestException as e:
+        print(f"  Error with bulk fetch: {e}")
+        print("  Trying per-chamber approach...")
+        
+        # Fallback to per-chamber fetching
+        try:
+            house_hearings = fetch_committee_hearings(api_key, congress, "house")
+            hearings.extend(house_hearings)
+        except Exception as e2:
+            print(f"  Error fetching House hearings: {e2}")
+        
+        try:
+            senate_hearings = fetch_committee_hearings(api_key, congress, "senate")
+            hearings.extend(senate_hearings)
+        except Exception as e2:
+            print(f"  Error fetching Senate hearings: {e2}")
     
-    # Fetch Senate committee hearings
-    print("Fetching Senate committee hearings...")
-    senate_hearings = fetch_committee_hearings(api_key, congress, "senate")
-    hearings.extend(senate_hearings)
+    if len(hearings) == 0:
+        print("No federal hearings fetched.")
+        print("Note: Congress.gov API /hearing endpoint may have different structure.")
+    else:
+        print(f"Total federal hearings fetched: {len(hearings)}")
     
-    print(f"Total federal hearings fetched: {len(hearings)}")
     return hearings
 
 
 def fetch_committee_hearings(api_key: str, congress: int, chamber: str) -> List[Dict]:
     """
-    Fetch hearings for a specific chamber (house or senate).
+    Fetch hearings for a specific chamber (house or senate) using the /hearing endpoint.
     
     Args:
         api_key: Congress.gov API key
@@ -526,11 +588,14 @@ def fetch_committee_hearings(api_key: str, congress: int, chamber: str) -> List[
     page = 1
     
     while True:
-        url = f"{API_BASE_URL}/committee/{chamber}/{congress}/hearings"
+        # Use the /hearing endpoint with congress and chamber filters
+        url = f"{API_BASE_URL}/hearing"
         
         params = {
             "api_key": api_key,
             "format": "json",
+            "congress": congress,
+            "chamber": chamber,
             "limit": 250,
             "offset": offset
         }
@@ -563,7 +628,13 @@ def fetch_committee_hearings(api_key: str, congress: int, chamber: str) -> List[
             page += 1
             
         except requests.exceptions.RequestException as e:
-            print(f"Error fetching {chamber} hearings (offset {offset}): {e}")
+            print(f"  Error fetching {chamber} hearings (offset {offset}): {e}")
+            if hasattr(e, 'response') and e.response is not None:
+                if e.response.status_code == 404:
+                    print(f"  Note: /hearing endpoint may not be available in API v3")
+                    print(f"  Trying alternative approach...")
+                    # Try without chamber filter
+                    break
             break
     
     return hearings
@@ -576,7 +647,7 @@ def normalize_hearing(hearing_data: Dict, congress: int, chamber: str) -> Option
     Args:
         hearing_data: Raw hearing data from API
         congress: Congress number
-        chamber: "house" or "senate"
+        chamber: "house" or "senate" (may also be in hearing_data)
     
     Returns:
         Normalized hearing dict, or None if invalid
@@ -587,38 +658,69 @@ def normalize_hearing(hearing_data: Dict, congress: int, chamber: str) -> Option
         if not title:
             return None
         
-        # Extract date and time
+        # Extract chamber from data if not provided
+        hearing_chamber = hearing_data.get("chamber", chamber).lower()
+        if not hearing_chamber:
+            hearing_chamber = chamber.lower()
+        
+        # Extract date and time - try multiple possible field names
         scheduled_date = ""
         scheduled_time = ""
-        if "date" in hearing_data:
-            date_str = hearing_data["date"]
+        
+        # Try different possible date fields
+        date_str = (hearing_data.get("date") or 
+                   hearing_data.get("hearingDate") or 
+                   hearing_data.get("scheduledDate") or
+                   hearing_data.get("eventDate"))
+        if date_str:
             try:
                 dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
                 scheduled_date = dt.isoformat()
             except (ValueError, AttributeError):
                 scheduled_date = date_str
         
-        if "time" in hearing_data:
-            scheduled_time = hearing_data["time"]
+        # Try different possible time fields
+        scheduled_time = (hearing_data.get("time") or 
+                         hearing_data.get("hearingTime") or 
+                         hearing_data.get("scheduledTime") or
+                         hearing_data.get("eventTime") or "")
         
         # Extract location
-        location = hearing_data.get("location", "")
+        location = (hearing_data.get("location", "") or 
+                   hearing_data.get("room", "") or
+                   hearing_data.get("venue", ""))
         
         # Extract committee information
         committee_name = ""
-        if "committees" in hearing_data and hearing_data["committees"]:
+        if "committee" in hearing_data:
+            committee = hearing_data["committee"]
+            if isinstance(committee, dict):
+                committee_name = committee.get("name", "").strip()
+            elif isinstance(committee, str):
+                committee_name = committee.strip()
+        elif "committees" in hearing_data and hearing_data["committees"]:
             committees_list = hearing_data["committees"]
             if isinstance(committees_list, list) and len(committees_list) > 0:
                 committee = committees_list[0]
                 if isinstance(committee, dict):
                     committee_name = committee.get("name", "").strip()
         
+        if not committee_name:
+            committee_name = f"{hearing_chamber.capitalize()} Committee"
+        
         # Extract URL
-        url = hearing_data.get("url", "")
-        if not url and "systemCode" in hearing_data:
-            # Build URL if not provided
+        url = (hearing_data.get("url", "") or 
+              hearing_data.get("hearingUrl", "") or
+              hearing_data.get("link", ""))
+        if not url and "hearingNumber" in hearing_data:
+            # Try to build URL from hearing number
+            hearing_number = hearing_data.get("hearingNumber", "")
+            if hearing_number:
+                url = f"https://www.congress.gov/hearing/{congress}th-congress/{hearing_chamber}-committee/{hearing_number}"
+        elif not url and "systemCode" in hearing_data:
+            # Build URL from system code
             system_code = hearing_data["systemCode"]
-            url = f"https://www.congress.gov/committee/{chamber}/{system_code}/{congress}"
+            url = f"https://www.congress.gov/committee/{hearing_chamber}/{system_code}/{congress}"
         
         return {
             "title": title,
@@ -626,7 +728,7 @@ def normalize_hearing(hearing_data: Dict, congress: int, chamber: str) -> Option
             "scheduled_time": scheduled_time,
             "location": location,
             "committee": committee_name,
-            "chamber": chamber.capitalize(),
+            "chamber": hearing_chamber.capitalize(),
             "url": url,
             "source": "Federal (US Congress)",
             "congress": congress

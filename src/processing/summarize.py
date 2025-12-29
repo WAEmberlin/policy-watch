@@ -280,7 +280,7 @@ for item in history:
 
 # Sort upcoming hearings by scheduled date (soonest first)
 upcoming_hearings.sort(key=lambda x: x.get("scheduled_date", ""))
-# Sort historical hearings by scheduled date (most recent first)
+# Sort historical hearings by scheduled date (most recent first - newest at top)
 historical_hearings.sort(key=lambda x: x.get("scheduled_date", ""), reverse=True)
 
 print(f"Found {len(upcoming_hearings)} upcoming conference committee hearings.")
@@ -319,7 +319,7 @@ for hearing in federal_hearings:
 
 # Sort federal hearings
 federal_upcoming.sort(key=lambda x: x.get("scheduled_date", ""))
-federal_historical.sort(key=lambda x: x.get("scheduled_date", ""), reverse=True)
+federal_historical.sort(key=lambda x: x.get("scheduled_date", "") or "", reverse=True)  # Most recent first
 
 # Combine state and federal hearings
 all_upcoming_hearings = upcoming_hearings + federal_upcoming
@@ -327,7 +327,7 @@ all_historical_hearings = historical_hearings + federal_historical
 
 # Sort combined lists
 all_upcoming_hearings.sort(key=lambda x: x.get("scheduled_date", ""))
-all_historical_hearings.sort(key=lambda x: x.get("scheduled_date", ""), reverse=True)
+all_historical_hearings.sort(key=lambda x: x.get("scheduled_date", "") or "", reverse=True)  # Most recent first
 
 print(f"Total upcoming hearings: {len(all_upcoming_hearings)} ({len(upcoming_hearings)} state, {len(federal_upcoming)} federal)")
 print(f"Total historical hearings: {len(all_historical_hearings)} ({len(historical_hearings)} state, {len(federal_historical)} federal)")
