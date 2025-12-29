@@ -12,7 +12,7 @@ import os
 import json
 import time
 import requests
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -301,13 +301,19 @@ def normalize_bill(bill_data: Dict, congress: int) -> Optional[Dict]:
         return None
 
 
-def fetch_all_bills(api_key: str, congress: int) -> List[Dict]:
+def fetch_all_bills(api_key: str, congress: int, days_back: int = 30) -> List[Dict]:
     """
-    Fetch all bills from the Congress.gov API with pagination.
+    Fetch bills from the Congress.gov API with pagination.
+    
+    Optimized to only fetch bills updated in the last N days to speed up execution.
+    Bills are typically sorted by latest action date, so we can stop early when we
+    encounter old bills.
     
     Args:
         api_key: Congress.gov API key
         congress: Congress number
+        days_back: Only fetch bills updated in the last N days (default: 30)
+                  Set to None or 0 to fetch all bills
     
     Returns:
         List of normalized bill dictionaries
@@ -316,8 +322,20 @@ def fetch_all_bills(api_key: str, congress: int) -> List[Dict]:
     offset = 0
     page = 1
     
-    print(f"Fetching bills from {congress}th Congress...")
+    # Calculate cutoff date for recent bills
+    cutoff_date = None
+    if days_back and days_back > 0:
+        cutoff_date = datetime.now(timezone.utc) - timedelta(days=days_back)
+        print(f"Fetching bills from {congress}th Congress updated in the last {days_back} days...")
+    else:
+        print(f"Fetching all bills from {congress}th Congress...")
+    
     print(f"API Base URL: {API_BASE_URL}")
+    
+    # Track if we've found any recent bills
+    recent_bills_found = False
+    consecutive_old_bills = 0
+    max_consecutive_old = 3  # Stop after 3 pages of old bills
     
     while True:
         print(f"Fetching page {page} (offset {offset})...")
@@ -335,13 +353,43 @@ def fetch_all_bills(api_key: str, congress: int) -> List[Dict]:
             print("No more bills found.")
             break
         
-        # Normalize each bill
+        # Normalize and filter bills
+        page_recent_count = 0
         for bill_data in bills:
             normalized = normalize_bill(bill_data, congress)
             if normalized:
-                all_bills.append(normalized)
+                # If we're filtering by date, check if bill is recent
+                if cutoff_date:
+                    # Check latest_action_date or published date
+                    action_date_str = normalized.get("latest_action_date", normalized.get("published", ""))
+                    if action_date_str:
+                        try:
+                            action_date = datetime.fromisoformat(action_date_str.replace("Z", "+00:00"))
+                            if action_date.tzinfo is None:
+                                action_date = action_date.replace(tzinfo=timezone.utc)
+                            
+                            if action_date >= cutoff_date:
+                                all_bills.append(normalized)
+                                page_recent_count += 1
+                                recent_bills_found = True
+                                consecutive_old_bills = 0
+                            else:
+                                consecutive_old_bills += 1
+                        except (ValueError, AttributeError):
+                            # If date parsing fails, include it to be safe
+                            all_bills.append(normalized)
+                            page_recent_count += 1
+                else:
+                    # No date filtering, include all bills
+                    all_bills.append(normalized)
+                    page_recent_count += 1
         
-        print(f"  Processed {len(bills)} bills from page {page} (total: {len(all_bills)})")
+        print(f"  Processed {len(bills)} bills from page {page}, {page_recent_count} recent (total: {len(all_bills)})")
+        
+        # If filtering by date and we've seen several pages of old bills, we can stop early
+        if cutoff_date and consecutive_old_bills >= len(bills) * max_consecutive_old:
+            print(f"  Stopping early: Found {max_consecutive_old} consecutive pages of old bills")
+            break
         
         # Check if there are more pages
         pagination = response_data.get("pagination", {})
@@ -353,8 +401,17 @@ def fetch_all_bills(api_key: str, congress: int) -> List[Dict]:
             break
         
         page += 1
+        
+        # Safety limit: don't fetch more than 50 pages (12,500 bills) even if filtering
+        if page > 50:
+            print(f"  Reached safety limit of 50 pages. Stopping.")
+            break
     
     print(f"\nTotal bills fetched: {len(all_bills)}")
+    if cutoff_date and not recent_bills_found:
+        print(f"Warning: No bills found updated in the last {days_back} days.")
+        print("Consider increasing days_back or fetching all bills.")
+    
     return all_bills
 
 
@@ -445,8 +502,10 @@ def main():
     existing_bills = load_existing_legislation()
     print(f"Loaded {len(existing_bills)} existing bills from {LEGISLATION_FILE}")
     
-    # Fetch all bills from API
-    new_bills = fetch_all_bills(api_key, CONGRESS_NUMBER)
+    # Fetch recent bills from API (last 30 days for speed)
+    # Change days_back to None or 0 to fetch all bills
+    DAYS_BACK = 30  # Only fetch bills updated in last 30 days
+    new_bills = fetch_all_bills(api_key, CONGRESS_NUMBER, days_back=DAYS_BACK)
     
     if not new_bills:
         print("No bills fetched. Exiting.")
