@@ -682,22 +682,33 @@ async function loadWeeklyOverview() {
     // Set up toggle functionality
     const header = document.getElementById("weekly-overview-header");
     if (header) {
-        // Ensure it starts collapsed (class should be set in HTML, but ensure it)
-        if (!section.classList.contains("collapsed") && !section.classList.contains("expanded")) {
-            section.classList.add("collapsed");
-        }
+        // Ensure it starts collapsed
+        section.classList.add("collapsed");
+        section.classList.remove("expanded");
         
-        header.addEventListener("click", (e) => {
+        // Add click handler to header
+        header.onclick = function(e) {
             e.preventDefault();
             e.stopPropagation();
+            
+            console.log("Weekly overview header clicked");
+            console.log("Current classes:", section.classList.toString());
+            
             if (section.classList.contains("collapsed")) {
                 section.classList.remove("collapsed");
                 section.classList.add("expanded");
+                console.log("Expanded");
             } else {
                 section.classList.remove("expanded");
                 section.classList.add("collapsed");
+                console.log("Collapsed");
             }
-        });
+        };
+        
+        // Also make the entire header clickable
+        header.style.cursor = "pointer";
+    } else {
+        console.error("Weekly overview header not found");
     }
     
     try {
@@ -751,8 +762,8 @@ async function loadWeeklyOverview() {
             html += `</div>`;
         }
         
-        // Update container content (padding is handled by CSS)
-        container.innerHTML = `<div>${html}</div>`;
+        // Update container content
+        container.innerHTML = html;
     } catch (error) {
         // If weekly overview doesn't exist, hide the section
         if (section) {

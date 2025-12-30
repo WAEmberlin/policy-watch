@@ -428,16 +428,19 @@ mark {
 
 #weekly-overview-content {
     overflow: hidden;
-    transition: max-height 0.3s ease-out;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
     max-height: 0;
+    padding: 0 20px;
 }
 
 #weekly-overview-section.collapsed #weekly-overview-content {
     max-height: 0 !important;
+    padding: 0 20px !important;
 }
 
 #weekly-overview-section.expanded #weekly-overview-content {
     max-height: 5000px;
+    padding: 20px;
 }
 
 #weekly-overview-section.collapsed #weekly-overview-arrow {
@@ -470,9 +473,7 @@ mark {
             </h2>
         </div>
         <div id="weekly-overview-content">
-            <div style="padding: 20px;">
-                <p class="empty-state">Loading weekly overview...</p>
-            </div>
+            <p class="empty-state">Loading weekly overview...</p>
         </div>
     </div>
     

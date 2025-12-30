@@ -336,6 +336,10 @@ for hearing in federal_hearings:
     if hearing.get("committee") and not hearing.get("committees"):
         hearing["committees"] = hearing["committee"]
     
+    # Ensure source is set correctly
+    if not hearing.get("source"):
+        hearing["source"] = "Federal (US Congress)"
+    
     scheduled_date = hearing.get("scheduled_date", "")
     if scheduled_date:
         try:
@@ -343,14 +347,29 @@ for hearing in federal_hearings:
             if "T" in scheduled_date:
                 scheduled_dt = datetime.fromisoformat(scheduled_date.replace("Z", "+00:00"))
             else:
+                # Parse date-only format (YYYY-MM-DD)
                 scheduled_dt = datetime.fromisoformat(scheduled_date + "T00:00:00+00:00")
             
-            if scheduled_dt >= today_start:
+            # Make sure scheduled_dt is timezone-aware
+            if scheduled_dt.tzinfo is None:
+                scheduled_dt = scheduled_dt.replace(tzinfo=timezone.utc)
+            
+            # Compare dates (ignore time for date-only comparisons)
+            scheduled_date_only = scheduled_dt.date()
+            today_date_only = today_start.date()
+            
+            if scheduled_date_only >= today_date_only:
                 federal_upcoming.append(hearing)
             else:
                 federal_historical.append(hearing)
-        except (ValueError, KeyError):
-            continue
+        except (ValueError, KeyError) as e:
+            print(f"Warning: Could not parse scheduled_date '{scheduled_date}' for hearing '{hearing.get('title', 'Unknown')}': {e}")
+            # If date parsing fails, include in upcoming by default
+            federal_upcoming.append(hearing)
+    else:
+        # No scheduled_date - include in upcoming by default
+        print(f"Warning: Hearing '{hearing.get('title', 'Unknown')}' has no scheduled_date, including in upcoming")
+        federal_upcoming.append(hearing)
 
 # Sort federal hearings
 federal_upcoming.sort(key=lambda x: x.get("scheduled_date", ""))
