@@ -103,11 +103,66 @@ def fetch_hearings(
             
             print(f"  Found {len(hearings_list)} hearings on page {page}")
             
-            # Normalize each hearing
-            for hearing_data in hearings_list:
-                normalized = normalize_hearing(hearing_data, congress)
-                if normalized:
-                    hearings.append(normalized)
+            # Fetch full details for each hearing and normalize
+            normalized_count = 0
+            skipped_count = 0
+            for i, hearing_summary in enumerate(hearings_list):
+                # The list endpoint only returns minimal data (chamber, jacketNumber, url, etc.)
+                # We need to fetch the full details using the URL
+                detail_url = hearing_summary.get("url", "")
+                if not detail_url:
+                    # Try to construct URL from jacketNumber and chamber
+                    jacket_number = hearing_summary.get("jacketNumber")
+                    chamber_lower = hearing_summary.get("chamber", "").lower()
+                    if jacket_number and chamber_lower:
+                        detail_url = f"{API_BASE_URL}/hearing/{congress}/{chamber_lower}/{jacket_number}"
+                
+                if not detail_url:
+                    skipped_count += 1
+                    continue
+                
+                # Fetch full hearing details
+                try:
+                    detail_params = {"api_key": api_key, "format": "json"}
+                    detail_response = requests.get(detail_url, params=detail_params, timeout=30)
+                    detail_response.raise_for_status()
+                    time.sleep(REQUEST_DELAY)  # Rate limiting
+                    
+                    detail_data = detail_response.json()
+                    # The detail response should have a "hearing" key
+                    hearing_data = detail_data.get("hearing", detail_data)
+                    
+                    # Debug: print first hearing structure
+                    if page == 1 and i == 0:
+                        print(f"  Debug: First hearing detail keys: {list(hearing_data.keys())}")
+                        print(f"  Debug: Sample fields: hearingTitle={hearing_data.get('hearingTitle', 'MISSING')}, hearingDate={hearing_data.get('hearingDate', 'MISSING')}")
+                    
+                    normalized = normalize_hearing(hearing_data, congress)
+                    if normalized:
+                        hearings.append(normalized)
+                        normalized_count += 1
+                    else:
+                        skipped_count += 1
+                        # Debug: print why first hearing was skipped
+                        if page == 1 and i == 0:
+                            print(f"  Debug: First hearing was skipped - checking why...")
+                            print(f"    hearingTitle: {hearing_data.get('hearingTitle', 'MISSING')}")
+                            print(f"    hearingDate: {hearing_data.get('hearingDate', 'MISSING')}")
+                            print(f"    date: {hearing_data.get('date', 'MISSING')}")
+                            print(f"    scheduledDate: {hearing_data.get('scheduledDate', 'MISSING')}")
+                except requests.exceptions.RequestException as e:
+                    skipped_count += 1
+                    if page == 1 and i == 0:
+                        print(f"  Debug: Error fetching first hearing detail: {e}")
+                    continue
+                except Exception as e:
+                    skipped_count += 1
+                    if page == 1 and i == 0:
+                        print(f"  Debug: Unexpected error fetching first hearing: {e}")
+                    continue
+            
+            if skipped_count > 0:
+                print(f"  Normalized {normalized_count}, skipped {skipped_count} (check field names)")
             
             # Get next page URL from pagination
             pagination = data.get("pagination", {})
@@ -141,12 +196,12 @@ def fetch_hearings(
     seen = set()
     unique_hearings = []
     for hearing in hearings:
-        # Only include hearings with valid published date (hearingDate)
-        if not hearing.get("published"):
+        # Only include hearings with valid scheduled_date
+        if not hearing.get("scheduled_date"):
             continue
         
         # Create unique key
-        key = hearing.get("url", "") or f"{hearing.get('title', '')}_{hearing.get('published', '')}"
+        key = hearing.get("url", "") or f"{hearing.get('title', '')}_{hearing.get('scheduled_date', '')}"
         if key and key not in seen:
             seen.add(key)
             unique_hearings.append(hearing)
@@ -167,21 +222,39 @@ def normalize_hearing(hearing_data: Dict, congress: int) -> Optional[Dict]:
         Normalized hearing dict, or None if invalid
     """
     try:
-        # Extract title (field is "hearingTitle")
-        title = hearing_data.get("hearingTitle", "").strip()
+        # Extract title - the field is "title" in the detail response
+        title = hearing_data.get("title", "").strip()
         if not title:
             # Try alternative fields
-            title = (hearing_data.get("title", "") or
+            title = (hearing_data.get("hearingTitle", "") or
                     hearing_data.get("name", "") or
-                    hearing_data.get("description", "")).strip()
+                    hearing_data.get("description", "") or
+                    "").strip()
         
         if not title:
             return None  # Must have a title
         
-        # Extract published date (field is "hearingDate") - REQUIRED
-        hearing_date = hearing_data.get("hearingDate")
+        # Extract date from "dates" array - the structure is dates[0].date
+        hearing_date = None
+        dates_array = hearing_data.get("dates", [])
+        if dates_array and isinstance(dates_array, list) and len(dates_array) > 0:
+            first_date_obj = dates_array[0]
+            if isinstance(first_date_obj, dict):
+                hearing_date = first_date_obj.get("date")
+            elif isinstance(first_date_obj, str):
+                hearing_date = first_date_obj
+        
+        # Fallback: try other date fields
         if not hearing_date:
-            # Skip items without hearingDate
+            hearing_date = (hearing_data.get("hearingDate") or
+                           hearing_data.get("date") or
+                           hearing_data.get("scheduledDate") or
+                           hearing_data.get("eventDate") or
+                           hearing_data.get("startDate") or
+                           hearing_data.get("publishedDate"))
+        
+        if not hearing_date:
+            # Skip items without date
             return None
         
         # Parse the date
@@ -218,25 +291,63 @@ def normalize_hearing(hearing_data: Dict, congress: int) -> Optional[Dict]:
         # Extract chamber
         chamber = hearing_data.get("chamber", "").lower()
         
-        # Extract committee name (nested: committee.name)
+        # Extract committee name from "committees" array - the structure is committees[0].name
         committee_name = ""
-        committee_obj = hearing_data.get("committee", {})
-        if isinstance(committee_obj, dict):
-            committee_name = (committee_obj.get("name", "") or
-                            committee_obj.get("fullName", "") or
-                            committee_obj.get("committeeName", "") or
-                            committee_obj.get("displayName", "")).strip()
-        elif isinstance(committee_obj, str):
-            committee_name = committee_obj.strip()
+        committees_array = hearing_data.get("committees", [])
+        if committees_array and isinstance(committees_array, list) and len(committees_array) > 0:
+            first_committee = committees_array[0]
+            if isinstance(first_committee, dict):
+                committee_name = (first_committee.get("name", "") or
+                                first_committee.get("fullName", "") or
+                                first_committee.get("committeeName", "") or
+                                first_committee.get("displayName", "")).strip()
+            elif isinstance(first_committee, str):
+                committee_name = first_committee.strip()
         
-        # Extract URL
-        url = hearing_data.get("url", "")
+        # Fallback: try single committee object
+        if not committee_name:
+            committee_obj = hearing_data.get("committee", {})
+            if isinstance(committee_obj, dict):
+                committee_name = (committee_obj.get("name", "") or
+                                committee_obj.get("fullName", "") or
+                                committee_obj.get("committeeName", "") or
+                                committee_obj.get("displayName", "")).strip()
+            elif isinstance(committee_obj, str):
+                committee_name = committee_obj.strip()
+        
+        # Extract URL - construct from citation or jacketNumber
+        url = ""
+        
+        # Try to get public URL from formats array
+        formats_array = hearing_data.get("formats", [])
+        if formats_array and isinstance(formats_array, list):
+            for fmt in formats_array:
+                if isinstance(fmt, dict):
+                    fmt_url = fmt.get("url", "")
+                    if fmt_url and "congress.gov" in fmt_url:
+                        # Prefer formatted text URL, but any congress.gov URL works
+                        url = fmt_url
+                        break
+        
+        # If no URL from formats, try to construct from citation
         if not url:
-            # Try to build URL from hearing number if available
-            hearing_number = hearing_data.get("hearingNumber", "")
-            if hearing_number:
-                chamber_part = chamber or "house"
-                url = f"https://www.congress.gov/hearing/{congress}th-congress/{chamber_part}-committee/{hearing_number}"
+            citation = hearing_data.get("citation", "")
+            if citation:
+                # Citation format: H.Hrg.119-14 -> construct URL
+                # Format: https://www.congress.gov/hearing/119th-congress/house-committee/[number]
+                number = hearing_data.get("number", "")
+                if number and chamber:
+                    url = f"https://www.congress.gov/hearing/{congress}th-congress/{chamber}-committee/{number}"
+        
+        # Fallback: construct from jacketNumber
+        if not url:
+            jacket_number = hearing_data.get("jacketNumber", "")
+            if jacket_number and chamber:
+                url = f"https://www.congress.gov/hearing/{congress}th-congress/{chamber}-committee/{jacket_number}"
+        
+        # Last resort: generic hearings page
+        if not url:
+            url = f"https://www.congress.gov/hearings"
         
         # Extract summary/description
         summary = (hearing_data.get("summary", "") or
