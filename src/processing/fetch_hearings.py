@@ -46,7 +46,9 @@ def get_api_key() -> str:
 def fetch_hearings(
     api_key: str,
     congress: int = CONGRESS_NUMBER,
-    chamber: Optional[str] = None
+    chamber: Optional[str] = None,
+    days_back: int = 30,
+    days_forward: int = 60
 ) -> List[Dict]:
     """
     Fetch hearings from the Congress.gov API.
@@ -70,14 +72,22 @@ def fetch_hearings(
     else:
         url = f"{API_BASE_URL}/hearing/{congress}"
     
+    # Calculate date range for filtering
+    now = datetime.now(timezone.utc)
+    start_date = (now - timedelta(days=days_back)).date()
+    end_date = (now + timedelta(days=days_forward)).date()
+    
     print(f"Fetching hearings from Congress.gov API...")
     print(f"  Congress: {congress}")
+    print(f"  Date range: {start_date} to {end_date}")
     if chamber:
         print(f"  Chamber: {chamber}")
     
     # Start with initial URL
     current_url = url
     page = 1
+    consecutive_old_pages = 0  # Track consecutive pages with no recent hearings
+    MAX_CONSECUTIVE_OLD = 3  # Stop after 3 consecutive pages with no recent hearings
     
     while current_url:
         try:
@@ -139,8 +149,22 @@ def fetch_hearings(
                     
                     normalized = normalize_hearing(hearing_data, congress)
                     if normalized:
-                        hearings.append(normalized)
-                        normalized_count += 1
+                        # Check if hearing is within date range before adding
+                        scheduled_date_str = normalized.get("scheduled_date", "")
+                        if scheduled_date_str:
+                            try:
+                                hearing_date = datetime.fromisoformat(scheduled_date_str + "T00:00:00+00:00").date()
+                                if start_date <= hearing_date <= end_date:
+                                    hearings.append(normalized)
+                                    normalized_count += 1
+                                else:
+                                    skipped_count += 1  # Outside date range
+                            except (ValueError, AttributeError):
+                                # Invalid date, skip it
+                                skipped_count += 1
+                        else:
+                            # No date, skip it
+                            skipped_count += 1
                     else:
                         skipped_count += 1
                         # Debug: print why first hearing was skipped
@@ -163,6 +187,16 @@ def fetch_hearings(
             
             if skipped_count > 0:
                 print(f"  Normalized {normalized_count}, skipped {skipped_count} (check field names)")
+            
+            # Check if this page had any recent hearings (within date range)
+            # We'll check this after filtering below, but for now track if we got any normalized hearings
+            if normalized_count == 0:
+                consecutive_old_pages += 1
+                if consecutive_old_pages >= MAX_CONSECUTIVE_OLD:
+                    print(f"  Stopping early: {MAX_CONSECUTIVE_OLD} consecutive pages with no recent hearings")
+                    break
+            else:
+                consecutive_old_pages = 0  # Reset counter if we found recent hearings
             
             # Get next page URL from pagination
             pagination = data.get("pagination", {})
@@ -192,21 +226,22 @@ def fetch_hearings(
             print(f"  Unexpected error on page {page}: {e}")
             break
     
-    # Deduplicate by URL or title+date
+    # Deduplicate (date filtering already done during normalization)
     seen = set()
     unique_hearings = []
     for hearing in hearings:
-        # Only include hearings with valid scheduled_date
-        if not hearing.get("scheduled_date"):
-            continue
+        # All hearings in the list should already be within date range
+        scheduled_date_str = hearing.get("scheduled_date", "")
+        if not scheduled_date_str:
+            continue  # Skip hearings without dates
         
-        # Create unique key
-        key = hearing.get("url", "") or f"{hearing.get('title', '')}_{hearing.get('scheduled_date', '')}"
+        # Create unique key for deduplication
+        key = hearing.get("url", "") or f"{hearing.get('title', '')}_{scheduled_date_str}"
         if key and key not in seen:
             seen.add(key)
             unique_hearings.append(hearing)
     
-    print(f"  Fetched {len(unique_hearings)} unique hearings with valid dates")
+    print(f"  Fetched {len(unique_hearings)} unique hearings within date range")
     return unique_hearings
 
 
@@ -428,6 +463,62 @@ def filter_hearings_by_date_range(
     return filtered
 
 
+def load_existing_hearings() -> List[Dict]:
+    """Load existing hearings from file if it exists."""
+    if not HEARINGS_FILE.exists():
+        return []
+    
+    try:
+        with open(HEARINGS_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            if isinstance(data, dict) and "items" in data:
+                return data["items"]
+            elif isinstance(data, list):
+                return data
+            else:
+                return []
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"Warning: Could not load existing hearings: {e}")
+        return []
+
+
+def merge_hearings(existing: List[Dict], new: List[Dict]) -> List[Dict]:
+    """
+    Merge new hearings with existing ones, deduplicating by URL or title+date.
+    
+    Args:
+        existing: List of existing hearing dictionaries
+        new: List of newly fetched hearing dictionaries
+    
+    Returns:
+        Merged and deduplicated list of hearings
+    """
+    # Create a set of keys from existing hearings
+    seen = set()
+    merged = []
+    
+    # Add existing hearings first
+    for hearing in existing:
+        scheduled_date = hearing.get("scheduled_date", "")
+        key = hearing.get("url", "") or f"{hearing.get('title', '')}_{scheduled_date}"
+        if key:
+            seen.add(key)
+            merged.append(hearing)
+    
+    # Add new hearings that aren't duplicates
+    new_count = 0
+    for hearing in new:
+        scheduled_date = hearing.get("scheduled_date", "")
+        key = hearing.get("url", "") or f"{hearing.get('title', '')}_{scheduled_date}"
+        if key and key not in seen:
+            seen.add(key)
+            merged.append(hearing)
+            new_count += 1
+    
+    print(f"  Merged {new_count} new hearings with {len(existing)} existing")
+    return merged
+
+
 def main():
     """Main entry point for fetching hearings."""
     try:
@@ -438,48 +529,81 @@ def main():
     
     print("Fetching Congressional hearings...")
     
-    # Fetch all hearings (we'll filter by date later if needed)
-    all_hearings = []
+    # Load existing hearings
+    existing_hearings = load_existing_hearings()
+    print(f"Loaded {len(existing_hearings)} existing hearings from {HEARINGS_FILE}")
+    
+    # Fetch only recent hearings (last 30 days, next 60 days)
+    # This is much faster than fetching all 400+ hearings
+    new_hearings = []
     
     # Try fetching all chambers first
     try:
-        hearings = fetch_hearings(api_key, CONGRESS_NUMBER)
-        all_hearings.extend(hearings)
+        hearings = fetch_hearings(api_key, CONGRESS_NUMBER, days_back=30, days_forward=60)
+        new_hearings.extend(hearings)
     except Exception as e:
         print(f"Error fetching all hearings: {e}")
     
     # If no results, try per-chamber
-    if not all_hearings:
+    if not new_hearings:
         print("  No results from bulk fetch, trying per-chamber...")
         
         # Try House
         try:
-            house_hearings = fetch_hearings(api_key, CONGRESS_NUMBER, "house")
-            all_hearings.extend(house_hearings)
+            house_hearings = fetch_hearings(api_key, CONGRESS_NUMBER, "house", days_back=30, days_forward=60)
+            new_hearings.extend(house_hearings)
         except Exception as e:
             print(f"  Error fetching House hearings: {e}")
         
         # Try Senate
         try:
-            senate_hearings = fetch_hearings(api_key, CONGRESS_NUMBER, "senate")
-            all_hearings.extend(senate_hearings)
+            senate_hearings = fetch_hearings(api_key, CONGRESS_NUMBER, "senate", days_back=30, days_forward=60)
+            new_hearings.extend(senate_hearings)
         except Exception as e:
             print(f"  Error fetching Senate hearings: {e}")
     
-    if all_hearings:
-        # Save to file
+    # Merge new hearings with existing
+    all_hearings = merge_hearings(existing_hearings, new_hearings)
+    
+    # Clean up very old hearings (older than 2 years) to keep file size manageable
+    cutoff_date = (datetime.now(timezone.utc) - timedelta(days=730)).date()
+    cleaned_hearings = []
+    removed_count = 0
+    
+    for hearing in all_hearings:
+        scheduled_date_str = hearing.get("scheduled_date", "")
+        if scheduled_date_str:
+            try:
+                hearing_date = datetime.fromisoformat(scheduled_date_str + "T00:00:00+00:00").date()
+                if hearing_date >= cutoff_date:
+                    cleaned_hearings.append(hearing)
+                else:
+                    removed_count += 1
+            except (ValueError, AttributeError):
+                # Keep hearings with invalid dates (better safe than sorry)
+                cleaned_hearings.append(hearing)
+        else:
+            # Keep hearings without dates
+            cleaned_hearings.append(hearing)
+    
+    if removed_count > 0:
+        print(f"  Removed {removed_count} hearings older than 2 years")
+    
+    if cleaned_hearings:
+        # Save merged hearings to file
         output = {
             "generated_at": datetime.now(timezone.utc).isoformat(),
-            "count": len(all_hearings),
-            "items": all_hearings
+            "count": len(cleaned_hearings),
+            "items": cleaned_hearings
         }
         
         with open(HEARINGS_FILE, "w", encoding="utf-8") as f:
             json.dump(output, f, indent=2)
         
-        print(f"\nSuccessfully saved {len(all_hearings)} hearings to {HEARINGS_FILE}")
+        print(f"\nSuccessfully saved {len(cleaned_hearings)} total hearings to {HEARINGS_FILE}")
+        print(f"  ({len(new_hearings)} newly fetched, {len(existing_hearings)} existing, {removed_count} removed)")
     else:
-        print("\nNo hearings fetched. This may be normal if no hearings are scheduled.")
+        print("\nNo hearings to save.")
 
 
 if __name__ == "__main__":
