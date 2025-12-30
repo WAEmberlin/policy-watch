@@ -22,6 +22,7 @@ DOCS_DIR = "docs"
 HISTORY_FILE = os.path.join(OUTPUT_DIR, "history.json")
 LEGISLATION_FILE = os.path.join(OUTPUT_DIR, "legislation.json")
 FEDERAL_HEARINGS_FILE = os.path.join(OUTPUT_DIR, "federal_hearings.json")
+HEARINGS_FILE = os.path.join(OUTPUT_DIR, "hearings.json")
 SITE_DATA_FILE = os.path.join(DOCS_DIR, "site_data.json")
 
 ITEMS_PER_PAGE = 50
@@ -290,7 +291,26 @@ print(f"Found {len(historical_hearings)} historical conference committee hearing
 # Load and process federal hearings
 # -------------------------
 federal_hearings = []
-if os.path.exists(FEDERAL_HEARINGS_FILE):
+
+# Try new hearings.json file first (from fetch_hearings.py)
+if os.path.exists(HEARINGS_FILE):
+    try:
+        with open(HEARINGS_FILE, "r", encoding="utf-8") as f:
+            hearings_data = json.load(f)
+            if isinstance(hearings_data, dict) and "items" in hearings_data:
+                federal_hearings = hearings_data["items"]
+                print(f"Loaded {len(federal_hearings)} federal hearings from {HEARINGS_FILE}")
+            elif isinstance(hearings_data, list):
+                federal_hearings = hearings_data
+                print(f"Loaded {len(federal_hearings)} federal hearings from {HEARINGS_FILE}")
+            else:
+                print(f"Warning: hearings.json has unexpected format. Treating as empty.")
+                federal_hearings = []
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"Warning: Could not load hearings.json: {e}")
+
+# Fallback to old federal_hearings.json if new file doesn't exist
+if not federal_hearings and os.path.exists(FEDERAL_HEARINGS_FILE):
     try:
         with open(FEDERAL_HEARINGS_FILE, "r", encoding="utf-8") as f:
             federal_hearings = json.load(f)
@@ -307,9 +327,24 @@ federal_upcoming = []
 federal_historical = []
 
 for hearing in federal_hearings:
-    if hearing.get("scheduled_date"):
+    # Ensure hearing has required fields for frontend
+    if not hearing.get("url") and hearing.get("link"):
+        hearing["url"] = hearing["link"]
+    if not hearing.get("link") and hearing.get("url"):
+        hearing["link"] = hearing["url"]
+    # Map committee to committees for consistency with frontend
+    if hearing.get("committee") and not hearing.get("committees"):
+        hearing["committees"] = hearing["committee"]
+    
+    scheduled_date = hearing.get("scheduled_date", "")
+    if scheduled_date:
         try:
-            scheduled_dt = datetime.fromisoformat(hearing["scheduled_date"].replace("Z", "+00:00"))
+            # Handle both date-only and datetime formats
+            if "T" in scheduled_date:
+                scheduled_dt = datetime.fromisoformat(scheduled_date.replace("Z", "+00:00"))
+            else:
+                scheduled_dt = datetime.fromisoformat(scheduled_date + "T00:00:00+00:00")
+            
             if scheduled_dt >= today_start:
                 federal_upcoming.append(hearing)
             else:

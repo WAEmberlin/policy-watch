@@ -459,15 +459,15 @@ function renderHearings(hearings, container, emptyMessage, sourceFilter = "", ye
                     </div>
                     ` : ""}
                 </div>
-                ${hearing.committees ? `
+                ${(hearing.committees || hearing.committee) ? `
                 <div class="meta-item" style="margin-top: 10px;">
-                    <span class="meta-label">Committees</span>
-                    <span class="meta-value">${hearing.committees}</span>
+                    <span class="meta-label">${hearing.chamber ? hearing.chamber + " " : ""}Committee${hearing.committees && hearing.committees.includes(',') ? 's' : ''}</span>
+                    <span class="meta-value">${hearing.committees || hearing.committee}</span>
                 </div>
                 ` : ""}
-                ${hearing.link ? `
-                <a href="${hearing.link}" target="_blank" rel="noopener noreferrer" class="hearing-link">
-                    View Full Schedule →
+                ${(hearing.link || hearing.url) ? `
+                <a href="${hearing.link || hearing.url}" target="_blank" rel="noopener noreferrer" class="hearing-link">
+                    ${hearing.source && hearing.source.includes("Federal") ? "View on Congress.gov →" : "View Full Schedule →"}
                 </a>
                 ` : ""}
             `;

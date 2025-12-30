@@ -34,6 +34,7 @@ WEEKLY_DIR = DOCS_DIR / "weekly"
 HISTORY_FILE = OUTPUT_DIR / "history.json"
 LEGISLATION_FILE = OUTPUT_DIR / "legislation.json"
 FEDERAL_HEARINGS_FILE = OUTPUT_DIR / "federal_hearings.json"
+HEARINGS_FILE = OUTPUT_DIR / "hearings.json"
 
 # Output files
 LATEST_JSON = WEEKLY_DIR / "latest.json"
@@ -172,8 +173,20 @@ def load_recent_items(now: datetime) -> Dict[str, List[Dict]]:
     else:
         print("No legislation.json found.")
     
-    # Load federal hearings
-    if FEDERAL_HEARINGS_FILE.exists():
+    # Load federal hearings (try new hearings.json first, fallback to old file)
+    hearings = []
+    if HEARINGS_FILE.exists():
+        try:
+            with open(HEARINGS_FILE, "r", encoding="utf-8") as f:
+                hearings_data = json.load(f)
+                if isinstance(hearings_data, dict) and "items" in hearings_data:
+                    hearings = hearings_data["items"]
+                elif isinstance(hearings_data, list):
+                    hearings = hearings_data
+        except (json.JSONDecodeError, IOError) as e:
+            print(f"Warning: Could not load hearings.json: {e}")
+            hearings = []
+    elif FEDERAL_HEARINGS_FILE.exists():
         try:
             with open(FEDERAL_HEARINGS_FILE, "r", encoding="utf-8") as f:
                 hearings = json.load(f)
@@ -182,20 +195,19 @@ def load_recent_items(now: datetime) -> Dict[str, List[Dict]]:
         except (json.JSONDecodeError, IOError) as e:
             print(f"Warning: Could not load federal_hearings.json: {e}")
             hearings = []
-        
-        for hearing in hearings:
-            date_str = hearing.get("scheduled_date", "")
-            if is_within_last_7_days(date_str, now):
-                normalized = {
-                    "title": hearing.get("title", "Congressional Hearing"),
-                    "summary": f"Hearing scheduled for {hearing.get('scheduled_date', '')}",
-                    "source": hearing.get("source", "Federal (US Congress)"),
-                    "published": date_str,
-                    "url": hearing.get("url", "")
-                }
-                items["congress"].append(normalized)
-    else:
-        print("No federal_hearings.json found.")
+    
+    for hearing in hearings:
+        date_str = hearing.get("scheduled_date", "") or hearing.get("published", "")
+        if is_within_last_7_days(date_str, now):
+            normalized = {
+                "title": hearing.get("title", "Congressional Hearing"),
+                "summary": hearing.get("summary", f"Hearing scheduled for {hearing.get('scheduled_date', '')}"),
+                "source": hearing.get("source", "Federal (US Congress)"),
+                "published": date_str,
+                "url": hearing.get("url", ""),
+                "category": "hearing"
+            }
+            items["congress"].append(normalized)
     
     return items
 
@@ -224,21 +236,37 @@ def generate_summary(items: Dict[str, List[Dict]], week_start: datetime, week_en
     lines.append(f"Here is your CivicWatch weekly overview for the week of {week_start_str} through {week_end_str}.")
     lines.append("")
     
-    # Congress section
-    if congress_count > 0:
-        # Get a sample item for context
-        sample = items["congress"][0]
-        title = sample.get("title", "legislative activity")
-        # Truncate long titles
-        if len(title) > 80:
-            title = title[:77] + "..."
+    # Congress section (including bills and hearings)
+    congress_bills = [item for item in items["congress"] if item.get("category") != "hearing"]
+    congress_hearings = [item for item in items["congress"] if item.get("category") == "hearing"]
+    
+    if congress_bills or congress_hearings:
+        # Build summary with bills and hearings
+        parts = []
+        if congress_bills:
+            sample_bill = congress_bills[0]
+            bill_title = sample_bill.get("title", "an important bill")
+            if len(bill_title) > 80:
+                bill_title = bill_title[:77] + "..."
+            
+            if len(congress_bills) == 1:
+                parts.append(f"one bill: {bill_title}")
+            elif len(congress_bills) < 5:
+                parts.append(f"{len(congress_bills)} bills, including {bill_title}")
+            else:
+                parts.append(f"{len(congress_bills)} bills, including {bill_title} and others")
         
-        if congress_count == 1:
-            lines.append(f"In Congress, one item was tracked this week: {title}.")
-        elif congress_count < 5:
-            lines.append(f"In Congress, {congress_count} items were tracked this week, including {title}.")
+        if congress_hearings:
+            if len(congress_hearings) == 1:
+                parts.append("one congressional hearing")
+            else:
+                parts.append(f"{len(congress_hearings)} congressional hearings")
+        
+        if parts:
+            items_text = " and ".join(parts)
+            lines.append(f"In Congress, {items_text} were tracked this week.")
         else:
-            lines.append(f"In Congress, {congress_count} items were tracked this week, including {title} and others.")
+            lines.append(f"In Congress, {congress_count} items were tracked this week.")
     else:
         lines.append("In Congress, no new activity was tracked this week.")
     

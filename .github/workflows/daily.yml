@@ -41,6 +41,16 @@ jobs:
             echo "CONGRESS_API_KEY not set, skipping Congress API fetch"
           fi
 
+      - name: Fetch Congressional hearings
+        env:
+          CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
+        run: |
+          if [ -n "$CONGRESS_API_KEY" ]; then
+            python src/processing/fetch_hearings.py || echo "Hearings fetch failed, continuing..."
+          else
+            echo "CONGRESS_API_KEY not set, skipping hearings fetch"
+          fi
+
       - name: Build HTML digest
         run: python src/processing/summarize.py
 
