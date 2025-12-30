@@ -5,6 +5,7 @@ This script fixes links in the existing history.json file by replacing
 example.com with www.kslegislature.gov while preserving the URL path.
 """
 import json
+import re
 from pathlib import Path
 
 OUTPUT_DIR = Path("src/output")
@@ -16,16 +17,23 @@ def fix_link(link: str) -> str:
     if not link or "example.com" not in link:
         return link
     
-    # Replace all variations of example.com
-    fixed = link.replace("http://example.com", "https://www.kslegislature.gov")
-    fixed = fixed.replace("https://example.com", "https://www.kslegislature.gov")
-    fixed = fixed.replace("http://www.example.com", "https://www.kslegislature.gov")
-    fixed = fixed.replace("https://www.example.com", "https://www.kslegislature.gov")
-    fixed = fixed.replace("example.com", "www.kslegislature.gov")
-    
-    # Ensure https
-    if fixed.startswith("http://"):
-        fixed = fixed.replace("http://", "https://", 1)
+    # Extract the path (everything after example.com) and preserve it
+    # Match example.com and capture everything after it (including the path)
+    match = re.search(r'https?://(?:www\.)?example\.com(/.*)?', link)
+    if match:
+        path = match.group(1) if match.group(1) else ""
+        # Reconstruct with correct domain, preserving the path
+        fixed = f"https://www.kslegislature.gov{path}"
+    else:
+        # Fallback: simple replace (shouldn't happen with proper URLs)
+        fixed = link.replace("http://example.com", "https://www.kslegislature.gov")
+        fixed = fixed.replace("https://example.com", "https://www.kslegislature.gov")
+        fixed = fixed.replace("http://www.example.com", "https://www.kslegislature.gov")
+        fixed = fixed.replace("https://www.example.com", "https://www.kslegislature.gov")
+        fixed = fixed.replace("example.com", "www.kslegislature.gov")
+        # Ensure https
+        if fixed.startswith("http://"):
+            fixed = fixed.replace("http://", "https://", 1)
     
     return fixed
 

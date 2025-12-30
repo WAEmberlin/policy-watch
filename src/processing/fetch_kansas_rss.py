@@ -103,15 +103,23 @@ def normalize_kansas_item(entry: Dict, feed_config: Dict) -> Optional[Dict]:
         # Fix links that have example.com - replace with kslegislature.gov
         # Preserve the rest of the URL path
         if "example.com" in link:
-            # Replace all variations of example.com
-            link = link.replace("http://example.com", "https://www.kslegislature.gov")
-            link = link.replace("https://example.com", "https://www.kslegislature.gov")
-            link = link.replace("http://www.example.com", "https://www.kslegislature.gov")
-            link = link.replace("https://www.example.com", "https://www.kslegislature.gov")
-            link = link.replace("example.com", "www.kslegislature.gov")
-            # Ensure https
-            if link.startswith("http://"):
-                link = link.replace("http://", "https://", 1)
+            # Extract the path (everything after example.com)
+            # Match example.com and capture everything after it (including the path)
+            match = re.search(r'https?://(?:www\.)?example\.com(/.*)?', link)
+            if match:
+                path = match.group(1) if match.group(1) else ""
+                # Reconstruct with correct domain, preserving the path
+                link = f"https://www.kslegislature.gov{path}"
+            else:
+                # Fallback: simple replace (shouldn't happen with proper URLs)
+                link = link.replace("http://example.com", "https://www.kslegislature.gov")
+                link = link.replace("https://example.com", "https://www.kslegislature.gov")
+                link = link.replace("http://www.example.com", "https://www.kslegislature.gov")
+                link = link.replace("https://www.example.com", "https://www.kslegislature.gov")
+                link = link.replace("example.com", "www.kslegislature.gov")
+                # Ensure https
+                if link.startswith("http://"):
+                    link = link.replace("http://", "https://", 1)
         
         # Extract published date
         published = None

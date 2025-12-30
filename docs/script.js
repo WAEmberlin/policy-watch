@@ -682,10 +682,14 @@ async function loadWeeklyOverview() {
     // Set up toggle functionality
     const header = document.getElementById("weekly-overview-header");
     if (header) {
-        // Start collapsed by default
-        section.classList.add("collapsed");
+        // Ensure it starts collapsed (class should be set in HTML, but ensure it)
+        if (!section.classList.contains("collapsed") && !section.classList.contains("expanded")) {
+            section.classList.add("collapsed");
+        }
         
-        header.addEventListener("click", () => {
+        header.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             if (section.classList.contains("collapsed")) {
                 section.classList.remove("collapsed");
                 section.classList.add("expanded");
@@ -747,8 +751,8 @@ async function loadWeeklyOverview() {
             html += `</div>`;
         }
         
-        // Wrap content in inner div for proper padding
-        container.innerHTML = `<div style="padding: 20px 0;">${html}</div>`;
+        // Update container content (padding is handled by CSS)
+        container.innerHTML = `<div>${html}</div>`;
     } catch (error) {
         // If weekly overview doesn't exist, hide the section
         if (section) {
