@@ -116,7 +116,7 @@ def fetch_hearings(
                 for hearing_data in hearings_list:
                     normalized = normalize_hearing(hearing_data, congress)
                     if normalized:
-                        # Filter by date range
+                        # Only include hearings with valid scheduled_date
                         hearing_date = normalized.get("scheduled_date", "")
                         if hearing_date:
                             try:
@@ -124,6 +124,7 @@ def fetch_hearings(
                                 if "T" in hearing_date:
                                     hearing_dt = datetime.fromisoformat(hearing_date.replace("Z", "+00:00"))
                                 else:
+                                    # Try parsing as date-only (YYYY-MM-DD)
                                     hearing_dt = datetime.fromisoformat(hearing_date + "T00:00:00+00:00")
                                 
                                 # Check if within date range
@@ -132,12 +133,11 @@ def fetch_hearings(
                                 
                                 if start_dt <= hearing_dt <= end_dt:
                                     hearings.append(normalized)
-                            except (ValueError, AttributeError):
-                                # If date parsing fails, include it anyway
-                                hearings.append(normalized)
-                        else:
-                            # No date - include it (might be upcoming)
-                            hearings.append(normalized)
+                            except (ValueError, AttributeError) as e:
+                                # If date parsing fails, skip this hearing
+                                # (Most hearings without valid dates are likely past or invalid)
+                                continue
+                        # Skip hearings without scheduled_date
                 
                 # Check pagination
                 pagination = data.get("pagination", {})
@@ -184,17 +184,21 @@ def fetch_hearings(
         print(f"  Error fetching hearings: {e}")
         return []
     
-    # Deduplicate by URL or title+date
+    # Deduplicate by URL or title+date, and filter out hearings without dates
     seen = set()
     unique_hearings = []
     for hearing in hearings:
+        # Only include hearings with valid scheduled_date
+        if not hearing.get("scheduled_date"):
+            continue
+        
         # Create unique key
         key = hearing.get("url", "") or f"{hearing.get('title', '')}_{hearing.get('scheduled_date', '')}"
         if key and key not in seen:
             seen.add(key)
             unique_hearings.append(hearing)
     
-    print(f"  Fetched {len(unique_hearings)} unique hearings")
+    print(f"  Fetched {len(unique_hearings)} unique hearings with valid dates")
     return unique_hearings
 
 
@@ -280,10 +284,10 @@ def normalize_hearing(hearing_data: Dict, congress: int) -> Optional[Dict]:
         scheduled_date = ""
         scheduled_time = ""
         
-        # Try different date fields
-        date_str = (hearing_data.get("date") or
+        # Try different date fields (in order of preference)
+        date_str = (hearing_data.get("scheduledDate") or
                    hearing_data.get("hearingDate") or
-                   hearing_data.get("scheduledDate") or
+                   hearing_data.get("date") or
                    hearing_data.get("eventDate") or
                    hearing_data.get("startDate") or
                    hearing_data.get("dateTime"))
@@ -291,21 +295,38 @@ def normalize_hearing(hearing_data: Dict, congress: int) -> Optional[Dict]:
         if date_str:
             try:
                 if isinstance(date_str, str):
+                    date_str = date_str.strip()
+                    # Skip empty strings
+                    if not date_str:
+                        scheduled_date = ""
                     # Try ISO format
-                    if "T" in date_str:
+                    elif "T" in date_str:
                         dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
                         scheduled_date = dt.date().isoformat()
                         scheduled_time = dt.time().strftime("%H:%M") if dt.time() else ""
                         published = dt.isoformat()
+                    # Try date-only format (YYYY-MM-DD)
+                    elif len(date_str) >= 10 and date_str[4] == "-" and date_str[7] == "-":
+                        # Validate it's a valid date
+                        try:
+                            dt = datetime.fromisoformat(date_str + "T00:00:00+00:00")
+                            scheduled_date = dt.date().isoformat()
+                            published = dt.isoformat()
+                        except ValueError:
+                            scheduled_date = ""
                     else:
-                        scheduled_date = date_str
-                        published = date_str + "T00:00:00+00:00"
+                        # Invalid format
+                        scheduled_date = ""
                 else:
-                    scheduled_date = str(date_str)
-                    published = str(date_str) + "T00:00:00+00:00"
+                    # Non-string date - try to convert
+                    try:
+                        dt = datetime.fromisoformat(str(date_str) + "T00:00:00+00:00")
+                        scheduled_date = dt.date().isoformat()
+                        published = dt.isoformat()
+                    except ValueError:
+                        scheduled_date = ""
             except (ValueError, AttributeError):
-                scheduled_date = str(date_str) if date_str else ""
-                published = str(date_str) + "T00:00:00+00:00" if date_str else ""
+                scheduled_date = ""
         
         # Extract time if separate
         if not scheduled_time:

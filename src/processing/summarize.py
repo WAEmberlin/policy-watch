@@ -367,9 +367,9 @@ for hearing in federal_hearings:
             # If date parsing fails, include in upcoming by default
             federal_upcoming.append(hearing)
     else:
-        # No scheduled_date - include in upcoming by default
-        print(f"Warning: Hearing '{hearing.get('title', 'Unknown')}' has no scheduled_date, including in upcoming")
-        federal_upcoming.append(hearing)
+        # No scheduled_date - skip this hearing (don't include it)
+        # Most hearings without dates are likely past or invalid
+        continue
 
 # Sort federal hearings
 federal_upcoming.sort(key=lambda x: x.get("scheduled_date", ""))
