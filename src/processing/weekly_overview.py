@@ -214,10 +214,22 @@ def load_recent_items(now: datetime) -> Dict[str, List[Dict]]:
 
 def generate_summary(items: Dict[str, List[Dict]], week_start: datetime, week_end: datetime) -> str:
     """
-    Generate a spoken-friendly weekly summary.
+    Generate an enhanced weekly summary with more detail and better content selection.
     
-    Returns a string suitable for text-to-speech (45-90 seconds when read).
+    Uses extractive summarization techniques (no GPU required) to create
+    more informative summaries than the previous simple template approach.
+    
+    Returns a string suitable for text-to-speech (90-180 seconds when read).
     """
+    # Try to use enhanced summary generator
+    try:
+        from src.processing.weekly_summary_enhanced import generate_enhanced_summary
+        return generate_enhanced_summary(items, week_start, week_end, max_items_per_category=5)
+    except ImportError:
+        # Fall back to simple summary if enhanced module not available
+        pass
+    
+    # Fallback: Improved version of original (better than before)
     congress_count = len(items["congress"])
     kansas_count = len(items["kansas"])
     va_count = len(items["va"])
@@ -241,75 +253,122 @@ def generate_summary(items: Dict[str, List[Dict]], week_start: datetime, week_en
     congress_hearings = [item for item in items["congress"] if item.get("category") == "hearing"]
     
     if congress_bills or congress_hearings:
-        # Build summary with bills and hearings
-        parts = []
+        lines.append("=== CONGRESSIONAL ACTIVITY ===")
+        lines.append("")
+        
         if congress_bills:
-            sample_bill = congress_bills[0]
-            bill_title = sample_bill.get("title", "an important bill")
-            if len(bill_title) > 80:
-                bill_title = bill_title[:77] + "..."
+            lines.append(f"**Bills ({len(congress_bills)} total):**")
+            lines.append("")
+            # Show top 3-5 bills with summaries
+            for i, bill in enumerate(congress_bills[:5], 1):
+                title = bill.get("title", "Untitled Bill")
+                # Smart truncate at word boundary
+                if len(title) > 120:
+                    title = title[:117].rsplit(' ', 1)[0] + "..."
+                
+                summary = bill.get("summary", "")
+                if summary and len(summary) > 30:
+                    if len(summary) > 200:
+                        summary = summary[:197].rsplit(' ', 1)[0] + "..."
+                    lines.append(f"{i}. {title}")
+                    lines.append(f"   {summary}")
+                else:
+                    lines.append(f"{i}. {title}")
+                
+                # Add bill number if available
+                bill_num = bill.get("bill_number", "")
+                bill_type = bill.get("bill_type", "")
+                if bill_num and bill_type:
+                    lines.append(f"   ({bill_type} {bill_num})")
+                lines.append("")
             
-            if len(congress_bills) == 1:
-                parts.append(f"one bill: {bill_title}")
-            elif len(congress_bills) < 5:
-                parts.append(f"{len(congress_bills)} bills, including {bill_title}")
-            else:
-                parts.append(f"{len(congress_bills)} bills, including {bill_title} and others")
+            if len(congress_bills) > 5:
+                lines.append(f"... and {len(congress_bills) - 5} more bills.")
+                lines.append("")
         
         if congress_hearings:
-            if len(congress_hearings) == 1:
-                parts.append("one congressional hearing")
-            else:
-                parts.append(f"{len(congress_hearings)} congressional hearings")
-        
-        if parts:
-            items_text = " and ".join(parts)
-            lines.append(f"In Congress, {items_text} were tracked this week.")
-        else:
-            lines.append(f"In Congress, {congress_count} items were tracked this week.")
+            lines.append(f"**Hearings ({len(congress_hearings)} total):**")
+            lines.append("")
+            for i, hearing in enumerate(congress_hearings[:5], 1):
+                title = hearing.get("title", "Congressional Hearing")
+                if len(title) > 120:
+                    title = title[:117].rsplit(' ', 1)[0] + "..."
+                
+                scheduled_date = hearing.get("scheduled_date", "")
+                committee = hearing.get("committee", "")
+                
+                lines.append(f"{i}. {title}")
+                if scheduled_date:
+                    lines.append(f"   Scheduled: {scheduled_date}")
+                if committee:
+                    lines.append(f"   Committee: {committee}")
+                lines.append("")
+            
+            if len(congress_hearings) > 5:
+                lines.append(f"... and {len(congress_hearings) - 5} more hearings.")
+                lines.append("")
     else:
-        lines.append("In Congress, no new activity was tracked this week.")
-    
-    lines.append("")
+        lines.append("=== CONGRESSIONAL ACTIVITY ===")
+        lines.append("No new congressional activity was tracked this week.")
+        lines.append("")
     
     # Kansas section
     if kansas_count > 0:
-        sample = items["kansas"][0]
-        title = sample.get("title", "legislative activity")
-        if len(title) > 80:
-            title = title[:77] + "..."
+        lines.append("=== KANSAS LEGISLATURE ===")
+        lines.append("")
+        for i, item in enumerate(items["kansas"][:5], 1):
+            title = item.get("title", "Legislative Item")
+            if len(title) > 120:
+                title = title[:117].rsplit(' ', 1)[0] + "..."
+            
+            summary = item.get("summary", "")
+            if summary and len(summary) > 30:
+                if len(summary) > 200:
+                    summary = summary[:197].rsplit(' ', 1)[0] + "..."
+                lines.append(f"{i}. {title}")
+                lines.append(f"   {summary}")
+            else:
+                lines.append(f"{i}. {title}")
+            lines.append("")
         
-        if kansas_count == 1:
-            lines.append(f"In Kansas, one legislative item was tracked this week: {title}.")
-        elif kansas_count < 5:
-            lines.append(f"In Kansas, {kansas_count} legislative items were tracked this week, including {title}.")
-        else:
-            lines.append(f"In Kansas, {kansas_count} legislative items were tracked this week, including {title} and others.")
+        if kansas_count > 5:
+            lines.append(f"... and {kansas_count - 5} more items.")
+            lines.append("")
     else:
-        lines.append("In Kansas, no new legislative activity was tracked this week.")
-    
-    lines.append("")
+        lines.append("=== KANSAS LEGISLATURE ===")
+        lines.append("No new Kansas legislative activity was tracked this week.")
+        lines.append("")
     
     # VA section
     if va_count > 0:
-        sample = items["va"][0]
-        title = sample.get("title", "news update")
-        if len(title) > 80:
-            title = title[:77] + "..."
+        lines.append("=== VETERANS AFFAIRS ===")
+        lines.append("")
+        for i, item in enumerate(items["va"][:5], 1):
+            title = item.get("title", "VA News")
+            if len(title) > 120:
+                title = title[:117].rsplit(' ', 1)[0] + "..."
+            
+            summary = item.get("summary", "")
+            if summary and len(summary) > 30:
+                if len(summary) > 200:
+                    summary = summary[:197].rsplit(' ', 1)[0] + "..."
+                lines.append(f"{i}. {title}")
+                lines.append(f"   {summary}")
+            else:
+                lines.append(f"{i}. {title}")
+            lines.append("")
         
-        if va_count == 1:
-            lines.append(f"Veterans-related updates this week included {title}.")
-        elif va_count < 5:
-            lines.append(f"Veterans-related updates this week included {va_count} items, including {title}.")
-        else:
-            lines.append(f"Veterans-related updates this week included {va_count} items, including {title} and others.")
+        if va_count > 5:
+            lines.append(f"... and {va_count - 5} more items.")
+            lines.append("")
     else:
-        lines.append("No veterans-related updates were tracked this week.")
-    
-    lines.append("")
+        lines.append("=== VETERANS AFFAIRS ===")
+        lines.append("No new veterans-related updates were tracked this week.")
+        lines.append("")
     
     # Closing
-    lines.append("You can explore full details and sources at CivicWatch.")
+    lines.append("---")
+    lines.append("Explore full details and sources at CivicWatch.")
     
     return "\n".join(lines)
 
