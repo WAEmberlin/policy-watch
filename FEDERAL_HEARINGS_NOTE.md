@@ -66,3 +66,4 @@ Kansas Legislature conference committee hearings are working perfectly:
 
 The hearings page will continue to work with state hearings only until we find a way to fetch federal hearings.
 
+

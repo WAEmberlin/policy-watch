@@ -159,3 +159,4 @@ src/processing/
 - Logo not showing? Verify `docs/logo.png` exists and is a valid image
 - Filters not working? Check browser console for JavaScript errors
 
+

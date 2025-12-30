@@ -128,3 +128,4 @@ If this works, the API key is valid. If you get 401, the key is wrong.
 
 The weekly overview will still work without audio - it just won't generate the MP3 file. The text summary and JSON metadata will still be created successfully.
 
+

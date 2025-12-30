@@ -153,3 +153,4 @@ The weekly overview is automatically generated during the hourly GitHub Actions 
 
 The workflow will continue even if weekly overview generation fails (it's non-blocking).
 
+
