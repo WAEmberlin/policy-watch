@@ -126,9 +126,24 @@ msg["Subject"] = subject
 msg.attach(MIMEText(html_body, "html"))
 
 # Send email
-with smtplib.SMTP(EMAIL_HOST, EMAIL_PORT) as server:
-    server.starttls()
-    server.login(EMAIL_USER, EMAIL_PASS)
-    server.send_message(msg)
-
-print("Email sent successfully.")
+try:
+    if not all([EMAIL_HOST, EMAIL_USER, EMAIL_PASS, EMAIL_TO]):
+        missing = [k for k, v in {
+            "EMAIL_HOST": EMAIL_HOST,
+            "EMAIL_USER": EMAIL_USER,
+            "EMAIL_PASS": EMAIL_PASS,
+            "EMAIL_TO": EMAIL_TO
+        }.items() if not v]
+        raise ValueError(f"Missing required email configuration: {', '.join(missing)}")
+    
+    with smtplib.SMTP(EMAIL_HOST, EMAIL_PORT) as server:
+        server.starttls()
+        server.login(EMAIL_USER, EMAIL_PASS)
+        server.send_message(msg)
+    
+    print(f"Email sent successfully to {EMAIL_TO}")
+    print(f"Subject: {subject}")
+    print(f"Recent items: {len(recent_items)}, Tomorrow hearings: {len(tomorrow_hearings)}")
+except Exception as e:
+    print(f"ERROR: Failed to send email: {e}")
+    raise  # Re-raise so workflow shows failure

@@ -2,7 +2,7 @@ name: CivicWatch Update
 
 on:
   schedule:
-    - cron: "0 * * * *"  # Every hour at :00
+    - cron: "30 * * * *"  # Every hour at :30 (so it hits 00:30 UTC for email)
   workflow_dispatch:
 
 permissions:
