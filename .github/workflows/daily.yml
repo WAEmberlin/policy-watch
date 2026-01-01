@@ -78,22 +78,8 @@ jobs:
             echo "Current day: $CURRENT_DAY (6=Saturday for Friday 11pm Central), Current hour: $CURRENT_HOUR"
           fi
 
-      - name: Send daily email (only at 6:30 PM Central)
-        env:
-          EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
-          EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
-          EMAIL_USER: ${{ secrets.EMAIL_USER }}
-          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
-          EMAIL_TO: ${{ secrets.EMAIL_TO }}
-        run: |
-          # Only send email at 6:30 PM Central (00:30 UTC)
-          CURRENT_HOUR=$(date -u +%H)
-          CURRENT_MINUTE=$(date -u +%M)
-          if [ "$CURRENT_HOUR" = "00" ] && [ "$CURRENT_MINUTE" = "30" ]; then
-            python src/processing/send_email.py
-          else
-            echo "Skipping email (only sent at 6:30 PM Central / 00:30 UTC)"
-          fi
+      # Note: Daily email is now handled by separate workflow (.github/workflows/daily_email.yml
+      # This keeps email sending independent from site updates
 
       - name: Commit updated site
         run: |

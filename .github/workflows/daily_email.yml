@@ -1,0 +1,54 @@
+name: Daily Email
+
+on:
+  schedule:
+    # Run at 6:30 PM Central Time (00:30 UTC)
+    # Note: During DST (CDT), 6:30 PM = 23:30 UTC, so we run at both times
+    - cron: "30 0 * * *"  # 00:30 UTC (6:30 PM CST)
+    - cron: "30 23 * * *"  # 23:30 UTC (6:30 PM CDT during DST)
+  workflow_dispatch:  # Allow manual trigger
+
+permissions:
+  contents: read  # Only need read access for email
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      
+      - name: Send daily email
+        env:
+          EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
+          EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: |
+          # Check if all required secrets are set
+          if [ -z "$EMAIL_HOST" ] || [ -z "$EMAIL_USER" ] || [ -z "$EMAIL_PASS" ] || [ -z "$EMAIL_TO" ]; then
+            echo "ERROR: Missing required email configuration secrets"
+            echo "Required: EMAIL_HOST, EMAIL_USER, EMAIL_PASS, EMAIL_TO"
+            exit 1
+          fi
+          
+          echo "Sending daily email at $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+          python src/processing/send_email.py
+      
+      - name: Email status
+        if: always()
+        run: |
+          if [ $? -eq 0 ]; then
+            echo "✅ Email sent successfully"
+          else
+            echo "❌ Email failed - check logs above"
+            exit 1
+          fi
+
