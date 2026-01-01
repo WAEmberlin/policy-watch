@@ -54,8 +54,26 @@ async function loadData() {
         return;
     }
 
+    // Get current year
+    const currentYearNum = new Date().getFullYear();
+    const currentYearStr = currentYearNum.toString();
+
+    // Sort years: current year first, then descending order (newest first)
+    const sortedYears = [...years].sort((a, b) => {
+        const aNum = parseInt(a);
+        const bNum = parseInt(b);
+        
+        // Current year always comes first
+        if (a === currentYearStr) return -1;
+        if (b === currentYearStr) return 1;
+        
+        // Otherwise, sort descending (newest first)
+        return bNum - aNum;
+    });
+
     // Create year tabs
-    years.forEach((year, index) => {
+    let defaultYearSet = false;
+    sortedYears.forEach((year) => {
         const btn = document.createElement("button");
         btn.textContent = year;
         btn.className = "year-tab";
@@ -70,10 +88,13 @@ async function loadData() {
         };
         yearTabs.appendChild(btn);
 
-        // Show first year by default
-        if (index === 0) {
-            currentYear = year;
-            btn.click();
+        // Show current year by default (or first year if current year not available)
+        if (!defaultYearSet) {
+            if (year === currentYearStr || sortedYears.indexOf(year) === 0) {
+                currentYear = year;
+                btn.click();
+                defaultYearSet = true;
+            }
         }
     });
 }
