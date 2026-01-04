@@ -373,6 +373,39 @@ def generate_summary(items: Dict[str, List[Dict]], week_start: datetime, week_en
     return "\n".join(lines)
 
 
+def get_voice_id(api_key: str, voice_name: str = "Austin Main") -> Optional[str]:
+    """
+    Get voice ID by name from ElevenLabs API.
+    
+    Args:
+        api_key: ElevenLabs API key
+        voice_name: Name of the voice to find
+        
+    Returns:
+        Voice ID string or None if not found
+    """
+    try:
+        import requests
+        
+        headers = {
+            "xi-api-key": api_key.strip()
+        }
+        
+        response = requests.get("https://api.elevenlabs.io/v1/voices", headers=headers, timeout=10)
+        response.raise_for_status()
+        
+        voices = response.json().get("voices", [])
+        for voice in voices:
+            if voice.get("name") == voice_name:
+                return voice.get("voice_id")
+        
+        print(f"Warning: Voice '{voice_name}' not found. Available voices: {[v.get('name') for v in voices]}")
+        return None
+    except Exception as e:
+        print(f"Warning: Could not fetch voice list: {e}")
+        return None
+
+
 def generate_audio(script: str, api_key: str) -> bool:
     """
     Generate MP3 audio using ElevenLabs API.
@@ -382,12 +415,16 @@ def generate_audio(script: str, api_key: str) -> bool:
     try:
         import requests
         
+        # Get voice ID for Austin Main
+        voice_id = get_voice_id(api_key, "Austin Main")
+        if not voice_id:
+            # Fallback to a default voice ID if lookup fails
+            print("Warning: Could not find Austin Main voice, using default")
+            voice_id = "21m00Tcm4TlvDq8ikWAM"  # Rachel as fallback
+        
         # ElevenLabs API endpoint for text-to-speech
-        # Using a standard voice available on free tier (Rachel - neutral, professional)
-        # Voice ID: 21m00Tcm4TlvDq8ikWAM (Rachel)
-        # You can change this to other available voices if desired
-        # Note: Model updated to eleven_turbo_v2_5 (eleven_monolingual_v1 is no longer on free tier)
-        url = "https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM"
+        # Using Austin Main voice
+        url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
         
         # Clean the API key (remove any whitespace)
         api_key_clean = api_key.strip()

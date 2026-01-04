@@ -110,6 +110,19 @@ print(f"Processed {processed_count} items into grouped structure.")
 # -------------------------
 # Load and process legislation
 # -------------------------
+# First, build a set of URLs from history.json to deduplicate against
+# This prevents showing the same bills from both RSS feed and API
+existing_urls = set()
+for year in grouped:
+    for date_str in grouped[year]:
+        for source in grouped[year][date_str]:
+            for item in grouped[year][date_str][source]:
+                url = item.get("link", "")
+                if url:
+                    existing_urls.add(url)
+
+print(f"Indexed {len(existing_urls)} existing URLs for deduplication")
+
 legislation = []
 if os.path.exists(LEGISLATION_FILE):
     try:
@@ -125,6 +138,7 @@ if os.path.exists(LEGISLATION_FILE):
 
 # Process legislation into the same grouped structure
 legislation_count = 0
+duplicate_count = 0
 for bill in legislation:
     try:
         # Use latest_action_date or published date
@@ -136,6 +150,12 @@ for bill in legislation:
             dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
         except ValueError:
             continue
+        
+        # Check if this bill URL already exists in history (from RSS feed)
+        bill_url = bill.get("url", "")
+        if bill_url and bill_url in existing_urls:
+            duplicate_count += 1
+            continue  # Skip duplicate - already in history.json from RSS feed
         
         year = str(dt.year)
         date_str_formatted = dt.strftime("%Y-%m-%d")
@@ -158,12 +178,16 @@ for bill in legislation:
         }
         
         grouped[year][date_str_formatted][source].append(item)
+        if bill_url:
+            existing_urls.add(bill_url)  # Track this URL to prevent future duplicates
         legislation_count += 1
     except Exception as e:
         print(f"Warning: Skipping legislation item due to error: {e}")
         continue
 
 print(f"Processed {legislation_count} bills into grouped structure.")
+if duplicate_count > 0:
+    print(f"Skipped {duplicate_count} duplicate bills (already in history.json from RSS feed)")
 
 # Sort items within each date/source by published time (newest first)
 for year in grouped:
