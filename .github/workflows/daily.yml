@@ -72,18 +72,21 @@ jobs:
             echo "Scheduled time detected: Friday 11pm Central / Saturday $CURRENT_HOUR:00 UTC"
           fi
           
-          # Check if last summary is more than 6 days old
+          # Check if last summary is more than 5 days old (weekly = 7 days, so 5+ means overdue)
           NEEDS_UPDATE=false
           if [ -f "docs/weekly/latest.json" ]; then
             LAST_GENERATED=$(python3 -c "import json, sys; data=json.load(open('docs/weekly/latest.json')); print(data.get('generated_at', ''))" 2>/dev/null || echo "")
             if [ -n "$LAST_GENERATED" ]; then
               DAYS_OLD=$(python3 -c "from datetime import datetime, timezone; last=datetime.fromisoformat('$LAST_GENERATED'.replace('Z', '+00:00')); now=datetime.now(timezone.utc); print(int((now-last).total_seconds()/86400))" 2>/dev/null || echo "0")
-              if [ "$DAYS_OLD" -gt 6 ]; then
+              if [ "$DAYS_OLD" -ge 5 ]; then
                 NEEDS_UPDATE=true
-                echo "Last summary is $DAYS_OLD days old (threshold: 6 days) - generating update"
+                echo "Last summary is $DAYS_OLD days old (threshold: 5 days) - generating update"
               else
-                echo "Last summary is $DAYS_OLD days old - within threshold"
+                echo "Last summary is $DAYS_OLD days old - within threshold (will wait for scheduled time)"
               fi
+            else
+              echo "Could not parse last generation date - will generate to be safe"
+              NEEDS_UPDATE=true
             fi
           else
             echo "No existing weekly summary found - will generate"
