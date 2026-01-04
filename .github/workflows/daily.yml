@@ -54,18 +54,44 @@ jobs:
       - name: Build HTML digest
         run: python src/processing/summarize.py
 
-      - name: Generate weekly overview (Fridays at 11pm Central only)
+      - name: Generate weekly overview (Fridays at 11pm Central, or if >6 days old)
         env:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
         run: |
-          # Only generate weekly overview on Fridays at 11pm Central Time
-          # 11pm Central = 5am UTC (CST) or 4am UTC (CDT) the next day (Saturday)
-          # Check for Saturday at 4am or 5am UTC to cover both CST and CDT
+          # Generate weekly overview on:
+          # 1. Fridays at 11pm Central (Saturday 4-6am UTC)
+          # 2. OR if last summary is more than 6 days old (catch-up)
           CURRENT_DAY=$(date -u +%u)  # 1=Monday, 6=Saturday
           CURRENT_HOUR=$(date -u +%H)
+          CURRENT_HOUR_NUM=$((10#$CURRENT_HOUR))  # Convert to number for comparison
           
-          if [ "$CURRENT_DAY" = "6" ] && ([ "$CURRENT_HOUR" = "4" ] || [ "$CURRENT_HOUR" = "5" ]); then
-            echo "Generating weekly overview (Friday 11pm Central / Saturday $CURRENT_HOUR:00 UTC)..."
+          # Check if it's the scheduled time (Saturday 4-6am UTC = Friday 11pm Central)
+          IS_SCHEDULED_TIME=false
+          if [ "$CURRENT_DAY" = "6" ] && [ $CURRENT_HOUR_NUM -ge 4 ] && [ $CURRENT_HOUR_NUM -le 6 ]; then
+            IS_SCHEDULED_TIME=true
+            echo "Scheduled time detected: Friday 11pm Central / Saturday $CURRENT_HOUR:00 UTC"
+          fi
+          
+          # Check if last summary is more than 6 days old
+          NEEDS_UPDATE=false
+          if [ -f "docs/weekly/latest.json" ]; then
+            LAST_GENERATED=$(python3 -c "import json, sys; data=json.load(open('docs/weekly/latest.json')); print(data.get('generated_at', ''))" 2>/dev/null || echo "")
+            if [ -n "$LAST_GENERATED" ]; then
+              DAYS_OLD=$(python3 -c "from datetime import datetime, timezone; last=datetime.fromisoformat('$LAST_GENERATED'.replace('Z', '+00:00')); now=datetime.now(timezone.utc); print(int((now-last).total_seconds()/86400))" 2>/dev/null || echo "0")
+              if [ "$DAYS_OLD" -gt 6 ]; then
+                NEEDS_UPDATE=true
+                echo "Last summary is $DAYS_OLD days old (threshold: 6 days) - generating update"
+              else
+                echo "Last summary is $DAYS_OLD days old - within threshold"
+              fi
+            fi
+          else
+            echo "No existing weekly summary found - will generate"
+            NEEDS_UPDATE=true
+          fi
+          
+          if [ "$IS_SCHEDULED_TIME" = "true" ] || [ "$NEEDS_UPDATE" = "true" ]; then
+            echo "Generating weekly overview..."
             # Debug: Check if secret is set (without exposing it)
             if [ -z "$ELEVENLABS_API_KEY" ]; then
               echo "Warning: ELEVENLABS_API_KEY secret is not set or empty"
@@ -74,8 +100,8 @@ jobs:
             fi
             python -m src.processing.weekly_overview || echo "Weekly overview generation failed, continuing..."
           else
-            echo "Skipping weekly overview (only generated on Fridays at 11pm Central)"
-            echo "Current day: $CURRENT_DAY (6=Saturday for Friday 11pm Central), Current hour: $CURRENT_HOUR"
+            echo "Skipping weekly overview (not scheduled time and summary is recent)"
+            echo "Current day: $CURRENT_DAY, Current hour: $CURRENT_HOUR"
           fi
 
       # Note: Daily email is now handled by separate workflow (.github/workflows/daily_email.yml
