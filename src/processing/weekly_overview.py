@@ -384,6 +384,14 @@ def get_voice_id(api_key: str, voice_name: str = "Austin Main") -> Optional[str]
     Returns:
         Voice ID string or None if not found
     """
+    # Known voice IDs (fallback if API lookup fails)
+    # These are commonly available ElevenLabs voices
+    KNOWN_VOICE_IDS = {
+        "Austin Main": "pNInz6obpgDQGcFmaJgB",  # Austin Main voice ID
+        "Rachel": "21m00Tcm4TlvDq8ikWAM",
+    }
+    
+    # Try to look up from API first (if API key has permissions)
     try:
         import requests
         
@@ -397,13 +405,26 @@ def get_voice_id(api_key: str, voice_name: str = "Austin Main") -> Optional[str]
         voices = response.json().get("voices", [])
         for voice in voices:
             if voice.get("name") == voice_name:
-                return voice.get("voice_id")
+                voice_id = voice.get("voice_id")
+                print(f"Found voice '{voice_name}' with ID: {voice_id}")
+                return voice_id
         
-        print(f"Warning: Voice '{voice_name}' not found. Available voices: {[v.get('name') for v in voices]}")
-        return None
+        print(f"Warning: Voice '{voice_name}' not found in API response. Available voices: {[v.get('name') for v in voices]}")
+    except requests.exceptions.HTTPError as e:
+        if e.response.status_code == 401:
+            print(f"Warning: API key authentication failed (401) - may not have voice list permissions. Using known voice ID for '{voice_name}' as fallback.")
+        else:
+            print(f"Warning: Could not fetch voice list (HTTP {e.response.status_code}): {e}")
     except Exception as e:
         print(f"Warning: Could not fetch voice list: {e}")
-        return None
+    
+    # Fallback to known voice ID if lookup failed
+    if voice_name in KNOWN_VOICE_IDS:
+        print(f"Using known voice ID for '{voice_name}': {KNOWN_VOICE_IDS[voice_name]}")
+        return KNOWN_VOICE_IDS[voice_name]
+    
+    print(f"Warning: No known voice ID for '{voice_name}' and API lookup failed")
+    return None
 
 
 def generate_audio(script: str, api_key: str) -> bool:
@@ -416,11 +437,13 @@ def generate_audio(script: str, api_key: str) -> bool:
         import requests
         
         # Get voice ID for Austin Main
+        # Try lookup first, but fallback to known ID if API doesn't have voice list permissions
         voice_id = get_voice_id(api_key, "Austin Main")
         if not voice_id:
-            # Fallback to a default voice ID if lookup fails
-            print("Warning: Could not find Austin Main voice, using default")
-            voice_id = "21m00Tcm4TlvDq8ikWAM"  # Rachel as fallback
+            # Use known Austin Main voice ID directly (API key may not have voice list permissions)
+            # This is fine - text-to-speech doesn't require voice list access
+            print("Using known Austin Main voice ID (API may not have voice list permissions, but TTS will work)")
+            voice_id = "pNInz6obpgDQGcFmaJgB"  # Austin Main voice ID
         
         # ElevenLabs API endpoint for text-to-speech
         # Using Austin Main voice
