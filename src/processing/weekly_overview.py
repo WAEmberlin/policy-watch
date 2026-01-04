@@ -11,6 +11,7 @@ Creates a spoken-friendly summary and optionally generates audio via ElevenLabs.
 
 import json
 import os
+import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -68,7 +69,7 @@ def parse_date(date_str: str) -> Optional[datetime]:
 
 
 def is_within_last_7_days(date_str: str, now: datetime) -> bool:
-    """Check if a date string is within the last 7 days."""
+    """Check if a date string is within the last 7 days (past only, not future)."""
     dt = parse_date(date_str)
     if not dt:
         return False
@@ -80,7 +81,8 @@ def is_within_last_7_days(date_str: str, now: datetime) -> bool:
         now = now.replace(tzinfo=timezone.utc)
     
     seven_days_ago = now - timedelta(days=7)
-    return dt >= seven_days_ago
+    # Only include items from the past week, not future dates
+    return seven_days_ago <= dt <= now
 
 
 def categorize_item(item: Dict) -> Optional[str]:
@@ -212,28 +214,163 @@ def load_recent_items(now: datetime) -> Dict[str, List[Dict]]:
     return items
 
 
+def group_bills_by_theme(bills: List[Dict]) -> Dict[str, List[Dict]]:
+    """Group bills by common themes/topics."""
+    themes = {
+        "immigration": [],
+        "healthcare": [],
+        "education": [],
+        "economy": [],
+        "defense": [],
+        "environment": [],
+        "technology": [],
+        "tax": [],
+        "infrastructure": [],
+        "other": []
+    }
+    
+    theme_keywords = {
+        "immigration": ["immigration", "immigrant", "visa", "citizenship", "border", "h-1b", "h1b"],
+        "healthcare": ["health", "medicare", "medicaid", "healthcare", "medical", "hospital", "pharmaceutical"],
+        "education": ["education", "school", "student", "university", "college", "teacher"],
+        "economy": ["economy", "economic", "business", "trade", "commerce", "financial", "bank"],
+        "defense": ["defense", "military", "veteran", "armed forces", "national security"],
+        "environment": ["environment", "climate", "energy", "renewable", "emission", "pollution"],
+        "technology": ["technology", "tech", "cyber", "digital", "internet", "data", "privacy"],
+        "tax": ["tax", "taxation", "irs", "revenue"],
+        "infrastructure": ["infrastructure", "transportation", "highway", "bridge", "road", "rail"]
+    }
+    
+    for bill in bills:
+        title_lower = bill.get("title", "").lower()
+        summary_lower = bill.get("summary", "").lower()
+        text = f"{title_lower} {summary_lower}"
+        
+        categorized = False
+        for theme, keywords in theme_keywords.items():
+            if any(keyword in text for keyword in keywords):
+                themes[theme].append(bill)
+                categorized = True
+                break
+        
+        if not categorized:
+            themes["other"].append(bill)
+    
+    # Remove empty themes
+    return {k: v for k, v in themes.items() if v}
+
+
+def group_kansas_items(items: List[Dict]) -> Dict[str, List[Dict]]:
+    """Group Kansas legislative items by type/action."""
+    groups = {
+        "introduced": [],
+        "committee": [],
+        "hearing": [],
+        "vote": [],
+        "other": []
+    }
+    
+    for item in items:
+        title_lower = item.get("title", "").lower()
+        summary_lower = item.get("summary", "").lower()
+        text = f"{title_lower} {summary_lower}"
+        
+        if "prefiled" in text or "introduction" in text or "introduced" in text:
+            groups["introduced"].append(item)
+        elif "committee" in text:
+            groups["committee"].append(item)
+        elif "hearing" in text or "scheduled" in text:
+            groups["hearing"].append(item)
+        elif "vote" in text or "passed" in text or "approved" in text:
+            groups["vote"].append(item)
+        else:
+            groups["other"].append(item)
+    
+    return {k: v for k, v in groups.items() if v}
+
+
+def group_va_items(items: List[Dict]) -> Dict[str, List[Dict]]:
+    """Group VA items by topic."""
+    groups = {
+        "health": [],
+        "benefits": [],
+        "careers": [],
+        "events": [],
+        "other": []
+    }
+    
+    for item in items:
+        title_lower = item.get("title", "").lower()
+        summary_lower = item.get("summary", "").lower()
+        text = f"{title_lower} {summary_lower}"
+        
+        if any(kw in text for kw in ["health", "wellness", "medical", "care", "treatment"]):
+            groups["health"].append(item)
+        elif any(kw in text for kw in ["benefit", "compensation", "pension", "claim"]):
+            groups["benefits"].append(item)
+        elif any(kw in text for kw in ["career", "job", "employment", "hiring"]):
+            groups["careers"].append(item)
+        elif any(kw in text for kw in ["event", "celebration", "anniversary", "recognition"]):
+            groups["events"].append(item)
+        else:
+            groups["other"].append(item)
+    
+    return {k: v for k, v in groups.items() if v}
+
+
+def clean_html(text: str) -> str:
+    """Remove HTML tags from text."""
+    if not text:
+        return ""
+    # Remove HTML tags
+    text = re.sub(r'<[^>]+>', '', text)
+    # Clean up multiple spaces and newlines
+    text = re.sub(r'\s+', ' ', text)
+    return text.strip()
+
+
+def extract_bill_title(title: str, bill_type: str = "", bill_number: str = "") -> str:
+    """Extract clean bill title, removing duplicate bill IDs."""
+    # If title already starts with bill type and number, remove it
+    if bill_type and bill_number:
+        prefix = f"{bill_type} {bill_number}:"
+        if title.startswith(prefix):
+            title = title[len(prefix):].strip()
+        elif title.startswith(f"{bill_type} {bill_number}"):
+            title = title[len(f"{bill_type} {bill_number}"):].strip()
+            if title.startswith(":"):
+                title = title[1:].strip()
+    return title
+
+
+def truncate_summary(text: str, max_length: int = 100) -> str:
+    """Truncate text to max length at word boundary, ensuring complete sentences."""
+    if not text or len(text) <= max_length:
+        return text
+    
+    # Try to find a sentence ending before max_length
+    truncated = text[:max_length]
+    # Look for sentence endings
+    for punct in ['. ', '! ', '? ']:
+        last_punct = truncated.rfind(punct)
+        if last_punct > max_length * 0.5:  # Only use if we got at least half the length
+            return text[:last_punct + 1].strip()
+    
+    # Fall back to word boundary
+    truncated = text[:max_length].rsplit(' ', 1)[0]
+    # Add ellipsis only if we actually truncated
+    if len(text) > max_length:
+        truncated += "..."
+    return truncated
+
+
 def generate_summary(items: Dict[str, List[Dict]], week_start: datetime, week_end: datetime) -> str:
     """
-    Generate an enhanced weekly summary with more detail and better content selection.
+    Generate a concise weekly summary suitable for 1-minute audio (~150 words).
     
-    Uses extractive summarization techniques (no GPU required) to create
-    more informative summaries than the previous simple template approach.
-    
-    Returns a string suitable for text-to-speech (90-180 seconds when read).
+    Shows top 2-3 items per category with brief descriptions, then summarizes the rest.
+    Only includes items from the past week (not future dates).
     """
-    # Try to use enhanced summary generator
-    try:
-        from src.processing.weekly_summary_enhanced import generate_enhanced_summary
-        return generate_enhanced_summary(items, week_start, week_end, max_items_per_category=5)
-    except ImportError:
-        # Fall back to simple summary if enhanced module not available
-        pass
-    
-    # Fallback: Improved version of original (better than before)
-    congress_count = len(items["congress"])
-    kansas_count = len(items["kansas"])
-    va_count = len(items["va"])
-    
     # Format week range
     week_start_str = week_start.strftime("%B %d")
     week_end_str = week_end.strftime("%B %d")
@@ -241,134 +378,135 @@ def generate_summary(items: Dict[str, List[Dict]], week_start: datetime, week_en
         week_start_str += f", {week_start.year}"
     week_end_str += f", {week_end.year}"
     
-    # Build summary
     lines = []
     
     # Intro
-    lines.append(f"Here is your CivicWatch weekly overview for the week of {week_start_str} through {week_end_str}.")
+    lines.append(f"CivicWatch weekly overview for {week_start_str} through {week_end_str}.")
     lines.append("")
     
-    # Congress section (including bills and hearings)
+    # Congress section - show top 2-3 bills only
     congress_bills = [item for item in items["congress"] if item.get("category") != "hearing"]
     congress_hearings = [item for item in items["congress"] if item.get("category") == "hearing"]
     
     if congress_bills or congress_hearings:
-        lines.append("=== CONGRESSIONAL ACTIVITY ===")
+        lines.append("Congress:")
         lines.append("")
         
         if congress_bills:
-            lines.append(f"**Bills ({len(congress_bills)} total):**")
-            lines.append("")
-            # Show top 3-5 bills with summaries
-            for i, bill in enumerate(congress_bills[:5], 1):
-                title = bill.get("title", "Untitled Bill")
-                # Smart truncate at word boundary
-                if len(title) > 120:
-                    title = title[:117].rsplit(' ', 1)[0] + "..."
-                
-                summary = bill.get("summary", "")
-                if summary and len(summary) > 30:
-                    if len(summary) > 200:
-                        summary = summary[:197].rsplit(' ', 1)[0] + "..."
-                    lines.append(f"{i}. {title}")
-                    lines.append(f"   {summary}")
-                else:
-                    lines.append(f"{i}. {title}")
-                
-                # Add bill number if available
+            # Show top 2-3 bills with brief descriptions
+            top_bills = congress_bills[:3]
+            for bill in top_bills:
                 bill_num = bill.get("bill_number", "")
                 bill_type = bill.get("bill_type", "")
-                if bill_num and bill_type:
-                    lines.append(f"   ({bill_type} {bill_num})")
-                lines.append("")
+                bill_id = f"{bill_type} {bill_num}" if bill_num and bill_type else ""
+                title = extract_bill_title(bill.get("title", "Untitled Bill"), bill_type, bill_num)
+                summary = clean_html(bill.get("summary", ""))
+                
+                if bill_id:
+                    lines.append(f"{bill_id}: {title}")
+                else:
+                    lines.append(title)
+                
+                if summary:
+                    brief_summary = truncate_summary(summary, 100)
+                    if brief_summary:
+                        lines.append(f"   {brief_summary}")
             
-            if len(congress_bills) > 5:
-                lines.append(f"... and {len(congress_bills) - 5} more bills.")
-                lines.append("")
+            # Summarize the rest
+            remaining = len(congress_bills) - len(top_bills)
+            if remaining > 0:
+                bill_groups = group_bills_by_theme(congress_bills[3:])
+                group_summaries = []
+                total_grouped = 0
+                for theme, theme_bills in bill_groups.items():
+                    if theme != "other" and len(theme_bills) > 0:
+                        theme_names = {
+                            "immigration": "immigration",
+                            "healthcare": "healthcare",
+                            "education": "education",
+                            "economy": "economic",
+                            "defense": "defense",
+                            "environment": "environmental",
+                            "technology": "technology",
+                            "tax": "tax",
+                            "infrastructure": "infrastructure"
+                        }
+                        theme_name = theme_names.get(theme, theme)
+                        count = len(theme_bills)
+                        group_summaries.append(f"{count} {theme_name}")
+                        total_grouped += count
+                
+                other_count = remaining - total_grouped
+                if group_summaries:
+                    if other_count > 0:
+                        lines.append(f"   Plus {', '.join(group_summaries)} bills, and {other_count} others.")
+                    else:
+                        lines.append(f"   Plus {', '.join(group_summaries)} bills.")
+                else:
+                    lines.append(f"   Plus {remaining} other bills.")
+            lines.append("")
         
         if congress_hearings:
-            lines.append(f"**Hearings ({len(congress_hearings)} total):**")
+            lines.append(f"{len(congress_hearings)} hearings scheduled.")
             lines.append("")
-            for i, hearing in enumerate(congress_hearings[:5], 1):
-                title = hearing.get("title", "Congressional Hearing")
-                if len(title) > 120:
-                    title = title[:117].rsplit(' ', 1)[0] + "..."
-                
-                scheduled_date = hearing.get("scheduled_date", "")
-                committee = hearing.get("committee", "")
-                
-                lines.append(f"{i}. {title}")
-                if scheduled_date:
-                    lines.append(f"   Scheduled: {scheduled_date}")
-                if committee:
-                    lines.append(f"   Committee: {committee}")
-                lines.append("")
-            
-            if len(congress_hearings) > 5:
-                lines.append(f"... and {len(congress_hearings) - 5} more hearings.")
-                lines.append("")
     else:
-        lines.append("=== CONGRESSIONAL ACTIVITY ===")
-        lines.append("No new congressional activity was tracked this week.")
+        lines.append("Congress: No new activity this week.")
         lines.append("")
     
-    # Kansas section
+    # Kansas section - summarize by type
+    kansas_count = len(items["kansas"])
     if kansas_count > 0:
-        lines.append("=== KANSAS LEGISLATURE ===")
-        lines.append("")
-        for i, item in enumerate(items["kansas"][:5], 1):
-            title = item.get("title", "Legislative Item")
-            if len(title) > 120:
-                title = title[:117].rsplit(' ', 1)[0] + "..."
-            
-            summary = item.get("summary", "")
-            if summary and len(summary) > 30:
-                if len(summary) > 200:
-                    summary = summary[:197].rsplit(' ', 1)[0] + "..."
-                lines.append(f"{i}. {title}")
-                lines.append(f"   {summary}")
-            else:
-                lines.append(f"{i}. {title}")
-            lines.append("")
+        lines.append("Kansas Legislature:")
+        kansas_groups = group_kansas_items(items["kansas"])
         
-        if kansas_count > 5:
-            lines.append(f"... and {kansas_count - 5} more items.")
-            lines.append("")
+        group_parts = []
+        if "introduced" in kansas_groups:
+            count = len(kansas_groups["introduced"])
+            group_parts.append(f"{count} bills introduced")
+        if "committee" in kansas_groups:
+            count = len(kansas_groups["committee"])
+            group_parts.append(f"{count} committee actions")
+        if "hearing" in kansas_groups:
+            count = len(kansas_groups["hearing"])
+            group_parts.append(f"{count} hearings")
+        if "vote" in kansas_groups:
+            count = len(kansas_groups["vote"])
+            group_parts.append(f"{count} votes")
+        
+        if group_parts:
+            lines.append(f"   {', '.join(group_parts)}.")
+        else:
+            lines.append(f"   {kansas_count} items tracked.")
+        lines.append("")
     else:
-        lines.append("=== KANSAS LEGISLATURE ===")
-        lines.append("No new Kansas legislative activity was tracked this week.")
+        lines.append("Kansas Legislature: No new activity this week.")
         lines.append("")
     
-    # VA section
+    # VA section - show top 2 items only
+    va_count = len(items["va"])
     if va_count > 0:
-        lines.append("=== VETERANS AFFAIRS ===")
-        lines.append("")
-        for i, item in enumerate(items["va"][:5], 1):
+        lines.append("Veterans Affairs:")
+        top_va = items["va"][:2]
+        for item in top_va:
             title = item.get("title", "VA News")
-            if len(title) > 120:
-                title = title[:117].rsplit(' ', 1)[0] + "..."
-            
-            summary = item.get("summary", "")
-            if summary and len(summary) > 30:
-                if len(summary) > 200:
-                    summary = summary[:197].rsplit(' ', 1)[0] + "..."
-                lines.append(f"{i}. {title}")
-                lines.append(f"   {summary}")
-            else:
-                lines.append(f"{i}. {title}")
-            lines.append("")
+            summary = clean_html(item.get("summary", ""))
+            brief_title = truncate_summary(title, 70)
+            lines.append(f"   {brief_title}")
+            if summary and summary != title:
+                brief_summary = truncate_summary(summary, 80)
+                if brief_summary:
+                    lines.append(f"      {brief_summary}")
         
-        if va_count > 5:
-            lines.append(f"... and {va_count - 5} more items.")
-            lines.append("")
+        remaining_va = va_count - len(top_va)
+        if remaining_va > 0:
+            lines.append(f"   Plus {remaining_va} more updates.")
+        lines.append("")
     else:
-        lines.append("=== VETERANS AFFAIRS ===")
-        lines.append("No new veterans-related updates were tracked this week.")
+        lines.append("Veterans Affairs: No new updates this week.")
         lines.append("")
     
     # Closing
-    lines.append("---")
-    lines.append("Explore full details and sources at CivicWatch.")
+    lines.append("Explore full details at CivicWatch.")
     
     return "\n".join(lines)
 
