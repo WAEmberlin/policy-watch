@@ -59,8 +59,17 @@ jobs:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
         run: |
           # Generate weekly overview on:
-          # 1. Fridays at 11pm Central (Saturday 4-6am UTC)
-          # 2. OR if last summary is more than 6 days old (catch-up)
+          # 1. Manual trigger (workflow_dispatch) - always generate
+          # 2. Fridays at 11pm Central (Saturday 4-6am UTC)
+          # 3. OR if last summary is more than 6 days old (catch-up)
+          
+          # Check if this is a manual trigger
+          IS_MANUAL_TRIGGER=false
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            IS_MANUAL_TRIGGER=true
+            echo "Manual trigger detected - will generate weekly overview"
+          fi
+          
           CURRENT_DAY=$(date -u +%u)  # 1=Monday, 6=Saturday
           CURRENT_HOUR=$(date -u +%H)
           CURRENT_HOUR_NUM=$((10#$CURRENT_HOUR))  # Convert to number for comparison
@@ -93,7 +102,7 @@ jobs:
             NEEDS_UPDATE=true
           fi
           
-          if [ "$IS_SCHEDULED_TIME" = "true" ] || [ "$NEEDS_UPDATE" = "true" ]; then
+          if [ "$IS_MANUAL_TRIGGER" = "true" ] || [ "$IS_SCHEDULED_TIME" = "true" ] || [ "$NEEDS_UPDATE" = "true" ]; then
             echo "Generating weekly overview..."
             # Debug: Check if secret is set (without exposing it)
             if [ -z "$ELEVENLABS_API_KEY" ]; then
