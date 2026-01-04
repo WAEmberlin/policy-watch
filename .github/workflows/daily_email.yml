@@ -1,11 +1,9 @@
-name: Daily Email
+name: Email Updates
 
 on:
   schedule:
-    # Run at 6:30 PM Central Time (00:30 UTC)
-    # Note: During DST (CDT), 6:30 PM = 23:30 UTC, so we run at both times
-    - cron: "30 0 * * *"  # 00:30 UTC (6:30 PM CST)
-    - cron: "30 23 * * *"  # 23:30 UTC (6:30 PM CDT during DST)
+    # Run every 6 hours
+    - cron: "0 */6 * * *"  # Every 6 hours at :00 (00:00, 06:00, 12:00, 18:00 UTC)
   workflow_dispatch:  # Allow manual trigger
 
 permissions:
@@ -24,7 +22,7 @@ jobs:
         with:
           python-version: "3.11"
       
-      - name: Send daily email
+      - name: Send email update
         env:
           EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
           EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
@@ -39,7 +37,7 @@ jobs:
             exit 1
           fi
           
-          echo "Sending daily email at $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+          echo "Sending email update at $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
           python src/processing/send_email.py
       
       - name: Email status
