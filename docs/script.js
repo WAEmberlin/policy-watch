@@ -415,6 +415,16 @@ function displayUnifiedView(year, chunkIndex) {
                     a.target = "_blank";
                     a.rel = "noopener noreferrer";
                     li.appendChild(a);
+                    
+                    // Show summary if it exists and is different from title
+                    if (item.summary && item.summary.trim() && item.summary !== item.title) {
+                        const summaryDiv = document.createElement("div");
+                        summaryDiv.className = "item-summary";
+                        summaryDiv.style.cssText = "font-size: 0.9em; color: #666; margin-top: 4px; margin-left: 0; line-height: 1.4;";
+                        summaryDiv.textContent = item.summary;
+                        li.appendChild(summaryDiv);
+                    }
+                    
                     ul.appendChild(li);
                 });
                 sourceSection.appendChild(ul);
@@ -597,6 +607,25 @@ function displaySearchResults() {
                 }
                 
                 li.appendChild(a);
+                
+                // Show summary if it exists and is different from title
+                if (item.summary && item.summary.trim() && item.summary !== item.title) {
+                    const summaryDiv = document.createElement("div");
+                    summaryDiv.className = "item-summary";
+                    summaryDiv.style.cssText = "font-size: 0.9em; color: #666; margin-top: 4px; margin-left: 0; line-height: 1.4;";
+                    
+                    // Also highlight search terms in summary
+                    if (item.summary && searchQuery) {
+                        const summary = item.summary;
+                        const regex = new RegExp(`(${searchQuery})`, "gi");
+                        summaryDiv.innerHTML = summary.replace(regex, "<mark>$1</mark>");
+                    } else {
+                        summaryDiv.textContent = item.summary;
+                    }
+                    
+                    li.appendChild(summaryDiv);
+                }
+                
                 ul.appendChild(li);
             });
             sourceSection.appendChild(ul);

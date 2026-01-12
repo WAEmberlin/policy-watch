@@ -211,6 +211,73 @@ def load_recent_items(now: datetime) -> Dict[str, List[Dict]]:
             }
             items["congress"].append(normalized)
     
+    # Sort items before returning
+    # Congress bills: Group by type (HR, S, SRES, etc.), then sort numerically by bill number
+    # Separate bills from hearings for sorting
+    if items["congress"]:
+        bills = [item for item in items["congress"] if item.get("category") != "hearing"]
+        hearings = [item for item in items["congress"] if item.get("category") == "hearing"]
+        
+        def sort_congress_bill(item):
+            bill_type = item.get("bill_type", "")
+            bill_number = item.get("bill_number", "")
+            # Extract numeric part of bill number for sorting
+            try:
+                num = int(bill_number) if bill_number and bill_number.isdigit() else 0
+            except (ValueError, AttributeError):
+                num = 0
+            # Return tuple: (type, numeric_value) for stable sort
+            # Empty types go last
+            return (bill_type or "ZZZ", num)
+        
+        # Sort bills by type then number
+        bills.sort(key=sort_congress_bill)
+        
+        # Sort hearings by scheduled date (most recent first)
+        def sort_hearing(item):
+            date_str = item.get("scheduled_date", "") or item.get("published", "")
+            try:
+                dt = parse_date(date_str)
+                if dt:
+                    # Convert to timestamp for sorting (most recent first = reverse)
+                    return dt.timestamp() if dt.tzinfo else dt.replace(tzinfo=timezone.utc).timestamp()
+            except:
+                pass
+            return 0
+        
+        hearings.sort(key=sort_hearing, reverse=True)
+        
+        # Recombine: bills first, then hearings
+        items["congress"] = bills + hearings
+    
+    # Kansas items: Group by type (HB, SB, etc.), then sort numerically
+    if items["kansas"]:
+        def sort_kansas_item(item):
+            title = item.get("title", "")
+            # Extract bill type and number from title (e.g., "House: HB2416" or "Senate: SB301")
+            bill_type = ""
+            bill_number = ""
+            
+            # Try to extract from title
+            match = re.search(r'(HB|SB|HR|SR|HCR|SCR|HJR|SJR)\s*(\d+)', title, re.IGNORECASE)
+            if match:
+                bill_type = match.group(1).upper()
+                bill_number = match.group(2)
+            
+            # Extract numeric part for sorting
+            try:
+                num = int(bill_number) if bill_number.isdigit() else 0
+            except (ValueError, AttributeError):
+                num = 0
+            
+            return (bill_type, num, bill_number)
+        
+        items["kansas"].sort(key=sort_kansas_item)
+    
+    # VA items: Sort alphabetically by title
+    if items["va"]:
+        items["va"].sort(key=lambda x: x.get("title", "").lower())
+    
     return items
 
 
