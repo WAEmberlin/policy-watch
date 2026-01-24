@@ -643,7 +643,7 @@ def main():
     
     # Enrich bills with official titles (limit per run to avoid long execution)
     print("\nEnriching bills with official titles...")
-    all_bills = enrich_bills_with_titles(api_key, all_bills, max_enrich=50)
+    all_bills = enrich_bills_with_titles(api_key, all_bills, max_enrich=500)
     
     # Sort by latest action date (newest first)
     all_bills.sort(key=lambda x: x.get("latest_action_date", x.get("published", "")), reverse=True)
