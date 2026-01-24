@@ -604,10 +604,10 @@ if __name__ == "__main__":
     print(f"Testing short title scraping for: {test_url}")
     result = fetch_short_title(test_url)
     if result:
-        print(f"✓ Successfully scraped short title:")
+        print(f"[OK] Successfully scraped short title:")
         print(f"  {result}")
     else:
-        print("✗ Could not scrape short title (may not be available or page structure changed)")
+        print("[FAIL] Could not scrape short title (may not be available or page structure changed)")
     
     print("\nRunning main RSS fetch...")
     main()
