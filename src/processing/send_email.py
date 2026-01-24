@@ -73,12 +73,17 @@ if os.path.exists(LEGISLATION_FILE):
                     ts = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
                     if (now - ts).total_seconds() <= 21600:  # 6 hours = 21600 seconds
                         # Normalize bill to same format as other items
+                        # Use short_title if available, otherwise use display title
+                        display_title = bill.get("short_title") or bill.get("title", "")
                         normalized = {
-                            "title": f"{bill.get('bill_type', '')} {bill.get('bill_number', '')}: {bill.get('title', '')}",
+                            "title": f"{bill.get('bill_type', '')} {bill.get('bill_number', '')}: {display_title}",
                             "summary": bill.get("summary", ""),
                             "source": bill.get("source", "Congress.gov API"),
                             "published": date_str,
-                            "link": bill.get("url", "")
+                            "link": bill.get("url", ""),
+                            "bill_number": f"{bill.get('bill_type', '')} {bill.get('bill_number', '')}",
+                            "official_title": bill.get("official_title", ""),
+                            "short_title": bill.get("short_title", "")
                         }
                         recent_items.append(normalized)
                 except Exception:
@@ -124,7 +129,7 @@ html_body = ""
 if recent_items:
     html_body += "<h2>Policy Watch – Updates in the Last 6 Hours</h2><ul>"
     for item in recent_items:
-        # Use short_title for Kansas bills if available, otherwise use title
+        # Use short_title if available, otherwise use title
         display_title = item.get("short_title") if item.get("short_title") else item.get("title", "(no title)")
         
         # Build item HTML
@@ -132,9 +137,14 @@ if recent_items:
         <li>
           <strong>{display_title}</strong><br>"""
         
-        # Add bill number for Kansas bills
+        # Add bill number
         if item.get("bill_number"):
             item_html += f"<em>Bill: {item.get('bill_number')}</em><br>"
+        
+        # Add official title for Congress bills if available and different from display title
+        official_title = item.get("official_title", "")
+        if official_title and official_title != display_title:
+            item_html += f"<em style='color: #666; font-size: 0.9em;'>Official: {official_title}</em><br>"
         
         item_html += f"""<a href="{item.get("link")}">{item.get("link")}</a><br>
           <p>{item.get("summary","")}</p>

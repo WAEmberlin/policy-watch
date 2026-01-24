@@ -255,7 +255,7 @@ else:
 # Prepare legislation data separately for frontend with pagination
 legislation_data = []
 for bill in legislation:
-    legislation_data.append({
+    bill_data = {
         "bill_number": bill.get("bill_number", ""),
         "bill_type": bill.get("bill_type", ""),
         "title": bill.get("title", ""),
@@ -266,7 +266,13 @@ for bill in legislation:
         "url": bill.get("url", ""),
         "published": bill.get("published", ""),
         "congress": bill.get("congress", 119)
-    })
+    }
+    # Include short_title and official_title if available
+    if bill.get("short_title"):
+        bill_data["short_title"] = bill.get("short_title")
+    if bill.get("official_title"):
+        bill_data["official_title"] = bill.get("official_title")
+    legislation_data.append(bill_data)
 
 # Paginate legislation (50 items per page, same as RSS feeds)
 legislation_pages = []

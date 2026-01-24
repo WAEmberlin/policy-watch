@@ -91,6 +91,133 @@ def fetch_bills_page(api_key: str, congress: int, offset: int = 0, limit: int = 
         return None
 
 
+# Cache for bill titles to avoid duplicate API calls
+_bill_titles_cache: Dict[str, Dict[str, str]] = {}
+
+
+def fetch_bill_titles(api_key: str, congress: int, bill_type: str, bill_number: str) -> Dict[str, str]:
+    """
+    Fetch all titles for a specific bill from the /titles endpoint.
+    
+    Args:
+        api_key: Congress.gov API key
+        congress: Congress number (e.g., 119)
+        bill_type: Bill type (e.g., "hr", "s")
+        bill_number: Bill number (e.g., "123")
+    
+    Returns:
+        Dict with 'short_title' and 'official_title' keys (values may be empty strings)
+    """
+    cache_key = f"{congress}-{bill_type}-{bill_number}"
+    
+    # Check cache first
+    if cache_key in _bill_titles_cache:
+        return _bill_titles_cache[cache_key]
+    
+    result = {"short_title": "", "official_title": ""}
+    
+    try:
+        url = f"{API_BASE_URL}/bill/{congress}/{bill_type.lower()}/{bill_number}/titles"
+        params = {
+            "api_key": api_key,
+            "format": "json"
+        }
+        
+        response = requests.get(url, params=params, timeout=10)
+        response.raise_for_status()
+        time.sleep(REQUEST_DELAY)
+        
+        data = response.json()
+        titles = data.get("titles", [])
+        
+        for title_entry in titles:
+            title_type = title_entry.get("titleType", "")
+            title_text = title_entry.get("title", "").strip()
+            
+            if not title_text:
+                continue
+            
+            # Look for Official Title
+            if "Official Title" in title_type and not result["official_title"]:
+                result["official_title"] = title_text
+            
+            # Look for Short Title
+            elif "Short Title" in title_type and not result["short_title"]:
+                result["short_title"] = title_text
+        
+        # Cache the result
+        _bill_titles_cache[cache_key] = result
+        return result
+        
+    except requests.exceptions.Timeout:
+        print(f"Timeout fetching titles for {bill_type.upper()} {bill_number}")
+        _bill_titles_cache[cache_key] = result
+        return result
+    except requests.exceptions.RequestException as e:
+        # Don't print error for every bill - too noisy
+        _bill_titles_cache[cache_key] = result
+        return result
+    except Exception as e:
+        _bill_titles_cache[cache_key] = result
+        return result
+
+
+def enrich_bills_with_titles(api_key: str, bills: List[Dict], max_enrich: int = 50) -> List[Dict]:
+    """
+    Enrich bills with official_title and short_title from the titles endpoint.
+    
+    Only enriches bills that don't already have official_title set.
+    Limited to max_enrich bills per run to avoid long execution times.
+    
+    Args:
+        api_key: Congress.gov API key
+        bills: List of bill dictionaries
+        max_enrich: Maximum number of bills to enrich per run
+    
+    Returns:
+        Updated bills list with titles enriched
+    """
+    enriched_count = 0
+    skipped_count = 0
+    
+    for bill in bills:
+        # Only enrich if missing official_title
+        if bill.get("official_title"):
+            continue
+        
+        # Limit enrichment per run
+        if enriched_count >= max_enrich:
+            skipped_count += 1
+            continue
+        
+        congress = bill.get("congress", CONGRESS_NUMBER)
+        bill_type = bill.get("bill_type", "")
+        bill_number = bill.get("bill_number", "")
+        
+        if not bill_type or not bill_number:
+            continue
+        
+        # Fetch titles
+        titles = fetch_bill_titles(api_key, congress, bill_type, bill_number)
+        
+        if titles["official_title"]:
+            bill["official_title"] = titles["official_title"]
+            enriched_count += 1
+        
+        if titles["short_title"]:
+            bill["short_title"] = titles["short_title"]
+        elif not bill.get("short_title"):
+            # Use display title as fallback for short_title
+            bill["short_title"] = bill.get("title", "")
+    
+    if enriched_count > 0:
+        print(f"Enriched {enriched_count} bills with official titles")
+    if skipped_count > 0:
+        print(f"  ({skipped_count} bills skipped - will enrich in future runs)")
+    
+    return bills
+
+
 def normalize_bill(bill_data: Dict, congress: int) -> Optional[Dict]:
     """
     Normalize a bill from the API response into our standard format.
@@ -513,6 +640,10 @@ def main():
     
     # Deduplicate and combine
     all_bills = deduplicate_bills(new_bills, existing_bills)
+    
+    # Enrich bills with official titles (limit per run to avoid long execution)
+    print("\nEnriching bills with official titles...")
+    all_bills = enrich_bills_with_titles(api_key, all_bills, max_enrich=50)
     
     # Sort by latest action date (newest first)
     all_bills.sort(key=lambda x: x.get("latest_action_date", x.get("published", "")), reverse=True)

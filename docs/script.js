@@ -274,18 +274,24 @@ function displayUnifiedView(year, chunkIndex) {
     
     if (legislation.pages) {
         const allLegPages = legislation.pages.flat();
-        legislationItems = allLegPages.map(bill => ({
-            date: bill.latest_action_date ? bill.latest_action_date.split("T")[0] : (bill.published ? bill.published.split("T")[0] : ""),
-            source: bill.source || "Congress.gov API",
-            title: `${bill.bill_type || ""} ${bill.bill_number || ""}: ${bill.title || ""}`.trim(),
-            link: bill.url || "",
-            published: bill.published || bill.latest_action_date || "",
-            summary: bill.summary || "",
-            bill_number: bill.bill_number,
-            bill_type: bill.bill_type,
-            sponsor_name: bill.sponsor_name,
-            latest_action: bill.latest_action
-        })).filter(item => {
+        legislationItems = allLegPages.map(bill => {
+            // Use short_title if available, otherwise use display title
+            const displayTitle = bill.short_title || bill.title || "";
+            return {
+                date: bill.latest_action_date ? bill.latest_action_date.split("T")[0] : (bill.published ? bill.published.split("T")[0] : ""),
+                source: bill.source || "Congress.gov API",
+                title: `${bill.bill_type || ""} ${bill.bill_number || ""}: ${displayTitle}`.trim(),
+                link: bill.url || "",
+                published: bill.published || bill.latest_action_date || "",
+                summary: bill.summary || "",
+                bill_number: `${bill.bill_type || ""} ${bill.bill_number || ""}`.trim(),
+                bill_type: bill.bill_type,
+                sponsor_name: bill.sponsor_name,
+                latest_action: bill.latest_action,
+                short_title: bill.short_title || "",
+                official_title: bill.official_title || ""
+            };
+        }).filter(item => {
             if (!item.date) return false;
             try {
                 const itemYear = new Date(item.date + "T00:00:00").getFullYear();
@@ -295,14 +301,19 @@ function displayUnifiedView(year, chunkIndex) {
             }
         });
     } else if (Array.isArray(legislation)) {
-        legislationItems = legislation.map(bill => ({
-            date: bill.latest_action_date ? bill.latest_action_date.split("T")[0] : (bill.published ? bill.published.split("T")[0] : ""),
-            source: bill.source || "Congress.gov API",
-            title: `${bill.bill_type || ""} ${bill.bill_number || ""}: ${bill.title || ""}`.trim(),
-            link: bill.url || "",
-            published: bill.published || bill.latest_action_date || "",
-            summary: bill.summary || ""
-        })).filter(item => {
+        legislationItems = legislation.map(bill => {
+            const displayTitle = bill.short_title || bill.title || "";
+            return {
+                date: bill.latest_action_date ? bill.latest_action_date.split("T")[0] : (bill.published ? bill.published.split("T")[0] : ""),
+                source: bill.source || "Congress.gov API",
+                title: `${bill.bill_type || ""} ${bill.bill_number || ""}: ${displayTitle}`.trim(),
+                link: bill.url || "",
+                published: bill.published || bill.latest_action_date || "",
+                summary: bill.summary || "",
+                short_title: bill.short_title || "",
+                official_title: bill.official_title || ""
+            };
+        }).filter(item => {
             if (!item.date) return false;
             try {
                 const itemYear = new Date(item.date + "T00:00:00").getFullYear();
@@ -418,13 +429,22 @@ function displayUnifiedView(year, chunkIndex) {
                     a.rel = "noopener noreferrer";
                     li.appendChild(a);
                     
-                    // Show bill number for Kansas bills
+                    // Show bill number
                     if (item.bill_number) {
                         const billNumDiv = document.createElement("div");
                         billNumDiv.className = "bill-number";
                         billNumDiv.style.cssText = "font-size: 0.85em; color: #1a73e8; margin-top: 4px; font-weight: 600;";
                         billNumDiv.textContent = `Bill: ${item.bill_number}`;
                         li.appendChild(billNumDiv);
+                    }
+                    
+                    // Show official title for Congress bills if available and different
+                    if (item.official_title && item.official_title !== displayTitle) {
+                        const officialDiv = document.createElement("div");
+                        officialDiv.className = "official-title";
+                        officialDiv.style.cssText = "font-size: 0.85em; color: #555; margin-top: 4px; font-style: italic;";
+                        officialDiv.textContent = `Official: ${item.official_title}`;
+                        li.appendChild(officialDiv);
                     }
                     
                     // Show summary if it exists and is different from display title
@@ -523,15 +543,18 @@ function performSearch(query) {
     
     legislationItems.forEach(bill => {
         const title = (bill.title || "").toLowerCase();
+        const shortTitle = (bill.short_title || "").toLowerCase();
+        const officialTitle = (bill.official_title || "").toLowerCase();
         const summary = (bill.summary || "").toLowerCase();
         const sponsor = (bill.sponsor_name || "").toLowerCase();
-        const searchText = title + " " + summary + " " + sponsor;
+        const searchText = title + " " + shortTitle + " " + officialTitle + " " + summary + " " + sponsor;
         
         if (searchText.includes(searchQuery)) {
             searchResults.push({
                 ...bill,
                 date: bill.latest_action_date ? bill.latest_action_date.split("T")[0] : bill.published ? bill.published.split("T")[0] : "",
-                source: bill.source || "Congress.gov API"
+                source: bill.source || "Congress.gov API",
+                bill_number: `${bill.bill_type || ""} ${bill.bill_number || ""}`.trim()
             });
         }
     });
@@ -622,13 +645,28 @@ function displaySearchResults() {
                 
                 li.appendChild(a);
                 
-                // Show bill number for Kansas bills
+                // Show bill number
                 if (item.bill_number) {
                     const billNumDiv = document.createElement("div");
                     billNumDiv.className = "bill-number";
                     billNumDiv.style.cssText = "font-size: 0.85em; color: #1a73e8; margin-top: 4px; font-weight: 600;";
                     billNumDiv.textContent = `Bill: ${item.bill_number}`;
                     li.appendChild(billNumDiv);
+                }
+                
+                // Show official title for Congress bills if available and different
+                if (item.official_title && item.official_title !== displayTitle) {
+                    const officialDiv = document.createElement("div");
+                    officialDiv.className = "official-title";
+                    officialDiv.style.cssText = "font-size: 0.85em; color: #555; margin-top: 4px; font-style: italic;";
+                    // Highlight search terms in official title
+                    if (searchQuery) {
+                        const regex = new RegExp(`(${searchQuery})`, "gi");
+                        officialDiv.innerHTML = `Official: ${item.official_title.replace(regex, "<mark>$1</mark>")}`;
+                    } else {
+                        officialDiv.textContent = `Official: ${item.official_title}`;
+                    }
+                    li.appendChild(officialDiv);
                 }
                 
                 // Show summary if it exists and is different from display title
