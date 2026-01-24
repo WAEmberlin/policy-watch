@@ -1,9 +1,15 @@
 import os
 import json
 import smtplib
+import sys
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime, timezone, timedelta
+from pathlib import Path
+
+# Add parent directory to path to import fetch_kansas_rss
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from processing.fetch_kansas_rss import enrich_history_file
 
 HISTORY_FILE = "src/output/history.json"
 LEGISLATION_FILE = "src/output/legislation.json"
@@ -14,6 +20,14 @@ EMAIL_PORT = int(os.environ.get("EMAIL_PORT", 587))
 EMAIL_USER = os.environ.get("EMAIL_USER")
 EMAIL_PASS = os.environ.get("EMAIL_PASS")
 EMAIL_TO = os.environ.get("EMAIL_TO")
+
+# Enrich Kansas bills with short titles before loading for email
+print("Enriching Kansas bills with short titles...")
+try:
+    enrich_history_file()
+except Exception as e:
+    print(f"Warning: Could not enrich Kansas bills: {e}")
+    print("Continuing with email send anyway...")
 
 # Load items from history.json (RSS feeds, Kansas, VA)
 now = datetime.now(timezone.utc)
@@ -110,14 +124,24 @@ html_body = ""
 if recent_items:
     html_body += "<h2>Policy Watch – Updates in the Last 6 Hours</h2><ul>"
     for item in recent_items:
-        html_body += f"""
+        # Use short_title for Kansas bills if available, otherwise use title
+        display_title = item.get("short_title") if item.get("short_title") else item.get("title", "(no title)")
+        
+        # Build item HTML
+        item_html = f"""
         <li>
-          <strong>{item.get("title","(no title)")}</strong><br>
-          <a href="{item.get("link")}">{item.get("link")}</a><br>
+          <strong>{display_title}</strong><br>"""
+        
+        # Add bill number for Kansas bills
+        if item.get("bill_number"):
+            item_html += f"<em>Bill: {item.get('bill_number')}</em><br>"
+        
+        item_html += f"""<a href="{item.get("link")}">{item.get("link")}</a><br>
           <p>{item.get("summary","")}</p>
         </li>
         <hr>
         """
+        html_body += item_html
     html_body += "</ul>"
     subject = f"Policy Watch — {len(recent_items)} new updates"
 else:

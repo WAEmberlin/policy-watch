@@ -411,13 +411,24 @@ function displayUnifiedView(year, chunkIndex) {
                     const li = document.createElement("li");
                     const a = document.createElement("a");
                     a.href = item.link || item.url || "#";
-                    a.textContent = item.title || "(no title)";
+                    // Use short_title for Kansas bills if available, otherwise use title
+                    const displayTitle = item.short_title || item.title || "(no title)";
+                    a.textContent = displayTitle;
                     a.target = "_blank";
                     a.rel = "noopener noreferrer";
                     li.appendChild(a);
                     
-                    // Show summary if it exists and is different from title
-                    if (item.summary && item.summary.trim() && item.summary !== item.title) {
+                    // Show bill number for Kansas bills
+                    if (item.bill_number) {
+                        const billNumDiv = document.createElement("div");
+                        billNumDiv.className = "bill-number";
+                        billNumDiv.style.cssText = "font-size: 0.85em; color: #1a73e8; margin-top: 4px; font-weight: 600;";
+                        billNumDiv.textContent = `Bill: ${item.bill_number}`;
+                        li.appendChild(billNumDiv);
+                    }
+                    
+                    // Show summary if it exists and is different from display title
+                    if (item.summary && item.summary.trim() && item.summary !== displayTitle) {
                         const summaryDiv = document.createElement("div");
                         summaryDiv.className = "item-summary";
                         summaryDiv.style.cssText = "font-size: 0.9em; color: #666; margin-top: 4px; margin-left: 0; line-height: 1.4;";
@@ -483,8 +494,9 @@ function performSearch(query) {
                 const items = dateData[source];
                 items.forEach(item => {
                     const title = (item.title || "").toLowerCase();
+                    const shortTitle = (item.short_title || "").toLowerCase();
                     const summary = (item.summary || "").toLowerCase();
-                    const searchText = title + " " + summary;
+                    const searchText = title + " " + shortTitle + " " + summary;
                     
                     if (searchText.includes(searchQuery)) {
                         searchResults.push({
@@ -595,21 +607,32 @@ function displaySearchResults() {
                 const li = document.createElement("li");
                 const a = document.createElement("a");
                 a.href = item.link || item.url || "#";
-                a.textContent = item.title || "(no title)";
+                // Use short_title for Kansas bills if available, otherwise use title
+                const displayTitle = item.short_title || item.title || "(no title)";
                 a.target = "_blank";
                 a.rel = "noopener noreferrer";
                 
                 // Highlight search terms in title
-                if (item.title) {
-                    const title = item.title;
+                if (displayTitle) {
                     const regex = new RegExp(`(${searchQuery})`, "gi");
-                    a.innerHTML = title.replace(regex, "<mark>$1</mark>");
+                    a.innerHTML = displayTitle.replace(regex, "<mark>$1</mark>");
+                } else {
+                    a.textContent = "(no title)";
                 }
                 
                 li.appendChild(a);
                 
-                // Show summary if it exists and is different from title
-                if (item.summary && item.summary.trim() && item.summary !== item.title) {
+                // Show bill number for Kansas bills
+                if (item.bill_number) {
+                    const billNumDiv = document.createElement("div");
+                    billNumDiv.className = "bill-number";
+                    billNumDiv.style.cssText = "font-size: 0.85em; color: #1a73e8; margin-top: 4px; font-weight: 600;";
+                    billNumDiv.textContent = `Bill: ${item.bill_number}`;
+                    li.appendChild(billNumDiv);
+                }
+                
+                // Show summary if it exists and is different from display title
+                if (item.summary && item.summary.trim() && item.summary !== displayTitle) {
                     const summaryDiv = document.createElement("div");
                     summaryDiv.className = "item-summary";
                     summaryDiv.style.cssText = "font-size: 0.9em; color: #666; margin-top: 4px; margin-left: 0; line-height: 1.4;";

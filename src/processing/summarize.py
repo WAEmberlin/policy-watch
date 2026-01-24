@@ -210,14 +210,23 @@ for year in sorted(grouped.keys(), reverse=True):
     for day in days_sorted:
         for source in grouped[year][day]:
             for item in grouped[year][day][source]:
-                flat_items.append({
+                flat_item = {
                     "date": day,
                     "source": source,
                     "title": item.get("title"),
                     "link": item.get("link"),
                     "published": item.get("published"),
                     "summary": item.get("summary", "")  # Include summary for search
-                })
+                }
+                # Include short_title and bill_number for Kansas bills
+                if item.get("short_title"):
+                    flat_item["short_title"] = item.get("short_title")
+                    flat_item["short_title_source"] = item.get("short_title_source", "rss")
+                if item.get("bill_number"):
+                    flat_item["bill_number"] = item.get("bill_number")
+                if item.get("bill_url"):
+                    flat_item["bill_url"] = item.get("bill_url")
+                flat_items.append(flat_item)
 
     # Pagination
     pages = []

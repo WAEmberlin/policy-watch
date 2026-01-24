@@ -18,11 +18,149 @@ import html
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional
+import requests
+from bs4 import BeautifulSoup
 
 OUTPUT_DIR = Path("src/output")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 HISTORY_FILE = OUTPUT_DIR / "history.json"
+
+# Cache for short titles to avoid duplicate scraping
+_short_title_cache: Dict[str, Optional[str]] = {}
+
+
+def fetch_short_title(bill_url: str) -> str | None:
+    """
+    Fetches the 'Short Title' from a Kansas Legislature bill page.
+    
+    Locates the <h3> element with text "Short Title", then extracts text from
+    the parent <div>'s <p class="truncated_text">, including hidden text in
+    <span class="hide_remaining_text">. Removes (more) links and normalizes whitespace.
+    
+    Args:
+        bill_url: URL to the Kansas Legislature bill page
+        
+    Returns:
+        Short title text if found, None if unavailable or on error
+    """
+    # Check cache first
+    if bill_url in _short_title_cache:
+        return _short_title_cache[bill_url]
+    
+    try:
+        # Fetch the page with timeout
+        response = requests.get(bill_url, timeout=10)
+        response.raise_for_status()
+        
+        # Parse HTML
+        soup = BeautifulSoup(response.content, "html.parser")
+        
+        # Find the h3 element with text "Short Title"
+        short_title_heading = None
+        for h3 in soup.find_all("h3"):
+            if h3.get_text(strip=True) == "Short Title":
+                short_title_heading = h3
+                break
+        
+        if not short_title_heading:
+            # Short Title section not found
+            _short_title_cache[bill_url] = None
+            return None
+        
+        # Find the parent div
+        parent_div = short_title_heading.find_parent("div")
+        if not parent_div:
+            _short_title_cache[bill_url] = None
+            return None
+        
+        # Find the <p class="truncated_text"> within the parent div
+        truncated_para = parent_div.find("p", class_="truncated_text")
+        if not truncated_para:
+            _short_title_cache[bill_url] = None
+            return None
+        
+        # Remove all <a> tags (including (more) links)
+        for a_tag in truncated_para.find_all("a"):
+            a_tag.decompose()
+        
+        # Extract visible text
+        visible_text = truncated_para.get_text(separator=" ", strip=False)
+        
+        # Find and extract hidden text from <span class="hide_remaining_text">
+        hidden_span = truncated_para.find("span", class_="hide_remaining_text")
+        hidden_text = ""
+        if hidden_span:
+            hidden_text = hidden_span.get_text(separator=" ", strip=False)
+        
+        # Combine visible and hidden text
+        combined_text = visible_text + " " + hidden_text
+        
+        # Normalize whitespace: replace multiple spaces/newlines with single space
+        normalized = re.sub(r'\s+', ' ', combined_text).strip()
+        
+        # Cache and return
+        _short_title_cache[bill_url] = normalized if normalized else None
+        return normalized if normalized else None
+        
+    except requests.exceptions.Timeout:
+        print(f"Timeout fetching short title from {bill_url}")
+        _short_title_cache[bill_url] = None
+        return None
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching short title from {bill_url}: {e}")
+        _short_title_cache[bill_url] = None
+        return None
+    except Exception as e:
+        print(f"Error parsing short title from {bill_url}: {e}")
+        _short_title_cache[bill_url] = None
+        return None
+
+
+def extract_bill_number_from_url(url: str) -> Optional[str]:
+    """
+    Extract bill number from a Kansas Legislature bill URL.
+    
+    Examples:
+        https://www.kslegislature.gov/li/b2025_26/measures/HB2433/ -> "HB 2433"
+        https://www.kslegislature.gov/li/b2025_26/measures/SB139/ -> "SB 139"
+    
+    Args:
+        url: Kansas Legislature bill URL
+        
+    Returns:
+        Bill number in format "HB 1234" or "SB 567", None if not found
+    """
+    # Pattern: /measures/HB2433/ or /measures/SB139/
+    match = re.search(r'/measures/([A-Z]{1,3})(\d+)/', url, re.IGNORECASE)
+    if match:
+        bill_type = match.group(1).upper()
+        bill_num = match.group(2)
+        return f"{bill_type} {bill_num}"
+    return None
+
+
+def extract_bill_number_from_title(title: str) -> Optional[str]:
+    """
+    Extract bill number from RSS title.
+    
+    Examples:
+        "House: HB2433: Prefiled for Introduction..." -> "HB 2433"
+        "Senate: SB139: Some title" -> "SB 139"
+    
+    Args:
+        title: RSS feed title
+        
+    Returns:
+        Bill number in format "HB 1234" or "SB 567", None if not found
+    """
+    # Pattern: HB2433, SB139, etc.
+    match = re.search(r'\b([A-Z]{1,3})(\d+)\b', title, re.IGNORECASE)
+    if match:
+        bill_type = match.group(1).upper()
+        bill_num = match.group(2)
+        return f"{bill_type} {bill_num}"
+    return None
 
 # Kansas Legislature RSS feed definitions
 KANSAS_FEEDS = {
@@ -131,6 +269,15 @@ def normalize_kansas_item(entry: Dict, feed_config: Dict) -> Optional[Dict]:
             # Use current time if no date available
             published = datetime.now(timezone.utc)
         
+        # Extract bill number if this is a bill-related item
+        bill_number = None
+        if "/measures/" in link.lower():
+            # Try to extract from URL first
+            bill_number = extract_bill_number_from_url(link)
+            if not bill_number:
+                # Fallback to title
+                bill_number = extract_bill_number_from_title(title)
+        
         # Build normalized item
         item = {
             "id": item_id,
@@ -144,6 +291,22 @@ def normalize_kansas_item(entry: Dict, feed_config: Dict) -> Optional[Dict]:
             "state": "KS",
             "feed": feed_config["feed_key"]  # house_actions, senate_actions, etc.
         }
+        
+        # Add bill number if found
+        if bill_number:
+            item["bill_number"] = bill_number
+            item["bill_url"] = link
+        
+        # For bill-related items, attempt to fetch short title
+        if bill_number and "/measures/" in link.lower():
+            short_title = fetch_short_title(link)
+            if short_title:
+                item["short_title"] = short_title
+                item["short_title_source"] = "scraped"
+            else:
+                # Fallback to RSS title
+                item["short_title"] = title
+                item["short_title_source"] = "rss"
         
         # For conference committees, extract scheduled date/time/location
         if feed_config["feed_key"] == "conference_committees":
@@ -326,6 +489,85 @@ def merge_with_history(kansas_items: List[Dict]) -> List[Dict]:
     return history
 
 
+def enrich_kansas_bills_with_short_titles(history: List[Dict]) -> List[Dict]:
+    """
+    Enrich existing Kansas bill items in history with short titles if missing.
+    
+    This function scans history for Kansas bill items that don't have short_title
+    yet and attempts to scrape them. Useful for enriching existing data.
+    
+    Args:
+        history: List of history items
+        
+    Returns:
+        Updated history list with enriched short titles
+    """
+    enriched_count = 0
+    skipped_count = 0
+    
+    for item in history:
+        # Check if this is a Kansas bill item that needs enrichment
+        if (item.get("type") == "state_legislation" and 
+            item.get("state") == "KS" and
+            "/measures/" in item.get("link", "").lower() and
+            not item.get("short_title")):  # Only enrich if missing
+            
+            bill_url = item.get("link", "")
+            if not bill_url:
+                continue
+            
+            # Attempt to fetch short title
+            short_title = fetch_short_title(bill_url)
+            if short_title:
+                item["short_title"] = short_title
+                item["short_title_source"] = "scraped"
+                enriched_count += 1
+            else:
+                # Fallback to RSS title if scraping fails
+                if not item.get("short_title"):
+                    item["short_title"] = item.get("title", "")
+                    item["short_title_source"] = "rss"
+                skipped_count += 1
+    
+    if enriched_count > 0 or skipped_count > 0:
+        print(f"Enriched {enriched_count} Kansas bills with scraped short titles")
+        if skipped_count > 0:
+            print(f"  ({skipped_count} bills fell back to RSS title)")
+    
+    return history
+
+
+def enrich_history_file():
+    """
+    Load history.json, enrich Kansas bills with short titles, and save back.
+    This can be called independently to enrich existing data.
+    """
+    if not HISTORY_FILE.exists():
+        print(f"History file not found: {HISTORY_FILE}")
+        return
+    
+    try:
+        with open(HISTORY_FILE, "r", encoding="utf-8") as f:
+            history = json.load(f)
+        
+        if not isinstance(history, list):
+            print(f"Warning: history.json is not a list. Skipping enrichment.")
+            return
+        
+        print(f"Loading {len(history)} items from history.json for enrichment...")
+        enriched_history = enrich_kansas_bills_with_short_titles(history)
+        
+        # Save enriched history
+        with open(HISTORY_FILE, "w", encoding="utf-8") as f:
+            json.dump(enriched_history, f, indent=2)
+        
+        print(f"Successfully enriched and saved history.json")
+        
+    except Exception as e:
+        print(f"Error enriching history: {e}")
+        raise
+
+
 def main():
     """Main function to fetch Kansas feeds and merge with history."""
     print("Fetching Kansas Legislature RSS feeds...")
@@ -339,6 +581,9 @@ def main():
     
     # Merge with existing history
     combined_history = merge_with_history(kansas_items)
+    
+    # Enrich all Kansas bills (including existing ones) with short titles
+    combined_history = enrich_kansas_bills_with_short_titles(combined_history)
     
     # Sort by published date (newest first)
     combined_history.sort(key=lambda x: x.get("published", ""), reverse=True)
@@ -354,5 +599,16 @@ def main():
 
 
 if __name__ == "__main__":
+    # Test the short title scraping function
+    test_url = "https://www.kslegislature.org/li/b2025_26/measures/hb2467/"
+    print(f"Testing short title scraping for: {test_url}")
+    result = fetch_short_title(test_url)
+    if result:
+        print(f"✓ Successfully scraped short title:")
+        print(f"  {result}")
+    else:
+        print("✗ Could not scrape short title (may not be available or page structure changed)")
+    
+    print("\nRunning main RSS fetch...")
     main()
 
