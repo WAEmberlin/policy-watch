@@ -22,6 +22,10 @@ jobs:
         with:
           python-version: "3.11"
       
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4
+      
       - name: Send email update
         env:
           EMAIL_HOST: ${{ secrets.EMAIL_HOST }}

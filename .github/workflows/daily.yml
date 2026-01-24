@@ -23,7 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install feedparser pyyaml requests
+          pip install feedparser pyyaml requests beautifulsoup4
 
       - name: Fetch feeds
         run: python src/processing/fetch_feeds.py
