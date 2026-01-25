@@ -4,7 +4,6 @@ Weekly Overview Generator for CivicWatch
 Generates a weekly summary of activity from:
 - Congress API (bills, votes, hearings)
 - Kansas Legislature RSS feeds
-- VA-related items
 
 Creates a spoken-friendly summary and optionally generates audio via ElevenLabs.
 """
@@ -87,7 +86,7 @@ def is_within_last_7_days(date_str: str, now: datetime) -> bool:
 
 def categorize_item(item: Dict) -> Optional[str]:
     """
-    Categorize an item as 'congress', 'kansas', or 'va'.
+    Categorize an item as 'congress' or 'kansas'.
     
     Returns None if item doesn't fit any category.
     """
@@ -101,16 +100,6 @@ def categorize_item(item: Dict) -> Optional[str]:
     if any(keyword in source for keyword in ["kansas", "ks legislature"]):
         return "kansas"
     
-    # VA items
-    if any(keyword in source for keyword in ["va", "veterans", "veterans affairs"]):
-        return "va"
-    
-    # Check title and summary for VA keywords
-    title = item.get("title", "").lower()
-    summary = item.get("summary", "").lower()
-    if any(keyword in title or keyword in summary for keyword in ["veteran", "va news", "veterans affairs"]):
-        return "va"
-    
     return None
 
 
@@ -118,12 +107,11 @@ def load_recent_items(now: datetime) -> Dict[str, List[Dict]]:
     """
     Load items from the last 7 days and categorize them.
     
-    Returns dict with keys: 'congress', 'kansas', 'va'
+    Returns dict with keys: 'congress', 'kansas'
     """
     items = {
         "congress": [],
-        "kansas": [],
-        "va": []
+        "kansas": []
     }
     
     # Load history.json (RSS feeds, Kansas, VA)
@@ -274,10 +262,6 @@ def load_recent_items(now: datetime) -> Dict[str, List[Dict]]:
         
         items["kansas"].sort(key=sort_kansas_item)
     
-    # VA items: Sort alphabetically by title
-    if items["va"]:
-        items["va"].sort(key=lambda x: x.get("title", "").lower())
-    
     return items
 
 
@@ -350,35 +334,6 @@ def group_kansas_items(items: List[Dict]) -> Dict[str, List[Dict]]:
             groups["hearing"].append(item)
         elif "vote" in text or "passed" in text or "approved" in text:
             groups["vote"].append(item)
-        else:
-            groups["other"].append(item)
-    
-    return {k: v for k, v in groups.items() if v}
-
-
-def group_va_items(items: List[Dict]) -> Dict[str, List[Dict]]:
-    """Group VA items by topic."""
-    groups = {
-        "health": [],
-        "benefits": [],
-        "careers": [],
-        "events": [],
-        "other": []
-    }
-    
-    for item in items:
-        title_lower = item.get("title", "").lower()
-        summary_lower = item.get("summary", "").lower()
-        text = f"{title_lower} {summary_lower}"
-        
-        if any(kw in text for kw in ["health", "wellness", "medical", "care", "treatment"]):
-            groups["health"].append(item)
-        elif any(kw in text for kw in ["benefit", "compensation", "pension", "claim"]):
-            groups["benefits"].append(item)
-        elif any(kw in text for kw in ["career", "job", "employment", "hiring"]):
-            groups["careers"].append(item)
-        elif any(kw in text for kw in ["event", "celebration", "anniversary", "recognition"]):
-            groups["events"].append(item)
         else:
             groups["other"].append(item)
     
@@ -547,29 +502,6 @@ def generate_summary(items: Dict[str, List[Dict]], week_start: datetime, week_en
         lines.append("")
     else:
         lines.append("Kansas Legislature: No new activity this week.")
-        lines.append("")
-    
-    # VA section - show top 2 items only
-    va_count = len(items["va"])
-    if va_count > 0:
-        lines.append("Veterans Affairs:")
-        top_va = items["va"][:2]
-        for item in top_va:
-            title = item.get("title", "VA News")
-            summary = clean_html(item.get("summary", ""))
-            brief_title = truncate_summary(title, 70)
-            lines.append(f"   {brief_title}")
-            if summary and summary != title:
-                brief_summary = truncate_summary(summary, 80)
-                if brief_summary:
-                    lines.append(f"      {brief_summary}")
-        
-        remaining_va = va_count - len(top_va)
-        if remaining_va > 0:
-            lines.append(f"   Plus {remaining_va} more updates.")
-        lines.append("")
-    else:
-        lines.append("Veterans Affairs: No new updates this week.")
         lines.append("")
     
     # Closing
@@ -746,9 +678,8 @@ def main():
     
     congress_count = len(items["congress"])
     kansas_count = len(items["kansas"])
-    va_count = len(items["va"])
     
-    print(f"Found {congress_count} Congress items, {kansas_count} Kansas items, {va_count} VA items")
+    print(f"Found {congress_count} Congress items, {kansas_count} Kansas items")
     
     # Generate summary script
     print("Generating summary script...")
@@ -765,8 +696,7 @@ def main():
         "week_end": week_end.isoformat(),
         "item_counts": {
             "congress": congress_count,
-            "kansas": kansas_count,
-            "va": va_count
+            "kansas": kansas_count
         },
         "script": weekly_script,
         "generated_at": now.isoformat()

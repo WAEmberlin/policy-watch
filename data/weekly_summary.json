@@ -1,0 +1,57 @@
+{
+  "week_start": "2026-01-18",
+  "week_end": "2026-01-25",
+  "model": "phi-3:mini",
+  "prompt_version": "v1",
+  "generated_at": "2026-01-25T00:59:27.660564+00:00",
+  "jurisdictions": [
+    {
+      "name": "Kansas Legislature",
+      "sections": [
+        {
+          "title": "House Bills",
+          "summary": [
+            "19 House bills were introduced: HB 2538, HB 2537, HB 2536, HB 2535, HR 6022 and 14 more.",
+            "HB 2157 was 30 pm room 112-n on 2026-01-22."
+          ],
+          "bill_count": 77
+        },
+        {
+          "title": "Senate Bills",
+          "summary": [
+            "18 Senate bills were introduced: SB 375, SB 374, SB 373, SB 372, SB 371 and 13 more.",
+            "2 Senate bills were referred to committee on judiciary: SB 359, SB 358."
+          ],
+          "bill_count": 37
+        }
+      ]
+    },
+    {
+      "name": "U.S. Congress",
+      "sections": [
+        {
+          "title": "House of Representatives",
+          "summary": [
+            "3 House of Representatives bills were ordered to be reported by unanimous consent.: HR 3073, HR 3340, HR 2130.",
+            "HRES 375 was pursuant to the provisions of h. res. 1014, h. res. 375 is considered passed house as amended. on 2026-01-22.",
+            "HR 4294 was ordered to be reported in the nature of a substitute (amended) by unanimous consent. on 2026-01-22.",
+            "HR 1799 was ordered to be reported (amended) by the yeas and nays: 30 - 24. on 2026-01-22.",
+            "3 House of Representatives bills were subcommittee hearings held: HR 982, HR 2878, HR 3159.",
+            "HR 2072 was ordered to be reported by the yeas and nays: 44 - 0. on 2026-01-21.",
+            "2 House of Representatives bills were ordered to be reported (amended) by voice vote.: HR 2247, HR 2474.",
+            "HR 4327 was assuming first sponsorship - mr. alford asked unanimous consent that he may hereafter be considered as the first sponsor of h.r. 4327, a bill originally introduced by representative greene (ga), for the purpose of adding cosponsors and requesting reprintings pursuant to clause 7 of rule xii. agreed to without objection. on 2026-01-21.",
+            "HR 4624 was ordered to be reported (amended) by the yeas and nays: 30 - 4. on 2026-01-21."
+          ],
+          "bill_count": 14
+        },
+        {
+          "title": "U.S. Senate",
+          "summary": [
+            "No U.S. Senate bills with activity this week."
+          ],
+          "bill_count": 0
+        }
+      ]
+    }
+  ]
+}

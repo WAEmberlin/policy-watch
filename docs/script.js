@@ -867,9 +867,9 @@ async function loadWeeklyOverview() {
         
         // Item counts
         const counts = data.item_counts || {};
-        if (counts.congress > 0 || counts.kansas > 0 || counts.va > 0) {
+        if (counts.congress > 0 || counts.kansas > 0) {
             html += `<div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #ddd; font-size: 0.9em; color: #666;">`;
-            html += `This week: ${counts.congress} Congress items, ${counts.kansas} Kansas items, ${counts.va} VA items`;
+            html += `This week: ${counts.congress} Congress items, ${counts.kansas} Kansas items`;
             html += `</div>`;
         }
         

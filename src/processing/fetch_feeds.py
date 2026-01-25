@@ -11,7 +11,6 @@ HISTORY_FILE = OUTPUT_DIR / "history.json"
 
 FEEDS = {
     "US Congress": "https://www.congress.gov/rss/notification.xml",
-    "VA News": "https://news.va.gov/feed/",
 }
 # Note: Kansas Legislature feeds are handled by fetch_kansas_rss.py
 
