@@ -19,10 +19,12 @@ except (ImportError, Exception):
 
 OUTPUT_DIR = "src/output"
 DOCS_DIR = "docs"
+DATA_DIR = "data"
 HISTORY_FILE = os.path.join(OUTPUT_DIR, "history.json")
 LEGISLATION_FILE = os.path.join(OUTPUT_DIR, "legislation.json")
 FEDERAL_HEARINGS_FILE = os.path.join(OUTPUT_DIR, "federal_hearings.json")
 HEARINGS_FILE = os.path.join(OUTPUT_DIR, "hearings.json")
+DAILY_SUMMARIES_FILE = os.path.join(DATA_DIR, "daily_summaries.json")
 SITE_DATA_FILE = os.path.join(DOCS_DIR, "site_data.json")
 
 ITEMS_PER_PAGE = 50
@@ -425,6 +427,22 @@ all_historical_hearings.sort(key=lambda x: x.get("scheduled_date", "") or "", re
 print(f"Total upcoming hearings: {len(all_upcoming_hearings)} ({len(upcoming_hearings)} state, {len(federal_upcoming)} federal)")
 print(f"Total historical hearings: {len(all_historical_hearings)} ({len(historical_hearings)} state, {len(federal_historical)} federal)")
 
+# -------------------------
+# Load daily summaries
+# -------------------------
+daily_summaries = {}
+if os.path.exists(DAILY_SUMMARIES_FILE):
+    try:
+        with open(DAILY_SUMMARIES_FILE, "r", encoding="utf-8") as f:
+            daily_summaries = json.load(f)
+            if not isinstance(daily_summaries, dict):
+                print(f"Warning: daily_summaries.json is not a dict. Treating as empty.")
+                daily_summaries = {}
+            else:
+                print(f"Loaded {len(daily_summaries)} daily summaries from {DAILY_SUMMARIES_FILE}")
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"Warning: Could not load daily_summaries.json: {e}")
+
 output = {
     "last_updated": now.isoformat(),
     "years": site_years,
@@ -433,7 +451,8 @@ output = {
         "pages": legislation_pages  # Paginated legislation data
     },
     "upcoming_hearings": all_upcoming_hearings,  # Upcoming hearings (state + federal)
-    "historical_hearings": all_historical_hearings  # Past hearings (state + federal)
+    "historical_hearings": all_historical_hearings,  # Past hearings (state + federal)
+    "daily_summaries": daily_summaries  # Daily AI-generated summaries by date
 }
 
 # Ensure legislation key is always present

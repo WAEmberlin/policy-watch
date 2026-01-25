@@ -372,6 +372,14 @@ function displayUnifiedView(year, chunkIndex) {
         isDateInRange(date, dateRange.start, dateRange.end)
     );
 
+    // Get daily summaries
+    const dailySummaries = allData.daily_summaries || {};
+    
+    // Get today's date to check if a day has "ended"
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const todayStr = today.toISOString().split('T')[0];
+
     // Render dates in this chunk (newest first)
     // Show all dates in the chunk, even if they have no items (for empty state)
     allDatesInChunk.forEach(date => {
@@ -381,6 +389,69 @@ function displayUnifiedView(year, chunkIndex) {
         const dateHeader = document.createElement("h2");
         dateHeader.textContent = formatDate(date);
         dateSection.appendChild(dateHeader);
+        
+        // Show daily summary if available and the day has ended (not today)
+        const daySummary = dailySummaries[date];
+        if (daySummary && daySummary.summary && date < todayStr) {
+            const summaryDiv = document.createElement("div");
+            summaryDiv.className = "daily-summary";
+            summaryDiv.style.cssText = `
+                background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+                border-left: 4px solid #1a73e8;
+                padding: 15px 20px;
+                margin-bottom: 20px;
+                border-radius: 0 8px 8px 0;
+                font-size: 0.95em;
+                line-height: 1.6;
+                color: #333;
+            `;
+            
+            const summaryHeader = document.createElement("div");
+            summaryHeader.style.cssText = `
+                font-weight: 600;
+                color: #1a73e8;
+                margin-bottom: 8px;
+                font-size: 0.9em;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            `;
+            summaryHeader.textContent = "Daily Summary";
+            summaryDiv.appendChild(summaryHeader);
+            
+            const summaryText = document.createElement("div");
+            summaryText.textContent = daySummary.summary;
+            summaryDiv.appendChild(summaryText);
+            
+            // Show counts if available
+            if (daySummary.counts && daySummary.counts.total > 0) {
+                const countsDiv = document.createElement("div");
+                countsDiv.style.cssText = `
+                    margin-top: 10px;
+                    font-size: 0.85em;
+                    color: #666;
+                `;
+                const counts = daySummary.counts;
+                let countParts = [];
+                if (counts.kansas_house > 0 || counts.kansas_senate > 0) {
+                    const ks = [];
+                    if (counts.kansas_house > 0) ks.push(`${counts.kansas_house} House`);
+                    if (counts.kansas_senate > 0) ks.push(`${counts.kansas_senate} Senate`);
+                    countParts.push(`Kansas: ${ks.join(", ")}`);
+                }
+                if (counts.congress_house > 0 || counts.congress_senate > 0) {
+                    const cg = [];
+                    if (counts.congress_house > 0) cg.push(`${counts.congress_house} House`);
+                    if (counts.congress_senate > 0) cg.push(`${counts.congress_senate} Senate`);
+                    countParts.push(`Congress: ${cg.join(", ")}`);
+                }
+                if (countParts.length > 0) {
+                    countsDiv.textContent = countParts.join(" | ");
+                    summaryDiv.appendChild(countsDiv);
+                }
+            }
+            
+            dateSection.appendChild(summaryDiv);
+        }
 
         // Get ALL sources for this date from the full grouped structure
         const rssSources = grouped[date] || {};

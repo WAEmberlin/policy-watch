@@ -1,0 +1,114 @@
+name: Daily Legislative Summary
+
+on:
+  schedule:
+    # Run at 12:30 AM UTC daily (6:30 PM Central previous day, or 7:30 PM CDT)
+    # This ensures the previous day's data is complete
+    - cron: "30 0 * * *"
+  workflow_dispatch:  # Allow manual trigger
+    inputs:
+      backfill_days:
+        description: 'Number of days to backfill (optional)'
+        required: false
+        default: '0'
+
+permissions:
+  contents: write
+
+jobs:
+  generate-daily-summary:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Ollama
+        run: |
+          echo "Installing Ollama..."
+          curl -fsSL https://ollama.ai/install.sh | sh
+          
+          # Start Ollama service in background
+          echo "Starting Ollama service..."
+          ollama serve &
+          
+          # Wait for Ollama to be ready
+          echo "Waiting for Ollama to be ready..."
+          for i in {1..30}; do
+            if ollama list >/dev/null 2>&1; then
+              echo "Ollama is ready!"
+              break
+            fi
+            echo "Waiting... ($i/30)"
+            sleep 2
+          done
+
+      - name: Pull phi3:mini model
+        run: |
+          echo "Pulling phi3:mini model..."
+          ollama pull phi3:mini
+          
+          # Verify model is available
+          echo "Verifying model..."
+          ollama list
+
+      - name: Generate daily summary
+        run: |
+          # Create data directory if it doesn't exist
+          mkdir -p data
+          
+          # Check if we should backfill
+          BACKFILL_DAYS="${{ github.event.inputs.backfill_days }}"
+          
+          if [ -n "$BACKFILL_DAYS" ] && [ "$BACKFILL_DAYS" != "0" ]; then
+            echo "Backfilling summaries for the last $BACKFILL_DAYS days..."
+            python scripts/generate_daily_summary.py --backfill "$BACKFILL_DAYS"
+          else
+            echo "Generating summary for yesterday..."
+            python scripts/generate_daily_summary.py --yesterday
+          fi
+
+      - name: Regenerate site data
+        run: |
+          echo "Regenerating site_data.json with daily summaries..."
+          python src/processing/summarize.py
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if [ -f "data/daily_summaries.json" ]; then
+            git diff --quiet data/daily_summaries.json docs/site_data.json 2>/dev/null || echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "No summary file generated"
+          fi
+
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git config user.name "civicwatch-bot"
+          git config user.email "actions@github.com"
+          
+          git add data/daily_summaries.json docs/site_data.json
+          
+          # Get yesterday's date for commit message
+          YESTERDAY=$(date -d "yesterday" +%Y-%m-%d 2>/dev/null || date -v-1d +%Y-%m-%d)
+          
+          git commit -m "Daily summary: ${YESTERDAY}" || echo "No changes to commit"
+          git push
+
+      - name: Summary status
+        if: always()
+        run: |
+          if [ -f "data/daily_summaries.json" ]; then
+            echo "Daily summary generated successfully"
+            echo ""
+            SUMMARY_COUNT=$(python -c "import json; d=json.load(open('data/daily_summaries.json')); print(len(d))")
+            echo "Total daily summaries: $SUMMARY_COUNT"
+          else
+            echo "No daily summaries file found"
+          fi
