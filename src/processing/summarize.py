@@ -163,20 +163,26 @@ for bill in legislation:
         date_str_formatted = dt.strftime("%Y-%m-%d")
         source = "Congress.gov API"
         
+        # Use short_title if available for display title
+        display_title = bill.get("short_title") or bill.get("title", "")
+        
         # Create item in same format as RSS items for consistency
         item = {
-            "title": f"{bill.get('bill_type', '')} {bill.get('bill_number', '')}: {bill.get('title', '')}",
+            "title": f"{bill.get('bill_type', '')} {bill.get('bill_number', '')}: {display_title}",
             "link": bill.get("url", ""),
             "summary": bill.get("summary", ""),
             "source": source,
             "published": bill.get("published", date_str),
             # Additional legislation-specific fields
-            "bill_number": bill.get("bill_number", ""),
+            "bill_number": f"{bill.get('bill_type', '')} {bill.get('bill_number', '')}".strip(),
             "bill_type": bill.get("bill_type", ""),
             "sponsor_name": bill.get("sponsor_name", ""),
             "latest_action": bill.get("latest_action", ""),
             "latest_action_date": bill.get("latest_action_date", ""),
-            "congress": bill.get("congress", 119)
+            "congress": bill.get("congress", 119),
+            # Include short_title and official_title for enhanced display
+            "short_title": bill.get("short_title", ""),
+            "official_title": bill.get("official_title", "")
         }
         
         grouped[year][date_str_formatted][source].append(item)

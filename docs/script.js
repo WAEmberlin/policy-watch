@@ -249,83 +249,20 @@ function displayUnifiedView(year, chunkIndex) {
     const dateRange = getDateRangeForChunk(chunkIndex);
     
     // Get all items from RSS feeds for this year
+    // This includes Congress.gov API items which are added to grouped structure by summarize.py
     const grouped = yearData.grouped || {};
-    let allRssItems = [];
+    let allItems = [];
     Object.keys(grouped).forEach(date => {
         const dateData = grouped[date];
         Object.keys(dateData).forEach(source => {
             const items = dateData[source];
-            items.forEach(item => ({
-                ...item,
-                date: date,
-                source: source
-            }));
-            allRssItems = allRssItems.concat(items.map(item => ({
+            allItems = allItems.concat(items.map(item => ({
                 ...item,
                 date: date,
                 source: source
             })));
         });
     });
-    
-    // Get all legislation items for this year
-    const legislation = allData.legislation || {};
-    let legislationItems = [];
-    
-    if (legislation.pages) {
-        const allLegPages = legislation.pages.flat();
-        legislationItems = allLegPages.map(bill => {
-            // Use short_title if available, otherwise use display title
-            const displayTitle = bill.short_title || bill.title || "";
-            return {
-                date: bill.latest_action_date ? bill.latest_action_date.split("T")[0] : (bill.published ? bill.published.split("T")[0] : ""),
-                source: bill.source || "Congress.gov API",
-                title: `${bill.bill_type || ""} ${bill.bill_number || ""}: ${displayTitle}`.trim(),
-                link: bill.url || "",
-                published: bill.published || bill.latest_action_date || "",
-                summary: bill.summary || "",
-                bill_number: `${bill.bill_type || ""} ${bill.bill_number || ""}`.trim(),
-                bill_type: bill.bill_type,
-                sponsor_name: bill.sponsor_name,
-                latest_action: bill.latest_action,
-                short_title: bill.short_title || "",
-                official_title: bill.official_title || ""
-            };
-        }).filter(item => {
-            if (!item.date) return false;
-            try {
-                const itemYear = new Date(item.date + "T00:00:00").getFullYear();
-                return itemYear.toString() === year;
-            } catch {
-                return false;
-            }
-        });
-    } else if (Array.isArray(legislation)) {
-        legislationItems = legislation.map(bill => {
-            const displayTitle = bill.short_title || bill.title || "";
-            return {
-                date: bill.latest_action_date ? bill.latest_action_date.split("T")[0] : (bill.published ? bill.published.split("T")[0] : ""),
-                source: bill.source || "Congress.gov API",
-                title: `${bill.bill_type || ""} ${bill.bill_number || ""}: ${displayTitle}`.trim(),
-                link: bill.url || "",
-                published: bill.published || bill.latest_action_date || "",
-                summary: bill.summary || "",
-                short_title: bill.short_title || "",
-                official_title: bill.official_title || ""
-            };
-        }).filter(item => {
-            if (!item.date) return false;
-            try {
-                const itemYear = new Date(item.date + "T00:00:00").getFullYear();
-                return itemYear.toString() === year;
-            } catch {
-                return false;
-            }
-        });
-    }
-    
-    // Combine all items
-    let allItems = [...allRssItems, ...legislationItems];
     
     // Filter items to only those in the current 7-day chunk
     allItems = allItems.filter(item => {
