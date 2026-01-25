@@ -80,6 +80,9 @@ jobs:
           WEEK_END=$(python -c "import json; d=json.load(open('data/weekly_summary.json')); print(d['week_end'])")
           
           git commit -m "Weekly legislative summary: ${WEEK_START} to ${WEEK_END}" || echo "No changes to commit"
+          
+          # Pull with rebase to handle any concurrent changes, then push
+          git pull --rebase origin main || true
           git push
 
       - name: Summary status

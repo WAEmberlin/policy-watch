@@ -99,6 +99,9 @@ jobs:
           YESTERDAY=$(date -d "yesterday" +%Y-%m-%d 2>/dev/null || date -v-1d +%Y-%m-%d)
           
           git commit -m "Daily summary: ${YESTERDAY}" || echo "No changes to commit"
+          
+          # Pull with rebase to handle any concurrent changes, then push
+          git pull --rebase origin main || true
           git push
 
       - name: Summary status
