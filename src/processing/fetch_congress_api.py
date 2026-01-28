@@ -564,56 +564,62 @@ def load_existing_legislation() -> List[Dict]:
 
 def deduplicate_bills(new_bills: List[Dict], existing_bills: List[Dict]) -> List[Dict]:
     """
-    Remove duplicates by comparing URLs and bill identifiers.
+    Merge new bills with existing bills, updating existing bills if they have newer actions.
     
     Args:
         new_bills: Newly fetched bills
         existing_bills: Existing bills from file
     
     Returns:
-        Combined list without duplicates
+        Combined list with updates applied
     """
-    # Create a set of existing bill identifiers (URL + bill number + type for safety)
-    existing_identifiers = set()
+    # Create a dict of existing bills indexed by bill_id (type-number)
+    existing_by_id: Dict[str, Dict] = {}
     for bill in existing_bills:
-        if "url" in bill and bill["url"]:
-            existing_identifiers.add(bill["url"])
-        # Also index by bill number + type as backup
         bill_id = f"{bill.get('bill_type', '')}-{bill.get('bill_number', '')}"
         if bill_id and bill_id != "-":
-            existing_identifiers.add(bill_id)
+            existing_by_id[bill_id] = bill
     
-    print(f"Indexed {len(existing_identifiers)} existing bill identifiers for deduplication")
+    print(f"Indexed {len(existing_by_id)} existing bills for merge")
     
-    # Keep existing bills
-    combined = existing_bills.copy()
-    
-    # Add new bills that aren't duplicates
     new_count = 0
-    duplicate_count = 0
-    for bill in new_bills:
-        bill_url = bill.get("url", "")
-        bill_id = f"{bill.get('bill_type', '')}-{bill.get('bill_number', '')}"
-        
-        # Check if this bill already exists
-        is_duplicate = False
-        if bill_url and bill_url in existing_identifiers:
-            is_duplicate = True
-        elif bill_id and bill_id != "-" and bill_id in existing_identifiers:
-            is_duplicate = True
-        
-        if not is_duplicate:
-            combined.append(bill)
-            if bill_url:
-                existing_identifiers.add(bill_url)
-            if bill_id and bill_id != "-":
-                existing_identifiers.add(bill_id)
-            new_count += 1
-        else:
-            duplicate_count += 1
+    updated_count = 0
+    unchanged_count = 0
     
-    print(f"Found {duplicate_count} duplicate bills")
-    print(f"Added {new_count} new bills (total: {len(combined)})")
+    for new_bill in new_bills:
+        bill_id = f"{new_bill.get('bill_type', '')}-{new_bill.get('bill_number', '')}"
+        
+        if bill_id and bill_id != "-" and bill_id in existing_by_id:
+            existing_bill = existing_by_id[bill_id]
+            
+            # Check if the new bill has a more recent action date
+            new_action_date = new_bill.get("latest_action_date", "")
+            existing_action_date = existing_bill.get("latest_action_date", "")
+            
+            # Compare dates - update if new is more recent
+            if new_action_date and new_action_date > existing_action_date:
+                # Update the existing bill with new data, but preserve enriched fields
+                preserved_fields = ["official_title", "short_title"]
+                for key, value in new_bill.items():
+                    if key not in preserved_fields or not existing_bill.get(key):
+                        existing_bill[key] = value
+                updated_count += 1
+            else:
+                unchanged_count += 1
+        else:
+            # New bill - add to existing
+            if bill_id and bill_id != "-":
+                existing_by_id[bill_id] = new_bill
+            new_count += 1
+    
+    # Convert back to list
+    combined = list(existing_by_id.values())
+    
+    print(f"Added {new_count} new bills")
+    print(f"Updated {updated_count} existing bills with newer actions")
+    print(f"Unchanged: {unchanged_count} bills")
+    print(f"Total: {len(combined)} bills")
+    
     return combined
 
 
