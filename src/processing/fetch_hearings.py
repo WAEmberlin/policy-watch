@@ -1,9 +1,10 @@
 """
-Fetch Congressional hearings from the Congress.gov API.
+Fetch Congressional committee meetings (including hearings) from the Congress.gov API.
 
 This module:
-- Fetches hearings from the /v3/hearing/{congress} endpoint
-- Supports optional /house and /senate paths
+- Fetches from the /v3/committee-meeting/{congress} endpoint for SCHEDULED meetings
+- Also fetches from /v3/hearing/{congress} for HISTORICAL published hearings
+- Supports filtering by status (Scheduled, Canceled, Postponed, Rescheduled)
 - Implements pagination using pagination.next URLs
 - Normalizes data into CivicWatch schema
 - Handles API rate limits and missing fields safely
@@ -43,42 +44,46 @@ def get_api_key() -> str:
     return api_key
 
 
-def fetch_hearings(
+def fetch_committee_meetings(
     api_key: str,
     congress: int = CONGRESS_NUMBER,
     chamber: Optional[str] = None,
     days_back: int = 30,
-    days_forward: int = 60
+    days_forward: int = 90
 ) -> List[Dict]:
     """
-    Fetch hearings from the Congress.gov API.
+    Fetch committee meetings (including scheduled hearings) from the Congress.gov API.
     
-    Uses the correct endpoint: /v3/hearing/{congress}
-    Optional: /v3/hearing/{congress}/house or /v3/hearing/{congress}/senate
+    Uses the endpoint: /v3/committee-meeting/{congress}
+    Optional: /v3/committee-meeting/{congress}/house or /v3/committee-meeting/{congress}/senate
+    
+    This endpoint returns SCHEDULED meetings with status like "Scheduled", "Canceled", etc.
     
     Args:
         api_key: Congress.gov API key
         congress: Congress number (default: 119)
         chamber: Optional chamber filter ("house" or "senate")
+        days_back: How many days back to look
+        days_forward: How many days forward to look
     
     Returns:
-        List of normalized hearing dictionaries
+        List of normalized meeting dictionaries
     """
-    hearings = []
+    meetings = []
     
-    # Build the base URL
+    # Build the base URL for committee-meeting endpoint
     if chamber:
-        url = f"{API_BASE_URL}/hearing/{congress}/{chamber.lower()}"
+        url = f"{API_BASE_URL}/committee-meeting/{congress}/{chamber.lower()}"
     else:
-        url = f"{API_BASE_URL}/hearing/{congress}"
+        url = f"{API_BASE_URL}/committee-meeting/{congress}"
     
     # Calculate date range for filtering
     now = datetime.now(timezone.utc)
     start_date = (now - timedelta(days=days_back)).date()
     end_date = (now + timedelta(days=days_forward)).date()
     
-    print(f"Fetching hearings from Congress.gov API...")
-    print(f"  Congress: {congress}")
+    print(f"Fetching committee meetings from Congress.gov API...")
+    print(f"  Endpoint: committee-meeting/{congress}")
     print(f"  Date range: {start_date} to {end_date}")
     if chamber:
         print(f"  Chamber: {chamber}")
@@ -86,18 +91,15 @@ def fetch_hearings(
     # Start with initial URL
     current_url = url
     page = 1
-    consecutive_old_pages = 0  # Track consecutive pages with only old hearings (before start_date)
-    consecutive_out_of_range = 0  # Track consecutive pages with no hearings in our date range
-    MAX_CONSECUTIVE_OLD = 3  # Stop after 3 consecutive pages with only old dates (reduced for faster stopping)
-    MAX_CONSECUTIVE_OUT_OF_RANGE = 2  # Stop after 2 consecutive pages with no in-range hearings (reduced for faster stopping)
+    max_pages = 50  # Safety limit
     
-    while current_url:
+    while current_url and page <= max_pages:
         try:
             # Add API key to URL
             if "?" in current_url:
-                request_url = f"{current_url}&api_key={api_key}&format=json"
+                request_url = f"{current_url}&api_key={api_key}&format=json&limit=250"
             else:
-                request_url = f"{current_url}?api_key={api_key}&format=json"
+                request_url = f"{current_url}?api_key={api_key}&format=json&limit=250"
             
             print(f"  Fetching page {page}...")
             response = requests.get(request_url, timeout=30)
@@ -106,130 +108,24 @@ def fetch_hearings(
             
             data = response.json()
             
-            # Extract hearings from response (key is "hearings", not "results")
-            hearings_list = data.get("hearings", [])
+            # Extract meetings from response
+            meetings_list = data.get("committeeMeetings", [])
             
-            if not hearings_list:
-                print(f"  No hearings found on page {page}")
+            if not meetings_list:
+                print(f"  No meetings found on page {page}")
                 break
             
-            print(f"  Found {len(hearings_list)} hearings on page {page}")
+            print(f"  Found {len(meetings_list)} meetings on page {page}")
             
-            # Fetch full details for each hearing and normalize
-            normalized_count = 0
-            skipped_count = 0
-            in_range_on_page = 0  # Count hearings in date range on this page
-            
-            for i, hearing_summary in enumerate(hearings_list):
-                # Try to extract date from list response to filter early
-                # This avoids unnecessary detail API calls for out-of-range hearings
-                list_date = None
-                dates_array = hearing_summary.get("dates", [])
-                if dates_array and isinstance(dates_array, list) and len(dates_array) > 0:
-                    first_date_obj = dates_array[0]
-                    if isinstance(first_date_obj, dict):
-                        list_date_str = first_date_obj.get("date")
-                    elif isinstance(first_date_obj, str):
-                        list_date_str = first_date_obj
-                    else:
-                        list_date_str = None
-                    
-                    if list_date_str:
-                        try:
-                            if "T" in list_date_str:
-                                list_date = datetime.fromisoformat(list_date_str.replace("Z", "+00:00")).date()
-                            else:
-                                list_date = datetime.fromisoformat(list_date_str + "T00:00:00+00:00").date()
-                            
-                            # Skip if date is clearly out of range (before start_date or after end_date)
-                            if list_date < start_date or list_date > end_date:
-                                skipped_count += 1
-                                continue
-                        except (ValueError, AttributeError):
-                            pass  # Continue to fetch details if date parsing fails
+            # Process each meeting
+            for i, meeting in enumerate(meetings_list):
+                # Debug first meeting structure
+                if page == 1 and i == 0:
+                    print(f"  Debug: First meeting keys: {list(meeting.keys())}")
                 
-                # The list endpoint only returns minimal data (chamber, jacketNumber, url, etc.)
-                # We need to fetch the full details using the URL
-                detail_url = hearing_summary.get("url", "")
-                if not detail_url:
-                    # Try to construct URL from jacketNumber and chamber
-                    jacket_number = hearing_summary.get("jacketNumber")
-                    chamber_lower = hearing_summary.get("chamber", "").lower()
-                    if jacket_number and chamber_lower:
-                        detail_url = f"{API_BASE_URL}/hearing/{congress}/{chamber_lower}/{jacket_number}"
-                
-                if not detail_url:
-                    skipped_count += 1
-                    continue
-                
-                # Fetch full hearing details
-                try:
-                    detail_params = {"api_key": api_key, "format": "json"}
-                    detail_response = requests.get(detail_url, params=detail_params, timeout=30)
-                    detail_response.raise_for_status()
-                    time.sleep(REQUEST_DELAY)  # Rate limiting
-                    
-                    detail_data = detail_response.json()
-                    # The detail response should have a "hearing" key
-                    hearing_data = detail_data.get("hearing", detail_data)
-                    
-                    # Debug: print first hearing structure
-                    if page == 1 and i == 0:
-                        print(f"  Debug: First hearing detail keys: {list(hearing_data.keys())}")
-                        print(f"  Debug: Sample fields: hearingTitle={hearing_data.get('hearingTitle', 'MISSING')}, hearingDate={hearing_data.get('hearingDate', 'MISSING')}")
-                    
-                    normalized = normalize_hearing(hearing_data, congress)
-                    if normalized:
-                        # Check if hearing is in date range before adding
-                        scheduled_date_str = normalized.get("scheduled_date", "")
-                        if scheduled_date_str:
-                            try:
-                                hearing_date = datetime.fromisoformat(scheduled_date_str + "T00:00:00+00:00").date()
-                                if start_date <= hearing_date <= end_date:
-                                    hearings.append(normalized)
-                                    normalized_count += 1
-                                    in_range_on_page += 1
-                                else:
-                                    skipped_count += 1  # Outside date range
-                            except (ValueError, AttributeError):
-                                # Invalid date, skip it
-                                skipped_count += 1
-                        else:
-                            # No date, skip it
-                            skipped_count += 1
-                    else:
-                        skipped_count += 1
-                        # Debug: print why first hearing was skipped
-                        if page == 1 and i == 0:
-                            print(f"  Debug: First hearing was skipped - checking why...")
-                            print(f"    hearingTitle: {hearing_data.get('hearingTitle', 'MISSING')}")
-                            print(f"    hearingDate: {hearing_data.get('hearingDate', 'MISSING')}")
-                            print(f"    date: {hearing_data.get('date', 'MISSING')}")
-                            print(f"    scheduledDate: {hearing_data.get('scheduledDate', 'MISSING')}")
-                except requests.exceptions.RequestException as e:
-                    skipped_count += 1
-                    if page == 1 and i == 0:
-                        print(f"  Debug: Error fetching first hearing detail: {e}")
-                    continue
-                except Exception as e:
-                    skipped_count += 1
-                    if page == 1 and i == 0:
-                        print(f"  Debug: Unexpected error fetching first hearing: {e}")
-                    continue
-            
-            if skipped_count > 0:
-                print(f"  Normalized {normalized_count}, skipped {skipped_count} (check field names)")
-            
-            # Smart early stopping: use the in_range_on_page count we tracked
-            # If we found no in-range hearings on this page, increment counter
-            if in_range_on_page == 0:
-                consecutive_out_of_range += 1
-                if consecutive_out_of_range >= MAX_CONSECUTIVE_OUT_OF_RANGE:
-                    print(f"  Stopping early: {consecutive_out_of_range} consecutive pages with no hearings in date range")
-                    break
-            else:
-                consecutive_out_of_range = 0  # Reset if we found in-range hearings
-                consecutive_old_pages = 0  # Reset old pages counter too
+                normalized = normalize_committee_meeting(meeting, congress, start_date, end_date)
+                if normalized:
+                    meetings.append(normalized)
             
             # Get next page URL from pagination
             pagination = data.get("pagination", {})
@@ -243,266 +139,389 @@ def fetch_hearings(
             else:
                 print(f"  No more pages (reached end)")
                 break
-            
-            # Safety limit
-            if page > 100:
-                print(f"  Reached safety limit of 100 pages, stopping")
-                break
                 
         except requests.exceptions.RequestException as e:
-            print(f"  Error fetching hearings (page {page}): {e}")
-            if hasattr(e, 'response') and e.response is not None:
-                if e.response.status_code == 404:
-                    print(f"  Note: Endpoint may not be available")
+            print(f"  Error fetching meetings (page {page}): {e}")
             break
         except Exception as e:
             print(f"  Unexpected error on page {page}: {e}")
             break
     
-    # Deduplicate (date filtering already done during normalization)
-    seen = set()
-    unique_hearings = []
-    for hearing in hearings:
-        # All hearings in the list should already be within date range
-        scheduled_date_str = hearing.get("scheduled_date", "")
-        if not scheduled_date_str:
-            continue  # Skip hearings without dates
-        
-        # Create unique key for deduplication
-        key = hearing.get("url", "") or f"{hearing.get('title', '')}_{scheduled_date_str}"
-        if key and key not in seen:
-            seen.add(key)
-            unique_hearings.append(hearing)
-    
-    print(f"  Fetched {len(unique_hearings)} unique hearings within date range ({start_date} to {end_date})")
-    if unique_hearings:
-        dates = [h.get("scheduled_date", "") for h in unique_hearings if h.get("scheduled_date")]
-        if dates:
-            dates.sort()
-            print(f"  Date range of fetched hearings: {dates[0]} to {dates[-1]}")
-            # Show count of future vs past
-            today = datetime.now(timezone.utc).date()
-            future = [d for d in dates if d >= today]
-            print(f"  Future hearings: {len(future)}, Past hearings: {len(dates) - len(future)}")
-    return unique_hearings
+    print(f"  Fetched {len(meetings)} meetings from committee-meeting endpoint")
+    return meetings
 
 
-def normalize_hearing(hearing_data: Dict, congress: int) -> Optional[Dict]:
+def normalize_committee_meeting(meeting_data: Dict, congress: int, start_date, end_date) -> Optional[Dict]:
     """
-    Normalize a hearing from the API response into CivicWatch schema.
+    Normalize a committee meeting from the API response into CivicWatch schema.
     
     Args:
-        hearing_data: Raw hearing data from API
+        meeting_data: Raw meeting data from API
         congress: Congress number
+        start_date: Start of date range filter
+        end_date: End of date range filter
     
     Returns:
-        Normalized hearing dict, or None if invalid
+        Normalized meeting dict, or None if invalid/out of range
     """
     try:
-        # Extract title - the field is "title" in the detail response
-        title = hearing_data.get("title", "").strip()
-        if not title:
-            # Try alternative fields
-            title = (hearing_data.get("hearingTitle", "") or
-                    hearing_data.get("name", "") or
-                    hearing_data.get("description", "") or
-                    "").strip()
+        # Extract event ID
+        event_id = meeting_data.get("eventId", "")
         
-        if not title:
-            return None  # Must have a title
-        
-        # Extract date from "dates" array - the structure is dates[0].date
-        hearing_date = None
-        dates_array = hearing_data.get("dates", [])
-        if dates_array and isinstance(dates_array, list) and len(dates_array) > 0:
-            first_date_obj = dates_array[0]
-            if isinstance(first_date_obj, dict):
-                hearing_date = first_date_obj.get("date")
-            elif isinstance(first_date_obj, str):
-                hearing_date = first_date_obj
-        
-        # Fallback: try other date fields
-        if not hearing_date:
-            hearing_date = (hearing_data.get("hearingDate") or
-                           hearing_data.get("date") or
-                           hearing_data.get("scheduledDate") or
-                           hearing_data.get("eventDate") or
-                           hearing_data.get("startDate") or
-                           hearing_data.get("publishedDate"))
-        
-        if not hearing_date:
-            # Skip items without date
+        # Get meeting date
+        meeting_date_str = meeting_data.get("date", "")
+        if not meeting_date_str:
             return None
         
         # Parse the date
-        published = ""
-        scheduled_date = ""
-        scheduled_time = ""
-        
         try:
-            if isinstance(hearing_date, str):
-                hearing_date = hearing_date.strip()
-                if not hearing_date:
-                    return None
-                
-                # Try ISO format
-                if "T" in hearing_date:
-                    dt = datetime.fromisoformat(hearing_date.replace("Z", "+00:00"))
-                    scheduled_date = dt.date().isoformat()
-                    scheduled_time = dt.time().strftime("%H:%M") if dt.time() else ""
-                    published = dt.isoformat()
-                # Try date-only format (YYYY-MM-DD)
-                elif len(hearing_date) >= 10 and hearing_date[4] == "-" and hearing_date[7] == "-":
-                    dt = datetime.fromisoformat(hearing_date + "T00:00:00+00:00")
-                    scheduled_date = dt.date().isoformat()
-                    published = dt.isoformat()
-                else:
-                    # Invalid format
-                    return None
+            if "T" in meeting_date_str:
+                meeting_dt = datetime.fromisoformat(meeting_date_str.replace("Z", "+00:00"))
             else:
+                meeting_dt = datetime.fromisoformat(meeting_date_str + "T00:00:00+00:00")
+            
+            meeting_date = meeting_dt.date()
+            
+            # Filter by date range
+            if meeting_date < start_date or meeting_date > end_date:
                 return None
+            
+            scheduled_date = meeting_date.isoformat()
+            scheduled_time = meeting_dt.strftime("%H:%M") if meeting_dt.time() != datetime.min.time() else ""
+            published = meeting_dt.isoformat()
         except (ValueError, AttributeError):
-            # Invalid date format
             return None
         
+        # We need to fetch full details for this meeting
+        # The list endpoint only has minimal info
+        detail_url = meeting_data.get("url", "")
+        
+        # Extract what we can from list response
+        chamber = meeting_data.get("chamber", "").capitalize()
+        update_date = meeting_data.get("updateDate", "")
+        
+        # For full details, we would need another API call
+        # But for now, let's use what we have and fetch details
+        
+        return {
+            "event_id": event_id,
+            "detail_url": detail_url,
+            "chamber": chamber,
+            "scheduled_date": scheduled_date,
+            "scheduled_time": scheduled_time,
+            "published": published,
+            "congress": congress,
+            "_needs_detail": True  # Flag to fetch more details
+        }
+    except Exception as e:
+        return None
+
+
+def fetch_meeting_details(api_key: str, meeting: Dict) -> Optional[Dict]:
+    """
+    Fetch full details for a committee meeting.
+    
+    Args:
+        api_key: Congress.gov API key
+        meeting: Partial meeting dict with detail_url
+    
+    Returns:
+        Fully normalized meeting dict, or None if error
+    """
+    detail_url = meeting.get("detail_url", "")
+    if not detail_url:
+        return None
+    
+    try:
+        params = {"api_key": api_key, "format": "json"}
+        response = requests.get(detail_url, params=params, timeout=30)
+        response.raise_for_status()
+        time.sleep(REQUEST_DELAY)
+        
+        data = response.json()
+        meeting_data = data.get("committeeMeeting", data)
+        
+        # Extract title
+        title = meeting_data.get("title", "").strip()
+        if not title:
+            title = "Committee Meeting"
+        
+        # Extract meeting type and status
+        meeting_type = meeting_data.get("meetingType", "Meeting")  # Hearing, Meeting, Markup
+        meeting_status = meeting_data.get("meetingStatus", "Scheduled")  # Scheduled, Canceled, Postponed, Rescheduled
+        
+        # Add status to title if not Scheduled
+        if meeting_status and meeting_status.lower() != "scheduled":
+            title = f"[{meeting_status.upper()}] {title}"
+        
         # Extract chamber
-        chamber = hearing_data.get("chamber", "").lower()
+        chamber = meeting_data.get("chamber", meeting.get("chamber", "")).capitalize()
         
-        # Extract committee name from "committees" array - the structure is committees[0].name
-        committee_name = ""
-        committees_array = hearing_data.get("committees", [])
-        if committees_array and isinstance(committees_array, list) and len(committees_array) > 0:
-            first_committee = committees_array[0]
-            if isinstance(first_committee, dict):
-                committee_name = (first_committee.get("name", "") or
-                                first_committee.get("fullName", "") or
-                                first_committee.get("committeeName", "") or
-                                first_committee.get("displayName", "")).strip()
-            elif isinstance(first_committee, str):
-                committee_name = first_committee.strip()
+        # Extract committee names
+        committees_list = meeting_data.get("committees", [])
+        committee_names = []
+        for comm in committees_list:
+            if isinstance(comm, dict):
+                name = comm.get("name", "")
+                if name:
+                    committee_names.append(name)
+            elif isinstance(comm, str):
+                committee_names.append(comm)
         
-        # Fallback: try single committee object
-        if not committee_name:
-            committee_obj = hearing_data.get("committee", {})
-            if isinstance(committee_obj, dict):
-                committee_name = (committee_obj.get("name", "") or
-                                committee_obj.get("fullName", "") or
-                                committee_obj.get("committeeName", "") or
-                                committee_obj.get("displayName", "")).strip()
-            elif isinstance(committee_obj, str):
-                committee_name = committee_obj.strip()
+        committee_str = ", ".join(committee_names) if committee_names else ""
         
-        # Extract URL - construct from citation or jacketNumber
-        url = ""
+        # Extract location
+        location_parts = []
+        location_data = meeting_data.get("location", {})
+        if isinstance(location_data, dict):
+            room = location_data.get("room", "")
+            building = location_data.get("building", "")
+            if room and room != "WEBEX":
+                location_parts.append(f"Room {room}")
+            if building and building != "----------":
+                location_parts.append(building)
+        location = ", ".join(location_parts) if location_parts else ""
         
-        # Try to get public URL from formats array
-        formats_array = hearing_data.get("formats", [])
-        if formats_array and isinstance(formats_array, list):
-            for fmt in formats_array:
-                if isinstance(fmt, dict):
-                    fmt_url = fmt.get("url", "")
-                    if fmt_url and "congress.gov" in fmt_url:
-                        # Prefer formatted text URL, but any congress.gov URL works
-                        url = fmt_url
-                        break
+        # Extract associated bills
+        bills = []
+        related_items = meeting_data.get("relatedItems", {})
+        bills_data = related_items.get("bills", [])
+        for bill in bills_data:
+            if isinstance(bill, dict):
+                bill_type = bill.get("type", "")
+                bill_number = bill.get("number", "")
+                if bill_type and bill_number:
+                    bills.append(f"{bill_type} {bill_number}")
         
-        # If no URL from formats, try to construct from citation
-        if not url:
-            citation = hearing_data.get("citation", "")
-            if citation:
-                # Citation format: H.Hrg.119-14 -> construct URL
-                # Format: https://www.congress.gov/hearing/119th-congress/house-committee/[number]
-                number = hearing_data.get("number", "")
-                if number and chamber:
-                    url = f"https://www.congress.gov/hearing/{congress}th-congress/{chamber}-committee/{number}"
+        bill_str = ", ".join(bills) if bills else ""
         
-        # Fallback: construct from jacketNumber
-        if not url:
-            jacket_number = hearing_data.get("jacketNumber", "")
-            if jacket_number and chamber:
-                url = f"https://www.congress.gov/hearing/{congress}th-congress/{chamber}-committee/{jacket_number}"
+        # Build URL
+        url = f"https://www.congress.gov/event/{meeting.get('congress', 119)}th-congress/committee-meeting/{meeting.get('event_id', '')}"
         
-        # Last resort: generic hearings page
-        if not url:
-            url = f"https://www.congress.gov/hearings"
-        
-        # Extract summary/description
-        summary = (hearing_data.get("summary", "") or
-                  hearing_data.get("description", "") or
-                  "").strip()
-        
-        if not summary:
-            # Generate a placeholder summary
-            if committee_name:
-                summary = f"Congressional hearing scheduled before the {committee_name}."
-            else:
-                summary = "Congressional hearing scheduled."
+        # Generate summary
+        summary = f"Congressional {meeting_type.lower()} "
+        if meeting_status.lower() != "scheduled":
+            summary = f"{meeting_status} congressional {meeting_type.lower()} "
+        if committee_str:
+            summary += f"before the {committee_str}."
+        else:
+            summary += f"in the {chamber}." if chamber else "scheduled."
         
         return {
             "title": title,
             "summary": summary,
             "source": "Federal (US Congress)",
             "category": "hearing",
-            "chamber": chamber.capitalize() if chamber else "",
-            "committee": committee_name,
-            "committees": committee_name,  # For frontend compatibility
-            "published": published,
-            "scheduled_date": scheduled_date,
-            "scheduled_time": scheduled_time,
-            "url": url or f"https://www.congress.gov/hearings",
-            "link": url or f"https://www.congress.gov/hearings",  # For frontend compatibility
-            "congress": congress
+            "chamber": chamber,
+            "committee": committee_names[0] if committee_names else "",
+            "committees": committee_str,
+            "published": meeting.get("published", ""),
+            "scheduled_date": meeting.get("scheduled_date", ""),
+            "scheduled_time": meeting.get("scheduled_time", ""),
+            "url": url,
+            "link": url,
+            "congress": meeting.get("congress", 119),
+            "meeting_type": meeting_type,
+            "meeting_status": meeting_status,
+            "location": location,
+            "bill": bill_str
         }
     except Exception as e:
-        print(f"  Error normalizing hearing: {e}")
+        print(f"    Error fetching meeting details: {e}")
         return None
 
 
-def filter_hearings_by_date_range(
-    hearings: List[Dict],
-    start_date: datetime,
-    end_date: datetime
+def fetch_historical_hearings(
+    api_key: str,
+    congress: int = CONGRESS_NUMBER,
+    days_back: int = 90
 ) -> List[Dict]:
     """
-    Filter hearings to only those within the specified date range.
+    Fetch historical published hearings from the /v3/hearing endpoint.
+    These are hearings with transcripts/documents that have been published.
     
     Args:
-        hearings: List of hearing dictionaries
-        start_date: Start of date range (inclusive)
-        end_date: End of date range (exclusive)
+        api_key: Congress.gov API key
+        congress: Congress number
+        days_back: How many days back to fetch
     
     Returns:
-        Filtered list of hearings
+        List of normalized hearing dictionaries
     """
-    filtered = []
+    hearings = []
+    url = f"{API_BASE_URL}/hearing/{congress}"
     
-    for hearing in hearings:
-        published = hearing.get("published", "")
-        if not published:
-            continue
-        
+    now = datetime.now(timezone.utc)
+    start_date = (now - timedelta(days=days_back)).date()
+    
+    print(f"Fetching historical hearings from /v3/hearing endpoint...")
+    print(f"  Looking back {days_back} days from {now.date()}")
+    
+    current_url = url
+    page = 1
+    max_pages = 20
+    
+    while current_url and page <= max_pages:
         try:
-            # Parse published date
-            if "T" in published:
-                hearing_dt = datetime.fromisoformat(published.replace("Z", "+00:00"))
+            if "?" in current_url:
+                request_url = f"{current_url}&api_key={api_key}&format=json&limit=100"
             else:
-                hearing_dt = datetime.fromisoformat(published + "T00:00:00+00:00")
+                request_url = f"{current_url}?api_key={api_key}&format=json&limit=100"
             
-            # Make timezone-aware
-            if hearing_dt.tzinfo is None:
-                hearing_dt = hearing_dt.replace(tzinfo=timezone.utc)
-            if start_date.tzinfo is None:
-                start_date = start_date.replace(tzinfo=timezone.utc)
-            if end_date.tzinfo is None:
-                end_date = end_date.replace(tzinfo=timezone.utc)
+            print(f"  Fetching page {page}...")
+            response = requests.get(request_url, timeout=30)
+            response.raise_for_status()
+            time.sleep(REQUEST_DELAY)
             
-            # Check if within range (start <= date < end)
-            if start_date <= hearing_dt < end_date:
-                filtered.append(hearing)
-        except (ValueError, AttributeError):
-            continue
+            data = response.json()
+            hearings_list = data.get("hearings", [])
+            
+            if not hearings_list:
+                break
+            
+            print(f"  Found {len(hearings_list)} hearings on page {page}")
+            
+            in_range_count = 0
+            for hearing_summary in hearings_list:
+                # Check date from list response
+                dates_array = hearing_summary.get("dates", [])
+                if dates_array and len(dates_array) > 0:
+                    first_date = dates_array[0]
+                    if isinstance(first_date, dict):
+                        date_str = first_date.get("date", "")
+                    else:
+                        date_str = str(first_date)
+                    
+                    if date_str:
+                        try:
+                            if "T" in date_str:
+                                hearing_date = datetime.fromisoformat(date_str.replace("Z", "+00:00")).date()
+                            else:
+                                hearing_date = datetime.fromisoformat(date_str).date()
+                            
+                            if hearing_date < start_date:
+                                continue  # Skip old hearings
+                            
+                            in_range_count += 1
+                        except:
+                            continue
+                
+                # Fetch details
+                detail_url = hearing_summary.get("url", "")
+                if detail_url:
+                    normalized = fetch_hearing_detail(api_key, detail_url, congress)
+                    if normalized:
+                        hearings.append(normalized)
+            
+            # Stop if we're getting too many old hearings
+            if in_range_count == 0:
+                print(f"  No hearings in date range on this page, stopping")
+                break
+            
+            pagination = data.get("pagination", {})
+            current_url = pagination.get("next")
+            if current_url and "api_key=" in current_url:
+                current_url = current_url.split("api_key=")[0].rstrip("&?")
+            page += 1
+            
+        except Exception as e:
+            print(f"  Error: {e}")
+            break
     
-    return filtered
+    print(f"  Fetched {len(hearings)} historical hearings")
+    return hearings
+
+
+def fetch_hearing_detail(api_key: str, detail_url: str, congress: int) -> Optional[Dict]:
+    """Fetch and normalize a single hearing detail."""
+    try:
+        params = {"api_key": api_key, "format": "json"}
+        response = requests.get(detail_url, params=params, timeout=30)
+        response.raise_for_status()
+        time.sleep(REQUEST_DELAY)
+        
+        data = response.json()
+        hearing_data = data.get("hearing", data)
+        
+        # Extract title
+        title = hearing_data.get("title", "").strip()
+        if not title:
+            return None
+        
+        # Extract date
+        dates_array = hearing_data.get("dates", [])
+        hearing_date = None
+        if dates_array and len(dates_array) > 0:
+            first_date = dates_array[0]
+            if isinstance(first_date, dict):
+                hearing_date = first_date.get("date")
+            elif isinstance(first_date, str):
+                hearing_date = first_date
+        
+        if not hearing_date:
+            return None
+        
+        # Parse date
+        try:
+            if "T" in hearing_date:
+                dt = datetime.fromisoformat(hearing_date.replace("Z", "+00:00"))
+            else:
+                dt = datetime.fromisoformat(hearing_date + "T00:00:00+00:00")
+            scheduled_date = dt.date().isoformat()
+            scheduled_time = dt.strftime("%H:%M") if dt.time() != datetime.min.time() else ""
+            published = dt.isoformat()
+        except:
+            return None
+        
+        # Extract chamber and committee
+        chamber = hearing_data.get("chamber", "").capitalize()
+        committees_array = hearing_data.get("committees", [])
+        committee_names = []
+        for comm in committees_array:
+            if isinstance(comm, dict):
+                name = comm.get("name", "")
+                if name:
+                    committee_names.append(name)
+        committee_str = ", ".join(committee_names) if committee_names else ""
+        
+        # Build URL from formats or construct one
+        url = ""
+        formats_array = hearing_data.get("formats", [])
+        for fmt in formats_array:
+            if isinstance(fmt, dict):
+                fmt_url = fmt.get("url", "")
+                if fmt_url and "congress.gov" in fmt_url:
+                    url = fmt_url
+                    break
+        
+        if not url:
+            jacket = hearing_data.get("jacketNumber", "")
+            if jacket:
+                url = f"https://www.congress.gov/hearing/{congress}th-congress/{chamber.lower()}/{jacket}"
+            else:
+                url = "https://www.congress.gov/hearings"
+        
+        summary = f"Congressional hearing before the {committee_str}." if committee_str else "Congressional hearing."
+        
+        return {
+            "title": title,
+            "summary": summary,
+            "source": "Federal (US Congress)",
+            "category": "hearing",
+            "chamber": chamber,
+            "committee": committee_names[0] if committee_names else "",
+            "committees": committee_str,
+            "published": published,
+            "scheduled_date": scheduled_date,
+            "scheduled_time": scheduled_time,
+            "url": url,
+            "link": url,
+            "congress": congress,
+            "meeting_type": "Hearing",
+            "meeting_status": "Completed"
+        }
+    except Exception as e:
+        return None
 
 
 def load_existing_hearings() -> List[Dict]:
@@ -524,41 +543,35 @@ def load_existing_hearings() -> List[Dict]:
         return []
 
 
-def merge_hearings(existing: List[Dict], new: List[Dict]) -> List[Dict]:
+def merge_and_deduplicate(all_meetings: List[Dict]) -> List[Dict]:
     """
-    Merge new hearings with existing ones, deduplicating by URL or title+date.
+    Merge and deduplicate meetings/hearings.
     
     Args:
-        existing: List of existing hearing dictionaries
-        new: List of newly fetched hearing dictionaries
+        all_meetings: Combined list of meetings from all sources
     
     Returns:
-        Merged and deduplicated list of hearings
+        Deduplicated list sorted by date
     """
-    # Create a set of keys from existing hearings
     seen = set()
-    merged = []
+    unique = []
     
-    # Add existing hearings first
-    for hearing in existing:
-        scheduled_date = hearing.get("scheduled_date", "")
-        key = hearing.get("url", "") or f"{hearing.get('title', '')}_{scheduled_date}"
-        if key:
-            seen.add(key)
-            merged.append(hearing)
-    
-    # Add new hearings that aren't duplicates
-    new_count = 0
-    for hearing in new:
-        scheduled_date = hearing.get("scheduled_date", "")
-        key = hearing.get("url", "") or f"{hearing.get('title', '')}_{scheduled_date}"
+    for meeting in all_meetings:
+        # Create unique key
+        title = meeting.get("title", "")
+        date = meeting.get("scheduled_date", "")
+        url = meeting.get("url", "")
+        
+        key = url if url else f"{title}_{date}"
+        
         if key and key not in seen:
             seen.add(key)
-            merged.append(hearing)
-            new_count += 1
+            unique.append(meeting)
     
-    print(f"  Merged {new_count} new hearings with {len(existing)} existing")
-    return merged
+    # Sort by date (newest first for display)
+    unique.sort(key=lambda x: x.get("scheduled_date", ""), reverse=True)
+    
+    return unique
 
 
 def main():
@@ -569,94 +582,107 @@ def main():
         print(f"Error: {e}")
         return
     
-    print("Fetching Congressional hearings...")
+    print("=" * 60)
+    print("Fetching Congressional hearings and committee meetings...")
+    print("=" * 60)
     
-    # Load existing hearings
-    existing_hearings = load_existing_hearings()
-    print(f"Loaded {len(existing_hearings)} existing hearings from {HEARINGS_FILE}")
+    all_meetings = []
     
-    # Determine date range based on existing hearings
-    # If we have existing hearings, check the latest date
-    latest_existing_date = None
-    if existing_hearings:
-        existing_dates = [h.get("scheduled_date", "") for h in existing_hearings if h.get("scheduled_date")]
-        if existing_dates:
-            try:
-                latest_existing_date = max([datetime.fromisoformat(d + "T00:00:00+00:00").date() for d in existing_dates if d])
-            except (ValueError, AttributeError):
-                pass
-    
-    # Fetch only recent hearings (last 30 days, next 60 days)
-    # This is much faster than fetching all 400+ hearings
-    new_hearings = []
-    
-    # Try fetching all chambers first
+    # 1. Fetch SCHEDULED meetings from committee-meeting endpoint
+    print("\n[1/3] Fetching scheduled committee meetings...")
     try:
-        hearings = fetch_hearings(api_key, CONGRESS_NUMBER, days_back=30, days_forward=60)
-        new_hearings.extend(hearings)
+        meetings = fetch_committee_meetings(api_key, CONGRESS_NUMBER, days_back=30, days_forward=90)
+        
+        # Fetch full details for each meeting
+        print(f"  Fetching details for {len(meetings)} meetings...")
+        detailed_meetings = []
+        for i, meeting in enumerate(meetings):
+            if meeting.get("_needs_detail"):
+                detail = fetch_meeting_details(api_key, meeting)
+                if detail:
+                    detailed_meetings.append(detail)
+                    if (i + 1) % 10 == 0:
+                        print(f"    Processed {i + 1}/{len(meetings)} meetings...")
+        
+        all_meetings.extend(detailed_meetings)
+        print(f"  Got {len(detailed_meetings)} detailed scheduled meetings")
     except Exception as e:
-        print(f"Error fetching all hearings: {e}")
+        print(f"  Error fetching committee meetings: {e}")
     
-    # If no results, try per-chamber
-    if not new_hearings:
-        print("  No results from bulk fetch, trying per-chamber...")
-        
-        # Try House
-        try:
-            house_hearings = fetch_hearings(api_key, CONGRESS_NUMBER, "house", days_back=30, days_forward=60)
-            new_hearings.extend(house_hearings)
-        except Exception as e:
-            print(f"  Error fetching House hearings: {e}")
-        
-        # Try Senate
-        try:
-            senate_hearings = fetch_hearings(api_key, CONGRESS_NUMBER, "senate", days_back=30, days_forward=60)
-            new_hearings.extend(senate_hearings)
-        except Exception as e:
-            print(f"  Error fetching Senate hearings: {e}")
-    
-    # Merge new hearings with existing
-    all_hearings = merge_hearings(existing_hearings, new_hearings)
-    
-    # Clean up very old hearings (older than 2 years) to keep file size manageable
-    cutoff_date = (datetime.now(timezone.utc) - timedelta(days=730)).date()
-    cleaned_hearings = []
-    removed_count = 0
-    
-    for hearing in all_hearings:
-        scheduled_date_str = hearing.get("scheduled_date", "")
-        if scheduled_date_str:
+    # 2. Try per-chamber if no results
+    if not all_meetings:
+        print("\n[2/3] Trying per-chamber fetch...")
+        for chamber in ["house", "senate"]:
             try:
-                hearing_date = datetime.fromisoformat(scheduled_date_str + "T00:00:00+00:00").date()
-                if hearing_date >= cutoff_date:
-                    cleaned_hearings.append(hearing)
-                else:
-                    removed_count += 1
-            except (ValueError, AttributeError):
-                # Keep hearings with invalid dates (better safe than sorry)
-                cleaned_hearings.append(hearing)
+                meetings = fetch_committee_meetings(api_key, CONGRESS_NUMBER, chamber, days_back=30, days_forward=90)
+                for meeting in meetings:
+                    if meeting.get("_needs_detail"):
+                        detail = fetch_meeting_details(api_key, meeting)
+                        if detail:
+                            all_meetings.append(detail)
+            except Exception as e:
+                print(f"  Error fetching {chamber} meetings: {e}")
+    
+    # 3. Fetch historical hearings (published transcripts)
+    print("\n[3/3] Fetching historical published hearings...")
+    try:
+        historical = fetch_historical_hearings(api_key, CONGRESS_NUMBER, days_back=90)
+        all_meetings.extend(historical)
+    except Exception as e:
+        print(f"  Error fetching historical hearings: {e}")
+    
+    # Merge and deduplicate
+    print("\nMerging and deduplicating...")
+    unique_meetings = merge_and_deduplicate(all_meetings)
+    
+    # Clean up very old items (keep last 2 years)
+    cutoff_date = (datetime.now(timezone.utc) - timedelta(days=730)).date()
+    cleaned = []
+    for meeting in unique_meetings:
+        date_str = meeting.get("scheduled_date", "")
+        if date_str:
+            try:
+                meeting_date = datetime.fromisoformat(date_str).date()
+                if meeting_date >= cutoff_date:
+                    cleaned.append(meeting)
+            except:
+                cleaned.append(meeting)
         else:
-            # Keep hearings without dates
-            cleaned_hearings.append(hearing)
+            cleaned.append(meeting)
     
-    if removed_count > 0:
-        print(f"  Removed {removed_count} hearings older than 2 years")
+    # Summary
+    print("\n" + "=" * 60)
+    print("SUMMARY")
+    print("=" * 60)
     
-    if cleaned_hearings:
-        # Save merged hearings to file
+    if cleaned:
+        # Count by status/type
+        today = datetime.now(timezone.utc).date()
+        future = [m for m in cleaned if m.get("scheduled_date", "") >= today.isoformat()]
+        past = [m for m in cleaned if m.get("scheduled_date", "") < today.isoformat()]
+        scheduled = [m for m in cleaned if m.get("meeting_status", "").lower() == "scheduled"]
+        
+        print(f"Total hearings/meetings: {len(cleaned)}")
+        print(f"  Future (scheduled): {len(future)}")
+        print(f"  Past (completed): {len(past)}")
+        
+        if future:
+            future_dates = sorted([m.get("scheduled_date", "") for m in future])
+            print(f"  Next upcoming: {future_dates[0] if future_dates else 'N/A'}")
+        
+        # Save to file
         output = {
             "generated_at": datetime.now(timezone.utc).isoformat(),
-            "count": len(cleaned_hearings),
-            "items": cleaned_hearings
+            "count": len(cleaned),
+            "items": cleaned
         }
         
         with open(HEARINGS_FILE, "w", encoding="utf-8") as f:
             json.dump(output, f, indent=2)
         
-        print(f"\nSuccessfully saved {len(cleaned_hearings)} total hearings to {HEARINGS_FILE}")
-        print(f"  ({len(new_hearings)} newly fetched, {len(existing_hearings)} existing, {removed_count} removed)")
+        print(f"\nSaved {len(cleaned)} items to {HEARINGS_FILE}")
     else:
-        print("\nNo hearings to save.")
+        print("No hearings/meetings found.")
 
 
 if __name__ == "__main__":
