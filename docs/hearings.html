@@ -4,299 +4,156 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Upcoming Hearings - CivicWatch</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                civic: {
+                    navy: '#001f3f',
+                    gold: '#ffc107',
+                    blue: '#1a73e8',
+                    'blue-dark': '#1557b0',
+                }
+            }
+        }
+    }
+}
+</script>
 <style>
-* {
-    box-sizing: border-box;
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
 }
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background: #f5f5f5;
-    color: #222;
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.logo-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.logo {
-    height: 60px;
-    width: auto;
-    display: block;
-}
-
-.logo:not([src]) {
-    display: none;
-}
-
-h1 {
-    margin: 0;
-    color: #1a73e8;
-    font-size: 2em;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-h1 .civic {
-    color: #001f3f; /* Navy blue */
-}
-
-h1 .watch {
-    color: #ffc107;
-}
-
-.back-link {
-    display: inline-block;
-    margin-bottom: 20px;
-    color: #1a73e8;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.back-link:hover {
-    text-decoration: underline;
-}
-
-.filters-container {
-    display: flex;
-    gap: 15px;
-    margin: 20px 0;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.filter-group {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.filter-group label {
-    font-weight: 600;
-    color: #555;
-    font-size: 0.9em;
-}
-
-.filter-group select {
-    padding: 8px 12px;
-    border: 1px solid #ddd;
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
     border-radius: 4px;
-    font-size: 0.9em;
-    background: white;
-    cursor: pointer;
-    min-width: 150px;
 }
-
-.filter-group select:hover {
-    border-color: #1a73e8;
-}
-
-.filter-group select:focus {
-    outline: none;
-    border-color: #1a73e8;
-    box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.1);
-}
-
-.clear-filters-btn {
-    padding: 8px 16px;
-    background: #f5f5f5;
-    border: 1px solid #ddd;
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
     border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9em;
-    color: #555;
-    font-weight: 500;
 }
-
-.clear-filters-btn:hover {
-    background: #e8e8e8;
-    border-color: #bbb;
-}
-
-.hearings-list {
-    margin-top: 30px;
-}
-
-.hearing-card {
-    background: #f9f9f9;
-    border-left: 4px solid #1a73e8;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.hearing-card.canceled {
-    border-left-color: #d32f2f;
-    opacity: 0.7;
-}
-
-.hearing-card h2 {
-    margin: 0 0 15px 0;
-    color: #1a73e8;
-    font-size: 1.3em;
-}
-
-.hearing-card.canceled h2 {
-    color: #d32f2f;
-    text-decoration: line-through;
-}
-
-.hearing-meta {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-.meta-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.meta-label {
-    font-size: 0.85em;
-    color: #666;
-    font-weight: 600;
-    margin-bottom: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.meta-value {
-    font-size: 1em;
-    color: #222;
-    font-weight: 500;
-}
-
-.hearing-link {
-    display: inline-block;
-    margin-top: 10px;
-    color: #1a73e8;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.hearing-link:hover {
-    text-decoration: underline;
-}
-
-.empty-state {
-    text-align: center;
-    padding: 60px 20px;
-    color: #999;
-    font-size: 1.1em;
-}
-
-.empty-state p {
-    margin: 10px 0;
-}
-
-.loading {
-    text-align: center;
-    padding: 60px 20px;
-    color: #666;
-}
-
-.error {
-    color: #d32f2f;
-    padding: 20px;
-    background: #ffebee;
-    border-radius: 4px;
-    border-left: 4px solid #d32f2f;
-    margin: 20px 0;
-}
-
-@media (max-width: 768px) {
-    body {
-        padding: 10px;
-    }
-
-    .container {
-        padding: 20px;
-    }
-
-    h1 {
-        font-size: 1.5em;
-    }
-
-    .hearing-meta {
-        grid-template-columns: 1fr;
-    }
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
 }
 </style>
 </head>
-<body>
-<div class="container">
-    <div class="logo-header">
-        <img src="CivicWatch Logo.png" alt="CivicWatch Logo" class="logo" />
-        <h1><span class="civic">Civic</span><span class="watch">Watch</span></h1>
+<body class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+<div class="max-w-6xl mx-auto px-4 py-8">
+    <!-- Main Card -->
+    <div class="bg-white rounded-2xl shadow-xl shadow-slate-200/50 overflow-hidden">
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-civic-navy to-slate-800 px-8 py-6">
+            <div class="flex items-center gap-4">
+                <img src="CivicWatch Logo.png" alt="CivicWatch Logo" class="h-14 w-auto hidden sm:block" />
+                <div>
+                    <h1 class="text-3xl font-bold">
+                        <span class="text-white">Civic</span><span class="text-civic-gold">Watch</span>
+                    </h1>
+                    <div class="text-slate-300 text-sm mt-1">Conference Committee Hearings</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Content Area -->
+        <div class="p-6 md:p-8">
+            <!-- Back Link -->
+            <a href="index.html" class="inline-flex items-center gap-2 text-civic-blue hover:text-civic-blue-dark font-medium mb-6 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                </svg>
+                Back to Main
+            </a>
+            
+            <!-- Upcoming Hearings Section -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-bold text-civic-navy mb-6 flex items-center gap-3">
+                    <svg class="w-7 h-7 text-civic-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    Upcoming Hearings
+                </h2>
+                
+                <!-- Filters -->
+                <div id="upcoming-filters" class="flex flex-wrap gap-3 items-center mb-6 p-4 bg-slate-50 rounded-xl border border-slate-200">
+                    <div class="flex items-center gap-2">
+                        <label for="upcoming-source-filter" class="text-sm font-semibold text-slate-600">Source:</label>
+                        <select id="upcoming-source-filter" class="px-3 py-2 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm">
+                            <option value="">All Sources</option>
+                            <option value="State">State (Kansas Legislature)</option>
+                            <option value="Federal">Federal (US Congress)</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <label for="upcoming-year-filter" class="text-sm font-semibold text-slate-600">Year:</label>
+                        <select id="upcoming-year-filter" class="px-3 py-2 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm">
+                            <option value="">All Years</option>
+                        </select>
+                    </div>
+                    <button onclick="clearFilters('upcoming')" class="px-4 py-2 bg-white hover:bg-slate-100 text-slate-600 rounded-lg font-medium transition-colors border-2 border-slate-200 text-sm">
+                        Clear Filters
+                    </button>
+                </div>
+                
+                <div id="upcoming-hearings-container">
+                    <div class="text-center py-12 text-slate-500">
+                        <svg class="w-8 h-8 mx-auto mb-3 animate-spin text-civic-blue" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Loading upcoming hearings...
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Historical Hearings Section -->
+            <div>
+                <h2 class="text-2xl font-bold text-civic-navy mb-6 flex items-center gap-3">
+                    <svg class="w-7 h-7 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Historical Hearings
+                </h2>
+                
+                <!-- Filters -->
+                <div id="historical-filters" class="flex flex-wrap gap-3 items-center mb-6 p-4 bg-slate-50 rounded-xl border border-slate-200">
+                    <div class="flex items-center gap-2">
+                        <label for="historical-source-filter" class="text-sm font-semibold text-slate-600">Source:</label>
+                        <select id="historical-source-filter" class="px-3 py-2 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm">
+                            <option value="">All Sources</option>
+                            <option value="State">State (Kansas Legislature)</option>
+                            <option value="Federal">Federal (US Congress)</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <label for="historical-year-filter" class="text-sm font-semibold text-slate-600">Year:</label>
+                        <select id="historical-year-filter" class="px-3 py-2 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm">
+                            <option value="">All Years</option>
+                        </select>
+                    </div>
+                    <button onclick="clearFilters('historical')" class="px-4 py-2 bg-white hover:bg-slate-100 text-slate-600 rounded-lg font-medium transition-colors border-2 border-slate-200 text-sm">
+                        Clear Filters
+                    </button>
+                </div>
+                
+                <div id="historical-hearings-container">
+                    <div class="text-center py-12 text-slate-500">
+                        <svg class="w-8 h-8 mx-auto mb-3 animate-spin text-civic-blue" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Loading historical hearings...
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     
-    <a href="index.html" class="back-link">← Back to Main</a>
-    
-    <h2>Upcoming Conference Committee Hearings</h2>
-    
-    <div id="upcoming-filters" class="filters-container">
-        <div class="filter-group">
-            <label for="upcoming-source-filter">Source:</label>
-            <select id="upcoming-source-filter">
-                <option value="">All Sources</option>
-                <option value="State">State (Kansas Legislature)</option>
-                <option value="Federal">Federal (US Congress)</option>
-            </select>
-        </div>
-        <div class="filter-group">
-            <label for="upcoming-year-filter">Year:</label>
-            <select id="upcoming-year-filter">
-                <option value="">All Years</option>
-            </select>
-        </div>
-        <button class="clear-filters-btn" onclick="clearFilters('upcoming')">Clear Filters</button>
-    </div>
-    
-    <div id="upcoming-hearings-container" class="hearings-list">
-        <div class="loading">Loading upcoming hearings...</div>
-    </div>
-    
-    <h2 style="margin-top: 60px;">Historical Hearings</h2>
-    
-    <div id="historical-filters" class="filters-container">
-        <div class="filter-group">
-            <label for="historical-source-filter">Source:</label>
-            <select id="historical-source-filter">
-                <option value="">All Sources</option>
-                <option value="State">State (Kansas Legislature)</option>
-                <option value="Federal">Federal (US Congress)</option>
-            </select>
-        </div>
-        <div class="filter-group">
-            <label for="historical-year-filter">Year:</label>
-            <select id="historical-year-filter">
-                <option value="">All Years</option>
-            </select>
-        </div>
-        <button class="clear-filters-btn" onclick="clearFilters('historical')">Clear Filters</button>
-    </div>
-    
-    <div id="historical-hearings-container" class="hearings-list">
-        <div class="loading">Loading historical hearings...</div>
+    <!-- Footer -->
+    <div class="text-center text-slate-500 text-sm mt-6">
+        CivicWatch - Tracking legislation for Kansas and U.S. Congress
     </div>
 </div>
 
@@ -384,9 +241,12 @@ function renderHearings(hearings, container, emptyMessage, sourceFilter = "", ye
     
     if (filtered.length === 0) {
         container.innerHTML = `
-            <div class="empty-state">
-                <p><strong>${emptyMessage}</strong></p>
-                ${(sourceFilter || yearFilter) ? "<p>Try adjusting your filters.</p>" : ""}
+            <div class="text-center py-12">
+                <svg class="w-16 h-16 mx-auto mb-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                <p class="text-slate-500 font-medium">${emptyMessage}</p>
+                ${(sourceFilter || yearFilter) ? '<p class="text-slate-400 text-sm mt-1">Try adjusting your filters.</p>' : ''}
             </div>
         `;
         return;
@@ -413,26 +273,30 @@ function renderHearings(hearings, container, emptyMessage, sourceFilter = "", ye
     
     dates.forEach(dateKey => {
         const dateSection = document.createElement("div");
-        dateSection.className = "date-section";
-        dateSection.style.marginBottom = "30px";
+        dateSection.className = "mb-8";
         
-        const dateHeader = document.createElement("h2");
-        dateHeader.textContent = formatDate(dateKey);
-        dateHeader.style.marginBottom = "15px";
+        const dateHeader = document.createElement("h3");
+        dateHeader.className = "text-lg font-bold text-civic-navy mb-4 flex items-center gap-2";
+        dateHeader.innerHTML = `
+            <svg class="w-5 h-5 text-civic-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            ${formatDate(dateKey)}
+        `;
         dateSection.appendChild(dateHeader);
         
         const hearingsForDate = groupedByDate[dateKey];
         
         hearingsForDate.forEach(hearing => {
             const card = document.createElement("div");
-            card.className = "hearing-card";
-            
             const title = hearing.title || "Conference Committee Hearing";
             const isCanceled = title.toUpperCase().includes("CANCELED") || title.toUpperCase().includes("MEETING CANCELED");
             
-            if (isCanceled) {
-                card.classList.add("canceled");
-            }
+            card.className = `mb-4 p-5 rounded-xl border-l-4 shadow-sm transition-all ${
+                isCanceled 
+                    ? 'bg-red-50 border-red-400 opacity-75' 
+                    : 'bg-gradient-to-r from-slate-50 to-white border-civic-blue hover:shadow-md'
+            }`;
             
             // Show time next to title
             const titleWithTime = hearing.scheduled_time 
@@ -441,35 +305,51 @@ function renderHearings(hearings, container, emptyMessage, sourceFilter = "", ye
             
             // Show source (State vs Federal)
             const source = hearing.source || "Unknown";
-            const sourceBadge = `<span style="display: inline-block; padding: 4px 8px; background: ${source.includes('Federal') ? '#1a73e8' : '#34a853'}; color: white; border-radius: 4px; font-size: 0.8em; font-weight: 600; margin-left: 10px;">${source}</span>`;
+            const isState = source.includes('Kansas');
+            const sourceBadgeClass = isState 
+                ? 'bg-emerald-500' 
+                : 'bg-civic-blue';
             
             card.innerHTML = `
-                <h2>${titleWithTime}${sourceBadge}</h2>
-                <div class="hearing-meta">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+                    <h4 class="text-lg font-semibold ${isCanceled ? 'text-red-600 line-through' : 'text-civic-navy'}">
+                        ${titleWithTime}
+                    </h4>
+                    <span class="px-3 py-1 ${sourceBadgeClass} text-white rounded-full text-xs font-semibold uppercase tracking-wide">
+                        ${source}
+                    </span>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-3">
                     ${hearing.location ? `
-                    <div class="meta-item">
-                        <span class="meta-label">Location</span>
-                        <span class="meta-value">${hearing.location}</span>
+                    <div>
+                        <span class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Location</span>
+                        <span class="text-slate-700">${hearing.location}</span>
                     </div>
-                    ` : ""}
+                    ` : ''}
                     ${hearing.bill ? `
-                    <div class="meta-item">
-                        <span class="meta-label">Bill</span>
-                        <span class="meta-value">${hearing.bill}</span>
+                    <div>
+                        <span class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Bill</span>
+                        <span class="text-civic-blue font-semibold">${hearing.bill}</span>
                     </div>
-                    ` : ""}
+                    ` : ''}
+                    ${(hearing.committees || hearing.committee) ? `
+                    <div class="sm:col-span-2 lg:col-span-1">
+                        <span class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">${hearing.chamber ? hearing.chamber + ' ' : ''}Committee${hearing.committees && hearing.committees.includes(',') ? 's' : ''}</span>
+                        <span class="text-slate-700">${hearing.committees || hearing.committee}</span>
+                    </div>
+                    ` : ''}
                 </div>
-                ${(hearing.committees || hearing.committee) ? `
-                <div class="meta-item" style="margin-top: 10px;">
-                    <span class="meta-label">${hearing.chamber ? hearing.chamber + " " : ""}Committee${hearing.committees && hearing.committees.includes(',') ? 's' : ''}</span>
-                    <span class="meta-value">${hearing.committees || hearing.committee}</span>
-                </div>
-                ` : ""}
+                
                 ${(hearing.link || hearing.url) ? `
-                <a href="${hearing.link || hearing.url}" target="_blank" rel="noopener noreferrer" class="hearing-link">
-                    ${hearing.source && hearing.source.includes("Federal") ? "View on Congress.gov →" : "View Full Schedule →"}
+                <a href="${hearing.link || hearing.url}" target="_blank" rel="noopener noreferrer" 
+                   class="inline-flex items-center gap-1 text-civic-blue hover:text-civic-blue-dark font-medium text-sm transition-colors">
+                    ${hearing.source && hearing.source.includes("Federal") ? "View on Congress.gov" : "View Full Schedule"}
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    </svg>
                 </a>
-                ` : ""}
+                ` : ''}
             `;
             
             dateSection.appendChild(card);
@@ -555,10 +435,10 @@ async function loadHearings() {
         
     } catch (error) {
         upcomingContainer.innerHTML = `
-            <div class="error">
-                <strong>Error loading hearings</strong>
-                <p>${error.message}</p>
-                <p>Please try again later.</p>
+            <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg">
+                <p class="text-red-700 font-semibold">Error loading hearings</p>
+                <p class="text-red-600 text-sm mt-1">${error.message}</p>
+                <p class="text-red-500 text-sm mt-2">Please try again later.</p>
             </div>
         `;
         historicalContainer.innerHTML = "";
@@ -569,4 +449,3 @@ window.onload = loadHearings;
 </script>
 </body>
 </html>
-

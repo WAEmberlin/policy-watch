@@ -4,426 +4,29 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>CivicWatch - Legislative & Policy Updates</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                civic: {
+                    navy: '#001f3f',
+                    gold: '#ffc107',
+                    blue: '#1a73e8',
+                    'blue-dark': '#1557b0',
+                }
+            }
+        }
+    }
+}
+</script>
 <style>
-* {
-    box-sizing: border-box;
-}
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background: #f5f5f5;
-    color: #222;
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.logo-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.logo {
-    height: 60px;
-    width: auto;
-    display: block;
-}
-
-.logo:not([src]) {
-    display: none;
-}
-
-h1 {
-    margin: 0;
-    color: #1a73e8;
-    font-size: 2em;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-h1 .civic {
-    color: #001f3f; /* Navy blue */
-}
-
-h1 .watch {
-    color: #ffc107;
-}
-
-#last-updated {
-    color: #666;
-    margin-bottom: 30px;
-    font-size: 0.9em;
-}
-
-#search-container {
-    margin-bottom: 30px;
-}
-
-.search-box {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-#search-input {
-    flex: 1;
-    min-width: 200px;
-    padding: 12px 16px;
-    font-size: 1em;
-    border: 2px solid #ddd;
-    border-radius: 6px;
-    transition: border-color 0.2s;
-}
-
-#search-input:focus {
-    outline: none;
-    border-color: #1a73e8;
-}
-
-.search-btn, .clear-btn {
-    padding: 12px 24px;
-    font-size: 1em;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.2s;
-}
-
-.search-btn {
-    background: #1a73e8;
-    color: white;
-}
-
-.search-btn:hover {
-    background: #1557b0;
-}
-
-.clear-btn {
-    background: #f0f0f0;
-    color: #333;
-}
-
-.clear-btn:hover {
-    background: #e0e0e0;
-}
-
-.search-results-header {
-    margin-bottom: 30px;
-    padding: 20px;
-    background: #e3f2fd;
-    border-radius: 6px;
-    border-left: 4px solid #1a73e8;
-}
-
-.search-results-header h2 {
-    margin: 0 0 10px 0;
-    color: #1a73e8;
-}
-
-.search-results-header p {
-    margin: 0;
-    color: #666;
-}
-
+/* Custom styles that Tailwind doesn't cover */
 mark {
-    background: #ffeb3b;
+    background: #fef08a;
     padding: 2px 4px;
     border-radius: 3px;
-}
-
-#filters-container {
-    margin-bottom: 20px;
-    padding: 15px;
-    background: #f9f9f9;
-    border-radius: 6px;
-}
-
-.filter-row {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-#source-filter, #category-filter {
-    flex: 1;
-    min-width: 150px;
-    padding: 10px 14px;
-    font-size: 1em;
-    border: 2px solid #ddd;
-    border-radius: 6px;
-    background: white;
-    cursor: pointer;
-}
-
-#source-filter:focus, #category-filter:focus {
-    outline: none;
-    border-color: #1a73e8;
-}
-
-.bill-item {
-    margin-bottom: 20px;
-    padding: 20px;
-    background: white;
-    border-radius: 6px;
-    border-left: 4px solid #4285f4;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.bill-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.bill-number {
-    font-weight: 600;
-    color: #1a73e8;
-    font-size: 1.1em;
-}
-
-.bill-type-badge {
-    display: inline-block;
-    padding: 4px 8px;
-    background: #e3f2fd;
-    color: #1976d2;
-    border-radius: 4px;
-    font-size: 0.85em;
-    font-weight: 500;
-}
-
-.bill-title {
-    font-size: 1.2em;
-    font-weight: 600;
-    margin: 10px 0;
-    color: #333;
-}
-
-.bill-meta {
-    color: #666;
-    font-size: 0.9em;
-    margin: 8px 0;
-}
-
-.bill-summary {
-    margin: 15px 0;
-    color: #555;
-    line-height: 1.6;
-}
-
-.bill-link {
-    display: inline-block;
-    margin-top: 10px;
-    color: #1a73e8;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.bill-link:hover {
-    text-decoration: underline;
-}
-
-#year-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 2px solid #e0e0e0;
-}
-
-.year-tab {
-    padding: 10px 20px;
-    background: #f0f0f0;
-    border: 2px solid transparent;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: 500;
-    transition: all 0.2s;
-    color: #333;
-}
-
-.year-tab:hover {
-    background: #e0e0e0;
-    border-color: #ccc;
-}
-
-.year-tab.active {
-    background: #1a73e8;
-    color: white;
-    border-color: #1a73e8;
-}
-
-#content {
-    min-height: 200px;
-}
-
-.date-section {
-    margin-bottom: 40px;
-    padding: 20px;
-    background: #fafafa;
-    border-radius: 6px;
-    border-left: 4px solid #1a73e8;
-}
-
-.date-section h2 {
-    margin: 0 0 20px 0;
-    color: #1a73e8;
-    font-size: 1.5em;
-    font-weight: 600;
-}
-
-.source-section {
-    margin-bottom: 25px;
-    padding: 15px;
-    background: white;
-    border-radius: 4px;
-    border-left: 3px solid #34a853;
-}
-
-.source-section:last-child {
-    margin-bottom: 0;
-}
-
-.source-section h3 {
-    margin: 0 0 15px 0;
-    color: #34a853;
-    font-size: 1.2em;
-    font-weight: 600;
-}
-
-.source-section ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.source-section li {
-    margin-bottom: 10px;
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.source-section li:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-}
-
-.source-section a {
-    color: #1a73e8;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s;
-}
-
-.source-section a:hover {
-    color: #1557b0;
-    text-decoration: underline;
-}
-
-.empty-state {
-    color: #999;
-    font-style: italic;
-    margin: 10px 0;
-    padding: 10px;
-    background: #f9f9f9;
-    border-radius: 4px;
-}
-
-.error {
-    color: #d32f2f;
-    padding: 20px;
-    background: #ffebee;
-    border-radius: 4px;
-    border-left: 4px solid #d32f2f;
-}
-
-#pagination {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 2px solid #e0e0e0;
-}
-
-.pagination-info {
-    text-align: center;
-    color: #666;
-    margin-bottom: 15px;
-    font-size: 0.9em;
-}
-
-.pagination-buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.pagination-btn {
-    padding: 8px 16px;
-    background: #f0f0f0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9em;
-    transition: all 0.2s;
-    color: #333;
-}
-
-.pagination-btn:hover {
-    background: #e0e0e0;
-    border-color: #bbb;
-}
-
-.pagination-btn.active-page {
-    background: #1a73e8;
-    color: white;
-    border-color: #1a73e8;
-    font-weight: 600;
-}
-
-@media (max-width: 768px) {
-    body {
-        padding: 10px;
-    }
-
-    .container {
-        padding: 20px;
-    }
-
-    h1 {
-        font-size: 1.5em;
-    }
-
-    .date-section {
-        padding: 15px;
-    }
-
-    .year-tab {
-        padding: 8px 16px;
-        font-size: 0.9em;
-    }
-}
-
-#weekly-overview-header:hover {
-    background-color: #f0f0f0;
 }
 
 #weekly-overview-content {
@@ -450,58 +53,121 @@ mark {
 #weekly-overview-section.expanded #weekly-overview-arrow {
     transform: rotate(0deg);
 }
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
 </style>
 </head>
-<body>
-<div class="container">
-    <div class="logo-header">
-        <img src="CivicWatch Logo.png" alt="CivicWatch Logo" class="logo" />
-        <h1><span class="civic">Civic</span><span class="watch">Watch</span></h1>
-    </div>
-    <div id="last-updated">Loading...</div>
-    
-    <div style="margin-bottom: 20px;">
-        <a href="hearings.html" style="display: inline-block; padding: 10px 20px; background: #1a73e8; color: white; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background 0.2s;">View Upcoming Hearings →</a>
-    </div>
-    
-    <!-- Weekly Overview Section -->
-    <div id="weekly-overview-section" class="collapsed" style="margin-bottom: 40px; background: #f9f9f9; border-radius: 8px; border-left: 4px solid #1a73e8; overflow: hidden;">
-        <div id="weekly-overview-header" style="padding: 20px; cursor: pointer; user-select: none; display: flex; justify-content: space-between; align-items: center; transition: background-color 0.2s;">
-            <h2 style="margin: 0; color: #1a73e8; font-size: 1.5em; display: flex; align-items: center; gap: 10px;">
-                <span>Weekly CivicWatch Overview</span>
-                <span id="weekly-overview-arrow" style="font-size: 0.8em; transition: transform 0.3s; display: inline-block;">▼</span>
-            </h2>
+<body class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+<div class="max-w-6xl mx-auto px-4 py-8">
+    <!-- Main Card -->
+    <div class="bg-white rounded-2xl shadow-xl shadow-slate-200/50 overflow-hidden">
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-civic-navy to-slate-800 px-8 py-6">
+            <div class="flex items-center gap-4">
+                <img src="CivicWatch Logo.png" alt="CivicWatch Logo" class="h-14 w-auto hidden sm:block" />
+                <div>
+                    <h1 class="text-3xl font-bold">
+                        <span class="text-white">Civic</span><span class="text-civic-gold">Watch</span>
+                    </h1>
+                    <div id="last-updated" class="text-slate-300 text-sm mt-1">Loading...</div>
+                </div>
+            </div>
         </div>
-        <div id="weekly-overview-content">
-            <p class="empty-state">Loading weekly overview...</p>
+        
+        <!-- Content Area -->
+        <div class="p-6 md:p-8">
+            <!-- Quick Actions -->
+            <div class="mb-8">
+                <a href="hearings.html" class="inline-flex items-center gap-2 px-5 py-2.5 bg-civic-blue hover:bg-civic-blue-dark text-white rounded-lg font-medium transition-colors shadow-sm hover:shadow-md">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    View Upcoming Hearings
+                </a>
+            </div>
+            
+            <!-- Weekly Overview Section -->
+            <div id="weekly-overview-section" class="collapsed mb-8 bg-gradient-to-r from-slate-50 to-slate-100 rounded-xl border border-slate-200 overflow-hidden">
+                <div id="weekly-overview-header" class="p-5 cursor-pointer hover:bg-slate-100/50 transition-colors flex justify-between items-center">
+                    <h2 class="text-xl font-semibold text-civic-navy flex items-center gap-3">
+                        <svg class="w-6 h-6 text-civic-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                        Weekly CivicWatch Overview
+                        <span id="weekly-overview-arrow" class="text-slate-400 transition-transform duration-300">▼</span>
+                    </h2>
+                </div>
+                <div id="weekly-overview-content" class="border-t border-slate-200">
+                    <p class="text-slate-500 italic">Loading weekly overview...</p>
+                </div>
+            </div>
+            
+            <!-- Search Section -->
+            <div id="search-container" class="mb-6">
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <div class="relative flex-1">
+                        <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                        <input type="text" id="search-input" placeholder="Search by keyword (title, summary)..." 
+                               class="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-xl focus:border-civic-blue focus:ring-4 focus:ring-civic-blue/10 outline-none transition-all" />
+                    </div>
+                    <button id="search-button" class="px-6 py-3 bg-civic-blue hover:bg-civic-blue-dark text-white rounded-xl font-medium transition-colors shadow-sm">
+                        Search
+                    </button>
+                    <button id="clear-search" class="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-medium transition-colors">
+                        Clear
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Filters Section -->
+            <div id="filters-container" class="mb-8 p-4 bg-slate-50 rounded-xl border border-slate-200">
+                <div class="flex flex-wrap gap-3 items-center">
+                    <select id="source-filter" class="flex-1 min-w-[180px] px-4 py-2.5 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer">
+                        <option value="">All Sources</option>
+                    </select>
+                    <select id="category-filter" class="flex-1 min-w-[180px] px-4 py-2.5 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer">
+                        <option value="">All Categories</option>
+                    </select>
+                    <button id="clear-filters" class="px-4 py-2.5 bg-white hover:bg-slate-100 text-slate-600 rounded-lg font-medium transition-colors border-2 border-slate-200">
+                        Clear Filters
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Year Tabs -->
+            <div id="year-tabs" class="flex flex-wrap gap-2 mb-8 pb-6 border-b-2 border-slate-200"></div>
+            
+            <!-- Main Content -->
+            <div id="content" class="min-h-[200px]">
+                <p class="text-slate-500 italic text-center py-8">Loading data...</p>
+            </div>
+            
+            <!-- Pagination -->
+            <div id="pagination" class="mt-8 pt-6 border-t-2 border-slate-200"></div>
         </div>
     </div>
     
-    <div id="search-container">
-        <div class="search-box">
-            <input type="text" id="search-input" placeholder="Search by keyword (title, summary)..." />
-            <button id="search-button" class="search-btn">Search</button>
-            <button id="clear-search" class="clear-btn">Clear</button>
-        </div>
+    <!-- Footer -->
+    <div class="text-center text-slate-500 text-sm mt-6">
+        CivicWatch - Tracking legislation for Kansas and U.S. Congress
     </div>
-    
-    <div id="filters-container">
-        <div class="filter-row">
-            <select id="source-filter">
-                <option value="">All Sources</option>
-            </select>
-            <select id="category-filter">
-                <option value="">All Categories</option>
-            </select>
-            <button id="clear-filters" class="clear-btn">Clear Filters</button>
-        </div>
-    </div>
-    
-    <div id="year-tabs"></div>
-    <div id="content">
-        <p class="empty-state">Loading data...</p>
-    </div>
-    <div id="pagination"></div>
 </div>
 <script src="script.js"></script>
 </body>

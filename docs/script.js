@@ -14,7 +14,7 @@ async function loadData() {
         allData = await res.json();
     } catch (error) {
         document.getElementById("content").innerHTML = 
-            "<p class='error'>Error loading data. Please try again later.</p>";
+            "<div class='bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg text-red-700'>Error loading data. Please try again later.</div>";
         return;
     }
     
@@ -40,9 +40,6 @@ async function loadData() {
     // Setup filters
     setupFilters();
     
-    // Load weekly overview
-    loadWeeklyOverview();
-    
     // Load and display data
     const years = Object.keys(allData.years || {});
     const yearTabs = document.getElementById("year-tabs");
@@ -50,7 +47,7 @@ async function loadData() {
 
     if (years.length === 0) {
         document.getElementById("content").innerHTML = 
-            "<p class='empty-state'>No data available. Run the backfill script to populate history.</p>";
+            "<p class='text-slate-500 italic text-center py-8'>No data available. Run the backfill script to populate history.</p>";
         return;
     }
 
@@ -76,7 +73,7 @@ async function loadData() {
     sortedYears.forEach((year) => {
         const btn = document.createElement("button");
         btn.textContent = year;
-        btn.className = "year-tab";
+        btn.className = "year-tab px-5 py-2.5 bg-slate-100 hover:bg-slate-200 border-2 border-transparent rounded-lg font-medium transition-all text-slate-700";
         btn.setAttribute("data-year", year);
         btn.onclick = () => {
             searchMode = false;
@@ -239,9 +236,11 @@ function displayUnifiedView(year, chunkIndex) {
     // Update active year tab
     document.querySelectorAll(".year-tab").forEach(btn => {
         if (btn.getAttribute("data-year") === year) {
-            btn.classList.add("active");
+            btn.classList.remove("bg-slate-100", "text-slate-700", "border-transparent");
+            btn.classList.add("bg-civic-blue", "text-white", "border-civic-blue");
         } else {
-            btn.classList.remove("active");
+            btn.classList.remove("bg-civic-blue", "text-white", "border-civic-blue");
+            btn.classList.add("bg-slate-100", "text-slate-700", "border-transparent");
         }
     });
 
@@ -321,9 +320,10 @@ function displayUnifiedView(year, chunkIndex) {
     // Show all dates in the chunk, even if they have no items (for empty state)
     allDatesInChunk.forEach(date => {
         const dateSection = document.createElement("div");
-        dateSection.className = "date-section";
+        dateSection.className = "mb-8 p-6 bg-gradient-to-r from-slate-50 to-white rounded-xl border-l-4 border-civic-blue shadow-sm";
 
         const dateHeader = document.createElement("h2");
+        dateHeader.className = "text-xl font-bold text-civic-navy mb-4";
         dateHeader.textContent = formatDate(date);
         dateSection.appendChild(dateHeader);
         
@@ -331,42 +331,22 @@ function displayUnifiedView(year, chunkIndex) {
         const daySummary = dailySummaries[date];
         if (daySummary && daySummary.summary && date < todayStr) {
             const summaryDiv = document.createElement("div");
-            summaryDiv.className = "daily-summary";
-            summaryDiv.style.cssText = `
-                background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-                border-left: 4px solid #1a73e8;
-                padding: 15px 20px;
-                margin-bottom: 20px;
-                border-radius: 0 8px 8px 0;
-                font-size: 0.95em;
-                line-height: 1.6;
-                color: #333;
-            `;
+            summaryDiv.className = "bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-civic-blue p-4 mb-5 rounded-r-lg";
             
             const summaryHeader = document.createElement("div");
-            summaryHeader.style.cssText = `
-                font-weight: 600;
-                color: #1a73e8;
-                margin-bottom: 8px;
-                font-size: 0.9em;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-            `;
+            summaryHeader.className = "font-semibold text-civic-blue text-xs uppercase tracking-wider mb-2";
             summaryHeader.textContent = "Daily Summary";
             summaryDiv.appendChild(summaryHeader);
             
             const summaryText = document.createElement("div");
+            summaryText.className = "text-slate-700 leading-relaxed";
             summaryText.textContent = daySummary.summary;
             summaryDiv.appendChild(summaryText);
             
             // Show counts if available
             if (daySummary.counts && daySummary.counts.total > 0) {
                 const countsDiv = document.createElement("div");
-                countsDiv.style.cssText = `
-                    margin-top: 10px;
-                    font-size: 0.85em;
-                    color: #666;
-                `;
+                countsDiv.className = "mt-3 text-sm text-slate-500";
                 const counts = daySummary.counts;
                 let countParts = [];
                 if (counts.kansas_house > 0 || counts.kansas_senate > 0) {
@@ -407,10 +387,16 @@ function displayUnifiedView(year, chunkIndex) {
             }
 
             const sourceSection = document.createElement("div");
-            sourceSection.className = "source-section";
+            sourceSection.className = "mb-5 p-4 bg-white rounded-lg border-l-3 border-emerald-500 shadow-sm border";
 
             const srcHeader = document.createElement("h3");
-            srcHeader.textContent = source;
+            srcHeader.className = "text-lg font-semibold text-emerald-600 mb-3 flex items-center gap-2";
+            srcHeader.innerHTML = `
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+                </svg>
+                ${source}
+            `;
             sourceSection.appendChild(srcHeader);
 
             // Get items for this source in this chunk
@@ -421,13 +407,16 @@ function displayUnifiedView(year, chunkIndex) {
             // Show items or empty state
             if (itemsInChunk.length === 0) {
                 const emptyMsg = document.createElement("p");
-                emptyMsg.className = "empty-state";
+                emptyMsg.className = "text-slate-400 italic text-sm py-2";
                 emptyMsg.textContent = "No updates for this date/source";
                 sourceSection.appendChild(emptyMsg);
             } else {
                 const ul = document.createElement("ul");
+                ul.className = "space-y-3";
                 itemsInChunk.forEach(item => {
                     const li = document.createElement("li");
+                    li.className = "pb-3 border-b border-slate-100 last:border-0 last:pb-0";
+                    
                     const a = document.createElement("a");
                     a.href = item.link || item.url || "#";
                     // Use short_title for Kansas bills if available, otherwise use title
@@ -435,13 +424,13 @@ function displayUnifiedView(year, chunkIndex) {
                     a.textContent = displayTitle;
                     a.target = "_blank";
                     a.rel = "noopener noreferrer";
+                    a.className = "text-civic-blue hover:text-civic-blue-dark font-medium hover:underline transition-colors";
                     li.appendChild(a);
                     
                     // Show bill number
                     if (item.bill_number) {
                         const billNumDiv = document.createElement("div");
-                        billNumDiv.className = "bill-number";
-                        billNumDiv.style.cssText = "font-size: 0.85em; color: #1a73e8; margin-top: 4px; font-weight: 600;";
+                        billNumDiv.className = "text-sm text-civic-blue font-semibold mt-1";
                         billNumDiv.textContent = `Bill: ${item.bill_number}`;
                         li.appendChild(billNumDiv);
                     }
@@ -449,8 +438,7 @@ function displayUnifiedView(year, chunkIndex) {
                     // Show official title for Congress bills if available and different
                     if (item.official_title && item.official_title !== displayTitle) {
                         const officialDiv = document.createElement("div");
-                        officialDiv.className = "official-title";
-                        officialDiv.style.cssText = "font-size: 0.85em; color: #555; margin-top: 4px; font-style: italic;";
+                        officialDiv.className = "text-sm text-slate-600 mt-1 italic";
                         officialDiv.textContent = `Official: ${item.official_title}`;
                         li.appendChild(officialDiv);
                     }
@@ -458,8 +446,7 @@ function displayUnifiedView(year, chunkIndex) {
                     // Show summary if it exists and is different from display title
                     if (item.summary && item.summary.trim() && item.summary !== displayTitle) {
                         const summaryDiv = document.createElement("div");
-                        summaryDiv.className = "item-summary";
-                        summaryDiv.style.cssText = "font-size: 0.9em; color: #666; margin-top: 4px; margin-left: 0; line-height: 1.4;";
+                        summaryDiv.className = "text-sm text-slate-500 mt-2 leading-relaxed";
                         summaryDiv.textContent = item.summary;
                         li.appendChild(summaryDiv);
                     }
@@ -477,7 +464,7 @@ function displayUnifiedView(year, chunkIndex) {
 
     // Show message if no items in this chunk
     if (chunkDates.length === 0 && allDatesInChunk.length === 0) {
-        container.innerHTML = `<p class='empty-state'>No items found for ${formatDate(dateRange.start)} - ${formatDate(dateRange.end)}.</p>`;
+        container.innerHTML = `<p class='text-slate-500 italic text-center py-8'>No items found for ${formatDate(dateRange.start)} - ${formatDate(dateRange.end)}.</p>`;
     }
 
     // Calculate total number of chunks available
@@ -583,20 +570,24 @@ function displaySearchResults() {
 
     // Clear active year tabs
     document.querySelectorAll(".year-tab").forEach(btn => {
-        btn.classList.remove("active");
+        btn.classList.remove("bg-civic-blue", "text-white", "border-civic-blue");
+        btn.classList.add("bg-slate-100", "text-slate-700", "border-transparent");
     });
 
     // Hide pagination
     document.getElementById("pagination").innerHTML = "";
 
     if (searchResults.length === 0) {
-        container.innerHTML = `<p class='empty-state'>No results found for "${searchQuery}".</p>`;
+        container.innerHTML = `<p class='text-slate-500 italic text-center py-8'>No results found for "${searchQuery}".</p>`;
         return;
     }
 
     const resultsHeader = document.createElement("div");
-    resultsHeader.className = "search-results-header";
-    resultsHeader.innerHTML = `<h2>Search Results (${searchResults.length} found)</h2><p>Searching for: "<strong>${searchQuery}</strong>"</p>`;
+    resultsHeader.className = "mb-6 p-5 bg-blue-50 rounded-xl border-l-4 border-civic-blue";
+    resultsHeader.innerHTML = `
+        <h2 class="text-xl font-bold text-civic-blue mb-1">Search Results (${searchResults.length} found)</h2>
+        <p class="text-slate-600">Searching for: "<strong>${searchQuery}</strong>"</p>
+    `;
     container.appendChild(resultsHeader);
 
     // Group results by date
@@ -618,30 +609,36 @@ function displaySearchResults() {
     
     dates.forEach(date => {
         const dateSection = document.createElement("div");
-        dateSection.className = "date-section";
+        dateSection.className = "mb-8 p-6 bg-gradient-to-r from-slate-50 to-white rounded-xl border-l-4 border-civic-blue shadow-sm";
 
         const dateHeader = document.createElement("h2");
+        dateHeader.className = "text-xl font-bold text-civic-navy mb-4";
         dateHeader.textContent = formatDate(date);
         dateSection.appendChild(dateHeader);
 
         const sources = groupedByDate[date];
         Object.keys(sources).sort().forEach(source => {
             const sourceSection = document.createElement("div");
-            sourceSection.className = "source-section";
+            sourceSection.className = "mb-5 p-4 bg-white rounded-lg border-l-3 border-emerald-500 shadow-sm border";
 
             const srcHeader = document.createElement("h3");
+            srcHeader.className = "text-lg font-semibold text-emerald-600 mb-3";
             srcHeader.textContent = source;
             sourceSection.appendChild(srcHeader);
 
             const ul = document.createElement("ul");
+            ul.className = "space-y-3";
             sources[source].forEach(item => {
                 const li = document.createElement("li");
+                li.className = "pb-3 border-b border-slate-100 last:border-0 last:pb-0";
+                
                 const a = document.createElement("a");
                 a.href = item.link || item.url || "#";
                 // Use short_title for Kansas bills if available, otherwise use title
                 const displayTitle = item.short_title || item.title || "(no title)";
                 a.target = "_blank";
                 a.rel = "noopener noreferrer";
+                a.className = "text-civic-blue hover:text-civic-blue-dark font-medium hover:underline transition-colors";
                 
                 // Highlight search terms in title
                 if (displayTitle) {
@@ -656,8 +653,7 @@ function displaySearchResults() {
                 // Show bill number
                 if (item.bill_number) {
                     const billNumDiv = document.createElement("div");
-                    billNumDiv.className = "bill-number";
-                    billNumDiv.style.cssText = "font-size: 0.85em; color: #1a73e8; margin-top: 4px; font-weight: 600;";
+                    billNumDiv.className = "text-sm text-civic-blue font-semibold mt-1";
                     billNumDiv.textContent = `Bill: ${item.bill_number}`;
                     li.appendChild(billNumDiv);
                 }
@@ -665,8 +661,7 @@ function displaySearchResults() {
                 // Show official title for Congress bills if available and different
                 if (item.official_title && item.official_title !== displayTitle) {
                     const officialDiv = document.createElement("div");
-                    officialDiv.className = "official-title";
-                    officialDiv.style.cssText = "font-size: 0.85em; color: #555; margin-top: 4px; font-style: italic;";
+                    officialDiv.className = "text-sm text-slate-600 mt-1 italic";
                     // Highlight search terms in official title
                     if (searchQuery) {
                         const regex = new RegExp(`(${searchQuery})`, "gi");
@@ -680,8 +675,7 @@ function displaySearchResults() {
                 // Show summary if it exists and is different from display title
                 if (item.summary && item.summary.trim() && item.summary !== displayTitle) {
                     const summaryDiv = document.createElement("div");
-                    summaryDiv.className = "item-summary";
-                    summaryDiv.style.cssText = "font-size: 0.9em; color: #666; margin-top: 4px; margin-left: 0; line-height: 1.4;";
+                    summaryDiv.className = "text-sm text-slate-500 mt-2 leading-relaxed";
                     
                     // Also highlight search terms in summary
                     if (item.summary && searchQuery) {
@@ -730,21 +724,27 @@ function renderPagination(year, current, total, dateRange) {
     const endFormatted = formatDate(dateRange.end);
     
     const paginationInfo = document.createElement("div");
-    paginationInfo.className = "pagination-info";
+    paginationInfo.className = "text-center text-slate-600 mb-4 text-sm";
     paginationInfo.textContent = `Showing ${startFormatted} - ${endFormatted} (${current + 1} of ${total} periods)`;
     container.appendChild(paginationInfo);
 
     const btnContainer = document.createElement("div");
-    btnContainer.className = "pagination-buttons";
+    btnContainer.className = "flex justify-center flex-wrap gap-2";
 
     // Previous 7 days button
     if (current > 0) {
         const prevBtn = document.createElement("button");
-        prevBtn.textContent = "← Previous 7 Days";
-        prevBtn.className = "pagination-btn";
+        prevBtn.innerHTML = `
+            <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+            Previous 7 Days
+        `;
+        prevBtn.className = "px-4 py-2 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-lg text-sm font-medium transition-colors";
         prevBtn.onclick = () => {
             currentPage = current - 1;
             displayUnifiedView(year, current - 1);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         };
         btnContainer.appendChild(prevBtn);
     }
@@ -752,11 +752,17 @@ function renderPagination(year, current, total, dateRange) {
     // Next 7 days button
     if (current < total - 1) {
         const nextBtn = document.createElement("button");
-        nextBtn.textContent = "Next 7 Days →";
-        nextBtn.className = "pagination-btn";
+        nextBtn.innerHTML = `
+            Next 7 Days
+            <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+        `;
+        nextBtn.className = "px-4 py-2 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-lg text-sm font-medium transition-colors";
         nextBtn.onclick = () => {
             currentPage = current + 1;
             displayUnifiedView(year, current + 1);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         };
         btnContainer.appendChild(nextBtn);
     }
@@ -810,24 +816,17 @@ async function loadWeeklyOverview() {
             e.preventDefault();
             e.stopPropagation();
             
-            console.log("Weekly overview header clicked");
-            console.log("Current classes:", section.classList.toString());
-            
             if (section.classList.contains("collapsed")) {
                 section.classList.remove("collapsed");
                 section.classList.add("expanded");
-                console.log("Expanded");
             } else {
                 section.classList.remove("expanded");
                 section.classList.add("collapsed");
-                console.log("Collapsed");
             }
         };
         
         // Also make the entire header clickable
         header.style.cursor = "pointer";
-    } else {
-        console.error("Weekly overview header not found");
     }
     
     try {
@@ -846,13 +845,13 @@ async function loadWeeklyOverview() {
             year: "numeric"
         });
         
-        let html = `<div style="margin-bottom: 15px; color: #666; font-size: 0.9em;">Week of ${weekRange}</div>`;
+        let html = `<div class="mb-4 text-slate-500 text-sm">Week of ${weekRange}</div>`;
         
         // Audio player if available
         if (data.audio_available && data.audio_file) {
             html += `
-                <div style="margin-bottom: 20px;">
-                    <audio controls style="width: 100%; max-width: 500px;">
+                <div class="mb-5">
+                    <audio controls class="w-full max-w-lg">
                         <source src="${data.audio_file}" type="audio/mpeg">
                         Your browser does not support the audio element.
                     </audio>
@@ -861,14 +860,14 @@ async function loadWeeklyOverview() {
         }
         
         // Summary text
-        html += `<div style="line-height: 1.8; color: #333;">`;
+        html += `<div class="leading-relaxed text-slate-700">`;
         const script = data.script || "";
         // Convert line breaks to HTML
         const scriptHtml = script.split("\n").map(line => {
             if (line.trim() === "") {
                 return "<br>";
             }
-            return `<p style="margin: 8px 0;">${line}</p>`;
+            return `<p class="my-2">${line}</p>`;
         }).join("");
         html += scriptHtml;
         html += `</div>`;
@@ -876,7 +875,7 @@ async function loadWeeklyOverview() {
         // Item counts
         const counts = data.item_counts || {};
         if (counts.congress > 0 || counts.kansas > 0) {
-            html += `<div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #ddd; font-size: 0.9em; color: #666;">`;
+            html += `<div class="mt-5 pt-4 border-t border-slate-200 text-sm text-slate-500">`;
             html += `This week: ${counts.congress} Congress items, ${counts.kansas} Kansas items`;
             html += `</div>`;
         }
