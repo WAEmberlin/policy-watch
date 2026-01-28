@@ -77,7 +77,7 @@ def fetch_committee_meetings(
     else:
         url = f"{API_BASE_URL}/committee-meeting/{congress}"
     
-    # Calculate date range for filtering
+    # Calculate date range for filtering (will filter after fetching details)
     now = datetime.now(timezone.utc)
     start_date = (now - timedelta(days=days_back)).date()
     end_date = (now + timedelta(days=days_forward)).date()
@@ -88,14 +88,14 @@ def fetch_committee_meetings(
     if chamber:
         print(f"  Chamber: {chamber}")
     
-    # Start with initial URL
+    # Collect all meeting URLs first (list endpoint doesn't have dates)
+    meeting_urls = []
     current_url = url
     page = 1
-    max_pages = 50  # Safety limit
+    max_pages = 20  # Reduced - we'll filter by date after fetching details
     
     while current_url and page <= max_pages:
         try:
-            # Add API key to URL
             if "?" in current_url:
                 request_url = f"{current_url}&api_key={api_key}&format=json&limit=250"
             else:
@@ -107,8 +107,6 @@ def fetch_committee_meetings(
             time.sleep(REQUEST_DELAY)
             
             data = response.json()
-            
-            # Extract meetings from response
             meetings_list = data.get("committeeMeetings", [])
             
             if not meetings_list:
@@ -117,22 +115,26 @@ def fetch_committee_meetings(
             
             print(f"  Found {len(meetings_list)} meetings on page {page}")
             
-            # Process each meeting
+            # Collect URLs for detail fetching
             for i, meeting in enumerate(meetings_list):
-                # Debug first meeting structure
                 if page == 1 and i == 0:
                     print(f"  Debug: First meeting keys: {list(meeting.keys())}")
                 
-                normalized = normalize_committee_meeting(meeting, congress, start_date, end_date)
-                if normalized:
-                    meetings.append(normalized)
+                detail_url = meeting.get("url", "")
+                event_id = meeting.get("eventId", "")
+                meeting_chamber = meeting.get("chamber", "")
+                
+                if detail_url:
+                    meeting_urls.append({
+                        "url": detail_url,
+                        "event_id": event_id,
+                        "chamber": meeting_chamber
+                    })
             
-            # Get next page URL from pagination
             pagination = data.get("pagination", {})
             current_url = pagination.get("next")
             
             if current_url:
-                # Remove API key from next URL if present (we'll add it fresh)
                 if "api_key=" in current_url:
                     current_url = current_url.split("api_key=")[0].rstrip("&?")
                 page += 1
@@ -147,28 +149,71 @@ def fetch_committee_meetings(
             print(f"  Unexpected error on page {page}: {e}")
             break
     
-    print(f"  Fetched {len(meetings)} meetings from committee-meeting endpoint")
+    print(f"  Collected {len(meeting_urls)} meeting URLs, fetching details...")
+    
+    # Fetch details for each meeting (with date filtering)
+    in_range_count = 0
+    out_of_range_count = 0
+    error_count = 0
+    
+    for i, meeting_info in enumerate(meeting_urls):
+        if (i + 1) % 50 == 0:
+            print(f"    Processing {i + 1}/{len(meeting_urls)}... ({in_range_count} in range so far)")
+        
+        detail = fetch_meeting_detail_with_date_filter(
+            api_key, 
+            meeting_info["url"], 
+            meeting_info["event_id"],
+            meeting_info["chamber"],
+            congress,
+            start_date,
+            end_date
+        )
+        
+        if detail:
+            if detail.get("_in_range"):
+                meetings.append(detail)
+                in_range_count += 1
+            else:
+                out_of_range_count += 1
+        else:
+            error_count += 1
+        
+        # Early stop if we're getting mostly out-of-range meetings
+        # (API returns newest first, so old meetings mean we're past our range)
+        if i > 100 and in_range_count == 0:
+            print(f"    No in-range meetings found in first 100, stopping early")
+            break
+    
+    print(f"  Fetched {in_range_count} meetings in date range ({out_of_range_count} out of range, {error_count} errors)")
     return meetings
 
 
-def normalize_committee_meeting(meeting_data: Dict, congress: int, start_date, end_date) -> Optional[Dict]:
+def fetch_meeting_detail_with_date_filter(
+    api_key: str, 
+    detail_url: str, 
+    event_id: str,
+    chamber: str,
+    congress: int,
+    start_date,
+    end_date
+) -> Optional[Dict]:
     """
-    Normalize a committee meeting from the API response into CivicWatch schema.
+    Fetch full details for a committee meeting and filter by date.
     
-    Args:
-        meeting_data: Raw meeting data from API
-        congress: Congress number
-        start_date: Start of date range filter
-        end_date: End of date range filter
-    
-    Returns:
-        Normalized meeting dict, or None if invalid/out of range
+    Returns meeting dict with _in_range=True if in date range, or _in_range=False if not.
+    Returns None on error.
     """
     try:
-        # Extract event ID
-        event_id = meeting_data.get("eventId", "")
+        params = {"api_key": api_key, "format": "json"}
+        response = requests.get(detail_url, params=params, timeout=30)
+        response.raise_for_status()
+        time.sleep(REQUEST_DELAY)
         
-        # Get meeting date
+        data = response.json()
+        meeting_data = data.get("committeeMeeting", data)
+        
+        # Extract date first for filtering
         meeting_date_str = meeting_data.get("date", "")
         if not meeting_date_str:
             return None
@@ -181,65 +226,14 @@ def normalize_committee_meeting(meeting_data: Dict, congress: int, start_date, e
                 meeting_dt = datetime.fromisoformat(meeting_date_str + "T00:00:00+00:00")
             
             meeting_date = meeting_dt.date()
-            
-            # Filter by date range
-            if meeting_date < start_date or meeting_date > end_date:
-                return None
-            
             scheduled_date = meeting_date.isoformat()
             scheduled_time = meeting_dt.strftime("%H:%M") if meeting_dt.time() != datetime.min.time() else ""
             published = meeting_dt.isoformat()
         except (ValueError, AttributeError):
             return None
         
-        # We need to fetch full details for this meeting
-        # The list endpoint only has minimal info
-        detail_url = meeting_data.get("url", "")
-        
-        # Extract what we can from list response
-        chamber = meeting_data.get("chamber", "").capitalize()
-        update_date = meeting_data.get("updateDate", "")
-        
-        # For full details, we would need another API call
-        # But for now, let's use what we have and fetch details
-        
-        return {
-            "event_id": event_id,
-            "detail_url": detail_url,
-            "chamber": chamber,
-            "scheduled_date": scheduled_date,
-            "scheduled_time": scheduled_time,
-            "published": published,
-            "congress": congress,
-            "_needs_detail": True  # Flag to fetch more details
-        }
-    except Exception as e:
-        return None
-
-
-def fetch_meeting_details(api_key: str, meeting: Dict) -> Optional[Dict]:
-    """
-    Fetch full details for a committee meeting.
-    
-    Args:
-        api_key: Congress.gov API key
-        meeting: Partial meeting dict with detail_url
-    
-    Returns:
-        Fully normalized meeting dict, or None if error
-    """
-    detail_url = meeting.get("detail_url", "")
-    if not detail_url:
-        return None
-    
-    try:
-        params = {"api_key": api_key, "format": "json"}
-        response = requests.get(detail_url, params=params, timeout=30)
-        response.raise_for_status()
-        time.sleep(REQUEST_DELAY)
-        
-        data = response.json()
-        meeting_data = data.get("committeeMeeting", data)
+        # Check date range
+        in_range = start_date <= meeting_date <= end_date
         
         # Extract title
         title = meeting_data.get("title", "").strip()
@@ -247,15 +241,15 @@ def fetch_meeting_details(api_key: str, meeting: Dict) -> Optional[Dict]:
             title = "Committee Meeting"
         
         # Extract meeting type and status
-        meeting_type = meeting_data.get("meetingType", "Meeting")  # Hearing, Meeting, Markup
-        meeting_status = meeting_data.get("meetingStatus", "Scheduled")  # Scheduled, Canceled, Postponed, Rescheduled
+        meeting_type = meeting_data.get("meetingType", "Meeting")
+        meeting_status = meeting_data.get("meetingStatus", "Scheduled")
         
         # Add status to title if not Scheduled
-        if meeting_status and meeting_status.lower() != "scheduled":
+        if meeting_status and meeting_status.lower() not in ["scheduled", ""]:
             title = f"[{meeting_status.upper()}] {title}"
         
         # Extract chamber
-        chamber = meeting_data.get("chamber", meeting.get("chamber", "")).capitalize()
+        chamber = meeting_data.get("chamber", chamber or "").capitalize()
         
         # Extract committee names
         committees_list = meeting_data.get("committees", [])
@@ -267,7 +261,6 @@ def fetch_meeting_details(api_key: str, meeting: Dict) -> Optional[Dict]:
                     committee_names.append(name)
             elif isinstance(comm, str):
                 committee_names.append(comm)
-        
         committee_str = ", ".join(committee_names) if committee_names else ""
         
         # Extract location
@@ -292,15 +285,14 @@ def fetch_meeting_details(api_key: str, meeting: Dict) -> Optional[Dict]:
                 bill_number = bill.get("number", "")
                 if bill_type and bill_number:
                     bills.append(f"{bill_type} {bill_number}")
-        
         bill_str = ", ".join(bills) if bills else ""
         
         # Build URL
-        url = f"https://www.congress.gov/event/{meeting.get('congress', 119)}th-congress/committee-meeting/{meeting.get('event_id', '')}"
+        url = f"https://www.congress.gov/event/{congress}th-congress/committee-meeting/{event_id}"
         
         # Generate summary
         summary = f"Congressional {meeting_type.lower()} "
-        if meeting_status.lower() != "scheduled":
+        if meeting_status.lower() not in ["scheduled", ""]:
             summary = f"{meeting_status} congressional {meeting_type.lower()} "
         if committee_str:
             summary += f"before the {committee_str}."
@@ -315,19 +307,19 @@ def fetch_meeting_details(api_key: str, meeting: Dict) -> Optional[Dict]:
             "chamber": chamber,
             "committee": committee_names[0] if committee_names else "",
             "committees": committee_str,
-            "published": meeting.get("published", ""),
-            "scheduled_date": meeting.get("scheduled_date", ""),
-            "scheduled_time": meeting.get("scheduled_time", ""),
+            "published": published,
+            "scheduled_date": scheduled_date,
+            "scheduled_time": scheduled_time,
             "url": url,
             "link": url,
-            "congress": meeting.get("congress", 119),
+            "congress": congress,
             "meeting_type": meeting_type,
             "meeting_status": meeting_status,
             "location": location,
-            "bill": bill_str
+            "bill": bill_str,
+            "_in_range": in_range  # Flag for filtering
         }
     except Exception as e:
-        print(f"    Error fetching meeting details: {e}")
         return None
 
 
@@ -589,42 +581,34 @@ def main():
     all_meetings = []
     
     # 1. Fetch SCHEDULED meetings from committee-meeting endpoint
-    print("\n[1/3] Fetching scheduled committee meetings...")
+    print("\n[1/2] Fetching scheduled committee meetings...")
     try:
+        # The function now fetches details and filters by date internally
         meetings = fetch_committee_meetings(api_key, CONGRESS_NUMBER, days_back=30, days_forward=90)
         
-        # Fetch full details for each meeting
-        print(f"  Fetching details for {len(meetings)} meetings...")
-        detailed_meetings = []
-        for i, meeting in enumerate(meetings):
-            if meeting.get("_needs_detail"):
-                detail = fetch_meeting_details(api_key, meeting)
-                if detail:
-                    detailed_meetings.append(detail)
-                    if (i + 1) % 10 == 0:
-                        print(f"    Processed {i + 1}/{len(meetings)} meetings...")
+        # Remove internal flags before adding to results
+        for meeting in meetings:
+            meeting.pop("_in_range", None)
         
-        all_meetings.extend(detailed_meetings)
-        print(f"  Got {len(detailed_meetings)} detailed scheduled meetings")
+        all_meetings.extend(meetings)
+        print(f"  Added {len(meetings)} scheduled meetings")
     except Exception as e:
         print(f"  Error fetching committee meetings: {e}")
     
     # 2. Try per-chamber if no results
     if not all_meetings:
-        print("\n[2/3] Trying per-chamber fetch...")
-        for chamber in ["house", "senate"]:
+        print("\n  Trying per-chamber fetch...")
+        for chamber_name in ["house", "senate"]:
             try:
-                meetings = fetch_committee_meetings(api_key, CONGRESS_NUMBER, chamber, days_back=30, days_forward=90)
+                meetings = fetch_committee_meetings(api_key, CONGRESS_NUMBER, chamber_name, days_back=30, days_forward=90)
                 for meeting in meetings:
-                    if meeting.get("_needs_detail"):
-                        detail = fetch_meeting_details(api_key, meeting)
-                        if detail:
-                            all_meetings.append(detail)
+                    meeting.pop("_in_range", None)
+                all_meetings.extend(meetings)
             except Exception as e:
-                print(f"  Error fetching {chamber} meetings: {e}")
+                print(f"  Error fetching {chamber_name} meetings: {e}")
     
-    # 3. Fetch historical hearings (published transcripts)
-    print("\n[3/3] Fetching historical published hearings...")
+    # 2. Fetch historical hearings (published transcripts)
+    print("\n[2/2] Fetching historical published hearings...")
     try:
         historical = fetch_historical_hearings(api_key, CONGRESS_NUMBER, days_back=90)
         all_meetings.extend(historical)
