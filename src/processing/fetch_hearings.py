@@ -149,16 +149,21 @@ def fetch_committee_meetings(
             print(f"  Unexpected error on page {page}: {e}")
             break
     
-    print(f"  Collected {len(meeting_urls)} meeting URLs, fetching details...")
+    # Limit detail fetches to avoid 20+ minute runs (1 request per meeting = 1700+ requests)
+    MAX_DETAIL_FETCHES = 450
+    CONSECUTIVE_OUT_OF_RANGE_STOP = 150
     
-    # Fetch details for each meeting (with date filtering)
+    to_fetch = meeting_urls[:MAX_DETAIL_FETCHES]
+    print(f"  Fetching details for up to {len(to_fetch)} meetings (of {len(meeting_urls)} total)...")
+    
     in_range_count = 0
     out_of_range_count = 0
     error_count = 0
+    consecutive_out = 0
     
-    for i, meeting_info in enumerate(meeting_urls):
+    for i, meeting_info in enumerate(to_fetch):
         if (i + 1) % 50 == 0:
-            print(f"    Processing {i + 1}/{len(meeting_urls)}... ({in_range_count} in range so far)")
+            print(f"    Processing {i + 1}/{len(to_fetch)}... ({in_range_count} in range so far)")
         
         detail = fetch_meeting_detail_with_date_filter(
             api_key, 
@@ -174,17 +179,25 @@ def fetch_committee_meetings(
             if detail.get("_in_range"):
                 meetings.append(detail)
                 in_range_count += 1
+                consecutive_out = 0
             else:
                 out_of_range_count += 1
+                consecutive_out += 1
         else:
             error_count += 1
+            consecutive_out += 1
         
-        # Early stop if we're getting mostly out-of-range meetings
-        # (API returns newest first, so old meetings mean we're past our range)
+        # Stop early if no in-range in first 100
         if i > 100 and in_range_count == 0:
-            print(f"    No in-range meetings found in first 100, stopping early")
+            print(f"    No in-range meetings in first 100, stopping early")
+            break
+        # Stop after many consecutive out-of-range (we've passed the date window)
+        if consecutive_out >= CONSECUTIVE_OUT_OF_RANGE_STOP:
+            print(f"    Stopping after {consecutive_out} consecutive out-of-range meetings")
             break
     
+    if len(meeting_urls) > len(to_fetch):
+        print(f"  (Skipped {len(meeting_urls) - len(to_fetch)} meetings to keep run under ~5 min)")
     print(f"  Fetched {in_range_count} meetings in date range ({out_of_range_count} out of range, {error_count} errors)")
     return meetings
 
