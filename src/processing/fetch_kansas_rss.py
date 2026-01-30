@@ -162,6 +162,43 @@ def extract_bill_number_from_title(title: str) -> Optional[str]:
         return f"{bill_type} {bill_num}"
     return None
 
+
+def build_kansas_measure_url(bill_number: str, fallback_link: str = "") -> Optional[str]:
+    """
+    Build the Kansas Legislature bill measure page URL from a bill number.
+    
+    Used when the RSS feed link points to an action/journal page instead of the
+    bill measure page (e.g. Senate action feed often does not include /measures/).
+    
+    Examples:
+        "SB 428" + link with /li/b2025_26/ -> https://www.kslegislature.gov/li/b2025_26/measures/SB428/
+        "HB 2433" + "" -> https://www.kslegislature.gov/li/b2025_26/measures/HB2433/
+    
+    Args:
+        bill_number: Bill number in format "HB 1234" or "SB 567"
+        fallback_link: Optional link from RSS (e.g. any Kansas Legislature URL) to extract session
+        
+    Returns:
+        Full URL to the bill measure page, or None if bill_number invalid
+    """
+    if not bill_number or " " not in bill_number:
+        return None
+    parts = bill_number.strip().upper().split(None, 1)
+    if len(parts) != 2:
+        return None
+    bill_type, bill_num = parts[0], parts[1]
+    measure_slug = f"{bill_type}{bill_num}"
+    
+    # Try to extract session from fallback_link (e.g. /li/b2025_26/ or /li/b2023_24/)
+    session = "b2025_26"  # default current session
+    if fallback_link:
+        session_match = re.search(r'/li/(b\d{4}_\d{2})/', fallback_link, re.IGNORECASE)
+        if session_match:
+            session = session_match.group(1)
+    
+    return f"https://www.kslegislature.gov/li/{session}/measures/{measure_slug}/"
+
+
 # Kansas Legislature RSS feed definitions
 KANSAS_FEEDS = {
     "house_actions": {
@@ -295,16 +332,27 @@ def normalize_kansas_item(entry: Dict, feed_config: Dict) -> Optional[Dict]:
         # Add bill number if found
         if bill_number:
             item["bill_number"] = bill_number
-            item["bill_url"] = link
-        
-        # For bill-related items, attempt to fetch short title
-        if bill_number and "/measures/" in link.lower():
-            short_title = fetch_short_title(link)
-            if short_title:
-                item["short_title"] = short_title
-                item["short_title_source"] = "scraped"
+            # Use link as bill_url if it's a measure page; otherwise build measure URL
+            if "/measures/" in link.lower():
+                item["bill_url"] = link
             else:
-                # Fallback to RSS title
+                measure_url = build_kansas_measure_url(bill_number, link)
+                item["bill_url"] = measure_url or link
+        
+        # For bill-related items, attempt to fetch short title (House and Senate).
+        # Senate action feed often links to action/journal pages, not measure pages;
+        # bill_url is already set to the measure page (constructed if needed).
+        if bill_number:
+            scrape_url = item.get("bill_url")
+            if scrape_url:
+                short_title = fetch_short_title(scrape_url)
+                if short_title:
+                    item["short_title"] = short_title
+                    item["short_title_source"] = "scraped"
+                else:
+                    item["short_title"] = title
+                    item["short_title_source"] = "rss"
+            else:
                 item["short_title"] = title
                 item["short_title_source"] = "rss"
         
@@ -507,27 +555,38 @@ def enrich_kansas_bills_with_short_titles(history: List[Dict]) -> List[Dict]:
     
     for item in history:
         # Check if this is a Kansas bill item that needs enrichment
-        if (item.get("type") == "state_legislation" and 
-            item.get("state") == "KS" and
-            "/measures/" in item.get("link", "").lower() and
-            not item.get("short_title")):  # Only enrich if missing
+        if (item.get("type") != "state_legislation" or 
+            item.get("state") != "KS" or
+            item.get("short_title")):
+            continue
+        # Must be a bill: has bill_number or link points to measure page
+        bill_number = item.get("bill_number")
+        link = item.get("link", "")
+        if not bill_number and "/measures/" not in link.lower():
+            continue
             
-            bill_url = item.get("link", "")
-            if not bill_url:
-                continue
+        # Use bill_url if set (measure page), else build from bill_number + link
+        # Senate action feed often links to action/journal pages, not measure pages
+        bill_url = item.get("bill_url") or link
+        if bill_number and "/measures/" not in (bill_url or "").lower():
+            bill_url = build_kansas_measure_url(bill_number, link)
+            if bill_url:
+                item["bill_url"] = bill_url
+        if not bill_url:
+            continue
             
-            # Attempt to fetch short title
-            short_title = fetch_short_title(bill_url)
-            if short_title:
-                item["short_title"] = short_title
-                item["short_title_source"] = "scraped"
-                enriched_count += 1
-            else:
-                # Fallback to RSS title if scraping fails
-                if not item.get("short_title"):
-                    item["short_title"] = item.get("title", "")
-                    item["short_title_source"] = "rss"
-                skipped_count += 1
+        # Attempt to fetch short title
+        short_title = fetch_short_title(bill_url)
+        if short_title:
+            item["short_title"] = short_title
+            item["short_title_source"] = "scraped"
+            enriched_count += 1
+        else:
+            # Fallback to RSS title if scraping fails
+            if not item.get("short_title"):
+                item["short_title"] = item.get("title", "")
+                item["short_title_source"] = "rss"
+            skipped_count += 1
     
     if enriched_count > 0 or skipped_count > 0:
         print(f"Enriched {enriched_count} Kansas bills with scraped short titles")

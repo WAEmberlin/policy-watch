@@ -92,6 +92,12 @@ tailwind.config = {
                             <option value="">All Years</option>
                         </select>
                     </div>
+                    <div class="flex items-center gap-2">
+                        <label for="upcoming-committee-filter" class="text-sm font-semibold text-slate-600">Committee:</label>
+                        <select id="upcoming-committee-filter" class="px-3 py-2 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm min-w-[220px] max-w-[320px]">
+                            <option value="">All Committees</option>
+                        </select>
+                    </div>
                     <button onclick="clearFilters('upcoming')" class="px-4 py-2 bg-white hover:bg-slate-100 text-slate-600 rounded-lg font-medium transition-colors border-2 border-slate-200 text-sm">
                         Clear Filters
                     </button>
@@ -131,6 +137,12 @@ tailwind.config = {
                         <label for="historical-year-filter" class="text-sm font-semibold text-slate-600">Year:</label>
                         <select id="historical-year-filter" class="px-3 py-2 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm">
                             <option value="">All Years</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <label for="historical-committee-filter" class="text-sm font-semibold text-slate-600">Committee:</label>
+                        <select id="historical-committee-filter" class="px-3 py-2 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm min-w-[220px] max-w-[320px]">
+                            <option value="">All Committees</option>
                         </select>
                     </div>
                     <button onclick="clearFilters('historical')" class="px-4 py-2 bg-white hover:bg-slate-100 text-slate-600 rounded-lg font-medium transition-colors border-2 border-slate-200 text-sm">
@@ -187,7 +199,7 @@ function getYearFromDate(dateStr) {
     }
 }
 
-function filterHearings(hearings, sourceFilter, yearFilter) {
+function filterHearings(hearings, sourceFilter, yearFilter, committeeFilter) {
     return hearings.filter(hearing => {
         // Filter by source
         if (sourceFilter) {
@@ -206,6 +218,17 @@ function filterHearings(hearings, sourceFilter, yearFilter) {
             if (year !== yearFilter) {
                 return false;
             }
+        }
+        
+        // Filter by committee (House/Senate committee name)
+        if (committeeFilter) {
+            const committee = (hearing.committee || "").trim();
+            const committees = (hearing.committees || "").trim();
+            // Match single committee field or any committee in comma-separated committees
+            const committeeList = committees ? committees.split(",").map(s => s.trim()).filter(Boolean) : [];
+            const allCommittees = committee ? [committee, ...committeeList] : committeeList;
+            const match = allCommittees.some(c => c === committeeFilter);
+            if (!match) return false;
         }
         
         return true;
@@ -235,9 +258,44 @@ function populateYearFilters(hearings, filterId) {
     });
 }
 
-function renderHearings(hearings, container, emptyMessage, sourceFilter = "", yearFilter = "") {
+function populateCommitteeFilters(hearings, filterId) {
+    const committeeFilter = document.getElementById(filterId);
+    const committees = new Set();
+    
+    hearings.forEach(hearing => {
+        const committee = (hearing.committee || "").trim();
+        const committeesStr = (hearing.committees || "").trim();
+        if (committee) committees.add(committee);
+        if (committeesStr) {
+            committeesStr.split(",").forEach(s => {
+                const c = s.trim();
+                if (c) committees.add(c);
+            });
+        }
+    });
+    
+    // Clear existing options except "All Committees"
+    committeeFilter.innerHTML = '<option value="">All Committees</option>';
+    
+    // Add committee options sorted alphabetically (House first, then Senate, then other)
+    const sorted = Array.from(committees).sort((a, b) => {
+        const aHouse = a.toUpperCase().startsWith("HOUSE") ? 0 : a.toUpperCase().startsWith("SENATE") ? 1 : 2;
+        const bHouse = b.toUpperCase().startsWith("HOUSE") ? 0 : b.toUpperCase().startsWith("SENATE") ? 1 : 2;
+        if (aHouse !== bHouse) return aHouse - bHouse;
+        return a.localeCompare(b);
+    });
+    
+    sorted.forEach(committee => {
+        const option = document.createElement("option");
+        option.value = committee;
+        option.textContent = committee;
+        committeeFilter.appendChild(option);
+    });
+}
+
+function renderHearings(hearings, container, emptyMessage, sourceFilter = "", yearFilter = "", committeeFilter = "") {
     // Filter hearings
-    const filtered = filterHearings(hearings, sourceFilter, yearFilter);
+    const filtered = filterHearings(hearings, sourceFilter, yearFilter, committeeFilter);
     
     if (filtered.length === 0) {
         container.innerHTML = `
@@ -246,7 +304,7 @@ function renderHearings(hearings, container, emptyMessage, sourceFilter = "", ye
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                 </svg>
                 <p class="text-slate-500 font-medium">${emptyMessage}</p>
-                ${(sourceFilter || yearFilter) ? '<p class="text-slate-400 text-sm mt-1">Try adjusting your filters.</p>' : ''}
+                ${(sourceFilter || yearFilter || committeeFilter) ? '<p class="text-slate-400 text-sm mt-1">Try adjusting your filters.</p>' : ''}
             </div>
         `;
         return;
@@ -360,54 +418,49 @@ function renderHearings(hearings, container, emptyMessage, sourceFilter = "", ye
 }
 
 function setupFilters() {
+    const upcomingContainer = document.getElementById("upcoming-hearings-container");
+    const historicalContainer = document.getElementById("historical-hearings-container");
+    
+    function applyUpcomingFilters() {
+        const sourceFilter = document.getElementById("upcoming-source-filter").value;
+        const yearFilter = document.getElementById("upcoming-year-filter").value;
+        const committeeFilter = document.getElementById("upcoming-committee-filter").value;
+        renderHearings(allUpcomingHearings, upcomingContainer, "No upcoming hearings scheduled",
+                      sourceFilter, yearFilter, committeeFilter);
+    }
+    
+    function applyHistoricalFilters() {
+        const sourceFilter = document.getElementById("historical-source-filter").value;
+        const yearFilter = document.getElementById("historical-year-filter").value;
+        const committeeFilter = document.getElementById("historical-committee-filter").value;
+        renderHearings(allHistoricalHearings, historicalContainer, "No historical hearings available",
+                      sourceFilter, yearFilter, committeeFilter);
+    }
+    
     // Upcoming filters
-    const upcomingSourceFilter = document.getElementById("upcoming-source-filter");
-    const upcomingYearFilter = document.getElementById("upcoming-year-filter");
-    
-    upcomingSourceFilter.addEventListener("change", () => {
-        const sourceFilter = upcomingSourceFilter.value;
-        const yearFilter = upcomingYearFilter.value;
-        renderHearings(allUpcomingHearings, document.getElementById("upcoming-hearings-container"), 
-                      "No upcoming hearings scheduled", sourceFilter, yearFilter);
-    });
-    
-    upcomingYearFilter.addEventListener("change", () => {
-        const sourceFilter = upcomingSourceFilter.value;
-        const yearFilter = upcomingYearFilter.value;
-        renderHearings(allUpcomingHearings, document.getElementById("upcoming-hearings-container"), 
-                      "No upcoming hearings scheduled", sourceFilter, yearFilter);
-    });
+    document.getElementById("upcoming-source-filter").addEventListener("change", applyUpcomingFilters);
+    document.getElementById("upcoming-year-filter").addEventListener("change", applyUpcomingFilters);
+    document.getElementById("upcoming-committee-filter").addEventListener("change", applyUpcomingFilters);
     
     // Historical filters
-    const historicalSourceFilter = document.getElementById("historical-source-filter");
-    const historicalYearFilter = document.getElementById("historical-year-filter");
-    
-    historicalSourceFilter.addEventListener("change", () => {
-        const sourceFilter = historicalSourceFilter.value;
-        const yearFilter = historicalYearFilter.value;
-        renderHearings(allHistoricalHearings, document.getElementById("historical-hearings-container"), 
-                      "No historical hearings available", sourceFilter, yearFilter);
-    });
-    
-    historicalYearFilter.addEventListener("change", () => {
-        const sourceFilter = historicalSourceFilter.value;
-        const yearFilter = historicalYearFilter.value;
-        renderHearings(allHistoricalHearings, document.getElementById("historical-hearings-container"), 
-                      "No historical hearings available", sourceFilter, yearFilter);
-    });
+    document.getElementById("historical-source-filter").addEventListener("change", applyHistoricalFilters);
+    document.getElementById("historical-year-filter").addEventListener("change", applyHistoricalFilters);
+    document.getElementById("historical-committee-filter").addEventListener("change", applyHistoricalFilters);
 }
 
 function clearFilters(type) {
     if (type === "upcoming") {
         document.getElementById("upcoming-source-filter").value = "";
         document.getElementById("upcoming-year-filter").value = "";
+        document.getElementById("upcoming-committee-filter").value = "";
         renderHearings(allUpcomingHearings, document.getElementById("upcoming-hearings-container"), 
-                      "No upcoming hearings scheduled", "", "");
+                      "No upcoming hearings scheduled", "", "", "");
     } else if (type === "historical") {
         document.getElementById("historical-source-filter").value = "";
         document.getElementById("historical-year-filter").value = "";
+        document.getElementById("historical-committee-filter").value = "";
         renderHearings(allHistoricalHearings, document.getElementById("historical-hearings-container"), 
-                      "No historical hearings available", "", "");
+                      "No historical hearings available", "", "", "");
     }
 }
 
@@ -422,9 +475,11 @@ async function loadHearings() {
         allUpcomingHearings = data.upcoming_hearings || [];
         allHistoricalHearings = data.historical_hearings || [];
         
-        // Populate year filters
+        // Populate year and committee filters
         populateYearFilters(allUpcomingHearings, "upcoming-year-filter");
         populateYearFilters(allHistoricalHearings, "historical-year-filter");
+        populateCommitteeFilters(allUpcomingHearings, "upcoming-committee-filter");
+        populateCommitteeFilters(allHistoricalHearings, "historical-committee-filter");
         
         // Setup filter event listeners
         setupFilters();
