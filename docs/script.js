@@ -366,7 +366,57 @@ function displayUnifiedView(year, chunkIndex) {
                     summaryDiv.appendChild(countsDiv);
                 }
             }
-            
+
+            // Show Kansas and Congress items from the daily summary (same structure for both)
+            const renderBillList = (label, items) => {
+                if (!items || items.length === 0) return null;
+                const section = document.createElement("div");
+                section.className = "mt-3";
+                const subHeader = document.createElement("div");
+                subHeader.className = "text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2";
+                subHeader.textContent = label;
+                section.appendChild(subHeader);
+                const ul = document.createElement("ul");
+                ul.className = "space-y-1.5 text-sm";
+                items.forEach(b => {
+                    const li = document.createElement("li");
+                    const a = document.createElement("a");
+                    a.href = b.url || "#";
+                    a.target = "_blank";
+                    a.rel = "noopener";
+                    a.className = "text-civic-blue hover:underline";
+                    a.textContent = b.bill + (b.short_title ? ": " + b.short_title : "");
+                    li.appendChild(a);
+                    if (b.action) {
+                        const actionSpan = document.createElement("span");
+                        actionSpan.className = "text-slate-500 block mt-0.5";
+                        actionSpan.textContent = b.action;
+                        li.appendChild(actionSpan);
+                    }
+                    ul.appendChild(li);
+                });
+                section.appendChild(ul);
+                return section;
+            };
+            if (daySummary.kansas) {
+                const kansasHouse = daySummary.kansas.house || [];
+                const kansasSenate = daySummary.kansas.senate || [];
+                const kansasAll = [...kansasHouse, ...kansasSenate];
+                if (kansasAll.length > 0) {
+                    const kansasEl = renderBillList("Kansas Legislature", kansasAll);
+                    if (kansasEl) summaryDiv.appendChild(kansasEl);
+                }
+            }
+            if (daySummary.congress) {
+                const congressHouse = daySummary.congress.house || [];
+                const congressSenate = daySummary.congress.senate || [];
+                const congressAll = [...congressHouse, ...congressSenate];
+                if (congressAll.length > 0) {
+                    const congressEl = renderBillList("U.S. Congress", congressAll);
+                    if (congressEl) summaryDiv.appendChild(congressEl);
+                }
+            }
+
             dateSection.appendChild(summaryDiv);
         }
 

@@ -437,7 +437,7 @@ def generate_summary_for_date(target_date: str) -> Optional[Dict]:
     # Generate summary text
     summary_text = generate_daily_summary_text(kansas_bills, congress_bills, target_date)
     
-    # Build summary object
+    # Build summary object (include item lists like Kansas so Congress is represented the same way)
     summary = {
         "date": target_date,
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -450,9 +450,17 @@ def generate_summary_for_date(target_date: str) -> Optional[Dict]:
             "kansas_senate": kansas_senate_count,
             "congress_house": congress_house_count,
             "congress_senate": congress_senate_count
+        },
+        "kansas": {
+            "house": kansas_bills.get("House", []),
+            "senate": kansas_bills.get("Senate", [])
+        },
+        "congress": {
+            "house": congress_bills.get("House", []),
+            "senate": congress_bills.get("Senate", [])
         }
     }
-    
+
     return summary
 
 

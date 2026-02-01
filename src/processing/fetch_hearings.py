@@ -300,8 +300,9 @@ def fetch_meeting_detail_with_date_filter(
                     bills.append(f"{bill_type} {bill_number}")
         bill_str = ", ".join(bills) if bills else ""
         
-        # Build URL
-        url = f"https://www.congress.gov/event/{congress}th-congress/committee-meeting/{event_id}"
+        # Build URL: Congress.gov uses house-event or senate-event, not committee-meeting
+        chamber_slug = (meeting_data.get("chamber", chamber or "") or "house").lower()
+        url = f"https://www.congress.gov/event/{congress}th-congress/{chamber_slug}-event/{event_id}"
         
         # Generate summary
         summary = f"Congressional {meeting_type.lower()} "
@@ -489,22 +490,35 @@ def fetch_hearing_detail(api_key: str, detail_url: str, congress: int) -> Option
                     committee_names.append(name)
         committee_str = ", ".join(committee_names) if committee_names else ""
         
-        # Build URL from formats or construct one
+        # Build URL: use only public Congress.gov links (not api.congress.gov)
         url = ""
         formats_array = hearing_data.get("formats", [])
         for fmt in formats_array:
             if isinstance(fmt, dict):
                 fmt_url = fmt.get("url", "")
-                if fmt_url and "congress.gov" in fmt_url:
+                if fmt_url and "www.congress.gov" in fmt_url:
                     url = fmt_url
                     break
         
         if not url:
-            jacket = hearing_data.get("jacketNumber", "")
-            if jacket:
-                url = f"https://www.congress.gov/hearing/{congress}th-congress/{chamber.lower()}/{jacket}"
+            # Parse hearing id from API detail_url (e.g. .../hearing/119/house/61918 -> 61918)
+            hearing_id = None
+            chamber_slug = (chamber or "house").lower()
+            try:
+                parts = [p for p in detail_url.rstrip("/").split("/") if p]
+                if len(parts) >= 2 and parts[-2].lower() in ("house", "senate"):
+                    hearing_id = parts[-1].split("?")[0]
+                    chamber_slug = parts[-2].lower()
+            except Exception:
+                pass
+            if hearing_id:
+                url = f"https://www.congress.gov/event/{congress}th-congress/{chamber_slug}-event/{hearing_id}"
             else:
-                url = "https://www.congress.gov/hearings"
+                jacket = hearing_data.get("jacketNumber", "")
+                if jacket:
+                    url = f"https://www.congress.gov/event/{congress}th-congress/{chamber_slug}-event/{jacket}"
+                else:
+                    url = "https://www.congress.gov/committee-schedule"
         
         summary = f"Congressional hearing before the {committee_str}." if committee_str else "Congressional hearing."
         

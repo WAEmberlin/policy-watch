@@ -369,6 +369,34 @@ if not federal_hearings and os.path.exists(FEDERAL_HEARINGS_FILE):
     except (json.JSONDecodeError, IOError) as e:
         print(f"Warning: Could not load federal_hearings.json: {e}")
 
+def _fix_hearing_url(hearing):
+    """Rewrite API or wrong Congress.gov URLs to public event URLs."""
+    url = hearing.get("url") or hearing.get("link") or ""
+    if not url or ("www.congress.gov" in url and "api." not in url and "committee-meeting" not in url):
+        return
+    new_url = None
+    # Fix committee-meeting -> chamber-event (Congress.gov expects house-event/senate-event)
+    if "committee-meeting" in url:
+        chamber = (hearing.get("chamber") or "house").lower()
+        if chamber in ("house", "senate"):
+            new_url = url.replace("committee-meeting", f"{chamber}-event")
+    # Fix api.congress.gov hearing URL -> www.congress.gov event URL
+    elif "api.congress.gov" in url and "/hearing/" in url:
+        try:
+            parts = [p for p in url.rstrip("/").split("/") if p]
+            idx = next((i for i, p in enumerate(parts) if p == "hearing"), None)
+            if idx is not None and len(parts) >= idx + 4:
+                congress = parts[idx + 1]
+                chamber = parts[idx + 2].lower()
+                event_id = parts[idx + 3].split("?")[0]
+                if chamber in ("house", "senate") and congress.isdigit():
+                    new_url = f"https://www.congress.gov/event/{congress}th-congress/{chamber}-event/{event_id}"
+        except Exception:
+            pass
+    if new_url:
+        hearing["url"] = hearing["link"] = new_url
+
+
 # Separate federal hearings into upcoming and historical
 federal_upcoming = []
 federal_historical = []
@@ -379,6 +407,8 @@ for hearing in federal_hearings:
         hearing["url"] = hearing["link"]
     if not hearing.get("link") and hearing.get("url"):
         hearing["link"] = hearing["url"]
+    # Rewrite broken Congress.gov URLs to working event URLs
+    _fix_hearing_url(hearing)
     # Map committee to committees for consistency with frontend
     if hearing.get("committee") and not hearing.get("committees"):
         hearing["committees"] = hearing["committee"]

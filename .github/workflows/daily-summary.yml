@@ -28,6 +28,22 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Install feed/fetch dependencies
+        run: |
+          pip install feedparser pyyaml requests beautifulsoup4
+
+      - name: Fetch feeds and Congress/Kansas data
+        env:
+          CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
+        run: |
+          python src/processing/fetch_feeds.py
+          python src/processing/fetch_kansas_rss.py
+          if [ -n "$CONGRESS_API_KEY" ]; then
+            python src/processing/fetch_congress_api.py
+          else
+            echo "CONGRESS_API_KEY not set, skipping Congress API fetch"
+          fi
+
       - name: Install Ollama
         run: |
           echo "Installing Ollama..."
