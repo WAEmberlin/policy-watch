@@ -68,5 +68,19 @@
       "congress_house": 0,
       "congress_senate": 0
     }
+  },
+  "2026-01-30": {
+    "date": "2026-01-30",
+    "generated_at": "2026-01-31T03:10:36.135362+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "9 legislative items recorded. Kansas Legislature: 6 House bills and 3 Senate bills.",
+    "counts": {
+      "total": 9,
+      "kansas_house": 6,
+      "kansas_senate": 3,
+      "congress_house": 0,
+      "congress_senate": 0
+    }
   }
 }
