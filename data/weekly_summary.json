@@ -1,9 +1,9 @@
 {
-  "week_start": "2026-01-18",
-  "week_end": "2026-01-25",
+  "week_start": "2026-01-25",
+  "week_end": "2026-02-01",
   "model": "phi-3:mini",
   "prompt_version": "v1",
-  "generated_at": "2026-01-25T02:55:46.439473+00:00",
+  "generated_at": "2026-02-01T06:43:43.047188+00:00",
   "jurisdictions": [
     {
       "name": "Kansas Legislature",
@@ -11,18 +11,23 @@
         {
           "title": "House Bills",
           "summary": [
-            "19 House bills were introduced: HB 2538, HB 2537, HB 2536, HB 2535, HR 6022 and 14 more.",
-            "HB 2157 was 30 pm room 112-n on 2026-01-22."
+            "HB 2385 was 30 pm room 346-s on 2026-01-30.",
+            "18 House bills were introduced: HB 2608, HB 2607, HB 2606, HB 2605, HB 2604 and 13 more.",
+            "HB 2158 was conference committee report agree to disagree adopted;  representative tarwater,  representative ward and  representative sawyer clayton appointed as second conferees on 2026-01-29."
           ],
-          "bill_count": 77
+          "bill_count": 87
         },
         {
           "title": "Senate Bills",
           "summary": [
-            "18 Senate bills were introduced: SB 375, SB 374, SB 373, SB 372, SB 371 and 13 more.",
-            "2 Senate bills were referred to committee on judiciary: SB 359, SB 358."
+            "9 Senate bills were introduced: SB 431, SB 430, SB 429, SB 418, SB 417 and 4 more.",
+            "SB 428 was referred to committee on government efficiency on 2026-01-29.",
+            "2 Senate bills were referred to committee on judiciary: SB 427, SB 426.",
+            "SB 425 was referred to committee on agriculture and natural resources on 2026-01-29.",
+            "5 Senate bills were referred to committee on education: SB 424, SB 421, SB 420, SCR 1620, SB 419.",
+            "2 Senate bills were referred to committee on financial institutions and insurance: SB 423, SB 422."
           ],
-          "bill_count": 37
+          "bill_count": 70
         }
       ]
     },
@@ -32,24 +37,37 @@
         {
           "title": "House of Representatives",
           "summary": [
-            "3 House of Representatives bills were ordered to be reported by unanimous consent.: HR 3073, HR 3340, HR 2130.",
-            "HRES 375 was pursuant to the provisions of h. res. 1014, h. res. 375 is considered passed house as amended. on 2026-01-22.",
-            "HR 4294 was ordered to be reported in the nature of a substitute (amended) by unanimous consent. on 2026-01-22.",
-            "HR 1799 was ordered to be reported (amended) by the yeas and nays: 30 - 24. on 2026-01-22.",
-            "3 House of Representatives bills were subcommittee hearings held: HR 982, HR 2878, HR 3159.",
-            "HR 2072 was ordered to be reported by the yeas and nays: 44 - 0. on 2026-01-21.",
-            "2 House of Representatives bills were ordered to be reported (amended) by voice vote.: HR 2247, HR 2474.",
-            "HR 4327 was assuming first sponsorship - mr. alford asked unanimous consent that he may hereafter be considered as the first sponsor of h.r. 4327, a bill originally introduced by representative greene (ga), for the purpose of adding cosponsors and requesting reprintings pursuant to clause 7 of rule xii. agreed to without objection. on 2026-01-21.",
-            "HR 4624 was ordered to be reported (amended) by the yeas and nays: 30 - 4. on 2026-01-21."
+            "HR 2853 was placed on the union calendar, calendar no. 402. on 2026-01-30.",
+            "HR 4626 was placed on the union calendar, calendar no. 401. on 2026-01-30.",
+            "HR 2189 was placed on the union calendar, calendar no. 403. on 2026-01-30.",
+            "HR 260 was committee on foreign relations. ordered to be reported with amendments favorably. on 2026-01-29.",
+            "3 House of Representatives bills were referred to the subcommittee on water, wildlife and fisheries.: HR 6568, HR 6021, HR 3276.",
+            "HR 1958 was placed on the union calendar, calendar no. 400. on 2026-01-27.",
+            "HR 3497 was placed on the union calendar, calendar no. 399. on 2026-01-27.",
+            "HR 5183 was placed on the union calendar, calendar no. 396. on 2026-01-27.",
+            "HR 1295 was placed on the union calendar, calendar no. 397. on 2026-01-27.",
+            "HR 6978 was placed on the union calendar, calendar no. 398. on 2026-01-27.",
+            "HR 6945 was received in the senate and read twice and referred to the committee on finance. on 2026-01-26.",
+            "HR 2988 was received in the senate and read twice and referred to the committee on health, education, labor, and pensions. on 2026-01-26.",
+            "5 House of Representatives bills were received in the senate and read twice and referred to the committee on small business and entrepreneurship.: HR 5763, HR 5784, HR 5788, HR 5764, HR 3496.",
+            "HR 6359 was received in the senate. read twice. placed on senate legislative calendar under general orders. calendar no. 303. on 2026-01-26."
           ],
-          "bill_count": 14
+          "bill_count": 24
         },
         {
           "title": "U.S. Senate",
           "summary": [
-            "No U.S. Senate bills with activity this week."
+            "S 2245 was placed on senate legislative calendar under general orders. calendar no. 310. on 2026-01-30.",
+            "8 U.S. Senate bills were committee on foreign relations. ordered to be reported with an amendment in the nature of a substitute favorably.: S 3496, S 3360, S 3249, S 2904, S 2722 and 3 more.",
+            "S 2236 was committee on foreign relations. ordered to be reported without amendment favorably. on 2026-01-29.",
+            "S 272 was placed on senate legislative calendar under general orders. calendar no. 306. on 2026-01-28.",
+            "S 921 was placed on senate legislative calendar under general orders. calendar no. 307. on 2026-01-28.",
+            "S 1157 was placed on senate legislative calendar under general orders. calendar no. 308. on 2026-01-28.",
+            "S 2132 was placed on senate legislative calendar under general orders. calendar no. 305. on 2026-01-28.",
+            "S 2169 was placed on senate legislative calendar under general orders. calendar no. 309. on 2026-01-28.",
+            "S 836 was placed on senate legislative calendar under general orders. calendar no. 304. on 2026-01-27."
           ],
-          "bill_count": 0
+          "bill_count": 16
         }
       ]
     }
