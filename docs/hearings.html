@@ -59,13 +59,21 @@ tailwind.config = {
         
         <!-- Content Area -->
         <div class="p-6 md:p-8">
-            <!-- Back Link -->
-            <a href="index.html" class="inline-flex items-center gap-2 text-civic-blue hover:text-civic-blue-dark font-medium mb-6 transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-                </svg>
-                Back to Main
-            </a>
+            <!-- Nav Links -->
+            <div class="flex flex-wrap gap-3 mb-6">
+                <a href="index.html" class="inline-flex items-center gap-2 text-civic-blue hover:text-civic-blue-dark font-medium transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                    </svg>
+                    Back to Main
+                </a>
+                <a href="livestreams.html" class="inline-flex items-center gap-2 text-civic-blue hover:text-civic-blue-dark font-medium transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                    </svg>
+                    Live Streams
+                </a>
+            </div>
             
             <!-- Upcoming Hearings Section -->
             <div class="mb-12">
@@ -173,6 +181,7 @@ tailwind.config = {
 // Store original data
 let allUpcomingHearings = [];
 let allHistoricalHearings = [];
+let kansasCalendarsByDate = {}; // { "2025-01-13": [ { chamber, title, link }, ... ] }
 
 function formatDate(dateStr) {
     try {
@@ -343,6 +352,28 @@ function renderHearings(hearings, container, emptyMessage, sourceFilter = "", ye
         `;
         dateSection.appendChild(dateHeader);
         
+        // Kansas Legislature calendar links for this date (House/Senate calendar pages)
+        const calendarsForDate = kansasCalendarsByDate[dateKey] || [];
+        if (calendarsForDate.length > 0) {
+            const calRow = document.createElement("div");
+            calRow.className = "mb-4 flex flex-wrap gap-3";
+            calendarsForDate.forEach(cal => {
+                const a = document.createElement("a");
+                a.href = cal.link;
+                a.target = "_blank";
+                a.rel = "noopener noreferrer";
+                a.className = "inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-lg border border-emerald-200 font-medium text-sm transition-colors";
+                a.innerHTML = `
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                    ${cal.chamber} Calendar
+                `;
+                calRow.appendChild(a);
+            });
+            dateSection.appendChild(calRow);
+        }
+        
         const hearingsForDate = groupedByDate[dateKey];
         
         hearingsForDate.forEach(hearing => {
@@ -474,6 +505,7 @@ async function loadHearings() {
         
         allUpcomingHearings = data.upcoming_hearings || [];
         allHistoricalHearings = data.historical_hearings || [];
+        kansasCalendarsByDate = data.kansas_calendars || {};
         
         // Populate year and committee filters
         populateYearFilters(allUpcomingHearings, "upcoming-year-filter");

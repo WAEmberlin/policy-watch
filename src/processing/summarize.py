@@ -24,6 +24,7 @@ HISTORY_FILE = os.path.join(OUTPUT_DIR, "history.json")
 LEGISLATION_FILE = os.path.join(OUTPUT_DIR, "legislation.json")
 FEDERAL_HEARINGS_FILE = os.path.join(OUTPUT_DIR, "federal_hearings.json")
 HEARINGS_FILE = os.path.join(OUTPUT_DIR, "hearings.json")
+KANSAS_CALENDARS_FILE = os.path.join(OUTPUT_DIR, "kansas_calendars.json")
 DAILY_SUMMARIES_FILE = os.path.join(DATA_DIR, "daily_summaries.json")
 SITE_DATA_FILE = os.path.join(DOCS_DIR, "site_data.json")
 
@@ -464,6 +465,21 @@ print(f"Total upcoming hearings: {len(all_upcoming_hearings)} ({len(upcoming_hea
 print(f"Total historical hearings: {len(all_historical_hearings)} ({len(historical_hearings)} state, {len(federal_historical)} federal)")
 
 # -------------------------
+# Load Kansas Legislature calendars (by date for hearings page)
+# -------------------------
+kansas_calendars = {}
+if os.path.exists(KANSAS_CALENDARS_FILE):
+    try:
+        with open(KANSAS_CALENDARS_FILE, "r", encoding="utf-8") as f:
+            kansas_calendars = json.load(f)
+            if not isinstance(kansas_calendars, dict):
+                kansas_calendars = {}
+            else:
+                print(f"Loaded Kansas calendars for {len(kansas_calendars)} dates from {KANSAS_CALENDARS_FILE}")
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"Warning: Could not load kansas_calendars.json: {e}")
+
+# -------------------------
 # Load daily summaries
 # -------------------------
 daily_summaries = {}
@@ -488,7 +504,8 @@ output = {
     },
     "upcoming_hearings": all_upcoming_hearings,  # Upcoming hearings (state + federal)
     "historical_hearings": all_historical_hearings,  # Past hearings (state + federal)
-    "daily_summaries": daily_summaries  # Daily AI-generated summaries by date
+    "daily_summaries": daily_summaries,  # Daily AI-generated summaries by date
+    "kansas_calendars": kansas_calendars  # Kansas House/Senate calendar links by date (YYYY-MM-DD)
 }
 
 # Ensure legislation key is always present

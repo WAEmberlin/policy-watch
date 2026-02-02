@@ -38,6 +38,7 @@ jobs:
         run: |
           python src/processing/fetch_feeds.py
           python src/processing/fetch_kansas_rss.py
+          python src/processing/fetch_kansas_calendar.py
           if [ -n "$CONGRESS_API_KEY" ]; then
             python src/processing/fetch_congress_api.py
           else

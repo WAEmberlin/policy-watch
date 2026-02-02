@@ -31,6 +31,9 @@ jobs:
       - name: Fetch Kansas Legislature RSS feeds
         run: python src/processing/fetch_kansas_rss.py
 
+      - name: Fetch Kansas Legislature calendars
+        run: python src/processing/fetch_kansas_calendar.py
+
       - name: Fetch Congress API legislation
         env:
           CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
