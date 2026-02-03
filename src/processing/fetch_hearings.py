@@ -10,6 +10,7 @@ This module:
 - Handles API rate limits and missing fields safely
 """
 import os
+import re
 import json
 import time
 import requests
@@ -49,7 +50,8 @@ def fetch_committee_meetings(
     congress: int = CONGRESS_NUMBER,
     chamber: Optional[str] = None,
     days_back: int = 30,
-    days_forward: int = 90
+    days_forward: int = 90,
+    existing_cache: Optional[Dict[str, Dict]] = None
 ) -> List[Dict]:
     """
     Fetch committee meetings (including scheduled hearings) from the Congress.gov API.
@@ -57,7 +59,8 @@ def fetch_committee_meetings(
     Uses the endpoint: /v3/committee-meeting/{congress}
     Optional: /v3/committee-meeting/{congress}/house or /v3/committee-meeting/{congress}/senate
     
-    This endpoint returns SCHEDULED meetings with status like "Scheduled", "Canceled", etc.
+    Option A caching: if existing_cache is provided, skips API fetch for past meetings
+    (uses cached data). Re-fetches only upcoming meetings (next 30 days) to catch status changes.
     
     Args:
         api_key: Congress.gov API key
@@ -65,6 +68,7 @@ def fetch_committee_meetings(
         chamber: Optional chamber filter ("house" or "senate")
         days_back: How many days back to look
         days_forward: How many days forward to look
+        existing_cache: Optional event_id -> item dict from previous run (skip fetch for past)
     
     Returns:
         List of normalized meeting dictionaries
@@ -152,29 +156,74 @@ def fetch_committee_meetings(
     # Limit detail fetches to avoid 20+ minute runs (1 request per meeting = 1700+ requests)
     MAX_DETAIL_FETCHES = 450
     CONSECUTIVE_OUT_OF_RANGE_STOP = 150
-    
+    UPCOMING_DAYS = 30  # Re-fetch these to catch cancellations; cache past
+
+    cache = existing_cache or {}
+    upcoming_cutoff = now.date() + timedelta(days=UPCOMING_DAYS)
+
     to_fetch = meeting_urls[:MAX_DETAIL_FETCHES]
     print(f"  Fetching details for up to {len(to_fetch)} meetings (of {len(meeting_urls)} total)...")
-    
+    if cache:
+        print(f"  Cache: {len(cache)} existing items (will skip API fetch for past meetings)")
+
     in_range_count = 0
     out_of_range_count = 0
     error_count = 0
     consecutive_out = 0
-    
+    cache_hits = 0
+
     for i, meeting_info in enumerate(to_fetch):
         if (i + 1) % 50 == 0:
-            print(f"    Processing {i + 1}/{len(to_fetch)}... ({in_range_count} in range so far)")
+            print(f"    Processing {i + 1}/{len(to_fetch)}... ({in_range_count} in range, {cache_hits} cache hits)")
         
+        event_id = meeting_info.get("event_id", "")
+        cached = cache.get(str(event_id)) if event_id else None
+
+        use_cache = False
+        if cached:
+            date_str = cached.get("scheduled_date", "")
+            if date_str:
+                try:
+                    meeting_date = datetime.fromisoformat(date_str.replace("Z", "+00:00")).date()
+                    if meeting_date < now.date():
+                        use_cache = True
+                    elif meeting_date > upcoming_cutoff:
+                        use_cache = True
+                except (ValueError, TypeError):
+                    pass
+
+        if use_cache and cached:
+            meeting_date = None
+            try:
+                ds = cached.get("scheduled_date", "")
+                if ds:
+                    meeting_date = datetime.fromisoformat(ds.replace("Z", "+00:00")).date()
+            except (ValueError, TypeError):
+                pass
+            if meeting_date and start_date <= meeting_date <= end_date:
+                item = dict(cached)
+                item.pop("_in_range", None)
+                item.pop("event_id", None)
+                item["event_id"] = event_id
+                meetings.append(item)
+                in_range_count += 1
+                cache_hits += 1
+                consecutive_out = 0
+            else:
+                out_of_range_count += 1
+                consecutive_out += 1
+            continue
+
         detail = fetch_meeting_detail_with_date_filter(
-            api_key, 
-            meeting_info["url"], 
+            api_key,
+            meeting_info["url"],
             meeting_info["event_id"],
             meeting_info["chamber"],
             congress,
             start_date,
             end_date
         )
-        
+
         if detail:
             if detail.get("_in_range"):
                 meetings.append(detail)
@@ -186,7 +235,7 @@ def fetch_committee_meetings(
         else:
             error_count += 1
             consecutive_out += 1
-        
+
         # Stop early if no in-range in first 100
         if i > 100 and in_range_count == 0:
             print(f"    No in-range meetings in first 100, stopping early")
@@ -195,10 +244,10 @@ def fetch_committee_meetings(
         if consecutive_out >= CONSECUTIVE_OUT_OF_RANGE_STOP:
             print(f"    Stopping after {consecutive_out} consecutive out-of-range meetings")
             break
-    
+
     if len(meeting_urls) > len(to_fetch):
         print(f"  (Skipped {len(meeting_urls) - len(to_fetch)} meetings to keep run under ~5 min)")
-    print(f"  Fetched {in_range_count} meetings in date range ({out_of_range_count} out of range, {error_count} errors)")
+    print(f"  Fetched {in_range_count} meetings in date range ({out_of_range_count} out of range, {error_count} errors, {cache_hits} from cache)")
     return meetings
 
 
@@ -331,6 +380,7 @@ def fetch_meeting_detail_with_date_filter(
             "meeting_status": meeting_status,
             "location": location,
             "bill": bill_str,
+            "event_id": event_id,  # For cache keying (Option A: skip re-fetch for past)
             "_in_range": in_range  # Flag for filtering
         }
     except Exception as e:
@@ -541,6 +591,33 @@ def fetch_hearing_detail(api_key: str, detail_url: str, congress: int) -> Option
         }
     except Exception as e:
         return None
+
+
+def _event_id_from_item(item: Dict) -> Optional[str]:
+    """Extract event_id from saved item (for cache keying)."""
+    eid = item.get("event_id")
+    if eid:
+        return str(eid)
+    url = item.get("url", "") or item.get("link", "")
+    if not url:
+        return None
+    m = re.search(r"/(?:house|senate)-event/(\d+)(?:/|$)", url)
+    return m.group(1) if m else None
+
+
+def build_meeting_cache(existing: List[Dict]) -> Dict[str, Dict]:
+    """
+    Build event_id -> item cache from existing hearings (Federal committee meetings only).
+    Used for Option A: skip re-fetching past meetings; re-fetch upcoming (next 30 days) only.
+    """
+    cache = {}
+    for item in existing:
+        if item.get("source") != "Federal (US Congress)":
+            continue
+        eid = _event_id_from_item(item)
+        if eid:
+            cache[eid] = item
+    return cache
 
 
 def load_existing_hearings() -> List[Dict]:
