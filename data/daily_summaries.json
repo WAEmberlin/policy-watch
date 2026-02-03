@@ -104,5 +104,233 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-02-02": {
+    "date": "2026-02-02",
+    "generated_at": "2026-02-03T03:22:48.403114+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "34 legislative items recorded. Kansas Legislature: 22 House bills and 12 Senate bills.",
+    "counts": {
+      "total": 34,
+      "kansas_house": 22,
+      "kansas_senate": 12,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2611",
+          "short_title": "Providing limitations and restrictions on releasing a person charged with a crime upon the person's own recognizance.",
+          "action": "30 PM Room 582-N",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2611/"
+        },
+        {
+          "bill": "HB 2610",
+          "short_title": "Limiting the use of a summons instead of a warrant for the arrest of a defendant to misdemeanor crimes and requiring that any bond set on a warrant issued after a failure to appear in response to a summons shall not allow release on the defendant's own recognizance.",
+          "action": "30 PM Room 582-N",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2610/"
+        },
+        {
+          "bill": "HR 6024",
+          "short_title": "Urging the Kansas Turnpike Authority to waive tolls for vehicles displaying Kansas special license plates related to injury, loss of life or valor in active military service",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6024/"
+        },
+        {
+          "bill": "HCR 5026",
+          "short_title": "Proposing a constitutional amendment to section 1 of the Kansas bill of rights to affirm that men and women are possessed of equal and inalienable natural rights, including the right to life from conception.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5026/"
+        },
+        {
+          "bill": "HCR 5025",
+          "short_title": "Proposing to amend the constitution of the state of Kansas to decrease the assessed valuation for real property used for residential purposes from 111/2% to 9%.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5025/"
+        },
+        {
+          "bill": "HCR 5024",
+          "short_title": "Proposing to amend section 1 of article 11 of the constitution of the state of Kansas to establish the taxable valuation of real property used for residential purposes based on the sales price for the year in which the property transferred ownership if the transfer was sold at fair market value or valued pursuant to law as fair market value in the year in which the transfer occurred for the current owner.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5024/"
+        },
+        {
+          "bill": "HB 2636",
+          "short_title": "Establishing requirements for the development, construction, modification, maintenance, operation and decommissioning of certain industrial energy facilities and providing jurisdiction to the state corporation commission to control and permit such development, construction, modification, operation, maintenance and decommissioning of such facilities.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2636/"
+        },
+        {
+          "bill": "HB 2635",
+          "short_title": "Enacting the pregnancy center autonomy and rights of expression act to protect the ability of private pregnancy centers to provide life-affirming care.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2635/"
+        },
+        {
+          "bill": "HB 2634",
+          "short_title": "Requiring landlords to comply with a default maintenance code if the rental property is in a city or county that has not adopted a maintenance code.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2634/"
+        },
+        {
+          "bill": "HB 2633",
+          "short_title": "Increasing the service charge fee for each license, permit, stamp or other issue of the department of wildlife and parks to an amount of not to exceed $2.00 and, in the case of each migratory waterfowl habitat stamp, an amount of not to exceed $1.00.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2633/"
+        },
+        {
+          "bill": "HB 2632",
+          "short_title": "Increasing the household income and appraised value thresholds for eligibility of seniors and disabled veterans.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2632/"
+        },
+        {
+          "bill": "HB 2631",
+          "short_title": "Increasing the extent of property tax exemption from the statewide school levy for residential property.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2631/"
+        },
+        {
+          "bill": "HB 2630",
+          "short_title": "Providing the authority for counties and cities to levy an additional liquor enforcement tax for property tax reduction.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2630/"
+        },
+        {
+          "bill": "HB 2629",
+          "short_title": "Increasing the amount of the standard deduction for Kansas income tax purposes.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2629/"
+        },
+        {
+          "bill": "HB 2628",
+          "short_title": "Establishing a refundable income tax credit for tuition payments and fees made to postsecondary educational institutions.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2628/"
+        },
+        {
+          "bill": "HB 2627",
+          "short_title": "Expanding permissive preference in private employment to include current servicemembers and eligible spouses.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2627/"
+        },
+        {
+          "bill": "HB 2626",
+          "short_title": "Expanding veterans preference in government employment to include current members of the national guard and such members' eligible spouses.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2626/"
+        },
+        {
+          "bill": "HB 2625",
+          "short_title": "Requiring rural water districts to award certain contracts through a public letting process.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2625/"
+        },
+        {
+          "bill": "HB 2624",
+          "short_title": "Authorizing the disorganization of a county fire district by the board of county commissioners when such district contains no territory.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2624/"
+        },
+        {
+          "bill": "HB 2623",
+          "short_title": "Requiring the secretary of commerce and the secretary of wildlife and parks to jointly conduct a feasibility study regarding a potential state purchase of acorns resort and the designation of such location as a state park or the incorporation of such location into the existing Milford state park in Geary county.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2623/"
+        },
+        {
+          "bill": "HCR 5023",
+          "short_title": "Proposing to amend the constitution of the state of Kansas to provide that property tax exemptions be approved by the electors of the state.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5023/"
+        },
+        {
+          "bill": "HB 2609",
+          "short_title": "Enacting the supported decision-making agreements act to provide a statutory framework for allowing an adult to receive decision-making assistance from one or more other adults, requirements for decision-making agreements and duties related thereto.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2609/"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SB 449",
+          "short_title": "Enacting the clean air preservation act to prohibit solar radiation modification, geoengineering, weather modification, cloud seeding and other polluting atmospheric experiments or interventions and creating a crime for violation thereof.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB449/"
+        },
+        {
+          "bill": "SB 448",
+          "short_title": "Permitting the use of expedited partner therapy to treat a sexually transmitted disease.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB448/"
+        },
+        {
+          "bill": "SB 447",
+          "short_title": "Creating a domestic violence task force to study domestic violence across the state and make policy recommendations.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB447/"
+        },
+        {
+          "bill": "SB 446",
+          "short_title": "Creating an exception to certain mandatory reporting obligations for licensed social workers when working under the supervision of an attorney and permitting an attorney to require a licensed social worker to keep ethical obligations of attorney-client privilege while working under the supervision of such attorney.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB446/"
+        },
+        {
+          "bill": "SB 445",
+          "short_title": "Providing that the law enforcement officers memorial advisory committee may receive requests for the Kansas highway patrol and the Kansas bureau of investigation to provide temporary personal and other assistance in support of funeral services honoring law enforcement officers who have lost their lives in the line of duty in the service of the state.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB445/"
+        },
+        {
+          "bill": "SB 444",
+          "short_title": "Authorizing interior inspections of residential property without the consent of the occupant pursuant to an administrative warrant or if there is probable cause of imminent danger related to health and safety and allowing cities to abate certain interior code violations or delegate such authority to the county.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB444/"
+        },
+        {
+          "bill": "SB 443",
+          "short_title": "Requiring cause for evictions from residential property, modifying the petition and notice requirements for eviction cases and removing the requirement to post bond before the court may grant a continuance.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB443/"
+        },
+        {
+          "bill": "SB 442",
+          "short_title": "Increasing the criminal penalties for exposing another to a communicable disease and modifying the elements of such crime to include otherwise lawful or unlawful sexual intercourse or sodomy.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB442/"
+        },
+        {
+          "bill": "SB 441",
+          "short_title": "Enacting the applied behavior analysis services in school act to authorize the provision of medically necessary behavioral health services by private providers in schools and requiring school districts to adopt policies for the provision of such services.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB441/"
+        },
+        {
+          "bill": "SB 440",
+          "short_title": "Authorizing a special education pilot program that provides provisional accreditation to a private entity for the purpose of operating a special education teacher training program, allowing such entity to collect data from such program and providing requirements for full accreditation of such program.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB440/"
+        },
+        {
+          "bill": "SB 439",
+          "short_title": "Enacting the utility railroad crossing act and establishing a process and limitations for utilities to interact with railroad right-of-way.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB439/"
+        },
+        {
+          "bill": "SB 438",
+          "short_title": "Requiring eligible boards of education to consider participation in the community eligibility program, providing a financial hardship exception from such participation and requiring the state department of education to assist school districts seeking such participation.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB438/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
