@@ -813,5 +813,329 @@
       ],
       "senate": []
     }
+  },
+  "2026-02-04": {
+    "date": "2026-02-04",
+    "generated_at": "2026-02-05T03:21:26.603349+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "50 legislative items recorded. Kansas Legislature: 31 House bills and 19 Senate bills.",
+    "counts": {
+      "total": 50,
+      "kansas_house": 31,
+      "kansas_senate": 19,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2701",
+          "short_title": "Permitting nonuniform zoning regulations within a zoning district.",
+          "action": "Referred to Committee on Local Government",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2701/"
+        },
+        {
+          "bill": "HB 2700",
+          "short_title": "Establishing the Kansas right-to-repair act to provide the right for persons who purchase or lease digital electronic equipment to obtain the legal authorization and necessary documentation and parts from original equipment manufacturers to diagnose, maintain and repair such equipment.",
+          "action": "Referred to Committee on Commerce, Labor and Economic Development",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2700/"
+        },
+        {
+          "bill": "HB 2699",
+          "short_title": "Providing for official legal publications on a county website for counties with a population of 100,000 or more.",
+          "action": "Referred to Committee on Local Government",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2699/"
+        },
+        {
+          "bill": "HB 2698",
+          "short_title": "Providing for permanent seizures of animals in instances when the owner violates county resolutions and authorizing judges of competent jurisdiction to order such seizures.",
+          "action": "Referred to Committee on Local Government",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2698/"
+        },
+        {
+          "bill": "HB 2697",
+          "short_title": "Modifying the crime of unlawful acts involving theft detection shielding devices to include possessing, with the intent to commit theft, a computer program, application, software or other device adapted, designed or commonly used to operate a lock or locks on or start a motor vehicle without an ignition key or key fob, or to copy, store information relating to, or interfere with those functions and providing for exceptions.",
+          "action": "Referred to Committee on Judiciary",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2697/"
+        },
+        {
+          "bill": "HB 2142",
+          "short_title": "Requiring each school district adopt an independent review process as part of such district's policies prohibiting and preventing bullying.",
+          "action": "30 PM Room 218-N",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2142/"
+        },
+        {
+          "bill": "HB 2077",
+          "short_title": "Providing a sales tax exemption for purchases of personal property and services, sales of personal property and purchases of construction materials and services for not-for-profit animal shelters and rescue network managers licensed under the Kansas pet animal act.",
+          "action": "30 PM Room 346-S",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2077/"
+        },
+        {
+          "bill": "HB 2388",
+          "short_title": "Providing a sales tax exemption for purchases and sales made by the friends of cedar crest association.",
+          "action": "30 PM Room 346-S",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2388/"
+        },
+        {
+          "bill": "HB 2617",
+          "short_title": "Providing that motorcycle license plates shall contain a combination of not fewer than six letters or numerals.",
+          "action": "30 PM Room 582-N",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2617/"
+        },
+        {
+          "bill": "HB 2615",
+          "short_title": "Designating a portion of U.S. highway 75 as the Brig Gen George H Wark memorial highway and redesignating a current portion of the purple heart/combat wounded veterans highway for U.S. highway 75.",
+          "action": "30 PM Room 582-N",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2615/"
+        },
+        {
+          "bill": "HR 6028",
+          "short_title": "A RESOLUTION condemning the violent, aggressive, and hostile presence of United States Immigration and Customs Enforcement.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6028/"
+        },
+        {
+          "bill": "HCR 5029",
+          "short_title": "Proposing to amend the bill of rights of the constitution of the state of Kansas by adding a new section relating to the public right to possess and use cannabis for medical purposes.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5029/"
+        },
+        {
+          "bill": "HCR 5028",
+          "short_title": "Proposing to amend the bill of rights of the constitution of the state of Kansas by adding a new section relating to the right for adults to possess and use cannabis.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5028/"
+        },
+        {
+          "bill": "HB 2709",
+          "short_title": "None",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2709/"
+        },
+        {
+          "bill": "HB 2708",
+          "short_title": "Establishing within the legislative branch the office of the director for Kansas advisory commissions, the advisory commission on Asian American and Pacific Islander affairs and the Kansas Native American affairs commission and transferring the Hispanic and Latino American affairs commission and the advisory commission on African-American affairs to the legislative branch.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2708/"
+        },
+        {
+          "bill": "HB 2707",
+          "short_title": "Modifying the definition of abuse in the protection from abuse act to include certain acts or threats related to pets and specifying that courts may include orders relating to pets in protection from abuse act orders.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2707/"
+        },
+        {
+          "bill": "HB 2706",
+          "short_title": "Prohibiting certain federal law enforcement officers from entering hospitals, schools and places of worship under certain circumstances and prohibiting law enforcement officers from wearing a facial covering that conceals or obscures their facial identity in the performance of their duties with certain exceptions.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2706/"
+        },
+        {
+          "bill": "HB 2705",
+          "short_title": "Providing that courts are not required to appoint counsel for an indigent inmate in certain habeas corpus actions.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2705/"
+        },
+        {
+          "bill": "HB 2704",
+          "short_title": "Providing that amendments related to credit for time spent incarcerated are applicable to any sentence computed on or after October 20, 2023.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2704/"
+        },
+        {
+          "bill": "HB 2703",
+          "short_title": "Enacting the Kansas health insurance affordability transparency act to require a report specifying the financial impact to covered individuals resulting from the passage of certain health insurance legislation.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2703/"
+        },
+        {
+          "bill": "HB 2702",
+          "short_title": "Providing that applicants for a physician assistant license submit to a criminal record check, providing for the collaboration between physicians and physician assistants and requiring the revocation of a physician assistant license under certain circumstances.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2702/"
+        },
+        {
+          "bill": "HR 6027",
+          "short_title": "Honoring Kansas District Optimist for its commitment to hope, positive thinking and action.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6027/"
+        },
+        {
+          "bill": "HR 6026",
+          "short_title": "Commemorating Kansas Young Professionals Day.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6026/"
+        },
+        {
+          "bill": "HR 6025",
+          "short_title": "Recognizing February 5, 2026, as Wear Red Day in the Kansas legislature.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6025/"
+        },
+        {
+          "bill": "HB 2683",
+          "short_title": "Allowing healthcare providers to charge fees to furnish a patient's healthcare records and providing for the disclosure of a deceased patient's healthcare records to certain individuals.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2683/"
+        },
+        {
+          "bill": "HB 2682",
+          "short_title": "Enacting the Kansas organic waste land application accountability act and authorizing the department of health and environment to regulate the land application of biosolids and organic waste materials, except when applied by a bona fide farmer conducting normal farming operations on land owned or leased by such farmer.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2682/"
+        },
+        {
+          "bill": "HB 2681",
+          "short_title": "Establishing the department of corrections peer support fund and transferring moneys from the state general fund to the department of corrections peer support fund.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2681/"
+        },
+        {
+          "bill": "HB 2680",
+          "short_title": "Renaming the tax credit for low income students scholarship program the Kansas K-12 students scholarship program, expanding eligibility under the program, increasing the aggregate tax credit limit and moving the program's administration to the state treasurer.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2680/"
+        },
+        {
+          "bill": "HB 2679",
+          "short_title": "Enacting the adult use cannabis regulation act to regulate the cultivation, manufacturing, possession and sale of cannabis in this state.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2679/"
+        },
+        {
+          "bill": "HB 2678",
+          "short_title": "Enacting the Kansas medical cannabis act to authorize the cultivation, processing, distribution, sale and use of medical cannabis and medical cannabis products.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2678/"
+        },
+        {
+          "bill": "HB 2677",
+          "short_title": "Mandating health insurance plans to provide coverage and payment for hearing aids for children under the age of 18.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2677/"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SB 487",
+          "short_title": "Requiring the Kansas bureau of investigation to implement a statewide offender registration system for agencies who register offenders under the offender registration act.",
+          "action": "Referred to Committee on Judiciary",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB487/"
+        },
+        {
+          "bill": "SB 486",
+          "short_title": "Creating a civil cause of action for violations of the constitution or laws of the United States by any person acting under the color of law.",
+          "action": "Referred to Committee on Judiciary",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB486/"
+        },
+        {
+          "bill": "SB 485",
+          "short_title": "Providing that under rental agreements governed by the residential landlord tenant act, a landlord is required to count certain income when considering a tenant or prospective tenant's qualifications for housing, providing for the sealing and expungement of court records in eviction actions related to such rental agreements and requiring mediation in such eviction cases unless the court finds that mediation would not aid the parties materially.",
+          "action": "Referred to Committee on Judiciary",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB485/"
+        },
+        {
+          "bill": "SB 484",
+          "short_title": "Moving marijuana from schedule I to schedule III of the uniform controlled substances act.",
+          "action": "Referred to Committee on Federal and State Affairs",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB484/"
+        },
+        {
+          "bill": "SB 483",
+          "short_title": "Requiring all legislators and the spouses of legislators who are in leadership positions to disclose the amount of any salary they receive paid by public funds, providing that such information be published on the legislative website and requiring such information be provided in statements of substantial interest.",
+          "action": "Referred to Committee on Federal and State Affairs",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB483/"
+        },
+        {
+          "bill": "SB 482",
+          "short_title": "Requiring landlords to return the security deposit and certain portions of rent payments that would be due when a dwelling unit is condemned due to action or inaction of the landlord.",
+          "action": "Referred to Committee on Judiciary",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB482/"
+        },
+        {
+          "bill": "SB 481",
+          "short_title": "Permitting a municipal judge to initiate a psychiatric or psychological examination to determine competence and setting forth relevant procedures.",
+          "action": "Referred to Committee on Judiciary",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB481/"
+        },
+        {
+          "bill": "SB 480",
+          "short_title": "Reviving repealed statutes related to estates of absentees.",
+          "action": "Referred to Committee on Judiciary",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB480/"
+        },
+        {
+          "bill": "SB 479",
+          "short_title": "Authorizing comprehensive wellness programs for the Kansas highway patrol and Kansas bureau of investigation, permitting law enforcement personnel of other state agencies to participate in such programs and making annual transfers from the state highway fund and the state general fund for the purpose of financing the implementation of such programs.",
+          "action": "Referred to Committee on Judiciary",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB479/"
+        },
+        {
+          "bill": "SB 478",
+          "short_title": "Increasing the criminal penalties for assault or battery of a utility or communications employee.",
+          "action": "Referred to Committee on Judiciary",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB478/"
+        },
+        {
+          "bill": "SB 477",
+          "short_title": "Establishing the Kansas first responder scholarship program to provide postsecondary tuition assistance to certain first responders and dependents of such first responders.",
+          "action": "Referred to Committee on Education",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB477/"
+        },
+        {
+          "bill": "SB 476",
+          "short_title": "Exempting certain property used for thrift store purposes by a church or religious organization from property tax.",
+          "action": "Referred to Committee on Assessment and Taxation",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB476/"
+        },
+        {
+          "bill": "SB 475",
+          "short_title": "Requiring hospitals use a surgical smoke plume evacuation system and adopt policies for the evacuation of surgical smoke during certain surgical procedures.",
+          "action": "Referred to Committee on Public Health and Welfare",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB475/"
+        },
+        {
+          "bill": "SB 474",
+          "short_title": "Enacting the Kansas short-term, limited duration insurance act; establishing definitions, disclosure, premiums, renewal and underwriting requirements relating thereto and authorizing the commissioner of insurance to adopt rules and regulations to implement and oversee the act.",
+          "action": "Referred to Committee on Financial Institutions and Insurance",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB474/"
+        },
+        {
+          "bill": "SB 473",
+          "short_title": "Authorizing Audubon of Kansas to convey certain property in Wabaunsee county and requiring any deeds or conveyances related to such property be reviewed and approved by the state historical society.",
+          "action": "Referred to Committee on Agriculture and Natural Resources",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB473/"
+        },
+        {
+          "bill": "SB 472",
+          "short_title": "Authorizing the administrator to set and the commissioner of insurance to cause to be published in the Kansas register certain fees and eliminating the 10% credit to the state general fund required of fee funded agencies as reimbursement for certain services provided by the state.",
+          "action": "Referred to Committee on Financial Institutions and Insurance",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB472/"
+        },
+        {
+          "bill": "SR 1724",
+          "short_title": "Commemorating and celebrating the 250th anniversary of the adoption of the Declaration of Independence of the United States of America.",
+          "action": "Enrolled on Wednesday, February 4, 2026",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SR1724/"
+        },
+        {
+          "bill": "SB 147",
+          "short_title": "Modifying uninsured and underinsured motorist coverage liability limitations for bodily injury or death.",
+          "action": "30 AM Room 546-S",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB147/"
+        },
+        {
+          "bill": "SB 115",
+          "short_title": "Enacting the Kansas bullion depository act to authorize the state treasurer to establish, administer or contract for the administration of bullion depositories and allowing for state moneys to be deposited in such bullion depositories and invested in specie legal tender.",
+          "action": "30 AM Room 546-S",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB115/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
