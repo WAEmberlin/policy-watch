@@ -1479,5 +1479,149 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-02-06": {
+    "date": "2026-02-06",
+    "generated_at": "2026-02-07T03:14:13.021946+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "20 legislative items recorded. Kansas Legislature: 16 House bills and 4 Senate bills.",
+    "counts": {
+      "total": 20,
+      "kansas_house": 16,
+      "kansas_senate": 4,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2745",
+          "short_title": "Requiring a vote of the electors to approve increases in property tax revenues for the next year, establishing the property tax relief fund and providing transfers to counties that limit property taxes to certain increases, establishing the property tax limit in lieu of the revenue neutral rate to provide for certain budget increases of taxing subdivisions and continuing in existence the taxpayer notification costs fund.",
+          "action": "30 PM Room 346-S",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2745/"
+        },
+        {
+          "bill": "HB 2740",
+          "short_title": "Adopting compounding standards established by the United States pharmacopeia and allowing for exemptions from such standards.",
+          "action": "30 PM Room 112-N",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2740/"
+        },
+        {
+          "bill": "HB 2766",
+          "short_title": "Providing that artificial persons shall not possess any political powers relating to election activity or ballot-issue activity.",
+          "action": "Referred to Committee on Elections",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2766/"
+        },
+        {
+          "bill": "HB 2760",
+          "short_title": "Enacting the esthetics licensure compact to provide interstate practice privileges for estheticians.",
+          "action": "Referred to Committee on Health and Human Services",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2760/"
+        },
+        {
+          "bill": "HB 2759",
+          "short_title": "Requiring registration of agents and political organizations representing countries of concern.",
+          "action": "Referred to Committee on Federal and State Affairs",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2759/"
+        },
+        {
+          "bill": "HB 2758",
+          "short_title": "Directing the capitol preservation committee to develop and approve plans for a registry kiosk of Kansas military forces killed in action or who died of wounds incurred during active duty to be placed within the state capitol.",
+          "action": "Referred to Committee on Veterans and Military",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2758/"
+        },
+        {
+          "bill": "HB 2757",
+          "short_title": "Repealing or discontinuing certain income tax credit incentives, extending the income tax credit for angel investors and aviation-related employment and providing expanded options in the high performance tax credit program for tax credit transfers and wage requirements for rural businesses.",
+          "action": "Referred to Committee on Commerce, Labor and Economic Development",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2757/"
+        },
+        {
+          "bill": "HB 2756",
+          "short_title": "Prohibiting certain sex offenders from residing within 1,000 feet of any school property.",
+          "action": "Referred to Committee on Judiciary",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2756/"
+        },
+        {
+          "bill": "HB 2765",
+          "short_title": "Adding and removing certain substances in schedules I, III and IV of the uniform controlled substances act and making conforming changes to the criminal code definition of fentanyl-related controlled substance.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2765/"
+        },
+        {
+          "bill": "HB 2764",
+          "short_title": "Prohibiting amendments, suspensions or repeals of employment security law provisions through budget provisos, appropriations bills or temporary fiscal measures without following specified review procedures, authorizing the secretary of labor to recognize and approve employer-sponsored supplemental unemployment benefit plans if such plans meet specific criteria, reorganizing sections for improved readability and compliance, enhancing federal conformity by incorporating references to federal laws and guidelines and updating the criteria for determining suitable work and disqualification conditions for unemployment benefits.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2764/"
+        },
+        {
+          "bill": "HB 2763",
+          "short_title": "Enacting the athletic licensure trainer compact to provide interstate practice privileges for athletic trainers.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2763/"
+        },
+        {
+          "bill": "HB 2762",
+          "short_title": "Modifying the crime of unlawful sexual relations to describe who is a person in a position of authority for a school.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2762/"
+        },
+        {
+          "bill": "HB 2063",
+          "short_title": "Establishing various conservation funds, allocating state moneys for conservation, requiring reports to the governor and legislature, and authorizing fund transfers and providing for the use of such funds by the Kansas department of agriculture and the Kansas department of wildlife and parks.",
+          "action": "Committee Report recommending bill be passed as amended by",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2063/"
+        },
+        {
+          "bill": "HB 2761",
+          "short_title": "Enacting the speech-language pathology assistant act to provide for the licensure of speech-language pathology assistants.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2761/"
+        },
+        {
+          "bill": "HB 2687",
+          "short_title": "Prohibiting any governmental agency from regulating landings, takeoffs or the operation of aquatic aircraft on waters of the state.",
+          "action": "00 AM Room 346-S",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2687/"
+        },
+        {
+          "bill": "HB 2363",
+          "short_title": "Requiring the board of county commissioners or the city governing body to refer the proposed creation of a conservation easement to the appropriate planning commission for review and recommendation; providing the board of county commissioners or the city shall approve or deny the creation of conservation easements.",
+          "action": "00 AM Room 281-N",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2363/"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SB 498",
+          "short_title": "Providing an income tax credit for the retail sale of higher ethanol blends of fuel and discontinuing the income tax credit for qualified alternative-fueled motor vehicle property or fueling station expenditures.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB498/"
+        },
+        {
+          "bill": "SB 497",
+          "short_title": "Adding kratom and delta-8 THC to schedule I of the uniform controlled substances act.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB497/"
+        },
+        {
+          "bill": "SB 496",
+          "short_title": "Requiring postsecondary educational institutions to provide annual training on freedom of speech, association and exercise of religion to certain individuals based on materials, programs and procedures developed by the state board of regents, in consultation with the attorney general, requiring the state board of regents to confirm that each such institution has complied with training requirements and authorizing the attorney general to bring an action to enforce compliance.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB496/"
+        },
+        {
+          "bill": "SB 495",
+          "short_title": "Enacting the motor vehicle right to repair act.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB495/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
