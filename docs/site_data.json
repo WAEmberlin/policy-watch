@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-09T18:05:09.416507-06:00",
+  "last_updated": "2026-02-09T21:44:11.341746-06:00",
   "years": {
     "2026": {
       "total_items": 1134,
@@ -202834,6 +202834,66 @@
       "kansas": {
         "house": [],
         "senate": []
+      },
+      "congress": {
+        "house": [],
+        "senate": []
+      }
+    },
+    "2026-02-09": {
+      "date": "2026-02-09",
+      "generated_at": "2026-02-10T03:44:11.119452+00:00",
+      "model": "phi-3:mini",
+      "prompt_version": "v1",
+      "summary": "6 legislative items recorded. Kansas Legislature: 4 House bills and 2 Senate bills.",
+      "counts": {
+        "total": 6,
+        "kansas_house": 4,
+        "kansas_senate": 2,
+        "congress_house": 0,
+        "congress_senate": 0
+      },
+      "kansas": {
+        "house": [
+          {
+            "bill": "HB 2739",
+            "short_title": "Providing that fire sprinkler systems shall not be required in this state for multi-family dwellings of four attached units or fewer, prohibiting municipal fire sprinkler requirements for multi-family dwellings of four or fewer attached living units and defining apartment buildings for purposes of the fire code.",
+            "action": "30 PM Room 346-S",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2739/"
+          },
+          {
+            "bill": "HB 2406",
+            "short_title": "Providing tax exemption eligibility for commercial and industrial machinery and equipment that is currently ineligible for tax exemption due to such equipment being acquired or transported into this state on or before June 30, 2006.",
+            "action": "Committee Report recommending bill be passed as amended by",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2406/"
+          },
+          {
+            "bill": "HB 2754",
+            "short_title": "Enacting the providing civil relief from coerced debt act to provide protections and remedies for victims of certain debts constituting a coerced debt because of actions by another individual within the context of domestic violence.",
+            "action": "30 PM Room 582-N",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2754/"
+          },
+          {
+            "bill": "HB 2747",
+            "short_title": "Specifying that courts shall consider certain factors in determining whether a prior violation of law is comparable to any act described in certain driving under the influence crimes when calculating a person's criminal history score under the Kansas sentencing guidelines act.",
+            "action": "30 PM Room 582-N",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2747/"
+          }
+        ],
+        "senate": [
+          {
+            "bill": "SB 500",
+            "short_title": "Creating the Kansas public employees retirement system cost-of-living adjustment commission, prescribing powers and duties of the commission and establishing procedures of the legislature relating to the annual cost-of-living adjustment rate recommended by the commission.",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB500/"
+          },
+          {
+            "bill": "SB 499",
+            "short_title": "Enacting the Kansas age-appropriate design code act to require businesses to assess and mitigate risks of compulsive use in minors, enacting the Kansas stopping likeness abuse by nonconsensual digital replicas act to create a private right of action for the unauthorized digital replication and distribution of individuals' digital likenesses and enacting the Kansas saving human connection act to prohibit deceptive practices and ensure transparency in chatbot interactions.",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB499/"
+          }
+        ]
       },
       "congress": {
         "house": [],
