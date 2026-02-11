@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-11T08:00:13.648468-06:00",
+  "last_updated": "2026-02-11T09:40:54.414945-06:00",
   "years": {
     "2026": {
       "total_items": 1158,
@@ -337,6 +337,17 @@
             "bill_number": "SJRES 95"
           },
           {
+            "date": "2026-02-10",
+            "source": "Congress.gov API",
+            "title": "S 269: Ending Improper Payments to Deceased People Act",
+            "link": "https://www.congress.gov/bill/119th-congress/senate-bill/269",
+            "published": "2026-02-10T00:00:00",
+            "summary": "",
+            "short_title": "Ending Improper Payments to Deceased People Act",
+            "short_title_source": "rss",
+            "bill_number": "S 269"
+          },
+          {
             "date": "2026-02-09",
             "source": "Kansas Legislature - Events",
             "title": "Senate: SB500: Introduced",
@@ -564,7 +575,9 @@
             "short_title_source": "scraped",
             "bill_number": "SB 497",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB497/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-06",
             "source": "Kansas Legislature - Events",
@@ -576,9 +589,7 @@
             "short_title_source": "scraped",
             "bill_number": "SB 496",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB496/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-06",
             "source": "Kansas Legislature - Events",
@@ -1165,7 +1176,9 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2721",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2721/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-05",
             "source": "Kansas Legislature - Events",
@@ -1177,9 +1190,7 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2720",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2720/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-05",
             "source": "Kansas Legislature - Events",
@@ -1762,7 +1773,9 @@
             "short_title_source": "scraped",
             "bill_number": "SB 115",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB115/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-04",
             "source": "Kansas Legislature - Events",
@@ -1774,9 +1787,7 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2077",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2077/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-04",
             "source": "Kansas Legislature - Events",
@@ -2339,7 +2350,9 @@
             "short_title": "A bill to redesignate the National Historic Trails Interpretive Center in Casper, Wyoming, as the \"Barbara L. Cubin National Historic Trails Interpretive Center\".",
             "short_title_source": "rss",
             "bill_number": "S 790"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-04",
             "source": "Congress.gov API",
@@ -2350,9 +2363,7 @@
             "short_title": "Purchased and Referred Care Improvement Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 699"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-04",
             "source": "Congress.gov API",
@@ -2925,7 +2936,9 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2673",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2673/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-03",
             "source": "Kansas Legislature - Events",
@@ -2937,9 +2950,7 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2672",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2672/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-03",
             "source": "Kansas Legislature - Events",
@@ -3437,17 +3448,6 @@
             "short_title": "Fraud Reduction And Uncovering Deception (FRAUD) in VA Disability Exams Act",
             "short_title_source": "rss",
             "bill_number": "HR 5723"
-          },
-          {
-            "date": "2026-02-03",
-            "source": "Congress.gov API",
-            "title": "S 269: Ending Improper Payments to Deceased People Act",
-            "link": "https://www.congress.gov/bill/119th-congress/senate-bill/269",
-            "published": "2026-02-03T00:00:00",
-            "summary": "",
-            "short_title": "Ending Improper Payments to Deceased People Act",
-            "short_title_source": "rss",
-            "bill_number": "S 269"
           },
           {
             "date": "2026-02-03",
@@ -13209,6 +13209,21 @@
               "congress": 119,
               "short_title": "A joint resolution providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Internal Revenue Service relating to \"Interim Guidance Simplifying Application of the Corporate Alternative Minimum Tax to Partnerships\".",
               "official_title": "A joint resolution providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Internal Revenue Service relating to \"Interim Guidance Simplifying Application of the Corporate Alternative Minimum Tax to Partnerships\"."
+            },
+            {
+              "title": "S 269: Ending Improper Payments to Deceased People Act",
+              "link": "https://www.congress.gov/bill/119th-congress/senate-bill/269",
+              "summary": "",
+              "source": "Congress.gov API",
+              "published": "2026-02-10T00:00:00",
+              "bill_number": "S 269",
+              "bill_type": "S",
+              "sponsor_name": "",
+              "latest_action": "Signed by President.",
+              "latest_action_date": "2026-02-10T00:00:00",
+              "congress": 119,
+              "short_title": "Ending Improper Payments to Deceased People Act",
+              "official_title": "A bill to improve coordination between Federal and State agencies and the Do Not Pay working system."
             }
           ]
         },
@@ -17383,21 +17398,6 @@
               "congress": 119,
               "short_title": "Fraud Reduction And Uncovering Deception (FRAUD) in VA Disability Exams Act",
               "official_title": "To amend title 38, United States Code, to require the Secretary of Veterans Affairs to identify and report instances of fraud with respect to disability benefit questionnaire forms of the Department of Veterans Affairs, and for other purposes."
-            },
-            {
-              "title": "S 269: Ending Improper Payments to Deceased People Act",
-              "link": "https://www.congress.gov/bill/119th-congress/senate-bill/269",
-              "summary": "",
-              "source": "Congress.gov API",
-              "published": "2026-02-03T00:00:00",
-              "bill_number": "S 269",
-              "bill_type": "S",
-              "sponsor_name": "",
-              "latest_action": "Presented to President.",
-              "latest_action_date": "2026-02-03T00:00:00",
-              "congress": 119,
-              "short_title": "Ending Improper Payments to Deceased People Act",
-              "official_title": "A bill to improve coordination between Federal and State agencies and the Do Not Pay working system."
             },
             {
               "title": "HJRES 139: Proposing an amendment to the Constitution of the United States requiring a balanced budget for the Federal Government.",
@@ -133871,6 +133871,20 @@
           "official_title": "A joint resolution providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Internal Revenue Service relating to \"Interim Guidance Simplifying Application of the Corporate Alternative Minimum Tax to Partnerships\"."
         },
         {
+          "bill_number": "269",
+          "bill_type": "S",
+          "title": "Ending Improper Payments to Deceased People Act",
+          "summary": "",
+          "sponsor_name": "",
+          "latest_action": "Signed by President.",
+          "latest_action_date": "2026-02-10T00:00:00",
+          "url": "https://www.congress.gov/bill/119th-congress/senate-bill/269",
+          "published": "2026-02-10T00:00:00",
+          "congress": 119,
+          "short_title": "Ending Improper Payments to Deceased People Act",
+          "official_title": "A bill to improve coordination between Federal and State agencies and the Do Not Pay working system."
+        },
+        {
           "bill_number": "6644",
           "bill_type": "HR",
           "title": "Housing for the 21st Century Act",
@@ -134317,7 +134331,9 @@
           "congress": 119,
           "short_title": "Federal Broadband Deployment Tracking Act",
           "official_title": "To require the Assistant Secretary of Commerce for Communications and Information to submit to Congress a plan for the Assistant Secretary to track the acceptance, processing, and disposal of certain Form 299s, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5658",
           "bill_type": "HR",
@@ -134331,9 +134347,7 @@
           "congress": 119,
           "short_title": "Child Care for Every Community Act",
           "official_title": "To establish universal child care and early learning programs."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5438",
           "bill_type": "HR",
@@ -134767,20 +134781,6 @@
           "congress": 119,
           "short_title": "Fraud Reduction And Uncovering Deception (FRAUD) in VA Disability Exams Act",
           "official_title": "To amend title 38, United States Code, to require the Secretary of Veterans Affairs to identify and report instances of fraud with respect to disability benefit questionnaire forms of the Department of Veterans Affairs, and for other purposes."
-        },
-        {
-          "bill_number": "269",
-          "bill_type": "S",
-          "title": "Ending Improper Payments to Deceased People Act",
-          "summary": "",
-          "sponsor_name": "",
-          "latest_action": "Presented to President.",
-          "latest_action_date": "2026-02-03T00:00:00",
-          "url": "https://www.congress.gov/bill/119th-congress/senate-bill/269",
-          "published": "2026-02-03T00:00:00",
-          "congress": 119,
-          "short_title": "Ending Improper Payments to Deceased People Act",
-          "official_title": "A bill to improve coordination between Federal and State agencies and the Do Not Pay working system."
         },
         {
           "bill_number": "139",
@@ -195073,26 +195073,6 @@
   },
   "upcoming_hearings": [
     {
-      "title": "Oversight Hearing \u2013 Potential DHS Shutdown Impacts",
-      "summary": "Congressional meeting before the House Appropriations Subcommittee on Department of Homeland Security.",
-      "source": "Federal (US Congress)",
-      "category": "hearing",
-      "chamber": "House",
-      "committee": "House Appropriations Subcommittee on Department of Homeland Security",
-      "committees": "House Appropriations Subcommittee on Department of Homeland Security",
-      "published": "2026-02-11T15:00:00+00:00",
-      "scheduled_date": "2026-02-11",
-      "scheduled_time": "15:00",
-      "url": "https://www.congress.gov/event/119th-congress/house-event/118960",
-      "link": "https://www.congress.gov/event/119th-congress/house-event/118960",
-      "congress": 119,
-      "meeting_type": "Meeting",
-      "meeting_status": "Scheduled",
-      "location": "Room 2362-A, Rayburn House Office Building",
-      "bill": "",
-      "event_id": "118960"
-    },
-    {
       "title": "[POSTPONED] \u201cDoing More with Less: Deleting Duplicative Programs\u201d",
       "summary": "Postponed congressional meeting before the House Oversight and Government Reform Subcommittee on Delivering on Government Efficiency.",
       "source": "Federal (US Congress)",
@@ -195251,6 +195231,26 @@
       "location": "Room 310, Cannon House Office Building",
       "bill": "",
       "event_id": "118915"
+    },
+    {
+      "title": "Oversight Hearing \u2013 Potential DHS Shutdown Impacts",
+      "summary": "Congressional meeting before the House Appropriations Subcommittee on Department of Homeland Security.",
+      "source": "Federal (US Congress)",
+      "category": "hearing",
+      "chamber": "House",
+      "committee": "House Appropriations Subcommittee on Department of Homeland Security",
+      "committees": "House Appropriations Subcommittee on Department of Homeland Security",
+      "published": "2026-02-11T15:00:00+00:00",
+      "scheduled_date": "2026-02-11",
+      "scheduled_time": "15:00",
+      "url": "https://www.congress.gov/event/119th-congress/house-event/118960",
+      "link": "https://www.congress.gov/event/119th-congress/house-event/118960",
+      "congress": 119,
+      "meeting_type": "Meeting",
+      "meeting_status": "Scheduled",
+      "location": "Room 2362-A, Rayburn House Office Building",
+      "bill": "",
+      "event_id": "118960"
     },
     {
       "title": "Various Measures",
@@ -195693,26 +195693,6 @@
       "event_id": "337971"
     },
     {
-      "title": "\u201cThe Monitoring Racket: The Grift that Keeps on Giving\u201d",
-      "summary": "Congressional meeting before the House Judiciary Subcommittee on Crime and Federal Government Surveillance.",
-      "source": "Federal (US Congress)",
-      "category": "hearing",
-      "chamber": "House",
-      "committee": "House Judiciary Subcommittee on Crime and Federal Government Surveillance",
-      "committees": "House Judiciary Subcommittee on Crime and Federal Government Surveillance",
-      "published": "2026-02-13T14:00:00+00:00",
-      "scheduled_date": "2026-02-13",
-      "scheduled_time": "14:00",
-      "url": "https://www.congress.gov/event/119th-congress/house-event/118963",
-      "link": "https://www.congress.gov/event/119th-congress/house-event/118963",
-      "congress": 119,
-      "meeting_type": "Meeting",
-      "meeting_status": "Scheduled",
-      "location": "",
-      "bill": "",
-      "event_id": "118963"
-    },
-    {
       "title": "\"Work, Dignity, and Choice in Disability Employment\"",
       "summary": "Congressional meeting before the House Education and Workforce.",
       "source": "Federal (US Congress)",
@@ -195731,89 +195711,29 @@
       "location": "",
       "bill": "",
       "event_id": "118931"
+    },
+    {
+      "title": "\u201cThe Monitoring Racket: The Grift that Keeps on Giving\u201d",
+      "summary": "Congressional meeting before the House Judiciary Subcommittee on Crime and Federal Government Surveillance.",
+      "source": "Federal (US Congress)",
+      "category": "hearing",
+      "chamber": "House",
+      "committee": "House Judiciary Subcommittee on Crime and Federal Government Surveillance",
+      "committees": "House Judiciary Subcommittee on Crime and Federal Government Surveillance",
+      "published": "2026-02-13T14:00:00+00:00",
+      "scheduled_date": "2026-02-13",
+      "scheduled_time": "14:00",
+      "url": "https://www.congress.gov/event/119th-congress/house-event/118963",
+      "link": "https://www.congress.gov/event/119th-congress/house-event/118963",
+      "congress": 119,
+      "meeting_type": "Meeting",
+      "meeting_status": "Scheduled",
+      "location": "",
+      "bill": "",
+      "event_id": "118963"
     }
   ],
   "historical_hearings": [
-    {
-      "title": "Markup of 12 Bills",
-      "summary": "Congressional meeting before the House Energy and Commerce Subcommittee on Commerce, Manufacturing, and Trade.",
-      "source": "Federal (US Congress)",
-      "category": "hearing",
-      "chamber": "House",
-      "committee": "House Energy and Commerce Subcommittee on Commerce, Manufacturing, and Trade",
-      "committees": "House Energy and Commerce Subcommittee on Commerce, Manufacturing, and Trade",
-      "published": "2026-02-10T15:15:00+00:00",
-      "scheduled_date": "2026-02-10",
-      "scheduled_time": "15:15",
-      "url": "https://www.congress.gov/event/119th-congress/house-event/118968",
-      "link": "https://www.congress.gov/event/119th-congress/house-event/118968",
-      "congress": 119,
-      "meeting_type": "Meeting",
-      "meeting_status": "Scheduled",
-      "location": "Room 2123, Rayburn House Office Building",
-      "bill": "HR 7377, HR 6688, HR 3360, HR 3385, HR 1566, HR 7389, HR 7390, HR 7372, HR 5221, HR 2110, HR 7353, HR 6947",
-      "event_id": "118968"
-    },
-    {
-      "title": "Markup of 1 Bill",
-      "summary": "Congressional meeting before the House Energy and Commerce Subcommittee on Communications and Technology.",
-      "source": "Federal (US Congress)",
-      "category": "hearing",
-      "chamber": "House",
-      "committee": "House Energy and Commerce Subcommittee on Communications and Technology",
-      "committees": "House Energy and Commerce Subcommittee on Communications and Technology",
-      "published": "2026-02-10T19:00:00+00:00",
-      "scheduled_date": "2026-02-10",
-      "scheduled_time": "19:00",
-      "url": "https://www.congress.gov/event/119th-congress/house-event/118967",
-      "link": "https://www.congress.gov/event/119th-congress/house-event/118967",
-      "congress": 119,
-      "meeting_type": "Meeting",
-      "meeting_status": "Scheduled",
-      "location": "Room 2123, Rayburn House Office Building",
-      "bill": "",
-      "event_id": "118967"
-    },
-    {
-      "title": "V-22 Program Update",
-      "summary": "Congressional meeting before the House Armed Services Subcommittee on Seapower and Projection Forces.",
-      "source": "Federal (US Congress)",
-      "category": "hearing",
-      "chamber": "House",
-      "committee": "House Armed Services Subcommittee on Seapower and Projection Forces",
-      "committees": "House Armed Services Subcommittee on Seapower and Projection Forces",
-      "published": "2026-02-10T19:00:00+00:00",
-      "scheduled_date": "2026-02-10",
-      "scheduled_time": "19:00",
-      "url": "https://www.congress.gov/event/119th-congress/house-event/118966",
-      "link": "https://www.congress.gov/event/119th-congress/house-event/118966",
-      "congress": 119,
-      "meeting_type": "Meeting",
-      "meeting_status": "Scheduled",
-      "location": "Room 2118, Rayburn House Office Building",
-      "bill": "",
-      "event_id": "118966"
-    },
-    {
-      "title": "S. 1383 \u2013 [SAVE America Act]",
-      "summary": "Congressional meeting before the House Rules.",
-      "source": "Federal (US Congress)",
-      "category": "hearing",
-      "chamber": "House",
-      "committee": "House Rules",
-      "committees": "House Rules",
-      "published": "2026-02-10T20:30:00+00:00",
-      "scheduled_date": "2026-02-10",
-      "scheduled_time": "20:30",
-      "url": "https://www.congress.gov/event/119th-congress/house-event/118965",
-      "link": "https://www.congress.gov/event/119th-congress/house-event/118965",
-      "congress": 119,
-      "meeting_type": "Meeting",
-      "meeting_status": "Scheduled",
-      "location": "Room H-313, Capitol",
-      "bill": "S 1383",
-      "event_id": "118965"
-    },
     {
       "title": "Advancing Peace in DRC and Rwanda through President Trump\u2019s Washington Accords \u2013 Part II",
       "summary": "Congressional meeting before the House Foreign Affairs Subcommittee on Africa.",
@@ -196033,6 +195953,86 @@
       "location": "Room 1324, Longworth House Office Building",
       "bill": "",
       "event_id": "118873"
+    },
+    {
+      "title": "Markup of 12 Bills",
+      "summary": "Congressional meeting before the House Energy and Commerce Subcommittee on Commerce, Manufacturing, and Trade.",
+      "source": "Federal (US Congress)",
+      "category": "hearing",
+      "chamber": "House",
+      "committee": "House Energy and Commerce Subcommittee on Commerce, Manufacturing, and Trade",
+      "committees": "House Energy and Commerce Subcommittee on Commerce, Manufacturing, and Trade",
+      "published": "2026-02-10T15:15:00+00:00",
+      "scheduled_date": "2026-02-10",
+      "scheduled_time": "15:15",
+      "url": "https://www.congress.gov/event/119th-congress/house-event/118968",
+      "link": "https://www.congress.gov/event/119th-congress/house-event/118968",
+      "congress": 119,
+      "meeting_type": "Meeting",
+      "meeting_status": "Scheduled",
+      "location": "Room 2123, Rayburn House Office Building",
+      "bill": "HR 7377, HR 6688, HR 3360, HR 3385, HR 1566, HR 7389, HR 7390, HR 7372, HR 5221, HR 2110, HR 7353, HR 6947",
+      "event_id": "118968"
+    },
+    {
+      "title": "Markup of 1 Bill",
+      "summary": "Congressional meeting before the House Energy and Commerce Subcommittee on Communications and Technology.",
+      "source": "Federal (US Congress)",
+      "category": "hearing",
+      "chamber": "House",
+      "committee": "House Energy and Commerce Subcommittee on Communications and Technology",
+      "committees": "House Energy and Commerce Subcommittee on Communications and Technology",
+      "published": "2026-02-10T19:00:00+00:00",
+      "scheduled_date": "2026-02-10",
+      "scheduled_time": "19:00",
+      "url": "https://www.congress.gov/event/119th-congress/house-event/118967",
+      "link": "https://www.congress.gov/event/119th-congress/house-event/118967",
+      "congress": 119,
+      "meeting_type": "Meeting",
+      "meeting_status": "Scheduled",
+      "location": "Room 2123, Rayburn House Office Building",
+      "bill": "",
+      "event_id": "118967"
+    },
+    {
+      "title": "V-22 Program Update",
+      "summary": "Congressional meeting before the House Armed Services Subcommittee on Seapower and Projection Forces.",
+      "source": "Federal (US Congress)",
+      "category": "hearing",
+      "chamber": "House",
+      "committee": "House Armed Services Subcommittee on Seapower and Projection Forces",
+      "committees": "House Armed Services Subcommittee on Seapower and Projection Forces",
+      "published": "2026-02-10T19:00:00+00:00",
+      "scheduled_date": "2026-02-10",
+      "scheduled_time": "19:00",
+      "url": "https://www.congress.gov/event/119th-congress/house-event/118966",
+      "link": "https://www.congress.gov/event/119th-congress/house-event/118966",
+      "congress": 119,
+      "meeting_type": "Meeting",
+      "meeting_status": "Scheduled",
+      "location": "Room 2118, Rayburn House Office Building",
+      "bill": "",
+      "event_id": "118966"
+    },
+    {
+      "title": "S. 1383 \u2013 [SAVE America Act]",
+      "summary": "Congressional meeting before the House Rules.",
+      "source": "Federal (US Congress)",
+      "category": "hearing",
+      "chamber": "House",
+      "committee": "House Rules",
+      "committees": "House Rules",
+      "published": "2026-02-10T20:30:00+00:00",
+      "scheduled_date": "2026-02-10",
+      "scheduled_time": "20:30",
+      "url": "https://www.congress.gov/event/119th-congress/house-event/118965",
+      "link": "https://www.congress.gov/event/119th-congress/house-event/118965",
+      "congress": 119,
+      "meeting_type": "Meeting",
+      "meeting_status": "Scheduled",
+      "location": "Room H-313, Capitol",
+      "bill": "S 1383",
+      "event_id": "118965"
     },
     {
       "title": "Building a Solid Foundation: Restoring Trust and Transparency in Public Housing Agencies",
@@ -196846,26 +196846,6 @@
       "event_id": "118914"
     },
     {
-      "title": "U.S. Policy Toward Lebanon: Obstacles to Dismantling Hezbollah\u2019s Grip on Power",
-      "summary": "Congressional meeting before the House Subcommittee on the Middle East and North Africa.",
-      "source": "Federal (US Congress)",
-      "category": "hearing",
-      "chamber": "House",
-      "committee": "House Subcommittee on the Middle East and North Africa",
-      "committees": "House Subcommittee on the Middle East and North Africa",
-      "published": "2026-02-03T15:00:00+00:00",
-      "scheduled_date": "2026-02-03",
-      "scheduled_time": "15:00",
-      "url": "https://www.congress.gov/event/119th-congress/house-event/118912",
-      "link": "https://www.congress.gov/event/119th-congress/house-event/118912",
-      "congress": 119,
-      "meeting_type": "Meeting",
-      "meeting_status": "Scheduled",
-      "location": "Room 2172, Rayburn House Office Building",
-      "bill": "",
-      "event_id": "118912"
-    },
-    {
       "title": "Oversight Hearing titled: \u201cFix Our Forests: The Need for Urgent Action One Year After the L.A. Wildfires\u201d",
       "summary": "Congressional meeting before the House Natural Resources Subcommittee on Federal Lands.",
       "source": "Federal (US Congress)",
@@ -196884,6 +196864,26 @@
       "location": "Room 1324, Longworth House Office Building",
       "bill": "",
       "event_id": "118913"
+    },
+    {
+      "title": "U.S. Policy Toward Lebanon: Obstacles to Dismantling Hezbollah\u2019s Grip on Power",
+      "summary": "Congressional meeting before the House Subcommittee on the Middle East and North Africa.",
+      "source": "Federal (US Congress)",
+      "category": "hearing",
+      "chamber": "House",
+      "committee": "House Subcommittee on the Middle East and North Africa",
+      "committees": "House Subcommittee on the Middle East and North Africa",
+      "published": "2026-02-03T15:00:00+00:00",
+      "scheduled_date": "2026-02-03",
+      "scheduled_time": "15:00",
+      "url": "https://www.congress.gov/event/119th-congress/house-event/118912",
+      "link": "https://www.congress.gov/event/119th-congress/house-event/118912",
+      "congress": 119,
+      "meeting_type": "Meeting",
+      "meeting_status": "Scheduled",
+      "location": "Room 2172, Rayburn House Office Building",
+      "bill": "",
+      "event_id": "118912"
     },
     {
       "title": "\u201cBuilding an AI-Ready America: Adopting AI at Work\u201d",
