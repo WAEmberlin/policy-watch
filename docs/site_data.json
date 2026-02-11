@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-10T18:07:43.037560-06:00",
+  "last_updated": "2026-02-10T21:41:03.431917-06:00",
   "years": {
     "2026": {
       "total_items": 1154,
@@ -203356,6 +203356,102 @@
             "short_title": "Enacting the Kansas age-appropriate design code act to require businesses to assess and mitigate risks of compulsive use in minors, enacting the Kansas stopping likeness abuse by nonconsensual digital replicas act to create a private right of action for the unauthorized digital replication and distribution of individuals' digital likenesses and enacting the Kansas saving human connection act to prohibit deceptive practices and ensure transparency in chatbot interactions.",
             "action": "Introduced",
             "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB499/"
+          }
+        ]
+      },
+      "congress": {
+        "house": [],
+        "senate": []
+      }
+    },
+    "2026-02-10": {
+      "date": "2026-02-10",
+      "generated_at": "2026-02-11T03:41:03.183413+00:00",
+      "model": "phi-3:mini",
+      "prompt_version": "v1",
+      "summary": "12 legislative items recorded. Kansas Legislature: 9 House bills and 3 Senate bills.",
+      "counts": {
+        "total": 12,
+        "kansas_house": 9,
+        "kansas_senate": 3,
+        "congress_house": 0,
+        "congress_senate": 0
+      },
+      "kansas": {
+        "house": [
+          {
+            "bill": "HB 2772",
+            "short_title": "Enacting the Kansas age-appropriate design code act to require businesses to assess and mitigate risks of compulsive use in minors; enacting the Kansas stopping likeness abuse by nonconsensual digital replicas act to create a private right of action for the unauthorized digital replication and distribution of individuals' digital likenesses; enacting the Kansas saving human connection act to prohibit deceptive practices and ensure transparency in chatbot interactions.",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2772/"
+          },
+          {
+            "bill": "HB 2771",
+            "short_title": "Establishing requirements for the county sheriff operating a jail for the enforcement of United States immigration and customs enforcement detainers, requiring municipal insurance pools to provide coverage for law enforcement that enforces federal laws, requiring the state to pay certain judgements in a federal court action, requiring the attorney general to provide representation in certain civil actions and authorizing county sheriffs to enter into certain interlocal cooperation agreements without the approval of the board of county commissioners.",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2771/"
+          },
+          {
+            "bill": "HB 2220",
+            "short_title": "Permitting local authorities with jurisdiction over city residence districts to reduce the maximum speed limit to 25 miles per hour without an engineering and traffic investigation.",
+            "action": "Committee Report recommending bill be passed as amended by",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2220/"
+          },
+          {
+            "bill": "HR 6029",
+            "short_title": "House: HR6029: Introduced",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6029/"
+          },
+          {
+            "bill": "HB 2770",
+            "short_title": "House: HB2770: Introduced",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2770/"
+          },
+          {
+            "bill": "HB 2769",
+            "short_title": "House: HB2769: Introduced",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2769/"
+          },
+          {
+            "bill": "HB 2768",
+            "short_title": "House: HB2768: Introduced",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2768/"
+          },
+          {
+            "bill": "HB 2767",
+            "short_title": "House: HB2767: Introduced",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2767/"
+          },
+          {
+            "bill": "HB 2744",
+            "short_title": "Encouraging school districts to annually designate a Linda Brown and family walk to school day.",
+            "action": "30 PM Room 218-N",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2744/"
+          }
+        ],
+        "senate": [
+          {
+            "bill": "SB 503",
+            "short_title": "Removing the criminal prohibition against firearm suppressors and firearm barrel length qualification requirement.",
+            "action": "Referred to Committee on Federal and State Affairs",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB503/"
+          },
+          {
+            "bill": "SB 502",
+            "short_title": "Authorizing the adoption of administrative rules and regulations concerning sports wagering by the Kansas racing and gaming commission.",
+            "action": "Referred to Committee on Federal and State Affairs",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB502/"
+          },
+          {
+            "bill": "SB 501",
+            "short_title": "Requiring law enforcement agencies to adopt policies related to racial and other biased-based policing using technology and criminalizing violation of racial and other biased-based policing policies.",
+            "action": "Referred to Committee on Judiciary",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB501/"
           }
         ]
       },
