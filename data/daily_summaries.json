@@ -1895,5 +1895,71 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-02-12": {
+    "date": "2026-02-12",
+    "generated_at": "2026-02-13T03:34:03.085014+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "7 legislative items recorded. Kansas Legislature: 2 House bills and 5 Senate bills.",
+    "counts": {
+      "total": 7,
+      "kansas_house": 2,
+      "kansas_senate": 5,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2081",
+          "short_title": "Substitute for HB 2081 by Committee on Taxation - Providing a sales tax exemption for community pharmacies serving medically underserved individuals and families.",
+          "action": "Committee Report recommending substitute bill be passed by",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2081/"
+        },
+        {
+          "bill": "HB 2408",
+          "short_title": "House: HB2408: Committee Report recommending bill be passed as amended by",
+          "action": "Committee Report recommending bill be passed as amended by",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2408/"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SB 509",
+          "short_title": "Providing countywide retailers' sales tax authority for Sheridan county for the purpose of financing the costs of constructing a jail and law enforcement center.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB509/"
+        },
+        {
+          "bill": "SB 508",
+          "short_title": "Increasing the annual limit on transfers from the lottery operating fund to the community crisis stabilization centers fund and the clubhouse model program fund.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB508/"
+        },
+        {
+          "bill": "SB 507",
+          "short_title": "Prohibiting the enforcement of federal immigration laws at polling places and locations designated for the canvassing, auditing and recounting of ballots.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB507/"
+        },
+        {
+          "bill": "SB 281",
+          "short_title": "House Substitute for Substitute for SB 281 by Committee on Education - Requiring school districts to prohibit the use of personal electronic communication devices during school hours, prohibiting any employee of a school district from using social media to directly communicate with any student for official school purposes.",
+          "action": "Committee Report recommending substitute bill be passed by",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB281/"
+        },
+        {
+          "bill": "SB 254",
+          "short_title": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB254",
+          "action": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB254",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260212030137"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
