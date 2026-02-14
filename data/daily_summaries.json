@@ -1961,5 +1961,76 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-02-13": {
+    "date": "2026-02-13",
+    "generated_at": "2026-02-14T03:17:17.280580+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "8 legislative items recorded. Kansas Legislature: 8 House bills.",
+    "counts": {
+      "total": 8,
+      "kansas_house": 8,
+      "kansas_senate": 0,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2374",
+          "short_title": "House: HB2374: Committee Report recommending bill be passed as amended by",
+          "action": "Committee Report recommending bill be passed as amended by",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2374/"
+        },
+        {
+          "bill": "HB 2779",
+          "short_title": "House: HB2779: Introduced",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2779/"
+        },
+        {
+          "bill": "HCR 5031",
+          "short_title": "Ratifying and providing for the continuation of the state of disaster emergency declaration issued on February 9, 2026, for Douglas, Johnson and Wyandotte counties.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5031/"
+        },
+        {
+          "bill": "HR 6030",
+          "short_title": "Supporting the State of Israel and affirming the historical, biblical and legal significance of Judea and Samaria.",
+          "action": "Referred to Committee on Federal and State Affairs",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6030/"
+        },
+        {
+          "bill": "HB 2778",
+          "short_title": "Removing the current exception to the criminal use of weapons statute that allows any individual over the age of 21 or with a provisional license to possess a concealed handgun in or on school property or grounds or at any regularly scheduled school-sponsored activity or event if not otherwise prohibited under either federal or state law.",
+          "action": "Referred to Committee on Federal and State Affairs",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2778/"
+        },
+        {
+          "bill": "HB 2777",
+          "short_title": "Providing a sales tax exemption for purchases made by sevendays inc.",
+          "action": "Referred to Committee on Taxation",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2777/"
+        },
+        {
+          "bill": "HB 2776",
+          "short_title": "Providing for a sales tax exemption for non-profit organizations serving students of United States military academies, alumni of such academies and families of students and alumni of such academies.",
+          "action": "Referred to Committee on Taxation",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2776/"
+        },
+        {
+          "bill": "HB 2775",
+          "short_title": "Providing for a three-year exemption from severance tax for new oil and gas wells.",
+          "action": "Referred to Committee on Taxation",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2775/"
+        }
+      ],
+      "senate": []
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
