@@ -1,9 +1,9 @@
 {
-  "week_start": "2026-02-01",
-  "week_end": "2026-02-08",
+  "week_start": "2026-02-08",
+  "week_end": "2026-02-15",
   "model": "phi-3:mini",
   "prompt_version": "v1",
-  "generated_at": "2026-02-08T06:43:58.548219+00:00",
+  "generated_at": "2026-02-15T06:45:46.281486+00:00",
   "jurisdictions": [
     {
       "name": "Kansas Legislature",
@@ -11,34 +11,26 @@
         {
           "title": "House Bills",
           "summary": [
-            "HB 2745 was 30 pm room 346-s on 2026-02-06.",
-            "HB 2740 was 30 pm room 112-n on 2026-02-06.",
-            "HB 2766 was referred to committee on elections on 2026-02-06.",
-            "HB 2760 was referred to committee on health and human services on 2026-02-06.",
-            "HB 2759 was referred to committee on federal and state affairs on 2026-02-06.",
-            "HB 2758 was referred to committee on veterans and military on 2026-02-06.",
-            "HB 2757 was referred to committee on commerce, labor and economic development on 2026-02-06.",
-            "HB 2756 was referred to committee on judiciary on 2026-02-06.",
-            "5 House bills were introduced: HB 2765, HB 2764, HB 2763, HB 2762, HB 2761.",
-            "HB 2063 was committee report recommending bill be passed as amended by on 2026-02-06.",
-            "HB 2687 was 00 am room 346-s on 2026-02-06.",
-            "HB 2363 was 00 am room 281-n on 2026-02-06.",
-            "3 House bills were 30 pm room 582-n: HB 2613, HB 2612, HB 2614.",
-            "HB 2320 was 30 pm room 546-s on 2026-02-05."
+            "3 House bills were committee report recommending bill be passed as amended by: HB 2374, HB 2408, HB 2220.",
+            "10 House bills were introduced: HB 2779, HCR 5031, HB 2774, HB 2773, HB 2772 and 5 more.",
+            "2 House bills were referred to committee on federal and state affairs: HR 6030, HB 2778.",
+            "3 House bills were referred to committee on taxation: HB 2777, HB 2776, HB 2775.",
+            "2 House bills were committee report recommending substitute bill be passed by: HB 2081, HB 2357."
           ],
-          "bill_count": 157
+          "bill_count": 26
         },
         {
           "title": "Senate Bills",
           "summary": [
-            "4 Senate bills were introduced: SB 498, SB 497, SB 496, SB 495.",
-            "3 Senate bills were referred to committee on federal and state affairs: SCR 1621, SB 484, SB 483.",
-            "8 Senate bills were referred to committee on judiciary: SB 494, SB 493, SB 492, SB 487, SB 486 and 3 more.",
-            "SB 491 was referred to committee on education on 2026-02-05.",
-            "3 Senate bills were referred to committee on assessment and taxation: SB 490, SB 489, SB 488.",
-            "SB 30 was senate committee on commerce and house committee on commerce, labor and economic development on sb30 on 2026-02-05."
+            "8 Senate bills were introduced: SB 509, SB 508, SB 507, SB 506, SB 505 and 3 more.",
+            "SB 281 was committee report recommending substitute bill be passed by on 2026-02-12.",
+            "SB 254 was senate committee on federal and state affairs and house committee on federal and state affairs on sb254 on 2026-02-12.",
+            "SB 65 was committee report recommending bill be passed as amended by on 2026-02-11.",
+            "SB 146 was 00 am room 281-n on 2026-02-11.",
+            "2 Senate bills were referred to committee on federal and state affairs: SB 503, SB 502.",
+            "SB 501 was referred to committee on judiciary on 2026-02-10."
           ],
-          "bill_count": 74
+          "bill_count": 15
         }
       ]
     },
@@ -48,37 +40,32 @@
         {
           "title": "House of Representatives",
           "summary": [
-            "HR 1118 was ordered to be reported (amended) by the yeas and nays: 44 - 0. on 2026-02-05.",
-            "HR 4090 was received in the senate and read twice and referred to the committee on energy and natural resources. on 2026-02-05.",
-            "3 House of Representatives bills were subcommittee hearings held: HR 6568, HR 6021, HR 3276.",
-            "5 House of Representatives bills were committee consideration and mark-up session held: HR 6995, HR 6808, HR 6020, HR 5438, HR 5000.",
-            "HR 1355 was placed on the union calendar, calendar no. 410. on 2026-02-04.",
-            "HR 4758 was placed on the union calendar, calendar no. 414. on 2026-02-04.",
-            "HR 4690 was placed on the union calendar, calendar no. 413. on 2026-02-04.",
-            "HR 3699 was placed on the union calendar, calendar no. 412. on 2026-02-04.",
-            "HR 3474 was placed on the union calendar, calendar no. 411. on 2026-02-04.",
-            "HR 1731 was reported by the committee on energy and commerce. h. rept. 119-488, part i. on 2026-02-04.",
-            "HR 1665 was placed on the union calendar, calendar no. 416. on 2026-02-04.",
-            "HR 1588 was reported by the committee on energy and commerce. h. rept. 119-486, part i. on 2026-02-04.",
-            "HR 1343 was placed on the union calendar, calendar no. 415. on 2026-02-04.",
-            "HR 5658 was assuming first sponsorship - ms. ocasio-cortez asked unanimous consent that she may hereafter be considered as the first sponsor of h.r. 5658, a bill originally introduced by representative sherrill, for the purpose of adding cosponsors and requesting reprintings pursuant to clause 7 of rule xii. agreed to without objection. on 2026-02-04."
+            "4 House of Representatives bills were ordered to be reported in the nature of a substitute (amended) by voice vote.: HR 785, HR 2148, HR 3482, HR 3726.",
+            "HR 2189 was motion to reconsider laid on the table agreed to without objection. on 2026-02-12.",
+            "HR 5616 was unanimous consent request - mr. grothman asked unanimous consent that the clerk be directed to make the changes in the engrossment of h.r. 5616 that have been placed at the desk. agreed to without objection. on 2026-02-12.",
+            "HR 6047 was ordered to be reported in the nature of a substitute (amended) by the yeas and nays: 13 - 10. on 2026-02-12.",
+            "HR 2870 was placed on the union calendar, calendar no. 422. on 2026-02-12.",
+            "HR 4304 was motion to discharge committee filed by ms. titus. petition no: 119-16. on 2026-02-12.",
+            "HR 3617 was received in the senate and read twice and referred to the committee on energy and natural resources. on 2026-02-12.",
+            "HJRES 72 was received in the senate and read twice and referred to the committee on finance. on 2026-02-12.",
+            "HR 261 was received in the senate and read twice and referred to the committee on commerce, science, and transportation. on 2026-02-12.",
+            "6 House of Representatives bills were committee on energy and natural resources subcommittee on public lands, forests, and mining. hearings held.: HR 3872, HR 204, HR 677, HR 952, HR 1829 and 1 more.",
+            "HR 6472 was placed on the union calendar, calendar no. 421. on 2026-02-11.",
+            "HR 3495 was placed on the union calendar, calendar no. 420. on 2026-02-11."
           ],
-          "bill_count": 97
+          "bill_count": 58
         },
         {
           "title": "U.S. Senate",
           "summary": [
-            "2 U.S. Senate bills were committee on the judiciary. ordered to be reported without amendment favorably.: S 1809, S 2544.",
-            "SCONRES 25 was resolution agreed to in senate without amendment and with a preamble by unanimous consent. on 2026-02-05.",
-            "S 3023 was committee on the judiciary. ordered to be reported with an amendment in the nature of a substitute favorably. on 2026-02-05.",
-            "S 2999 was committee on banking, housing, and urban affairs. hearings held. on 2026-02-05.",
-            "S 446 was committee on energy and natural resources. ordered to be reported with an amendment in the nature of a substitute favorably and an amendment to the title. on 2026-02-04.",
-            "4 U.S. Senate bills were committee on energy and natural resources. ordered to be reported without amendment favorably.: S 790, S 1518, S 290, S 291.",
-            "3 U.S. Senate bills were committee on indian affairs. hearings held.: S 699, S 1055, S 2098.",
-            "4 U.S. Senate bills were committee on energy and natural resources. ordered to be reported with an amendment favorably.: S 700, S 1353, S 1321, S 2881.",
-            "3 U.S. Senate bills were committee on energy and natural resources. ordered to be reported with an amendment in the nature of a substitute favorably.: S 91, S 90, S 1516."
+            "SCONRES 25 was held at the desk. on 2026-02-13.",
+            "S 1383 was message on house action received in senate and at desk: house amendment to senate bill. on 2026-02-12.",
+            "13 U.S. Senate bills were committee on energy and natural resources subcommittee on public lands, forests, and mining. hearings held.: S 3527, S 3526, S 3493, S 3082, S 3004 and 8 more.",
+            "S 3468 was committee on commerce, science, and transportation. ordered to be reported with an amendment favorably. on 2026-02-12.",
+            "3 U.S. Senate bills were committee on commerce, science, and transportation. ordered to be reported with an amendment in the nature of a substitute favorably.: S 3266, S 3199, S 71.",
+            "S 1070 was placed on senate legislative calendar under general orders. calendar no. 339. on 2026-02-12."
           ],
-          "bill_count": 24
+          "bill_count": 46
         }
       ]
     }
