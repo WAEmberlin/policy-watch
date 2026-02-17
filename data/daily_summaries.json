@@ -2054,5 +2054,65 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-02-16": {
+    "date": "2026-02-16",
+    "generated_at": "2026-02-17T03:25:26.994581+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "6 legislative items recorded. Kansas Legislature: 2 House bills and 4 Senate bills.",
+    "counts": {
+      "total": 6,
+      "kansas_house": 2,
+      "kansas_senate": 4,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2114",
+          "short_title": "Substitute for HB 2114 by Committee on Agriculture and Natural Resources - Clarifying which structures shall be considered water obstructions and not a dam, increasing application fees for a permit to construct, modify or add to a dam, requiring preconstruction permit fees and requiring any licensed professional engineer who conducts inspections required by the act to be approved by the chief engineer or a certified intern engineer who is under the supervision of a licensed professional engineer.",
+          "action": "Committee Report recommending substitute bill be passed by",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2114/"
+        },
+        {
+          "bill": "HB 2368",
+          "short_title": "Providing for the licensure of anesthesiologist assistants.",
+          "action": "Committee Report recommending bill be passed as amended by",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2368/"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SB 512",
+          "short_title": "Removing the eight-week return to work expectation from the definition of temporary unemployment, excluding payments under compliant employer-sponsored supplemental unemployment benefit plans from the definition of wages and removing the negative debt write-off and forgiveness mechanism that conditionally moved employers to rate groups N11 for three years and the related option to avoid a negative debt write-off through voluntary contributions.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB512/"
+        },
+        {
+          "bill": "SB 511",
+          "short_title": "Requiring the secretary of wildlife and parks to prepare and present any plans to reorganize the Kansas department of wildlife and parks to certain legislative committees and legislative approval of any such plans.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB511/"
+        },
+        {
+          "bill": "SB 510",
+          "short_title": "Requiring interest earnings of the parks fee fund to be transferred to such fund each month.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB510/"
+        },
+        {
+          "bill": "SR 1726",
+          "short_title": "Congratulating and commending award-winning educators in Kansas.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SR1726/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
