@@ -2114,5 +2114,59 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-02-17": {
+    "date": "2026-02-17",
+    "generated_at": "2026-02-18T03:27:14.954179+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "5 legislative items recorded. Kansas Legislature: 4 House bills and 1 Senate bill.",
+    "counts": {
+      "total": 5,
+      "kansas_house": 4,
+      "kansas_senate": 1,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2393",
+          "short_title": "Authorizing the supreme court to impose a charge to fund the costs of non-judicial personnel through June 30, 2030.",
+          "action": "Committee of the Whole - Motion to Amend - Offered by  Representative VanHouden",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2393/"
+        },
+        {
+          "bill": "HB 2781",
+          "short_title": "Authorizing the state historical society to acquire the junior officers' quarters at Fort Dodge and provide for the use, preservation, improvement, control and maintenance thereof.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2781/"
+        },
+        {
+          "bill": "HB 2780",
+          "short_title": "Authorizing the terramation of dead human bodies in the state of Kansas and requiring all terramations to be performed by licensed terramatory operators.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2780/"
+        },
+        {
+          "bill": "HB 2270",
+          "short_title": "Authorizing the chief information security officer to receive audit reports and updating statutes related to services provided by the chief information technology officer.",
+          "action": "Committee Report recommending bill be passed by",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2270/"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SB 513",
+          "short_title": "Directing the Kansas department for children and families to develop, procure and implement software to provide direct child care subsidy payments to child care providers.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB513/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
