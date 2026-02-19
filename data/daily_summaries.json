@@ -2168,5 +2168,107 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-02-18": {
+    "date": "2026-02-18",
+    "generated_at": "2026-02-19T03:27:49.441015+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "13 legislative items recorded. Kansas Legislature: 9 House bills and 4 Senate bills.",
+    "counts": {
+      "total": 13,
+      "kansas_house": 9,
+      "kansas_senate": 4,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HCR 5032",
+          "short_title": "Expressing support for the end of forced organ harvesting in the People's Republic of China",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5032/"
+        },
+        {
+          "bill": "HB 2784",
+          "short_title": "None",
+          "action": "Referred to Committee on Taxation",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2784/"
+        },
+        {
+          "bill": "HB 2336",
+          "short_title": "Senate: HB2336: Hearing: Wednesday, February 25, 2026, 9:30 AM Room 548-S",
+          "action": "30 AM Room 548-S",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2336/"
+        },
+        {
+          "bill": "HB 2390",
+          "short_title": "Senate: HB2390: Hearing: Wednesday, February 25, 2026, 9:30 AM Room 548-S",
+          "action": "30 AM Room 548-S",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2390/"
+        },
+        {
+          "bill": "HB 2377",
+          "short_title": "Senate: HB2377: Hearing: Wednesday, February 25, 2026, 9:30 AM Room 548-S",
+          "action": "30 AM Room 548-S",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2377/"
+        },
+        {
+          "bill": "HB 2318",
+          "short_title": "Senate: HB2318: Hearing: Tuesday, February 24, 2026, 9:30 AM Room 548-S",
+          "action": "30 AM Room 548-S",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2318/"
+        },
+        {
+          "bill": "HB 2783",
+          "short_title": "Increasing the tax on electronic cigarettes and crediting the revenue to the children's initiative fund.",
+          "action": "Referred to Committee on Taxation",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2783/"
+        },
+        {
+          "bill": "HB 2782",
+          "short_title": "Permitting county appraisers to request lease agreements from taxpayers when valuing property for property tax purposes.",
+          "action": "Referred to Committee on Taxation",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2782/"
+        },
+        {
+          "bill": "HR 6032",
+          "short_title": "House: HR6032: Referred to Committee on Taxation",
+          "action": "Referred to Committee on Taxation",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6032/"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SB 515",
+          "short_title": "Senate: SB515: Introduced",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB515/"
+        },
+        {
+          "bill": "SB 514",
+          "short_title": "Authorizing students to participate in school activities immediately upon transfer to another school unless such students were recruited, induced or unduly influenced to transfer for athletic activity participation.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB514/"
+        },
+        {
+          "bill": "SB 254",
+          "short_title": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB254",
+          "action": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB254",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260218210528"
+        },
+        {
+          "bill": "SCR 1622",
+          "short_title": "Providing for the adjournment of the senate and the house of representatives for a period of time during the 2026 regular session of the legislature.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1622/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
