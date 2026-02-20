@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-19T18:02:49.562928-06:00",
+  "last_updated": "2026-02-19T21:24:01.090781-06:00",
   "years": {
     "2026": {
       "total_items": 1277,
@@ -206573,6 +206573,48 @@
             "short_title": "Providing for the adjournment of the senate and the house of representatives for a period of time during the 2026 regular session of the legislature.",
             "action": "Introduced",
             "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1622/"
+          }
+        ]
+      },
+      "congress": {
+        "house": [],
+        "senate": []
+      }
+    },
+    "2026-02-19": {
+      "date": "2026-02-19",
+      "generated_at": "2026-02-20T03:24:00.952678+00:00",
+      "model": "phi-3:mini",
+      "prompt_version": "v1",
+      "summary": "3 legislative items recorded. Kansas Legislature: 1 House bill and 2 Senate bills.",
+      "counts": {
+        "total": 3,
+        "kansas_house": 1,
+        "kansas_senate": 2,
+        "congress_house": 0,
+        "congress_senate": 0
+      },
+      "kansas": {
+        "house": [
+          {
+            "bill": "HB 2785",
+            "short_title": "Renaming the medication donation program providing for the registration of qualifying centers to accept, administer, supply or dispense certain donated drugs or devices.",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2785/"
+          }
+        ],
+        "senate": [
+          {
+            "bill": "SB 254",
+            "short_title": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB254",
+            "action": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB254",
+            "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260219224942"
+          },
+          {
+            "bill": "SB 37",
+            "short_title": "Repealing the three-mile extraterritorial planning and zoning authority for cities.",
+            "action": "Withdrawn from  Committee on Local Government, Transparency and Ethics; Referred to Committee on Judiciary",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB37/"
           }
         ]
       },

@@ -2270,5 +2270,47 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-02-19": {
+    "date": "2026-02-19",
+    "generated_at": "2026-02-20T03:24:00.952678+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "3 legislative items recorded. Kansas Legislature: 1 House bill and 2 Senate bills.",
+    "counts": {
+      "total": 3,
+      "kansas_house": 1,
+      "kansas_senate": 2,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2785",
+          "short_title": "Renaming the medication donation program providing for the registration of qualifying centers to accept, administer, supply or dispense certain donated drugs or devices.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2785/"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SB 254",
+          "short_title": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB254",
+          "action": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB254",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260219224942"
+        },
+        {
+          "bill": "SB 37",
+          "short_title": "Repealing the three-mile extraterritorial planning and zoning authority for cities.",
+          "action": "Withdrawn from  Committee on Local Government, Transparency and Ethics; Referred to Committee on Judiciary",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB37/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
