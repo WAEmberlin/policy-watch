@@ -2400,5 +2400,59 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-02-24": {
+    "date": "2026-02-24",
+    "generated_at": "2026-02-25T03:28:00.978642+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "5 legislative items recorded. Kansas Legislature: 2 House bills and 3 Senate bills.",
+    "counts": {
+      "total": 5,
+      "kansas_house": 2,
+      "kansas_senate": 3,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2004",
+          "short_title": "Senate Committee on Government Efficiency and House Committee on Welfare Reform on HB2004",
+          "action": "Senate Committee on Government Efficiency and House Committee on Welfare Reform on HB2004",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260224202003"
+        },
+        {
+          "bill": "HB 2250",
+          "short_title": "Senate: HB2250: Received and Introduced",
+          "action": "Received and Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2250/"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SB 517",
+          "short_title": "Expanding the every child can read act reporting requirements and amending the Kansas blueprint for literacy to provide certain requirements for the state board of education, the state board of regents and school districts with regard to literacy education and reporting.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB517/"
+        },
+        {
+          "bill": "SB 516",
+          "short_title": "Exempting certain devices and contests from the crime of unlawful gambling.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB516/"
+        },
+        {
+          "bill": "SB 263",
+          "short_title": "Establishing standards and requirements for active shooter drills conducted by public and accredited nonpublic elementary and secondary schools.",
+          "action": "Withdrawn from  Committee on Ways and Means and referred to Committee of the Whole",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB263/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
