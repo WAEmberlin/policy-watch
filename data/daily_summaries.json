@@ -2454,5 +2454,59 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-02-25": {
+    "date": "2026-02-25",
+    "generated_at": "2026-02-26T03:22:22.955662+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "5 legislative items recorded. Kansas Legislature: 2 House bills and 3 Senate bills.",
+    "counts": {
+      "total": 5,
+      "kansas_house": 2,
+      "kansas_senate": 3,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HR 6031",
+          "short_title": "Commemorating the life and career of Representative Billie Ray McCreary.",
+          "action": "Enrolled on Wednesday, February 25, 2026",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6031/"
+        },
+        {
+          "bill": "HB 2237",
+          "short_title": "Senate: HB2237: Hearing: Thursday, March 5, 2026, 10:30 AM Room 548-S",
+          "action": "30 AM Room 548-S",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2237/"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SB 520",
+          "short_title": "Creating the crime of interference with the conduct of a religious assembly, providing criminal penalties therefor and providing for a civil cause of action for damages.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB520/"
+        },
+        {
+          "bill": "SB 519",
+          "short_title": "Exempting certain registered agritourism operations from local code and regulation enforcement.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB519/"
+        },
+        {
+          "bill": "SB 518",
+          "short_title": "Authorizing the state historical society to convey certain real property located in Johnson county to the Prairie Band Potawatomi Nation.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB518/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
