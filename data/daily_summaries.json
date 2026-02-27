@@ -2508,5 +2508,59 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-02-26": {
+    "date": "2026-02-26",
+    "generated_at": "2026-02-27T03:19:31.513324+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "5 legislative items recorded. Kansas Legislature: 4 House bills and 1 Senate bill.",
+    "counts": {
+      "total": 5,
+      "kansas_house": 4,
+      "kansas_senate": 1,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HCR 5033",
+          "short_title": "Ratifying and providing for the continuation of the state of disaster emergency declaration issued on February 24, 2026, for certain counties.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5033/"
+        },
+        {
+          "bill": "HB 2787",
+          "short_title": "Correcting an inconsistency in the number of temporary permits for the sale of alcoholic beverages that may be issued per year to a temporary permit holder.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2787/"
+        },
+        {
+          "bill": "HB 2786",
+          "short_title": "Approving an election held by Ellsworth county to impose countywide retailers' sales tax for the purpose of financing the costs of construction, equipping and furnishing of a law enforcement center and courthouse improvements.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2786/"
+        },
+        {
+          "bill": "HB 2234",
+          "short_title": "Substitute for HB 2234 by Committee on Taxation - Providing a sales tax exemption for purchases made by Junction City main street, inc.",
+          "action": "Committee Report recommending substitute bill be passed by",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2234/"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SB 197",
+          "short_title": "House: SB197: Committee of the Whole - Now working on",
+          "action": "Committee of the Whole - Now working on",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB197/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
