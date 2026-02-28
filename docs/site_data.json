@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-27T17:53:42.618138-06:00",
+  "last_updated": "2026-02-27T21:02:11.477033-06:00",
   "years": {
     "2026": {
       "total_items": 1331,
@@ -207630,6 +207630,42 @@
             "short_title": "House: SB197: Committee of the Whole - Now working on",
             "action": "Committee of the Whole - Now working on",
             "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB197/"
+          }
+        ]
+      },
+      "congress": {
+        "house": [],
+        "senate": []
+      }
+    },
+    "2026-02-27": {
+      "date": "2026-02-27",
+      "generated_at": "2026-02-28T03:02:11.331014+00:00",
+      "model": "phi-3:mini",
+      "prompt_version": "v1",
+      "summary": "2 legislative items recorded. Kansas Legislature: 1 House bill and 1 Senate bill.",
+      "counts": {
+        "total": 2,
+        "kansas_house": 1,
+        "kansas_senate": 1,
+        "congress_house": 0,
+        "congress_senate": 0
+      },
+      "kansas": {
+        "house": [
+          {
+            "bill": "HB 2788",
+            "short_title": "House: HB2788: Introduced",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2788/"
+          }
+        ],
+        "senate": [
+          {
+            "bill": "SB 521",
+            "short_title": "None",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB521/"
           }
         ]
       },
