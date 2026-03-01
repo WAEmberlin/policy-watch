@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-28T17:50:03.608022-06:00",
+  "last_updated": "2026-02-28T21:32:45.999746-06:00",
   "years": {
     "2026": {
       "total_items": 1331,
@@ -207508,6 +207508,28 @@
             "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB521/"
           }
         ]
+      },
+      "congress": {
+        "house": [],
+        "senate": []
+      }
+    },
+    "2026-02-28": {
+      "date": "2026-02-28",
+      "generated_at": "2026-03-01T03:32:45.828398+00:00",
+      "model": "phi-3:mini",
+      "prompt_version": "v1",
+      "summary": "No legislative activity recorded for this date.",
+      "counts": {
+        "total": 0,
+        "kansas_house": 0,
+        "kansas_senate": 0,
+        "congress_house": 0,
+        "congress_senate": 0
+      },
+      "kansas": {
+        "house": [],
+        "senate": []
       },
       "congress": {
         "house": [],
