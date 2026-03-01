@@ -1,9 +1,9 @@
 {
-  "week_start": "2026-02-15",
-  "week_end": "2026-02-22",
+  "week_start": "2026-02-22",
+  "week_end": "2026-03-01",
   "model": "phi-3:mini",
   "prompt_version": "v1",
-  "generated_at": "2026-02-22T06:41:30.042466+00:00",
+  "generated_at": "2026-03-01T06:40:36.895582+00:00",
   "jurisdictions": [
     {
       "name": "Kansas Legislature",
@@ -11,24 +11,23 @@
         {
           "title": "House Bills",
           "summary": [
-            "4 House bills were introduced: HB 2785, HCR 5032, HB 2781, HB 2780.",
-            "4 House bills were referred to committee on taxation: HB 2784, HB 2783, HB 2782, HR 6032.",
-            "4 House bills were 30 am room 548-s: HB 2336, HB 2390, HB 2377, HB 2318.",
-            "HB 2393 was committee of the whole - motion to amend - offered by  representative vanhouden on 2026-02-17.",
-            "HB 2270 was committee report recommending bill be passed by on 2026-02-17.",
-            "HB 2114 was committee report recommending substitute bill be passed by on 2026-02-16.",
-            "HB 2368 was committee report recommending bill be passed as amended by on 2026-02-16."
+            "4 House bills were introduced: HB 2788, HCR 5033, HB 2787, HB 2786.",
+            "HB 2234 was committee report recommending substitute bill be passed by on 2026-02-26.",
+            "HR 6031 was enrolled on wednesday, february 25, 2026 on 2026-02-25.",
+            "HB 2237 was 30 am room 548-s on 2026-02-25.",
+            "HB 2004 was senate committee on government efficiency and house committee on welfare reform on hb2004 on 2026-02-24.",
+            "HB 2250 was received and introduced on 2026-02-24."
           ],
-          "bill_count": 16
+          "bill_count": 9
         },
         {
           "title": "Senate Bills",
           "summary": [
-            "2 Senate bills were senate committee on federal and state affairs and house committee on federal and state affairs on sb254: SB 254, SB 254.",
-            "SB 37 was withdrawn from  committee on local government, transparency and ethics; referred to committee on judiciary on 2026-02-19.",
-            "8 Senate bills were introduced: SB 515, SB 514, SCR 1622, SB 513, SB 512 and 3 more."
+            "6 Senate bills were introduced: SB 521, SB 520, SB 519, SB 518, SB 517 and 1 more.",
+            "SB 197 was committee of the whole - now working on on 2026-02-26.",
+            "SB 263 was withdrawn from  committee on ways and means and referred to committee of the whole on 2026-02-24."
           ],
-          "bill_count": 11
+          "bill_count": 8
         }
       ]
     },
@@ -38,26 +37,42 @@
         {
           "title": "House of Representatives",
           "summary": [
-            "HR 4307 was placed on the union calendar, calendar no. 433. on 2026-02-20.",
-            "HR 2958 was placed on the union calendar, calendar no. 430. on 2026-02-20.",
-            "HR 390 was placed on the union calendar, calendar no. 427. on 2026-02-20.",
-            "HR 1319 was placed on the union calendar, calendar no. 431. on 2026-02-20.",
-            "HR 1320 was placed on the union calendar, calendar no. 432. on 2026-02-20.",
-            "HR 2600 was placed on the union calendar, calendar no. 428. on 2026-02-20.",
-            "HR 3679 was placed on the union calendar, calendar no. 429. on 2026-02-20.",
-            "HR 6956 was placed on the union calendar, calendar no. 434. on 2026-02-20.",
-            "HR 6431 was placed on the union calendar, calendar no. 435. on 2026-02-20.",
-            "4 House of Representatives bills were referred to the subcommittee on energy and mineral resources.: HR 2969, HR 5929, HR 1501, HR 4781.",
-            "HR 1028 was placed on the union calendar, calendar no. 423. on 2026-02-17."
+            "HR 6644 was cloture motion on the motion to proceed to the measure presented in senate. on 2026-02-26.",
+            "HR 6719 was committee on the judiciary. ordered to be reported with an amendment in the nature of a substitute favorably. on 2026-02-26.",
+            "2 House of Representatives bills were passed senate without amendment by unanimous consent.: HR 2815, HR 972.",
+            "HR 1181 was placed on the union calendar, calendar no. 447. on 2026-02-25.",
+            "HR 4758 was motion to reconsider laid on the table agreed to without objection. on 2026-02-25.",
+            "HJRES 139 was placed on the house calendar, calendar no. 63. on 2026-02-25.",
+            "HR 4624 was placed on the union calendar, calendar no. 449. on 2026-02-25.",
+            "HR 3959 was placed on the union calendar, calendar no. 448. on 2026-02-25.",
+            "HR 4130 was placed on the union calendar, calendar no. 450. on 2026-02-25.",
+            "HR 6541 was placed on the union calendar, calendar no. 451. on 2026-02-25.",
+            "HR 1078 was placed on the union calendar, calendar no. 446. on 2026-02-25.",
+            "HR 6552 was placed on the union calendar, calendar no. 456. on 2026-02-25.",
+            "HR 6544 was placed on the union calendar, calendar no. 452. on 2026-02-25.",
+            "HR 6551 was placed on the union calendar, calendar no. 455. on 2026-02-25.",
+            "HR 6553 was placed on the union calendar, calendar no. 457. on 2026-02-25.",
+            "HR 6546 was placed on the union calendar, calendar no. 453. on 2026-02-25.",
+            "HR 6570 was placed on the union calendar, calendar no. 460. on 2026-02-25.",
+            "HR 6550 was placed on the union calendar, calendar no. 454. on 2026-02-25.",
+            "HR 6554 was placed on the union calendar, calendar no. 458. on 2026-02-25."
           ],
-          "bill_count": 14
+          "bill_count": 50
         },
         {
           "title": "U.S. Senate",
           "summary": [
-            "No U.S. Senate bills with activity this week."
+            "2 U.S. Senate bills were passed senate with an amendment by unanimous consent.: S 1070, S 2245.",
+            "2 U.S. Senate bills were committee on health, education, labor, and pensions. ordered to be reported with an amendment in the nature of a substitute favorably.: S 3315, S 1552.",
+            "S 1602 was committee on health, education, labor, and pensions. ordered to be reported without amendment favorably. on 2026-02-26.",
+            "S 1199 was committee on small business and entrepreneurship. hearings held. on 2026-02-25.",
+            "S 2503 was on motion to suspend the rules and pass the bill failed by the yeas and nays: (2/3 required): 264 - 133 (roll no. 72). on 2026-02-24.",
+            "S 3023 was placed on senate legislative calendar under general orders. calendar no. 345. on 2026-02-24.",
+            "S 1441 was placed on senate legislative calendar under general orders. calendar no. 342. on 2026-02-24.",
+            "S 233 was placed on senate legislative calendar under general orders. calendar no. 340. on 2026-02-23.",
+            "S 337 was placed on senate legislative calendar under general orders. calendar no. 341. on 2026-02-23."
           ],
-          "bill_count": 0
+          "bill_count": 11
         }
       ]
     }
