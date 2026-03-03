@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-02T17:56:06.771698-06:00",
+  "last_updated": "2026-03-02T21:24:17.597360-06:00",
   "years": {
     "2026": {
       "total_items": 1335,
@@ -207553,6 +207553,53 @@
         "house": [],
         "senate": []
       }
+    },
+    "2026-03-02": {
+      "date": "2026-03-02",
+      "generated_at": "2026-03-03T03:24:17.454610+00:00",
+      "model": "phi-3:mini",
+      "prompt_version": "v1",
+      "summary": "4 legislative items recorded. Kansas Legislature: 4 Senate bills.",
+      "counts": {
+        "total": 4,
+        "kansas_house": 0,
+        "kansas_senate": 4,
+        "congress_house": 0,
+        "congress_senate": 0
+      },
+      "kansas": {
+        "house": [],
+        "senate": [
+          {
+            "bill": "SCR 1623",
+            "short_title": "Proposing a constitutional amendment to section 1 of the Kansas bill of rights to affirm that men and women are possessed of equal and inalienable natural rights from conception.",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1623/"
+          },
+          {
+            "bill": "SB 523",
+            "short_title": "Authorizing the governor to make a declaration of need for enhanced security for an extraordinary event and providing certain powers to the governor during a period of such declaration.",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB523/"
+          },
+          {
+            "bill": "SB 522",
+            "short_title": "Enacting the Kansas medical freedom act to prohibit the denial of an individual's access to certain services based on such individual's medical choices.",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB522/"
+          },
+          {
+            "bill": "SR 1727",
+            "short_title": "Congratulating the 2026 Kansas Master Teachers.",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/SR1727/"
+          }
+        ]
+      },
+      "congress": {
+        "house": [],
+        "senate": []
+      }
     }
   },
   "kansas_calendars": {
@@ -207562,6 +207609,12 @@
         "title": "House Calendar for Tuesday March 03, 2026",
         "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/3/3/",
         "chamber": "House"
+      },
+      {
+        "date": "2026-03-03",
+        "title": "Senate Calendar for Tuesday March 03, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/3/3/",
+        "chamber": "Senate"
       }
     ],
     "2026-03-02": [
