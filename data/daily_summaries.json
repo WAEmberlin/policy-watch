@@ -2689,5 +2689,65 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-03-03": {
+    "date": "2026-03-03",
+    "generated_at": "2026-03-04T03:15:48.641433+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "6 legislative items recorded. Kansas Legislature: 3 House bills and 3 Senate bills.",
+    "counts": {
+      "total": 6,
+      "kansas_house": 3,
+      "kansas_senate": 3,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2331",
+          "short_title": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on HB2331",
+          "action": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on HB2331",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260303175621"
+        },
+        {
+          "bill": "HR 6033",
+          "short_title": "Approving the gaming compact with the Wyandotte Nation.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6033/"
+        },
+        {
+          "bill": "HB 2789",
+          "short_title": "Enacting the abolish abortion Kansas act to make all abortions subject to criminal prosecution and removing certain exceptions to wrongful death cause of action for the death of an unborn child.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2789/"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SR 1728",
+          "short_title": "Approving the gaming compact with the Wyandotte Nation.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SR1728/"
+        },
+        {
+          "bill": "SB 524",
+          "short_title": "Requiring banks to enter into a written agreement with the state treasurer to be a depository of public moneys, increasing the market value of securities necessary to secure the deposit of public moneys, providing procedures for when a depository fails to follow the requirements of the state treasurer, modifying certain definitions, authorizing the state treasurer to assess a fee to operate the public moneys pooled method, creating the public moneys fee fund and providing exceptions to the public moneys pooled method if accounts are subject to conflicting federal law.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB524/"
+        },
+        {
+          "bill": "SB 229",
+          "short_title": "Providing amendments, suspensions or repeals of employment security law provisions should follow specified review procedures by the legislature, authorizing the secretary of labor to recognize and approve employer-sponsored supplemental unemployment benefit plans if such plans meet specific criteria and integrating such plans into the employment security law, updating and reorganizing statutory language, enhancing federal conformity by incorporating references to federal laws and guidelines, updating temporary unemployment provisions and providing for eight weeks of temporary unemployment benefits, eliminating debt relief provisions for negative balance employers and other updates to the employment security law.",
+          "action": "Committee Report recommending substitute bill be passed by",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB229/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
