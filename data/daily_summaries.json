@@ -2749,5 +2749,113 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-03-04": {
+    "date": "2026-03-04",
+    "generated_at": "2026-03-05T03:20:31.118390+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "14 legislative items recorded. Kansas Legislature: 5 House bills and 9 Senate bills.",
+    "counts": {
+      "total": 14,
+      "kansas_house": 5,
+      "kansas_senate": 9,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2299",
+          "short_title": "Senate Substitute for Substitute for HB2299 by Committee on Education - Providing that certain statutory references to accredited nonpublic schools mean nonpublic schools accredited by the state board of education, requiring that schools accredited by a national or regional accrediting agency shall have the same rights as schools accredited by the state board, requiring school districts and accredited nonpublic schools to prohibit the use of personal electronic communication devices during the school day and prohibiting employees of a school district from using social media to communicate with students for official school purposes.",
+          "action": "Committee Report recommending substitute bill be passed by",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2299/"
+        },
+        {
+          "bill": "HB 2323",
+          "short_title": "Establishing procedures for a civil action instituted by the commissioner of insurance related to fraudulent insurance acts, providing that expunged criminal records will be disclosed in any application for licensure as an insurance producer or public adjuster if the arrest, conviction or diversion is for a fraudulent insurance act and including automobile assigned claims plans in provisions related to fraudulent insurance acts.",
+          "action": "30 AM Room 346-S",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2323/"
+        },
+        {
+          "bill": "HB 2791",
+          "short_title": "Imposing a 3% excise tax on all sports wagers, distributing the proceeds of such tax to the state school district finance fund and decreasing the statewide property tax levy for school districts by 1.5 mills.",
+          "action": "Referred to Committee on Taxation",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2791/"
+        },
+        {
+          "bill": "HB 2790",
+          "short_title": "Establishing the born to invest act and requiring the office of vital statistics to provide data to the office of the state treasurer for the distribution of informational materials regarding certain government-administered savings accounts.",
+          "action": "Referred to Committee on Federal and State Affairs",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2790/"
+        },
+        {
+          "bill": "HCR 5034",
+          "short_title": "Proposing to amend the constitution of the state of Kansas by revising article 11 by establishing the freedom from taxes fund, establishing the Kansas citizens freedom review board, authorizing the board to review tax exemptions and approve or eliminate such exemptions and eliminating the motor vehicle property taxes and fees, state-mandated and state-imposed property taxes and state-imposed income and privilege taxes.",
+          "action": "Referred to Committee on Taxation",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5034/"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SB 527",
+          "short_title": "Authorizing the secretary of corrections on behalf of the state of Kansas to convey certain real property located in Leavenworth county, Kansas, to Leavenworth county.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB527/"
+        },
+        {
+          "bill": "SB 526",
+          "short_title": "Requiring data centers to be located on land that was zoned for industrial or manufacturing uses or was not zoned on July 1, 2025, to qualify for the sales tax exemption for qualified data centers.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB526/"
+        },
+        {
+          "bill": "SCR 1624",
+          "short_title": "Proposing to amend the constitution of the state of Kansas by revising article 11 by establishing the freedom from taxes fund, establishing the Kansas citizens freedom review board, authorizing the board to review tax exemptions and approve or eliminate such exemptions and eliminating the motor vehicle property taxes and fees, state-mandated and state-imposed property taxes and state-imposed income and privilege taxes.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1624/"
+        },
+        {
+          "bill": "SB 296",
+          "short_title": "Eliminating certain tax credits, exemptions, incentives, refunds and limitations, a transitional adjustment, a checkoff and a restoration program administered by the secretary that have expired or are no longer applicable.",
+          "action": "30 AM Room 548-S",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB296/"
+        },
+        {
+          "bill": "SB 268",
+          "short_title": "Clarifying modifications for certain business interest expenses and federal net operating loss carrybacks and providing a technical change to a statutory cross reference for recaptured moneys related to adoption savings accounts for purposes of Kansas income tax.",
+          "action": "30 AM Room 548-S",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB268/"
+        },
+        {
+          "bill": "SB 148",
+          "short_title": "Excluding from sales taxation the service of installing or applying tangible personal property for the reconstruction, restoration, remodeling, renovation, repair or replacement of a building or facility.",
+          "action": "30 AM Room 548-S",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB148/"
+        },
+        {
+          "bill": "SB 209",
+          "short_title": "Providing a sales tax exemption for sales of firearms, firearm accessories, ammunition, firearm safes and firearm safety devices.",
+          "action": "30 AM Room 548-S",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB209/"
+        },
+        {
+          "bill": "SB 33",
+          "short_title": "House Substitute for Substitute for SB 33 by Committee on Taxation - Providing that countywide retailers' sales tax is apportioned based on total assessed valuations of the county and cities within the county rather than property taxes levied.",
+          "action": "Committee Report recommending substitute bill be passed by",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB33/"
+        },
+        {
+          "bill": "SB 525",
+          "short_title": "Senate: SB525: Referred to Committee on Federal and State Affairs",
+          "action": "Referred to Committee on Federal and State Affairs",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB525/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
