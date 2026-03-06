@@ -2857,5 +2857,71 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-03-05": {
+    "date": "2026-03-05",
+    "generated_at": "2026-03-06T03:18:17.096756+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "7 legislative items recorded. Kansas Legislature: 5 House bills and 2 Senate bills.",
+    "counts": {
+      "total": 7,
+      "kansas_house": 5,
+      "kansas_senate": 2,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2029",
+          "short_title": "Designating a portion of K-5 highway as the Representative Marvin S Robinson II memorial highway and redesignating a current portion of the Harry Darby memorial highway for interstate highway 635.",
+          "action": "Senator Billinger and  Senator Pettey are appointed to replace  Senator Petersen and  Senator Corson on the Conference Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2029/"
+        },
+        {
+          "bill": "HB 2792",
+          "short_title": "House: HB2792: Referred to Committee on Transportation",
+          "action": "Referred to Committee on Transportation",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2792/"
+        },
+        {
+          "bill": "HB 2369",
+          "short_title": "Allowing pharmacists to administer certain vaccines to children and adults pursuant to a vaccination protocol.",
+          "action": "Withdrawn from  Committee on Insurance; Rereferred to Committee on Health and Human Services",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2369/"
+        },
+        {
+          "bill": "HB 2100",
+          "short_title": "Establishing statewide standards governing the use of HIV post-exposure prophylaxis, permitting a pharmacist to initiate such medication to certain patients, providing civil liability protections to pharmacists who initiate prophylactic therapy to patients for post-exposure to human immunodeficiency virus.",
+          "action": "Withdrawn from  Committee on Insurance; Rereferred to Committee on Health and Human Services",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2100/"
+        },
+        {
+          "bill": "HB 2244",
+          "short_title": "Modifying the composition of the board of pharmacy and prohibiting the board of pharmacy from adopting rules and regulations that would limit or condition the use of telepharmacy.",
+          "action": "Withdrawn from  Committee on Health and Human Services; Rereferred to Committee on Insurance",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2244/"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SB 254",
+          "short_title": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB254",
+          "action": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB254",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260305210732"
+        },
+        {
+          "bill": "SB 51",
+          "short_title": "House: SB51: Withdrawn from Calendar; Referred to Committee on Legislative Modernization",
+          "action": "Withdrawn from Calendar; Referred to Committee on Legislative Modernization",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB51/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
