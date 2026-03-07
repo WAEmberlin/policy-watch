@@ -2923,5 +2923,41 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-03-06": {
+    "date": "2026-03-06",
+    "generated_at": "2026-03-07T03:08:08.301743+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "Total count overview:\n- Kansas House: 1\n- Kansas Senate: 1\n- U.S. House of Representatives: 0\n- U.s. Senate: 0\n\n\nKansas Legislature activity summary for 2026-03-06:\n- The Kansas House introduced bill HB 2793, which aims to establish a sports authority for sports facility infrastructure and events.\n\nU.S. Congress activity summary for 2026-03-06:\n- No legislative activity was recorded by either the U.S. House of Representatives or the U.S. Senate.",
+    "counts": {
+      "total": 2,
+      "kansas_house": 1,
+      "kansas_senate": 1,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2793",
+          "short_title": "Enacting the Kansas sports authority act to establish a sports authority to provide for the construction, financing and management of certain sports facilities and sports facility infrastructure and create venues for professional sports and other events.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2793/"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SB 528",
+          "short_title": "Enacting the Kansas municipal self-funded medical and prescription drug insurance pool act and establishing certain reserve, maximum exposure funding and reporting requirements for municipal self-funded medical and prescription drug insurance pools.",
+          "action": "Referred to Committee on Financial Institutions and Insurance",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB528/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
