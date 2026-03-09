@@ -1,10 +1,70 @@
 {
-  "last_updated": "2026-03-09T16:10:52.380850-05:00",
+  "last_updated": "2026-03-09T17:00:42.861107-05:00",
   "years": {
     "2026": {
-      "total_items": 1398,
+      "total_items": 1403,
       "pages": [
         [
+          {
+            "date": "2026-03-09",
+            "source": "Kansas Legislature - Events",
+            "title": "Senate: SCR1625: Introduced",
+            "link": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1625/",
+            "published": "2026-03-09T21:17:02+00:00",
+            "summary": "Senate: SCR1625: Introduced, Action Code: intro_ibc_157, Occurred: 03/09/2026 04:17:02PM, Journal Page Number:",
+            "short_title": "Proposing to amend section 1 of article 11 of the constitution of the state of Kansas to provide a property tax exemption from all school district levies for residential property that is owned by and the principal place of residence of a person who is 60 years of age or older.",
+            "short_title_source": "scraped",
+            "bill_number": "SCR 1625",
+            "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1625/"
+          },
+          {
+            "date": "2026-03-09",
+            "source": "Kansas Legislature - Events",
+            "title": "Senate: SB532: Introduced",
+            "link": "https://www.kslegislature.gov/li/b2025_26/measures/SB532/",
+            "published": "2026-03-09T21:16:52+00:00",
+            "summary": "Senate: SB532: Introduced, Action Code: intro_ibc_157, Occurred: 03/09/2026 04:16:52PM, Journal Page Number:",
+            "short_title": "Decreasing the rate of ad valorem tax imposed by a school district.",
+            "short_title_source": "scraped",
+            "bill_number": "SB 532",
+            "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB532/"
+          },
+          {
+            "date": "2026-03-09",
+            "source": "Kansas Legislature - Events",
+            "title": "Senate: SB531: Introduced",
+            "link": "https://www.kslegislature.gov/li/b2025_26/measures/SB531/",
+            "published": "2026-03-09T21:16:48+00:00",
+            "summary": "Senate: SB531: Introduced, Action Code: intro_ibc_157, Occurred: 03/09/2026 04:16:48PM, Journal Page Number:",
+            "short_title": "Prohibiting the development or operation of any new large load data center in a county that has had a drought emergency declared for such county pursuant to the Kansas emergency management act within the preceding three years.",
+            "short_title_source": "scraped",
+            "bill_number": "SB 531",
+            "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB531/"
+          },
+          {
+            "date": "2026-03-09",
+            "source": "Kansas Legislature - Events",
+            "title": "Senate: SB530: Introduced",
+            "link": "https://www.kslegislature.gov/li/b2025_26/measures/SB530/",
+            "published": "2026-03-09T21:16:44+00:00",
+            "summary": "Senate: SB530: Introduced, Action Code: intro_ibc_157, Occurred: 03/09/2026 04:16:44PM, Journal Page Number:",
+            "short_title": "Clarifying definitions of individuals who are subject to a state and national criminal history record check and which agency receives the results of such record check.",
+            "short_title_source": "scraped",
+            "bill_number": "SB 530",
+            "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB530/"
+          },
+          {
+            "date": "2026-03-09",
+            "source": "Kansas Legislature - Events",
+            "title": "Senate: SB529: Introduced",
+            "link": "https://www.kslegislature.gov/li/b2025_26/measures/SB529/",
+            "published": "2026-03-09T21:16:40+00:00",
+            "summary": "Senate: SB529: Introduced, Action Code: intro_ibc_157, Occurred: 03/09/2026 04:16:40PM, Journal Page Number:",
+            "short_title": "Requiring the state department of education to prepare and publish a Kansas building report card for virtual schools offered by a school district separately from any report card prepared and published for a traditional school operated by such school district.",
+            "short_title_source": "scraped",
+            "bill_number": "SB 529",
+            "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB529/"
+          },
           {
             "date": "2026-03-09",
             "source": "Kansas Legislature - Events",
@@ -522,7 +582,9 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2323",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2323/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-03-04",
             "source": "Kansas Legislature - Events",
@@ -582,9 +644,7 @@
             "short_title_source": "rss",
             "bill_number": "SB 525",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB525/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-03-04",
             "source": "Congress.gov API",
@@ -1085,7 +1145,9 @@
             "short_title_source": "scraped",
             "bill_number": "SCR 1623",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1623/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-03-02",
             "source": "Kansas Legislature - Events",
@@ -1143,9 +1205,7 @@
             "short_title": "Gateway Partnership Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 5254"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-03-02",
             "source": "Congress.gov API",
@@ -1656,7 +1716,9 @@
             "short_title": "ROTOR Act",
             "short_title_source": "rss",
             "bill_number": "S 2503"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-24",
             "source": "Congress.gov API",
@@ -1711,9 +1773,7 @@
             "short_title": "To amend title 38, United States Code, to prohibit an educational institution from withholding a transcript from an individual who pursued a course or program of education at such institution using Post-9/11 educational assistance.",
             "short_title_source": "rss",
             "bill_number": "HR 5436"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-24",
             "source": "Congress.gov API",
@@ -2227,7 +2287,9 @@
             "short_title_source": "scraped",
             "bill_number": "SB 511",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB511/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-16",
             "source": "Kansas Legislature - Events",
@@ -2287,9 +2349,7 @@
             "short_title_source": "rss",
             "bill_number": "HB 2779",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2779/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-13",
             "source": "Kansas Legislature - Events",
@@ -2796,7 +2856,9 @@
             "short_title": "MAP for Broadband Funding Act",
             "short_title_source": "rss",
             "bill_number": "S 2585"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-12",
             "source": "Congress.gov API",
@@ -2854,9 +2916,7 @@
             "short_title_source": "scraped",
             "bill_number": "SB 504",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB504/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-11",
             "source": "Kansas Legislature - Events",
@@ -3368,7 +3428,9 @@
             "short_title": "Taiwan Allies Fund Act",
             "short_title_source": "rss",
             "bill_number": "S 1216"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-10",
             "source": "Congress.gov API",
@@ -3423,9 +3485,7 @@
             "short_title": "Strategic Subsea Cables Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 3249"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-10",
             "source": "Congress.gov API",
@@ -3945,7 +4005,9 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2687",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2687/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-06",
             "source": "Kansas Legislature - Events",
@@ -4004,9 +4066,7 @@
             "short_title_source": "scraped",
             "bill_number": "SB 493",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB493/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-05",
             "source": "Kansas Legislature - Events",
@@ -4546,7 +4606,9 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2692",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2692/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-05",
             "source": "Kansas Legislature - Events",
@@ -4605,9 +4667,7 @@
             "short_title": "Value Over Cost Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 1118"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-05",
             "source": "Congress.gov API",
@@ -5145,7 +5205,9 @@
             "short_title_source": "scraped",
             "bill_number": "HR 6025",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6025/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-04",
             "source": "Kansas Legislature - Events",
@@ -5205,9 +5267,7 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2679",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2679/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-04",
             "source": "Kansas Legislature - Events",
@@ -5707,7 +5767,9 @@
             "short_title_source": "scraped",
             "bill_number": "SB 469",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB469/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-03",
             "source": "Kansas Legislature - Events",
@@ -5767,9 +5829,7 @@
             "short_title_source": "scraped",
             "bill_number": "SB 464",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB464/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-03",
             "source": "Kansas Legislature - Events",
@@ -6309,7 +6369,9 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2654",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2654/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-03",
             "source": "Kansas Legislature - Events",
@@ -6369,9 +6431,7 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2644",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2644/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-03",
             "source": "Kansas Legislature - Events",
@@ -6896,7 +6956,9 @@
             "short_title_source": "scraped",
             "bill_number": "SB 438",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB438/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-02",
             "source": "Kansas Legislature - Events",
@@ -6956,9 +7018,7 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2636",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2636/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-02",
             "source": "Kansas Legislature - Events",
@@ -7465,7 +7525,9 @@
             "short_title": "Innovate Less Lethal to De-Escalate Tax Modernization Act",
             "short_title_source": "rss",
             "bill_number": "HR 4242"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-02",
             "source": "Congress.gov API",
@@ -7520,9 +7582,7 @@
             "short_title": "DHS Grants Accountability Act",
             "short_title_source": "rss",
             "bill_number": "HR 6507"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-02",
             "source": "Congress.gov API",
@@ -8047,7 +8107,9 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2593",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2593/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-29",
             "source": "Kansas Legislature - Events",
@@ -8107,9 +8169,7 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2589",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2589/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-29",
             "source": "Kansas Legislature - Events",
@@ -8645,7 +8705,9 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2010",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2010/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-28",
             "source": "Kansas Legislature - Events",
@@ -8705,9 +8767,7 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2571",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2571/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-28",
             "source": "Kansas Legislature - Events",
@@ -9242,7 +9302,9 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2557",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2557/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-27",
             "source": "Kansas Legislature - Events",
@@ -9302,9 +9364,7 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2553",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2553/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-27",
             "source": "Kansas Legislature - Events",
@@ -9830,7 +9890,9 @@
             "short_title": "Veterans Law Judge Experience Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 659"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-26",
             "source": "Congress.gov API",
@@ -9873,9 +9935,7 @@
             "link": "https://news.va.gov/144665/take-control-of-your-health/",
             "published": "2026-01-23T19:30:00+00:00",
             "summary": "The new year is a great time to reevaluate your health goals."
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-23",
             "source": "VA News",
@@ -10323,7 +10383,9 @@
             "summary": "House: HB2517: Introduced, Action Code: intro_ibc_157, Occurred: 01/22/2026 11:04:41AM, Journal Page Number:",
             "short_title": "Providing countywide retailers' sales tax authority for Leavenworth county for the purposes of furnishing, equipping, improving and maintaining county-supported emergency management operations.",
             "short_title_source": "scraped"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-22",
             "source": "Kansas Legislature - Events",
@@ -10371,9 +10433,7 @@
             "link": "https://news.va.gov/144637/va-military-collaboration-pilots-mission-ready/",
             "published": "2026-01-22T19:30:00+00:00",
             "summary": "In a groundbreaking partnership, the 85th Fighter Group and VHSO ensure pilots are mission-ready."
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-22",
             "source": "VA News",
@@ -10828,7 +10888,9 @@
             "summary": "House: HB2495: Introduced, Action Code: intro_ibc_157, Occurred: 01/21/2026 11:08:41AM, Journal Page Number:",
             "short_title": "Authorizing counties to adopt resolutions to regulate activities on or within navigable rivers and adding navigable rivers to the crime of criminal trespass.",
             "short_title_source": "scraped"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-21",
             "source": "Kansas Legislature - Events",
@@ -10878,9 +10940,7 @@
             "summary": "House: HB2490: Introduced, Action Code: intro_ibc_157, Occurred: 01/21/2026 11:07:52AM, Journal Page Number:",
             "short_title": "Clarifying the signature verification requirements for advance voting ballot envelopes and providing for the repeal of advance voting statutes, except where advance voting is required by federal law, if a state or federal court issues a final order or judgment which is not subject to appeal invalidating such signature verification requirements.",
             "short_title_source": "scraped"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-21",
             "source": "Kansas Legislature - Events",
@@ -11335,7 +11395,9 @@
             "summary": "House: HB2476: Introduced, Action Code: intro_ibc_157, Occurred: 01/20/2026 11:11:28AM, Journal Page Number:",
             "short_title": "Permitting federal pesticide warning or labeling requirements to satisfy any state pesticide warning or labeling requirements.",
             "short_title_source": "scraped"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-20",
             "source": "Kansas Legislature - Events",
@@ -11385,9 +11447,7 @@
             "summary": "House: HB2471: Introduced, Action Code: intro_ibc_157, Occurred: 01/20/2026 11:10:58AM, Journal Page Number:",
             "short_title": "Designating a portion of I-35 as the deputy Sam Smith memorial highway and redesignating a current portion of the 35th infantry division memorial highway for I-35.",
             "short_title_source": "scraped"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-20",
             "source": "Congress.gov API",
@@ -11815,7 +11875,9 @@
             "summary": "House: HB2459: Introduced, Action Code: intro_ibc_157, Occurred: 01/15/2026 11:09:44AM, Journal Page Number:",
             "short_title": "Requiring any person who is 17 years of age and under to wear a helmet when operating an electric-assisted scooter or electric-assisted bicycle and modifying the definition and operation of electric-assisted scooters to include certain specifications and maximum operating speeds.",
             "short_title_source": "scraped"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-15",
             "source": "Kansas Legislature - Events",
@@ -11865,9 +11927,7 @@
             "summary": "House: HB2454: Introduced, Action Code: intro_ibc_157, Occurred: 01/15/2026 11:09:13AM, Journal Page Number:",
             "short_title": "Providing that under rental agreements governed by the residential landlord tenant act, a landlord is required to accept partial payments and to count certain income when considering a tenant or prospective tenant's qualifications for housing.",
             "short_title_source": "scraped"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-15",
             "source": "Kansas Legislature - Events",
@@ -12328,7 +12388,9 @@
             "summary": "Senate: SB322: Introduced, Action Code: intro_ibc_157, Occurred: 01/14/2026 02:58:04PM, Journal Page Number:",
             "short_title": "Removing the authority of the state board of pharmacy to authorize individuals to access the prescription monitoring program database by rules and regulations.",
             "short_title_source": "scraped"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-14",
             "source": "Kansas Legislature - Events",
@@ -12378,9 +12440,7 @@
             "summary": "House: HB2445: Introduced, Action Code: intro_ibc_158, Occurred: 01/14/2026 12:30:03PM, Journal Page Number:",
             "short_title": "Enacting the health care sharing ministries tax deduction act to provide a subtraction modification for qualified health care sharing expenses paid by a qualified individual and certain qualified health care shares received by a qualified individual.",
             "short_title_source": "scraped"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-14",
             "source": "Kansas Legislature - Events",
@@ -12838,7 +12898,9 @@
             "short_title": "Renewed Hope Act",
             "short_title_source": "rss",
             "bill_number": "HR 6998"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-13",
             "source": "Congress.gov API",
@@ -12893,9 +12955,7 @@
             "short_title": "CSAFE Act",
             "short_title_source": "rss",
             "bill_number": "HR 6732"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-13",
             "source": "Congress.gov API",
@@ -13349,7 +13409,9 @@
             "short_title": "National Earthquake Hazards Reduction Program Reauthorization Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 3168"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-12",
             "source": "Congress.gov API",
@@ -13401,9 +13463,7 @@
             "link": "https://news.va.gov/144379/honoring-heroes-at-wreaths-across-america/",
             "published": "2026-01-11T21:30:00+00:00",
             "summary": "A community united in Fayetteville to honor heroes during Wreaths Across America, laying 10,000 wreaths in a heartfelt tribute to service and sacrifice."
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-11",
             "source": "VA News",
@@ -13855,7 +13915,9 @@
             "short_title": "Direct Hire To Fight Fires",
             "short_title_source": "rss",
             "bill_number": "HR 435"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-08",
             "source": "Congress.gov API",
@@ -13910,9 +13972,7 @@
             "short_title": "Proven Forest Management Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 179"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-08",
             "source": "Congress.gov API",
@@ -14407,7 +14467,9 @@
             "short_title": "Providing for consideration of the bill (H.R. 1834) to advance policy priorities that will break the gridlock.",
             "short_title_source": "rss",
             "bill_number": "HRES 780"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-08",
             "source": "Congress.gov API",
@@ -14460,9 +14522,7 @@
             "summary": "House: HB2420: Prefiled for Introduction on Wednesday, January 7, 2026, Action Code: intro_ibc_156, Occurred: 01/07/2026 02:17:24PM, Journal Page Number:",
             "short_title": "Requiring school districts to obtain parental consent prior to providing certain school-based mental health services to a student.",
             "short_title_source": "scraped"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-07",
             "source": "Kansas Legislature - Events",
@@ -14949,7 +15009,9 @@
             "short_title": "A resolution recognizing the third commemoration of the anti-LGBTQ+ attack that occurred on November 19-20, 2022, at Club Q, an LGBTQ+ bar in Colorado Springs, Colorado.",
             "short_title_source": "rss",
             "bill_number": "SRES 503"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-07",
             "source": "Congress.gov API",
@@ -14999,9 +15061,7 @@
             "link": "https://news.va.gov/144337/satisfying-tailgating-snacks/",
             "published": "2026-01-06T19:30:00+00:00",
             "summary": "Win more than the big game with tailgating snacks that are both healthy and delicious."
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-06",
             "source": "VA News",
@@ -15470,7 +15530,9 @@
             "link": "https://news.va.gov/144254/country-tunes-to-heroics-lifesaving-act/",
             "published": "2026-01-02T15:30:00+00:00",
             "summary": "Ashley Perkins, a VHSO social worker, interrupted her country music performance to save a life with CPR skills."
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-02",
             "source": "Congress.gov API",
@@ -15506,6 +15568,86 @@
       "grouped": {
         "2026-03-09": {
           "Kansas Legislature - Events": [
+            {
+              "id": "https://kslegislature.gov/li/data/feeds/rss/events/e3a6d2ab29a7c14f96ceec5c24a8406c",
+              "title": "Senate: SCR1625: Introduced",
+              "summary": "Senate: SCR1625: Introduced, Action Code: intro_ibc_157, Occurred: 03/09/2026 04:17:02PM, Journal Page Number:",
+              "link": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1625/",
+              "published": "2026-03-09T21:17:02+00:00",
+              "source": "Kansas Legislature",
+              "category": "Events",
+              "type": "state_legislation",
+              "state": "KS",
+              "feed": "events",
+              "bill_number": "SCR 1625",
+              "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1625/",
+              "short_title": "Proposing to amend section 1 of article 11 of the constitution of the state of Kansas to provide a property tax exemption from all school district levies for residential property that is owned by and the principal place of residence of a person who is 60 years of age or older.",
+              "short_title_source": "scraped"
+            },
+            {
+              "id": "https://kslegislature.gov/li/data/feeds/rss/events/64229719ef5ae5a501518c89dd2428fb",
+              "title": "Senate: SB532: Introduced",
+              "summary": "Senate: SB532: Introduced, Action Code: intro_ibc_157, Occurred: 03/09/2026 04:16:52PM, Journal Page Number:",
+              "link": "https://www.kslegislature.gov/li/b2025_26/measures/SB532/",
+              "published": "2026-03-09T21:16:52+00:00",
+              "source": "Kansas Legislature",
+              "category": "Events",
+              "type": "state_legislation",
+              "state": "KS",
+              "feed": "events",
+              "bill_number": "SB 532",
+              "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB532/",
+              "short_title": "Decreasing the rate of ad valorem tax imposed by a school district.",
+              "short_title_source": "scraped"
+            },
+            {
+              "id": "https://kslegislature.gov/li/data/feeds/rss/events/3bca7c97e5a2d2b43728e6c623b6ff7a",
+              "title": "Senate: SB531: Introduced",
+              "summary": "Senate: SB531: Introduced, Action Code: intro_ibc_157, Occurred: 03/09/2026 04:16:48PM, Journal Page Number:",
+              "link": "https://www.kslegislature.gov/li/b2025_26/measures/SB531/",
+              "published": "2026-03-09T21:16:48+00:00",
+              "source": "Kansas Legislature",
+              "category": "Events",
+              "type": "state_legislation",
+              "state": "KS",
+              "feed": "events",
+              "bill_number": "SB 531",
+              "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB531/",
+              "short_title": "Prohibiting the development or operation of any new large load data center in a county that has had a drought emergency declared for such county pursuant to the Kansas emergency management act within the preceding three years.",
+              "short_title_source": "scraped"
+            },
+            {
+              "id": "https://kslegislature.gov/li/data/feeds/rss/events/c0b1fdedeb9ecd23563bf52d9066cda9",
+              "title": "Senate: SB530: Introduced",
+              "summary": "Senate: SB530: Introduced, Action Code: intro_ibc_157, Occurred: 03/09/2026 04:16:44PM, Journal Page Number:",
+              "link": "https://www.kslegislature.gov/li/b2025_26/measures/SB530/",
+              "published": "2026-03-09T21:16:44+00:00",
+              "source": "Kansas Legislature",
+              "category": "Events",
+              "type": "state_legislation",
+              "state": "KS",
+              "feed": "events",
+              "bill_number": "SB 530",
+              "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB530/",
+              "short_title": "Clarifying definitions of individuals who are subject to a state and national criminal history record check and which agency receives the results of such record check.",
+              "short_title_source": "scraped"
+            },
+            {
+              "id": "https://kslegislature.gov/li/data/feeds/rss/events/e44604867dedef686cc46165e4cbf1b6",
+              "title": "Senate: SB529: Introduced",
+              "summary": "Senate: SB529: Introduced, Action Code: intro_ibc_157, Occurred: 03/09/2026 04:16:40PM, Journal Page Number:",
+              "link": "https://www.kslegislature.gov/li/b2025_26/measures/SB529/",
+              "published": "2026-03-09T21:16:40+00:00",
+              "source": "Kansas Legislature",
+              "category": "Events",
+              "type": "state_legislation",
+              "state": "KS",
+              "feed": "events",
+              "bill_number": "SB 529",
+              "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB529/",
+              "short_title": "Requiring the state department of education to prepare and publish a Kansas building report card for virtual schools offered by a school district separately from any report card prepared and published for a traditional school operated by such school district.",
+              "short_title_source": "scraped"
+            },
             {
               "id": "https://kslegislature.gov/li/data/feeds/rss/events/dd17121bdc3ce168fc1d8cc68877a0f2",
               "title": "Senate: SR1729: Introduced",
@@ -209592,5 +209734,1266 @@
       }
     }
   },
-  "kansas_calendars": {}
+  "kansas_calendars": {
+    "2026-03-09": [
+      {
+        "date": "2026-03-09",
+        "title": "House Calendar for Monday March 09, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/3/9/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-03-09",
+        "title": "Senate Calendar for Monday March 09, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/3/9/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-03-06": [
+      {
+        "date": "2026-03-06",
+        "title": "House Calendar for Friday March 06, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/3/6/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-03-06",
+        "title": "Senate Calendar for Friday March 06, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/3/6/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-03-05": [
+      {
+        "date": "2026-03-05",
+        "title": "House Calendar for Thursday March 05, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/3/5/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-03-05",
+        "title": "Senate Calendar for Thursday March 05, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/3/5/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-03-04": [
+      {
+        "date": "2026-03-04",
+        "title": "House Calendar for Wednesday March 04, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/3/4/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-03-04",
+        "title": "Senate Calendar for Wednesday March 04, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/3/4/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-03-03": [
+      {
+        "date": "2026-03-03",
+        "title": "House Calendar for Tuesday March 03, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/3/3/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-03-03",
+        "title": "Senate Calendar for Tuesday March 03, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/3/3/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-03-02": [
+      {
+        "date": "2026-03-02",
+        "title": "House Calendar for Monday March 02, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/3/2/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-03-02",
+        "title": "Senate Calendar for Monday March 02, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/3/2/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-02-27": [
+      {
+        "date": "2026-02-27",
+        "title": "House Calendar for Friday February 27, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/2/27/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-02-27",
+        "title": "Senate Calendar for Friday February 27, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/2/27/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-02-26": [
+      {
+        "date": "2026-02-26",
+        "title": "House Calendar for Thursday February 26, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/2/26/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-02-26",
+        "title": "Senate Calendar for Thursday February 26, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/2/26/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-02-25": [
+      {
+        "date": "2026-02-25",
+        "title": "House Calendar for Wednesday February 25, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/2/25/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-02-25",
+        "title": "Senate Calendar for Wednesday February 25, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/2/25/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-02-24": [
+      {
+        "date": "2026-02-24",
+        "title": "House Calendar for Tuesday February 24, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/2/24/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-02-24",
+        "title": "Senate Calendar for Tuesday February 24, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/2/24/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-02-19": [
+      {
+        "date": "2026-02-19",
+        "title": "House Calendar for Thursday February 19, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/2/19/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-02-19",
+        "title": "Senate Calendar for Thursday February 19, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/2/19/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-02-18": [
+      {
+        "date": "2026-02-18",
+        "title": "House Calendar for Wednesday February 18, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/2/18/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-02-18",
+        "title": "Senate Calendar for Wednesday February 18, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/2/18/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-02-17": [
+      {
+        "date": "2026-02-17",
+        "title": "House Calendar for Tuesday February 17, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/2/17/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-02-17",
+        "title": "Senate Calendar for Tuesday February 17, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/2/17/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-02-16": [
+      {
+        "date": "2026-02-16",
+        "title": "House Calendar for Monday February 16, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/2/16/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-02-16",
+        "title": "Senate Calendar for Monday February 16, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/2/16/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-02-13": [
+      {
+        "date": "2026-02-13",
+        "title": "House Calendar for Friday February 13, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/2/13/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-02-13",
+        "title": "Senate Calendar for Friday February 13, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/2/13/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-02-12": [
+      {
+        "date": "2026-02-12",
+        "title": "House Calendar for Thursday February 12, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/2/12/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-02-12",
+        "title": "Senate Calendar for Thursday February 12, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/2/12/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-02-11": [
+      {
+        "date": "2026-02-11",
+        "title": "House Calendar for Wednesday February 11, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/2/11/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-02-11",
+        "title": "Senate Calendar for Wednesday February 11, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/2/11/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-02-10": [
+      {
+        "date": "2026-02-10",
+        "title": "House Calendar for Tuesday February 10, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/2/10/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-02-10",
+        "title": "Senate Calendar for Tuesday February 10, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/2/10/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-02-09": [
+      {
+        "date": "2026-02-09",
+        "title": "House Calendar for Monday February 09, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/2/9/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-02-09",
+        "title": "Senate Calendar for Monday February 09, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/2/9/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-02-06": [
+      {
+        "date": "2026-02-06",
+        "title": "House Calendar for Friday February 06, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/2/6/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-02-06",
+        "title": "Senate Calendar for Friday February 06, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/2/6/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-02-05": [
+      {
+        "date": "2026-02-05",
+        "title": "House Calendar for Thursday February 05, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/2/5/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-02-05",
+        "title": "Senate Calendar for Thursday February 05, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/2/5/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-02-04": [
+      {
+        "date": "2026-02-04",
+        "title": "House Calendar for Wednesday February 04, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/2/4/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-02-04",
+        "title": "Senate Calendar for Wednesday February 04, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/2/4/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-02-03": [
+      {
+        "date": "2026-02-03",
+        "title": "House Calendar for Tuesday February 03, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/2/3/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-02-03",
+        "title": "Senate Calendar for Tuesday February 03, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/2/3/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-02-02": [
+      {
+        "date": "2026-02-02",
+        "title": "House Calendar for Monday February 02, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/2/2/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-02-02",
+        "title": "Senate Calendar for Monday February 02, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/2/2/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-01-30": [
+      {
+        "date": "2026-01-30",
+        "title": "House Calendar for Friday January 30, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/1/30/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-01-30",
+        "title": "Senate Calendar for Friday January 30, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/1/30/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-01-29": [
+      {
+        "date": "2026-01-29",
+        "title": "House Calendar for Thursday January 29, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/1/29/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-01-29",
+        "title": "Senate Calendar for Thursday January 29, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/1/29/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-01-28": [
+      {
+        "date": "2026-01-28",
+        "title": "House Calendar for Wednesday January 28, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/1/28/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-01-28",
+        "title": "Senate Calendar for Wednesday January 28, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/1/28/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-01-27": [
+      {
+        "date": "2026-01-27",
+        "title": "House Calendar for Tuesday January 27, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/1/27/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-01-27",
+        "title": "Senate Calendar for Tuesday January 27, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/1/27/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-01-26": [
+      {
+        "date": "2026-01-26",
+        "title": "House Calendar for Monday January 26, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/1/26/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-01-26",
+        "title": "Senate Calendar for Monday January 26, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/1/26/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-01-23": [
+      {
+        "date": "2026-01-23",
+        "title": "House Calendar for Friday January 23, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/1/23/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-01-23",
+        "title": "Senate Calendar for Friday January 23, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/1/23/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-01-22": [
+      {
+        "date": "2026-01-22",
+        "title": "House Calendar for Thursday January 22, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/1/22/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-01-22",
+        "title": "Senate Calendar for Thursday January 22, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/1/22/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-01-21": [
+      {
+        "date": "2026-01-21",
+        "title": "House Calendar for Wednesday January 21, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/1/21/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-01-21",
+        "title": "Senate Calendar for Wednesday January 21, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/1/21/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-01-20": [
+      {
+        "date": "2026-01-20",
+        "title": "House Calendar for Tuesday January 20, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/1/20/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-01-20",
+        "title": "Senate Calendar for Tuesday January 20, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/1/20/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-01-16": [
+      {
+        "date": "2026-01-16",
+        "title": "House Calendar for Friday January 16, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/1/16/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-01-16",
+        "title": "Senate Calendar for Friday January 16, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/1/16/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-01-15": [
+      {
+        "date": "2026-01-15",
+        "title": "House Calendar for Thursday January 15, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/1/15/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-01-15",
+        "title": "Senate Calendar for Thursday January 15, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/1/15/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-01-14": [
+      {
+        "date": "2026-01-14",
+        "title": "House Calendar for Wednesday January 14, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/1/14/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-01-14",
+        "title": "Senate Calendar for Wednesday January 14, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/1/14/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-01-13": [
+      {
+        "date": "2026-01-13",
+        "title": "House Calendar for Tuesday January 13, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/1/13/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-01-13",
+        "title": "Senate Calendar for Tuesday January 13, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/1/13/",
+        "chamber": "Senate"
+      }
+    ],
+    "2026-01-12": [
+      {
+        "date": "2026-01-12",
+        "title": "House Calendar for Monday January 12, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/1/12/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-01-12",
+        "title": "Senate Calendar for Monday January 12, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/1/12/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-04-11": [
+      {
+        "date": "2025-04-11",
+        "title": "House Calendar for Friday April 11, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/4/11/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-04-11",
+        "title": "Senate Calendar for Friday April 11, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/4/11/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-04-10": [
+      {
+        "date": "2025-04-10",
+        "title": "House Calendar for Thursday April 10, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/4/10/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-04-10",
+        "title": "Senate Calendar for Thursday April 10, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/4/10/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-03-27": [
+      {
+        "date": "2025-03-27",
+        "title": "House Calendar for Thursday March 27, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/3/27/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-03-27",
+        "title": "Senate Calendar for Thursday March 27, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/3/27/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-03-26": [
+      {
+        "date": "2025-03-26",
+        "title": "House Calendar for Wednesday March 26, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/3/26/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-03-26",
+        "title": "Senate Calendar for Wednesday March 26, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/3/26/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-03-25": [
+      {
+        "date": "2025-03-25",
+        "title": "House Calendar for Tuesday March 25, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/3/25/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-03-25",
+        "title": "Senate Calendar for Tuesday March 25, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/3/25/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-03-24": [
+      {
+        "date": "2025-03-24",
+        "title": "House Calendar for Monday March 24, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/3/24/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-03-24",
+        "title": "Senate Calendar for Monday March 24, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/3/24/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-03-21": [
+      {
+        "date": "2025-03-21",
+        "title": "House Calendar for Friday March 21, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/3/21/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-03-21",
+        "title": "Senate Calendar for Friday March 21, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/3/21/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-03-20": [
+      {
+        "date": "2025-03-20",
+        "title": "House Calendar for Thursday March 20, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/3/20/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-03-20",
+        "title": "Senate Calendar for Thursday March 20, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/3/20/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-03-19": [
+      {
+        "date": "2025-03-19",
+        "title": "House Calendar for Wednesday March 19, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/3/19/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-03-19",
+        "title": "Senate Calendar for Wednesday March 19, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/3/19/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-03-18": [
+      {
+        "date": "2025-03-18",
+        "title": "House Calendar for Tuesday March 18, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/3/18/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-03-18",
+        "title": "Senate Calendar for Tuesday March 18, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/3/18/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-03-17": [
+      {
+        "date": "2025-03-17",
+        "title": "House Calendar for Monday March 17, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/3/17/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-03-17",
+        "title": "Senate Calendar for Monday March 17, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/3/17/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-03-14": [
+      {
+        "date": "2025-03-14",
+        "title": "House Calendar for Friday March 14, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/3/14/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-03-14",
+        "title": "Senate Calendar for Friday March 14, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/3/14/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-03-13": [
+      {
+        "date": "2025-03-13",
+        "title": "House Calendar for Thursday March 13, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/3/13/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-03-13",
+        "title": "Senate Calendar for Thursday March 13, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/3/13/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-03-12": [
+      {
+        "date": "2025-03-12",
+        "title": "House Calendar for Wednesday March 12, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/3/12/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-03-12",
+        "title": "Senate Calendar for Wednesday March 12, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/3/12/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-03-11": [
+      {
+        "date": "2025-03-11",
+        "title": "House Calendar for Tuesday March 11, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/3/11/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-03-11",
+        "title": "Senate Calendar for Tuesday March 11, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/3/11/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-03-10": [
+      {
+        "date": "2025-03-10",
+        "title": "House Calendar for Monday March 10, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/3/10/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-03-10",
+        "title": "Senate Calendar for Monday March 10, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/3/10/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-03-07": [
+      {
+        "date": "2025-03-07",
+        "title": "House Calendar for Friday March 07, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/3/7/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-03-07",
+        "title": "Senate Calendar for Friday March 07, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/3/7/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-03-06": [
+      {
+        "date": "2025-03-06",
+        "title": "House Calendar for Thursday March 06, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/3/6/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-03-06",
+        "title": "Senate Calendar for Thursday March 06, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/3/6/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-03-05": [
+      {
+        "date": "2025-03-05",
+        "title": "House Calendar for Wednesday March 05, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/3/5/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-03-05",
+        "title": "Senate Calendar for Wednesday March 05, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/3/5/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-03-04": [
+      {
+        "date": "2025-03-04",
+        "title": "House Calendar for Tuesday March 04, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/3/4/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-03-04",
+        "title": "Senate Calendar for Tuesday March 04, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/3/4/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-03-03": [
+      {
+        "date": "2025-03-03",
+        "title": "House Calendar for Monday March 03, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/3/3/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-03-03",
+        "title": "Senate Calendar for Monday March 03, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/3/3/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-02-28": [
+      {
+        "date": "2025-02-28",
+        "title": "House Calendar for Friday February 28, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/2/28/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-02-28",
+        "title": "Senate Calendar for Friday February 28, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/2/28/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-02-27": [
+      {
+        "date": "2025-02-27",
+        "title": "House Calendar for Thursday February 27, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/2/27/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-02-27",
+        "title": "Senate Calendar for Thursday February 27, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/2/27/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-02-26": [
+      {
+        "date": "2025-02-26",
+        "title": "House Calendar for Wednesday February 26, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/2/26/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-02-26",
+        "title": "Senate Calendar for Wednesday February 26, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/2/26/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-02-25": [
+      {
+        "date": "2025-02-25",
+        "title": "House Calendar for Tuesday February 25, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/2/25/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-02-25",
+        "title": "Senate Calendar for Tuesday February 25, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/2/25/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-02-20": [
+      {
+        "date": "2025-02-20",
+        "title": "House Calendar for Thursday February 20, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/2/20/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-02-20",
+        "title": "Senate Calendar for Thursday February 20, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/2/20/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-02-19": [
+      {
+        "date": "2025-02-19",
+        "title": "House Calendar for Wednesday February 19, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/2/19/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-02-19",
+        "title": "Senate Calendar for Wednesday February 19, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/2/19/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-02-18": [
+      {
+        "date": "2025-02-18",
+        "title": "House Calendar for Tuesday February 18, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/2/18/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-02-18",
+        "title": "Senate Calendar for Tuesday February 18, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/2/18/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-02-17": [
+      {
+        "date": "2025-02-17",
+        "title": "House Calendar for Monday February 17, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/2/17/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-02-17",
+        "title": "Senate Calendar for Monday February 17, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/2/17/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-02-14": [
+      {
+        "date": "2025-02-14",
+        "title": "House Calendar for Friday February 14, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/2/14/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-02-14",
+        "title": "Senate Calendar for Friday February 14, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/2/14/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-02-13": [
+      {
+        "date": "2025-02-13",
+        "title": "House Calendar for Thursday February 13, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/2/13/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-02-13",
+        "title": "Senate Calendar for Thursday February 13, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/2/13/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-02-11": [
+      {
+        "date": "2025-02-11",
+        "title": "House Calendar for Tuesday February 11, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/2/11/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-02-11",
+        "title": "Senate Calendar for Tuesday February 11, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/2/11/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-02-10": [
+      {
+        "date": "2025-02-10",
+        "title": "House Calendar for Monday February 10, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/2/10/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-02-10",
+        "title": "Senate Calendar for Monday February 10, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/2/10/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-02-07": [
+      {
+        "date": "2025-02-07",
+        "title": "House Calendar for Friday February 07, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/2/7/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-02-07",
+        "title": "Senate Calendar for Friday February 07, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/2/7/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-02-06": [
+      {
+        "date": "2025-02-06",
+        "title": "House Calendar for Thursday February 06, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/2/6/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-02-06",
+        "title": "Senate Calendar for Thursday February 06, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/2/6/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-02-05": [
+      {
+        "date": "2025-02-05",
+        "title": "House Calendar for Wednesday February 05, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/2/5/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-02-05",
+        "title": "Senate Calendar for Wednesday February 05, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/2/5/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-02-04": [
+      {
+        "date": "2025-02-04",
+        "title": "House Calendar for Tuesday February 04, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/2/4/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-02-04",
+        "title": "Senate Calendar for Tuesday February 04, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/2/4/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-02-03": [
+      {
+        "date": "2025-02-03",
+        "title": "House Calendar for Monday February 03, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/2/3/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-02-03",
+        "title": "Senate Calendar for Monday February 03, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/2/3/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-01-31": [
+      {
+        "date": "2025-01-31",
+        "title": "House Calendar for Friday January 31, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/1/31/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-01-31",
+        "title": "Senate Calendar for Friday January 31, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/1/31/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-01-30": [
+      {
+        "date": "2025-01-30",
+        "title": "House Calendar for Thursday January 30, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/1/30/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-01-30",
+        "title": "Senate Calendar for Thursday January 30, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/1/30/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-01-29": [
+      {
+        "date": "2025-01-29",
+        "title": "House Calendar for Wednesday January 29, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/1/29/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-01-29",
+        "title": "Senate Calendar for Wednesday January 29, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/1/29/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-01-28": [
+      {
+        "date": "2025-01-28",
+        "title": "House Calendar for Tuesday January 28, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/1/28/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-01-28",
+        "title": "Senate Calendar for Tuesday January 28, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/1/28/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-01-27": [
+      {
+        "date": "2025-01-27",
+        "title": "House Calendar for Monday January 27, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/1/27/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-01-27",
+        "title": "Senate Calendar for Monday January 27, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/1/27/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-01-24": [
+      {
+        "date": "2025-01-24",
+        "title": "House Calendar for Friday January 24, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/1/24/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-01-24",
+        "title": "Senate Calendar for Friday January 24, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/1/24/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-01-23": [
+      {
+        "date": "2025-01-23",
+        "title": "House Calendar for Thursday January 23, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/1/23/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-01-23",
+        "title": "Senate Calendar for Thursday January 23, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/1/23/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-01-22": [
+      {
+        "date": "2025-01-22",
+        "title": "House Calendar for Wednesday January 22, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/1/22/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-01-22",
+        "title": "Senate Calendar for Wednesday January 22, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/1/22/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-01-21": [
+      {
+        "date": "2025-01-21",
+        "title": "House Calendar for Tuesday January 21, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/1/21/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-01-21",
+        "title": "Senate Calendar for Tuesday January 21, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/1/21/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-01-17": [
+      {
+        "date": "2025-01-17",
+        "title": "House Calendar for Friday January 17, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/1/17/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-01-17",
+        "title": "Senate Calendar for Friday January 17, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/1/17/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-01-16": [
+      {
+        "date": "2025-01-16",
+        "title": "House Calendar for Thursday January 16, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/1/16/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-01-16",
+        "title": "Senate Calendar for Thursday January 16, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/1/16/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-01-15": [
+      {
+        "date": "2025-01-15",
+        "title": "House Calendar for Wednesday January 15, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/1/15/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-01-15",
+        "title": "Senate Calendar for Wednesday January 15, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/1/15/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-01-14": [
+      {
+        "date": "2025-01-14",
+        "title": "House Calendar for Tuesday January 14, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/1/14/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-01-14",
+        "title": "Senate Calendar for Tuesday January 14, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/1/14/",
+        "chamber": "Senate"
+      }
+    ],
+    "2025-01-13": [
+      {
+        "date": "2025-01-13",
+        "title": "House Calendar for Monday January 13, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2025/1/13/",
+        "chamber": "House"
+      },
+      {
+        "date": "2025-01-13",
+        "title": "Senate Calendar for Monday January 13, 2025",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2025/1/13/",
+        "chamber": "Senate"
+      }
+    ]
+  }
 }
