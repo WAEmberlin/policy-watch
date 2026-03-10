@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-09T18:56:22.794071-05:00",
+  "last_updated": "2026-03-09T22:16:16.221404-05:00",
   "years": {
     "2026": {
       "total_items": 1403,
@@ -200698,17 +200698,6 @@
   },
   "upcoming_hearings": [
     {
-      "title": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB254",
-      "scheduled_date": "2026-03-09T00:00:00+00:00",
-      "scheduled_time": "12:00 PM",
-      "location": "144-S",
-      "committees": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs",
-      "bill": "SB254",
-      "link": "https://www.kslegislature.gov/li/conference/conf_committee_20260305210732",
-      "published": "2026-03-05T21:59:09+00:00",
-      "source": "State (Kansas Legislature)"
-    },
-    {
       "title": "Hearings to examine sanctuary cities, focusing on law and order.",
       "summary": "Congressional meeting before the Senate Budget.",
       "source": "Federal (US Congress)",
@@ -201090,6 +201079,17 @@
     }
   ],
   "historical_hearings": [
+    {
+      "title": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB254",
+      "scheduled_date": "2026-03-09T00:00:00+00:00",
+      "scheduled_time": "12:00 PM",
+      "location": "144-S",
+      "committees": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs",
+      "bill": "SB254",
+      "link": "https://www.kslegislature.gov/li/conference/conf_committee_20260305210732",
+      "published": "2026-03-05T21:59:09+00:00",
+      "source": "State (Kansas Legislature)"
+    },
     {
       "title": "Budget Hearing \u2013 Library of Congress & U.S. Government Publishing Office",
       "summary": "Congressional meeting before the House Appropriations Subcommittee on Legislative Branch.",
@@ -209752,6 +209752,96 @@
         "house": [],
         "senate": []
       }
+    },
+    "2026-03-09": {
+      "date": "2026-03-09",
+      "generated_at": "2026-03-10T03:16:16.046778+00:00",
+      "model": "phi-3:mini",
+      "prompt_version": "v1",
+      "summary": "11 legislative items recorded. Kansas Legislature: 5 House bills and 6 Senate bills.",
+      "counts": {
+        "total": 11,
+        "kansas_house": 5,
+        "kansas_senate": 6,
+        "congress_house": 0,
+        "congress_senate": 0
+      },
+      "kansas": {
+        "house": [
+          {
+            "bill": "HCR 5035",
+            "short_title": "House: HCR5035: Referred to Committee on Taxation",
+            "action": "Referred to Committee on Taxation",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5035/"
+          },
+          {
+            "bill": "HB 2796",
+            "short_title": "House: HB2796: Referred to Committee on Taxation",
+            "action": "Referred to Committee on Taxation",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2796/"
+          },
+          {
+            "bill": "HB 2795",
+            "short_title": "House: HB2795: Referred to Committee on Taxation",
+            "action": "Referred to Committee on Taxation",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2795/"
+          },
+          {
+            "bill": "HB 2794",
+            "short_title": "House: HB2794: Referred to Committee on Taxation",
+            "action": "Referred to Committee on Taxation",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2794/"
+          },
+          {
+            "bill": "HB 2036",
+            "short_title": "Providing a Kansas income tax subtraction modification for certain amounts received as compensation for members of the armed forces.",
+            "action": "30 PM Room 346-S",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2036/"
+          }
+        ],
+        "senate": [
+          {
+            "bill": "SCR 1625",
+            "short_title": "Proposing to amend section 1 of article 11 of the constitution of the state of Kansas to provide a property tax exemption from all school district levies for residential property that is owned by and the principal place of residence of a person who is 60 years of age or older.",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1625/"
+          },
+          {
+            "bill": "SB 532",
+            "short_title": "Decreasing the rate of ad valorem tax imposed by a school district.",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB532/"
+          },
+          {
+            "bill": "SB 531",
+            "short_title": "Prohibiting the development or operation of any new large load data center in a county that has had a drought emergency declared for such county pursuant to the Kansas emergency management act within the preceding three years.",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB531/"
+          },
+          {
+            "bill": "SB 530",
+            "short_title": "Clarifying definitions of individuals who are subject to a state and national criminal history record check and which agency receives the results of such record check.",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB530/"
+          },
+          {
+            "bill": "SB 529",
+            "short_title": "Requiring the state department of education to prepare and publish a Kansas building report card for virtual schools offered by a school district separately from any report card prepared and published for a traditional school operated by such school district.",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB529/"
+          },
+          {
+            "bill": "SR 1729",
+            "short_title": "Commending the 2026 Kansas Superintendent and Principals of the Year.",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/SR1729/"
+          }
+        ]
+      },
+      "congress": {
+        "house": [],
+        "senate": []
+      }
     }
   },
   "kansas_calendars": {
@@ -209761,6 +209851,12 @@
         "title": "House Calendar for Tuesday March 10, 2026",
         "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/3/10/",
         "chamber": "House"
+      },
+      {
+        "date": "2026-03-10",
+        "title": "Senate Calendar for Tuesday March 10, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/3/10/",
+        "chamber": "Senate"
       }
     ],
     "2026-03-09": [
