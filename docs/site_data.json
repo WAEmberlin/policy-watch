@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-10T05:10:21.867744-05:00",
+  "last_updated": "2026-03-10T06:14:46.620969-05:00",
   "years": {
     "2026": {
       "total_items": 1403,
@@ -138,6 +138,28 @@
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2036/"
           },
           {
+            "date": "2026-03-09",
+            "source": "Congress.gov API",
+            "title": "HR 6392: Home School Graduation Recognition Act",
+            "link": "https://www.congress.gov/bill/119th-congress/house-bill/6392",
+            "published": "2026-03-09T00:00:00",
+            "summary": "",
+            "short_title": "Home School Graduation Recognition Act",
+            "short_title_source": "rss",
+            "bill_number": "HR 6392"
+          },
+          {
+            "date": "2026-03-09",
+            "source": "Congress.gov API",
+            "title": "HR 6472: To amend the Higher Education Act of 1965 to provide for in-state tuition rates for certain residents of Guam, the Commonwealth of the Northern Mariana Islands, American Samoa, and the United States Virgin Islands, and for other purposes.",
+            "link": "https://www.congress.gov/bill/119th-congress/house-bill/6472",
+            "published": "2026-03-09T00:00:00",
+            "summary": "",
+            "short_title": "To amend the Higher Education Act of 1965 to provide for in-state tuition rates for certain residents of Guam, the Commonwealth of the Northern Mariana Islands, American Samoa, and the United States Virgin Islands, and for other purposes.",
+            "short_title_source": "rss",
+            "bill_number": "HR 6472"
+          },
+          {
             "date": "2026-03-06",
             "source": "Kansas Legislature - Events",
             "title": "House: HB2793: Introduced",
@@ -243,17 +265,6 @@
             "short_title": "Directing the President pursuant to section 5(c) of the War Powers Resolution to remove United States Armed Forces from unauthorized hostilities in the Islamic Republic of Iran.",
             "short_title_source": "rss",
             "bill_number": "HCONRES 38"
-          },
-          {
-            "date": "2026-03-05",
-            "source": "Congress.gov API",
-            "title": "HR 6392: Home School Graduation Recognition Act",
-            "link": "https://www.congress.gov/bill/119th-congress/house-bill/6392",
-            "published": "2026-03-05T00:00:00",
-            "summary": "",
-            "short_title": "Home School Graduation Recognition Act",
-            "short_title_source": "rss",
-            "bill_number": "HR 6392"
           },
           {
             "date": "2026-03-05",
@@ -570,7 +581,9 @@
             "short_title_source": "scraped",
             "bill_number": "SB 209",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB209/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-03-04",
             "source": "Kansas Legislature - Events",
@@ -582,9 +595,7 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2323",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2323/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-03-04",
             "source": "Kansas Legislature - Events",
@@ -655,17 +666,6 @@
             "short_title": "Tribal Trust Land Homeownership Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 723"
-          },
-          {
-            "date": "2026-03-04",
-            "source": "Congress.gov API",
-            "title": "HR 6472: To amend the Higher Education Act of 1965 to provide for in-state tuition rates for certain residents of Guam, the Commonwealth of the Northern Mariana Islands, American Samoa, and the United States Virgin Islands, and for other purposes.",
-            "link": "https://www.congress.gov/bill/119th-congress/house-bill/6472",
-            "published": "2026-03-04T00:00:00",
-            "summary": "",
-            "short_title": "To amend the Higher Education Act of 1965 to provide for in-state tuition rates for certain residents of Guam, the Commonwealth of the Northern Mariana Islands, American Samoa, and the United States Virgin Islands, and for other purposes.",
-            "short_title_source": "rss",
-            "bill_number": "HR 6472"
           },
           {
             "date": "2026-03-04",
@@ -15744,6 +15744,38 @@
               "short_title": "Providing a Kansas income tax subtraction modification for certain amounts received as compensation for members of the armed forces.",
               "short_title_source": "scraped"
             }
+          ],
+          "Congress.gov API": [
+            {
+              "title": "HR 6392: Home School Graduation Recognition Act",
+              "link": "https://www.congress.gov/bill/119th-congress/house-bill/6392",
+              "summary": "",
+              "source": "Congress.gov API",
+              "published": "2026-03-09T00:00:00",
+              "bill_number": "HR 6392",
+              "bill_type": "HR",
+              "sponsor_name": "",
+              "latest_action": "Received in the Senate.",
+              "latest_action_date": "2026-03-09T00:00:00",
+              "congress": 119,
+              "short_title": "Home School Graduation Recognition Act",
+              "official_title": "To amend the Higher Education Act of 1965 to recognize students who have completed secondary school education in a home school setting as high school graduates, and for other purposes."
+            },
+            {
+              "title": "HR 6472: To amend the Higher Education Act of 1965 to provide for in-state tuition rates for certain residents of Guam, the Commonwealth of the Northern Mariana Islands, American Samoa, and the United States Virgin Islands, and for other purposes.",
+              "link": "https://www.congress.gov/bill/119th-congress/house-bill/6472",
+              "summary": "",
+              "source": "Congress.gov API",
+              "published": "2026-03-09T00:00:00",
+              "bill_number": "HR 6472",
+              "bill_type": "HR",
+              "sponsor_name": "",
+              "latest_action": "Received in the Senate and Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
+              "latest_action_date": "2026-03-09T00:00:00",
+              "congress": 119,
+              "short_title": "To amend the Higher Education Act of 1965 to provide for in-state tuition rates for certain residents of Guam, the Commonwealth of the Northern Mariana Islands, American Samoa, and the United States Virgin Islands, and for other purposes.",
+              "official_title": "To amend the Higher Education Act of 1965 to provide for in-state tuition rates for certain residents of Guam, the Commonwealth of the Northern Mariana Islands, American Samoa, and the United States Virgin Islands, and for other purposes."
+            }
           ]
         },
         "2026-03-06": {
@@ -15896,21 +15928,6 @@
               "congress": 119,
               "short_title": "Directing the President pursuant to section 5(c) of the War Powers Resolution to remove United States Armed Forces from unauthorized hostilities in the Islamic Republic of Iran.",
               "official_title": "Directing the President pursuant to section 5(c) of the War Powers Resolution to remove United States Armed Forces from unauthorized hostilities in the Islamic Republic of Iran."
-            },
-            {
-              "title": "HR 6392: Home School Graduation Recognition Act",
-              "link": "https://www.congress.gov/bill/119th-congress/house-bill/6392",
-              "summary": "",
-              "source": "Congress.gov API",
-              "published": "2026-03-05T00:00:00",
-              "bill_number": "HR 6392",
-              "bill_type": "HR",
-              "sponsor_name": "",
-              "latest_action": "Mr. Walberg asked unanimous consent that the Clerk be directed to make the correction to the engrossment of H.R. 6392 that has been placed at the desk. Agreed to without objection.",
-              "latest_action_date": "2026-03-05T00:00:00",
-              "congress": 119,
-              "short_title": "Home School Graduation Recognition Act",
-              "official_title": "To amend the Higher Education Act of 1965 to recognize students who have completed secondary school education in a home school setting as high school graduates, and for other purposes."
             },
             {
               "title": "HR 537: INCREASE Housing Affordability Act",
@@ -16456,21 +16473,6 @@
               "congress": 119,
               "short_title": "Tribal Trust Land Homeownership Act of 2025",
               "official_title": "A bill to require the Bureau of Indian Affairs to process and complete all mortgage packages associated with residential and business mortgages on Indian land by certain deadlines, and for other purposes."
-            },
-            {
-              "title": "HR 6472: To amend the Higher Education Act of 1965 to provide for in-state tuition rates for certain residents of Guam, the Commonwealth of the Northern Mariana Islands, American Samoa, and the United States Virgin Islands, and for other purposes.",
-              "link": "https://www.congress.gov/bill/119th-congress/house-bill/6472",
-              "summary": "",
-              "source": "Congress.gov API",
-              "published": "2026-03-04T00:00:00",
-              "bill_number": "HR 6472",
-              "bill_type": "HR",
-              "sponsor_name": "",
-              "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
-              "latest_action_date": "2026-03-04T00:00:00",
-              "congress": 119,
-              "short_title": "To amend the Higher Education Act of 1965 to provide for in-state tuition rates for certain residents of Guam, the Commonwealth of the Northern Mariana Islands, American Samoa, and the United States Virgin Islands, and for other purposes.",
-              "official_title": "To amend the Higher Education Act of 1965 to provide for in-state tuition rates for certain residents of Guam, the Commonwealth of the Northern Mariana Islands, American Samoa, and the United States Virgin Islands, and for other purposes."
             },
             {
               "title": "HR 6162: Albuquerque Indian School Act of 2025",
@@ -138360,6 +138362,34 @@
     "pages": [
       [
         {
+          "bill_number": "6392",
+          "bill_type": "HR",
+          "title": "Home School Graduation Recognition Act",
+          "summary": "",
+          "sponsor_name": "",
+          "latest_action": "Received in the Senate.",
+          "latest_action_date": "2026-03-09T00:00:00",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/6392",
+          "published": "2026-03-09T00:00:00",
+          "congress": 119,
+          "short_title": "Home School Graduation Recognition Act",
+          "official_title": "To amend the Higher Education Act of 1965 to recognize students who have completed secondary school education in a home school setting as high school graduates, and for other purposes."
+        },
+        {
+          "bill_number": "6472",
+          "bill_type": "HR",
+          "title": "Territorial Student Access to Higher Education Act",
+          "summary": "",
+          "sponsor_name": "",
+          "latest_action": "Received in the Senate and Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
+          "latest_action_date": "2026-03-09T00:00:00",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/6472",
+          "published": "2026-03-09T00:00:00",
+          "congress": 119,
+          "short_title": "To amend the Higher Education Act of 1965 to provide for in-state tuition rates for certain residents of Guam, the Commonwealth of the Northern Mariana Islands, American Samoa, and the United States Virgin Islands, and for other purposes.",
+          "official_title": "To amend the Higher Education Act of 1965 to provide for in-state tuition rates for certain residents of Guam, the Commonwealth of the Northern Mariana Islands, American Samoa, and the United States Virgin Islands, and for other purposes."
+        },
+        {
           "bill_number": "38",
           "bill_type": "HCONRES",
           "title": "Directing the President pursuant to section 5(c) of the War Powers Resolution to remove United States Armed Forces from unauthorized hostilities in the Islamic Republic of Iran.",
@@ -138372,20 +138402,6 @@
           "congress": 119,
           "short_title": "Directing the President pursuant to section 5(c) of the War Powers Resolution to remove United States Armed Forces from unauthorized hostilities in the Islamic Republic of Iran.",
           "official_title": "Directing the President pursuant to section 5(c) of the War Powers Resolution to remove United States Armed Forces from unauthorized hostilities in the Islamic Republic of Iran."
-        },
-        {
-          "bill_number": "6392",
-          "bill_type": "HR",
-          "title": "Home School Graduation Recognition Act",
-          "summary": "",
-          "sponsor_name": "",
-          "latest_action": "Mr. Walberg asked unanimous consent that the Clerk be directed to make the correction to the engrossment of H.R. 6392 that has been placed at the desk. Agreed to without objection.",
-          "latest_action_date": "2026-03-05T00:00:00",
-          "url": "https://www.congress.gov/bill/119th-congress/house-bill/6392",
-          "published": "2026-03-05T00:00:00",
-          "congress": 119,
-          "short_title": "Home School Graduation Recognition Act",
-          "official_title": "To amend the Higher Education Act of 1965 to recognize students who have completed secondary school education in a home school setting as high school graduates, and for other purposes."
         },
         {
           "bill_number": "537",
@@ -138680,20 +138696,6 @@
           "congress": 119,
           "short_title": "Tribal Trust Land Homeownership Act of 2025",
           "official_title": "A bill to require the Bureau of Indian Affairs to process and complete all mortgage packages associated with residential and business mortgages on Indian land by certain deadlines, and for other purposes."
-        },
-        {
-          "bill_number": "6472",
-          "bill_type": "HR",
-          "title": "Territorial Student Access to Higher Education Act",
-          "summary": "",
-          "sponsor_name": "",
-          "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
-          "latest_action_date": "2026-03-04T00:00:00",
-          "url": "https://www.congress.gov/bill/119th-congress/house-bill/6472",
-          "published": "2026-03-04T00:00:00",
-          "congress": 119,
-          "short_title": "To amend the Higher Education Act of 1965 to provide for in-state tuition rates for certain residents of Guam, the Commonwealth of the Northern Mariana Islands, American Samoa, and the United States Virgin Islands, and for other purposes.",
-          "official_title": "To amend the Higher Education Act of 1965 to provide for in-state tuition rates for certain residents of Guam, the Commonwealth of the Northern Mariana Islands, American Samoa, and the United States Virgin Islands, and for other purposes."
         },
         {
           "bill_number": "6162",
