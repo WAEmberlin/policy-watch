@@ -3093,5 +3093,77 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-03-10": {
+    "date": "2026-03-10",
+    "generated_at": "2026-03-11T03:15:20.340228+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "8 legislative items recorded. Kansas Legislature: 2 House bills and 6 Senate bills.",
+    "counts": {
+      "total": 8,
+      "kansas_house": 2,
+      "kansas_senate": 6,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2372",
+          "short_title": "Senate Substitute for HB 2372 by Committee on Federal and State Affairs - Establishing requirements for a county sheriff operating a jail for the enforcement of detainer requests issued by the United States immigration and customs enforcement, requiring municipal insurance pools to provide coverage for law enforcement that enforces federal laws, requiring the state to pay certain judgments in federal court actions, requiring the attorney general to provide representation in certain civil actions and exempting section 287(g) agreements from certain provisions of the interlocal cooperation act.",
+          "action": "Committee Report recommending substitute bill be passed by",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2372/"
+        },
+        {
+          "bill": "HB 2797",
+          "short_title": "Providing for the rounding of final transaction amount for sales tax purposes if payment is made with cash.",
+          "action": "Referred to Committee on Taxation",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2797/"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SB 534",
+          "short_title": "Senate: SB534: Introduced",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB534/"
+        },
+        {
+          "bill": "SB 533",
+          "short_title": "Senate: SB533: Introduced",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB533/"
+        },
+        {
+          "bill": "SR 1731",
+          "short_title": "Recognizing Barry Ward as the 2026 Kansas State Balladeer",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SR1731/"
+        },
+        {
+          "bill": "SR 1732",
+          "short_title": "Commending Employer Support of the Guard and Reserve and acknowledging the patriotic commitment of all Kansas employers who support their employees serving in the National Guard and Reserve.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SR1732/"
+        },
+        {
+          "bill": "SR 1730",
+          "short_title": "Celebrating the YMCA's 175th Anniversary.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SR1730/"
+        },
+        {
+          "bill": "SB 254",
+          "short_title": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB254",
+          "action": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB254",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260310162323"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
