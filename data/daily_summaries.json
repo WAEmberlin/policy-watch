@@ -3165,5 +3165,53 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-03-11": {
+    "date": "2026-03-11",
+    "generated_at": "2026-03-12T03:21:24.529933+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "4 legislative items recorded. Kansas Legislature: 2 House bills and 2 Senate bills.",
+    "counts": {
+      "total": 4,
+      "kansas_house": 2,
+      "kansas_senate": 2,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2798",
+          "short_title": "Granting authority to research universities regarding transactions involving real property, buildings, infrastructure, easements and the procurement of goods and services and exempting such universities from statutes governing such transactions.",
+          "action": "Referred to Committee on Higher Education Budget",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2798/"
+        },
+        {
+          "bill": "HR 6036",
+          "short_title": "Congratulating Stryten Energy on the 50th anniversary of its battery manufacturing facility in Salina.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6036/"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SB 1",
+          "short_title": "Exempting the state of Kansas from daylight saving time but providing for moving to permanent daylight saving time upon an act of Congress requiring such move.",
+          "action": "00 AM Room 346-S",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB1/"
+        },
+        {
+          "bill": "SB 231",
+          "short_title": "House: SB231: Committee Report recommending substitute bill be passed by",
+          "action": "Committee Report recommending substitute bill be passed by",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB231/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
