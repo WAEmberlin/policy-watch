@@ -3213,5 +3213,47 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-03-12": {
+    "date": "2026-03-12",
+    "generated_at": "2026-03-13T03:18:55.151691+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "- Kansas Legislature:\n\n  - Kansas House of Representatives and Senate held committee conferences for bills HB 2468 and HB 2004 on March 12, 2026.\n\n  - Kansas Senate introduced Senate Bill 1734 (SR 1734) on the same date.\n\n- U.S. Congress:\n\n  - No Kansas-specific legislative activity was reported for U.S. Congress on March 12, 2026.",
+    "counts": {
+      "total": 3,
+      "kansas_house": 2,
+      "kansas_senate": 1,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2468",
+          "short_title": "Senate Committee on Education and House Committee on Education on HB2468",
+          "action": "Senate Committee on Education and House Committee on Education on HB2468",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260312204144"
+        },
+        {
+          "bill": "HB 2004",
+          "short_title": "Senate Committee on Government Efficiency and House Committee on Welfare Reform on HB2004",
+          "action": "Senate Committee on Government Efficiency and House Committee on Welfare Reform on HB2004",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260312193353"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SR 1734",
+          "short_title": "Senate: SR1734: Introduced",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SR1734/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
