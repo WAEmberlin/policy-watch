@@ -3255,5 +3255,47 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-03-13": {
+    "date": "2026-03-13",
+    "generated_at": "2026-03-14T03:18:04.179983+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "3 legislative items recorded. Kansas Legislature: 1 House bill and 2 Senate bills.",
+    "counts": {
+      "total": 3,
+      "kansas_house": 1,
+      "kansas_senate": 2,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HR 6034",
+          "short_title": "Commemorating the life and service of Representative Robert Tomlinson.",
+          "action": "Enrolled on Friday, March 13, 2026",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6034/"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SB 535",
+          "short_title": "Exempting correctional authorities and certain business entities contracting with correctional authorities from certain rules and regulations governing the possession, transportation and use of explosive materials.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB535/"
+        },
+        {
+          "bill": "SR 1733",
+          "short_title": "Recognizing the members of Delta Sigma Theta Sorority, Inc., for their outstanding service to the citizens of our state, our nation, and the international community and for their promotion of sisterhood, scholarship and service.",
+          "action": "Enrolled on Friday, March 13, 2026",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SR1733/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
