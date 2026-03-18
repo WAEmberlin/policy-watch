@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-17T19:02:24.371992-05:00",
+  "last_updated": "2026-03-17T22:31:59.774941-05:00",
   "years": {
     "2026": {
       "total_items": 1446,
@@ -211143,9 +211143,64 @@
         "house": [],
         "senate": []
       }
+    },
+    "2026-03-17": {
+      "date": "2026-03-17",
+      "generated_at": "2026-03-18T03:31:59.553320+00:00",
+      "model": "phi-3:mini",
+      "prompt_version": "v1",
+      "summary": "3 legislative items recorded. Kansas Legislature: 3 House bills.",
+      "counts": {
+        "total": 3,
+        "kansas_house": 3,
+        "kansas_senate": 0,
+        "congress_house": 0,
+        "congress_senate": 0
+      },
+      "kansas": {
+        "house": [
+          {
+            "bill": "HB 2018",
+            "short_title": "Senate Substitute for HB 2018 by Committee on Federal and State Affairs - Creating the crime of interference with the conduct of a religious assembly, providing criminal penalties therefor and providing for a civil cause of action for damages.",
+            "action": "Committee Report recommending substitute bill be passed by",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2018/"
+          },
+          {
+            "bill": "HB 2188",
+            "short_title": "Enacting the defend the guard act to prescribe when the Kansas national guard may be released from the state for active duty combat.",
+            "action": "86",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2188/"
+          },
+          {
+            "bill": "HR 6040",
+            "short_title": "Commemorating the life and service of Representative John Resman.",
+            "action": "Adopted without roll call",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6040/"
+          }
+        ],
+        "senate": []
+      },
+      "congress": {
+        "house": [],
+        "senate": []
+      }
     }
   },
   "kansas_calendars": {
+    "2026-03-18": [
+      {
+        "date": "2026-03-18",
+        "title": "House Calendar for Wednesday March 18, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/house/calendar/2026/3/18/",
+        "chamber": "House"
+      },
+      {
+        "date": "2026-03-18",
+        "title": "Senate Calendar for Wednesday March 18, 2026",
+        "link": "https://www.kslegislature.gov/li/chamber/senate/calendar/2026/3/18/",
+        "chamber": "Senate"
+      }
+    ],
     "2026-03-17": [
       {
         "date": "2026-03-17",
