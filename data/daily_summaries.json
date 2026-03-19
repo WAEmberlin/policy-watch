@@ -3424,5 +3424,34 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-03-18": {
+    "date": "2026-03-18",
+    "generated_at": "2026-03-19T03:30:13.895714+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "On March 18, 2026, a single Kansas House bill titled HB 2800 regarding restrictions on student athlete compensation was referred to the Committee on Appropriations. There were no legislative activities reported by either chambers of the U.S. Congress for that same day.",
+    "counts": {
+      "total": 1,
+      "kansas_house": 1,
+      "kansas_senate": 0,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2800",
+          "short_title": "Prohibiting postsecondary educational institutions from using or commingling state moneys or student fees to compensate a collegiate student athlete for the use of the athlete's name, image, likeness rights or athletic reputation.",
+          "action": "Referred to Committee on Appropriations",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2800/"
+        }
+      ],
+      "senate": []
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
