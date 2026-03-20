@@ -3453,5 +3453,65 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-03-19": {
+    "date": "2026-03-19",
+    "generated_at": "2026-03-20T03:23:00.716703+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "6 legislative items recorded. Kansas Legislature: 5 House bills and 1 Senate bill.",
+    "counts": {
+      "total": 6,
+      "kansas_house": 5,
+      "kansas_senate": 1,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2513",
+          "short_title": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+          "action": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260319222519"
+        },
+        {
+          "bill": "HB 2099",
+          "short_title": "Senate Committee on Local Government, Transparency and Ethics and House Committee on Local Government on HB2099",
+          "action": "Senate Committee on Local Government, Transparency and Ethics and House Committee on Local Government on HB2099",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260319221150"
+        },
+        {
+          "bill": "HB 2111",
+          "short_title": "Senate Substitute for HB 2111 by Committee on Agriculture and Natural Resources - Exempting certain registered agritourism operations from local code and regulation enforcement.",
+          "action": "Committee of the Whole - Now working on",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2111/"
+        },
+        {
+          "bill": "HB 2402",
+          "short_title": "Senate Substitute for HB 2402 by Committee on Education - Requiring eligible boards of education to consider participation in the community eligibility provision, providing a financial hardship exception to such participation and requiring the state department of education to assist school districts seeking such participation.",
+          "action": "Committee of the Whole - Now working on",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2402/"
+        },
+        {
+          "bill": "HB 2513",
+          "short_title": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+          "action": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260319213455"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SCR 1603",
+          "short_title": "House: SCR1603: Committee of the Whole - Now working on",
+          "action": "Committee of the Whole - Now working on",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1603/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
