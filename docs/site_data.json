@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-21T06:00:27.661868-05:00",
+  "last_updated": "2026-03-21T06:52:24.536938-05:00",
   "years": {
     "2026": {
       "total_items": 1562,
@@ -50,6 +50,28 @@
             "short_title": "American Water Stewardship Act",
             "short_title_source": "rss",
             "bill_number": "HR 6422"
+          },
+          {
+            "date": "2026-03-20",
+            "source": "Congress.gov API",
+            "title": "S 1383: Veterans Accessibility Advisory Committee Act of 2025",
+            "link": "https://www.congress.gov/bill/119th-congress/senate-bill/1383",
+            "published": "2026-03-20T00:00:00",
+            "summary": "",
+            "short_title": "Veterans Accessibility Advisory Committee Act of 2025",
+            "short_title_source": "rss",
+            "bill_number": "S 1383"
+          },
+          {
+            "date": "2026-03-20",
+            "source": "Congress.gov API",
+            "title": "S 1602: Mathematical and Statistical Modeling Education Act",
+            "link": "https://www.congress.gov/bill/119th-congress/senate-bill/1602",
+            "published": "2026-03-20T00:00:00",
+            "summary": "",
+            "short_title": "Mathematical and Statistical Modeling Education Act",
+            "short_title_source": "rss",
+            "bill_number": "S 1602"
           },
           {
             "date": "2026-03-19",
@@ -163,17 +185,6 @@
             "short_title": "Deporting Fraudsters Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 1958"
-          },
-          {
-            "date": "2026-03-19",
-            "source": "Congress.gov API",
-            "title": "S 1383: Veterans Accessibility Advisory Committee Act of 2025",
-            "link": "https://www.congress.gov/bill/119th-congress/senate-bill/1383",
-            "published": "2026-03-19T00:00:00",
-            "summary": "",
-            "short_title": "Veterans Accessibility Advisory Committee Act of 2025",
-            "short_title_source": "rss",
-            "bill_number": "S 1383"
           },
           {
             "date": "2026-03-19",
@@ -548,7 +559,9 @@
             "short_title": "Patients Deserve Price Tags Act",
             "short_title_source": "rss",
             "bill_number": "S 2355"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-03-19",
             "source": "Congress.gov API",
@@ -559,9 +572,7 @@
             "short_title": "Uterine Fibroid Intervention and Gynecological Health Treatment Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 2531"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-03-19",
             "source": "Congress.gov API",
@@ -1101,7 +1112,9 @@
             "short_title": "Fisher House Availability Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 3119"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-03-18",
             "source": "Congress.gov API",
@@ -1112,9 +1125,7 @@
             "short_title": "Improving Access to Care for Rural Veterans Act",
             "short_title_source": "rss",
             "bill_number": "S 3033"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-03-18",
             "source": "Congress.gov API",
@@ -1656,7 +1667,9 @@
             "short_title": "ERISA Litigation Reform Act",
             "short_title_source": "rss",
             "bill_number": "HR 6084"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-03-16",
             "source": "Kansas Legislature - Events",
@@ -1668,9 +1681,7 @@
             "short_title_source": "rss",
             "bill_number": "SB 536",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB536/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-03-16",
             "source": "Kansas Legislature - Events",
@@ -1999,17 +2010,6 @@
             "short_title": "Living Donor Protection Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 1552"
-          },
-          {
-            "date": "2026-03-11",
-            "source": "Congress.gov API",
-            "title": "S 1602: Mathematical and Statistical Modeling Education Act",
-            "link": "https://www.congress.gov/bill/119th-congress/senate-bill/1602",
-            "published": "2026-03-11T00:00:00",
-            "summary": "",
-            "short_title": "Mathematical and Statistical Modeling Education Act",
-            "short_title_source": "rss",
-            "bill_number": "S 1602"
           },
           {
             "date": "2026-03-11",
@@ -17413,6 +17413,36 @@
               "congress": 119,
               "short_title": "American Water Stewardship Act",
               "official_title": "To amend the Federal Water Pollution Control Act to reauthorize certain EPA geographic programs, and for other purposes."
+            },
+            {
+              "title": "S 1383: Veterans Accessibility Advisory Committee Act of 2025",
+              "link": "https://www.congress.gov/bill/119th-congress/senate-bill/1383",
+              "summary": "",
+              "source": "Congress.gov API",
+              "published": "2026-03-20T00:00:00",
+              "bill_number": "S 1383",
+              "bill_type": "S",
+              "sponsor_name": "",
+              "latest_action": "Considered by Senate (Message from the House considered).",
+              "latest_action_date": "2026-03-20T00:00:00",
+              "congress": 119,
+              "short_title": "Veterans Accessibility Advisory Committee Act of 2025",
+              "official_title": "A bill to establish the Veterans Advisory Committee on Equal Access, and for other purposes."
+            },
+            {
+              "title": "S 1602: Mathematical and Statistical Modeling Education Act",
+              "link": "https://www.congress.gov/bill/119th-congress/senate-bill/1602",
+              "summary": "",
+              "source": "Congress.gov API",
+              "published": "2026-03-20T00:00:00",
+              "bill_number": "S 1602",
+              "bill_type": "S",
+              "sponsor_name": "",
+              "latest_action": "Referred sequentially to the Committee on Commerce, Science, and Transportation, pursuant to the order of March 3, 1988, for 30 calendar days excluding any day on which the Senate is not in session, and if not reported by that day, the Committee be discharged from further consideration thereof, and the bill be placed on the calendar.",
+              "latest_action_date": "2026-03-20T00:00:00",
+              "congress": 119,
+              "short_title": "Mathematical and Statistical Modeling Education Act",
+              "official_title": "A bill to coordinate Federal research and development efforts focused on modernizing mathematics in STEM education through mathematical and statistical modeling, including data-driven and computational thinking, problem, project, and performance-based learning and assessment, interdisciplinary exploration, and career connections, and for other purposes."
             }
           ]
         },
@@ -17572,21 +17602,6 @@
               "congress": 119,
               "short_title": "Deporting Fraudsters Act of 2025",
               "official_title": "To amend the Immigration and Nationality Act to clarify that aliens who have been convicted of defrauding the United States Government or the unlawful receipt of public benefits are inadmissible and deportable."
-            },
-            {
-              "title": "S 1383: Veterans Accessibility Advisory Committee Act of 2025",
-              "link": "https://www.congress.gov/bill/119th-congress/senate-bill/1383",
-              "summary": "",
-              "source": "Congress.gov API",
-              "published": "2026-03-19T00:00:00",
-              "bill_number": "S 1383",
-              "bill_type": "S",
-              "sponsor_name": "",
-              "latest_action": "Cloture motion on the motion to suspend the operation of Rule XXV, paragraph (n)(1) to permit the committee on Rules and Administration to consider the pending motion with respect to the House message to accompany S. 1383 presented in Senate.",
-              "latest_action_date": "2026-03-19T00:00:00",
-              "congress": 119,
-              "short_title": "Veterans Accessibility Advisory Committee Act of 2025",
-              "official_title": "A bill to establish the Veterans Advisory Committee on Equal Access, and for other purposes."
             },
             {
               "title": "S 3588: A bill to amend the Public Health Service Act to provide funding for trained school personnel to administer drugs and devices for emergency treatment of known or suspected opioid overdose, and for other purposes.",
@@ -20096,21 +20111,6 @@
               "congress": 119,
               "short_title": "Living Donor Protection Act of 2025",
               "official_title": "A bill to promote and protect from discrimination living organ donors."
-            },
-            {
-              "title": "S 1602: Mathematical and Statistical Modeling Education Act",
-              "link": "https://www.congress.gov/bill/119th-congress/senate-bill/1602",
-              "summary": "",
-              "source": "Congress.gov API",
-              "published": "2026-03-11T00:00:00",
-              "bill_number": "S 1602",
-              "bill_type": "S",
-              "sponsor_name": "",
-              "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 353.",
-              "latest_action_date": "2026-03-11T00:00:00",
-              "congress": 119,
-              "short_title": "Mathematical and Statistical Modeling Education Act",
-              "official_title": "A bill to coordinate Federal research and development efforts focused on modernizing mathematics in STEM education through mathematical and statistical modeling, including data-driven and computational thinking, problem, project, and performance-based learning and assessment, interdisciplinary exploration, and career connections, and for other purposes."
             },
             {
               "title": "S 1555: Made in America Manufacturing Finance Act of 2025",
@@ -140394,6 +140394,34 @@
           "official_title": "To amend the Federal Water Pollution Control Act to reauthorize certain EPA geographic programs, and for other purposes."
         },
         {
+          "bill_number": "1383",
+          "bill_type": "S",
+          "title": "A bill to establish the Veterans Advisory Committee on Equal Access, and for other purposes.",
+          "summary": "",
+          "sponsor_name": "",
+          "latest_action": "Considered by Senate (Message from the House considered).",
+          "latest_action_date": "2026-03-20T00:00:00",
+          "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1383",
+          "published": "2026-03-20T00:00:00",
+          "congress": 119,
+          "short_title": "Veterans Accessibility Advisory Committee Act of 2025",
+          "official_title": "A bill to establish the Veterans Advisory Committee on Equal Access, and for other purposes."
+        },
+        {
+          "bill_number": "1602",
+          "bill_type": "S",
+          "title": "A bill to coordinate Federal research and development efforts focused on modernizing mathematics in STEM education through mathematical and statistical modeling, including data-driven and computational thinking, problem, project, and performance-based learning and assessment, interdisciplinary exploration, and career connections, and for other purposes.",
+          "summary": "",
+          "sponsor_name": "",
+          "latest_action": "Referred sequentially to the Committee on Commerce, Science, and Transportation, pursuant to the order of March 3, 1988, for 30 calendar days excluding any day on which the Senate is not in session, and if not reported by that day, the Committee be discharged from further consideration thereof, and the bill be placed on the calendar.",
+          "latest_action_date": "2026-03-20T00:00:00",
+          "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1602",
+          "published": "2026-03-20T00:00:00",
+          "congress": 119,
+          "short_title": "Mathematical and Statistical Modeling Education Act",
+          "official_title": "A bill to coordinate Federal research and development efforts focused on modernizing mathematics in STEM education through mathematical and statistical modeling, including data-driven and computational thinking, problem, project, and performance-based learning and assessment, interdisciplinary exploration, and career connections, and for other purposes."
+        },
+        {
           "bill_number": "4638",
           "bill_type": "HR",
           "title": "Federal Working Animal Protection Act",
@@ -140490,20 +140518,6 @@
           "congress": 119,
           "short_title": "Deporting Fraudsters Act of 2025",
           "official_title": "To amend the Immigration and Nationality Act to clarify that aliens who have been convicted of defrauding the United States Government or the unlawful receipt of public benefits are inadmissible and deportable."
-        },
-        {
-          "bill_number": "1383",
-          "bill_type": "S",
-          "title": "Veterans Accessibility Advisory Committee Act of 2025",
-          "summary": "",
-          "sponsor_name": "",
-          "latest_action": "Cloture motion on the motion to suspend the operation of Rule XXV, paragraph (n)(1) to permit the committee on Rules and Administration to consider the pending motion with respect to the House message to accompany S. 1383 presented in Senate.",
-          "latest_action_date": "2026-03-19T00:00:00",
-          "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1383",
-          "published": "2026-03-19T00:00:00",
-          "congress": 119,
-          "short_title": "Veterans Accessibility Advisory Committee Act of 2025",
-          "official_title": "A bill to establish the Veterans Advisory Committee on Equal Access, and for other purposes."
         },
         {
           "bill_number": "3588",
@@ -141050,7 +141064,9 @@
           "congress": 119,
           "short_title": "Monterey Bay National Heritage Area Study Act",
           "official_title": "To authorize the Secretary of the Interior to conduct a study to assess the suitability and feasibility of designating certain land in California as the Monterey Bay National Heritage Area, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "3286",
           "bill_type": "HR",
@@ -141064,9 +141080,7 @@
           "congress": 119,
           "short_title": "Mammoth Cave National Park Boundary Adjustment Act of 2025",
           "official_title": "To modify the boundary of the Mammoth Cave National Park in the State of Kentucky, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "4290",
           "bill_type": "HR",
@@ -141752,7 +141766,9 @@
           "congress": 119,
           "short_title": "MAWS Act of 2025",
           "official_title": "To direct the Secretary of Commerce to establish a pilot program with respect to the sale of blue catfish caught within the Chesapeake Bay Watershed."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "1199",
           "bill_type": "S",
@@ -141766,9 +141782,7 @@
           "congress": 119,
           "short_title": "SBA Fraud Enforcement Extension Act",
           "official_title": "A bill to extend the statute of limitations for fraud under certain pandemic programs, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "2807",
           "bill_type": "S",
@@ -142454,7 +142468,9 @@
           "congress": 119,
           "short_title": "Aviation Supply Chain Safety and Security Digitization Act of 2025",
           "official_title": "To direct the Comptroller General of the United States to conduct a study on the impediments to digital documentation and verification in the aviation supply chain, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "3410",
           "bill_type": "HR",
@@ -142468,9 +142484,7 @@
           "congress": 119,
           "short_title": "Supersonic Aviation Modernization Act",
           "official_title": "To allow for the operation of civil supersonic flight in the national airspace system under certain conditions, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "6427",
           "bill_type": "HR",
@@ -142596,20 +142610,6 @@
           "congress": 119,
           "short_title": "Living Donor Protection Act of 2025",
           "official_title": "A bill to promote and protect from discrimination living organ donors."
-        },
-        {
-          "bill_number": "1602",
-          "bill_type": "S",
-          "title": "Mathematical and Statistical Modeling Education Act",
-          "summary": "",
-          "sponsor_name": "",
-          "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 353.",
-          "latest_action_date": "2026-03-11T00:00:00",
-          "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1602",
-          "published": "2026-03-11T00:00:00",
-          "congress": 119,
-          "short_title": "Mathematical and Statistical Modeling Education Act",
-          "official_title": "A bill to coordinate Federal research and development efforts focused on modernizing mathematics in STEM education through mathematical and statistical modeling, including data-driven and computational thinking, problem, project, and performance-based learning and assessment, interdisciplinary exploration, and career connections, and for other purposes."
         },
         {
           "bill_number": "1555",
