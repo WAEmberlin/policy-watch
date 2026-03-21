@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-20T19:01:15.491328-05:00",
+  "last_updated": "2026-03-20T22:12:23.233674-05:00",
   "years": {
     "2026": {
       "total_items": 1561,
@@ -214281,6 +214281,72 @@
             "short_title": "House: SCR1603: Committee of the Whole - Now working on",
             "action": "Committee of the Whole - Now working on",
             "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1603/"
+          }
+        ]
+      },
+      "congress": {
+        "house": [],
+        "senate": []
+      }
+    },
+    "2026-03-20": {
+      "date": "2026-03-20",
+      "generated_at": "2026-03-21T03:12:23.032106+00:00",
+      "model": "phi-3:mini",
+      "prompt_version": "v1",
+      "summary": "7 legislative items recorded. Kansas Legislature: 6 House bills and 1 Senate bill.",
+      "counts": {
+        "total": 7,
+        "kansas_house": 6,
+        "kansas_senate": 1,
+        "congress_house": 0,
+        "congress_senate": 0
+      },
+      "kansas": {
+        "house": [
+          {
+            "bill": "HB 2329",
+            "short_title": "Senate Judiciary and Representatives Lewis, Howerton and Schlingensiepen on HB2329",
+            "action": "Senate Judiciary and Representatives Lewis, Howerton and Schlingensiepen on HB2329",
+            "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260320205641"
+          },
+          {
+            "bill": "HB 2513",
+            "short_title": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+            "action": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+            "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260320202750"
+          },
+          {
+            "bill": "HB 2513",
+            "short_title": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+            "action": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+            "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260320180942"
+          },
+          {
+            "bill": "HR 6037",
+            "short_title": "Providing for the assignment of seats in the House of Representatives for the 2026 legislative session.",
+            "action": "Enrolled on Friday, March 20, 2026",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6037/"
+          },
+          {
+            "bill": "HB 2513",
+            "short_title": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+            "action": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+            "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260320154551"
+          },
+          {
+            "bill": "HB 2513",
+            "short_title": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+            "action": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+            "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260320012128"
+          }
+        ],
+        "senate": [
+          {
+            "bill": "SR 1735",
+            "short_title": "Senate: SR1735: Enrolled on Friday, March 20, 2026",
+            "action": "Enrolled on Friday, March 20, 2026",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/SR1735/"
           }
         ]
       },
