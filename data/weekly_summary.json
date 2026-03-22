@@ -1,9 +1,9 @@
 {
-  "week_start": "2026-03-08",
-  "week_end": "2026-03-15",
+  "week_start": "2026-03-15",
+  "week_end": "2026-03-22",
   "model": "phi-3:mini",
   "prompt_version": "v1",
-  "generated_at": "2026-03-15T06:51:21.543101+00:00",
+  "generated_at": "2026-03-22T06:44:56.778656+00:00",
   "jurisdictions": [
     {
       "name": "Kansas Legislature",
@@ -11,27 +11,28 @@
         {
           "title": "House Bills",
           "summary": [
-            "HR 6034 was enrolled on friday, march 13, 2026 on 2026-03-13.",
-            "HB 2468 was senate committee on education and house committee on education on hb2468 on 2026-03-12.",
-            "HB 2004 was senate committee on government efficiency and house committee on welfare reform on hb2004 on 2026-03-12.",
-            "HB 2798 was referred to committee on higher education budget on 2026-03-11.",
-            "HR 6036 was introduced on 2026-03-11.",
-            "HB 2372 was committee report recommending substitute bill be passed by on 2026-03-10.",
-            "5 House bills were referred to committee on taxation: HB 2797, HCR 5035, HB 2796, HB 2795, HB 2794.",
-            "HB 2036 was 30 pm room 346-s on 2026-03-09."
+            "HB 2329 was senate judiciary and representatives lewis, howerton and schlingensiepen on hb2329 on 2026-03-20.",
+            "6 House bills were senate committee on ways and means and house committee on appropriations on hb2513: HB 2513, HB 2513, HB 2513, HB 2513, HB 2513 and 1 more.",
+            "HR 6037 was enrolled on friday, march 20, 2026 on 2026-03-20.",
+            "HB 2099 was senate committee on local government, transparency and ethics and house committee on local government on hb2099 on 2026-03-19.",
+            "2 House bills were committee of the whole - now working on: HB 2111, HB 2402.",
+            "HB 2800 was referred to committee on appropriations on 2026-03-18.",
+            "HB 2018 was committee report recommending substitute bill be passed by on 2026-03-17.",
+            "HB 2188 was 86 on 2026-03-17.",
+            "HR 6040 was adopted without roll call on 2026-03-17.",
+            "HB 2799 was referred to committee on federal and state affairs on 2026-03-16."
           ],
-          "bill_count": 12
+          "bill_count": 16
         },
         {
           "title": "Senate Bills",
           "summary": [
-            "13 Senate bills were introduced: SB 535, SR 1734, SB 534, SB 533, SR 1731 and 8 more.",
-            "SR 1733 was enrolled on friday, march 13, 2026 on 2026-03-13.",
-            "SB 1 was 00 am room 346-s on 2026-03-11.",
-            "SB 231 was committee report recommending substitute bill be passed by on 2026-03-11.",
-            "SB 254 was senate committee on federal and state affairs and house committee on federal and state affairs on sb254 on 2026-03-10."
+            "SR 1735 was enrolled on friday, march 20, 2026 on 2026-03-20.",
+            "SCR 1603 was committee of the whole - now working on on 2026-03-19.",
+            "SB 536 was introduced on 2026-03-16.",
+            "SB 260 was committee report recommending substitute bill be passed by on 2026-03-16."
           ],
-          "bill_count": 17
+          "bill_count": 4
         }
       ]
     },
@@ -41,28 +42,31 @@
         {
           "title": "House of Representatives",
           "summary": [
-            "HR 2709 was placed on the union calendar, calendar no. 466. on 2026-03-12.",
-            "HR 6380 was placed on the union calendar, calendar no. 467. on 2026-03-12.",
-            "HR 6644 was passed senate with an amendment by yea-nay vote. 89 - 10. record vote number: 53. on 2026-03-12.",
-            "5 House of Representatives bills were referred to the subcommittee on federal lands.: HR 6062, HR 5555, HR 3286, HR 4290, HR 4716.",
-            "HR 6392 was received in the senate. on 2026-03-09.",
-            "HR 6472 was received in the senate and read twice and referred to the committee on health, education, labor, and pensions. on 2026-03-09."
+            "HR 2474 was placed on the union calendar, calendar no. 486. on 2026-03-20.",
+            "HR 6422 was placed on the union calendar, calendar no. 485. on 2026-03-20.",
+            "HR 4638 was motion to reconsider laid on the table agreed to without objection. on 2026-03-19.",
+            "HR 1799 was placed on the union calendar, calendar no. 478. on 2026-03-19.",
+            "HR 6967 was placed on the union calendar, calendar no. 479. on 2026-03-19.",
+            "2 House of Representatives bills were referred to the subcommittee on water, wildlife and fisheries.: HR 6893, HR 5694.",
+            "HR 6778 was referred to the subcommittee on federal lands. on 2026-03-19.",
+            "HR 1958 was received in the senate and read twice and referred to the committee on the judiciary. on 2026-03-19.",
+            "HR 556 was received in the senate and read twice and referred to the committee on environment and public works. on 2026-03-19.",
+            "4 House of Representatives bills were subcommittee hearings held: HR 5555, HR 3286, HR 4290, HR 4716.",
+            "HJRES 139 was on motion to suspend the rules and pass the resolution failed by the yeas and nays: (2/3 required): 211 - 207 (roll no. 95). on 2026-03-18.",
+            "HR 1329 was ordered to be reported (amended) by the yeas and nays: 7 - 4. on 2026-03-18.",
+            "HR 6916 was committee consideration and mark-up session held on 2026-03-18.",
+            "3 House of Representatives bills were committee hearings held: HR 5203, HR 4876, HR 4114."
           ],
-          "bill_count": 10
+          "bill_count": 80
         },
         {
           "title": "U.S. Senate",
           "summary": [
-            "S 2563 was placed on senate legislative calendar under general orders. calendar no. 356. on 2026-03-12.",
-            "S 3135 was committee on environment and public works. hearings held. on 2026-03-11.",
-            "S 2357 was placed on senate legislative calendar under general orders. calendar no. 351. on 2026-03-11.",
-            "S 1552 was placed on senate legislative calendar under general orders. calendar no. 352. on 2026-03-11.",
-            "S 1602 was placed on senate legislative calendar under general orders. calendar no. 353. on 2026-03-11.",
-            "S 1555 was committee on small business and entrepreneurship. hearings held. on 2026-03-11.",
-            "S 953 was committee on indian affairs. hearings held. on 2026-03-11.",
-            "S 327 was passed senate without amendment by unanimous consent. on 2026-03-10."
+            "S 1383 was considered by senate (message from the house considered). on 2026-03-20.",
+            "S 1602 was referred sequentially to the committee on commerce, science, and transportation, pursuant to the order of march 3, 1988, for 30 calendar days excluding any day on which the senate is not in session, and if not reported by that day, the committee be discharged from further consideration thereof, and the bill be placed on the calendar. on 2026-03-20.",
+            "18 U.S. Senate bills were committee on health, education, labor, and pensions. hearings held.: S 3588, S 3525, S 3401, S 3323, S 3245 and 13 more."
           ],
-          "bill_count": 8
+          "bill_count": 75
         }
       ]
     }
