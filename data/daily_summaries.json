@@ -3623,5 +3623,119 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-03-23": {
+    "date": "2026-03-23",
+    "generated_at": "2026-03-24T03:24:43.588789+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "15 legislative items recorded. Kansas Legislature: 10 House bills and 5 Senate bills.",
+    "counts": {
+      "total": 15,
+      "kansas_house": 10,
+      "kansas_senate": 5,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2482",
+          "short_title": "Senate Committee on Education and House Committee on K-12 Education Budget on HB2482",
+          "action": "Senate Committee on Education and House Committee on K-12 Education Budget on HB2482",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260323212453"
+        },
+        {
+          "bill": "HB 2004",
+          "short_title": "Senate Committee on Government Efficiency and House Committee on Welfare Reform on HB2004, HB2731",
+          "action": "Senate Committee on Government Efficiency and House Committee on Welfare Reform on HB2004, HB2731",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260323233508"
+        },
+        {
+          "bill": "HB 2513",
+          "short_title": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+          "action": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260323233053"
+        },
+        {
+          "bill": "HB 2482",
+          "short_title": "Senate Committee on Education and House Committee on K-12 Education Budget on HB2482",
+          "action": "Senate Committee on Education and House Committee on K-12 Education Budget on HB2482",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260323214633"
+        },
+        {
+          "bill": "HB 2513",
+          "short_title": "MEETING CANCELED - Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+          "action": "MEETING CANCELED - Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260323151613canceled"
+        },
+        {
+          "bill": "HB 2513",
+          "short_title": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+          "action": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260323200020"
+        },
+        {
+          "bill": "HB 2128",
+          "short_title": "Authorizing the commissioner of insurance to select and announce the version of certain instructions, calculations and documents in effect for the upcoming calendar year and cause such announcement to be published in the Kansas register, allowing certain life insurers to follow health financial reports and adopting certain provisions from the national association of insurance commissioners holding company system regulatory act relating to group capital calculations and liquidity stress testing.",
+          "action": "Representative Estes,  Representative McNorton, and  Representative Stogsdill are appointed to replace  Representative Sutton,  Representative Bergkamp, and  Representative Neighbor on the Conference Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2128/"
+        },
+        {
+          "bill": "HB 2333",
+          "short_title": "Renaming the Kansas insurance department as the Kansas department of insurance, the office of the securities commissioner of Kansas as the department of insurance, securities division, the securities commissioner as the department of insurance assistant commissioner, securities division and eliminating the requirement that the senate confirm department of insurance assistant commissioner, securities division appointees.",
+          "action": "Representative Estes,  Representative Bergkamp, and  Representative Neighbor are appointed to replace  Representative Bergkamp,  Representative McNorton, and  Representative Stogsdill on the Conference Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2333/"
+        },
+        {
+          "bill": "HB 2513",
+          "short_title": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+          "action": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260323151613"
+        },
+        {
+          "bill": "HB 2329",
+          "short_title": "MEETING CANCELED - Senate Judiciary and Representatives Lewis, Howerton and Schlingensiepen on HB2329",
+          "action": "MEETING CANCELED - Senate Judiciary and Representatives Lewis, Howerton and Schlingensiepen on HB2329",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260320205641canceled"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SB 260",
+          "short_title": "MEETING CANCELED - Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB260",
+          "action": "MEETING CANCELED - Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB260",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260323212413canceled"
+        },
+        {
+          "bill": "SB 84",
+          "short_title": "Senate Committee on Judiciary and House Committee on Judiciary on SB84",
+          "action": "Senate Committee on Judiciary and House Committee on Judiciary on SB84",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260323212824"
+        },
+        {
+          "bill": "SB 391",
+          "short_title": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB391",
+          "action": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB391",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260323230739"
+        },
+        {
+          "bill": "SB 20",
+          "short_title": "Reducing the number of board members appointed by the commissioner on certain insurance-related boards and the frequency of the meetings of the committee on surety bonds and insurance.",
+          "action": "Conference committee report now available",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB20/"
+        },
+        {
+          "bill": "SB 82",
+          "short_title": "Requiring the secretary for aging and disability services to grant physical environment waivers for certain rural emergency hospitals to provide skilled nursing facility care.",
+          "action": "Conference Committee Report not adopted;  Senator Tyson,  Senator Peck and  Senator Corson appointed as third conferees",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB82/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
