@@ -3737,5 +3737,341 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-03-24": {
+    "date": "2026-03-24",
+    "generated_at": "2026-03-25T03:27:53.727946+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "52 legislative items recorded. Kansas Legislature: 36 House bills and 16 Senate bills.",
+    "counts": {
+      "total": 52,
+      "kansas_house": 36,
+      "kansas_senate": 16,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2601",
+          "short_title": "Senate Committee on Judiciary and House Committee on Child Welfare and Foster Care on HB2601",
+          "action": "Senate Committee on Judiciary and House Committee on Child Welfare and Foster Care on HB2601",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260324220722"
+        },
+        {
+          "bill": "HB 2626",
+          "short_title": "Senate Committee on Senate Select Committee on Veterans Affairs and House Committee on Veterans and Military on HB2626",
+          "action": "Senate Committee on Senate Select Committee on Veterans Affairs and House Committee on Veterans and Military on HB2626",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260324210133"
+        },
+        {
+          "bill": "HB 2462",
+          "short_title": "Senate Committee on Agriculture and Natural Resources and House Committee on Water on HB2462",
+          "action": "Senate Committee on Agriculture and Natural Resources and House Committee on Water on HB2462",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260324174300"
+        },
+        {
+          "bill": "HB 2329",
+          "short_title": "Senate Judiciary and Representatives Lewis, Howerton and Schlingensiepen on HB2329",
+          "action": "Senate Judiciary and Representatives Lewis, Howerton and Schlingensiepen on HB2329",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260324161321"
+        },
+        {
+          "bill": "HB 2513",
+          "short_title": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+          "action": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260324154047"
+        },
+        {
+          "bill": "HB 2539",
+          "short_title": "Senate Committee on Local Government, Transparency and Ethics and House Committee on Local Government on HB2539",
+          "action": "Senate Committee on Local Government, Transparency and Ethics and House Committee on Local Government on HB2539",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260324145210"
+        },
+        {
+          "bill": "HB 2004",
+          "short_title": "Senate Committee on Government Efficiency and House Committee on Welfare Reform on HB2004, HB2731",
+          "action": "Senate Committee on Government Efficiency and House Committee on Welfare Reform on HB2004, HB2731",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260323233508"
+        },
+        {
+          "bill": "HB 2482",
+          "short_title": "Senate Committee on Education and House Committee on K-12 Education Budget on HB2482",
+          "action": "Senate Committee on Education and House Committee on K-12 Education Budget on HB2482",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260323214633"
+        },
+        {
+          "bill": "HB 2099",
+          "short_title": "Senate Committee on Local Government, Transparency and Ethics and House Committee on Local Government on HB2099",
+          "action": "Senate Committee on Local Government, Transparency and Ethics and House Committee on Local Government on HB2099",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260319221150"
+        },
+        {
+          "bill": "HB 2468",
+          "short_title": "Senate Committee on Education and House Committee on Education on HB2468",
+          "action": "Senate Committee on Education and House Committee on Education on HB2468",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260312204144"
+        },
+        {
+          "bill": "HB 2331",
+          "short_title": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on HB2331",
+          "action": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on HB2331",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260303175621"
+        },
+        {
+          "bill": "HB 2347",
+          "short_title": "Senate Committee on Judiciary and House Committee on Judiciary on HB2347",
+          "action": "Senate Committee on Judiciary and House Committee on Judiciary on HB2347",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260113182717"
+        },
+        {
+          "bill": "HB 2045",
+          "short_title": "Senate Committee on Public Health and Welfare and House Committee on Commerce, Labor and Economic Development on HB2045",
+          "action": "Senate Committee on Public Health and Welfare and House Committee on Commerce, Labor and Economic Development on HB2045",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250410170427"
+        },
+        {
+          "bill": "HB 2007",
+          "short_title": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2007",
+          "action": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2007",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250410163003"
+        },
+        {
+          "bill": "HB 2158",
+          "short_title": "Senate Committee on Agriculture and Natural Resources and House Committee on Commerce, Labor and Economic Development on HB2158",
+          "action": "Senate Committee on Agriculture and Natural Resources and House Committee on Commerce, Labor and Economic Development on HB2158",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250327230053"
+        },
+        {
+          "bill": "HB 2382",
+          "short_title": "Senate Committee on Education and House Committee on K-12 Education Budget on HB2382",
+          "action": "Senate Committee on Education and House Committee on K-12 Education Budget on HB2382",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250326225853"
+        },
+        {
+          "bill": "HB 2280",
+          "short_title": "Senate Committee on Senate Select Committee on Veterans Affairs and House Committee on Veterans and Military on HB2280",
+          "action": "Senate Committee on Senate Select Committee on Veterans Affairs and House Committee on Veterans and Military on HB2280",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250326222337"
+        },
+        {
+          "bill": "HB 2054",
+          "short_title": "Senate Committee on Federal and State Affairs and House Committee on Elections on HB2054",
+          "action": "Senate Committee on Federal and State Affairs and House Committee on Elections on HB2054",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250326214709"
+        },
+        {
+          "bill": "HB 2056",
+          "short_title": "Senate Committee on Federal and State Affairs and House Committee on Elections on HB2056",
+          "action": "Senate Committee on Federal and State Affairs and House Committee on Elections on HB2056",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250326145132"
+        },
+        {
+          "bill": "HB 2240",
+          "short_title": "Senate Committee on Government Efficiency and House Committee on Welfare Reform on HB2240",
+          "action": "Senate Committee on Government Efficiency and House Committee on Welfare Reform on HB2240",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250325201528"
+        },
+        {
+          "bill": "HB 2028",
+          "short_title": "Senate Committee on Agriculture and Natural Resources and House Committee on Federal and State Affairs on HB2028",
+          "action": "Senate Committee on Agriculture and Natural Resources and House Committee on Federal and State Affairs on HB2028",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250325173558"
+        },
+        {
+          "bill": "HB 2255",
+          "short_title": "Senate Committee on Agriculture and Natural Resources and House Committee on Agriculture and Natural Resources on HB2255",
+          "action": "Senate Committee on Agriculture and Natural Resources and House Committee on Agriculture and Natural Resources on HB2255",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250325155912"
+        },
+        {
+          "bill": "HB 2172",
+          "short_title": "MEETING CANCELED - Senate Committee on Agriculture and Natural Resources and House Committee on Agriculture and Natural Resources on HB2172",
+          "action": "MEETING CANCELED - Senate Committee on Agriculture and Natural Resources and House Committee on Agriculture and Natural Resources on HB2172",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250324201018canceled"
+        },
+        {
+          "bill": "HB 2335",
+          "short_title": "Senate Committee on Public Health and Welfare and House Committee on Insurance on HB2335",
+          "action": "Senate Committee on Public Health and Welfare and House Committee on Insurance on HB2335",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250324190410"
+        },
+        {
+          "bill": "HB 2075",
+          "short_title": "Senate Committee on Public Health and Welfare and House Committee on Child Welfare and Foster Care on HB2075",
+          "action": "Senate Committee on Public Health and Welfare and House Committee on Child Welfare and Foster Care on HB2075",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250321165602"
+        },
+        {
+          "bill": "HB 2029",
+          "short_title": "Senate Committee on Transportation and House Committee on Transportation on HB2029 and all other bills in conference",
+          "action": "Senate Committee on Transportation and House Committee on Transportation on HB2029 and all other bills in conference",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250320202457"
+        },
+        {
+          "bill": "HB 2124",
+          "short_title": "Designating a portion of United States highway 160 as the CPL Monte Wayne Forrest memorial highway, a portion of United States highway 77 as the POW MIA memorial highway and bridge No. 82-14-6.88 (026) in Clay county as the POW MIA memorial bridge.",
+          "action": "Senator Klemp is appointed to replace  Senator Kloos on the Conference Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2124/"
+        },
+        {
+          "bill": "HB 2539",
+          "short_title": "Senate Committee on Local Government, Transparency and Ethics and House Committee on Local Government on HB2539",
+          "action": "Senate Committee on Local Government, Transparency and Ethics and House Committee on Local Government on HB2539",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260324145210"
+        },
+        {
+          "bill": "HB 2513",
+          "short_title": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+          "action": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260324154047"
+        },
+        {
+          "bill": "HR 6041",
+          "short_title": "Recognizing and commemorating the 100th anniversary of the Jayhawk Theatre.",
+          "action": "Enrolled on Tuesday, March 24, 2026",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6041/"
+        },
+        {
+          "bill": "HR 6038",
+          "short_title": "Recognizing Real Men Real Leaders for its dedication and work in providing Kansas youth with leadership education and opportunities.",
+          "action": "Enrolled on Tuesday, March 24, 2026",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6038/"
+        },
+        {
+          "bill": "HR 6039",
+          "short_title": "Recognizing and honoring SparkWheel for its outstanding service on Kansas youth and families.",
+          "action": "Enrolled on Tuesday, March 24, 2026",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6039/"
+        },
+        {
+          "bill": "HB 2513",
+          "short_title": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+          "action": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260324053127"
+        },
+        {
+          "bill": "HB 2513",
+          "short_title": "MEETING CANCELED - Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+          "action": "MEETING CANCELED - Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260324000446canceled"
+        },
+        {
+          "bill": "HB 2513",
+          "short_title": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+          "action": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2513",
+          "url": "https://www.kslegislature.gov/li/conference/conf_committee_20260324043102"
+        },
+        {
+          "bill": "HR 6042",
+          "short_title": "Strengthening the sister-state ties between the State of Kansas and Taiwan.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6042/"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SB 84",
+          "short_title": "MEETING CANCELED - Senate Committee on Judiciary and House Committee on Judiciary on SB84, HB2164",
+          "action": "MEETING CANCELED - Senate Committee on Judiciary and House Committee on Judiciary on SB84, HB2164",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260324164627canceled"
+        },
+        {
+          "bill": "SB 391",
+          "short_title": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB391",
+          "action": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB391",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260324215251"
+        },
+        {
+          "bill": "SB 84",
+          "short_title": "Senate Committee on Judiciary and House Committee on Judiciary on SB84, HB2164",
+          "action": "Senate Committee on Judiciary and House Committee on Judiciary on SB84, HB2164",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260324164627"
+        },
+        {
+          "bill": "SB 260",
+          "short_title": "MEETING CANCELED - Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB260",
+          "action": "MEETING CANCELED - Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB260",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260323212413canceled"
+        },
+        {
+          "bill": "SB 254",
+          "short_title": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB254",
+          "action": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB254",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260310162323"
+        },
+        {
+          "bill": "SB 30",
+          "short_title": "Senate Committee on Commerce and House Committee on Commerce, Labor and Economic Development on SB30",
+          "action": "Senate Committee on Commerce and House Committee on Commerce, Labor and Economic Development on SB30",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260205161851"
+        },
+        {
+          "bill": "SB 24",
+          "short_title": "Senate Committee on Education and House Committee on Education on SB24",
+          "action": "Senate Committee on Education and House Committee on Education on SB24",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250326204148"
+        },
+        {
+          "bill": "SB 21",
+          "short_title": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB21",
+          "action": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs on SB21",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250326161605"
+        },
+        {
+          "bill": "SB 125",
+          "short_title": "Senate Committee on Ways and Means and House Committee on Appropriations on SB125",
+          "action": "Senate Committee on Ways and Means and House Committee on Appropriations on SB125",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250326020437"
+        },
+        {
+          "bill": "SB 64",
+          "short_title": "Senate Committee on Financial Institutions and Insurance and House Committee on Financial Institutions and Pensions on SB64, HB2086",
+          "action": "Senate Committee on Financial Institutions and Insurance and House Committee on Financial Institutions and Pensions on SB64, HB2086",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250325190418"
+        },
+        {
+          "bill": "SB 126",
+          "short_title": "Senate Committee on Public Health and Welfare and House Committee on Health and Human Services on SB126",
+          "action": "Senate Committee on Public Health and Welfare and House Committee on Health and Human Services on SB126",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250325162553"
+        },
+        {
+          "bill": "SB 9",
+          "short_title": "Senate Committee on Judiciary and House Committee on Commerce, Labor and Economic Development on SB9",
+          "action": "Senate Committee on Judiciary and House Committee on Commerce, Labor and Economic Development on SB9",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250325141639"
+        },
+        {
+          "bill": "SB 139",
+          "short_title": "Senate Committee on Financial Institutions and Insurance and House Committee on Financial Institutions and Pensions on SB139",
+          "action": "Senate Committee on Financial Institutions and Insurance and House Committee on Financial Institutions and Pensions on SB139",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250320140047"
+        },
+        {
+          "bill": "SB 14",
+          "short_title": "Senate Committee on Ways and Means and House Committee on Appropriations on SB14",
+          "action": "Senate Committee on Ways and Means and House Committee on Appropriations on SB14",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250313192644"
+        },
+        {
+          "bill": "SB 105",
+          "short_title": "Senate Committee on Federal and State Affairs and House Committee on Elections on SB105",
+          "action": "Senate Committee on Federal and State Affairs and House Committee on Elections on SB105",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20250313150256"
+        },
+        {
+          "bill": "SB 23",
+          "short_title": "Requiring agents and insurers to respond to inquiries from the commissioner of insurance within 14 calendar days and authorizing certain rebate pilot programs to exceed one year in duration.",
+          "action": "0",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB23/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
