@@ -4073,5 +4073,155 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-03-25": {
+    "date": "2026-03-25",
+    "generated_at": "2026-03-26T03:40:58.416190+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "21 legislative items recorded. Kansas Legislature: 20 House bills and 1 Senate bill.",
+    "counts": {
+      "total": 21,
+      "kansas_house": 20,
+      "kansas_senate": 1,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2560",
+          "short_title": "Senate Committee on Education and House Committee on Higher Education Budget on HB2560",
+          "action": "Senate Committee on Education and House Committee on Higher Education Budget on HB2560",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260325231543"
+        },
+        {
+          "bill": "HB 2365",
+          "short_title": "Senate Committee on Public Health and Welfare and House Committee on Health and Human Services on HB2365",
+          "action": "Senate Committee on Public Health and Welfare and House Committee on Health and Human Services on HB2365",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260325222607"
+        },
+        {
+          "bill": "HR 6045",
+          "short_title": "Providing for a session of the House of Representatives to hear a message from Ambassador Alexander Tah-ray Yui.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6045/"
+        },
+        {
+          "bill": "HB 2601",
+          "short_title": "Senate Committee on Judiciary and House Committee on Child Welfare and Foster Care on HB2601",
+          "action": "Senate Committee on Judiciary and House Committee on Child Welfare and Foster Care on HB2601",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260325210219"
+        },
+        {
+          "bill": "HB 2560",
+          "short_title": "Senate Committee on Education and House Committee on Higher Education Budget on HB2560",
+          "action": "Senate Committee on Education and House Committee on Higher Education Budget on HB2560",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260325194536"
+        },
+        {
+          "bill": "HB 2164",
+          "short_title": "Senate Substitute for HB 2164 by Committee on Judiciary - Prohibiting certain sex offenders from entering onto school property or attending school activities and creating criminal penalties for violation thereof.",
+          "action": "Motion to accede adopted;  Senator Warren,  Senator Titus and  Senator Corson appointed as second conferees",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2164/"
+        },
+        {
+          "bill": "HB 2462",
+          "short_title": "Senate Committee on Agriculture and Natural Resources and House Committee on Water on HB2462",
+          "action": "Senate Committee on Agriculture and Natural Resources and House Committee on Water on HB2462",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260325190921"
+        },
+        {
+          "bill": "HB 2068",
+          "short_title": "Enacting the cosmetology compact to provide interstate practice privileges.",
+          "action": "Conference committee report now available",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2068/"
+        },
+        {
+          "bill": "HB 2042",
+          "short_title": "Requiring title agents to make their audit reports available for inspection instead of submitting such reports annually, requiring the amount of surety bonds filed with the commissioner of insurance to be $100,000, eliminating the controlled business exemption in certain counties.",
+          "action": "Representative Rahjes,  Representative Neelly, and  Representative Featherston are appointed to replace  Representative Sutton,  Representative Bergkamp, and  Representative Neighbor on the Conference Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2042/"
+        },
+        {
+          "bill": "HB 2601",
+          "short_title": "Senate Committee on Judiciary and House Committee on Child Welfare and Foster Care on HB2601",
+          "action": "Senate Committee on Judiciary and House Committee on Child Welfare and Foster Care on HB2601",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260325165153"
+        },
+        {
+          "bill": "HB 2329",
+          "short_title": "Senate Committee on Judiciary and House Committee on Corrections and Juvenile Justice on HB2329",
+          "action": "Senate Committee on Judiciary and House Committee on Corrections and Juvenile Justice on HB2329",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260325163558"
+        },
+        {
+          "bill": "HB 2528",
+          "short_title": "Senate Committee on Public Health and Welfare and House Committee on Health and Human Services on HB2528",
+          "action": "Senate Committee on Public Health and Welfare and House Committee on Health and Human Services on HB2528",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260325163533"
+        },
+        {
+          "bill": "HB 2482",
+          "short_title": "MEETING CANCELED - Senate Committee on Education and House Committee on K-12 Education Budget on HB2482",
+          "action": "MEETING CANCELED - Senate Committee on Education and House Committee on K-12 Education Budget on HB2482",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260325160936canceled"
+        },
+        {
+          "bill": "HB 2626",
+          "short_title": "House Veterans and Military and Senators Thompson, Clifford and Faust Goudeau on HB2626",
+          "action": "House Veterans and Military and Senators Thompson, Clifford and Faust Goudeau on HB2626",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260325160206"
+        },
+        {
+          "bill": "HB 2462",
+          "short_title": "Senate Committee on Agriculture and Natural Resources and House Committee on Water on HB2462",
+          "action": "Senate Committee on Agriculture and Natural Resources and House Committee on Water on HB2462",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260325155519"
+        },
+        {
+          "bill": "HB 2116",
+          "short_title": "Senate Committee on Local Government, Transparency and Ethics and House Committee on Local Government on HB2116",
+          "action": "Senate Committee on Local Government, Transparency and Ethics and House Committee on Local Government on HB2116",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260325145730"
+        },
+        {
+          "bill": "HB 2601",
+          "short_title": "Senate Committee on Judiciary and House Committee on Child Welfare and Foster Care on HB2601",
+          "action": "Senate Committee on Judiciary and House Committee on Child Welfare and Foster Care on HB2601",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260325135701"
+        },
+        {
+          "bill": "HR 6043",
+          "short_title": "House: HR6043: Introduced",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6043/"
+        },
+        {
+          "bill": "HB 2365",
+          "short_title": "Establishing the south central regional mental health hospital.",
+          "action": "Conference committee report now available",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2365/"
+        },
+        {
+          "bill": "HB 2462",
+          "short_title": "Senate Committee on Agriculture and Natural Resources and House Committee on Water on HB2462",
+          "action": "Senate Committee on Agriculture and Natural Resources and House Committee on Water on HB2462",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260325003735"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SB 51",
+          "short_title": "Senate Committee on Government Efficiency and House Committee on Legislative Modernization on SB51",
+          "action": "Senate Committee on Government Efficiency and House Committee on Legislative Modernization on SB51",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260325140005"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
