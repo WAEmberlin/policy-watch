@@ -1,8 +1,8 @@
 {
-  "last_updated": "2026-03-26T02:48:25.444952-05:00",
+  "last_updated": "2026-03-26T04:39:31.426928-05:00",
   "years": {
     "2026": {
-      "total_items": 1587,
+      "total_items": 1591,
       "pages": [
         [
           {
@@ -76,6 +76,83 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2365",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2365/"
+          },
+          {
+            "date": "2026-03-25",
+            "source": "Congress.gov API",
+            "title": "HR 5103: Make the District of Columbia Safe and Beautiful Act of 2025",
+            "link": "https://www.congress.gov/bill/119th-congress/house-bill/5103",
+            "published": "2026-03-25T00:00:00",
+            "summary": "",
+            "short_title": "Make the District of Columbia Safe and Beautiful Act of 2025",
+            "short_title_source": "rss",
+            "bill_number": "HR 5103"
+          },
+          {
+            "date": "2026-03-25",
+            "source": "Congress.gov API",
+            "title": "HR 2071: Save Our Shrimpers Act",
+            "link": "https://www.congress.gov/bill/119th-congress/house-bill/2071",
+            "published": "2026-03-25T00:00:00",
+            "summary": "",
+            "short_title": "Save Our Shrimpers Act",
+            "short_title_source": "rss",
+            "bill_number": "HR 2071"
+          },
+          {
+            "date": "2026-03-25",
+            "source": "Congress.gov API",
+            "title": "HR 4171: SEED Act of 2025",
+            "link": "https://www.congress.gov/bill/119th-congress/house-bill/4171",
+            "published": "2026-03-25T00:00:00",
+            "summary": "",
+            "short_title": "SEED Act of 2025",
+            "short_title_source": "rss",
+            "bill_number": "HR 4171"
+          },
+          {
+            "date": "2026-03-25",
+            "source": "Congress.gov API",
+            "title": "HR 6654: VAMOSA Act of 2025",
+            "link": "https://www.congress.gov/bill/119th-congress/house-bill/6654",
+            "published": "2026-03-25T00:00:00",
+            "summary": "",
+            "short_title": "VAMOSA Act of 2025",
+            "short_title_source": "rss",
+            "bill_number": "HR 6654"
+          },
+          {
+            "date": "2026-03-25",
+            "source": "Congress.gov API",
+            "title": "HR 5366: Federal Disaster Tax Relief Act of 2025",
+            "link": "https://www.congress.gov/bill/119th-congress/house-bill/5366",
+            "published": "2026-03-25T00:00:00",
+            "summary": "",
+            "short_title": "Federal Disaster Tax Relief Act of 2025",
+            "short_title_source": "rss",
+            "bill_number": "HR 5366"
+          },
+          {
+            "date": "2026-03-25",
+            "source": "Congress.gov API",
+            "title": "HR 5334: SEED Act of 2025",
+            "link": "https://www.congress.gov/bill/119th-congress/house-bill/5334",
+            "published": "2026-03-25T00:00:00",
+            "summary": "",
+            "short_title": "SEED Act of 2025",
+            "short_title_source": "rss",
+            "bill_number": "HR 5334"
+          },
+          {
+            "date": "2026-03-25",
+            "source": "Congress.gov API",
+            "title": "HR 2347: Survivor Justice Tax Prevention Act",
+            "link": "https://www.congress.gov/bill/119th-congress/house-bill/2347",
+            "published": "2026-03-25T00:00:00",
+            "summary": "",
+            "short_title": "Survivor Justice Tax Prevention Act",
+            "short_title_source": "rss",
+            "bill_number": "HR 2347"
           },
           {
             "date": "2026-03-24",
@@ -350,17 +427,6 @@
           {
             "date": "2026-03-24",
             "source": "Congress.gov API",
-            "title": "HR 5103: Make the District of Columbia Safe and Beautiful Act of 2025",
-            "link": "https://www.congress.gov/bill/119th-congress/house-bill/5103",
-            "published": "2026-03-24T00:00:00",
-            "summary": "",
-            "short_title": "Make the District of Columbia Safe and Beautiful Act of 2025",
-            "short_title_source": "rss",
-            "bill_number": "HR 5103"
-          },
-          {
-            "date": "2026-03-24",
-            "source": "Congress.gov API",
             "title": "HR 1897: ESA Amendments Act of 2025",
             "link": "https://www.congress.gov/bill/119th-congress/house-bill/1897",
             "published": "2026-03-24T00:00:00",
@@ -501,7 +567,9 @@
             "short_title": "A resolution honoring the life of Kansas City, Kansas police officer Hunter Simoncic.",
             "short_title_source": "rss",
             "bill_number": "SRES 372"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-03-20",
             "source": "Kansas Legislature - Events",
@@ -572,9 +640,7 @@
             "short_title_source": "rss",
             "bill_number": "SCR 1603",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1603/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-03-19",
             "source": "Congress.gov API",
@@ -1058,7 +1124,9 @@
             "short_title": "Protecting Access for Hunters and Anglers Act",
             "short_title_source": "rss",
             "bill_number": "HR 556"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-03-19",
             "source": "Congress.gov API",
@@ -1125,9 +1193,7 @@
             "short_title": "To transfer administrative jurisdiction of certain Federal land in Saratoga Springs, Utah, from the Secretary of the Interior to the United States Postal Service for construction of a post office, and for other purposes.",
             "short_title_source": "rss",
             "bill_number": "HR 4716"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-03-18",
             "source": "Congress.gov API",
@@ -1611,7 +1677,9 @@
             "short_title": "Veterans SPORT Act",
             "short_title_source": "rss",
             "bill_number": "S 3138"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-03-18",
             "source": "Congress.gov API",
@@ -1677,9 +1745,7 @@
             "short_title": "VSAFE Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 2683"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-03-18",
             "source": "Congress.gov API",
@@ -2169,7 +2235,9 @@
             "short_title_source": "scraped",
             "bill_number": "SB 260",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB260/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-03-16",
             "source": "Congress.gov API",
@@ -2236,9 +2304,7 @@
             "short_title_source": "scraped",
             "bill_number": "HR 6034",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6034/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-03-13",
             "source": "Kansas Legislature - Events",
@@ -2755,7 +2821,9 @@
             "short_title": "Star-Spangled Summit Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 4684"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-03-05",
             "source": "Congress.gov API",
@@ -2821,9 +2889,7 @@
             "short_title": "Geothermal Cost-Recovery Authority Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 398"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-03-05",
             "source": "Congress.gov API",
@@ -3321,7 +3387,9 @@
             "short_title": "A bill to remove restrictions from a parcel of land in Paducah, Kentucky.",
             "short_title_source": "rss",
             "bill_number": "S 601"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-03-04",
             "source": "Congress.gov API",
@@ -3376,30 +3444,6 @@
             "short_title": "Main Street Capital Access Act",
             "short_title_source": "rss",
             "bill_number": "HR 6955"
-          },
-          {
-            "date": "2026-03-04",
-            "source": "Congress.gov API",
-            "title": "HR 2071: Save Our Shrimpers Act",
-            "link": "https://www.congress.gov/bill/119th-congress/house-bill/2071",
-            "published": "2026-03-04T00:00:00",
-            "summary": "",
-            "short_title": "Save Our Shrimpers Act",
-            "short_title_source": "rss",
-            "bill_number": "HR 2071"
-          }
-        ],
-        [
-          {
-            "date": "2026-03-04",
-            "source": "Congress.gov API",
-            "title": "HR 4171: SEED Act of 2025",
-            "link": "https://www.congress.gov/bill/119th-congress/house-bill/4171",
-            "published": "2026-03-04T00:00:00",
-            "summary": "",
-            "short_title": "SEED Act of 2025",
-            "short_title_source": "rss",
-            "bill_number": "HR 4171"
           },
           {
             "date": "2026-03-04",
@@ -3916,7 +3960,9 @@
             "short_title": "Don\u2019t Mess With My Home Appliances Act",
             "short_title_source": "rss",
             "bill_number": "HR 4626"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-25",
             "source": "Congress.gov API",
@@ -3963,9 +4009,7 @@
             "short_title_source": "scraped",
             "bill_number": "SB 263",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB263/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-24",
             "source": "Kansas Legislature - Events",
@@ -4485,7 +4529,9 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2393",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2393/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-17",
             "source": "Kansas Legislature - Events",
@@ -4532,9 +4578,7 @@
             "short_title": "Protection of Women in Olympic and Amateur Sports Act",
             "short_title_source": "rss",
             "bill_number": "HR 1028"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-16",
             "source": "Kansas Legislature - Events",
@@ -5060,7 +5104,9 @@
             "short_title": "Cerro de la Olla Wilderness Establishment Act",
             "short_title_source": "rss",
             "bill_number": "S 1497"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-12",
             "source": "Congress.gov API",
@@ -5104,9 +5150,7 @@
             "short_title": "Star-Spangled Summit Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 2417"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-12",
             "source": "Congress.gov API",
@@ -5632,7 +5676,9 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2744",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2744/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-10",
             "source": "Congress.gov API",
@@ -5676,9 +5722,7 @@
             "short_title": "No Tax Dollars for Terrorists Act",
             "short_title_source": "rss",
             "bill_number": "HR 260"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-10",
             "source": "Congress.gov API",
@@ -6206,7 +6250,9 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2762",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2762/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-06",
             "source": "Kansas Legislature - Events",
@@ -6254,9 +6300,7 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2363",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2363/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-06",
             "source": "Congress.gov API",
@@ -6807,7 +6851,9 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2695",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2695/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-05",
             "source": "Kansas Legislature - Events",
@@ -6855,9 +6901,7 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2691",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2691/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-05",
             "source": "Kansas Legislature - Events",
@@ -7406,7 +7450,9 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2702",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2702/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-04",
             "source": "Kansas Legislature - Events",
@@ -7454,9 +7500,7 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2683",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2683/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-04",
             "source": "Kansas Legislature - Events",
@@ -7969,7 +8013,9 @@
             "short_title_source": "scraped",
             "bill_number": "SB 471",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB471/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-03",
             "source": "Kansas Legislature - Events",
@@ -8017,9 +8063,7 @@
             "short_title_source": "scraped",
             "bill_number": "SB 467",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB467/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-03",
             "source": "Kansas Legislature - Events",
@@ -8571,7 +8615,9 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2656",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2656/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-03",
             "source": "Kansas Legislature - Events",
@@ -8619,9 +8665,7 @@
             "short_title_source": "scraped",
             "bill_number": "HCR 5027",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5027/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-03",
             "source": "Kansas Legislature - Events",
@@ -9159,7 +9203,9 @@
             "short_title_source": "scraped",
             "bill_number": "SB 439",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB439/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-02",
             "source": "Kansas Legislature - Events",
@@ -9207,9 +9253,7 @@
             "short_title_source": "scraped",
             "bill_number": "HCR 5025",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5025/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-02",
             "source": "Kansas Legislature - Events",
@@ -9729,7 +9773,9 @@
             "short_title": "REPAIR Infrastructure Act",
             "short_title_source": "rss",
             "bill_number": "HR 6671"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-02-02",
             "source": "Congress.gov API",
@@ -9773,9 +9819,7 @@
             "short_title": "Bridges not Bumpers Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 6531"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-02-02",
             "source": "Congress.gov API",
@@ -10310,7 +10354,9 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2594",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2594/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-29",
             "source": "Kansas Legislature - Events",
@@ -10358,9 +10404,7 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2590",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2590/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-29",
             "source": "Kansas Legislature - Events",
@@ -10908,7 +10952,9 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2328",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2328/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-28",
             "source": "Kansas Legislature - Events",
@@ -10956,9 +11002,7 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2573",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2573/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-28",
             "source": "Kansas Legislature - Events",
@@ -11506,7 +11550,9 @@
             "short_title_source": "scraped",
             "bill_number": "HB 2557",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2557/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-27",
             "source": "Kansas Legislature - Events",
@@ -11554,9 +11600,7 @@
             "short_title_source": "scraped",
             "bill_number": "SB 244",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB244/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-27",
             "source": "Kansas Legislature - Events",
@@ -12094,7 +12138,9 @@
             "short_title": "Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Bureau of Land Management relating to Public Land Order No. 7917 for Withdrawal of Federal Lands; Cook, Lake, and Saint Louis Counties, MN.",
             "short_title_source": "rss",
             "bill_number": "HJRES 140"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-24",
             "source": "VA News",
@@ -12126,9 +12172,7 @@
             "link": "https://news.va.gov/144665/take-control-of-your-health/",
             "published": "2026-01-23T19:30:00+00:00",
             "summary": "The new year is a great time to reevaluate your health goals."
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-23",
             "source": "VA News",
@@ -12586,7 +12630,9 @@
             "summary": "House: HB2516: Introduced, Action Code: intro_ibc_157, Occurred: 01/22/2026 11:04:34AM, Journal Page Number:",
             "short_title": "Providing for the qualifications of regular and provisional appraisers and allowing for the appointment of such appraisers to serve as county appraisers.",
             "short_title_source": "scraped"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-22",
             "source": "Kansas Legislature - Events",
@@ -12624,9 +12670,7 @@
             "link": "https://news.va.gov/144637/va-military-collaboration-pilots-mission-ready/",
             "published": "2026-01-22T19:30:00+00:00",
             "summary": "In a groundbreaking partnership, the 85th Fighter Group and VHSO ensure pilots are mission-ready."
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-22",
             "source": "VA News",
@@ -13089,7 +13133,9 @@
             "summary": "House: HB2492: Introduced, Action Code: intro_ibc_157, Occurred: 01/21/2026 11:08:00AM, Journal Page Number:",
             "short_title": "Requiring the county election officer to call a special election to fill a vacancy within the governing body of a municipality if the position remains vacant after 60 days.",
             "short_title_source": "scraped"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-21",
             "source": "Kansas Legislature - Events",
@@ -13129,9 +13175,7 @@
             "summary": "House: HB2488: Introduced, Action Code: intro_ibc_157, Occurred: 01/21/2026 11:07:43AM, Journal Page Number:",
             "short_title": "Requiring the university of Kansas school of medicine to use a letter grading system or other tiered grading system to assess student performance.",
             "short_title_source": "scraped"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-21",
             "source": "Kansas Legislature - Events",
@@ -13594,7 +13638,9 @@
             "short_title": "Disabled Veterans Housing Support Act",
             "short_title_source": "rss",
             "bill_number": "HR 224"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-20",
             "source": "Congress.gov API",
@@ -13632,9 +13678,7 @@
             "link": "https://news.va.gov/144586/addressing-pelvic-floor-myths/",
             "published": "2026-01-19T19:30:00+00:00",
             "summary": "Physical therapist Amy Legerski addresses the common myths surrounding pelvic floor issues."
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-19",
             "source": "VA News",
@@ -14073,7 +14117,9 @@
             "summary": "House: HB2453: Introduced, Action Code: intro_ibc_157, Occurred: 01/15/2026 11:08:45AM, Journal Page Number:",
             "short_title": "Requiring applications for advance voting ballots be filed by the 14th day prior to election day, that advance voting in person be completed by 12:00 p.m. on the Sunday prior to election day, extending the time for transmittal of advance voting ballots to 22 days prior to an election and ending the time for voter registration at 23 days prior to election day.",
             "short_title_source": "scraped"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-15",
             "source": "Kansas Legislature - Events",
@@ -14113,9 +14159,7 @@
             "summary": "House: HB2449: Introduced, Action Code: intro_ibc_157, Occurred: 01/15/2026 11:08:25AM, Journal Page Number:",
             "short_title": "Authorizing the removal of a voter from voter registration rolls if such voter is issued a driver's license by another state and requiring attestation on voter registration form that obtaining a foreign driver's license constitutes a change in residency for voting purposes.",
             "short_title_source": "scraped"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-15",
             "source": "Kansas Legislature - Events",
@@ -14586,7 +14630,9 @@
             "summary": "House: HB2243: Hearing: Wednesday, January 21, 2026, 3:30 PM Room 582-N, Action Code: misc_he_200, Occurred: 01/14/2026 11:34:23AM, Journal Page Number:",
             "short_title": "Requiring the secretary for children and families to enter into a memorandum of understanding with military installations to refer children in need of care cases involving children of military personnel to a military family advocacy program.",
             "short_title_source": "scraped"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-14",
             "source": "Kansas Legislature - Events",
@@ -14626,9 +14672,7 @@
             "summary": "House: HB2443: Introduced, Action Code: intro_ibc_157, Occurred: 01/14/2026 11:10:37AM, Journal Page Number:",
             "short_title": "Providing that certain natural gas storage facilities shall not be classified as public utilities for property tax purposes.",
             "short_title_source": "scraped"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-14",
             "source": "Kansas Legislature - Events",
@@ -15102,7 +15146,9 @@
             "short_title": "Clarity on Care Options Act",
             "short_title_source": "rss",
             "bill_number": "HR 6526"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-13",
             "source": "Congress.gov API",
@@ -15146,9 +15192,7 @@
             "short_title": "Veterans with ALS Reporting Act",
             "short_title_source": "rss",
             "bill_number": "HR 6001"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-13",
             "source": "Congress.gov API",
@@ -15598,7 +15642,9 @@
             "summary": "House: HB2431: Prefiled for Introduction on Friday, January 9, 2026, Action Code: intro_ibc_156, Occurred: 01/09/2026 04:12:48PM, Journal Page Number:",
             "short_title": "Enacting the student secular bill of rights to establish statutory protections against religious coercion and discrimination in public schools.",
             "short_title_source": "scraped"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-09",
             "source": "Kansas Legislature - Events",
@@ -15638,9 +15684,7 @@
             "summary": "House: HB2427: Prefiled for Introduction on Friday, January 9, 2026, Action Code: intro_ibc_156, Occurred: 01/09/2026 04:12:38PM, Journal Page Number:",
             "short_title": "Establishing the position of fiscal integrity auditor to be appointed by the legislative coordinating council, providing for the duties of the fiscal integrity auditor, including access to the state fiscal technology systems and software and requiring certain reports and recommendations to certain legislative committees.",
             "short_title_source": "scraped"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-09",
             "source": "Kansas Legislature - Events",
@@ -16119,7 +16163,9 @@
             "short_title": "Recognizing the 30th anniversary of the first flight of the F/A-18 E1 Super Hornet from Lambert Field in St. Louis, Missouri, and the 30 years of service of the F/A-18E/F Super Hornet to the United States Navy and to allies of the United States.",
             "short_title_source": "rss",
             "bill_number": "HRES 983"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-08",
             "source": "Congress.gov API",
@@ -16163,9 +16209,7 @@
             "short_title": "PRICE Act",
             "short_title_source": "rss",
             "bill_number": "HR 6983"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-08",
             "source": "Congress.gov API",
@@ -16661,7 +16705,9 @@
             "short_title": "Electing a Member to a certain standing committee of the House of Representatives.",
             "short_title_source": "rss",
             "bill_number": "HRES 979"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-07",
             "source": "Congress.gov API",
@@ -16705,9 +16751,7 @@
             "short_title": "PROTECT Military Families Act",
             "short_title_source": "rss",
             "bill_number": "HR 6958"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-07",
             "source": "Congress.gov API",
@@ -17202,7 +17246,9 @@
             "short_title": "Nick Shirley Congressional Gold Medal Act",
             "short_title_source": "rss",
             "bill_number": "HR 6942"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-01-06",
             "source": "Congress.gov API",
@@ -17246,9 +17292,7 @@
             "short_title": "District of Columbia Transportation Funding Equality Act",
             "short_title_source": "rss",
             "bill_number": "HR 6950"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-01-06",
             "source": "Congress.gov API",
@@ -17734,6 +17778,113 @@
               "short_title": "Establishing the south central regional mental health hospital.",
               "short_title_source": "scraped"
             }
+          ],
+          "Congress.gov API": [
+            {
+              "title": "HR 5103: Make the District of Columbia Safe and Beautiful Act of 2025",
+              "link": "https://www.congress.gov/bill/119th-congress/house-bill/5103",
+              "summary": "",
+              "source": "Congress.gov API",
+              "published": "2026-03-25T00:00:00",
+              "bill_number": "HR 5103",
+              "bill_type": "HR",
+              "sponsor_name": "",
+              "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
+              "latest_action_date": "2026-03-25T00:00:00",
+              "congress": 119,
+              "short_title": "Make the District of Columbia Safe and Beautiful Act of 2025",
+              "official_title": "To establish a program to Beautify the District of Columbia and establish the District of Columbia Safe and Beautiful Commission."
+            },
+            {
+              "title": "HR 2071: Save Our Shrimpers Act",
+              "link": "https://www.congress.gov/bill/119th-congress/house-bill/2071",
+              "summary": "",
+              "source": "Congress.gov API",
+              "published": "2026-03-25T00:00:00",
+              "bill_number": "HR 2071",
+              "bill_type": "HR",
+              "sponsor_name": "",
+              "latest_action": "Placed on the Union Calendar, Calendar No. 491.",
+              "latest_action_date": "2026-03-25T00:00:00",
+              "congress": 119,
+              "short_title": "Save Our Shrimpers Act",
+              "official_title": "To prohibit Federal funds from being made available to international financial institutions for the purposes of financing foreign shrimp farms, and for other purposes."
+            },
+            {
+              "title": "HR 4171: SEED Act of 2025",
+              "link": "https://www.congress.gov/bill/119th-congress/house-bill/4171",
+              "summary": "",
+              "source": "Congress.gov API",
+              "published": "2026-03-25T00:00:00",
+              "bill_number": "HR 4171",
+              "bill_type": "HR",
+              "sponsor_name": "",
+              "latest_action": "Placed on the Union Calendar, Calendar No. 492.",
+              "latest_action_date": "2026-03-25T00:00:00",
+              "congress": 119,
+              "short_title": "SEED Act of 2025",
+              "official_title": "To amend the Securities Act of 1933 to provide small issuers with a micro-offering exemption free of mandated disclosures or offering filings, but subject to the antifraud provisions of the Federal securities laws, and for other purposes."
+            },
+            {
+              "title": "HR 6654: VAMOSA Act of 2025",
+              "link": "https://www.congress.gov/bill/119th-congress/house-bill/6654",
+              "summary": "",
+              "source": "Congress.gov API",
+              "published": "2026-03-25T00:00:00",
+              "bill_number": "HR 6654",
+              "bill_type": "HR",
+              "sponsor_name": "",
+              "latest_action": "Subcommittee Hearings Held",
+              "latest_action_date": "2026-03-25T00:00:00",
+              "congress": 119,
+              "short_title": "VAMOSA Act of 2025",
+              "official_title": "To amend title 38, United States Code, to require the Secretary of Veterans Affairs to establish and implement a comprehensive policy for managing software assets throughout the Department, and for other purposes."
+            },
+            {
+              "title": "HR 5366: Federal Disaster Tax Relief Act of 2025",
+              "link": "https://www.congress.gov/bill/119th-congress/house-bill/5366",
+              "summary": "",
+              "source": "Congress.gov API",
+              "published": "2026-03-25T00:00:00",
+              "bill_number": "HR 5366",
+              "bill_type": "HR",
+              "sponsor_name": "",
+              "latest_action": "Ordered to be Reported by the Yeas and Nays: 43 - 0.",
+              "latest_action_date": "2026-03-25T00:00:00",
+              "congress": 119,
+              "short_title": "Federal Disaster Tax Relief Act of 2025",
+              "official_title": "To amend the Internal Revenue Code of 1986 to codify and extend the rules for personal casualty losses arising from major disasters and the rules for the exclusion from gross income of compensation for losses or damages resulting from certain wildfires."
+            },
+            {
+              "title": "HR 5334: SEED Act of 2025",
+              "link": "https://www.congress.gov/bill/119th-congress/house-bill/5334",
+              "summary": "",
+              "source": "Congress.gov API",
+              "published": "2026-03-25T00:00:00",
+              "bill_number": "HR 5334",
+              "bill_type": "HR",
+              "sponsor_name": "",
+              "latest_action": "Ordered to be Reported by the Yeas and Nays: 43 - 0.",
+              "latest_action_date": "2026-03-25T00:00:00",
+              "congress": 119,
+              "short_title": "SEED Act of 2025",
+              "official_title": "To amend the Internal Revenue Code of 1986 to allow early childhood educators to take the educator expense deduction, and for other purposes."
+            },
+            {
+              "title": "HR 2347: Survivor Justice Tax Prevention Act",
+              "link": "https://www.congress.gov/bill/119th-congress/house-bill/2347",
+              "summary": "",
+              "source": "Congress.gov API",
+              "published": "2026-03-25T00:00:00",
+              "bill_number": "HR 2347",
+              "bill_type": "HR",
+              "sponsor_name": "",
+              "latest_action": "Ordered to be Reported by the Yeas and Nays: 41 - 0.",
+              "latest_action_date": "2026-03-25T00:00:00",
+              "congress": 119,
+              "short_title": "Survivor Justice Tax Prevention Act",
+              "official_title": "To amend the Internal Revenue Code of 1986 to exclude from gross income any damages, other than punitive damages, received on account of any sexual acts or sexual contact."
+            }
           ]
         },
         "2026-03-24": {
@@ -18105,21 +18256,6 @@
               "congress": 119,
               "short_title": "Muhammad Ali American Boxing Revival Act",
               "official_title": "To amend the Professional Boxing Safety Act of 1996 to establish requirements for unified boxing organizations, to further enhance the well-being of professional boxers, and for other purposes."
-            },
-            {
-              "title": "HR 5103: Make the District of Columbia Safe and Beautiful Act of 2025",
-              "link": "https://www.congress.gov/bill/119th-congress/house-bill/5103",
-              "summary": "",
-              "source": "Congress.gov API",
-              "published": "2026-03-24T00:00:00",
-              "bill_number": "HR 5103",
-              "bill_type": "HR",
-              "sponsor_name": "",
-              "latest_action": "Rules Committee Resolution H. Res. 1131 Reported to House. Rule provides for consideration of H.R. 8029, H. Res. 1128, H.R. 5103 and H.R. 7084. The resolution provides for consideration of H.R. 8029, H. Res. 1128, H.R. 5103, and H.R. 7084 under a closed rule with one hour of general debate on each measure. The resolution provides for one motion to recommit on H.R. 8029, H.R. 5103, and H.R. 7084.",
-              "latest_action_date": "2026-03-24T00:00:00",
-              "congress": 119,
-              "short_title": "Make the District of Columbia Safe and Beautiful Act of 2025",
-              "official_title": "To establish a program to Beautify the District of Columbia and establish the District of Columbia Safe and Beautiful Commission."
             },
             {
               "title": "HR 1897: ESA Amendments Act of 2025",
@@ -22244,36 +22380,6 @@
               "congress": 119,
               "short_title": "Main Street Capital Access Act",
               "official_title": "To make improvements to the Federal banking laws, and for other purposes."
-            },
-            {
-              "title": "HR 2071: Save Our Shrimpers Act",
-              "link": "https://www.congress.gov/bill/119th-congress/house-bill/2071",
-              "summary": "",
-              "source": "Congress.gov API",
-              "published": "2026-03-04T00:00:00",
-              "bill_number": "HR 2071",
-              "bill_type": "HR",
-              "sponsor_name": "",
-              "latest_action": "Ordered to be Reported by the Yeas and Nays: 42 - 1.",
-              "latest_action_date": "2026-03-04T00:00:00",
-              "congress": 119,
-              "short_title": "Save Our Shrimpers Act",
-              "official_title": "To prohibit Federal funds from being made available to international financial institutions for the purposes of financing foreign shrimp farms, and for other purposes."
-            },
-            {
-              "title": "HR 4171: SEED Act of 2025",
-              "link": "https://www.congress.gov/bill/119th-congress/house-bill/4171",
-              "summary": "",
-              "source": "Congress.gov API",
-              "published": "2026-03-04T00:00:00",
-              "bill_number": "HR 4171",
-              "bill_type": "HR",
-              "sponsor_name": "",
-              "latest_action": "Ordered to be Reported by the Yeas and Nays: 26 - 17.",
-              "latest_action_date": "2026-03-04T00:00:00",
-              "congress": 119,
-              "short_title": "SEED Act of 2025",
-              "official_title": "To amend the Securities Act of 1933 to provide small issuers with a micro-offering exemption free of mandated disclosures or offering filings, but subject to the antifraud provisions of the Federal securities laws, and for other purposes."
             },
             {
               "title": "HR 3903: Chugach Alaska Land Exchange Oil Spill Recovery Act of 2025",
@@ -41626,7 +41732,7 @@
       }
     },
     "2025": {
-      "total_items": 3816,
+      "total_items": 3813,
       "pages": [
         [
           {
@@ -48628,17 +48734,6 @@
           {
             "date": "2025-12-11",
             "source": "Congress.gov API",
-            "title": "HR 6654: VAMOSA Act of 2025",
-            "link": "https://www.congress.gov/bill/119th-congress/house-bill/6654",
-            "published": "2025-12-11T00:00:00",
-            "summary": "",
-            "short_title": "VAMOSA Act of 2025",
-            "short_title_source": "rss",
-            "bill_number": "HR 6654"
-          },
-          {
-            "date": "2025-12-11",
-            "source": "Congress.gov API",
             "title": "HR 6678: Senior Legal Hotline Act of 2025",
             "link": "https://www.congress.gov/bill/119th-congress/house-bill/6678",
             "published": "2025-12-11T00:00:00",
@@ -48679,9 +48774,7 @@
             "short_title": "PELL Act",
             "short_title_source": "rss",
             "bill_number": "S 3433"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-12-11",
             "source": "Congress.gov API",
@@ -48692,7 +48785,9 @@
             "short_title": "Mental Health Professionals Workforce Shortage Loan Repayment Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 6672"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-12-11",
             "source": "Congress.gov API",
@@ -49230,9 +49325,7 @@
             "short_title": "Veterans National Traumatic Brain Injury Treatment Act",
             "short_title_source": "rss",
             "bill_number": "S 2737"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-12-10",
             "source": "Congress.gov API",
@@ -49243,7 +49336,9 @@
             "short_title": "Veterans Appeals Efficiency Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 1992"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-12-10",
             "source": "Congress.gov API",
@@ -49782,9 +49877,7 @@
             "short_title": "Expressing support for the recognition of September 2025 as \"National Childhood Cancer Awareness Month\".",
             "short_title_source": "rss",
             "bill_number": "HRES 942"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-12-10",
             "source": "Congress.gov API",
@@ -49795,7 +49888,9 @@
             "short_title": "REAL Act",
             "short_title_source": "rss",
             "bill_number": "HR 6571"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-12-10",
             "source": "Congress.gov API",
@@ -50334,9 +50429,7 @@
             "short_title": "Western Refined Fuel Reserve Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 3407"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-12-09",
             "source": "Congress.gov API",
@@ -50347,7 +50440,9 @@
             "short_title": "Fallen Servicemembers Religious Heritage Restoration Act",
             "short_title_source": "rss",
             "bill_number": "HR 2701"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-12-09",
             "source": "Congress.gov API",
@@ -50886,9 +50981,7 @@
             "short_title": "Protecting Families from AI Data Center Energy Costs Act",
             "short_title_source": "rss",
             "bill_number": "HR 6529"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-12-09",
             "source": "Congress.gov API",
@@ -50899,7 +50992,9 @@
             "short_title": "Condemning the Supreme Court's decision to overturn Roe v. Wade and Planned Parenthood v. Casey and committing to advancing reproductive justice and judicial reform.",
             "short_title_source": "rss",
             "bill_number": "HRES 938"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-12-09",
             "source": "Congress.gov API",
@@ -51437,9 +51532,7 @@
             "short_title": "Supporting the recognition of November 2025 as \"Carbon Monoxide Action and Awareness Month\" and promoting nationwide education, prevention, and detection efforts to protect United States families from carbon monoxide poisoning.",
             "short_title_source": "rss",
             "bill_number": "HRES 934"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-12-04",
             "source": "Congress.gov API",
@@ -51450,7 +51543,9 @@
             "short_title": "Authorizing the use of Emancipation Hall in the Capitol Visitor Center for an event to unveil the statue of Barbara Rose Johns.",
             "short_title_source": "rss",
             "bill_number": "HCONRES 62"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-12-04",
             "source": "Congress.gov API",
@@ -51989,9 +52084,7 @@
             "short_title": "Unemployment Insurance (UI) Integrity and Deficit Reduction Act",
             "short_title_source": "rss",
             "bill_number": "S 3343"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-12-04",
             "source": "Congress.gov API",
@@ -52002,7 +52095,9 @@
             "short_title": "HALOS Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 3342"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-12-04",
             "source": "Congress.gov API",
@@ -52541,9 +52636,7 @@
             "short_title": "Rural Residency Planning and Development Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 6468"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-12-04",
             "source": "Congress.gov API",
@@ -52554,7 +52647,9 @@
             "short_title": "Justice in Sentencing for Survivors Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 6471"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-12-04",
             "source": "Congress.gov API",
@@ -53093,9 +53188,7 @@
             "short_title": "Return on Investment for Military Occupational Specialties Act",
             "short_title_source": "rss",
             "bill_number": "HR 6382"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-12-03",
             "source": "Congress.gov API",
@@ -53106,7 +53199,9 @@
             "short_title": "GAP for Military Service Act",
             "short_title_source": "rss",
             "bill_number": "HR 6381"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-12-03",
             "source": "Congress.gov API",
@@ -53645,9 +53740,7 @@
             "short_title": "Systemic Risk Authority Transparency Act",
             "short_title_source": "rss",
             "bill_number": "HR 3716"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-12-02",
             "source": "Congress.gov API",
@@ -53658,7 +53751,9 @@
             "short_title": "Mikaela Naylon Give Kids a Chance Act",
             "short_title_source": "rss",
             "bill_number": "HR 1262"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-12-02",
             "source": "Congress.gov API",
@@ -54197,9 +54292,7 @@
             "short_title": "Wildfire Prevention Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 140"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-12-02",
             "source": "Congress.gov API",
@@ -54210,7 +54303,9 @@
             "short_title": "Modernizing Government Technology Reform Act",
             "short_title_source": "rss",
             "bill_number": "S 3306"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-12-02",
             "source": "Congress.gov API",
@@ -54749,9 +54844,7 @@
             "short_title": "Enhanced COVID-19 Transparency Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 3291"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-12-01",
             "source": "Congress.gov API",
@@ -54762,7 +54855,9 @@
             "short_title": "Platform Accountability and Transparency Act",
             "short_title_source": "rss",
             "bill_number": "S 3292"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-12-01",
             "source": "Congress.gov API",
@@ -55301,9 +55396,7 @@
             "short_title": "Expressing the sense of the House of Representatives that the Ukrainian famine of 1932-1933, known as the Holodomor, is recognized as a genocide and should serve as a reminder of repressive Soviet policies against the people of Ukraine.",
             "short_title_source": "rss",
             "bill_number": "HRES 915"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-11-28",
             "source": "Congress.gov API",
@@ -55314,7 +55407,9 @@
             "short_title": "Retirement Simplification and Clarity Act",
             "short_title_source": "rss",
             "bill_number": "HR 6324"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-11-28",
             "source": "Congress.gov API",
@@ -55847,9 +55942,7 @@
             "short_title": "Fairness for 9/11 Families Technical Fix Act",
             "short_title_source": "rss",
             "bill_number": "HR 6261"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-11-21",
             "source": "Congress.gov API",
@@ -55860,7 +55953,9 @@
             "short_title": "Taiwan Interpol Endorsement and Inclusion Act",
             "short_title_source": "rss",
             "bill_number": "HR 6262"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-11-21",
             "source": "Congress.gov API",
@@ -56399,9 +56494,7 @@
             "short_title": "A resolution designating November 22, 2025, as National Adoption Day and November 2025 as National Adoption Month to promote national awareness of adoption and the children awaiting families, celebrating children and families involved in adoption, and encouraging the people of the United States to secure safety, permanency, and well-being for all children.",
             "short_title_source": "rss",
             "bill_number": "SRES 513"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-11-20",
             "source": "Congress.gov API",
@@ -56412,7 +56505,9 @@
             "short_title": "A resolution expressing opposition to congressional spending on earmarks.",
             "short_title_source": "rss",
             "bill_number": "SRES 517"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-11-20",
             "source": "Congress.gov API",
@@ -56951,9 +57046,7 @@
             "short_title": "Protecting Our Courts from Foreign Manipulation Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 2675"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-11-20",
             "source": "Congress.gov API",
@@ -56964,7 +57057,9 @@
             "short_title": "REMOVE Act",
             "short_title_source": "rss",
             "bill_number": "HR 4711"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-11-20",
             "source": "Congress.gov API",
@@ -57503,9 +57598,7 @@
             "short_title": "Tehran Incitement to Violence Act",
             "short_title_source": "rss",
             "bill_number": "HR 6230"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-11-20",
             "source": "Congress.gov API",
@@ -57516,7 +57609,9 @@
             "short_title": "Grid Research and Development Act",
             "short_title_source": "rss",
             "bill_number": "HR 6177"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-11-20",
             "source": "Congress.gov API",
@@ -58055,9 +58150,7 @@
             "short_title": "Unlocking Affordable Housing Act",
             "short_title_source": "rss",
             "bill_number": "HR 6228"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-11-20",
             "source": "Congress.gov API",
@@ -58068,7 +58161,9 @@
             "short_title": "PLAY Act",
             "short_title_source": "rss",
             "bill_number": "HR 6245"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-11-20",
             "source": "Congress.gov API",
@@ -58607,9 +58702,7 @@
             "short_title": "Enhancing Arctic Readiness Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 3203"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-11-19",
             "source": "Congress.gov API",
@@ -58620,7 +58713,9 @@
             "short_title": "Advanced Artificial Intelligence Security Readiness Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 3202"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-11-19",
             "source": "Congress.gov API",
@@ -59159,9 +59254,7 @@
             "short_title": "AIM Act",
             "short_title_source": "rss",
             "bill_number": "HR 6127"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-11-19",
             "source": "Congress.gov API",
@@ -59172,7 +59265,9 @@
             "short_title": "Male or Female Only Act",
             "short_title_source": "rss",
             "bill_number": "HR 6144"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-11-19",
             "source": "Congress.gov API",
@@ -59711,9 +59806,7 @@
             "short_title": "Disapproving the behavior of Representative Jes\u00fas G. \"Chuy\" Garc\u00eda of Illinois.",
             "short_title_source": "rss",
             "bill_number": "HRES 878"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-11-18",
             "source": "Congress.gov API",
@@ -59724,7 +59817,9 @@
             "short_title": "Providing for consideration of the joint resolution (S.J. Res. 80) providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Bureau of Land Management relating to ''National Petroleum Reserve in Alaska Integrated Activity Plan Record of Decision''; providing for consideration of the joint resolution (H.J. Res. 130) providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Bureau of Land Management relating to ''Buffalo Field Office Record of Decision and Approved Resource Management Plan Amendment''; providing for consideration of the joint resolution (H.J. Res. 131) providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Bureau of Land Management relating to ''Coastal Plain Oil and Gas Leasing Program Record of Decision''; providing for consideration of the concurrent resolution (H. Con. Res. 58) denouncing the horrors of socialism; providing for consideration of the bill (H.R. 1949) to repeal restrictions on the export and import of natural gas; providing for consideration of the bill (H.R. 3109) to require the Secretary of Energy to direct the National Petroleum Council to issue a report with respect to petrochemical refineries in the United States, and for other purposes; providing for consideration of the bill (H.R. 5107) to repeal the Comprehensive Policing and Justice Reform Amendment Act of 2022 enacted by the District of Columbia Council; providing for consideration of the bill (H.R. 5214) to require mandatory pretrial and post conviction detention for crimes of violence and dangerous crimes and require mandatory cash bail for certain offenses that pose a threat to public safety or order in the District of Columbia, and for other purposes; and for other purposes.",
             "short_title_source": "rss",
             "bill_number": "HRES 879"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-11-18",
             "source": "Congress.gov API",
@@ -60263,9 +60358,7 @@
             "short_title": "Fracturing Responsibility and Awareness of Chemicals Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 6082"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-11-17",
             "source": "Congress.gov API",
@@ -60276,7 +60369,9 @@
             "short_title": "Expressing condolences and support for the victims of the July 4 flooding in Texas, honoring acts of heroism, and committing to stand with those impacted by these floods.",
             "short_title_source": "rss",
             "bill_number": "HRES 782"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-11-17",
             "source": "Congress.gov API",
@@ -60815,9 +60910,7 @@
             "short_title": "CARE Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 6066"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-11-13",
             "source": "Congress.gov API",
@@ -60828,7 +60921,9 @@
             "short_title": "Expressing support for the designation of the week of November 10 through November 16, 2025, as \"National Caregiving Youth Week\" to raise awareness and encourage national recognition of children and adolescents under 18 years of age who serve as a primary or secondary caregiver for family or household members.",
             "short_title_source": "rss",
             "bill_number": "HCONRES 60"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-11-13",
             "source": "Congress.gov API",
@@ -61367,9 +61462,7 @@
             "short_title": "Supporting the goals and ideals of \"Creutzfeldt-Jakob Disease (CJD) Awareness Day\".",
             "short_title_source": "rss",
             "bill_number": "HRES 872"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-11-10",
             "source": "Congress.gov API",
@@ -61380,7 +61473,9 @@
             "short_title": "Honoring and remembering the victims of the crash of American Airlines Flight 587 in Rockaway Queens, New York, on November 12, 2001, and extending the sincerest condolences of the citizens of the United States to the families and friends of those individuals.",
             "short_title_source": "rss",
             "bill_number": "HRES 870"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-11-10",
             "source": "Congress.gov API",
@@ -61919,9 +62014,7 @@
             "short_title": "Ohio River Restoration Program Act",
             "short_title_source": "rss",
             "bill_number": "HR 5966"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-11-07",
             "source": "Congress.gov API",
@@ -61932,7 +62025,9 @@
             "short_title": "To protect collective self-determination and individual rights under Federal statutes conferring nationality on persons born and residing in the territory of American Samoa, to enable subsequent elective United States citizenship upon application of such persons residing in a State or in a territory subject to sections 301 through 308 of the Immigration and Nationality Act, and for other purposes.",
             "short_title_source": "rss",
             "bill_number": "HR 5976"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-11-07",
             "source": "Congress.gov API",
@@ -62471,9 +62566,7 @@
             "short_title": "END Illicit Chinese Tobacco Act",
             "short_title_source": "rss",
             "bill_number": "S 3148"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-11-06",
             "source": "Congress.gov API",
@@ -62484,7 +62577,9 @@
             "short_title": "Restoring Access for Detainees Act",
             "short_title_source": "rss",
             "bill_number": "S 3146"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-11-06",
             "source": "Congress.gov API",
@@ -63023,9 +63118,7 @@
             "short_title": "A resolution recognizing the week of November 3 through November 7, 2025, as \"National Veterans Small Business Week\".",
             "short_title_source": "rss",
             "bill_number": "SRES 482"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-11-04",
             "source": "Congress.gov API",
@@ -63036,7 +63129,9 @@
             "short_title": "A resolution honoring the strategic importance of the C5+1 diplomatic platform and recognizing the deepening partnership between the United States and the nations of Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan, and Uzbekistan.",
             "short_title_source": "rss",
             "bill_number": "SRES 459"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-11-04",
             "source": "Congress.gov API",
@@ -63575,9 +63670,7 @@
             "short_title": "An original bill to require the Secretary of Agriculture to convey a parcel of property of the Forest Service to Perry County, Arkansas, and for other purposes.",
             "short_title_source": "rss",
             "bill_number": "S 3095"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-11-03",
             "source": "Congress.gov API",
@@ -63588,7 +63681,9 @@
             "short_title": "Pay Our Capitol Police Act",
             "short_title_source": "rss",
             "bill_number": "S 3094"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-11-03",
             "source": "Congress.gov API",
@@ -64127,9 +64222,7 @@
             "short_title": "Original National Domestic Violence Awareness Month Resolution of 2025",
             "short_title_source": "rss",
             "bill_number": "HRES 846"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-10-31",
             "source": "Congress.gov API",
@@ -64140,7 +64233,9 @@
             "short_title": "Public Access to Defibrillation in Transportation Facilities Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 5897"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-10-31",
             "source": "Congress.gov API",
@@ -64679,9 +64774,7 @@
             "short_title": "A joint resolution proposing an amendment to the Constitution of the United States requiring Members of Congress to forfeit their compensation during Government shutdowns.",
             "short_title_source": "rss",
             "bill_number": "SJRES 94"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-10-29",
             "source": "Congress.gov API",
@@ -64692,7 +64785,9 @@
             "short_title": "Keep SNAP and WIC Funded Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 3071"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-10-29",
             "source": "Congress.gov API",
@@ -65231,9 +65326,7 @@
             "short_title": "Supporting the goals and ideals of Red Ribbon Week during the period of October 23 through October 31, 2025.",
             "short_title_source": "rss",
             "bill_number": "HRES 834"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-10-28",
             "source": "Congress.gov API",
@@ -65244,7 +65337,9 @@
             "short_title": "Boosting Benefits and COLAs for Seniors Act",
             "short_title_source": "rss",
             "bill_number": "HR 5841"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-10-28",
             "source": "Congress.gov API",
@@ -65783,9 +65878,7 @@
             "short_title": "Keep SNAP Funded Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 5822"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-10-24",
             "source": "Congress.gov API",
@@ -65796,7 +65889,9 @@
             "short_title": "Watershed Protection and Forest Recovery Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 5823"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-10-24",
             "source": "Congress.gov API",
@@ -66335,9 +66430,7 @@
             "short_title": "A resolution recognizing Nobel Prize winner Maria Corina Machado and reaffirming support for democracy in Venezuela.",
             "short_title_source": "rss",
             "bill_number": "SRES 462"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-10-22",
             "source": "Congress.gov API",
@@ -66348,7 +66441,9 @@
             "short_title": "Protecting Ballot Measures From Foreign Influence Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 3028"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-10-22",
             "source": "Congress.gov API",
@@ -66887,9 +66982,7 @@
             "short_title": "Uniformed Services Leave Parity Act",
             "short_title_source": "rss",
             "bill_number": "S 1440"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-10-17",
             "source": "Congress.gov API",
@@ -66900,7 +66993,9 @@
             "short_title": "Government Shutdown Salary Suspension Act",
             "short_title_source": "rss",
             "bill_number": "HR 5792"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-10-17",
             "source": "Congress.gov API",
@@ -67439,9 +67534,7 @@
             "short_title": "A resolution expressing support for the designation of the second Monday in October 2025 as \"Indigenous Peoples' Day\" to celebrate and honor Indigenous Peoples and their shared history and culture.",
             "short_title_source": "rss",
             "bill_number": "SRES 450"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-10-14",
             "source": "Congress.gov API",
@@ -67452,7 +67545,9 @@
             "short_title": "Diesel Truck Liberation Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 3007"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-10-14",
             "source": "Congress.gov API",
@@ -67991,9 +68086,7 @@
             "short_title": "Community Mental Wellness Worker Training Act",
             "short_title_source": "rss",
             "bill_number": "HR 5733"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-10-10",
             "source": "Congress.gov API",
@@ -68004,7 +68097,9 @@
             "short_title": "ERRPA",
             "short_title_source": "rss",
             "bill_number": "HR 5727"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-10-10",
             "source": "Congress.gov API",
@@ -68543,9 +68638,7 @@
             "short_title": "Federal Employees Civil Relief Act",
             "short_title_source": "rss",
             "bill_number": "HR 5708"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-10-08",
             "source": "Congress.gov API",
@@ -68556,7 +68649,9 @@
             "short_title": "Bridge the Gap for Rural Communities Act",
             "short_title_source": "rss",
             "bill_number": "HR 5710"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-10-08",
             "source": "Congress.gov API",
@@ -69095,9 +69190,7 @@
             "short_title": "NICS Data Reporting Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 2267"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-10-03",
             "source": "Congress.gov API",
@@ -69108,7 +69201,9 @@
             "short_title": "Black Vulture Relief Act",
             "short_title_source": "rss",
             "bill_number": "HR 2462"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-10-03",
             "source": "Congress.gov API",
@@ -69647,9 +69742,7 @@
             "short_title": "Small Business Investor Tax Parity Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 2962"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-10-01",
             "source": "Congress.gov API",
@@ -69660,7 +69753,9 @@
             "short_title": "A bill to direct the United States Postal Service to designate single, unique ZIP Codes for certain communities, and for other purposes.",
             "short_title_source": "rss",
             "bill_number": "S 2961"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-10-01",
             "source": "Congress.gov API",
@@ -70199,9 +70294,7 @@
             "short_title": "SEIZE Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 5623"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-09-30",
             "source": "Congress.gov API",
@@ -70212,7 +70305,9 @@
             "short_title": "No Work, No Pay Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 5637"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-09-30",
             "source": "Congress.gov API",
@@ -70751,9 +70846,7 @@
             "short_title": "H\u20131B and L\u20131 Visa Reform Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 2928"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-09-29",
             "source": "Congress.gov API",
@@ -70764,7 +70857,9 @@
             "short_title": "New York-New Jersey Watershed Protection Act",
             "short_title_source": "rss",
             "bill_number": "S 2926"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-09-29",
             "source": "Congress.gov API",
@@ -71303,9 +71398,7 @@
             "short_title": "Improving Drought Monitoring Act",
             "short_title_source": "rss",
             "bill_number": "HR 5610"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-09-26",
             "source": "Congress.gov API",
@@ -71316,7 +71409,9 @@
             "short_title": "PILOT Act",
             "short_title_source": "rss",
             "bill_number": "HR 5569"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-09-26",
             "source": "Congress.gov API",
@@ -71855,9 +71950,7 @@
             "short_title": "MAP Roads Act",
             "short_title_source": "rss",
             "bill_number": "HR 5479"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-09-19",
             "source": "Congress.gov API",
@@ -71868,7 +71961,9 @@
             "short_title": "Aviation Funding Stability Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 5455"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-09-19",
             "source": "Congress.gov API",
@@ -72407,9 +72502,7 @@
             "short_title": "Recognizing the psychological impact of immigration enforcement overreach on individuals, their families, and their community.",
             "short_title_source": "rss",
             "bill_number": "HRES 754"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-09-19",
             "source": "Congress.gov API",
@@ -72420,7 +72513,9 @@
             "short_title": "Proposing an amendment to the Constitution of the United States relating to parental rights.",
             "short_title_source": "rss",
             "bill_number": "HJRES 127"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-09-19",
             "source": "Congress.gov API",
@@ -72959,9 +73054,7 @@
             "short_title": "China Military Power Transparency Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 2884"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-09-18",
             "source": "Congress.gov API",
@@ -72972,7 +73065,9 @@
             "short_title": "Quantifying Uncertainty and Action to Help Optimize Growth of Shellfish Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 2883"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-09-18",
             "source": "Congress.gov API",
@@ -73511,9 +73606,7 @@
             "short_title": "USA Workforce Investment Act",
             "short_title_source": "rss",
             "bill_number": "HR 5493"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-09-18",
             "source": "Congress.gov API",
@@ -73524,7 +73617,9 @@
             "short_title": "GUARD Act",
             "short_title_source": "rss",
             "bill_number": "HR 5466"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-09-18",
             "source": "Congress.gov API",
@@ -74063,9 +74158,7 @@
             "short_title": "Protecting Free Vaccines Act",
             "short_title_source": "rss",
             "bill_number": "HR 5448"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-09-18",
             "source": "Congress.gov API",
@@ -74076,7 +74169,9 @@
             "short_title": "Choice Arrangement",
             "short_title_source": "rss",
             "bill_number": "HR 5463"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-09-18",
             "source": "Congress.gov API",
@@ -74615,9 +74710,7 @@
             "short_title": "Health Care Efficiency Through Flexibility Act",
             "short_title_source": "rss",
             "bill_number": "HR 5347"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-09-17",
             "source": "Congress.gov API",
@@ -74628,7 +74721,9 @@
             "short_title": "PIPES Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 5301"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-09-17",
             "source": "Congress.gov API",
@@ -75167,9 +75262,7 @@
             "short_title": "Equal COLA Act",
             "short_title_source": "rss",
             "bill_number": "HR 491"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-09-16",
             "source": "Congress.gov API",
@@ -75180,7 +75273,9 @@
             "short_title": "Register America to Vote Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 2822"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-09-16",
             "source": "Congress.gov API",
@@ -75719,9 +75814,7 @@
             "short_title": "FAMILY Act",
             "short_title_source": "rss",
             "bill_number": "HR 5390"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-09-16",
             "source": "Congress.gov API",
@@ -75732,7 +75825,9 @@
             "short_title": "To amend title 10, United States Code, to require the Secretary of Defense to annually review the amount of financial assistance for child care and youth program services providers provided by the Secretary.",
             "short_title_source": "rss",
             "bill_number": "HR 5400"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-09-16",
             "source": "Congress.gov API",
@@ -76271,9 +76366,7 @@
             "short_title": "To prohibit Federal funding for entities that employ individuals who condone and celebrate political violence and domestic terrorism, and for other purposes.",
             "short_title_source": "rss",
             "bill_number": "HR 5352"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-09-15",
             "source": "Congress.gov API",
@@ -76284,7 +76377,9 @@
             "short_title": "Honoring Juan L\u00f3pez, a Honduran Catholic leader and human rights advocate murdered in the Tocoa municipality of the Bajo Agu\u00e1n region of Honduras and commemorating one year since his assassination.",
             "short_title_source": "rss",
             "bill_number": "HRES 717"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-09-15",
             "source": "Congress.gov API",
@@ -76471,17 +76566,6 @@
             "short_title": "FAIR Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 5350"
-          },
-          {
-            "date": "2025-09-15",
-            "source": "Congress.gov API",
-            "title": "HR 5366: Federal Disaster Tax Relief Act of 2025",
-            "link": "https://www.congress.gov/bill/119th-congress/house-bill/5366",
-            "published": "2025-09-15T00:00:00",
-            "summary": "",
-            "short_title": "Federal Disaster Tax Relief Act of 2025",
-            "short_title_source": "rss",
-            "bill_number": "HR 5366"
           },
           {
             "date": "2025-09-15",
@@ -76823,9 +76907,7 @@
             "short_title": "Tax Cut for Striking Workers Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 2779"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-09-11",
             "source": "Congress.gov API",
@@ -76847,7 +76929,9 @@
             "short_title": "A bill to amend the Justice for United States Victims of State Sponsored Terrorism Act to provide rules for payments to Havlish Settling Judgment Creditors.",
             "short_title_source": "rss",
             "bill_number": "S 2776"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-09-11",
             "source": "Congress.gov API",
@@ -77192,17 +77276,6 @@
           {
             "date": "2025-09-11",
             "source": "Congress.gov API",
-            "title": "HR 5334: SEED Act of 2025",
-            "link": "https://www.congress.gov/bill/119th-congress/house-bill/5334",
-            "published": "2025-09-11T00:00:00",
-            "summary": "",
-            "short_title": "SEED Act of 2025",
-            "short_title_source": "rss",
-            "bill_number": "HR 5334"
-          },
-          {
-            "date": "2025-09-11",
-            "source": "Congress.gov API",
             "title": "HR 5306: Gun Suicide Prevention Act of 2025",
             "link": "https://www.congress.gov/bill/119th-congress/house-bill/5306",
             "published": "2025-09-11T00:00:00",
@@ -77375,9 +77448,7 @@
             "short_title": "FAIR Act",
             "short_title_source": "rss",
             "bill_number": "HR 5315"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-09-11",
             "source": "Congress.gov API",
@@ -77410,7 +77481,9 @@
             "short_title": "Learn and Serve America Reinvestment Act",
             "short_title_source": "rss",
             "bill_number": "HR 5307"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-09-11",
             "source": "Congress.gov API",
@@ -77927,9 +78000,7 @@
             "short_title": "Energy and Water Development and Related Agencies Appropriations Act, 2026",
             "short_title_source": "rss",
             "bill_number": "HR 4553"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-09-10",
             "source": "Congress.gov API",
@@ -77962,7 +78033,9 @@
             "short_title": "THE DON-ument Act",
             "short_title_source": "rss",
             "bill_number": "HR 5279"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-09-10",
             "source": "Congress.gov API",
@@ -78479,9 +78552,7 @@
             "short_title": "A resolution urging the protection of Medicare from the devastating cuts caused by H.R. 1.",
             "short_title_source": "rss",
             "bill_number": "SRES 380"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-09-09",
             "source": "Congress.gov API",
@@ -78514,7 +78585,9 @@
             "short_title": "Produce Epstein Treasury Records Act",
             "short_title_source": "rss",
             "bill_number": "S 2746"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-09-09",
             "source": "Congress.gov API",
@@ -79031,9 +79104,7 @@
             "short_title": "HCBS Worker Protection Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 5228"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-09-09",
             "source": "Congress.gov API",
@@ -79066,7 +79137,9 @@
             "short_title": "A resolution honoring the victims and survivors of the mass shooting at the Annunciation Catholic Church and School in Minneapolis, Minnesota.",
             "short_title_source": "rss",
             "bill_number": "SRES 371"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-09-08",
             "source": "Congress.gov API",
@@ -79583,9 +79656,7 @@
             "short_title": "Modernizing Rural Physician Assistant and Nurse Practitioner Utilization Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 5199"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-09-08",
             "source": "Congress.gov API",
@@ -79618,7 +79689,9 @@
             "short_title": "Empowering Striking Workers Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 5206"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-09-08",
             "source": "Congress.gov API",
@@ -80135,9 +80208,7 @@
             "short_title": "Bipartisan Premium Tax Credit Extension Act",
             "short_title_source": "rss",
             "bill_number": "HR 5145"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-09-04",
             "source": "Congress.gov API",
@@ -80170,7 +80241,9 @@
             "short_title": "Stem Cell Therapeutic and Research Reauthorization Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 5160"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-09-04",
             "source": "Congress.gov API",
@@ -80687,9 +80760,7 @@
             "short_title": "DECIDE Act",
             "short_title_source": "rss",
             "bill_number": "S 2700"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-09-03",
             "source": "Congress.gov API",
@@ -80722,7 +80793,9 @@
             "short_title": "Counter-UAS Authority Security, Safety, and Reauthorization Act",
             "short_title_source": "rss",
             "bill_number": "HR 5061"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-09-03",
             "source": "Congress.gov API",
@@ -81239,9 +81312,7 @@
             "short_title": "Anti-Racism in Public Health Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 1489"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-09-02",
             "source": "Congress.gov API",
@@ -81274,7 +81345,9 @@
             "short_title": "Protect Patients from Costly Care Act",
             "short_title_source": "rss",
             "bill_number": "HR 5094"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-09-02",
             "source": "Congress.gov API",
@@ -81791,9 +81864,7 @@
             "short_title": "Specialty Crop Domestic Market Promotion and Development Program Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 5059"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-08-26",
             "source": "Congress.gov API",
@@ -81826,7 +81897,9 @@
             "short_title": "Wheelchair Right to Repair Act",
             "short_title_source": "rss",
             "bill_number": "HR 5039"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-08-26",
             "source": "Congress.gov API",
@@ -82343,9 +82416,7 @@
             "short_title": "Equal Treatment of the District of Columbia Under the Rural Health Transformation Program Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 5003"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-08-19",
             "source": "Congress.gov API",
@@ -82378,7 +82449,9 @@
             "short_title": "Recognizing that the United States has a moral obligation to meet its foundational promise of guaranteed justice for all.",
             "short_title_source": "rss",
             "bill_number": "HRES 660"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-08-19",
             "source": "Congress.gov API",
@@ -82895,9 +82968,7 @@
             "short_title": "ACES Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 201"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-08-13",
             "source": "Congress.gov API",
@@ -82930,7 +83001,9 @@
             "short_title": "HOV Lane Exemption Reauthorization Act",
             "short_title_source": "rss",
             "bill_number": "HR 4948"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-08-12",
             "source": "Congress.gov API",
@@ -83447,9 +83520,7 @@
             "short_title": "Quantum Encryption Readiness and Resilience Act",
             "short_title_source": "rss",
             "bill_number": "HR 4942"
-          }
-        ],
-        [
+          },
           {
             "date": "2025-08-08",
             "source": "Congress.gov API",
@@ -83482,7 +83553,9 @@
             "short_title": "Original Securities and Exchange Atonement Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 4925"
-          },
+          }
+        ],
+        [
           {
             "date": "2025-08-08",
             "source": "Congress.gov API",
@@ -91546,21 +91619,6 @@
               "congress": 119,
               "short_title": "To require a report on merits and options for establishing an institute relating to space resources, and for other purposes.",
               "official_title": "To require a report on merits and options for establishing an institute relating to space resources, and for other purposes."
-            },
-            {
-              "title": "HR 6654: VAMOSA Act of 2025",
-              "link": "https://www.congress.gov/bill/119th-congress/house-bill/6654",
-              "summary": "",
-              "source": "Congress.gov API",
-              "published": "2025-12-11T00:00:00",
-              "bill_number": "HR 6654",
-              "bill_type": "HR",
-              "sponsor_name": "",
-              "latest_action": "Referred to the House Committee on Veterans' Affairs.",
-              "latest_action_date": "2025-12-11T00:00:00",
-              "congress": 119,
-              "short_title": "VAMOSA Act of 2025",
-              "official_title": "To amend title 38, United States Code, to require the Secretary of Veterans Affairs to establish and implement a comprehensive policy for managing software assets throughout the Department, and for other purposes."
             },
             {
               "title": "HR 6678: Senior Legal Hotline Act of 2025",
@@ -131239,21 +131297,6 @@
               "official_title": "To amend title 9 of the United States Code with respect to arbitration."
             },
             {
-              "title": "HR 5366: Federal Disaster Tax Relief Act of 2025",
-              "link": "https://www.congress.gov/bill/119th-congress/house-bill/5366",
-              "summary": "",
-              "source": "Congress.gov API",
-              "published": "2025-09-15T00:00:00",
-              "bill_number": "HR 5366",
-              "bill_type": "HR",
-              "sponsor_name": "",
-              "latest_action": "Referred to the House Committee on Ways and Means.",
-              "latest_action_date": "2025-09-15T00:00:00",
-              "congress": 119,
-              "short_title": "Federal Disaster Tax Relief Act of 2025",
-              "official_title": "To amend the Internal Revenue Code of 1986 to codify and extend the rules for personal casualty losses arising from major disasters and the rules for the exclusion from gross income of compensation for losses or damages resulting from certain wildfires."
-            },
-            {
               "title": "HR 5351: NSF AI Education Act of 2025",
               "link": "https://www.congress.gov/bill/119th-congress/house-bill/5351",
               "summary": "",
@@ -132220,21 +132263,6 @@
               "congress": 119,
               "short_title": "Unclaimed Retirement Rescue Plan",
               "official_title": "To direct the Secretary of Labor to promulgate a regulation allowing administrators of certain pension plans to voluntarily transfer unclaimed retirement distributions to State unclaimed property programs."
-            },
-            {
-              "title": "HR 5334: SEED Act of 2025",
-              "link": "https://www.congress.gov/bill/119th-congress/house-bill/5334",
-              "summary": "",
-              "source": "Congress.gov API",
-              "published": "2025-09-11T00:00:00",
-              "bill_number": "HR 5334",
-              "bill_type": "HR",
-              "sponsor_name": "",
-              "latest_action": "Referred to the House Committee on Ways and Means.",
-              "latest_action_date": "2025-09-11T00:00:00",
-              "congress": 119,
-              "short_title": "SEED Act of 2025",
-              "official_title": "To amend the Internal Revenue Code of 1986 to allow early childhood educators to take the educator expense deduction, and for other purposes."
             },
             {
               "title": "HR 5306: Gun Suicide Prevention Act of 2025",
@@ -140921,9 +140949,107 @@
     }
   },
   "legislation": {
-    "total_items": 4489,
+    "total_items": 4490,
     "pages": [
       [
+        {
+          "bill_number": "5103",
+          "bill_type": "HR",
+          "title": "Make the District of Columbia Safe and Beautiful Act of 2026",
+          "summary": "",
+          "sponsor_name": "",
+          "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
+          "latest_action_date": "2026-03-25T00:00:00",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/5103",
+          "published": "2026-03-25T00:00:00",
+          "congress": 119,
+          "short_title": "Make the District of Columbia Safe and Beautiful Act of 2025",
+          "official_title": "To establish a program to Beautify the District of Columbia and establish the District of Columbia Safe and Beautiful Commission."
+        },
+        {
+          "bill_number": "2071",
+          "bill_type": "HR",
+          "title": "Save Our Shrimpers Act",
+          "summary": "",
+          "sponsor_name": "",
+          "latest_action": "Placed on the Union Calendar, Calendar No. 491.",
+          "latest_action_date": "2026-03-25T00:00:00",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/2071",
+          "published": "2026-03-25T00:00:00",
+          "congress": 119,
+          "short_title": "Save Our Shrimpers Act",
+          "official_title": "To prohibit Federal funds from being made available to international financial institutions for the purposes of financing foreign shrimp farms, and for other purposes."
+        },
+        {
+          "bill_number": "4171",
+          "bill_type": "HR",
+          "title": "SEED Act of 2025",
+          "summary": "",
+          "sponsor_name": "",
+          "latest_action": "Placed on the Union Calendar, Calendar No. 492.",
+          "latest_action_date": "2026-03-25T00:00:00",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/4171",
+          "published": "2026-03-25T00:00:00",
+          "congress": 119,
+          "short_title": "SEED Act of 2025",
+          "official_title": "To amend the Securities Act of 1933 to provide small issuers with a micro-offering exemption free of mandated disclosures or offering filings, but subject to the antifraud provisions of the Federal securities laws, and for other purposes."
+        },
+        {
+          "bill_number": "6654",
+          "bill_type": "HR",
+          "title": "VAMOSA Act of 2025",
+          "summary": "",
+          "sponsor_name": "",
+          "latest_action": "Subcommittee Hearings Held",
+          "latest_action_date": "2026-03-25T00:00:00",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/6654",
+          "published": "2026-03-25T00:00:00",
+          "congress": 119,
+          "short_title": "VAMOSA Act of 2025",
+          "official_title": "To amend title 38, United States Code, to require the Secretary of Veterans Affairs to establish and implement a comprehensive policy for managing software assets throughout the Department, and for other purposes."
+        },
+        {
+          "bill_number": "5366",
+          "bill_type": "HR",
+          "title": "Federal Disaster Tax Relief Act of 2025",
+          "summary": "",
+          "sponsor_name": "",
+          "latest_action": "Ordered to be Reported by the Yeas and Nays: 43 - 0.",
+          "latest_action_date": "2026-03-25T00:00:00",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/5366",
+          "published": "2026-03-25T00:00:00",
+          "congress": 119,
+          "short_title": "Federal Disaster Tax Relief Act of 2025",
+          "official_title": "To amend the Internal Revenue Code of 1986 to codify and extend the rules for personal casualty losses arising from major disasters and the rules for the exclusion from gross income of compensation for losses or damages resulting from certain wildfires."
+        },
+        {
+          "bill_number": "5334",
+          "bill_type": "HR",
+          "title": "SEED Act of 2025",
+          "summary": "",
+          "sponsor_name": "",
+          "latest_action": "Ordered to be Reported by the Yeas and Nays: 43 - 0.",
+          "latest_action_date": "2026-03-25T00:00:00",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/5334",
+          "published": "2026-03-25T00:00:00",
+          "congress": 119,
+          "short_title": "SEED Act of 2025",
+          "official_title": "To amend the Internal Revenue Code of 1986 to allow early childhood educators to take the educator expense deduction, and for other purposes."
+        },
+        {
+          "bill_number": "2347",
+          "bill_type": "HR",
+          "title": "Survivor Justice Tax Prevention Act",
+          "summary": "",
+          "sponsor_name": "",
+          "latest_action": "Ordered to be Reported by the Yeas and Nays: 41 - 0.",
+          "latest_action_date": "2026-03-25T00:00:00",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/2347",
+          "published": "2026-03-25T00:00:00",
+          "congress": 119,
+          "short_title": "Survivor Justice Tax Prevention Act",
+          "official_title": "To amend the Internal Revenue Code of 1986 to exclude from gross income any damages, other than punitive damages, received on account of any sexual acts or sexual contact."
+        },
         {
           "bill_number": "921",
           "bill_type": "S",
@@ -141175,20 +141301,6 @@
           "congress": 119,
           "short_title": "Muhammad Ali American Boxing Revival Act",
           "official_title": "To amend the Professional Boxing Safety Act of 1996 to establish requirements for unified boxing organizations, to further enhance the well-being of professional boxers, and for other purposes."
-        },
-        {
-          "bill_number": "5103",
-          "bill_type": "HR",
-          "title": "Make the District of Columbia Safe and Beautiful Act of 2026",
-          "summary": "",
-          "sponsor_name": "",
-          "latest_action": "Rules Committee Resolution H. Res. 1131 Reported to House. Rule provides for consideration of H.R. 8029, H. Res. 1128, H.R. 5103 and H.R. 7084. The resolution provides for consideration of H.R. 8029, H. Res. 1128, H.R. 5103, and H.R. 7084 under a closed rule with one hour of general debate on each measure. The resolution provides for one motion to recommit on H.R. 8029, H.R. 5103, and H.R. 7084.",
-          "latest_action_date": "2026-03-24T00:00:00",
-          "url": "https://www.congress.gov/bill/119th-congress/house-bill/5103",
-          "published": "2026-03-24T00:00:00",
-          "congress": 119,
-          "short_title": "Make the District of Columbia Safe and Beautiful Act of 2025",
-          "official_title": "To establish a program to Beautify the District of Columbia and establish the District of Columbia Safe and Beautiful Commission."
         },
         {
           "bill_number": "1897",
@@ -141539,7 +141651,9 @@
           "congress": 119,
           "short_title": "Immersive Technology for the American Workforce Act of 2025",
           "official_title": "A bill to direct the Secretary of Labor to carry out a competitive grant program to support community colleges and area career and technical education centers in developing immersive technology education and training services programs for workforce development, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "2841",
           "bill_type": "S",
@@ -141623,9 +141737,7 @@
           "congress": 119,
           "short_title": "Geriatrics Workforce Improvement Act",
           "official_title": "A bill to amend the Public Health Service Act to reauthorize certain education and training programs relating to geriatrics, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "380",
           "bill_type": "S",
@@ -142241,7 +142353,9 @@
           "congress": 119,
           "short_title": "To amend title 38, United States Code, to make certain improvements in the administration of the national formulary of the Department of Veterans Affairs, and for other purposes.",
           "official_title": "To amend title 38, United States Code, to make certain improvements in the administration of the national formulary of the Department of Veterans Affairs, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "6583",
           "bill_type": "HR",
@@ -142325,9 +142439,7 @@
           "congress": 119,
           "short_title": "Withhold Member Pay During Shutdowns Act",
           "official_title": "To reduce the annual rate of pay of Members of Congress if a Government shutdown occurs during a year, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5639",
           "bill_type": "HR",
@@ -142943,7 +143055,9 @@
           "congress": 119,
           "short_title": "North Rim Restoration Act of 2025",
           "official_title": "To authorize direct emergency acquisition flexibilities for the National Park Service for the purpose of retaining, vetting, approving, and expediting contractor approval for the clearing, rebuilding, maintenance, and improvement of the Grand Canyon grounds that have been impacted by the Dragon Bravo Fire."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5254",
           "bill_type": "HR",
@@ -143027,9 +143141,7 @@
           "congress": 119,
           "short_title": "Small Cemetery Conveyance Act",
           "official_title": "To amend the Small Tract Act of 1983 to authorize the Secretary of Agriculture to convey, without consideration, certain cemeteries, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "4467",
           "bill_type": "HR",
@@ -143645,7 +143757,9 @@
           "congress": 119,
           "short_title": "Florida Safe Seas Act of 2025",
           "official_title": "To amend the Magnuson-Stevens Fishery Conservation and Management Act to prohibit feeding sharks in the exclusive economic zone off the State of Florida."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "723",
           "bill_type": "S",
@@ -143729,9 +143843,7 @@
           "congress": 119,
           "short_title": "To amend the Act of August 9, 1955 (commonly known as the \"Long-Term Leasing Act\"), to authorize leases of up to 99 years for land held in trust for the Mashpee Wampanoag Tribe and the Wampanoag Tribe of Gay Head (Aquinnah), and for other purposes.",
           "official_title": "To amend the Act of August 9, 1955 (commonly known as the \"Long-Term Leasing Act\"), to authorize leases of up to 99 years for land held in trust for the Mashpee Wampanoag Tribe and the Wampanoag Tribe of Gay Head (Aquinnah), and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5419",
           "bill_type": "HR",
@@ -144041,34 +144153,6 @@
           "official_title": "To make improvements to the Federal banking laws, and for other purposes."
         },
         {
-          "bill_number": "2071",
-          "bill_type": "HR",
-          "title": "Save Our Shrimpers Act",
-          "summary": "",
-          "sponsor_name": "",
-          "latest_action": "Ordered to be Reported by the Yeas and Nays: 42 - 1.",
-          "latest_action_date": "2026-03-04T00:00:00",
-          "url": "https://www.congress.gov/bill/119th-congress/house-bill/2071",
-          "published": "2026-03-04T00:00:00",
-          "congress": 119,
-          "short_title": "Save Our Shrimpers Act",
-          "official_title": "To prohibit Federal funds from being made available to international financial institutions for the purposes of financing foreign shrimp farms, and for other purposes."
-        },
-        {
-          "bill_number": "4171",
-          "bill_type": "HR",
-          "title": "SEED Act of 2025",
-          "summary": "",
-          "sponsor_name": "",
-          "latest_action": "Ordered to be Reported by the Yeas and Nays: 26 - 17.",
-          "latest_action_date": "2026-03-04T00:00:00",
-          "url": "https://www.congress.gov/bill/119th-congress/house-bill/4171",
-          "published": "2026-03-04T00:00:00",
-          "congress": 119,
-          "short_title": "SEED Act of 2025",
-          "official_title": "To amend the Securities Act of 1933 to provide small issuers with a micro-offering exemption free of mandated disclosures or offering filings, but subject to the antifraud provisions of the Federal securities laws, and for other purposes."
-        },
-        {
           "bill_number": "3903",
           "bill_type": "HR",
           "title": "Chugach Alaska Land Exchange Oil Spill Recovery Act of 2025",
@@ -144375,7 +144459,9 @@
           "congress": 119,
           "short_title": "Community Bank Representation Act",
           "official_title": "To amend the Federal Reserve Act to specify additional responsibilities of the member of the Board of Governors of the Federal Reserve System who was appointed as the member with experience working in or supervising community banks, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "6555",
           "bill_type": "HR",
@@ -144431,9 +144517,7 @@
           "congress": 119,
           "short_title": "Finding ORE Act",
           "official_title": "To allow the Secretary of the Interior to enter into memoranda of understanding for the purpose of scientific and technical cooperation in the mapping of critical minerals and rare earth elements, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "982",
           "bill_type": "HR",
@@ -145077,7 +145161,9 @@
           "congress": 119,
           "short_title": "American Shores Protection Act of 2025",
           "official_title": "A bill to prohibit oil and natural gas exploration, development, and production in certain areas of the outer Continental Shelf off the coast of Florida, Georgia, and South Carolina."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "2968",
           "bill_type": "S",
@@ -145133,9 +145219,7 @@
           "congress": 119,
           "short_title": "Baby Changing on Board Act",
           "official_title": "A bill to require Amtrak to install baby changing tables in bathrooms on passenger rail cars."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "677",
           "bill_type": "HR",
@@ -145779,7 +145863,9 @@
           "congress": 119,
           "short_title": "Taiwan Undersea Cable Resilience Initiative Act",
           "official_title": "A bill to enhance the security, resilience, and protection of undersea communication cables vital to Taiwan's national security, economic stability, and defense, particularly in countering gray zone tactics employed by the People's Republic of China, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "2236",
           "bill_type": "S",
@@ -145835,9 +145921,7 @@
           "congress": 119,
           "short_title": "PART Act",
           "official_title": "To prevent the theft of catalytic converters and other precious metal car parts, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "2110",
           "bill_type": "HR",
@@ -146481,7 +146565,9 @@
           "congress": 119,
           "short_title": "Making National Parks Safer Act",
           "official_title": "A bill to direct the Secretary of the Interior to upgrade existing emergency communications centers in units of the National Park System to Next Generation 9-1-1 systems, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "1321",
           "bill_type": "S",
@@ -146537,9 +146623,7 @@
           "congress": 119,
           "short_title": "A bill to provide for the transfer of administrative jurisdiction over certain Federal land in the State of California, and for other purposes.",
           "official_title": "A bill to provide for the transfer of administrative jurisdiction over certain Federal land in the State of California, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "291",
           "bill_type": "S",
@@ -147183,7 +147267,9 @@
           "congress": 119,
           "short_title": "Bus Operator Safety and Security Act",
           "official_title": "To amend title 49, United States Code, to set requirements for certain operator workstations for fixed route buses, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "6671",
           "bill_type": "HR",
@@ -147239,9 +147325,7 @@
           "congress": 119,
           "short_title": "Secure Our Skies Drone Safety Act of 2025",
           "official_title": "To require the Comptroller General of the United States to report on the use of unmanned aircraft systems and on systems developed to counter such unmanned aircraft systems by Federal, State, local, and Tribal agencies."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "6531",
           "bill_type": "HR",
@@ -147884,7 +147968,9 @@
           "congress": 119,
           "short_title": "Combatting Money Laundering in Cyber Crime Act of 2025",
           "official_title": "To strengthen the authority of the United States Secret Service to investigate various crimes related to digital asset transactions and to counter transnational cyber criminal activity, including unlicensed money transmitting businesses, structured transactions, and fraud against financial institutions, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "4255",
           "bill_type": "HR",
@@ -147940,9 +148026,7 @@
           "congress": 119,
           "short_title": "Providing for consideration of the bill (H.R. 6039) to advance commonsense priorities.",
           "official_title": "Providing for consideration of the bill (H.R. 6039) to advance commonsense priorities."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "4105",
           "bill_type": "HR",
@@ -148586,7 +148670,9 @@
           "congress": 119,
           "short_title": "PROTECT Kids Act",
           "official_title": "To require public elementary and middle schools that receive funds under the Elementary and Secondary Education Act of 1965 to obtain parental consent before changing a minor's gender markers, pronouns, or preferred name on any school form or sex-based accommodations, including locker rooms or bathrooms."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "3453",
           "bill_type": "HR",
@@ -148642,9 +148728,7 @@
           "congress": 119,
           "short_title": "Renewed Hope Act",
           "official_title": "To enhance hiring authorities at the Department of Homeland Security, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "2262",
           "bill_type": "HR",
@@ -149288,7 +149372,9 @@
           "congress": 119,
           "short_title": "To require the Secretary of Agriculture to carry out activities to suppress wildfires, and for other purposes.",
           "official_title": "To require the Secretary of Agriculture to carry out activities to suppress wildfires, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "2641",
           "bill_type": "HR",
@@ -149344,9 +149430,7 @@
           "congress": 119,
           "short_title": "COLAs Don\u2019t Count Act of 2026",
           "official_title": "To amend the Food and Nutrition Act of 2008 to exclude from income, for the purpose of determining eligibility and benefits, increased income received from cost of living adjustments made under titles II and XVI of the Social Security Act, section 3(a)(1) of the Railroad Retirement Act of 1974 (45 U.S.C. 231b(a)(1)), or section 5312 of title 38 of the United States Code, and income received from supplementary payments received under section 1616 of the Social Security Act."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "983",
           "bill_type": "HRES",
@@ -149990,7 +150074,9 @@
           "congress": 119,
           "short_title": "Expressing the profound sorrow of the House of Representatives on the death of the Honorable Doug LaMalfa.",
           "official_title": "Expressing the profound sorrow of the House of Representatives on the death of the Honorable Doug LaMalfa."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "981",
           "bill_type": "HRES",
@@ -150046,9 +150132,7 @@
           "congress": 119,
           "short_title": "To amend the Food Security Act of 1985 to establish a program that provides payments to producers for carrying out conservation practices in selected eligible watersheds, and for other purposes.",
           "official_title": "To amend the Food Security Act of 1985 to establish a program that provides payments to producers for carrying out conservation practices in selected eligible watersheds, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "6968",
           "bill_type": "HR",
@@ -150692,7 +150776,9 @@
           "congress": 119,
           "short_title": "Hope Heals Act of 2026",
           "official_title": "To direct the Secretary of Health and Human Services to assess how Executive departments address mental health crisis prevention and awareness, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "6944",
           "bill_type": "HR",
@@ -150748,9 +150834,7 @@
           "congress": 119,
           "short_title": "January 6th Oral History Project Act",
           "official_title": "To direct the American Folklife Center at the Library of Congress to establish an oral history program to collect certain video and audio recordings of personal histories and testimonials and written materials with respect to individuals who were affected by the events at the United States Capitol on January 6, 2021, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "6953",
           "bill_type": "HR",
@@ -151394,7 +151478,9 @@
           "congress": 119,
           "short_title": "Original Resolution Calling on the United States Government to Help Bring Peace to Sudan",
           "official_title": "Calling on the United States government to be more involved in bringing peace to Sudan."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "972",
           "bill_type": "HRES",
@@ -151450,9 +151536,7 @@
           "congress": 119,
           "short_title": "To take certain land into trust for the benefit of the Las Vegas Tribe of Paiute Indians.",
           "official_title": "To take certain land into trust for the benefit of the Las Vegas Tribe of Paiute Indians."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "6913",
           "bill_type": "HR",
@@ -152096,7 +152180,9 @@
           "congress": 119,
           "short_title": "A resolution commemorating 30 years of diplomatic relations between the United States and Vietnam on July 11, 2025.",
           "official_title": "A resolution commemorating 30 years of diplomatic relations between the United States and Vietnam on July 11, 2025."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "572",
           "bill_type": "SRES",
@@ -152152,9 +152238,7 @@
           "congress": 119,
           "short_title": "A bill to provide funding to State and local law enforcement agencies to combat auto theft and stolen automobile trafficking, and for other purposes.",
           "official_title": "A bill to provide funding to State and local law enforcement agencies to combat auto theft and stolen automobile trafficking, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "3576",
           "bill_type": "S",
@@ -152798,7 +152882,9 @@
           "congress": 119,
           "short_title": "SAFE Services Act",
           "official_title": "To request the Secretary of Defense to provide preference for offerors that are United States companies in professional services contracts, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "6849",
           "bill_type": "HR",
@@ -152854,9 +152940,7 @@
           "congress": 119,
           "short_title": "WALZ Act",
           "official_title": "To direct the Inspector General of the Department of Health and Human Services to investigate certain payment increases under HHS programs."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "6906",
           "bill_type": "HR",
@@ -153500,7 +153584,9 @@
           "congress": 119,
           "short_title": "Youth Substance Use Prevention and Awareness Act",
           "official_title": "To promote public service announcement campaigns targeted at youth substance use prevention, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "6873",
           "bill_type": "HR",
@@ -153556,9 +153642,7 @@
           "congress": 119,
           "short_title": "Buy Now, Pay Later Protection Act of 2025",
           "official_title": "To amend the Truth in Lending Act and the Consumer Financial Protection Act of 2010 to apply certain protections and oversight to buy now, pay later loans, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "967",
           "bill_type": "HRES",
@@ -154202,7 +154286,9 @@
           "congress": 119,
           "short_title": "A resolution expressing unwavering support for the United States-Japan alliance in response to political, economic and military pressure by the People's Republic of China.",
           "official_title": "A resolution expressing unwavering support for the United States-Japan alliance in response to political, economic and military pressure by the People's Republic of China."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "3545",
           "bill_type": "S",
@@ -154258,9 +154344,7 @@
           "congress": 119,
           "short_title": "LISTOS Act of 2025",
           "official_title": "A bill to ensure that large online platforms are addressing the needs of non-English users."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "3541",
           "bill_type": "S",
@@ -154904,7 +154988,9 @@
           "congress": 119,
           "short_title": "American Voices in Federal Lands Act",
           "official_title": "A bill to amend the Federal Land Policy and Management Act of 1976 to clarify the nature of public investment for purposes of certain rulemaking, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "2546",
           "bill_type": "S",
@@ -154960,9 +155046,7 @@
           "congress": 119,
           "short_title": "Chugach Alaska Land Exchange Oil Spill Recovery Act of 2025",
           "official_title": "A bill to exchange non-Federal land held by the Chugach Alaska Corporation for certain Federal Land in the Chugach Region, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "2015",
           "bill_type": "S",
@@ -155606,7 +155690,9 @@
           "congress": 119,
           "short_title": "To amend the Internal Revenue Code of 1986 to establish a tax credit for qualified combined heat and power system property, and for other purposes.",
           "official_title": "To amend the Internal Revenue Code of 1986 to establish a tax credit for qualified combined heat and power system property, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "6787",
           "bill_type": "HR",
@@ -155662,9 +155748,7 @@
           "congress": 119,
           "short_title": "Calumet National Heritage Area Act",
           "official_title": "To amend the John D. Dingell, Jr. Conservation, Management, and Recreation Act to designate as a component of the National Heritage Area System the Calumet National Heritage Area in the States of Indiana and Illinois, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "6811",
           "bill_type": "HR",
@@ -156308,7 +156392,9 @@
           "congress": 119,
           "short_title": "To require the Secretary of Agriculture to convey a parcel of property of the Forest Service to Perry County, Arkansas, and for other purposes.",
           "official_title": "To require the Secretary of Agriculture to convey a parcel of property of the Forest Service to Perry County, Arkansas, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "3176",
           "bill_type": "HR",
@@ -156364,9 +156450,7 @@
           "congress": 119,
           "short_title": "To reauthorize the Junior Duck Stamp Conservation and Design Program Act of 1994.",
           "official_title": "To reauthorize the Junior Duck Stamp Conservation and Design Program Act of 1994."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "1045",
           "bill_type": "HR",
@@ -157010,7 +157094,9 @@
           "congress": 119,
           "short_title": "Safer Detention Act of 2025",
           "official_title": "A bill to expand eligibility for and provide judicial review for the Elderly Home Detention Pilot Program, and to make other technical corrections."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "3484",
           "bill_type": "S",
@@ -157066,9 +157152,7 @@
           "congress": 119,
           "short_title": "SAFER SKIES Act",
           "official_title": "A bill to expand the authority to use counter-unmanned aircraft system technologies to State, local, Tribal, and territorial law enforcement and correctional agencies, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "3668",
           "bill_type": "HR",
@@ -157712,7 +157796,9 @@
           "congress": 119,
           "short_title": "Repealing the IMD Exclusion Act",
           "official_title": "To amend title XIX of the Social Security Act to remove the exclusion from medical assistance under the Medicaid program of items and services for patients in an institution for mental diseases, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "6725",
           "bill_type": "HR",
@@ -157768,9 +157854,7 @@
           "congress": 119,
           "short_title": "Linking Seniors to Needed Legal Services Act of 2025",
           "official_title": "To amend title XX of the Social Security Act to provide grants to States to support linkages to legal services and medical legal partnerships."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "6724",
           "bill_type": "HR",
@@ -158414,7 +158498,9 @@
           "congress": 119,
           "short_title": "Assessing Safety Tools for Parents and Minors Act",
           "official_title": "To require the Federal Trade Commission to submit a report on industry efforts to promote online safety for minors, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5360",
           "bill_type": "HR",
@@ -158470,9 +158556,7 @@
           "congress": 119,
           "short_title": "No Fentanyl on Social Media Act",
           "official_title": "To require the Federal Trade Commission to submit to Congress a report on the ability of minors to access fentanyl through social media platforms, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "6290",
           "bill_type": "HR",
@@ -159116,7 +159200,9 @@
           "congress": 119,
           "short_title": "Health Coverage Across State Lines Act",
           "official_title": "A bill to amend the Public Health Service Act to provide for cooperative governing of individual health insurance coverage offered in interstate commerce."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "2584",
           "bill_type": "S",
@@ -159172,9 +159258,7 @@
           "congress": 119,
           "short_title": "Improving the Federal Response to Organized Retail Crime Act of 2025",
           "official_title": "To direct certain heads of Federal agencies to develop a strategy to improve Federal investigations of organized retail crime, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "6615",
           "bill_type": "HR",
@@ -159482,20 +159566,6 @@
           "congress": 119,
           "short_title": "To require a report on merits and options for establishing an institute relating to space resources, and for other purposes.",
           "official_title": "To require a report on merits and options for establishing an institute relating to space resources, and for other purposes."
-        },
-        {
-          "bill_number": "6654",
-          "bill_type": "HR",
-          "title": "To amend title 38, United States Code, to require the Secretary of Veterans Affairs to establish and implement a comprehensive policy for managing software assets throughout the Department, and for other purposes.",
-          "summary": "",
-          "sponsor_name": "",
-          "latest_action": "Referred to the House Committee on Veterans' Affairs.",
-          "latest_action_date": "2025-12-11T00:00:00",
-          "url": "https://www.congress.gov/bill/119th-congress/house-bill/6654",
-          "published": "2025-12-11T00:00:00",
-          "congress": 119,
-          "short_title": "VAMOSA Act of 2025",
-          "official_title": "To amend title 38, United States Code, to require the Secretary of Veterans Affairs to establish and implement a comprehensive policy for managing software assets throughout the Department, and for other purposes."
         },
         {
           "bill_number": "6678",
@@ -159832,7 +159902,9 @@
           "congress": 119,
           "short_title": "Water Agency and Transparency Enhancement Review (WATER) Act",
           "official_title": "To codify certain sections of Executive Order 14181 relating to emergency measures to provide water resources in California and improve disaster response in certain areas."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "6617",
           "bill_type": "HR",
@@ -159874,9 +159946,7 @@
           "congress": 119,
           "short_title": "Expanding Mental Health Access for Cyber Command Personnel Act",
           "official_title": "To direct the Department of Defense to carry out an initiative to understand and address occupational resiliency challenges of the Cyber Mission Force."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "6648",
           "bill_type": "HR",
@@ -160534,7 +160604,9 @@
           "congress": 119,
           "short_title": "To designate the facility of the United States Postal Service located at 298 Route 292 in Holmes, New York, as the \"Sheriff Adrian 'Butch' Anderson Post Office Building\".",
           "official_title": "To designate the facility of the United States Postal Service located at 298 Route 292 in Holmes, New York, as the Sheriff Adrian Butch Anderson Post Office Building."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "655",
           "bill_type": "HR",
@@ -160576,9 +160648,7 @@
           "congress": 119,
           "short_title": "To designate the facility of the United States Postal Service located at 80 Prospect Street in Avon, New York, as the \"Officer Anthony Mazurkiewicz Memorial Post Office Building\".",
           "official_title": "To designate the facility of the United States Postal Service located at 80 Prospect Street in Avon, New York, as the Officer Anthony Mazurkiewicz Memorial Post Office Building."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "486",
           "bill_type": "HRES",
@@ -161236,7 +161306,9 @@
           "congress": 119,
           "short_title": "Reuniting Families Act",
           "official_title": "To amend the Immigration and Nationality Act to promote family unity, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "6586",
           "bill_type": "HR",
@@ -161278,9 +161350,7 @@
           "congress": 119,
           "short_title": "To amend title XVIII of the Social Security Act to adjust the eligibility for the rural emergency hospital designation under the Medicare program.",
           "official_title": "To amend title XVIII of the Social Security Act to adjust the eligibility for the rural emergency hospital designation under the Medicare program."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "6597",
           "bill_type": "HR",
@@ -161938,7 +162008,9 @@
           "congress": 119,
           "short_title": "Appalachian Trail Centennial Act",
           "official_title": "A bill to enhance the preservation, maintenance, and management of national historic trails and national scenic trails, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "2385",
           "bill_type": "S",
@@ -161980,9 +162052,7 @@
           "congress": 119,
           "short_title": "PATRIOT Parks Act",
           "official_title": "A bill to amend the Federal Land Recreation Enhancement Act to authorize the Secretary of the Interior to collect a surcharge from international visitors to units of the National Park System, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "2270",
           "bill_type": "S",
@@ -162640,7 +162710,9 @@
           "congress": 119,
           "short_title": "National Military Civilian Medical Surge Program Act of 2025",
           "official_title": "To amend title 10, United States Code, to direct the Secretary of Defense to establish the Military-Civilian Medical Surge Program."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "6513",
           "bill_type": "HR",
@@ -162682,9 +162754,7 @@
           "congress": 119,
           "short_title": "Tracking and Restricting Adversarial Circumvention of Embargoes Act of 2025",
           "official_title": "A bill to require a report on the purchases of Iranian oil by the People's Republic of China, support from entities and individuals in the People's Republic of China for Iran's ballistic missile program, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "3389",
           "bill_type": "S",
@@ -163342,7 +163412,9 @@
           "congress": 119,
           "short_title": "Native Arts and Culture Promotion Act",
           "official_title": "A bill to amend the American Indian, Alaska Native, and Native Hawaiian Culture and Art Development Act to modify the program for Native Hawaiian and Alaska Native culture and arts development, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "3370",
           "bill_type": "S",
@@ -163384,9 +163456,7 @@
           "congress": 119,
           "short_title": "A bill to designate the facility of the United States Postal Service located at 14855 South Van Dyke Road in Plainfield, Illinois, as the \"Staff Sergeant Jose Duenez Jr. Post Office Building\".",
           "official_title": "A bill to designate the facility of the United States Postal Service located at 14855 South Van Dyke Road in Plainfield, Illinois, as the \"Staff Sergeant Jose Duenez Jr. Post Office Building\"."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "3369",
           "bill_type": "S",
@@ -164044,7 +164114,9 @@
           "congress": 119,
           "short_title": "Declaring support by the House of Representatives for Design for Recycling (DFR) initiatives that limit all types of waste by encouraging manufacturers to design their products to have the maximum number of recyclable components.",
           "official_title": "Declaring support by the House of Representatives for Design for Recycling (DFR) initiatives that limit all types of waste by encouraging manufacturers to design their products to have the maximum number of recyclable components."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "6458",
           "bill_type": "HR",
@@ -164086,9 +164158,7 @@
           "congress": 119,
           "short_title": "Reaffirming the commitment of the United States to cooperate and partner with the Government of Honduras to counter narcotics and condemning the pardon of Juan Orlando Hern\u00e1ndez.",
           "official_title": "Reaffirming the commitment of the United States to cooperate and partner with the Government of Honduras to counter narcotics and condemning the pardon of Juan Orlando Hern\u00e1ndez."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "931",
           "bill_type": "HRES",
@@ -164746,7 +164816,9 @@
           "congress": 119,
           "short_title": "Emergency Savings Enhancement Act of 2025",
           "official_title": "A bill to modify the eligibility requirements and account contribution maximum for pension-linked emergency savings accounts, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "3332",
           "bill_type": "S",
@@ -164788,9 +164860,7 @@
           "congress": 119,
           "short_title": "Strengthening Sanctions on Fentanyl Traffickers Act of 2025",
           "official_title": "A bill to impose sanctions with respect to persons that contribute to international trafficking of illicit drugs, including companies of the People's Republic of China that supply fentanyl precursors and certain cartels that traffic fentanyl into the United States, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "525",
           "bill_type": "SRES",
@@ -165448,7 +165518,9 @@
           "congress": 119,
           "short_title": "Digital Skills for Today\u2019s Workforce Act",
           "official_title": "To amend the Workforce Innovation and Opportunity Act to establish a digital skills at work grant program."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "6413",
           "bill_type": "HR",
@@ -165490,9 +165562,7 @@
           "congress": 119,
           "short_title": "Arms Sale Oversight Act",
           "official_title": "To modify the expedited procedures in the House of Representatives under section 36 of the Arms Export Control Act with respect to consideration of joint resolutions prohibiting proposed sales of defense articles or services, prohibiting proposed licenses for exports of defense articles or services, and prohibiting approval of United States commercial technical assistance or manufacturing licensing agreements."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "6404",
           "bill_type": "HR",
@@ -166150,7 +166220,9 @@
           "congress": 119,
           "short_title": "Federal Relocation Payment Improvement Act",
           "official_title": "To amend title 5, United States Code, to provide for lump-sum relocation payments for Federal employees relocated in the interest of the Government, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "3766",
           "bill_type": "HR",
@@ -166192,9 +166264,7 @@
           "congress": 119,
           "short_title": "Official Time Reporting Act",
           "official_title": "To amend title 5, United States Code, to require that the Office of Personnel Management submit an annual report to Congress relating to the use of official time by Federal employees."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "3310",
           "bill_type": "S",
@@ -166852,7 +166922,9 @@
           "congress": 119,
           "short_title": "Advancing Regional Quantum Hubs Act",
           "official_title": "To amend the National Quantum Initiative Act to require support for regional innovation initiatives in quantum information science and technology, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "6349",
           "bill_type": "HR",
@@ -166894,9 +166966,7 @@
           "congress": 119,
           "short_title": "GENESIS Act",
           "official_title": "To provide that the Executive order entitled \"Launching the Genesis Mission\" shall have the force and effect of law, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "6362",
           "bill_type": "HR",
@@ -167554,7 +167624,9 @@
           "congress": 119,
           "short_title": "Passenger Rail Liability Adjustment Act of 2025",
           "official_title": "To adjust the effective date of any adjustment based on Consumer Price Index to rail passenger liability cap that occurs during calendar year 2026."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5677",
           "bill_type": "HR",
@@ -167596,9 +167668,7 @@
           "congress": 119,
           "short_title": "Water Preservation and Affordability Act of 2025",
           "official_title": "To amend the Federal Water Pollution Control Act to consider the use of resource preservation techniques in certain programs, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5656",
           "bill_type": "HR",
@@ -168256,7 +168326,9 @@
           "congress": 119,
           "short_title": "Housing Supply Expansion Act of 2025",
           "official_title": "To update the definition of manufactured home, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "6296",
           "bill_type": "HR",
@@ -168298,9 +168370,7 @@
           "congress": 119,
           "short_title": "VIVAS Act",
           "official_title": "To direct the Comptroller General of the United States to conduct a comprehensive, culturally informed, and community-engaged study of gender-based violence in Puerto Rico, including its causes, prevalence, systemic drivers, and potential policy solutions, taking into account the island's cultural, economic, educational, infrastructural, and post-disaster challenges."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "6312",
           "bill_type": "HR",
@@ -168958,7 +169028,9 @@
           "congress": 119,
           "short_title": "Natural Disaster Risk Reinsurance Program Act",
           "official_title": "To establish a Natural Disaster Risk Reinsurance Program, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "6272",
           "bill_type": "HR",
@@ -169000,9 +169072,7 @@
           "congress": 119,
           "short_title": "REAP Modernization Act of 2025",
           "official_title": "To amend the Farm Security and Rural Investment Act of 2002 to improve the Rural Energy for America Program, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "6269",
           "bill_type": "HR",
@@ -169660,7 +169730,9 @@
           "congress": 119,
           "short_title": "A joint resolution proposing a balanced budget amendment to the Constitution of the United States.",
           "official_title": "A joint resolution proposing a balanced budget amendment to the Constitution of the United States."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "3256",
           "bill_type": "S",
@@ -169702,9 +169774,7 @@
           "congress": 119,
           "short_title": "NIH IMPROVE Act",
           "official_title": "A bill to establish the IMPROVE Initiative within the National Institutes of Health."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "3253",
           "bill_type": "S",
@@ -170362,7 +170432,9 @@
           "congress": 119,
           "short_title": "SIMSA Act of 2025",
           "official_title": "A bill to amend the Controlled Substances Act to clarify how controlled substance analogues that are imported or offered for import are to be regulated, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "3227",
           "bill_type": "S",
@@ -170404,9 +170476,7 @@
           "congress": 119,
           "short_title": "HOPE Act",
           "official_title": "To amend the Internal Revenue Code of 1986 to extend and modify the enhanced premium tax credit, and to amend the Patient Protection and Affordable Care Act to make certain adjustments to the operation of the Exchanges established under such Act."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "6215",
           "bill_type": "HR",
@@ -171064,7 +171134,9 @@
           "congress": 119,
           "short_title": "Commercial Motor Vehicle English Proficiency Act",
           "official_title": "To amend title 49, United States Code, to modify provisions relating to commercial motor vehicle operator testing requirements, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "6200",
           "bill_type": "HR",
@@ -171106,9 +171178,7 @@
           "congress": 119,
           "short_title": "Clean Cloud Act of 2025",
           "official_title": "To amend the Clean Air Act to establish requirements on the collection of electricity consumption data and emissions standards for servers and other computing equipment used for cryptocurrency mining, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "6189",
           "bill_type": "HR",
@@ -171766,7 +171836,9 @@
           "congress": 119,
           "short_title": "Expanding Health Care Options for First Responders Act",
           "official_title": "A bill to amend title XVIII of the Social Security Act to provide an option for first responders age 50 to 64 who are separated from service due to retirement or disability to buy into Medicare."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "3220",
           "bill_type": "S",
@@ -171808,9 +171880,7 @@
           "congress": 119,
           "short_title": "Skills Investment Act of 2025",
           "official_title": "A bill to amend the Internal Revenue Code of 1986 to provide for lifelong learning accounts, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "3216",
           "bill_type": "S",
@@ -172468,7 +172538,9 @@
           "congress": 119,
           "short_title": "To designate the facility of the United States Postal Service located at 28201 Franklin Parkway in Santa Clarita, California, as the \"Deputy Ryan Clinkunbroomer Post Office Building\".",
           "official_title": "To designate the facility of the United States Postal Service located at 28201 Franklin Parkway in Santa Clarita, California, as the \"Deputy Ryan Clinkunbroomer Post Office Building\"."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "6153",
           "bill_type": "HR",
@@ -172510,9 +172582,7 @@
           "congress": 119,
           "short_title": "Regional Leadership in Wildland Fire Research Act of 2025",
           "official_title": "To provide for the establishment of regional wildland fire research centers, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "892",
           "bill_type": "HRES",
@@ -173170,7 +173240,9 @@
           "congress": 119,
           "short_title": "A resolution supporting the goals and ideals of \"Creutzfeldt-Jakob Disease (CJD) Awareness Day\".",
           "official_title": "A resolution supporting the goals and ideals of \"Creutzfeldt-Jakob Disease (CJD) Awareness Day\"."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "3189",
           "bill_type": "S",
@@ -173212,9 +173284,7 @@
           "congress": 119,
           "short_title": "Biomanufacturing Excellence Act of 2025",
           "official_title": "A bill to establish a Biopharmaceutical Center of Excellence, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "3185",
           "bill_type": "S",
@@ -173872,7 +173942,9 @@
           "congress": 119,
           "short_title": "Constitutional Accountability Act",
           "official_title": "To ensure that the United States, States, and local governments are liable for monetary damages for constitutional violations by law enforcement officers."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "6101",
           "bill_type": "HR",
@@ -173914,9 +173986,7 @@
           "congress": 119,
           "short_title": "Gulf Diplomacy Act",
           "official_title": "To extend privileges and immunities under the International Organizations Immunities Act to the Gulf Cooperation Council."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "6104",
           "bill_type": "HR",
@@ -174574,7 +174644,9 @@
           "congress": 119,
           "short_title": "PROTECT Florida Act",
           "official_title": "To provide for a moratorium on oil and gas leasing and exploration on the outer Continental Shelf off the coast of Florida until 2032, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "6071",
           "bill_type": "HR",
@@ -174616,9 +174688,7 @@
           "congress": 119,
           "short_title": "No Aid for Illegal Entry Act",
           "official_title": "To prohibit the use of Federal funds by non-governmental organizations and the Department of the Interior for certain immigration-related services, except in the case of a minor."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "881",
           "bill_type": "HRES",
@@ -175275,7 +175345,9 @@
           "congress": 119,
           "short_title": "MY DATA Act of 2025",
           "official_title": "To prohibit covered entities from preventing the use of certain data by individuals, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "498",
           "bill_type": "SRES",
@@ -175317,9 +175389,7 @@
           "congress": 119,
           "short_title": "A resolution recognizing the 50th anniversary of the end of the Vietnam War and honoring the United States veterans who served during the conflict.",
           "official_title": "A resolution recognizing the 50th anniversary of the end of the Vietnam War and honoring the United States veterans who served during the conflict."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "494",
           "bill_type": "SRES",
@@ -175977,7 +176047,9 @@
           "congress": 119,
           "short_title": "Honoring the Alpha Kappa Alpha Sorority, Incorporated, Chi Chapter, on its centennial anniversary.",
           "official_title": "Honoring the Alpha Kappa Alpha Sorority, Incorporated, Chi Chapter, on its centennial anniversary."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5980",
           "bill_type": "HR",
@@ -176019,9 +176091,7 @@
           "congress": 119,
           "short_title": "USMC Helicopter Support in Vietnam Congressional Gold Medal Act",
           "official_title": "To award a Congressional Gold Medal to United States Marines who served as part of helicopter support missions in the Vietnam War."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5958",
           "bill_type": "HR",
@@ -176679,7 +176749,9 @@
           "congress": 119,
           "short_title": "Expanding Health Care Providers for Veterans Act",
           "official_title": "To amend section 214(g)(5) of the Immigration and Nationality Act to remove the numerical limitation on nonimmigrant aliens issued a visa or otherwise provided status under section 101(a)(15)(H)(i)(b) of such Act in the case of an alien who is employed at the Department of Veterans Affairs, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5936",
           "bill_type": "HR",
@@ -176721,9 +176793,7 @@
           "congress": 119,
           "short_title": "Recognizing the difficult challenges Black veterans faced when returning home after serving in the Armed Forces, their heroic military sacrifices, and their patriotism in fighting for equal rights and for the dignity of a people and a Nation.",
           "official_title": "Recognizing the difficult challenges Black veterans faced when returning home after serving in the Armed Forces, their heroic military sacrifices, and their patriotism in fighting for equal rights and for the dignity of a people and a Nation."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "862",
           "bill_type": "HRES",
@@ -177381,7 +177451,9 @@
           "congress": 119,
           "short_title": "Protection on the Picket Line Act",
           "official_title": "A bill to amend the National Labor Relations Act to protect employees from harassment and abuse, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "486",
           "bill_type": "SRES",
@@ -177423,9 +177495,7 @@
           "congress": 119,
           "short_title": "UBER Act",
           "official_title": "A bill to require English proficiency as a prerequisite for eligibility for ride share contracts, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "3123",
           "bill_type": "S",
@@ -178083,7 +178153,9 @@
           "congress": 119,
           "short_title": "Historic Preservation Enhancement Act",
           "official_title": "To amend title 54, United States Code, to increase amounts deposited in the Historic Preservation Fund, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "857",
           "bill_type": "HRES",
@@ -178125,9 +178197,7 @@
           "congress": 119,
           "short_title": "To authorize the Secretary of Housing and Urban Development to award grants to eligible entities to select pre-reviewed designs of covered structures of mixed-income housing for use in the jurisdiction of the eligible entity, and for other purposes.",
           "official_title": "To authorize the Secretary of Housing and Urban Development to award grants to eligible entities to select pre-reviewed designs of covered structures of mixed-income housing for use in the jurisdiction of the eligible entity, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5917",
           "bill_type": "HR",
@@ -178785,7 +178855,9 @@
           "congress": 119,
           "short_title": "Safer Supervision Act of 2025",
           "official_title": "To amend title 18, United States Code, to provide appropriate standards for the inclusion of a term of supervised release after imprisonment, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5901",
           "bill_type": "HR",
@@ -178827,9 +178899,7 @@
           "congress": 119,
           "short_title": "No Tax Exemptions For Terror Act",
           "official_title": "To specify that the Council on American-Islamic Relations and similar organizations shall not be treated as described in section 501(c)(3) of the Internal Revenue Code of 1986."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5882",
           "bill_type": "HR",
@@ -179487,7 +179557,9 @@
           "congress": 119,
           "short_title": "A resolution condemning the Government of the People's Republic of China for engaging in transnational repression.",
           "official_title": "A resolution condemning the Government of the People's Republic of China for engaging in transnational repression."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "2978",
           "bill_type": "S",
@@ -179529,9 +179601,7 @@
           "congress": 119,
           "short_title": "REPO Implementation Act of 2025",
           "official_title": "A bill to amend the Rebuilding Economic Prosperity and Opportunity for Ukrainians Act to improve the implementation of the seizure of Russian sovereign assets for the benefit of Ukraine, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "2684",
           "bill_type": "S",
@@ -180189,7 +180259,9 @@
           "congress": 119,
           "short_title": "USCP Act",
           "official_title": "To provide for the payment of salaries to employees of the United States Capitol Police during any lapse in discretionary appropriations, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5867",
           "bill_type": "HR",
@@ -180231,9 +180303,7 @@
           "congress": 119,
           "short_title": "Water Cybersecurity Enhancement Act of 2025",
           "official_title": "To amend the Safe Drinking Water Act to provide grants under the Drinking Water Infrastructure Risk and Resilience Program for training programs relating to protecting public water systems from and responding to cyberattacks, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "838",
           "bill_type": "HRES",
@@ -180891,7 +180961,9 @@
           "congress": 119,
           "short_title": "Shawnee National Forest Conservation Act of 2025",
           "official_title": "A bill to designate the Camp Hutchins Wilderness and establish Special Management Areas in the Shawnee National Forest in the State of Illinois, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "1876",
           "bill_type": "S",
@@ -180933,9 +181005,7 @@
           "congress": 119,
           "short_title": "Fix Our Forests Act",
           "official_title": "A bill to improve forest management activities on National Forest System land, public land under the jurisdiction of the Bureau of Land Management, and Tribal land to return resilience to overgrown, fire-prone forested land, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "1376",
           "bill_type": "S",
@@ -181593,7 +181663,9 @@
           "congress": 119,
           "short_title": "A bill to promote recruiter access to secondary schools.",
           "official_title": "A bill to promote recruiter access to secondary schools."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "3053",
           "bill_type": "S",
@@ -181635,9 +181707,7 @@
           "congress": 119,
           "short_title": "Fair Air Enforcement Act of 2025",
           "official_title": "A bill to amend the Clean Air Act to repeal a provision concerning citizen suits, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "3050",
           "bill_type": "S",
@@ -182295,7 +182365,9 @@
           "congress": 119,
           "short_title": "Shutdown Fairness Act",
           "official_title": "To appropriate funds for pay and allowances of excepted Federal employees for periods of work performed during a lapse in appropriations, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5797",
           "bill_type": "HR",
@@ -182337,9 +182409,7 @@
           "congress": 119,
           "short_title": "Recognizing the religious and historical significance of the festival of Diwali.",
           "official_title": "Recognizing the religious and historical significance of the festival of Diwali."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "826",
           "bill_type": "HRES",
@@ -182997,7 +183067,9 @@
           "congress": 119,
           "short_title": "White House NOT FOR SALE Act",
           "official_title": "To prohibit the display of names at the White House without approval, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5791",
           "bill_type": "HR",
@@ -183039,9 +183111,7 @@
           "congress": 119,
           "short_title": "Urging the people of the United States to observe the month of October 2025 as Italian and Italian American Heritage Month.",
           "official_title": "Urging the people of the United States to observe the month of October 2025 as Italian and Italian American Heritage Month."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "814",
           "bill_type": "HRES",
@@ -183699,7 +183769,9 @@
           "congress": 119,
           "short_title": "Congratulating the Las Vegas Aces on winning the 2025 Women's National Basketball Association Finals.",
           "official_title": "Congratulating the Las Vegas Aces on winning the 2025 Women's National Basketball Association Finals."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5759",
           "bill_type": "HR",
@@ -183741,9 +183813,7 @@
           "congress": 119,
           "short_title": "Preventing Illegal Laboratories and Protecting Public Health Act of 2025",
           "official_title": "To require the Secretary of Health and Human Services, acting through the Assistant Secretary for Preparedness and Response, to carry out a program under which the Secretary requires each covered distributor of a highly pathogenic agent to comply with certain logbook requirements, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5757",
           "bill_type": "HR",
@@ -184401,7 +184471,9 @@
           "congress": 119,
           "short_title": "Gas Can Freedom Act of 2025",
           "official_title": "A bill to repeal the Portable Fuel Container Safety Act of 2020 and the Children's Gasoline Burn Prevention Act, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "2898",
           "bill_type": "S",
@@ -184443,9 +184515,7 @@
           "congress": 119,
           "short_title": "Campus Accountability and Safety Act",
           "official_title": "A bill to amend the Higher Education Act of 1965 and the Jeanne Clery Disclosure of Campus Security Policy and Campus Crime Statistics Act to combat campus sexual assault, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "442",
           "bill_type": "SRES",
@@ -185103,7 +185173,9 @@
           "congress": 119,
           "short_title": "A resolution honoring the pilots, maintainers, analysts, sailors, support aircraft, and families, among various other essential groups involved in the success of Operation Midnight Hammer.",
           "official_title": "A resolution honoring the pilots, maintainers, analysts, sailors, support aircraft, and families, among various other essential groups involved in the success of Operation Midnight Hammer."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "436",
           "bill_type": "SRES",
@@ -185145,9 +185217,7 @@
           "congress": 119,
           "short_title": "A resolution expressing support for the designation of October 5 through October 11, 2025, as \"National 4-H Week\".",
           "official_title": "A resolution expressing support for the designation of October 5 through October 11, 2025, as \"National 4-H Week\"."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "433",
           "bill_type": "SRES",
@@ -185805,7 +185875,9 @@
           "congress": 119,
           "short_title": "Shutdown Guidance for Financial Institutions Act",
           "official_title": "To require the Federal financial regulators to issue guidance encouraging financial institutions to work with consumers and businesses affected by a Federal Government shutdown, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5678",
           "bill_type": "HR",
@@ -185847,9 +185919,7 @@
           "congress": 119,
           "short_title": "Stop the Trump Electricity Price Hikes Act",
           "official_title": "To reinstate all financial assistance awards terminated by the Department of Energy."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5684",
           "bill_type": "HR",
@@ -186507,7 +186577,9 @@
           "congress": 119,
           "short_title": "A bill for the relief of Valent Kolami.",
           "official_title": "A bill for the relief of Valent Kolami."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5644",
           "bill_type": "HR",
@@ -186549,9 +186621,7 @@
           "congress": 119,
           "short_title": "PEACE Act",
           "official_title": "To impose sanctions with respect to Azerbaijan upon renewed acts of aggression, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5650",
           "bill_type": "HR",
@@ -187209,7 +187279,9 @@
           "congress": 119,
           "short_title": "Expressing support for the designation of October 1, 2025, as \"National Animal Rescue Day\" to create awareness of the importance of animal adoption, to educate on the importance of spaying and neutering animals, and to encourage animal adoptions throughout the United States.",
           "official_title": "Expressing support for the designation of October 1, 2025, as \"National Animal Rescue Day\" to create awareness of the importance of animal adoption, to educate on the importance of spaying and neutering animals, and to encourage animal adoptions throughout the United States."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5659",
           "bill_type": "HR",
@@ -187251,9 +187323,7 @@
           "congress": 119,
           "short_title": "Improving Access to Institutional Mental Health Care Act",
           "official_title": "To amend title XIX of the Social Security Act to remove the exclusion from medical assistance under the Medicaid program of items and services for patients in an institution for mental diseases."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "775",
           "bill_type": "HRES",
@@ -187911,7 +187981,9 @@
           "congress": 119,
           "short_title": "To extend the National Flood Insurance Program through November 21, 2025.",
           "official_title": "To extend the National Flood Insurance Program through November 21, 2025."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "772",
           "bill_type": "HRES",
@@ -187953,9 +188025,7 @@
           "congress": 119,
           "short_title": "Emergency Responder Protection Act",
           "official_title": "To limit the authority immigration officers have at protected emergency response locations."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5572",
           "bill_type": "HR",
@@ -188613,7 +188683,9 @@
           "congress": 119,
           "short_title": "Fraud Accountability and Recovery Act",
           "official_title": "To amend the Foreign Assistance Act of 1961 to prohibit the President from providing assistance to the government of any country that has failed to extradite an individual that has been convicted of committing fraud against the United States or that has failed to take all appropriate measures with respect to assisting the recoupment of those funds."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5545",
           "bill_type": "HR",
@@ -188655,9 +188727,7 @@
           "congress": 119,
           "short_title": "Expressing support for the designation of September 2025 as National Campus Sexual Assault Awareness Month.",
           "official_title": "Expressing support for the designation of September 2025 as National Campus Sexual Assault Awareness Month."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5542",
           "bill_type": "HR",
@@ -189315,7 +189385,9 @@
           "congress": 119,
           "short_title": "Expressing support for the designation of September 19, 2025, as \"Black Autism Acceptance and Awareness Day\".",
           "official_title": "Expressing support for the designation of September 19, 2025, as \"Black Autism Acceptance and Awareness Day\"."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5519",
           "bill_type": "HR",
@@ -189357,9 +189429,7 @@
           "congress": 119,
           "short_title": "Safe Step Act",
           "official_title": "To amend the Employee Retirement Income Security Act of 1974 to require a group health plan or health insurance coverage offered in connection with such a plan to provide an exceptions process for any medication step therapy protocol, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5538",
           "bill_type": "HR",
@@ -190017,7 +190087,9 @@
           "congress": 119,
           "short_title": "Federal-State Partnership for Clean Water Act of 2025",
           "official_title": "To amend the Federal Water Pollution Control Act to reauthorize Federal-State clean water program development and implementation authorities, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5423",
           "bill_type": "HR",
@@ -190059,9 +190131,7 @@
           "congress": 119,
           "short_title": "A resolution expressing the sense of the Senate that the comments made by Federal Communications Commission Chairman Brendan Carr on Wednesday, September 17, 2025, threatening to penalize ABC and Disney for the political commentary of ABC late night host Jimmy Kimmel were dangerous and unconstitutional.",
           "official_title": "A resolution expressing the sense of the Senate that the comments made by Federal Communications Commission Chairman Brendan Carr on Wednesday, September 17, 2025, threatening to penalize ABC and Disney for the political commentary of ABC late night host Jimmy Kimmel were dangerous and unconstitutional."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "2902",
           "bill_type": "S",
@@ -190719,7 +190789,9 @@
           "congress": 119,
           "short_title": "A resolution expressing support for the designation of October 14, 2025, as the \"National Day of Remembrance for Charlie Kirk\".",
           "official_title": "A resolution expressing support for the designation of October 14, 2025, as the \"National Day of Remembrance for Charlie Kirk\"."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "2868",
           "bill_type": "S",
@@ -190761,9 +190833,7 @@
           "congress": 119,
           "short_title": "Uplifting First-Time Homebuyers Act of 2025",
           "official_title": "A bill to amend the Internal Revenue Code of 1986 to increase the limitation on qualified first-time homebuyer distributions, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "2866",
           "bill_type": "S",
@@ -191421,7 +191491,9 @@
           "congress": 119,
           "short_title": "Continuing Appropriations and Extensions and Other Matters Act, 2026",
           "official_title": "Making continuing appropriations for the fiscal year ending September 30, 2026, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5506",
           "bill_type": "HR",
@@ -191463,9 +191535,7 @@
           "congress": 119,
           "short_title": "HEALTH Act of 2025",
           "official_title": "To amend title XVIII of the Social Security Act to provide for permanent payments for telehealth services furnished by federally qualified health centers and rural health clinics under the Medicare program."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5461",
           "bill_type": "HR",
@@ -192123,7 +192193,9 @@
           "congress": 119,
           "short_title": "HIV Medication Access Act",
           "official_title": "A bill to amend the Foreign Assistance Act of 1961 to modify treatment activities for assistance to combat HIV/AIDS."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "397",
           "bill_type": "SRES",
@@ -192165,9 +192237,7 @@
           "congress": 119,
           "short_title": "Over-the-Counter Monograph Drug User Fee Amendments",
           "official_title": "To amend the Federal Food, Drug, and Cosmetic Act to revise and extend the user fee program for over-the-counter monograph drugs, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "2842",
           "bill_type": "S",
@@ -192825,7 +192895,9 @@
           "congress": 119,
           "short_title": "Fair Housing Improvement Act of 2025",
           "official_title": "To amend the Fair Housing Act to prohibit discrimination based on source of income, veteran status, or military status."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5441",
           "bill_type": "HR",
@@ -192867,9 +192939,7 @@
           "congress": 119,
           "short_title": "Medically Tailored Home-Delivered Meals Program Pilot Act",
           "official_title": "To amend title XVIII of the Social Security Act to establish a Medically Tailored Home-Delivered Meals Program to test a payment and service delivery model under part A of Medicare to improve clinical health outcomes and reduce the rate of readmissions of certain individuals."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5435",
           "bill_type": "HR",
@@ -193527,7 +193597,9 @@
           "congress": 119,
           "short_title": "JUSTICE in D.C. Act",
           "official_title": "A bill to repeal the District of Columbia Incarceration Reduction Amendment Act and Second Look Amendment Act, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "2814",
           "bill_type": "S",
@@ -193569,9 +193641,7 @@
           "congress": 119,
           "short_title": "A resolution condemning the extreme anti-vaccine policies of Secretary of Health and Human Services Robert F. Kennedy, Jr., strongly opposing the policies of the State of Florida that roll back immunization requirements, and expressing the sense of the Senate that vaccines are critical to protecting public health, eliminating preventable illness and death, and reducing hospitalizations and severity of illness, work best when adopted at a high level within each community, and must be made available to the public.",
           "official_title": "A resolution condemning the extreme anti-vaccine policies of Secretary of Health and Human Services Robert F. Kennedy, Jr., strongly opposing the policies of the State of Florida that roll back immunization requirements, and expressing the sense of the Senate that vaccines are critical to protecting public health, eliminating preventable illness and death, and reducing hospitalizations and severity of illness, work best when adopted at a high level within each community, and must be made available to the public."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "2811",
           "bill_type": "S",
@@ -194229,7 +194299,9 @@
           "congress": 119,
           "short_title": "Enhancing COPS Hiring Program Grants for Local Law Enforcement Act",
           "official_title": "To amend the Omnibus Crime Control and Safe Streets Act of 1968 to authorize law enforcement agencies to use COPS grants to recruit and retain law enforcement officers."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5377",
           "bill_type": "HR",
@@ -194271,9 +194343,7 @@
           "congress": 119,
           "short_title": "Equitable Arts Education Enhancement Act",
           "official_title": "To direct the Secretary of Education to carry out a grant program to support arts education at minority-serving institutions of higher education."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5384",
           "bill_type": "HR",
@@ -194821,20 +194891,6 @@
           "official_title": "To amend title 9 of the United States Code with respect to arbitration."
         },
         {
-          "bill_number": "5366",
-          "bill_type": "HR",
-          "title": "Federal Disaster Tax Relief Act of 2025",
-          "summary": "",
-          "sponsor_name": "",
-          "latest_action": "Referred to the House Committee on Ways and Means.",
-          "latest_action_date": "2025-09-15T00:00:00",
-          "url": "https://www.congress.gov/bill/119th-congress/house-bill/5366",
-          "published": "2025-09-15T00:00:00",
-          "congress": 119,
-          "short_title": "Federal Disaster Tax Relief Act of 2025",
-          "official_title": "To amend the Internal Revenue Code of 1986 to codify and extend the rules for personal casualty losses arising from major disasters and the rules for the exclusion from gross income of compensation for losses or damages resulting from certain wildfires."
-        },
-        {
           "bill_number": "5351",
           "bill_type": "HR",
           "title": "NSF AI Education Act of 2025",
@@ -194945,7 +195001,9 @@
           "congress": 119,
           "short_title": "Motor Carrier Safety Selection Standard Act of 2024",
           "official_title": "To establish a national motor carrier safety selection standard for entities that contract with certain motor carriers to transport goods, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5330",
           "bill_type": "HR",
@@ -194973,9 +195031,7 @@
           "congress": 119,
           "short_title": "Science Appropriations Act, 2026",
           "official_title": "Making appropriations for the Departments of Commerce and Justice, Science, and Related Agencies for the fiscal year ending September 30, 2026, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "2796",
           "bill_type": "S",
@@ -195647,7 +195703,9 @@
           "congress": 119,
           "short_title": "Fairness and Accountability of Appeals Act of 2025",
           "official_title": "To amend section 423 of the Robert T. Stafford Disaster Relief and Emergency Assistance Act to provide for reimbursement of attorney's fees under certain circumstances, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5309",
           "bill_type": "HR",
@@ -195675,9 +195733,7 @@
           "congress": 119,
           "short_title": "To amend title 23, United States Code, with respect to the special rule for low emission and energy efficient vehicles facilities, and for other purposes.",
           "official_title": "To amend title 23, United States Code, with respect to the special rule for low emission and energy efficient vehicles facilities, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5314",
           "bill_type": "HR",
@@ -195733,20 +195789,6 @@
           "congress": 119,
           "short_title": "Unclaimed Retirement Rescue Plan",
           "official_title": "To direct the Secretary of Labor to promulgate a regulation allowing administrators of certain pension plans to voluntarily transfer unclaimed retirement distributions to State unclaimed property programs."
-        },
-        {
-          "bill_number": "5334",
-          "bill_type": "HR",
-          "title": "SEED Act of 2025",
-          "summary": "",
-          "sponsor_name": "",
-          "latest_action": "Referred to the House Committee on Ways and Means.",
-          "latest_action_date": "2025-09-11T00:00:00",
-          "url": "https://www.congress.gov/bill/119th-congress/house-bill/5334",
-          "published": "2025-09-11T00:00:00",
-          "congress": 119,
-          "short_title": "SEED Act of 2025",
-          "official_title": "To amend the Internal Revenue Code of 1986 to allow early childhood educators to take the educator expense deduction, and for other purposes."
         },
         {
           "bill_number": "5306",
@@ -196363,7 +196405,9 @@
           "congress": 119,
           "short_title": "To make improvements in the enactment of title 54, United States Code, into a positive law title and to correct related technical errors.",
           "official_title": "To make improvements in the enactment of title 54, United States Code, into a positive law title and to correct related technical errors."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5185",
           "bill_type": "HR",
@@ -196377,9 +196421,7 @@
           "congress": 119,
           "short_title": "To make improvements in the enactment of title 41, United States Code, into a positive law title and to improve the Code.",
           "official_title": "To make improvements in the enactment of title 41, United States Code, into a positive law title and to improve the Code."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "4584",
           "bill_type": "HR",
@@ -197065,7 +197107,9 @@
           "congress": 119,
           "short_title": "Expressing the sense of Congress that August 30, 2025, be observed as the 135th anniversary of the 1890 Institutions.",
           "official_title": "Expressing the sense of Congress that August 30, 2025, be observed as the 135th anniversary of the 1890 Institutions."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5256",
           "bill_type": "HR",
@@ -197079,9 +197123,7 @@
           "congress": 119,
           "short_title": "340B ACCESS Act",
           "official_title": "To amend the Public Health Service Act to reform the 340B drug pricing program, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5258",
           "bill_type": "HR",
@@ -197767,7 +197809,9 @@
           "congress": 119,
           "short_title": "Protect Innocent Victims of Taxation After Fire Extension Act",
           "official_title": "To amend the Internal Revenue Code of 1986 to exclude qualified wildfire relief payments from gross income, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5241",
           "bill_type": "HR",
@@ -197781,9 +197825,7 @@
           "congress": 119,
           "short_title": "RTCP Revitalization Act",
           "official_title": "To amend the Food, Conservation, and Energy Act of 2008 to provide mandatory funding from the Commodity Credit Corporation for reimbursement payments to geographically disadvantaged farmers and ranchers, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5226",
           "bill_type": "HR",
@@ -198469,7 +198511,9 @@
           "congress": 119,
           "short_title": "Pacific Northwest Gray Wolves Relief Act of 2025",
           "official_title": "To require the Secretary of the Interior to reissue a final rule relating to gray wolves."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5202",
           "bill_type": "HR",
@@ -198483,9 +198527,7 @@
           "congress": 119,
           "short_title": "BABIES Act",
           "official_title": "To address maternity care shortages and promote optimal maternity outcomes by expanding access to birth centers and exploring more effective payment models for birth center care, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5208",
           "bill_type": "HR",
@@ -199171,7 +199213,9 @@
           "congress": 119,
           "short_title": "Student Loan Deduction Act of 2025",
           "official_title": "A bill to amend the Food and Nutrition Act of 2008 to allow for deductions of student loan payments from income."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "2716",
           "bill_type": "S",
@@ -199185,9 +199229,7 @@
           "congress": 119,
           "short_title": "You Earned It, You Keep It Act",
           "official_title": "A bill to amend the Internal Revenue Code of 1986 to repeal the inclusion in gross income of social security benefits, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "2715",
           "bill_type": "S",
@@ -199873,7 +199915,9 @@
           "congress": 119,
           "short_title": "TRUST Act",
           "official_title": "To establish the Tariff Trust Fund to be used for deficit reduction purposes, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5079",
           "bill_type": "HR",
@@ -199887,9 +199931,7 @@
           "congress": 119,
           "short_title": "Widespread Information Management for the Welfare of Infrastructure and Government Act",
           "official_title": "To reauthorize the Cybersecurity Act of 2015, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "2703",
           "bill_type": "S",
@@ -200575,7 +200617,9 @@
           "congress": 119,
           "short_title": "National Security Climate Intelligence Act of 2025",
           "official_title": "To amend the National Security Act of 1947, to direct the Director of National Intelligence to produce intelligence community assessments on certain effects of climate change, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5108",
           "bill_type": "HR",
@@ -200589,9 +200633,7 @@
           "congress": 119,
           "short_title": "Stop Greenlighting Driver Licenses for Illegal Immigrants Act",
           "official_title": "To restrict certain Federal grants for States that grant driver licenses to illegal immigrants and fail to share information about criminal aliens with the Federal Government."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5123",
           "bill_type": "HR",
@@ -201277,7 +201319,9 @@
           "congress": 119,
           "short_title": "Save our Safety-Net Hospitals Act of 2025",
           "official_title": "To amend title XIX of the Social Security Act to modify certain limitations on disproportionate share hospital payment adjustments under the Medicaid program, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "667",
           "bill_type": "HRES",
@@ -201291,9 +201335,7 @@
           "congress": 119,
           "short_title": "Honoring the members of the Armed Forces who served in the war in Afghanistan.",
           "official_title": "Honoring the members of the Armed Forces who served in the war in Afghanistan."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "666",
           "bill_type": "HRES",
@@ -201979,7 +202021,9 @@
           "congress": 119,
           "short_title": "ALCATRAZ Act",
           "official_title": "To establish in the Department of Homeland Security a grant program to reimburse States the costs incurred by such States relating to the detention of migrants at detention facilities in such States, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "5025",
           "bill_type": "HR",
@@ -201993,9 +202037,7 @@
           "congress": 119,
           "short_title": "Restoring Merit in the Military Act",
           "official_title": "To ensure equal opportunity, racial neutrality, and the exclusive use of merit in military personnel decision, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5015",
           "bill_type": "HR",
@@ -202681,7 +202723,9 @@
           "congress": 119,
           "short_title": "Disarming Felons Act",
           "official_title": "To prohibit the disposition of a firearm to, and the possession of a firearm by, an adult who, while a juvenile who had attained 15 years of age but not 18 years of age, committed an offense that would have been a felony if committed by an adult."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "113",
           "bill_type": "HJRES",
@@ -202695,9 +202739,7 @@
           "congress": 119,
           "short_title": "Original Slavery Remembrance Day Resolution",
           "official_title": "Designating a \"Slavery Remembrance Day\" on August 20, to serve as a reminder of the evils of slavery."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "4987",
           "bill_type": "HR",
@@ -203383,7 +203425,9 @@
           "congress": 119,
           "short_title": "Calling on the Senate to remove the name of Richard B. Russell from the Russell Senate Office Building.",
           "official_title": "Calling on the Senate to remove the name of Richard B. Russell from the Russell Senate Office Building."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "2682",
           "bill_type": "S",
@@ -203397,9 +203441,7 @@
           "congress": 119,
           "short_title": "Captain Paul W. 'Bud' Bucha VA Medical Center Act of 2025",
           "official_title": "A bill to designate the medical center of the Department of Veterans Affairs in West Haven, Connecticut, as the \"Captain Paul W. 'Bud' Bucha VA Medical Center\"."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "1659",
           "bill_type": "S",
