@@ -4223,5 +4223,77 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-03-26": {
+    "date": "2026-03-26",
+    "generated_at": "2026-03-27T03:43:16.299695+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "8 legislative items recorded. Kansas Legislature: 4 House bills and 4 Senate bills.",
+    "counts": {
+      "total": 8,
+      "kansas_house": 4,
+      "kansas_senate": 4,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2116",
+          "short_title": "Requiring that certain contractual provisions be incorporated in all contracts for certain cities and counties, including the provisions of form DA-146a, with certain exceptions.",
+          "action": "Conference committee report now available",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2116/"
+        },
+        {
+          "bill": "HB 2192",
+          "short_title": "Limiting or prohibiting work release for people convicted of a second or third offense of domestic battery.",
+          "action": "Conference committee report now available",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2192/"
+        },
+        {
+          "bill": "HB 2482",
+          "short_title": "Senate Committee on Education and House Committee on K-12 Education Budget on HB2482",
+          "action": "Senate Committee on Education and House Committee on K-12 Education Budget on HB2482",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260326152703"
+        },
+        {
+          "bill": "HR 6046",
+          "short_title": "Honoring and supporting United States veterans who served in Honduras between 1981 and 1992.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6046/"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SR 1736",
+          "short_title": "Strengthening the sister-state relations between the State of Kansas and Taiwan.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SR1736/"
+        },
+        {
+          "bill": "SR 1737",
+          "short_title": "Honoring and thanking Vietnam War Veterans for their service and sacrifice.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SR1737/"
+        },
+        {
+          "bill": "SB 92",
+          "short_title": "Extending the time in which the state corporation commission shall make a final order on a transmission line siting application.",
+          "action": "Conference committee report now available",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB92/"
+        },
+        {
+          "bill": "SB 374",
+          "short_title": "Senate Committee on Judiciary and House Committee on Corrections and Juvenile Justice on SB374",
+          "action": "Senate Committee on Judiciary and House Committee on Corrections and Juvenile Justice on SB374",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260326153429"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
