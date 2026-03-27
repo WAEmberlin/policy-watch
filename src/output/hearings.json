@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-26T23:03:59.153310+00:00",
+  "generated_at": "2026-03-27T00:05:50.118184+00:00",
   "count": 333,
   "items": [
     {
@@ -61,6 +61,26 @@
       "location": "Room 2172, Rayburn House Office Building",
       "bill": "",
       "event_id": "119114"
+    },
+    {
+      "title": "[RESCHEDULED] Various Measures",
+      "summary": "Rescheduled congressional meeting in the House.",
+      "source": "Federal (US Congress)",
+      "category": "hearing",
+      "chamber": "House",
+      "committee": "",
+      "committees": "",
+      "published": "2026-03-26T14:00:00+00:00",
+      "scheduled_date": "2026-03-26",
+      "scheduled_time": "14:00",
+      "url": "https://www.congress.gov/event/119th-congress/house-event/118999",
+      "link": "https://www.congress.gov/event/119th-congress/house-event/118999",
+      "congress": 119,
+      "meeting_type": "Meeting",
+      "meeting_status": "Rescheduled",
+      "location": "Room 2172, Rayburn House Office Building",
+      "bill": "",
+      "event_id": "118999"
     },
     {
       "title": "Legislative hearing on four bills: \r\n\u2022 H.R. 6778 (Rep. Beyer), \u201cParkway Safety and Reinvestment Act\u201d\r\n\u2022 H.R. 7618 (Rep. Kiggans), \u201cAmerican Battlefield Protection Program Amendments Act of 2026\u201d\r\n\u2022 H.R. 7951 (Rep. Valadao), \u201cLong-Term Good Neighbor Authority Act\u201d\r\n\u2022 H.R. 7979 (Rep. Crank), \u201cPublic Lands Access Restoration Act\u201d",
@@ -343,26 +363,6 @@
       "event_id": "119104"
     },
     {
-      "title": "[RESCHEDULED] Various Measures",
-      "summary": "Rescheduled congressional meeting in the House.",
-      "source": "Federal (US Congress)",
-      "category": "hearing",
-      "chamber": "House",
-      "committee": "",
-      "committees": "",
-      "published": "2026-03-26T14:00:00+00:00",
-      "scheduled_date": "2026-03-26",
-      "scheduled_time": "14:00",
-      "url": "https://www.congress.gov/event/119th-congress/house-event/118999",
-      "link": "https://www.congress.gov/event/119th-congress/house-event/118999",
-      "congress": 119,
-      "meeting_type": "Meeting",
-      "meeting_status": "Rescheduled",
-      "location": "Room 2172, Rayburn House Office Building",
-      "bill": "",
-      "event_id": "118999"
-    },
-    {
       "title": "Member Day",
       "summary": "Congressional meeting before the House Appropriations Subcommittee on Commerce, Justice, Science, and Related Agencies.",
       "source": "Federal (US Congress)",
@@ -383,26 +383,6 @@
       "event_id": "119097"
     },
     {
-      "title": "Hearings to examine the nominations of Catherine Dillon, of Maryland, to be an Assistant Secretary (Educational and Cultural Affairs), and Yeouk Kim, of Texas, to be Representative of the United States of America to the Association of Southeast Asian Nations, with the rank and status of Ambassador, both of the Department of State, and Ademola Adewale-Sadik, of New York, to be United States Director of the African Development Bank for a term of five years.",
-      "summary": "Congressional meeting before the Senate Foreign Relations.",
-      "source": "Federal (US Congress)",
-      "category": "hearing",
-      "chamber": "Senate",
-      "committee": "Senate Foreign Relations",
-      "committees": "Senate Foreign Relations",
-      "published": "2026-03-26T14:00:00+00:00",
-      "scheduled_date": "2026-03-26",
-      "scheduled_time": "14:00",
-      "url": "https://www.congress.gov/event/119th-congress/senate-event/338098",
-      "link": "https://www.congress.gov/event/119th-congress/senate-event/338098",
-      "congress": 119,
-      "meeting_type": "Meeting",
-      "meeting_status": "Scheduled",
-      "location": "Room 419, Dirksen Senate Office Building",
-      "bill": "",
-      "event_id": "338098"
-    },
-    {
       "title": "Hearings to examine positioning student-athletes for success in school and beyond.",
       "summary": "Congressional meeting before the Senate Health, Education, Labor, and Pensions.",
       "source": "Federal (US Congress)",
@@ -421,6 +401,26 @@
       "location": "Room 430, Dirksen Senate Office Building",
       "bill": "",
       "event_id": "338093"
+    },
+    {
+      "title": "Hearings to examine the nominations of Catherine Dillon, of Maryland, to be an Assistant Secretary (Educational and Cultural Affairs), and Yeouk Kim, of Texas, to be Representative of the United States of America to the Association of Southeast Asian Nations, with the rank and status of Ambassador, both of the Department of State, and Ademola Adewale-Sadik, of New York, to be United States Director of the African Development Bank for a term of five years.",
+      "summary": "Congressional meeting before the Senate Foreign Relations.",
+      "source": "Federal (US Congress)",
+      "category": "hearing",
+      "chamber": "Senate",
+      "committee": "Senate Foreign Relations",
+      "committees": "Senate Foreign Relations",
+      "published": "2026-03-26T14:00:00+00:00",
+      "scheduled_date": "2026-03-26",
+      "scheduled_time": "14:00",
+      "url": "https://www.congress.gov/event/119th-congress/senate-event/338098",
+      "link": "https://www.congress.gov/event/119th-congress/senate-event/338098",
+      "congress": 119,
+      "meeting_type": "Meeting",
+      "meeting_status": "Scheduled",
+      "location": "Room 419, Dirksen Senate Office Building",
+      "bill": "",
+      "event_id": "338098"
     },
     {
       "title": "Business meeting to consider S.545, to prohibit certain uses of xylazine, H.R.2159, to direct the Attorney General of the United States to submit to the Congress a report on Federal criminal offenses, S.2934, to limit the availability of civil actions affected by United States sanctions, and the nominations of Brian Gootkin, to be United States Marshal for the District of Montana, and James Stuart, to be United States Marshal for the District of Minnesota.",
@@ -621,6 +621,26 @@
       "location": "Room 2362-B, Rayburn House Office Building",
       "bill": "",
       "event_id": "119092"
+    },
+    {
+      "title": "[RESCHEDULED] Oversight Hearing titled \u201cUnleashing America\u2019s Mineral Potential:  The Critical Mineral Commodity Supply Chain.\u201d",
+      "summary": "Rescheduled congressional meeting in the House.",
+      "source": "Federal (US Congress)",
+      "category": "hearing",
+      "chamber": "House",
+      "committee": "",
+      "committees": "",
+      "published": "2026-03-25T18:00:00+00:00",
+      "scheduled_date": "2026-03-25",
+      "scheduled_time": "18:00",
+      "url": "https://www.congress.gov/event/119th-congress/house-event/119028",
+      "link": "https://www.congress.gov/event/119th-congress/house-event/119028",
+      "congress": 119,
+      "meeting_type": "Meeting",
+      "meeting_status": "Rescheduled",
+      "location": "Room 1324, Longworth House Office Building",
+      "bill": "",
+      "event_id": "119028"
     },
     {
       "title": "Legislative hearing on the following bills:\r\nH.R. 1555 (Rep. Bice), \u201cBureau of Land Management Mineral Spacing Act\u201d\r\nH.R. 5639 (Rep. Kennedy of UT), \u201cCo-Location Energy Act\u201d\r\nH.R. 7831 (Rep. Kennedy of UT), \u201cLicense to Drill Act\u201d\r\nH.R. 7872 (Rep. Hageman), To amend the Mineral Leasing Act to provide for the payment of bonus payments of certain coal leases issued under that Act.\r\nH.R. 7882 (Rep. Stauber), To provide for the leasing of certain deposits of minerals located within the City of Carlsbad, New Mexico.",
@@ -963,26 +983,6 @@
       "event_id": "338091"
     },
     {
-      "title": "Hearings to examine\u00a0protecting American citizenship, focusing on federalism, sanctuary cities, and the rule of law.",
-      "summary": "Congressional meeting before the Senate Judiciary Subcommittee on Constitution.",
-      "source": "Federal (US Congress)",
-      "category": "hearing",
-      "chamber": "Senate",
-      "committee": "Senate Judiciary Subcommittee on Constitution",
-      "committees": "Senate Judiciary Subcommittee on Constitution",
-      "published": "2026-03-25T18:00:00+00:00",
-      "scheduled_date": "2026-03-25",
-      "scheduled_time": "18:00",
-      "url": "https://www.congress.gov/event/119th-congress/senate-event/338089",
-      "link": "https://www.congress.gov/event/119th-congress/senate-event/338089",
-      "congress": 119,
-      "meeting_type": "Meeting",
-      "meeting_status": "Scheduled",
-      "location": "Room 226, Dirksen Senate Office Building",
-      "bill": "",
-      "event_id": "338089"
-    },
-    {
       "title": "Hearings to examine\u00a0Social Security, focusing on a discussion on the facts and the path forward.",
       "summary": "Congressional meeting before the Senate Budget.",
       "source": "Federal (US Congress)",
@@ -1041,6 +1041,26 @@
       "location": "Room 366, Dirksen Senate Office Building",
       "bill": "",
       "event_id": "338087"
+    },
+    {
+      "title": "Hearings to examine\u00a0protecting American citizenship, focusing on federalism, sanctuary cities, and the rule of law.",
+      "summary": "Congressional meeting before the Senate Judiciary Subcommittee on Constitution.",
+      "source": "Federal (US Congress)",
+      "category": "hearing",
+      "chamber": "Senate",
+      "committee": "Senate Judiciary Subcommittee on Constitution",
+      "committees": "Senate Judiciary Subcommittee on Constitution",
+      "published": "2026-03-25T18:00:00+00:00",
+      "scheduled_date": "2026-03-25",
+      "scheduled_time": "18:00",
+      "url": "https://www.congress.gov/event/119th-congress/senate-event/338089",
+      "link": "https://www.congress.gov/event/119th-congress/senate-event/338089",
+      "congress": 119,
+      "meeting_type": "Meeting",
+      "meeting_status": "Scheduled",
+      "location": "Room 226, Dirksen Senate Office Building",
+      "bill": "",
+      "event_id": "338089"
     },
     {
       "title": "Oversight Hearing \u2013 National Weather Service",
@@ -1161,26 +1181,6 @@
       "location": "Room 217, Capitol Visitor Center (Senate side",
       "bill": "",
       "event_id": "338099"
-    },
-    {
-      "title": "[RESCHEDULED] Oversight Hearing titled \u201cUnleashing America\u2019s Mineral Potential:  The Critical Mineral Commodity Supply Chain.\u201d",
-      "summary": "Rescheduled congressional meeting in the House.",
-      "source": "Federal (US Congress)",
-      "category": "hearing",
-      "chamber": "House",
-      "committee": "",
-      "committees": "",
-      "published": "2026-03-25T18:00:00+00:00",
-      "scheduled_date": "2026-03-25",
-      "scheduled_time": "18:00",
-      "url": "https://www.congress.gov/event/119th-congress/house-event/119028",
-      "link": "https://www.congress.gov/event/119th-congress/house-event/119028",
-      "congress": 119,
-      "meeting_type": "Meeting",
-      "meeting_status": "Rescheduled",
-      "location": "Room 1324, Longworth House Office Building",
-      "bill": "",
-      "event_id": "119028"
     },
     {
       "title": "To receive a closed briefing update on the Russia-Ukraine war.",
