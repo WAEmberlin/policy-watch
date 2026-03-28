@@ -4295,5 +4295,77 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-03-27": {
+    "date": "2026-03-27",
+    "generated_at": "2026-03-28T03:25:29.198347+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "8 legislative items recorded. Kansas Legislature: 5 House bills and 3 Senate bills.",
+    "counts": {
+      "total": 8,
+      "kansas_house": 5,
+      "kansas_senate": 3,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2046",
+          "short_title": "Authorizing insurers to file certain travel insurance policies under the accident and health line of insurance.",
+          "action": "Senator Tyson,  Senator Peck, and  Senator Corson are appointed to replace  Senator Dietrich,  Senator Fagg, and  Senator Francisco on the Conference Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2046/"
+        },
+        {
+          "bill": "HB 2044",
+          "short_title": "Requiring that third party administrators maintain separate fiduciary accounts for individual payors and not contain funds collected or held on behalf of multiple payors and disclose to the commissioner of insurance any bankruptcy petition filed by or on behalf of such administrator.",
+          "action": "Senator Tyson,  Senator Peck, and  Senator Corson are appointed to replace  Senator Dietrich,  Senator Fagg, and  Senator Francisco on the Conference Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2044/"
+        },
+        {
+          "bill": "HB 2043",
+          "short_title": "Requiring agents and insurers to respond to inquiries from the commissioner of insurance within 14 calendar days and authorizing certain rebate pilot programs to exceed one year in duration.",
+          "action": "Senator Tyson,  Senator Peck, and  Senator Corson are appointed to replace  Senator Dietrich,  Senator Fagg, and  Senator Francisco on the Conference Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2043/"
+        },
+        {
+          "bill": "HCR 5036",
+          "short_title": "Providing for the adjournment of the House of Representatives and the Senate for a period of time.",
+          "action": "Introduced",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5036/"
+        },
+        {
+          "bill": "HB 2357",
+          "short_title": "Senate Committee on Commerce and House Committee on Judiciary on HB2357",
+          "action": "Senate Committee on Commerce and House Committee on Judiciary on HB2357",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260327131501"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SB 84",
+          "short_title": "Modifying criminal use of a financial card to include certain conduct involving gift cards.",
+          "action": "Conference committee report now available",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB84/"
+        },
+        {
+          "bill": "SB 229",
+          "short_title": "Senate Committee on Commerce and House Committee on Commerce, Labor and Economic Development on SB229",
+          "action": "Senate Committee on Commerce and House Committee on Commerce, Labor and Economic Development on SB229",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260327131339"
+        },
+        {
+          "bill": "SB 157",
+          "short_title": "Requiring search warrants to be issued only on the statement of facts sufficient to show probable cause made by a law enforcement officer, warrants issued for failure to appear to be provided to a compensated surety, bond forfeiture to be set aside in certain circumstances and remission if the defendant is returned to custody in certain circumstances and prohibiting a compensated surety from making loans for certain portions of the required minimum appearance bond premium.",
+          "action": "Conference Committee Report agree to disagree, not adopted",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB157/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }

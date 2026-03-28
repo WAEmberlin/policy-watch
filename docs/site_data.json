@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-27T18:56:33.234868-05:00",
+  "last_updated": "2026-03-27T22:25:29.414431-05:00",
   "years": {
     "2026": {
       "total_items": 1614,
@@ -204581,64 +204581,37 @@
   },
   "upcoming_hearings": [
     {
-      "title": "Senate amendment to H.R. 7147 \u2013 Homeland Security and Further Additional Continuing Appropriations Act, 2026 [Further Additional Continuing Appropriations Act, 2026]",
-      "summary": "Congressional meeting before the House Rules.",
-      "source": "Federal (US Congress)",
-      "category": "hearing",
-      "chamber": "House",
-      "committee": "House Rules",
-      "committees": "House Rules",
-      "published": "2026-03-27T19:30:00+00:00",
-      "scheduled_date": "2026-03-27",
-      "scheduled_time": "19:30",
-      "url": "https://www.congress.gov/event/119th-congress/house-event/119123",
-      "link": "https://www.congress.gov/event/119th-congress/house-event/119123",
-      "congress": 119,
-      "meeting_type": "Meeting",
-      "meeting_status": "Scheduled",
-      "location": "Room H-313, Capitol",
-      "bill": "",
-      "event_id": "119123"
-    },
-    {
-      "title": "[POSTPONED] Latin America After the Fall of Maduro",
-      "summary": "Postponed congressional meeting before the House Foreign Affairs Subcommittee on Western Hemisphere.",
-      "source": "Federal (US Congress)",
-      "category": "hearing",
-      "chamber": "House",
-      "committee": "House Foreign Affairs Subcommittee on Western Hemisphere",
-      "committees": "House Foreign Affairs Subcommittee on Western Hemisphere",
-      "published": "2026-03-27T15:00:00+00:00",
-      "scheduled_date": "2026-03-27",
-      "scheduled_time": "15:00",
-      "url": "https://www.congress.gov/event/119th-congress/house-event/119114",
-      "link": "https://www.congress.gov/event/119th-congress/house-event/119114",
-      "congress": 119,
-      "meeting_type": "Meeting",
-      "meeting_status": "Postponed",
-      "location": "Room 2172, Rayburn House Office Building",
-      "bill": "",
-      "event_id": "119114"
-    },
-    {
-      "title": "Business meeting to consider S.1682, to direct the Consumer Product Safety Commission to promulgate a consumer product safety standard for certain gates, S.1885, to require the Federal Trade Commission, with the concurrence of the Secretary of Health and Human Services acting through the Surgeon General, to implement a mental health warning label on covered platforms, S.1962, to amend the Secure and Trusted Communications Networks Act of 2019 to prohibit the Federal Communications Commission from granting a license or United States market access for a geostationary orbit satellite system or a nongeostationary orbit satellite system, or an authorization to use an individually licensed earth station or a blanket-licensed earth station, if the license, grant of market access, or authorization would be held or controlled by an entity that produces or provides any covered communications equipment or service or an affiliate of such an entity, S.2378, to amend title 49, United States Code, to establish funds for investments in aviation security checkpoint technology, S.3257, to require the Administrator of the Federal Aviation Administration to revise regulations for certain individuals carrying out aviation activities who disclose a mental health diagnosis or condition, S.3404, to require a report on Federal support to the cybersecurity of commercial satellite systems, S.3597, to reauthorize the National Quantum Initiative Act, S.3618, to require the Federal Trade Commission to submit to Congress a report on the ability of minors to access fentanyl through social media platforms, S.3791, to reauthorize Regional Ocean Partnerships, and routine lists in the Coast Guard.",
-      "summary": "Congressional meeting before the Senate Commerce, Science, and Transportation.",
+      "title": "Hearings to examine the posture of the United States Central Command and United States Africa Command in review of the Defense Authorization Request for Fiscal Year 2027 and the Future Years Defense Program; to be immediately followed by a closed session in SVC-217.",
+      "summary": "Congressional meeting before the Senate Armed Services.",
       "source": "Federal (US Congress)",
       "category": "hearing",
       "chamber": "Senate",
-      "committee": "Senate Commerce, Science, and Transportation",
-      "committees": "Senate Commerce, Science, and Transportation",
-      "published": "2026-03-27T14:00:00+00:00",
-      "scheduled_date": "2026-03-27",
-      "scheduled_time": "14:00",
-      "url": "https://www.congress.gov/event/119th-congress/senate-event/338100",
-      "link": "https://www.congress.gov/event/119th-congress/senate-event/338100",
+      "committee": "Senate Armed Services",
+      "committees": "Senate Armed Services",
+      "published": "2026-04-23T13:30:00+00:00",
+      "scheduled_date": "2026-04-23",
+      "scheduled_time": "13:30",
+      "url": "https://www.congress.gov/event/119th-congress/senate-event/338101",
+      "link": "https://www.congress.gov/event/119th-congress/senate-event/338101",
       "congress": 119,
       "meeting_type": "Meeting",
       "meeting_status": "Scheduled",
-      "location": "Room 253, Russell Senate Office Building",
-      "bill": "S 1682, S 1885, S 1962, S 2378, S 3257, S 3404, S 3597, S 3618, S 3791",
-      "event_id": "338100"
+      "location": "Room G50, Dirksen Senate Office Building",
+      "bill": "",
+      "event_id": "338101"
+    }
+  ],
+  "historical_hearings": [
+    {
+      "title": "Senate Committee on Assessment and Taxation and House Committee on Taxation on All bills in conference",
+      "scheduled_date": "2026-03-27T00:00:00+00:00",
+      "scheduled_time": "09:00 PM",
+      "location": "112-N",
+      "committees": "Senate Committee on Assessment and Taxation and House Committee on Taxation",
+      "bill": "",
+      "link": "https://kslegislature.gov/li/conference/conf_committee_20260328012216",
+      "published": "2026-03-28T03:23:31+00:00",
+      "source": "State (Kansas Legislature)"
     },
     {
       "title": "Senate Committee on Assessment and Taxation and House Committee on Taxation on All bills in conference",
@@ -204806,27 +204779,65 @@
       "source": "State (Kansas Legislature)"
     },
     {
-      "title": "Hearings to examine the posture of the United States Central Command and United States Africa Command in review of the Defense Authorization Request for Fiscal Year 2027 and the Future Years Defense Program; to be immediately followed by a closed session in SVC-217.",
-      "summary": "Congressional meeting before the Senate Armed Services.",
+      "title": "Senate amendment to H.R. 7147 \u2013 Homeland Security and Further Additional Continuing Appropriations Act, 2026 [Further Additional Continuing Appropriations Act, 2026]",
+      "summary": "Congressional meeting before the House Rules.",
       "source": "Federal (US Congress)",
       "category": "hearing",
-      "chamber": "Senate",
-      "committee": "Senate Armed Services",
-      "committees": "Senate Armed Services",
-      "published": "2026-04-23T13:30:00+00:00",
-      "scheduled_date": "2026-04-23",
-      "scheduled_time": "13:30",
-      "url": "https://www.congress.gov/event/119th-congress/senate-event/338101",
-      "link": "https://www.congress.gov/event/119th-congress/senate-event/338101",
+      "chamber": "House",
+      "committee": "House Rules",
+      "committees": "House Rules",
+      "published": "2026-03-27T19:30:00+00:00",
+      "scheduled_date": "2026-03-27",
+      "scheduled_time": "19:30",
+      "url": "https://www.congress.gov/event/119th-congress/house-event/119123",
+      "link": "https://www.congress.gov/event/119th-congress/house-event/119123",
       "congress": 119,
       "meeting_type": "Meeting",
       "meeting_status": "Scheduled",
-      "location": "Room G50, Dirksen Senate Office Building",
+      "location": "Room H-313, Capitol",
       "bill": "",
-      "event_id": "338101"
-    }
-  ],
-  "historical_hearings": [
+      "event_id": "119123"
+    },
+    {
+      "title": "[POSTPONED] Latin America After the Fall of Maduro",
+      "summary": "Postponed congressional meeting before the House Foreign Affairs Subcommittee on Western Hemisphere.",
+      "source": "Federal (US Congress)",
+      "category": "hearing",
+      "chamber": "House",
+      "committee": "House Foreign Affairs Subcommittee on Western Hemisphere",
+      "committees": "House Foreign Affairs Subcommittee on Western Hemisphere",
+      "published": "2026-03-27T15:00:00+00:00",
+      "scheduled_date": "2026-03-27",
+      "scheduled_time": "15:00",
+      "url": "https://www.congress.gov/event/119th-congress/house-event/119114",
+      "link": "https://www.congress.gov/event/119th-congress/house-event/119114",
+      "congress": 119,
+      "meeting_type": "Meeting",
+      "meeting_status": "Postponed",
+      "location": "Room 2172, Rayburn House Office Building",
+      "bill": "",
+      "event_id": "119114"
+    },
+    {
+      "title": "Business meeting to consider S.1682, to direct the Consumer Product Safety Commission to promulgate a consumer product safety standard for certain gates, S.1885, to require the Federal Trade Commission, with the concurrence of the Secretary of Health and Human Services acting through the Surgeon General, to implement a mental health warning label on covered platforms, S.1962, to amend the Secure and Trusted Communications Networks Act of 2019 to prohibit the Federal Communications Commission from granting a license or United States market access for a geostationary orbit satellite system or a nongeostationary orbit satellite system, or an authorization to use an individually licensed earth station or a blanket-licensed earth station, if the license, grant of market access, or authorization would be held or controlled by an entity that produces or provides any covered communications equipment or service or an affiliate of such an entity, S.2378, to amend title 49, United States Code, to establish funds for investments in aviation security checkpoint technology, S.3257, to require the Administrator of the Federal Aviation Administration to revise regulations for certain individuals carrying out aviation activities who disclose a mental health diagnosis or condition, S.3404, to require a report on Federal support to the cybersecurity of commercial satellite systems, S.3597, to reauthorize the National Quantum Initiative Act, S.3618, to require the Federal Trade Commission to submit to Congress a report on the ability of minors to access fentanyl through social media platforms, S.3791, to reauthorize Regional Ocean Partnerships, and routine lists in the Coast Guard.",
+      "summary": "Congressional meeting before the Senate Commerce, Science, and Transportation.",
+      "source": "Federal (US Congress)",
+      "category": "hearing",
+      "chamber": "Senate",
+      "committee": "Senate Commerce, Science, and Transportation",
+      "committees": "Senate Commerce, Science, and Transportation",
+      "published": "2026-03-27T14:00:00+00:00",
+      "scheduled_date": "2026-03-27",
+      "scheduled_time": "14:00",
+      "url": "https://www.congress.gov/event/119th-congress/senate-event/338100",
+      "link": "https://www.congress.gov/event/119th-congress/senate-event/338100",
+      "congress": 119,
+      "meeting_type": "Meeting",
+      "meeting_status": "Scheduled",
+      "location": "Room 253, Russell Senate Office Building",
+      "bill": "S 1682, S 1885, S 1962, S 2378, S 3257, S 3404, S 3597, S 3618, S 3791",
+      "event_id": "338100"
+    },
     {
       "title": "Senate Committee on Judiciary and House Committee on Judiciary on All bills in conference",
       "scheduled_date": "2026-03-26T00:00:00+00:00",
@@ -219077,6 +219088,78 @@
             "short_title": "Senate Committee on Judiciary and House Committee on Corrections and Juvenile Justice on SB374",
             "action": "Senate Committee on Judiciary and House Committee on Corrections and Juvenile Justice on SB374",
             "url": "https://kslegislature.gov/li/conference/conf_committee_20260326153429"
+          }
+        ]
+      },
+      "congress": {
+        "house": [],
+        "senate": []
+      }
+    },
+    "2026-03-27": {
+      "date": "2026-03-27",
+      "generated_at": "2026-03-28T03:25:29.198347+00:00",
+      "model": "phi-3:mini",
+      "prompt_version": "v1",
+      "summary": "8 legislative items recorded. Kansas Legislature: 5 House bills and 3 Senate bills.",
+      "counts": {
+        "total": 8,
+        "kansas_house": 5,
+        "kansas_senate": 3,
+        "congress_house": 0,
+        "congress_senate": 0
+      },
+      "kansas": {
+        "house": [
+          {
+            "bill": "HB 2046",
+            "short_title": "Authorizing insurers to file certain travel insurance policies under the accident and health line of insurance.",
+            "action": "Senator Tyson,  Senator Peck, and  Senator Corson are appointed to replace  Senator Dietrich,  Senator Fagg, and  Senator Francisco on the Conference Committee",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2046/"
+          },
+          {
+            "bill": "HB 2044",
+            "short_title": "Requiring that third party administrators maintain separate fiduciary accounts for individual payors and not contain funds collected or held on behalf of multiple payors and disclose to the commissioner of insurance any bankruptcy petition filed by or on behalf of such administrator.",
+            "action": "Senator Tyson,  Senator Peck, and  Senator Corson are appointed to replace  Senator Dietrich,  Senator Fagg, and  Senator Francisco on the Conference Committee",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2044/"
+          },
+          {
+            "bill": "HB 2043",
+            "short_title": "Requiring agents and insurers to respond to inquiries from the commissioner of insurance within 14 calendar days and authorizing certain rebate pilot programs to exceed one year in duration.",
+            "action": "Senator Tyson,  Senator Peck, and  Senator Corson are appointed to replace  Senator Dietrich,  Senator Fagg, and  Senator Francisco on the Conference Committee",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2043/"
+          },
+          {
+            "bill": "HCR 5036",
+            "short_title": "Providing for the adjournment of the House of Representatives and the Senate for a period of time.",
+            "action": "Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5036/"
+          },
+          {
+            "bill": "HB 2357",
+            "short_title": "Senate Committee on Commerce and House Committee on Judiciary on HB2357",
+            "action": "Senate Committee on Commerce and House Committee on Judiciary on HB2357",
+            "url": "https://kslegislature.gov/li/conference/conf_committee_20260327131501"
+          }
+        ],
+        "senate": [
+          {
+            "bill": "SB 84",
+            "short_title": "Modifying criminal use of a financial card to include certain conduct involving gift cards.",
+            "action": "Conference committee report now available",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB84/"
+          },
+          {
+            "bill": "SB 229",
+            "short_title": "Senate Committee on Commerce and House Committee on Commerce, Labor and Economic Development on SB229",
+            "action": "Senate Committee on Commerce and House Committee on Commerce, Labor and Economic Development on SB229",
+            "url": "https://kslegislature.gov/li/conference/conf_committee_20260327131339"
+          },
+          {
+            "bill": "SB 157",
+            "short_title": "Requiring search warrants to be issued only on the statement of facts sufficient to show probable cause made by a law enforcement officer, warrants issued for failure to appear to be provided to a compensated surety, bond forfeiture to be set aside in certain circumstances and remission if the defendant is returned to custody in certain circumstances and prohibiting a compensated surety from making loans for certain portions of the required minimum appearance bond premium.",
+            "action": "Conference Committee Report agree to disagree, not adopted",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB157/"
           }
         ]
       },
