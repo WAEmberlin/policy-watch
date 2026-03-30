@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-29T19:03:31.899597-05:00",
+  "last_updated": "2026-03-29T22:50:10.839175-05:00",
   "years": {
     "2026": {
       "total_items": 1620,
@@ -219033,6 +219033,28 @@
     "2026-03-28": {
       "date": "2026-03-28",
       "generated_at": "2026-03-29T03:46:43.999462+00:00",
+      "model": "phi-3:mini",
+      "prompt_version": "v1",
+      "summary": "No legislative activity recorded for this date.",
+      "counts": {
+        "total": 0,
+        "kansas_house": 0,
+        "kansas_senate": 0,
+        "congress_house": 0,
+        "congress_senate": 0
+      },
+      "kansas": {
+        "house": [],
+        "senate": []
+      },
+      "congress": {
+        "house": [],
+        "senate": []
+      }
+    },
+    "2026-03-29": {
+      "date": "2026-03-29",
+      "generated_at": "2026-03-30T03:50:10.700413+00:00",
       "model": "phi-3:mini",
       "prompt_version": "v1",
       "summary": "No legislative activity recorded for this date.",
