@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-06T19:06:39.012200-05:00",
+  "last_updated": "2026-04-06T22:42:14.925937-05:00",
   "years": {
     "2026": {
       "total_items": 1623,
@@ -218261,6 +218261,35 @@
       },
       "kansas": {
         "house": [],
+        "senate": []
+      },
+      "congress": {
+        "house": [],
+        "senate": []
+      }
+    },
+    "2026-04-06": {
+      "date": "2026-04-06",
+      "generated_at": "2026-04-07T03:42:14.817870+00:00",
+      "model": "phi-3:mini",
+      "prompt_version": "v1",
+      "summary": "**2026-04-06 Legislative Summary:**\n\nOn this day, no legislation was introduced or passed in either Kansas's U.S\u001b[3D\u001b[K\nU.S. House of Representatives or Senate chambers. Furthermore, there were a\u001b[1D\u001b[K\nalso no bills presented to the Congress on a federal level for consideratio\u001b[12D\u001b[K\nconsideration by their respective chambers during today\u2019s session. This ind\u001b[3D\u001b[K\nindicates that both state and national levels saw an absence of legislative\u001b[11D\u001b[K\nlegislative activity within this timeframe.",
+      "counts": {
+        "total": 1,
+        "kansas_house": 1,
+        "kansas_senate": 0,
+        "congress_house": 0,
+        "congress_senate": 0
+      },
+      "kansas": {
+        "house": [
+          {
+            "bill": "HB 2378",
+            "short_title": "Establishing the removal of squatters act, providing a procedure to remove a squatter from a dwelling unit, requiring owners or agents of dwelling units to provide an affidavit to the county sheriff department or police department , requiring notice to vacate by the sheriff, establishing the crime of providing a false affidavit and establishing a civil cause of action for wrongful removal of a person from a dwelling unit, allowing attorney fees and punitive damages.",
+            "action": "Approved by Governor on Monday, April 6, 2026",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2378/"
+          }
+        ],
         "senate": []
       },
       "congress": {
