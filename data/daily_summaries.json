@@ -4638,5 +4638,53 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-04-09": {
+    "date": "2026-04-09",
+    "generated_at": "2026-04-10T03:52:44.224248+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "4 legislative items recorded. Kansas Legislature: 3 House bills and 1 Senate bill.",
+    "counts": {
+      "total": 4,
+      "kansas_house": 3,
+      "kansas_senate": 1,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2049",
+          "short_title": "Updating public adjuster and insurance agent statutes pertaining to suspension, revocation, denial of licensure and licensure renewal.",
+          "action": "Senator Thompson,  Senator Blew, and  Senator Faust Goudeau are appointed to replace  Senator Dietrich,  Senator Fagg, and  Senator Francisco on the Conference Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2049/"
+        },
+        {
+          "bill": "HB 2515",
+          "short_title": "Senate Committee on Financial Institutions and Insurance and House Committee on Financial Institutions and Pensions on HB2515",
+          "action": "Senate Committee on Financial Institutions and Insurance and House Committee on Financial Institutions and Pensions on HB2515",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260409200344"
+        },
+        {
+          "bill": "HR 6044",
+          "short_title": "Commemorating the life and service of Representative Harold Lane.",
+          "action": "Enrolled on Thursday, April 9, 2026",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6044/"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SR 1738",
+          "short_title": "Congratulating the 2025 and 2026 Kansas Association of Independent and Religious Schools award recipients.",
+          "action": "Adopted without roll call",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SR1738/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
