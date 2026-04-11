@@ -4686,5 +4686,71 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-04-10": {
+    "date": "2026-04-10",
+    "generated_at": "2026-04-11T03:29:49.112762+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "7 legislative items recorded. Kansas Legislature: 6 House bills and 1 Senate bill.",
+    "counts": {
+      "total": 7,
+      "kansas_house": 6,
+      "kansas_senate": 1,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [
+        {
+          "bill": "HB 2029",
+          "short_title": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2029",
+          "action": "Senate Committee on Ways and Means and House Committee on Appropriations on HB2029",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260410204618"
+        },
+        {
+          "bill": "HB 2049",
+          "short_title": "Senator Thompson, Senator Clifford and Senator Faust Goudeau and House Veterans and Military on HB2049",
+          "action": "Senator Thompson, Senator Clifford and Senator Faust Goudeau and House Veterans and Military on HB2049",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260410154425"
+        },
+        {
+          "bill": "HB 2515",
+          "short_title": "Senate Committee on Financial Institutions and Insurance and House Committee on Financial Institutions and Pensions on HB2515",
+          "action": "Senate Committee on Financial Institutions and Insurance and House Committee on Financial Institutions and Pensions on HB2515",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260410135411"
+        },
+        {
+          "bill": "HB 2763",
+          "short_title": "Senate Committee on Education and House Committee on Education on HB2763",
+          "action": "Senate Committee on Education and House Committee on Education on HB2763",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260410001143"
+        },
+        {
+          "bill": "HB 2515",
+          "short_title": "Senate Committee on Financial Institutions and Insurance and House Committee on Financial Institutions and Pensions on HB2515",
+          "action": "Senate Committee on Financial Institutions and Insurance and House Committee on Financial Institutions and Pensions on HB2515",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260409235814"
+        },
+        {
+          "bill": "HB 2111",
+          "short_title": "Senate Committee on Agriculture and Natural Resources and House Committee on Agriculture and Natural Resources on HB2111",
+          "action": "Senate Committee on Agriculture and Natural Resources and House Committee on Agriculture and Natural Resources on HB2111",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260409230331"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "SB 430",
+          "short_title": "Senate Committee on Public Health and Welfare and House Committee on Health and Human Services on SB430",
+          "action": "Senate Committee on Public Health and Welfare and House Committee on Health and Human Services on SB430",
+          "url": "https://kslegislature.gov/li/conference/conf_committee_20260410201805"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
