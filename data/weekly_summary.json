@@ -1,9 +1,9 @@
 {
-  "week_start": "2026-03-29",
-  "week_end": "2026-04-05",
+  "week_start": "2026-04-05",
+  "week_end": "2026-04-12",
   "model": "phi-3:mini",
   "prompt_version": "v1",
-  "generated_at": "2026-04-05T06:59:43.721313+00:00",
+  "generated_at": "2026-04-12T07:08:28.652110+00:00",
   "jurisdictions": [
     {
       "name": "Kansas Legislature",
@@ -11,16 +11,26 @@
         {
           "title": "House Bills",
           "summary": [
-            "No House bills with activity this week."
+            "HCR 5008 was motion to advance to efa, subject to amendment, debate and roll call. motion carried. on 2026-04-11.",
+            "HB 2029 was senate committee on ways and means and house committee on appropriations on hb2029 on 2026-04-10.",
+            "HB 2049 was senator thompson, senator clifford and senator faust goudeau and house veterans and military on hb2049 on 2026-04-10.",
+            "3 House bills were senate committee on financial institutions and insurance and house committee on financial institutions and pensions on hb2515: HB 2515, HB 2515, HB 2515.",
+            "HB 2763 was senate committee on education and house committee on education on hb2763 on 2026-04-10.",
+            "HB 2111 was senate committee on agriculture and natural resources and house committee on agriculture and natural resources on hb2111 on 2026-04-10.",
+            "HB 2049 was senator thompson,  senator blew, and  senator faust goudeau are appointed to replace  senator dietrich,  senator fagg, and  senator francisco on the conference committee on 2026-04-09.",
+            "HR 6044 was enrolled on thursday, april 9, 2026 on 2026-04-09.",
+            "HB 2378 was approved by governor on monday, april 6, 2026 on 2026-04-06."
           ],
-          "bill_count": 0
+          "bill_count": 11
         },
         {
           "title": "Senate Bills",
           "summary": [
-            "No Senate bills with activity this week."
+            "SCR 1626 was received and introduced on 2026-04-11.",
+            "SB 430 was senate committee on public health and welfare and house committee on health and human services on sb430 on 2026-04-10.",
+            "SR 1738 was adopted without roll call on 2026-04-09."
           ],
-          "bill_count": 0
+          "bill_count": 3
         }
       ]
     },
@@ -30,25 +40,28 @@
         {
           "title": "House of Representatives",
           "summary": [
-            "HR 4684 was placed on the union calendar, calendar no. 504. on 2026-04-02.",
-            "HR 5682 was placed on the union calendar, calendar no. 505. on 2026-04-02.",
-            "HR 41 was placed on the union calendar, calendar no. 499. on 2026-04-02.",
-            "HR 2252 was placed on the union calendar, calendar no. 501. on 2026-04-02.",
-            "HR 2768 was placed on the union calendar, calendar no. 502. on 2026-04-02.",
-            "HR 785 was placed on the union calendar, calendar no. 498. on 2026-04-02.",
-            "HR 6047 was placed on the union calendar, calendar no. 497. on 2026-04-02.",
-            "HR 4463 was placed on the union calendar, calendar no. 503. on 2026-04-02.",
-            "HR 1352 was placed on the union calendar, calendar no. 500. on 2026-04-02.",
-            "HR 3482 was placed on the union calendar, calendar no. 496. on 2026-03-30."
+            "2 House of Representatives bills were referred to the subcommittee on water, wildlife and fisheries.: HR 4219, HR 6251.",
+            "HR 5366 was placed on the union calendar, calendar no. 525. on 2026-04-09.",
+            "HR 5334 was placed on the union calendar, calendar no. 520. on 2026-04-09.",
+            "HR 2347 was placed on the union calendar, calendar no. 519. on 2026-04-09.",
+            "HR 6398 was placed on the union calendar, calendar no. 516. on 2026-04-09.",
+            "HR 6387 was placed on the union calendar, calendar no. 515. on 2026-04-09.",
+            "HR 6409 was placed on the union calendar, calendar no. 514. on 2026-04-09.",
+            "HR 2076 was placed on the union calendar, calendar no. 518. on 2026-04-09.",
+            "HR 5200 was placed on the union calendar, calendar no. 517. on 2026-04-09.",
+            "HR 6260 was placed on the union calendar, calendar no. 521. on 2026-04-09.",
+            "HR 5625 was placed on the union calendar, calendar no. 522. on 2026-04-09.",
+            "HR 5750 was placed on the union calendar, calendar no. 524. on 2026-04-09.",
+            "HR 1071 was placed on the union calendar, calendar no. 523. on 2026-04-09."
           ],
-          "bill_count": 10
+          "bill_count": 14
         },
         {
           "title": "U.S. Senate",
           "summary": [
-            "S 1884 was presented to president. on 2026-04-02."
+            "No U.S. Senate bills with activity this week."
           ],
-          "bill_count": 1
+          "bill_count": 0
         }
       ]
     }
