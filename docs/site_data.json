@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-11T19:03:48.874634-05:00",
+  "last_updated": "2026-04-11T22:55:16.974985-05:00",
   "years": {
     "2026": {
       "total_items": 1633,
@@ -219824,6 +219824,42 @@
             "short_title": "Senate Committee on Public Health and Welfare and House Committee on Health and Human Services on SB430",
             "action": "Senate Committee on Public Health and Welfare and House Committee on Health and Human Services on SB430",
             "url": "https://kslegislature.gov/li/conference/conf_committee_20260410201805"
+          }
+        ]
+      },
+      "congress": {
+        "house": [],
+        "senate": []
+      }
+    },
+    "2026-04-11": {
+      "date": "2026-04-11",
+      "generated_at": "2026-04-12T03:55:16.843859+00:00",
+      "model": "phi-3:mini",
+      "prompt_version": "v1",
+      "summary": "2 legislative items recorded. Kansas Legislature: 1 House bill and 1 Senate bill.",
+      "counts": {
+        "total": 2,
+        "kansas_house": 1,
+        "kansas_senate": 1,
+        "congress_house": 0,
+        "congress_senate": 0
+      },
+      "kansas": {
+        "house": [
+          {
+            "bill": "HCR 5008",
+            "short_title": "Proposing a constitutional amendment to provide for legislative oversight of rules and regulations adopted by executive branch agencies and officials.",
+            "action": "Motion to advance to EFA, subject to amendment, debate and roll call. Motion carried.",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5008/"
+          }
+        ],
+        "senate": [
+          {
+            "bill": "SCR 1626",
+            "short_title": "Providing for the adjournment sine die of the 2026 regular session of the Legislature.",
+            "action": "Received and Introduced",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1626/"
           }
         ]
       },
