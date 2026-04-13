@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-12T19:06:01.658739-05:00",
+  "last_updated": "2026-04-12T23:01:54.896166-05:00",
   "years": {
     "2026": {
       "total_items": 1633,
@@ -219842,6 +219842,28 @@
             "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1626/"
           }
         ]
+      },
+      "congress": {
+        "house": [],
+        "senate": []
+      }
+    },
+    "2026-04-12": {
+      "date": "2026-04-12",
+      "generated_at": "2026-04-13T04:01:54.759595+00:00",
+      "model": "phi-3:mini",
+      "prompt_version": "v1",
+      "summary": "No legislative activity recorded for this date.",
+      "counts": {
+        "total": 0,
+        "kansas_house": 0,
+        "kansas_senate": 0,
+        "congress_house": 0,
+        "congress_senate": 0
+      },
+      "kansas": {
+        "house": [],
+        "senate": []
       },
       "congress": {
         "house": [],
