@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-13T19:14:02.219774-05:00",
+  "last_updated": "2026-04-13T22:54:09.821885-05:00",
   "years": {
     "2026": {
       "total_items": 1634,
@@ -220032,6 +220032,35 @@
       },
       "kansas": {
         "house": [],
+        "senate": []
+      },
+      "congress": {
+        "house": [],
+        "senate": []
+      }
+    },
+    "2026-04-13": {
+      "date": "2026-04-13",
+      "generated_at": "2026-04-14T03:54:09.716620+00:00",
+      "model": "phi-3:mini",
+      "prompt_version": "v1",
+      "summary": "Total count: Kansas Legislature - House bills active, Senate inactive; U.S.\u001b[4D\u001b[K\nU.S. Congress - no bill activity reported for both chambers on April 13, 20\u001b[2D\u001b[K\n2026.\n\nOn that day, only the state legislature of Kansas showed significant moveme\u001b[6D\u001b[K\nmovement as HR 6047 was enrolled by the House with full support to recogniz\u001b[8D\u001b[K\nrecognize and honor Thomas Day's legacy in a special ceremony scheduled wit\u001b[3D\u001b[K\nwithin their session dates. No actions were taken on U.S. Congress front fo\u001b[2D\u001b[K\nfor either chamber during this date across both, emphasizing national focus\u001b[5D\u001b[K\nfocus might be elsewhere or off-cycle from legislative proceedings that day\u001b[3D\u001b[K\nday.\n\nNo new bills presented by the Senate nor any federal measures debated in th\u001b[2D\u001b[K\nthe House of Representatives emerged publicly at the time as recorded on Ap\u001b[2D\u001b[K\nApril 13, 2026; indicating a potential lull within both state and national \u001b[K\ngovernance bodies for contentious or major legislative action specifically.",
+      "counts": {
+        "total": 1,
+        "kansas_house": 1,
+        "kansas_senate": 0,
+        "congress_house": 0,
+        "congress_senate": 0
+      },
+      "kansas": {
+        "house": [
+          {
+            "bill": "HR 6047",
+            "short_title": "recognizing and honoring Thomas Day.",
+            "action": "Enrolled on Monday, April 13, 2026",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6047/"
+          }
+        ],
         "senate": []
       },
       "congress": {
