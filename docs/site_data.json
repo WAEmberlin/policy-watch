@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-18T06:15:37.948557-05:00",
+  "last_updated": "2026-04-18T07:02:10.403825-05:00",
   "years": {
     "2026": {
       "total_items": 1663,
@@ -17,26 +17,37 @@
             "bill_number": "HJRES 140"
           },
           {
-            "date": "2026-04-16",
+            "date": "2026-04-17",
             "source": "Congress.gov API",
             "title": "HR 6409: FENCES Act",
             "link": "https://www.congress.gov/bill/119th-congress/house-bill/6409",
-            "published": "2026-04-16T00:00:00",
+            "published": "2026-04-17T00:00:00",
             "summary": "",
             "short_title": "FENCES Act",
             "short_title_source": "rss",
             "bill_number": "HR 6409"
           },
           {
-            "date": "2026-04-16",
+            "date": "2026-04-17",
             "source": "Congress.gov API",
             "title": "HR 6398: RED Tape Act",
             "link": "https://www.congress.gov/bill/119th-congress/house-bill/6398",
-            "published": "2026-04-16T00:00:00",
+            "published": "2026-04-17T00:00:00",
             "summary": "",
             "short_title": "RED Tape Act",
             "short_title_source": "rss",
             "bill_number": "HR 6398"
+          },
+          {
+            "date": "2026-04-17",
+            "source": "Congress.gov API",
+            "title": "HR 1689: To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
+            "link": "https://www.congress.gov/bill/119th-congress/house-bill/1689",
+            "published": "2026-04-17T00:00:00",
+            "summary": "",
+            "short_title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
+            "short_title_source": "rss",
+            "bill_number": "HR 1689"
           },
           {
             "date": "2026-04-16",
@@ -136,17 +147,6 @@
             "short_title": "BEACON Act of 2026",
             "short_title_source": "rss",
             "bill_number": "HR 6993"
-          },
-          {
-            "date": "2026-04-16",
-            "source": "Congress.gov API",
-            "title": "HR 1689: To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
-            "link": "https://www.congress.gov/bill/119th-congress/house-bill/1689",
-            "published": "2026-04-16T00:00:00",
-            "summary": "",
-            "short_title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
-            "short_title_source": "rss",
-            "bill_number": "HR 1689"
           },
           {
             "date": "2026-04-16",
@@ -42624,22 +42624,18 @@
               "congress": 119,
               "short_title": "Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Bureau of Land Management relating to Public Land Order No. 7917 for Withdrawal of Federal Lands; Cook, Lake, and Saint Louis Counties, MN.",
               "official_title": "Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Bureau of Land Management relating to Public Land Order No. 7917 for Withdrawal of Federal Lands; Cook, Lake, and Saint Louis Counties, MN."
-            }
-          ]
-        },
-        "2026-04-16": {
-          "Congress.gov API": [
+            },
             {
               "title": "HR 6409: FENCES Act",
               "link": "https://www.congress.gov/bill/119th-congress/house-bill/6409",
               "summary": "",
               "source": "Congress.gov API",
-              "published": "2026-04-16T00:00:00",
+              "published": "2026-04-17T00:00:00",
               "bill_number": "HR 6409",
               "bill_type": "HR",
               "sponsor_name": "",
-              "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
-              "latest_action_date": "2026-04-16T00:00:00",
+              "latest_action": "Received in the Senate and Read twice and referred to the Committee on Environment and Public Works.",
+              "latest_action_date": "2026-04-17T00:00:00",
               "congress": 119,
               "short_title": "FENCES Act",
               "official_title": "To amend the Clean Air Act to clarify standards for emissions emanating from outside of the United States, and for other purposes."
@@ -42649,16 +42645,35 @@
               "link": "https://www.congress.gov/bill/119th-congress/house-bill/6398",
               "summary": "",
               "source": "Congress.gov API",
-              "published": "2026-04-16T00:00:00",
+              "published": "2026-04-17T00:00:00",
               "bill_number": "HR 6398",
               "bill_type": "HR",
               "sponsor_name": "",
-              "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
-              "latest_action_date": "2026-04-16T00:00:00",
+              "latest_action": "Received in the Senate and Read twice and referred to the Committee on Environment and Public Works.",
+              "latest_action_date": "2026-04-17T00:00:00",
               "congress": 119,
               "short_title": "RED Tape Act",
               "official_title": "To amend the Clean Air Act relating to review by the Environmental Protection Agency of proposed legislation."
             },
+            {
+              "title": "HR 1689: To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
+              "link": "https://www.congress.gov/bill/119th-congress/house-bill/1689",
+              "summary": "",
+              "source": "Congress.gov API",
+              "published": "2026-04-17T00:00:00",
+              "bill_number": "HR 1689",
+              "bill_type": "HR",
+              "sponsor_name": "",
+              "latest_action": "Received in the Senate.",
+              "latest_action_date": "2026-04-17T00:00:00",
+              "congress": 119,
+              "short_title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
+              "official_title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status."
+            }
+          ]
+        },
+        "2026-04-16": {
+          "Congress.gov API": [
             {
               "title": "HRES 965: Providing for consideration of the bill (H.R. 1689) to require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
               "link": "https://www.congress.gov/bill/119th-congress/house-resolution/965",
@@ -42793,21 +42808,6 @@
               "congress": 119,
               "short_title": "BEACON Act of 2026",
               "official_title": "To direct the Secretary of Veterans Affairs to carry out programs to award grants to eligible entities to conduct research with respect to treatments for traumatic brain injury prospective randomized control trials for neurorehabilitation treatments, and for other purposes."
-            },
-            {
-              "title": "HR 1689: To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
-              "link": "https://www.congress.gov/bill/119th-congress/house-bill/1689",
-              "summary": "",
-              "source": "Congress.gov API",
-              "published": "2026-04-16T00:00:00",
-              "bill_number": "HR 1689",
-              "bill_type": "HR",
-              "sponsor_name": "",
-              "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
-              "latest_action_date": "2026-04-16T00:00:00",
-              "congress": 119,
-              "short_title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
-              "official_title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status."
             },
             {
               "title": "HR 2066: Investing in All of America Act of 2025",
@@ -142177,10 +142177,10 @@
           "title": "FENCES Act",
           "summary": "",
           "sponsor_name": "",
-          "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
-          "latest_action_date": "2026-04-16T00:00:00",
+          "latest_action": "Received in the Senate and Read twice and referred to the Committee on Environment and Public Works.",
+          "latest_action_date": "2026-04-17T00:00:00",
           "url": "https://www.congress.gov/bill/119th-congress/house-bill/6409",
-          "published": "2026-04-16T00:00:00",
+          "published": "2026-04-17T00:00:00",
           "congress": 119,
           "short_title": "FENCES Act",
           "official_title": "To amend the Clean Air Act to clarify standards for emissions emanating from outside of the United States, and for other purposes."
@@ -142191,13 +142191,27 @@
           "title": "RED Tape Act",
           "summary": "",
           "sponsor_name": "",
-          "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
-          "latest_action_date": "2026-04-16T00:00:00",
+          "latest_action": "Received in the Senate and Read twice and referred to the Committee on Environment and Public Works.",
+          "latest_action_date": "2026-04-17T00:00:00",
           "url": "https://www.congress.gov/bill/119th-congress/house-bill/6398",
-          "published": "2026-04-16T00:00:00",
+          "published": "2026-04-17T00:00:00",
           "congress": 119,
           "short_title": "RED Tape Act",
           "official_title": "To amend the Clean Air Act relating to review by the Environmental Protection Agency of proposed legislation."
+        },
+        {
+          "bill_number": "1689",
+          "bill_type": "HR",
+          "title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
+          "summary": "",
+          "sponsor_name": "",
+          "latest_action": "Received in the Senate.",
+          "latest_action_date": "2026-04-17T00:00:00",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/1689",
+          "published": "2026-04-17T00:00:00",
+          "congress": 119,
+          "short_title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
+          "official_title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status."
         },
         {
           "bill_number": "965",
@@ -142324,20 +142338,6 @@
           "congress": 119,
           "short_title": "BEACON Act of 2026",
           "official_title": "To direct the Secretary of Veterans Affairs to carry out programs to award grants to eligible entities to conduct research with respect to treatments for traumatic brain injury prospective randomized control trials for neurorehabilitation treatments, and for other purposes."
-        },
-        {
-          "bill_number": "1689",
-          "bill_type": "HR",
-          "title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
-          "summary": "",
-          "sponsor_name": "",
-          "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
-          "latest_action_date": "2026-04-16T00:00:00",
-          "url": "https://www.congress.gov/bill/119th-congress/house-bill/1689",
-          "published": "2026-04-16T00:00:00",
-          "congress": 119,
-          "short_title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
-          "official_title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status."
         },
         {
           "bill_number": "2066",
@@ -205620,6 +205620,26 @@
       "location": "Room HVC-304, Capitol",
       "bill": "",
       "event_id": "119176"
+    },
+    {
+      "title": "Various Measures",
+      "summary": "Congressional meeting before the House Financial Services.",
+      "source": "Federal (US Congress)",
+      "category": "hearing",
+      "chamber": "House",
+      "committee": "House Financial Services",
+      "committees": "House Financial Services",
+      "published": "2026-04-21T14:00:00+00:00",
+      "scheduled_date": "2026-04-21",
+      "scheduled_time": "14:00",
+      "url": "https://www.congress.gov/event/119th-congress/house-event/119210",
+      "link": "https://www.congress.gov/event/119th-congress/house-event/119210",
+      "congress": 119,
+      "meeting_type": "Meeting",
+      "meeting_status": "Scheduled",
+      "location": "Room 2128, Rayburn House Office Building",
+      "bill": "",
+      "event_id": "119210"
     },
     {
       "title": "\u201cOnline Scams, Crypto Fraud, and Digital Extortion: An Examination of How Transnational Criminal Networks Target Americans\u201d",
