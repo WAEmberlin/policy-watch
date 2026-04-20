@@ -4949,5 +4949,27 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-04-19": {
+    "date": "2026-04-19",
+    "generated_at": "2026-04-20T04:02:49.660803+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "No legislative activity recorded for this date.",
+    "counts": {
+      "total": 0,
+      "kansas_house": 0,
+      "kansas_senate": 0,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [],
+      "senate": []
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
