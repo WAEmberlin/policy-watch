@@ -1,10 +1,21 @@
 {
-  "last_updated": "2026-04-21T01:29:01.094218-05:00",
+  "last_updated": "2026-04-21T03:23:52.486560-05:00",
   "years": {
     "2026": {
       "total_items": 1663,
       "pages": [
         [
+          {
+            "date": "2026-04-20",
+            "source": "Congress.gov API",
+            "title": "HR 1897: ESA Amendments Act of 2025",
+            "link": "https://www.congress.gov/bill/119th-congress/house-bill/1897",
+            "published": "2026-04-20T00:00:00",
+            "summary": "",
+            "short_title": "ESA Amendments Act of 2025",
+            "short_title_source": "rss",
+            "bill_number": "HR 1897"
+          },
           {
             "date": "2026-04-17",
             "source": "Congress.gov API",
@@ -543,7 +554,9 @@
             "short_title": "Mental Health in Aviation Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 3257"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-04-14",
             "source": "Congress.gov API",
@@ -554,9 +567,7 @@
             "short_title": "Stop the Scroll Act",
             "short_title_source": "rss",
             "bill_number": "S 1885"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-04-14",
             "source": "Congress.gov API",
@@ -1111,7 +1122,9 @@
             "short_title": "ARTIST Act",
             "short_title_source": "rss",
             "bill_number": "HR 5694"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-03-26",
             "source": "Congress.gov API",
@@ -1122,9 +1135,7 @@
             "short_title": "Board of Veterans Appeals Annual Report Transparency Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 6698"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-03-26",
             "source": "Congress.gov API",
@@ -1672,7 +1683,9 @@
             "short_title_source": "scraped",
             "bill_number": "HR 6041",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6041/"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-03-24",
             "source": "Kansas Legislature - Events",
@@ -1684,9 +1697,7 @@
             "short_title_source": "scraped",
             "bill_number": "HR 6038",
             "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HR6038/"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-03-24",
             "source": "Kansas Legislature - Events",
@@ -1765,17 +1776,6 @@
             "short_title": "WIPPES Act",
             "short_title_source": "rss",
             "bill_number": "S 1092"
-          },
-          {
-            "date": "2026-03-24",
-            "source": "Congress.gov API",
-            "title": "HR 1897: ESA Amendments Act of 2025",
-            "link": "https://www.congress.gov/bill/119th-congress/house-bill/1897",
-            "published": "2026-03-24T00:00:00",
-            "summary": "",
-            "short_title": "ESA Amendments Act of 2025",
-            "short_title_source": "rss",
-            "bill_number": "HR 1897"
           },
           {
             "date": "2026-03-24",
@@ -19968,21 +19968,6 @@
               "congress": 119,
               "short_title": "WIPPES Act",
               "official_title": "A bill to require certain products to be labeled with 'Do Not Flush' labeling, and for other purposes."
-            },
-            {
-              "title": "HR 1897: ESA Amendments Act of 2025",
-              "link": "https://www.congress.gov/bill/119th-congress/house-bill/1897",
-              "summary": "",
-              "source": "Congress.gov API",
-              "published": "2026-03-24T00:00:00",
-              "bill_number": "HR 1897",
-              "bill_type": "HR",
-              "sponsor_name": "",
-              "latest_action": "Placed on the Union Calendar, Calendar No. 489.",
-              "latest_action_date": "2026-03-24T00:00:00",
-              "congress": 119,
-              "short_title": "ESA Amendments Act of 2025",
-              "official_title": "To amend the Endangered Species Act of 1973 to optimize conservation through resource prioritization, incentivize wildlife conservation on private lands, provide for greater incentives to recover listed species, create greater transparency and accountability in recovering listed species, streamline the permitting process, eliminate barriers to conservation, and restore congressional intent."
             },
             {
               "title": "S 629: Emergency Conservation Program Improvement Act of 2025",
@@ -42605,6 +42590,25 @@
               "summary": "MVP recently launched a survey to learn more about the ways military experiences and toxic exposures affect health. Join MVP and take the survey today.",
               "source": "VA News",
               "published": "2026-01-01T15:30:00+00:00"
+            }
+          ]
+        },
+        "2026-04-20": {
+          "Congress.gov API": [
+            {
+              "title": "HR 1897: ESA Amendments Act of 2025",
+              "link": "https://www.congress.gov/bill/119th-congress/house-bill/1897",
+              "summary": "",
+              "source": "Congress.gov API",
+              "published": "2026-04-20T00:00:00",
+              "bill_number": "HR 1897",
+              "bill_type": "HR",
+              "sponsor_name": "",
+              "latest_action": "Rules Committee Resolution H. Res. 1189 Reported to House. Rule provides for consideration of H.R. 4690, H. Res. 1182, H.R. 1897 and H.R. 5587. The resolution provides for consideration of H.R. 4690, H. Res. 1182, H.R. 1897, and H.R. 5587 under a closed rule with one hour of general debate on each measure. The resolution provides for one motion to recommit on H.R. 4690, H.R. 1897, and H.R. 5587.",
+              "latest_action_date": "2026-04-20T00:00:00",
+              "congress": 119,
+              "short_title": "ESA Amendments Act of 2025",
+              "official_title": "To amend the Endangered Species Act of 1973 to optimize conservation through resource prioritization, incentivize wildlife conservation on private lands, provide for greater incentives to recover listed species, create greater transparency and accountability in recovering listed species, streamline the permitting process, eliminate barriers to conservation, and restore congressional intent."
             }
           ]
         },
@@ -142158,6 +142162,20 @@
     "pages": [
       [
         {
+          "bill_number": "1897",
+          "bill_type": "HR",
+          "title": "ESA Amendments Act of 2025",
+          "summary": "",
+          "sponsor_name": "",
+          "latest_action": "Rules Committee Resolution H. Res. 1189 Reported to House. Rule provides for consideration of H.R. 4690, H. Res. 1182, H.R. 1897 and H.R. 5587. The resolution provides for consideration of H.R. 4690, H. Res. 1182, H.R. 1897, and H.R. 5587 under a closed rule with one hour of general debate on each measure. The resolution provides for one motion to recommit on H.R. 4690, H.R. 1897, and H.R. 5587.",
+          "latest_action_date": "2026-04-20T00:00:00",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/1897",
+          "published": "2026-04-20T00:00:00",
+          "congress": 119,
+          "short_title": "ESA Amendments Act of 2025",
+          "official_title": "To amend the Endangered Species Act of 1973 to optimize conservation through resource prioritization, incentivize wildlife conservation on private lands, provide for greater incentives to recover listed species, create greater transparency and accountability in recovering listed species, streamline the permitting process, eliminate barriers to conservation, and restore congressional intent."
+        },
+        {
           "bill_number": "140",
           "bill_type": "HJRES",
           "title": "Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Bureau of Land Management relating to Public Land Order No. 7917 for Withdrawal of Federal Lands; Cook, Lake, and Saint Louis Counties, MN.",
@@ -142842,7 +142860,9 @@
           "congress": 119,
           "short_title": "Mental Health in Aviation Act of 2025",
           "official_title": "A bill to require the Administrator of the Federal Aviation Administration to revise regulations for certain individuals carrying out aviation activities who disclose a mental health diagnosis or condition, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "1885",
           "bill_type": "S",
@@ -142856,9 +142876,7 @@
           "congress": 119,
           "short_title": "Stop the Scroll Act",
           "official_title": "A bill to require the Federal Trade Commission, with the concurrence of the Secretary of Health and Human Services acting through the Surgeon General, to implement a mental health warning label on covered platforms, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "1962",
           "bill_type": "S",
@@ -143544,7 +143562,9 @@
           "congress": 119,
           "short_title": "To require the Secretary of State to submit a report on participation in educational and cultural exchange programs.",
           "official_title": "To require the Secretary of State to submit a report on participation in educational and cultural exchange programs."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "6196",
           "bill_type": "HR",
@@ -143558,9 +143578,7 @@
           "congress": 119,
           "short_title": "Locally Led Development and Humanitarian Response Act",
           "official_title": "To authorize and encourage the United States to pursue a model of locally-led development and humanitarian response and expand engagement with local actors and increase its local partner base."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "1744",
           "bill_type": "HR",
@@ -143910,20 +143928,6 @@
           "congress": 119,
           "short_title": "WIPPES Act",
           "official_title": "A bill to require certain products to be labeled with 'Do Not Flush' labeling, and for other purposes."
-        },
-        {
-          "bill_number": "1897",
-          "bill_type": "HR",
-          "title": "ESA Amendments Act of 2025",
-          "summary": "",
-          "sponsor_name": "",
-          "latest_action": "Placed on the Union Calendar, Calendar No. 489.",
-          "latest_action_date": "2026-03-24T00:00:00",
-          "url": "https://www.congress.gov/bill/119th-congress/house-bill/1897",
-          "published": "2026-03-24T00:00:00",
-          "congress": 119,
-          "short_title": "ESA Amendments Act of 2025",
-          "official_title": "To amend the Endangered Species Act of 1973 to optimize conservation through resource prioritization, incentivize wildlife conservation on private lands, provide for greater incentives to recover listed species, create greater transparency and accountability in recovering listed species, streamline the permitting process, eliminate barriers to conservation, and restore congressional intent."
         },
         {
           "bill_number": "629",
