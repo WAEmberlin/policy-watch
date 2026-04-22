@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-22T05:06:16.320568-05:00",
+  "last_updated": "2026-04-22T06:47:13.006422-05:00",
   "years": {
     "2026": {
       "total_items": 1671,
@@ -94,6 +94,39 @@
             "bill_number": "HR 941"
           },
           {
+            "date": "2026-04-21",
+            "source": "Congress.gov API",
+            "title": "HR 1681: Expediting Federal Broadband Deployment Reviews Act",
+            "link": "https://www.congress.gov/bill/119th-congress/house-bill/1681",
+            "published": "2026-04-21T00:00:00",
+            "summary": "",
+            "short_title": "Expediting Federal Broadband Deployment Reviews Act",
+            "short_title_source": "rss",
+            "bill_number": "HR 1681"
+          },
+          {
+            "date": "2026-04-21",
+            "source": "Congress.gov API",
+            "title": "HR 1343: Federal Broadband Deployment Tracking Act",
+            "link": "https://www.congress.gov/bill/119th-congress/house-bill/1343",
+            "published": "2026-04-21T00:00:00",
+            "summary": "",
+            "short_title": "Federal Broadband Deployment Tracking Act",
+            "short_title_source": "rss",
+            "bill_number": "HR 1343"
+          },
+          {
+            "date": "2026-04-21",
+            "source": "Congress.gov API",
+            "title": "HR 1689: To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
+            "link": "https://www.congress.gov/bill/119th-congress/house-bill/1689",
+            "published": "2026-04-21T00:00:00",
+            "summary": "",
+            "short_title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
+            "short_title_source": "rss",
+            "bill_number": "HR 1689"
+          },
+          {
             "date": "2026-04-20",
             "source": "Congress.gov API",
             "title": "HR 1897: ESA Amendments Act of 2025",
@@ -107,28 +140,6 @@
           {
             "date": "2026-04-20",
             "source": "Congress.gov API",
-            "title": "HR 1681: Expediting Federal Broadband Deployment Reviews Act",
-            "link": "https://www.congress.gov/bill/119th-congress/house-bill/1681",
-            "published": "2026-04-20T00:00:00",
-            "summary": "",
-            "short_title": "Expediting Federal Broadband Deployment Reviews Act",
-            "short_title_source": "rss",
-            "bill_number": "HR 1681"
-          },
-          {
-            "date": "2026-04-20",
-            "source": "Congress.gov API",
-            "title": "HR 1343: Federal Broadband Deployment Tracking Act",
-            "link": "https://www.congress.gov/bill/119th-congress/house-bill/1343",
-            "published": "2026-04-20T00:00:00",
-            "summary": "",
-            "short_title": "Federal Broadband Deployment Tracking Act",
-            "short_title_source": "rss",
-            "bill_number": "HR 1343"
-          },
-          {
-            "date": "2026-04-20",
-            "source": "Congress.gov API",
             "title": "S 98: Rural Broadband Protection Act of 2025",
             "link": "https://www.congress.gov/bill/119th-congress/senate-bill/98",
             "published": "2026-04-20T00:00:00",
@@ -136,17 +147,6 @@
             "short_title": "Rural Broadband Protection Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 98"
-          },
-          {
-            "date": "2026-04-20",
-            "source": "Congress.gov API",
-            "title": "HR 1689: To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
-            "link": "https://www.congress.gov/bill/119th-congress/house-bill/1689",
-            "published": "2026-04-20T00:00:00",
-            "summary": "",
-            "short_title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
-            "short_title_source": "rss",
-            "bill_number": "HR 1689"
           },
           {
             "date": "2026-04-17",
@@ -42757,6 +42757,51 @@
               "congress": 119,
               "short_title": "Small LENDER Act",
               "official_title": "To amend the Equal Credit Opportunity Act to provide for an effective date and a temporary safe harbor for compliance with certain small business lending data collection rules, and for other purposes."
+            },
+            {
+              "title": "HR 1681: Expediting Federal Broadband Deployment Reviews Act",
+              "link": "https://www.congress.gov/bill/119th-congress/house-bill/1681",
+              "summary": "",
+              "source": "Congress.gov API",
+              "published": "2026-04-21T00:00:00",
+              "bill_number": "HR 1681",
+              "bill_type": "HR",
+              "sponsor_name": "",
+              "latest_action": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+              "latest_action_date": "2026-04-21T00:00:00",
+              "congress": 119,
+              "short_title": "Expediting Federal Broadband Deployment Reviews Act",
+              "official_title": "To require the Assistant Secretary of Commerce for Communications and Information to establish an interagency strike force to ensure that certain Federal land management agencies, including the organizational units of such agencies, prioritize the review of requests for communications use authorizations, and for other purposes."
+            },
+            {
+              "title": "HR 1343: Federal Broadband Deployment Tracking Act",
+              "link": "https://www.congress.gov/bill/119th-congress/house-bill/1343",
+              "summary": "",
+              "source": "Congress.gov API",
+              "published": "2026-04-21T00:00:00",
+              "bill_number": "HR 1343",
+              "bill_type": "HR",
+              "sponsor_name": "",
+              "latest_action": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+              "latest_action_date": "2026-04-21T00:00:00",
+              "congress": 119,
+              "short_title": "Federal Broadband Deployment Tracking Act",
+              "official_title": "To require the Assistant Secretary of Commerce for Communications and Information to submit to Congress a plan for the Assistant Secretary to track the acceptance, processing, and disposal of certain Form 299s, and for other purposes."
+            },
+            {
+              "title": "HR 1689: To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
+              "link": "https://www.congress.gov/bill/119th-congress/house-bill/1689",
+              "summary": "",
+              "source": "Congress.gov API",
+              "published": "2026-04-21T00:00:00",
+              "bill_number": "HR 1689",
+              "bill_type": "HR",
+              "sponsor_name": "",
+              "latest_action": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 374.",
+              "latest_action_date": "2026-04-21T00:00:00",
+              "congress": 119,
+              "short_title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
+              "official_title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status."
             }
           ]
         },
@@ -42778,36 +42823,6 @@
               "official_title": "To amend the Endangered Species Act of 1973 to optimize conservation through resource prioritization, incentivize wildlife conservation on private lands, provide for greater incentives to recover listed species, create greater transparency and accountability in recovering listed species, streamline the permitting process, eliminate barriers to conservation, and restore congressional intent."
             },
             {
-              "title": "HR 1681: Expediting Federal Broadband Deployment Reviews Act",
-              "link": "https://www.congress.gov/bill/119th-congress/house-bill/1681",
-              "summary": "",
-              "source": "Congress.gov API",
-              "published": "2026-04-20T00:00:00",
-              "bill_number": "HR 1681",
-              "bill_type": "HR",
-              "sponsor_name": "",
-              "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
-              "latest_action_date": "2026-04-20T00:00:00",
-              "congress": 119,
-              "short_title": "Expediting Federal Broadband Deployment Reviews Act",
-              "official_title": "To require the Assistant Secretary of Commerce for Communications and Information to establish an interagency strike force to ensure that certain Federal land management agencies, including the organizational units of such agencies, prioritize the review of requests for communications use authorizations, and for other purposes."
-            },
-            {
-              "title": "HR 1343: Federal Broadband Deployment Tracking Act",
-              "link": "https://www.congress.gov/bill/119th-congress/house-bill/1343",
-              "summary": "",
-              "source": "Congress.gov API",
-              "published": "2026-04-20T00:00:00",
-              "bill_number": "HR 1343",
-              "bill_type": "HR",
-              "sponsor_name": "",
-              "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
-              "latest_action_date": "2026-04-20T00:00:00",
-              "congress": 119,
-              "short_title": "Federal Broadband Deployment Tracking Act",
-              "official_title": "To require the Assistant Secretary of Commerce for Communications and Information to submit to Congress a plan for the Assistant Secretary to track the acceptance, processing, and disposal of certain Form 299s, and for other purposes."
-            },
-            {
               "title": "S 98: Rural Broadband Protection Act of 2025",
               "link": "https://www.congress.gov/bill/119th-congress/senate-bill/98",
               "summary": "",
@@ -42821,21 +42836,6 @@
               "congress": 119,
               "short_title": "Rural Broadband Protection Act of 2025",
               "official_title": "A bill to require the Federal Communications Commission to establish a vetting process for prospective applicants for high-cost universal service program funding."
-            },
-            {
-              "title": "HR 1689: To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
-              "link": "https://www.congress.gov/bill/119th-congress/house-bill/1689",
-              "summary": "",
-              "source": "Congress.gov API",
-              "published": "2026-04-20T00:00:00",
-              "bill_number": "HR 1689",
-              "bill_type": "HR",
-              "sponsor_name": "",
-              "latest_action": "Read the first time. Placed on Senate Legislative Calendar under Read the First Time.",
-              "latest_action_date": "2026-04-20T00:00:00",
-              "congress": 119,
-              "short_title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
-              "official_title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status."
             }
           ]
         },
@@ -142382,6 +142382,48 @@
           "official_title": "To amend the Equal Credit Opportunity Act to provide for an effective date and a temporary safe harbor for compliance with certain small business lending data collection rules, and for other purposes."
         },
         {
+          "bill_number": "1681",
+          "bill_type": "HR",
+          "title": "Expediting Federal Broadband Deployment Reviews Act",
+          "summary": "",
+          "sponsor_name": "",
+          "latest_action": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+          "latest_action_date": "2026-04-21T00:00:00",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/1681",
+          "published": "2026-04-21T00:00:00",
+          "congress": 119,
+          "short_title": "Expediting Federal Broadband Deployment Reviews Act",
+          "official_title": "To require the Assistant Secretary of Commerce for Communications and Information to establish an interagency strike force to ensure that certain Federal land management agencies, including the organizational units of such agencies, prioritize the review of requests for communications use authorizations, and for other purposes."
+        },
+        {
+          "bill_number": "1343",
+          "bill_type": "HR",
+          "title": "Federal Broadband Deployment Tracking Act",
+          "summary": "",
+          "sponsor_name": "",
+          "latest_action": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+          "latest_action_date": "2026-04-21T00:00:00",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/1343",
+          "published": "2026-04-21T00:00:00",
+          "congress": 119,
+          "short_title": "Federal Broadband Deployment Tracking Act",
+          "official_title": "To require the Assistant Secretary of Commerce for Communications and Information to submit to Congress a plan for the Assistant Secretary to track the acceptance, processing, and disposal of certain Form 299s, and for other purposes."
+        },
+        {
+          "bill_number": "1689",
+          "bill_type": "HR",
+          "title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
+          "summary": "",
+          "sponsor_name": "",
+          "latest_action": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 374.",
+          "latest_action_date": "2026-04-21T00:00:00",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/1689",
+          "published": "2026-04-21T00:00:00",
+          "congress": 119,
+          "short_title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
+          "official_title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status."
+        },
+        {
           "bill_number": "1897",
           "bill_type": "HR",
           "title": "ESA Amendments Act of 2025",
@@ -142396,34 +142438,6 @@
           "official_title": "To amend the Endangered Species Act of 1973 to optimize conservation through resource prioritization, incentivize wildlife conservation on private lands, provide for greater incentives to recover listed species, create greater transparency and accountability in recovering listed species, streamline the permitting process, eliminate barriers to conservation, and restore congressional intent."
         },
         {
-          "bill_number": "1681",
-          "bill_type": "HR",
-          "title": "Expediting Federal Broadband Deployment Reviews Act",
-          "summary": "",
-          "sponsor_name": "",
-          "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
-          "latest_action_date": "2026-04-20T00:00:00",
-          "url": "https://www.congress.gov/bill/119th-congress/house-bill/1681",
-          "published": "2026-04-20T00:00:00",
-          "congress": 119,
-          "short_title": "Expediting Federal Broadband Deployment Reviews Act",
-          "official_title": "To require the Assistant Secretary of Commerce for Communications and Information to establish an interagency strike force to ensure that certain Federal land management agencies, including the organizational units of such agencies, prioritize the review of requests for communications use authorizations, and for other purposes."
-        },
-        {
-          "bill_number": "1343",
-          "bill_type": "HR",
-          "title": "Federal Broadband Deployment Tracking Act",
-          "summary": "",
-          "sponsor_name": "",
-          "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
-          "latest_action_date": "2026-04-20T00:00:00",
-          "url": "https://www.congress.gov/bill/119th-congress/house-bill/1343",
-          "published": "2026-04-20T00:00:00",
-          "congress": 119,
-          "short_title": "Federal Broadband Deployment Tracking Act",
-          "official_title": "To require the Assistant Secretary of Commerce for Communications and Information to submit to Congress a plan for the Assistant Secretary to track the acceptance, processing, and disposal of certain Form 299s, and for other purposes."
-        },
-        {
           "bill_number": "98",
           "bill_type": "S",
           "title": "Rural Broadband Protection Act of 2025",
@@ -142436,20 +142450,6 @@
           "congress": 119,
           "short_title": "Rural Broadband Protection Act of 2025",
           "official_title": "A bill to require the Federal Communications Commission to establish a vetting process for prospective applicants for high-cost universal service program funding."
-        },
-        {
-          "bill_number": "1689",
-          "bill_type": "HR",
-          "title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
-          "summary": "",
-          "sponsor_name": "",
-          "latest_action": "Read the first time. Placed on Senate Legislative Calendar under Read the First Time.",
-          "latest_action_date": "2026-04-20T00:00:00",
-          "url": "https://www.congress.gov/bill/119th-congress/house-bill/1689",
-          "published": "2026-04-20T00:00:00",
-          "congress": 119,
-          "short_title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status.",
-          "official_title": "To require the Secretary of Homeland Security to designate Haiti for temporary protected status."
         },
         {
           "bill_number": "140",
