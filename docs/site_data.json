@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-27T20:23:49.551728-05:00",
+  "last_updated": "2026-04-27T23:26:03.309098-05:00",
   "years": {
     "2026": {
       "total_items": 1698,
@@ -221202,6 +221202,119 @@
       },
       "kansas": {
         "house": [],
+        "senate": []
+      },
+      "congress": {
+        "house": [],
+        "senate": []
+      }
+    },
+    "2026-04-27": {
+      "date": "2026-04-27",
+      "generated_at": "2026-04-28T04:26:03.084831+00:00",
+      "model": "phi-3:mini",
+      "prompt_version": "v1",
+      "summary": "15 legislative items recorded. Kansas Legislature: 15 House bills.",
+      "counts": {
+        "total": 15,
+        "kansas_house": 15,
+        "kansas_senate": 0,
+        "congress_house": 0,
+        "congress_senate": 0
+      },
+      "kansas": {
+        "house": [
+          {
+            "bill": "HB 2349",
+            "short_title": "Senate: HB2349: Died in Senate Committee",
+            "action": "Died in Senate Committee",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2349/"
+          },
+          {
+            "bill": "HB 2327",
+            "short_title": "Senate: HB2327: Died in Senate Committee",
+            "action": "Died in Senate Committee",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2327/"
+          },
+          {
+            "bill": "HB 2294",
+            "short_title": "Senate: HB2294: Died in Senate Committee",
+            "action": "Died in Senate Committee",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2294/"
+          },
+          {
+            "bill": "HB 2273",
+            "short_title": "Senate: HB2273: Died in Senate Committee",
+            "action": "Died in Senate Committee",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2273/"
+          },
+          {
+            "bill": "HB 2271",
+            "short_title": "Senate: HB2271: Died in Senate Committee",
+            "action": "Died in Senate Committee",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2271/"
+          },
+          {
+            "bill": "HB 2246",
+            "short_title": "Senate: HB2246: Died in Senate Committee",
+            "action": "Died in Senate Committee",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2246/"
+          },
+          {
+            "bill": "HB 2245",
+            "short_title": "Senate: HB2245: Died in Senate Committee",
+            "action": "Died in Senate Committee",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2245/"
+          },
+          {
+            "bill": "HB 2219",
+            "short_title": "Senate: HB2219: Died in Senate Committee",
+            "action": "Died in Senate Committee",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2219/"
+          },
+          {
+            "bill": "HB 2177",
+            "short_title": "Senate: HB2177: Died in Senate Committee",
+            "action": "Died in Senate Committee",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2177/"
+          },
+          {
+            "bill": "HB 2131",
+            "short_title": "Senate: HB2131: Died in Senate Committee",
+            "action": "Died in Senate Committee",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2131/"
+          },
+          {
+            "bill": "HB 2113",
+            "short_title": "Senate: HB2113: Died in Senate Committee",
+            "action": "Died in Senate Committee",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2113/"
+          },
+          {
+            "bill": "HB 2096",
+            "short_title": "Senate: HB2096: Died in Senate Committee",
+            "action": "Died in Senate Committee",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2096/"
+          },
+          {
+            "bill": "HB 2086",
+            "short_title": "Senate: HB2086: Died in Senate Committee",
+            "action": "Died in Senate Committee",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2086/"
+          },
+          {
+            "bill": "HB 2083",
+            "short_title": "Senate: HB2083: Died in Senate Committee",
+            "action": "Died in Senate Committee",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2083/"
+          },
+          {
+            "bill": "HB 2070",
+            "short_title": "Senate: HB2070: Died in Senate Committee",
+            "action": "Died in Senate Committee",
+            "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2070/"
+          }
+        ],
         "senate": []
       },
       "congress": {
