@@ -5260,5 +5260,328 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-04-29": {
+    "date": "2026-04-29",
+    "generated_at": "2026-04-30T04:23:36.153909+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "50 legislative items recorded. Kansas Legislature: 50 Senate bills.",
+    "counts": {
+      "total": 50,
+      "kansas_house": 0,
+      "kansas_senate": 50,
+      "congress_house": 0,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [],
+      "senate": [
+        {
+          "bill": "SCR 1614",
+          "short_title": "Senate: SCR1614: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1614/"
+        },
+        {
+          "bill": "SCR 1610",
+          "short_title": "Senate: SCR1610: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1610/"
+        },
+        {
+          "bill": "SCR 1609",
+          "short_title": "Senate: SCR1609: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1609/"
+        },
+        {
+          "bill": "SCR 1608",
+          "short_title": "Senate: SCR1608: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1608/"
+        },
+        {
+          "bill": "SCR 1607",
+          "short_title": "Senate: SCR1607: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1607/"
+        },
+        {
+          "bill": "SCR 1605",
+          "short_title": "Senate: SCR1605: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1605/"
+        },
+        {
+          "bill": "SB 267",
+          "short_title": "Senate: SB267: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB267/"
+        },
+        {
+          "bill": "SB 266",
+          "short_title": "Senate: SB266: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB266/"
+        },
+        {
+          "bill": "SB 265",
+          "short_title": "Senate: SB265: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB265/"
+        },
+        {
+          "bill": "SB 264",
+          "short_title": "Senate: SB264: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB264/"
+        },
+        {
+          "bill": "SB 262",
+          "short_title": "Senate: SB262: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB262/"
+        },
+        {
+          "bill": "SB 258",
+          "short_title": "Senate: SB258: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB258/"
+        },
+        {
+          "bill": "SB 257",
+          "short_title": "Senate: SB257: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB257/"
+        },
+        {
+          "bill": "SB 256",
+          "short_title": "Senate: SB256: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB256/"
+        },
+        {
+          "bill": "SB 255",
+          "short_title": "Senate: SB255: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB255/"
+        },
+        {
+          "bill": "SB 253",
+          "short_title": "Senate: SB253: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB253/"
+        },
+        {
+          "bill": "SB 252",
+          "short_title": "Senate: SB252: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB252/"
+        },
+        {
+          "bill": "SB 251",
+          "short_title": "Senate: SB251: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB251/"
+        },
+        {
+          "bill": "SB 249",
+          "short_title": "Senate: SB249: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB249/"
+        },
+        {
+          "bill": "SB 247",
+          "short_title": "Senate: SB247: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB247/"
+        },
+        {
+          "bill": "SB 245",
+          "short_title": "Senate: SB245: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB245/"
+        },
+        {
+          "bill": "SB 243",
+          "short_title": "Senate: SB243: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB243/"
+        },
+        {
+          "bill": "SB 242",
+          "short_title": "Senate: SB242: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB242/"
+        },
+        {
+          "bill": "SB 240",
+          "short_title": "Senate: SB240: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB240/"
+        },
+        {
+          "bill": "SB 239",
+          "short_title": "Senate: SB239: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB239/"
+        },
+        {
+          "bill": "SB 238",
+          "short_title": "Senate: SB238: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB238/"
+        },
+        {
+          "bill": "SB 236",
+          "short_title": "Senate: SB236: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB236/"
+        },
+        {
+          "bill": "SB 235",
+          "short_title": "Senate: SB235: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB235/"
+        },
+        {
+          "bill": "SB 165",
+          "short_title": "Senate: SB165: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB165/"
+        },
+        {
+          "bill": "SB 164",
+          "short_title": "Senate: SB164: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB164/"
+        },
+        {
+          "bill": "SB 163",
+          "short_title": "Senate: SB163: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB163/"
+        },
+        {
+          "bill": "SB 162",
+          "short_title": "Senate: SB162: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB162/"
+        },
+        {
+          "bill": "SB 160",
+          "short_title": "Senate: SB160: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB160/"
+        },
+        {
+          "bill": "SB 159",
+          "short_title": "Senate: SB159: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB159/"
+        },
+        {
+          "bill": "SB 158",
+          "short_title": "Senate: SB158: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB158/"
+        },
+        {
+          "bill": "SB 155",
+          "short_title": "Senate: SB155: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB155/"
+        },
+        {
+          "bill": "SB 154",
+          "short_title": "Senate: SB154: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB154/"
+        },
+        {
+          "bill": "SB 153",
+          "short_title": "Senate: SB153: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB153/"
+        },
+        {
+          "bill": "SB 152",
+          "short_title": "Senate: SB152: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB152/"
+        },
+        {
+          "bill": "SB 151",
+          "short_title": "Senate: SB151: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB151/"
+        },
+        {
+          "bill": "SB 150",
+          "short_title": "Senate: SB150: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB150/"
+        },
+        {
+          "bill": "SB 149",
+          "short_title": "Senate: SB149: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB149/"
+        },
+        {
+          "bill": "SB 145",
+          "short_title": "Senate: SB145: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB145/"
+        },
+        {
+          "bill": "SB 143",
+          "short_title": "Senate: SB143: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB143/"
+        },
+        {
+          "bill": "SB 142",
+          "short_title": "Senate: SB142: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB142/"
+        },
+        {
+          "bill": "SB 141",
+          "short_title": "Senate: SB141: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB141/"
+        },
+        {
+          "bill": "SB 140",
+          "short_title": "Senate: SB140: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB140/"
+        },
+        {
+          "bill": "SB 136",
+          "short_title": "Senate: SB136: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB136/"
+        },
+        {
+          "bill": "SB 134",
+          "short_title": "Senate: SB134: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB134/"
+        },
+        {
+          "bill": "SB 133",
+          "short_title": "Senate: SB133: Died in Committee",
+          "action": "Died in Committee",
+          "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB133/"
+        }
+      ]
+    },
+    "congress": {
+      "house": [],
+      "senate": []
+    }
   }
 }
