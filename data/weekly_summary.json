@@ -1,9 +1,9 @@
 {
-  "week_start": "2026-04-19",
-  "week_end": "2026-04-26",
+  "week_start": "2026-04-26",
+  "week_end": "2026-05-03",
   "model": "phi-3:mini",
   "prompt_version": "v1",
-  "generated_at": "2026-04-26T07:22:30.043219+00:00",
+  "generated_at": "2026-05-03T07:55:29.829824+00:00",
   "jurisdictions": [
     {
       "name": "Kansas Legislature",
@@ -11,16 +11,16 @@
         {
           "title": "House Bills",
           "summary": [
-            "No House bills with activity this week."
+            "15 House bills were died in senate committee: HB 2349, HB 2327, HB 2294, HB 2273, HB 2271 and 10 more."
           ],
-          "bill_count": 0
+          "bill_count": 15
         },
         {
           "title": "Senate Bills",
           "summary": [
-            "No Senate bills with activity this week."
+            "20 Senate bills were died in committee: SCR 1614, SCR 1610, SCR 1609, SCR 1608, SCR 1607 and 15 more."
           ],
-          "bill_count": 0
+          "bill_count": 50
         }
       ]
     },
@@ -30,36 +30,32 @@
         {
           "title": "House of Representatives",
           "summary": [
-            "HR 1329 was placed on the union calendar, calendar no. 538. on 2026-04-23.",
-            "3 House of Representatives bills were motion to reconsider laid on the table agreed to without objection.: HR 5587, HR 6387, HR 4690.",
-            "HR 2319 was received in the senate. read twice. placed on senate legislative calendar under general orders. calendar no. 380. on 2026-04-22.",
-            "HR 2493 was received in the senate. read twice. placed on senate legislative calendar under general orders. calendar no. 377. on 2026-04-22.",
-            "HR 5201 was received in the senate and read twice and referred to the committee on commerce, science, and transportation. on 2026-04-22.",
-            "HR 3419 was received in the senate and read twice and referred to the committee on health, education, labor, and pensions. on 2026-04-22.",
-            "HR 7003 was ordered to be reported by the yeas and nays: 42 - 2. on 2026-04-22.",
-            "HR 6996 was ordered to be reported in the nature of a substitute by the yeas and nays: 37 - 7. on 2026-04-22.",
-            "HR 6624 was ordered to be reported in the nature of a substitute (amended) by the yeas and nays: 30 - 14. on 2026-04-22.",
-            "HR 4505 was ordered to be reported in the nature of a substitute by the yeas and nays: 41 - 3. on 2026-04-22.",
-            "HR 6331 was ordered to be reported in the nature of a substitute by the yeas and nays: 44 - 0. on 2026-04-22.",
-            "HR 6322 was ordered to be reported (amended) by the yeas and nays: 43 - 1. on 2026-04-22.",
-            "HR 6058 was ordered to be reported (amended) by the yeas and nays: 44 - 0. on 2026-04-22.",
-            "HR 5853 was ordered to be reported by the yeas and nays: 44 - 0. on 2026-04-22.",
-            "HR 5543 was ordered to be reported by the yeas and nays: 41 - 3. on 2026-04-22.",
-            "HR 4920 was ordered to be reported in the nature of a substitute by the yeas and nays: 39 - 5. on 2026-04-22.",
-            "HR 151 was placed on the union calendar, calendar no. 536. on 2026-04-21.",
-            "HR 1501 was ordered to be reported in the nature of a substitute by the yeas and nays: 21 - 16. on 2026-04-21."
+            "HR 3726 was placed on the union calendar, calendar no. 546. on 2026-04-30.",
+            "HR 2424 was assuming first sponsorship - mr. lahood asked unanimous consent that he may hereafter be considered as the first sponsor of h.r. 2424, a bill originally introduced by representative lamalfa, for the purpose of adding cosponsors and requesting reprintings pursuant to clause 7 of rule xii. agreed to without objection. on 2026-04-30.",
+            "HR 2616 was rules committee resolution h. res. 1224 reported to house. rule provides for consideration of h.r. 7567, h.r. 2616, s. con. res. 33, s. 1318 and h.r. 1346. the resolution provides for consideration of h.r. 7567 under a structured rule and h.r. 2616, s. con. res. 33, s. 1318, and h.r. 1346 under a closed rule, with one hour of general debate on each measure. the resolution provides for one motion to recommit on h.r. 7567, h.r. 2616, and h.r. 1346, and one motion to commit on s. 1318. on 2026-04-29.",
+            "2 House of Representatives bills were ordered to be reported by voice vote.: HR 6099, HR 2488.",
+            "HR 1346 was rule h. res. 1224 passed house. on 2026-04-29.",
+            "HR 1755 was committee consideration and mark-up session held on 2026-04-29.",
+            "HR 161 was placed on the union calendar, calendar no. 542. on 2026-04-28.",
+            "HR 4214 was placed on the union calendar, calendar no. 543. on 2026-04-28.",
+            "HR 6373 was placed on the union calendar, calendar no. 544. on 2026-04-28.",
+            "7 House of Representatives bills were received in the senate and read twice and referred to the committee on finance.: HR 5366, HR 6956, HR 6431, HR 6903, HR 6495 and 2 more.",
+            "2 House of Representatives bills were received in the senate.: HR 5334, HR 2347.",
+            "HR 5587 was received in the senate and read twice and referred to the committee on energy and natural resources. on 2026-04-28."
           ],
-          "bill_count": 35
+          "bill_count": 24
         },
         {
           "title": "U.S. Senate",
           "summary": [
-            "2 U.S. Senate bills were held at the desk.: S 2132, S 1528.",
-            "S 3199 was placed on senate legislative calendar under general orders. calendar no. 379. on 2026-04-22.",
-            "S 71 was placed on senate legislative calendar under general orders. calendar no. 378. on 2026-04-22.",
-            "2 U.S. Senate bills were motion to reconsider laid on the table agreed to without objection.: S 1020, S 98."
+            "7 U.S. Senate bills were message on senate action sent to the house.: S 1199, S 2975, S 874, S 2232, S 2280 and 2 more.",
+            "2 U.S. Senate bills were presented to president.: S 1020, S 98.",
+            "2 U.S. Senate bills were committee on the judiciary. ordered to be reported with an amendment in the nature of a substitute favorably.: S 3062, S 1572.",
+            "S 1318 was motion to reconsider laid on the table agreed to without objection. on 2026-04-29.",
+            "SJRES 99 was motion to proceed to consideration of measure rejected in senate by yea-nay vote. 47 - 50. record vote number: 111. on 2026-04-29.",
+            "7 U.S. Senate bills were committee on veterans' affairs. hearings held.: S 3591, S 3395, S 3311, S 3286, S 3170 and 2 more."
           ],
-          "bill_count": 6
+          "bill_count": 23
         }
       ]
     }
