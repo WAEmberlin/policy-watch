@@ -1,9 +1,9 @@
 {
-  "week_start": "2026-05-03",
-  "week_end": "2026-05-10",
+  "week_start": "2026-05-10",
+  "week_end": "2026-05-17",
   "model": "phi-3:mini",
   "prompt_version": "v1",
-  "generated_at": "2026-05-10T08:02:37.206595+00:00",
+  "generated_at": "2026-05-17T08:14:44.410676+00:00",
   "jurisdictions": [
     {
       "name": "Kansas Legislature",
@@ -11,12 +11,9 @@
         {
           "title": "House Bills",
           "summary": [
-            "HB 2312 died on the calendar as of May 5, 2026",
-            "HB 2087 died on the calendar as of May 5, 2026",
-            "HB 2048 died on the calendar as of May 5, 2026",
-            "HCR 5006 died on the calendar as of May 5, 2026"
+            "No House bills with activity this week."
           ],
-          "bill_count": 4
+          "bill_count": 0
         },
         {
           "title": "Senate Bills",
@@ -33,20 +30,37 @@
         {
           "title": "House of Representatives",
           "summary": [
-            "HR 5213 was placed on the union calendar, calendar no. 554. on 2026-05-04.",
-            "HR 1163 was placed on the union calendar, calendar no. 552. on 2026-05-04.",
-            "HR 2137 was placed on the union calendar, calendar no. 549. on 2026-05-04.",
-            "HR 3863 was placed on the union calendar, calendar no. 550. on 2026-05-04."
+            "2 House of Representatives bills were motion to reconsider laid on the table agreed to without objection.: HR 6260, HR 5625.",
+            "3 House of Representatives bills were ordered to be reported in the nature of a substitute (amended) by unanimous consent.: HR 5694, HR 3924, HR 741.",
+            "HR 1346 was received in the senate and read twice and referred to the committee on environment and public works. on 2026-05-14.",
+            "HR 3633 was committee on banking, housing, and urban affairs. ordered to be reported with an amendment in the nature of a substitute favorably. on 2026-05-14.",
+            "HR 2283 was ordered to be reported in the nature of a substitute by the yeas and nays: 14 - 8. on 2026-05-14.",
+            "HR 6652 was ordered to be reported by voice vote. on 2026-05-14.",
+            "4 House of Representatives bills were ordered to be reported (amended) by voice vote.: HR 6444, HR 5999, HR 6698, HR 5723.",
+            "HR 6993 was ordered to be reported (amended) by the yeas and nays: 13 - 10. on 2026-05-14.",
+            "3 House of Representatives bills were ordered to be reported in the nature of a substitute by voice vote.: HR 3159, HR 5634, HR 5436.",
+            "HR 2152 was ordered to be reported (amended) by the yeas and nays: 52 - 0. on 2026-05-13.",
+            "HR 4437 was received in the senate and read twice and referred to the committee on banking, housing, and urban affairs. on 2026-05-13.",
+            "HR 3766 was placed on the union calendar, calendar no. 565. on 2026-05-13."
           ],
-          "bill_count": 4
+          "bill_count": 41
         },
         {
           "title": "U.S. Senate",
           "summary": [
-            "7 U.S. Senate bills were held at the desk.: S 1199, S 2975, S 874, S 2232, S 2280 and 2 more.",
-            "S 723 was signed by president. on 2026-05-04."
+            "2 U.S. Senate bills were committee on the judiciary. ordered to be reported without amendment favorably.: S 736, S 825.",
+            "2 U.S. Senate bills were committee on the judiciary. ordered to be reported with an amendment in the nature of a substitute favorably.: S 1890, S 3041.",
+            "SRES 526 was resolution agreed to in senate without amendment by voice vote. (consideration: cr s2295) on 2026-05-14.",
+            "S 1555 was committee on small business and entrepreneurship. hearings held. on 2026-05-13.",
+            "S 3199 was held at the desk. on 2026-05-12.",
+            "S 71 was message on senate action sent to the house. on 2026-05-12.",
+            "S 3062 was placed on senate legislative calendar under general orders. calendar no. 406. on 2026-05-11.",
+            "S 1572 was placed on senate legislative calendar under general orders. calendar no. 404. on 2026-05-11.",
+            "S 2585 was placed on senate legislative calendar under general orders. calendar no. 407. on 2026-05-11.",
+            "S 2126 was placed on senate legislative calendar under general orders. calendar no. 405. on 2026-05-11.",
+            "2 U.S. Senate bills were signed by president.: S 1020, S 98."
           ],
-          "bill_count": 8
+          "bill_count": 14
         }
       ]
     }
