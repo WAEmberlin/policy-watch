@@ -1,9 +1,9 @@
 {
-  "week_start": "2026-05-10",
-  "week_end": "2026-05-17",
+  "week_start": "2026-05-17",
+  "week_end": "2026-05-24",
   "model": "phi-3:mini",
   "prompt_version": "v1",
-  "generated_at": "2026-05-17T08:14:44.410676+00:00",
+  "generated_at": "2026-05-24T08:23:26.388348+00:00",
   "jurisdictions": [
     {
       "name": "Kansas Legislature",
@@ -30,37 +30,35 @@
         {
           "title": "House of Representatives",
           "summary": [
-            "2 House of Representatives bills were motion to reconsider laid on the table agreed to without objection.: HR 6260, HR 5625.",
-            "3 House of Representatives bills were ordered to be reported in the nature of a substitute (amended) by unanimous consent.: HR 5694, HR 3924, HR 741.",
-            "HR 1346 was received in the senate and read twice and referred to the committee on environment and public works. on 2026-05-14.",
-            "HR 3633 was committee on banking, housing, and urban affairs. ordered to be reported with an amendment in the nature of a substitute favorably. on 2026-05-14.",
-            "HR 2283 was ordered to be reported in the nature of a substitute by the yeas and nays: 14 - 8. on 2026-05-14.",
-            "HR 6652 was ordered to be reported by voice vote. on 2026-05-14.",
-            "4 House of Representatives bills were ordered to be reported (amended) by voice vote.: HR 6444, HR 5999, HR 6698, HR 5723.",
-            "HR 6993 was ordered to be reported (amended) by the yeas and nays: 13 - 10. on 2026-05-14.",
-            "3 House of Representatives bills were ordered to be reported in the nature of a substitute by voice vote.: HR 3159, HR 5634, HR 5436.",
-            "HR 2152 was ordered to be reported (amended) by the yeas and nays: 52 - 0. on 2026-05-13.",
-            "HR 4437 was received in the senate and read twice and referred to the committee on banking, housing, and urban affairs. on 2026-05-13.",
-            "HR 3766 was placed on the union calendar, calendar no. 565. on 2026-05-13."
+            "2 House of Representatives bills were motion to reconsider laid on the table agreed to without objection.: HR 1329, HR 6047.",
+            "HR 1041 was the title of the measure was amended. agreed to without objection. on 2026-05-21.",
+            "HR 3164 was ordered to be reported in the nature of a substitute by voice vote. on 2026-05-21.",
+            "3 House of Representatives bills were received in the senate and read twice and referred to the committee on banking, housing, and urban affairs.: HR 5317, HR 3234, HR 4544.",
+            "HR 1993 was received in the senate. on 2026-05-21.",
+            "HR 2616 was received in the senate and read twice and referred to the committee on health, education, labor, and pensions. on 2026-05-21.",
+            "3 House of Representatives bills were ordered to be reported by the yeas and nays: 48 - 0.: HR 2145, HR 3747, HR 4348.",
+            "2 House of Representatives bills were ordered to be reported by the yeas and nays: 44 - 0.: HR 5347, HR 2821.",
+            "2 House of Representatives bills were ordered to be reported (amended) by the yeas and nays: 48 - 0.: HR 5160, HR 4541.",
+            "HR 1703 was ordered to be reported by the yeas and nays: 45 - 0. on 2026-05-21.",
+            "HR 2715 was ordered to be reported (amended) by the yeas and nays: 43 - 0. on 2026-05-21.",
+            "HR 6238 was ordered to be reported (amended) by the yeas and nays: 46 - 0. on 2026-05-21.",
+            "HR 1493 was ordered to be reported by the yeas and nays: 43 - 0. on 2026-05-21."
           ],
-          "bill_count": 41
+          "bill_count": 91
         },
         {
           "title": "U.S. Senate",
           "summary": [
-            "2 U.S. Senate bills were committee on the judiciary. ordered to be reported without amendment favorably.: S 736, S 825.",
-            "2 U.S. Senate bills were committee on the judiciary. ordered to be reported with an amendment in the nature of a substitute favorably.: S 1890, S 3041.",
-            "SRES 526 was resolution agreed to in senate without amendment by voice vote. (consideration: cr s2295) on 2026-05-14.",
-            "S 1555 was committee on small business and entrepreneurship. hearings held. on 2026-05-13.",
-            "S 3199 was held at the desk. on 2026-05-12.",
-            "S 71 was message on senate action sent to the house. on 2026-05-12.",
-            "S 3062 was placed on senate legislative calendar under general orders. calendar no. 406. on 2026-05-11.",
-            "S 1572 was placed on senate legislative calendar under general orders. calendar no. 404. on 2026-05-11.",
-            "S 2585 was placed on senate legislative calendar under general orders. calendar no. 407. on 2026-05-11.",
-            "S 2126 was placed on senate legislative calendar under general orders. calendar no. 405. on 2026-05-11.",
-            "2 U.S. Senate bills were signed by president.: S 1020, S 98."
+            "4 U.S. Senate bills were held at the desk.: S 3023, S 1473, S 790, S 603.",
+            "S 323 was placed on senate legislative calendar under general orders. calendar no. 421. on 2026-05-21.",
+            "2 U.S. Senate bills were motion to reconsider laid on the table agreed to without objection.: S 2393, S 1003.",
+            "S 1890 was placed on senate legislative calendar under general orders. calendar no. 419. on 2026-05-20.",
+            "4 U.S. Senate bills were committee on indian affairs. ordered to be reported without amendment favorably.: S 2098, S 2735, S 1513, S 236.",
+            "S 736 was placed on senate legislative calendar under general orders. calendar no. 410. on 2026-05-19.",
+            "S 825 was placed on senate legislative calendar under general orders. calendar no. 411. on 2026-05-19.",
+            "S 3041 was placed on senate legislative calendar under general orders. calendar no. 412. on 2026-05-19."
           ],
-          "bill_count": 14
+          "bill_count": 15
         }
       ]
     }
