@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-27T01:51:26.105322-05:00",
+  "last_updated": "2026-05-27T06:11:42.701092-05:00",
   "years": {
     "2026": {
       "total_items": 1857,
@@ -281,6 +281,39 @@
             "bill_number": "HR 3491"
           },
           {
+            "date": "2026-05-21",
+            "source": "Congress.gov API",
+            "title": "HR 184: Action Versus No Action Act",
+            "link": "https://www.congress.gov/bill/119th-congress/house-bill/184",
+            "published": "2026-05-21T00:00:00",
+            "summary": "",
+            "short_title": "Action Versus No Action Act",
+            "short_title_source": "rss",
+            "bill_number": "HR 184"
+          },
+          {
+            "date": "2026-05-21",
+            "source": "Congress.gov API",
+            "title": "HR 1010: BADGES for Native Communities Act",
+            "link": "https://www.congress.gov/bill/119th-congress/house-bill/1010",
+            "published": "2026-05-21T00:00:00",
+            "summary": "",
+            "short_title": "BADGES for Native Communities Act",
+            "short_title_source": "rss",
+            "bill_number": "HR 1010"
+          },
+          {
+            "date": "2026-05-21",
+            "source": "Congress.gov API",
+            "title": "HR 2785: New Mexico Land Grant-Mercedes Historical or Traditional Use Cooperation and Coordination Act",
+            "link": "https://www.congress.gov/bill/119th-congress/house-bill/2785",
+            "published": "2026-05-21T00:00:00",
+            "summary": "",
+            "short_title": "New Mexico Land Grant-Mercedes Historical or Traditional Use Cooperation and Coordination Act",
+            "short_title_source": "rss",
+            "bill_number": "HR 2785"
+          },
+          {
             "date": "2026-05-20",
             "source": "Congress.gov API",
             "title": "S 2393: Fiscal Year 2025 Veterans Affairs Major Medical Facility Authorization Act",
@@ -521,7 +554,9 @@
             "short_title": "SAFE STEPS for Veterans Act of 2025",
             "short_title_source": "rss",
             "bill_number": "HR 3183"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-05-20",
             "source": "Congress.gov API",
@@ -554,9 +589,7 @@
             "short_title": "Geothermal Royalty Reform Act",
             "short_title_source": "rss",
             "bill_number": "HR 5638"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-05-20",
             "source": "Congress.gov API",
@@ -1073,7 +1106,9 @@
             "short_title": "To increase the supply of affordable housing in America.",
             "short_title_source": "rss",
             "bill_number": "HR 6337"
-          },
+          }
+        ],
+        [
           {
             "date": "2026-05-20",
             "source": "Congress.gov API",
@@ -1106,9 +1141,7 @@
             "short_title": "Fighting Post-Traumatic Stress Disorder Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 825"
-          }
-        ],
-        [
+          },
           {
             "date": "2026-05-19",
             "source": "Congress.gov API",
@@ -1600,39 +1633,6 @@
             "short_title": "Baby Changing on Board Act",
             "short_title_source": "rss",
             "bill_number": "S 71"
-          },
-          {
-            "date": "2026-05-12",
-            "source": "Congress.gov API",
-            "title": "HR 184: Action Versus No Action Act",
-            "link": "https://www.congress.gov/bill/119th-congress/house-bill/184",
-            "published": "2026-05-12T00:00:00",
-            "summary": "",
-            "short_title": "Action Versus No Action Act",
-            "short_title_source": "rss",
-            "bill_number": "HR 184"
-          },
-          {
-            "date": "2026-05-12",
-            "source": "Congress.gov API",
-            "title": "HR 1010: BADGES for Native Communities Act",
-            "link": "https://www.congress.gov/bill/119th-congress/house-bill/1010",
-            "published": "2026-05-12T00:00:00",
-            "summary": "",
-            "short_title": "BADGES for Native Communities Act",
-            "short_title_source": "rss",
-            "bill_number": "HR 1010"
-          },
-          {
-            "date": "2026-05-12",
-            "source": "Congress.gov API",
-            "title": "HR 2785: New Mexico Land Grant-Mercedes Historical or Traditional Use Cooperation and Coordination Act",
-            "link": "https://www.congress.gov/bill/119th-congress/house-bill/2785",
-            "published": "2026-05-12T00:00:00",
-            "summary": "",
-            "short_title": "New Mexico Land Grant-Mercedes Historical or Traditional Use Cooperation and Coordination Act",
-            "short_title_source": "rss",
-            "bill_number": "HR 2785"
           },
           {
             "date": "2026-05-12",
@@ -45324,6 +45324,51 @@
               "congress": 119,
               "short_title": "DeOndra Dixon INCLUDE Project Act of 2025",
               "official_title": "To amend the Public Health Service Act to authorize the Secretary of Health and Human Services to carry out a program of research, training, and investigation related to Down syndrome, and for other purposes."
+            },
+            {
+              "title": "HR 184: Action Versus No Action Act",
+              "link": "https://www.congress.gov/bill/119th-congress/house-bill/184",
+              "summary": "",
+              "source": "Congress.gov API",
+              "published": "2026-05-21T00:00:00",
+              "bill_number": "HR 184",
+              "bill_type": "HR",
+              "sponsor_name": "",
+              "latest_action": "Subcommittee Hearings Held",
+              "latest_action_date": "2026-05-21T00:00:00",
+              "congress": 119,
+              "short_title": "Action Versus No Action Act",
+              "official_title": "To require that only two alternatives be considered with respect to certain proposed collaborative forest management activities, and for other purposes."
+            },
+            {
+              "title": "HR 1010: BADGES for Native Communities Act",
+              "link": "https://www.congress.gov/bill/119th-congress/house-bill/1010",
+              "summary": "",
+              "source": "Congress.gov API",
+              "published": "2026-05-21T00:00:00",
+              "bill_number": "HR 1010",
+              "bill_type": "HR",
+              "sponsor_name": "",
+              "latest_action": "Subcommittee Hearings Held",
+              "latest_action_date": "2026-05-21T00:00:00",
+              "congress": 119,
+              "short_title": "BADGES for Native Communities Act",
+              "official_title": "To require Federal law enforcement agencies to report on cases of missing or murdered Indians, and for other purposes."
+            },
+            {
+              "title": "HR 2785: New Mexico Land Grant-Mercedes Historical or Traditional Use Cooperation and Coordination Act",
+              "link": "https://www.congress.gov/bill/119th-congress/house-bill/2785",
+              "summary": "",
+              "source": "Congress.gov API",
+              "published": "2026-05-21T00:00:00",
+              "bill_number": "HR 2785",
+              "bill_type": "HR",
+              "sponsor_name": "",
+              "latest_action": "Subcommittee Hearings Held",
+              "latest_action_date": "2026-05-21T00:00:00",
+              "congress": 119,
+              "short_title": "New Mexico Land Grant-Mercedes Historical or Traditional Use Cooperation and Coordination Act",
+              "official_title": "To provide for greater cooperation and coordination between the Federal Government and the governing bodies and community users of land grant-mercedes in New Mexico relating to historical or traditional uses of certain land grant-mercedes on Federal public land, and for other purposes."
             }
           ]
         },
@@ -47099,51 +47144,6 @@
               "congress": 119,
               "short_title": "Baby Changing on Board Act",
               "official_title": "A bill to require Amtrak to install baby changing tables in bathrooms on passenger rail cars."
-            },
-            {
-              "title": "HR 184: Action Versus No Action Act",
-              "link": "https://www.congress.gov/bill/119th-congress/house-bill/184",
-              "summary": "",
-              "source": "Congress.gov API",
-              "published": "2026-05-12T00:00:00",
-              "bill_number": "HR 184",
-              "bill_type": "HR",
-              "sponsor_name": "",
-              "latest_action": "Referred to the Subcommittee on Federal Lands.",
-              "latest_action_date": "2026-05-12T00:00:00",
-              "congress": 119,
-              "short_title": "Action Versus No Action Act",
-              "official_title": "To require that only two alternatives be considered with respect to certain proposed collaborative forest management activities, and for other purposes."
-            },
-            {
-              "title": "HR 1010: BADGES for Native Communities Act",
-              "link": "https://www.congress.gov/bill/119th-congress/house-bill/1010",
-              "summary": "",
-              "source": "Congress.gov API",
-              "published": "2026-05-12T00:00:00",
-              "bill_number": "HR 1010",
-              "bill_type": "HR",
-              "sponsor_name": "",
-              "latest_action": "Referred to the Subcommittee on Indian and Insular Affairs.",
-              "latest_action_date": "2026-05-12T00:00:00",
-              "congress": 119,
-              "short_title": "BADGES for Native Communities Act",
-              "official_title": "To require Federal law enforcement agencies to report on cases of missing or murdered Indians, and for other purposes."
-            },
-            {
-              "title": "HR 2785: New Mexico Land Grant-Mercedes Historical or Traditional Use Cooperation and Coordination Act",
-              "link": "https://www.congress.gov/bill/119th-congress/house-bill/2785",
-              "summary": "",
-              "source": "Congress.gov API",
-              "published": "2026-05-12T00:00:00",
-              "bill_number": "HR 2785",
-              "bill_type": "HR",
-              "sponsor_name": "",
-              "latest_action": "Referred to the Subcommittee on Federal Lands.",
-              "latest_action_date": "2026-05-12T00:00:00",
-              "congress": 119,
-              "short_title": "New Mexico Land Grant-Mercedes Historical or Traditional Use Cooperation and Coordination Act",
-              "official_title": "To provide for greater cooperation and coordination between the Federal Government and the governing bodies and community users of land grant-mercedes in New Mexico relating to historical or traditional uses of certain land grant-mercedes on Federal public land, and for other purposes."
             },
             {
               "title": "HR 4889: To prohibit States from carrying out more than one Congressional redistricting after a decennial census and apportionment.",
@@ -146158,6 +146158,48 @@
           "official_title": "To amend the Public Health Service Act to authorize the Secretary of Health and Human Services to carry out a program of research, training, and investigation related to Down syndrome, and for other purposes."
         },
         {
+          "bill_number": "184",
+          "bill_type": "HR",
+          "title": "Action Versus No Action Act",
+          "summary": "",
+          "sponsor_name": "",
+          "latest_action": "Subcommittee Hearings Held",
+          "latest_action_date": "2026-05-21T00:00:00",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/184",
+          "published": "2026-05-21T00:00:00",
+          "congress": 119,
+          "short_title": "Action Versus No Action Act",
+          "official_title": "To require that only two alternatives be considered with respect to certain proposed collaborative forest management activities, and for other purposes."
+        },
+        {
+          "bill_number": "1010",
+          "bill_type": "HR",
+          "title": "BADGES for Native Communities Act",
+          "summary": "",
+          "sponsor_name": "",
+          "latest_action": "Subcommittee Hearings Held",
+          "latest_action_date": "2026-05-21T00:00:00",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/1010",
+          "published": "2026-05-21T00:00:00",
+          "congress": 119,
+          "short_title": "BADGES for Native Communities Act",
+          "official_title": "To require Federal law enforcement agencies to report on cases of missing or murdered Indians, and for other purposes."
+        },
+        {
+          "bill_number": "2785",
+          "bill_type": "HR",
+          "title": "New Mexico Land Grant-Mercedes Historical or Traditional Use Cooperation and Coordination Act",
+          "summary": "",
+          "sponsor_name": "",
+          "latest_action": "Subcommittee Hearings Held",
+          "latest_action_date": "2026-05-21T00:00:00",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/2785",
+          "published": "2026-05-21T00:00:00",
+          "congress": 119,
+          "short_title": "New Mexico Land Grant-Mercedes Historical or Traditional Use Cooperation and Coordination Act",
+          "official_title": "To provide for greater cooperation and coordination between the Federal Government and the governing bodies and community users of land grant-mercedes in New Mexico relating to historical or traditional uses of certain land grant-mercedes on Federal public land, and for other purposes."
+        },
+        {
           "bill_number": "2393",
           "bill_type": "S",
           "title": "Fiscal Year 2025 Veterans Affairs Major Medical Facility Authorization Act",
@@ -146464,7 +146506,9 @@
           "congress": 119,
           "short_title": "SAFE STEPS for Veterans Act of 2025",
           "official_title": "To amend title 38, United States Code, to establish the Office of Falls Prevention of the Department of Veterans Affairs, and for other purposes."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "3869",
           "bill_type": "HR",
@@ -146506,9 +146550,7 @@
           "congress": 119,
           "short_title": "Geothermal Royalty Reform Act",
           "official_title": "To amend the Geothermal Steam Act of 1970 to require royalties on production from leased geothermal resources to be based on production from each electric generating facility, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "5631",
           "bill_type": "HR",
@@ -147166,7 +147208,9 @@
           "congress": 119,
           "short_title": "To increase the supply of affordable housing in America.",
           "official_title": "To increase the supply of affordable housing in America."
-        },
+        }
+      ],
+      [
         {
           "bill_number": "6154",
           "bill_type": "HR",
@@ -147208,9 +147252,7 @@
           "congress": 119,
           "short_title": "Fighting Post-Traumatic Stress Disorder Act of 2025",
           "official_title": "A bill to require the Attorney General to propose a program for making treatment for post-traumatic stress disorder and acute stress disorder available to public safety officers, and for other purposes."
-        }
-      ],
-      [
+        },
         {
           "bill_number": "3041",
           "bill_type": "S",
@@ -147826,48 +147868,6 @@
           "congress": 119,
           "short_title": "Baby Changing on Board Act",
           "official_title": "A bill to require Amtrak to install baby changing tables in bathrooms on passenger rail cars."
-        },
-        {
-          "bill_number": "184",
-          "bill_type": "HR",
-          "title": "Action Versus No Action Act",
-          "summary": "",
-          "sponsor_name": "",
-          "latest_action": "Referred to the Subcommittee on Federal Lands.",
-          "latest_action_date": "2026-05-12T00:00:00",
-          "url": "https://www.congress.gov/bill/119th-congress/house-bill/184",
-          "published": "2026-05-12T00:00:00",
-          "congress": 119,
-          "short_title": "Action Versus No Action Act",
-          "official_title": "To require that only two alternatives be considered with respect to certain proposed collaborative forest management activities, and for other purposes."
-        },
-        {
-          "bill_number": "1010",
-          "bill_type": "HR",
-          "title": "BADGES for Native Communities Act",
-          "summary": "",
-          "sponsor_name": "",
-          "latest_action": "Referred to the Subcommittee on Indian and Insular Affairs.",
-          "latest_action_date": "2026-05-12T00:00:00",
-          "url": "https://www.congress.gov/bill/119th-congress/house-bill/1010",
-          "published": "2026-05-12T00:00:00",
-          "congress": 119,
-          "short_title": "BADGES for Native Communities Act",
-          "official_title": "To require Federal law enforcement agencies to report on cases of missing or murdered Indians, and for other purposes."
-        },
-        {
-          "bill_number": "2785",
-          "bill_type": "HR",
-          "title": "New Mexico Land Grant-Mercedes Historical or Traditional Use Cooperation and Coordination Act",
-          "summary": "",
-          "sponsor_name": "",
-          "latest_action": "Referred to the Subcommittee on Federal Lands.",
-          "latest_action_date": "2026-05-12T00:00:00",
-          "url": "https://www.congress.gov/bill/119th-congress/house-bill/2785",
-          "published": "2026-05-12T00:00:00",
-          "congress": 119,
-          "short_title": "New Mexico Land Grant-Mercedes Historical or Traditional Use Cooperation and Coordination Act",
-          "official_title": "To provide for greater cooperation and coordination between the Federal Government and the governing bodies and community users of land grant-mercedes in New Mexico relating to historical or traditional uses of certain land grant-mercedes on Federal public land, and for other purposes."
         },
         {
           "bill_number": "4889",
