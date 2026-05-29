@@ -1,10 +1,21 @@
 {
-  "last_updated": "2026-05-29T06:04:56.377981-05:00",
+  "last_updated": "2026-05-29T09:26:29.546983-05:00",
   "years": {
     "2026": {
       "total_items": 1858,
       "pages": [
         [
+          {
+            "date": "2026-05-28",
+            "source": "Congress.gov API",
+            "title": "HR 3497: Medal of Sacrifice Act",
+            "link": "https://www.congress.gov/bill/119th-congress/house-bill/3497",
+            "published": "2026-05-28T00:00:00",
+            "summary": "",
+            "short_title": "Medal of Sacrifice Act",
+            "short_title_source": "rss",
+            "bill_number": "HR 3497"
+          },
           {
             "date": "2026-05-27",
             "source": "US Congress",
@@ -331,17 +342,6 @@
             "short_title": "Fiscal Year 2025 Veterans Affairs Major Medical Facility Authorization Act",
             "short_title_source": "rss",
             "bill_number": "S 2393"
-          },
-          {
-            "date": "2026-05-20",
-            "source": "Congress.gov API",
-            "title": "HR 3497: Medal of Sacrifice Act",
-            "link": "https://www.congress.gov/bill/119th-congress/house-bill/3497",
-            "published": "2026-05-20T00:00:00",
-            "summary": "",
-            "short_title": "Medal of Sacrifice Act",
-            "short_title_source": "rss",
-            "bill_number": "HR 3497"
           },
           {
             "date": "2026-05-20",
@@ -44967,6 +44967,25 @@
             }
           ]
         },
+        "2026-05-28": {
+          "Congress.gov API": [
+            {
+              "title": "HR 3497: Medal of Sacrifice Act",
+              "link": "https://www.congress.gov/bill/119th-congress/house-bill/3497",
+              "summary": "",
+              "source": "Congress.gov API",
+              "published": "2026-05-28T00:00:00",
+              "bill_number": "HR 3497",
+              "bill_type": "HR",
+              "sponsor_name": "",
+              "latest_action": "Signed by President.",
+              "latest_action_date": "2026-05-28T00:00:00",
+              "congress": 119,
+              "short_title": "Medal of Sacrifice Act",
+              "official_title": "To establish a medal of service for law enforcement officers and first responders."
+            }
+          ]
+        },
         "2026-05-21": {
           "Congress.gov API": [
             {
@@ -45407,21 +45426,6 @@
               "congress": 119,
               "short_title": "Fiscal Year 2025 Veterans Affairs Major Medical Facility Authorization Act",
               "official_title": "A bill to authorize a major medical facility project for the Department of Veterans Affairs for fiscal year 2026 in St. Louis, Missouri, and for other purposes."
-            },
-            {
-              "title": "HR 3497: Medal of Sacrifice Act",
-              "link": "https://www.congress.gov/bill/119th-congress/house-bill/3497",
-              "summary": "",
-              "source": "Congress.gov API",
-              "published": "2026-05-20T00:00:00",
-              "bill_number": "HR 3497",
-              "bill_type": "HR",
-              "sponsor_name": "",
-              "latest_action": "Presented to President.",
-              "latest_action_date": "2026-05-20T00:00:00",
-              "congress": 119,
-              "short_title": "Medal of Sacrifice Act",
-              "official_title": "To establish a medal of service for law enforcement officers and first responders."
             },
             {
               "title": "HR 1687: CLEAN Act",
@@ -145827,6 +145831,20 @@
     "pages": [
       [
         {
+          "bill_number": "3497",
+          "bill_type": "HR",
+          "title": "Medal of Sacrifice Act",
+          "summary": "",
+          "sponsor_name": "",
+          "latest_action": "Signed by President.",
+          "latest_action_date": "2026-05-28T00:00:00",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/3497",
+          "published": "2026-05-28T00:00:00",
+          "congress": 119,
+          "short_title": "Medal of Sacrifice Act",
+          "official_title": "To establish a medal of service for law enforcement officers and first responders."
+        },
+        {
           "bill_number": "1329",
           "bill_type": "HR",
           "title": "Smithsonian American Women\u2019s History Museum Act",
@@ -146231,20 +146249,6 @@
           "congress": 119,
           "short_title": "Fiscal Year 2025 Veterans Affairs Major Medical Facility Authorization Act",
           "official_title": "A bill to authorize a major medical facility project for the Department of Veterans Affairs for fiscal year 2026 in St. Louis, Missouri, and for other purposes."
-        },
-        {
-          "bill_number": "3497",
-          "bill_type": "HR",
-          "title": "Medal of Sacrifice Act",
-          "summary": "",
-          "sponsor_name": "",
-          "latest_action": "Presented to President.",
-          "latest_action_date": "2026-05-20T00:00:00",
-          "url": "https://www.congress.gov/bill/119th-congress/house-bill/3497",
-          "published": "2026-05-20T00:00:00",
-          "congress": 119,
-          "short_title": "Medal of Sacrifice Act",
-          "official_title": "To establish a medal of service for law enforcement officers and first responders."
         },
         {
           "bill_number": "1687",
@@ -210221,6 +210225,26 @@
       "event_id": "338480"
     },
     {
+      "title": "\u201cRestoring America\u2019s Industrial Base: The Role of Small Businesses in National Security.\u201d",
+      "summary": "Congressional meeting before the House Small Business.",
+      "source": "Federal (US Congress)",
+      "category": "hearing",
+      "chamber": "House",
+      "committee": "House Small Business",
+      "committees": "House Small Business",
+      "published": "2026-06-03T14:00:00+00:00",
+      "scheduled_date": "2026-06-03",
+      "scheduled_time": "14:00",
+      "url": "https://www.congress.gov/event/119th-congress/house-event/119337",
+      "link": "https://www.congress.gov/event/119th-congress/house-event/119337",
+      "congress": 119,
+      "meeting_type": "Meeting",
+      "meeting_status": "Scheduled",
+      "location": "Room 2360, Rayburn House Office Building",
+      "bill": "",
+      "event_id": "119337"
+    },
+    {
       "title": "To receive a closed briefing on certain intelligence matters.",
       "summary": "Congressional meeting before the Senate Intelligence (Select).",
       "source": "Federal (US Congress)",
@@ -210262,12 +210286,12 @@
     },
     {
       "title": "Hearings to examine S.630, to authorize the Secretary of the Treasury to make payments to the Quapaw Nation and certain members of the Quapaw Nation in accordance with the recommendation of the United States Court of Federal Claims, S.1514/H.R.2389, to take certain land in the State of Washington into trust for the benefit of the Quinault Indian Nation, S.2796, to provide for a land exchange in San Bernardino County, California, S.2871/H.R.2400, to take certain Federal land in the State of California into trust for the benefit of the Pit River Tribe, S.3219, to transfer certain Federal land into trust for certain Indian Pueblos in the State of New Mexico, and S.3475/H.R.2916, to authorize, ratify, and confirm the Agreement of Settlement and Compromise to Resolve the Akwesasne Mohawk Land Claim in the State of New York.",
-      "summary": "Congressional meeting before the Senate Indian Affairs, Senate Indian Affairs.",
+      "summary": "Congressional meeting before the Senate Indian Affairs.",
       "source": "Federal (US Congress)",
       "category": "hearing",
       "chamber": "Senate",
       "committee": "Senate Indian Affairs",
-      "committees": "Senate Indian Affairs, Senate Indian Affairs",
+      "committees": "Senate Indian Affairs",
       "published": "2026-06-03T18:00:00+00:00",
       "scheduled_date": "2026-06-03",
       "scheduled_time": "18:00",
@@ -210281,24 +210305,24 @@
       "event_id": "338509"
     },
     {
-      "title": "Hearings to examine proposed budget estimates and justification for fiscal year 2027 for the Department of State.",
-      "summary": "Congressional meeting before the Senate Appropriations Subcommittee on State, Foreign Operations, and Related Programs.",
+      "title": "Hearings to consider pending calendar\u00a0nominations.",
+      "summary": "Congressional meeting before the Senate Veterans' Affairs.",
       "source": "Federal (US Congress)",
       "category": "hearing",
       "chamber": "Senate",
-      "committee": "Senate Appropriations Subcommittee on State, Foreign Operations, and Related Programs",
-      "committees": "Senate Appropriations Subcommittee on State, Foreign Operations, and Related Programs",
-      "published": "2026-06-03T19:00:00+00:00",
+      "committee": "Senate Veterans' Affairs",
+      "committees": "Senate Veterans' Affairs",
+      "published": "2026-06-03T20:00:00+00:00",
       "scheduled_date": "2026-06-03",
-      "scheduled_time": "19:00",
-      "url": "https://www.congress.gov/event/119th-congress/senate-event/338511",
-      "link": "https://www.congress.gov/event/119th-congress/senate-event/338511",
+      "scheduled_time": "20:00",
+      "url": "https://www.congress.gov/event/119th-congress/senate-event/338508",
+      "link": "https://www.congress.gov/event/119th-congress/senate-event/338508",
       "congress": 119,
       "meeting_type": "Meeting",
       "meeting_status": "Scheduled",
-      "location": "Room 138, Dirksen Senate Office Building",
+      "location": "Room 418, Russell Senate Office Building",
       "bill": "",
-      "event_id": "338511"
+      "event_id": "338508"
     },
     {
       "title": "Hearings to examine COVID-19 injections and attacks on scientific publications.",
@@ -210341,44 +210365,24 @@
       "event_id": "338512"
     },
     {
-      "title": "Hearings to consider pending calendar\u00a0nominations.",
-      "summary": "Congressional meeting before the Senate Veterans' Affairs.",
+      "title": "Hearings to examine proposed budget estimates and justification for fiscal year 2027 for the Department of State.",
+      "summary": "Congressional meeting before the Senate Appropriations Subcommittee on State, Foreign Operations, and Related Programs.",
       "source": "Federal (US Congress)",
       "category": "hearing",
       "chamber": "Senate",
-      "committee": "Senate Veterans' Affairs",
-      "committees": "Senate Veterans' Affairs",
-      "published": "2026-06-03T20:00:00+00:00",
+      "committee": "Senate Appropriations Subcommittee on State, Foreign Operations, and Related Programs",
+      "committees": "Senate Appropriations Subcommittee on State, Foreign Operations, and Related Programs",
+      "published": "2026-06-03T19:00:00+00:00",
       "scheduled_date": "2026-06-03",
-      "scheduled_time": "20:00",
-      "url": "https://www.congress.gov/event/119th-congress/senate-event/338508",
-      "link": "https://www.congress.gov/event/119th-congress/senate-event/338508",
+      "scheduled_time": "19:00",
+      "url": "https://www.congress.gov/event/119th-congress/senate-event/338511",
+      "link": "https://www.congress.gov/event/119th-congress/senate-event/338511",
       "congress": 119,
       "meeting_type": "Meeting",
       "meeting_status": "Scheduled",
-      "location": "Room 418, Russell Senate Office Building",
+      "location": "Room 138, Dirksen Senate Office Building",
       "bill": "",
-      "event_id": "338508"
-    },
-    {
-      "title": "Hearings to examine protecting American citizenship, focusing on denaturalization and its constitutional limits.",
-      "summary": "Congressional meeting before the Senate Judiciary Subcommittee on Constitution.",
-      "source": "Federal (US Congress)",
-      "category": "hearing",
-      "chamber": "Senate",
-      "committee": "Senate Judiciary Subcommittee on Constitution",
-      "committees": "Senate Judiciary Subcommittee on Constitution",
-      "published": "2026-06-03T18:00:00+00:00",
-      "scheduled_date": "2026-06-03",
-      "scheduled_time": "18:00",
-      "url": "https://www.congress.gov/event/119th-congress/senate-event/338507",
-      "link": "https://www.congress.gov/event/119th-congress/senate-event/338507",
-      "congress": 119,
-      "meeting_type": "Meeting",
-      "meeting_status": "Scheduled",
-      "location": "Room 226, Dirksen Senate Office Building",
-      "bill": "",
-      "event_id": "338507"
+      "event_id": "338511"
     },
     {
       "title": "Hearings to examine the President's proposed budget request for fiscal year 2027 for the Department of the Treasury.",
@@ -210399,6 +210403,26 @@
       "location": "Room 215, Dirksen Senate Office Building",
       "bill": "",
       "event_id": "338506"
+    },
+    {
+      "title": "Hearings to examine protecting American citizenship, focusing on denaturalization and its constitutional limits.",
+      "summary": "Congressional meeting before the Senate Judiciary Subcommittee on Constitution.",
+      "source": "Federal (US Congress)",
+      "category": "hearing",
+      "chamber": "Senate",
+      "committee": "Senate Judiciary Subcommittee on Constitution",
+      "committees": "Senate Judiciary Subcommittee on Constitution",
+      "published": "2026-06-03T18:00:00+00:00",
+      "scheduled_date": "2026-06-03",
+      "scheduled_time": "18:00",
+      "url": "https://www.congress.gov/event/119th-congress/senate-event/338507",
+      "link": "https://www.congress.gov/event/119th-congress/senate-event/338507",
+      "congress": 119,
+      "meeting_type": "Meeting",
+      "meeting_status": "Scheduled",
+      "location": "Room 226, Dirksen Senate Office Building",
+      "bill": "",
+      "event_id": "338507"
     },
     {
       "title": "Hearings to examine the burden of federal benefits cliffs on small businesses and workers.",
@@ -210619,26 +210643,6 @@
       "location": "Room 1310, Longworth House Office Building",
       "bill": "",
       "event_id": "119339"
-    },
-    {
-      "title": "\u201cRestoring America\u2019s Industrial Base: The Role of Small Businesses in National Security.\u201d",
-      "summary": "Congressional meeting before the House Small Business.",
-      "source": "Federal (US Congress)",
-      "category": "hearing",
-      "chamber": "House",
-      "committee": "House Small Business",
-      "committees": "House Small Business",
-      "published": "2026-06-03T14:00:00+00:00",
-      "scheduled_date": "2026-06-03",
-      "scheduled_time": "14:00",
-      "url": "https://www.congress.gov/event/119th-congress/house-event/119337",
-      "link": "https://www.congress.gov/event/119th-congress/house-event/119337",
-      "congress": 119,
-      "meeting_type": "Meeting",
-      "meeting_status": "Scheduled",
-      "location": "Room 2360, Rayburn House Office Building",
-      "bill": "",
-      "event_id": "119337"
     },
     {
       "title": "Business meeting to consider pending calendar business.",
@@ -210902,26 +210906,6 @@
     },
     {
       "title": "Closed business meeting to markup the National Defense Authorization Act for fiscal year 2027.",
-      "summary": "Congressional meeting before the Senate Armed Services Subcommittee on Strategic Forces.",
-      "source": "Federal (US Congress)",
-      "category": "hearing",
-      "chamber": "Senate",
-      "committee": "Senate Armed Services Subcommittee on Strategic Forces",
-      "committees": "Senate Armed Services Subcommittee on Strategic Forces",
-      "published": "2026-06-08T20:30:00+00:00",
-      "scheduled_date": "2026-06-08",
-      "scheduled_time": "20:30",
-      "url": "https://www.congress.gov/event/119th-congress/senate-event/338513",
-      "link": "https://www.congress.gov/event/119th-congress/senate-event/338513",
-      "congress": 119,
-      "meeting_type": "Meeting",
-      "meeting_status": "Scheduled",
-      "location": "Room 232A, Russell Senate Office Building",
-      "bill": "",
-      "event_id": "338513"
-    },
-    {
-      "title": "Closed business meeting to markup the National Defense Authorization Act for fiscal year 2027.",
       "summary": "Congressional meeting before the Senate Armed Services Subcommittee on Seapower.",
       "source": "Federal (US Congress)",
       "category": "hearing",
@@ -210959,6 +210943,26 @@
       "location": "Room 232A, Russell Senate Office Building",
       "bill": "",
       "event_id": "338515"
+    },
+    {
+      "title": "Closed business meeting to markup the National Defense Authorization Act for fiscal year 2027.",
+      "summary": "Congressional meeting before the Senate Armed Services Subcommittee on Strategic Forces.",
+      "source": "Federal (US Congress)",
+      "category": "hearing",
+      "chamber": "Senate",
+      "committee": "Senate Armed Services Subcommittee on Strategic Forces",
+      "committees": "Senate Armed Services Subcommittee on Strategic Forces",
+      "published": "2026-06-08T20:30:00+00:00",
+      "scheduled_date": "2026-06-08",
+      "scheduled_time": "20:30",
+      "url": "https://www.congress.gov/event/119th-congress/senate-event/338513",
+      "link": "https://www.congress.gov/event/119th-congress/senate-event/338513",
+      "congress": 119,
+      "meeting_type": "Meeting",
+      "meeting_status": "Scheduled",
+      "location": "Room 232A, Russell Senate Office Building",
+      "bill": "",
+      "event_id": "338513"
     },
     {
       "title": "Closed business meeting to markup the National Defense Authorization Act for fiscal year 2027.",
@@ -211101,6 +211105,26 @@
       "event_id": "338522"
     },
     {
+      "title": "\u201cCalling the Fouls: Accountability and Transparency in NCAA Enforcement\u201d",
+      "summary": "Congressional meeting before the House Education and Workforce.",
+      "source": "Federal (US Congress)",
+      "category": "hearing",
+      "chamber": "House",
+      "committee": "House Education and Workforce",
+      "committees": "House Education and Workforce",
+      "published": "2026-06-12T13:00:00+00:00",
+      "scheduled_date": "2026-06-12",
+      "scheduled_time": "13:00",
+      "url": "https://www.congress.gov/event/119th-congress/house-event/119355",
+      "link": "https://www.congress.gov/event/119th-congress/house-event/119355",
+      "congress": 119,
+      "meeting_type": "Meeting",
+      "meeting_status": "Scheduled",
+      "location": "",
+      "bill": "",
+      "event_id": "119355"
+    },
+    {
       "title": "Closed business meeting to markup the National Defense Authorization Act for fiscal year 2027.",
       "summary": "Congressional meeting before the Senate Armed Services.",
       "source": "Federal (US Congress)",
@@ -211122,6 +211146,26 @@
     }
   ],
   "historical_hearings": [
+    {
+      "title": "H.R. 8870, Building Unrivaled Infrastructure and Long-term Development for America's 250th Act (BUILD America 250 Act); and other matters cleared for consideration",
+      "summary": "Congressional meeting in the House.",
+      "source": "Federal (US Congress)",
+      "category": "hearing",
+      "chamber": "House",
+      "committee": "",
+      "committees": "",
+      "published": "2026-05-21T14:00:00+00:00",
+      "scheduled_date": "2026-05-21",
+      "scheduled_time": "14:00",
+      "url": "https://www.congress.gov/event/119th-congress/house-event/119211",
+      "link": "https://www.congress.gov/event/119th-congress/house-event/119211",
+      "congress": 119,
+      "meeting_type": "Meeting",
+      "meeting_status": "Scheduled",
+      "location": "Room 2167, Rayburn House Office Building",
+      "bill": "",
+      "event_id": "119211"
+    },
     {
       "title": "Markup of H.R. 3164, H.R. 8163, H.R. 8875, H.R. 8883, H.R. 8871, H.R. 8884, H.R. 8873, H.R. 8872, and Views and Estimates Letter to the Committee on the Budget.",
       "summary": "Congressional meeting before the House Ways and Means.",
@@ -211181,26 +211225,6 @@
       "location": "Room 2141, Rayburn House Office Building",
       "bill": "",
       "event_id": "119310"
-    },
-    {
-      "title": "H.R. 8870, Building Unrivaled Infrastructure and Long-term Development for America's 250th Act (BUILD America 250 Act); and other matters cleared for consideration",
-      "summary": "Congressional meeting in the House.",
-      "source": "Federal (US Congress)",
-      "category": "hearing",
-      "chamber": "House",
-      "committee": "",
-      "committees": "",
-      "published": "2026-05-21T14:00:00+00:00",
-      "scheduled_date": "2026-05-21",
-      "scheduled_time": "14:00",
-      "url": "https://www.congress.gov/event/119th-congress/house-event/119211",
-      "link": "https://www.congress.gov/event/119th-congress/house-event/119211",
-      "congress": 119,
-      "meeting_type": "Meeting",
-      "meeting_status": "Scheduled",
-      "location": "Room 2167, Rayburn House Office Building",
-      "bill": "",
-      "event_id": "119211"
     },
     {
       "title": "Markup of H.R. 8736,\"Restoration of Employment Choice for Adults with Disabilities Act\"; H.R. 8705,\"Civics and History Advancement to Restore Learning, Integrity, and Education (CHARLIE) Act\"; H.R. 7362,\"Form 5500 Filing Simplification Act\"; H.R. 7895,\"PBM Kickback Prohibition Act\"; H.R. 8684, \"Transparency in Billing Act of 2026\"",
@@ -211403,26 +211427,6 @@
       "event_id": "119302"
     },
     {
-      "title": "Closed hearings to examine the posture of the Department of the Air Force in review of the Defense Authorization Request for Fiscal Year 2027 and the Future Years Defense Program;\u00a0to be immediately followed by an open session at approximately 11:00 a.m. in SD-G50.",
-      "summary": "Congressional meeting before the Senate Armed Services.",
-      "source": "Federal (US Congress)",
-      "category": "hearing",
-      "chamber": "Senate",
-      "committee": "Senate Armed Services",
-      "committees": "Senate Armed Services",
-      "published": "2026-05-21T13:30:00+00:00",
-      "scheduled_date": "2026-05-21",
-      "scheduled_time": "13:30",
-      "url": "https://www.congress.gov/event/119th-congress/senate-event/338426",
-      "link": "https://www.congress.gov/event/119th-congress/senate-event/338426",
-      "congress": 119,
-      "meeting_type": "Meeting",
-      "meeting_status": "Scheduled",
-      "location": "Room 217, Capitol Visitor Center (Senate side",
-      "bill": "",
-      "event_id": "338426"
-    },
-    {
       "title": "Hearings to examine proposed budget estimates and justification for fiscal year 2027 for the National Institutes of Health.",
       "summary": "Congressional meeting before the Senate Appropriations Subcommittee on Departments of Labor, Health and Human Services, and Education, and Related Agencies.",
       "source": "Federal (US Congress)",
@@ -211441,6 +211445,26 @@
       "location": "Room 124, Dirksen Senate Office Building",
       "bill": "",
       "event_id": "338440"
+    },
+    {
+      "title": "Closed hearings to examine the posture of the Department of the Air Force in review of the Defense Authorization Request for Fiscal Year 2027 and the Future Years Defense Program;\u00a0to be immediately followed by an open session at approximately 11:00 a.m. in SD-G50.",
+      "summary": "Congressional meeting before the Senate Armed Services.",
+      "source": "Federal (US Congress)",
+      "category": "hearing",
+      "chamber": "Senate",
+      "committee": "Senate Armed Services",
+      "committees": "Senate Armed Services",
+      "published": "2026-05-21T13:30:00+00:00",
+      "scheduled_date": "2026-05-21",
+      "scheduled_time": "13:30",
+      "url": "https://www.congress.gov/event/119th-congress/senate-event/338426",
+      "link": "https://www.congress.gov/event/119th-congress/senate-event/338426",
+      "congress": 119,
+      "meeting_type": "Meeting",
+      "meeting_status": "Scheduled",
+      "location": "Room 217, Capitol Visitor Center (Senate side",
+      "bill": "",
+      "event_id": "338426"
     },
     {
       "title": "Hearings to examine proposed budget estimates and justification for fiscal year 2027 for the Navy.",
@@ -212638,6 +212662,26 @@
       "location": "Room 2154, Rayburn House Office Building",
       "bill": "",
       "event_id": "119277"
+    },
+    {
+      "title": "H.R.5634, the \u201cVeterans Flight Training Responsibility Act of 2026\u201d;\r\nH.R.7083, the \u201cCRUISE Act\u201d;\r\nH.R.7103, the \u201cImproving Emerging Tech Opportunities for Veterans Act\u201d;\r\nH.R.2283, the \u201cRecognizing Community Organizations for Veteran Engagement and \r\nRecovery Act\u201d;\r\nH.R.6993, the \u201cBEACON Act of 2026\u201d;\r\nH.R.6652, the \u201cU.S. Vets of the FAS Act\u201d;\r\nH.R.6444, the \u201cBlast Overpressure Research and Mitigation Task Force Act\u201d;\r\nH.R. 7950, the \u201cVA Congressional Accountability Act\u201d;\r\nH.R. 7683, the \u201cVA Fiscal Management and Modernization Act\u201d;\r\nH.R. 8052, the \u201cVIP Act\u201d;\r\nH.R. 6698, the \u201cBoard of Veterans Appeals Annual Report Transparency Act of 2025\u201d; \r\nH.R.3159, the \u201cImproving SCRA Benefit Utilization Act\u201d;\r\nH.R. 5436, To amend title 38, United States Code, to prohibit an educational institution from \r\nwithholding a transcript from an individual who pursued a course or program of education at \r\nsuch institution using post-9/11 educational assistance\u201d;\r\nH.R.5999, the \u201cVeteran Opioid Emergency Treatment Act\u201d;\r\nH.R. 8010, the \u201cVA Police Recruitment and Retention Act of 2026;\r\nH.R. 7260, the \u201cNational Cemetery Administration Annual Report Act of 2026\u201d;\r\nH.R. 5723, the \u201cFraud Reduction And Uncovering Deception (FRAUD) in VA Disability \r\nExams Act\u201d;\r\nLease Resolutions",
+      "summary": "Congressional meeting before the House Veterans' Affairs.",
+      "source": "Federal (US Congress)",
+      "category": "hearing",
+      "chamber": "House",
+      "committee": "House Veterans' Affairs",
+      "committees": "House Veterans' Affairs",
+      "published": "2026-05-14T18:00:00+00:00",
+      "scheduled_date": "2026-05-14",
+      "scheduled_time": "18:00",
+      "url": "https://www.congress.gov/event/119th-congress/house-event/119261",
+      "link": "https://www.congress.gov/event/119th-congress/house-event/119261",
+      "congress": 119,
+      "meeting_type": "Meeting",
+      "meeting_status": "Scheduled",
+      "location": "Room 360, Cannon House Office Building",
+      "bill": "",
+      "event_id": "119261"
     },
     {
       "title": "H.R. 7443, (Mr. Pfluger) the \u201cI&A Mission Reorientation Act of 2026\u201d; H.R. 7764, (Mr. Evans of CO) the \u201cNational Threat Evaluation and Reporting Program Reassignment and Funding Reform Act of 2026\u201d; H.R. 7574, (Mr. Evans of CO) the \u201cELO Realignment and Strategic Engagement Reform Act of 2026\u201d; H.R. 8142 (Mr. Mackenzie) the \u201cSpecial Events Program Alignment Act of 2026\u201d; H.R. 7448, (Ms. Pou) the \u201cModernizing and Improving the National Terrorism Advisory System Act of 2026\u201d; H.R. 7427, (Mr. Goldman) the \u201cSecuring Access from Foreign Entities Visiting Internal Sites in the States Act\u201d or \u201cSAFE VISITS Act\u201d; and H.R. 7436, (Mr. Magaziner) the \u201cDepartment of Homeland Security Intelligence and Analysis Training Act\u201d",
