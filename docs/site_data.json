@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-05T20:34:17.682624-05:00",
+  "last_updated": "2026-06-05T23:41:09.950157-05:00",
   "years": {
     "2026": {
       "total_items": 1878,
@@ -227347,6 +227347,35 @@
       "congress": {
         "house": [],
         "senate": []
+      }
+    },
+    "2026-06-05": {
+      "date": "2026-06-05",
+      "generated_at": "2026-06-06T04:41:09.797528+00:00",
+      "model": "phi-3:mini",
+      "prompt_version": "v1",
+      "summary": "On June 5, 2026, there were no bills passed in Kansas House or Senate. In U\u001b[1D\u001b[K\nU.S. Congress on that day, a motion to proceed with consideration of S.1318\u001b[6D\u001b[K\nS.1318 (\"Fallen Servicemembers Religious Heritage Restoration Act\") was def\u001b[3D\u001b[K\ndefeated by Yea-Nay Vote (47 - 52) in the United States Senate. The record \u001b[K\nvote number for this event was 164 and further details are available at htt\u001b[3D\u001b[K\nhttps://www.congress.gov/bill/119th-congress/senate-bill/1318.",
+      "counts": {
+        "total": 1,
+        "kansas_house": 0,
+        "kansas_senate": 0,
+        "congress_house": 0,
+        "congress_senate": 1
+      },
+      "kansas": {
+        "house": [],
+        "senate": []
+      },
+      "congress": {
+        "house": [],
+        "senate": [
+          {
+            "bill": "S 1318",
+            "short_title": "Fallen Servicemembers Religious Heritage Restoration Act",
+            "action": "Motion to proceed to consideration of the House message to accompany S. 1318 rejected in Senate by Yea-Nay Vote. 47 - 52. Record Vote Number: 164.",
+            "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1318"
+          }
+        ]
       }
     }
   },
