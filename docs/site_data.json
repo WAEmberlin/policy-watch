@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-15T03:41:55.363514-05:00",
+  "last_updated": "2026-06-15T10:31:11.049112-05:00",
   "years": {
     "2026": {
       "total_items": 1898,
@@ -103,6 +103,17 @@
             "short_title": "Stop Secret Spending Act of 2025",
             "short_title_source": "rss",
             "bill_number": "S 872"
+          },
+          {
+            "date": "2026-06-12",
+            "source": "Congress.gov API",
+            "title": "S 254: ARTIST Act",
+            "link": "https://www.congress.gov/bill/119th-congress/senate-bill/254",
+            "published": "2026-06-12T00:00:00",
+            "summary": "",
+            "short_title": "ARTIST Act",
+            "short_title_source": "rss",
+            "bill_number": "S 254"
           },
           {
             "date": "2026-06-11",
@@ -485,17 +496,6 @@
             "link": "https://content.govdelivery.com/accounts/USLOC/bulletins/419dfad",
             "published": "2026-06-08T13:41:57+00:00",
             "summary": "<p><span>We are pleased to bring you the </span><a href=\"https://www.congress.gov/help/enhancements/?loclr=eacdg\" rel=\"noopener\" target=\"_blank\">Congress.gov enhancements</a> <span>for June of 2026</span></p>\n<p><em><strong>Enhancement &ndash; House Roll Call Votes &ndash; 115th Congress</strong></em></p>\n<ul>\n<li>House roll call votes from the 115th Congress (2017-2018) are available to browse and search.</li>\n<li>Use the House Roll Call Votes link in the <a href=\"https://www.congress.gov/browse/115th-congress#browse_activity\">Congressional Activity section</a> of the Browse page to view a <a href=\"https://www.congress.gov/votes/house/115th-congress/2nd-session/?loclr=eacdg\" rel=\"noopener\" target=\"_blank\">sortable list</a>.</li>\n<li>Learn more at <a href=\"https://www.congress.gov/help/house-votes/?loclr=eacdg\" rel=\"noopener\" target=\"_blank\">About House Votes</a>.</li>\n</ul>\n<p><em><strong>Enhancement &ndash; Legislation &ndash; Search</strong></em></p>\n<ul>\n<li>Search title types found on the <a href=\"https://www.congress.gov/help/field-values/title-types/?loclr=eacdg\" rel=\"noopener\" target=\"_blank\">Title Types field value list</a> using the billTitleTypeId: search field to find legislation with a specific title type such as <a href=\"https://www.congress.gov/advanced-search/command-line?query=billTitleTypeId%3A19\">Short Titles as Enacted</a> or <a href=\"https://www.congress.gov/advanced-search/command-line?query=billTitleTypeId%3A30\">Popular Titles</a>.</li>\n</ul>\n<p><em><strong>Enhancement &ndash; Legislation &ndash; Enrolled Bill Text</strong></em></p>\n<ul>\n<li>Enrolled bill text tab displays <a href=\"https://www.congress.gov/bill/119th-congress/senate-bill/1596/text/enr/?loclr=eacdg\" rel=\"noopener\" target=\"_blank\">USLM text</a> by default when available.</li>\n</ul>"
-          },
-          {
-            "date": "2026-06-08",
-            "source": "Congress.gov API",
-            "title": "S 254: ARTIST Act",
-            "link": "https://www.congress.gov/bill/119th-congress/senate-bill/254",
-            "published": "2026-06-08T00:00:00",
-            "summary": "",
-            "short_title": "ARTIST Act",
-            "short_title_source": "rss",
-            "bill_number": "S 254"
           },
           {
             "date": "2026-06-08",
@@ -21153,21 +21153,6 @@
             }
           ],
           "Congress.gov API": [
-            {
-              "title": "S 254: ARTIST Act",
-              "link": "https://www.congress.gov/bill/119th-congress/senate-bill/254",
-              "summary": "",
-              "source": "Congress.gov API",
-              "published": "2026-06-08T00:00:00",
-              "bill_number": "S 254",
-              "bill_type": "S",
-              "sponsor_name": "",
-              "latest_action": "Presented to President.",
-              "latest_action_date": "2026-06-08T00:00:00",
-              "congress": 119,
-              "short_title": "ARTIST Act",
-              "official_title": "A bill to amend the Marine Mammal Protection Act of 1972 to protect the cultural practices and livelihoods of producers of Alaska Native handicrafts and marine mammal ivory products, and for other purposes."
-            },
             {
               "title": "HR 2913: Ukraine Support Act",
               "link": "https://www.congress.gov/bill/119th-congress/house-bill/2913",
@@ -45328,6 +45313,21 @@
               "congress": 119,
               "short_title": "Stop Secret Spending Act of 2025",
               "official_title": "A bill to amend the Federal Funding Accountability and Transparency Act of 2006 to ensure that other transaction agreements are reported to USAspending.gov, and for other purposes."
+            },
+            {
+              "title": "S 254: ARTIST Act",
+              "link": "https://www.congress.gov/bill/119th-congress/senate-bill/254",
+              "summary": "",
+              "source": "Congress.gov API",
+              "published": "2026-06-12T00:00:00",
+              "bill_number": "S 254",
+              "bill_type": "S",
+              "sponsor_name": "",
+              "latest_action": "Signed by President.",
+              "latest_action_date": "2026-06-12T00:00:00",
+              "congress": 119,
+              "short_title": "ARTIST Act",
+              "official_title": "A bill to amend the Marine Mammal Protection Act of 1972 to protect the cultural practices and livelihoods of producers of Alaska Native handicrafts and marine mammal ivory products, and for other purposes."
             }
           ]
         },
@@ -146456,6 +146456,20 @@
           "official_title": "A bill to amend the Federal Funding Accountability and Transparency Act of 2006 to ensure that other transaction agreements are reported to USAspending.gov, and for other purposes."
         },
         {
+          "bill_number": "254",
+          "bill_type": "S",
+          "title": "ARTIST Act",
+          "summary": "",
+          "sponsor_name": "",
+          "latest_action": "Signed by President.",
+          "latest_action_date": "2026-06-12T00:00:00",
+          "url": "https://www.congress.gov/bill/119th-congress/senate-bill/254",
+          "published": "2026-06-12T00:00:00",
+          "congress": 119,
+          "short_title": "ARTIST Act",
+          "official_title": "A bill to amend the Marine Mammal Protection Act of 1972 to protect the cultural practices and livelihoods of producers of Alaska Native handicrafts and marine mammal ivory products, and for other purposes."
+        },
+        {
           "bill_number": "4238",
           "bill_type": "HR",
           "title": "DLARA",
@@ -146930,20 +146944,6 @@
           "congress": 119,
           "short_title": "To take certain land into trust for the benefit of the Las Vegas Tribe of Paiute Indians.",
           "official_title": "To take certain land into trust for the benefit of the Las Vegas Tribe of Paiute Indians."
-        },
-        {
-          "bill_number": "254",
-          "bill_type": "S",
-          "title": "ARTIST Act",
-          "summary": "",
-          "sponsor_name": "",
-          "latest_action": "Presented to President.",
-          "latest_action_date": "2026-06-08T00:00:00",
-          "url": "https://www.congress.gov/bill/119th-congress/senate-bill/254",
-          "published": "2026-06-08T00:00:00",
-          "congress": 119,
-          "short_title": "ARTIST Act",
-          "official_title": "A bill to amend the Marine Mammal Protection Act of 1972 to protect the cultural practices and livelihoods of producers of Alaska Native handicrafts and marine mammal ivory products, and for other purposes."
         },
         {
           "bill_number": "2913",
