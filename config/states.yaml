@@ -61,6 +61,11 @@ openstates:
   per_page: 20  # Open States API max is 20
   request_delay_seconds: 6.0  # free tier: ~1 request/second; stay under limit
   max_retries: 6
+  daily_request_budget: 450  # free tier ~500/day; leave headroom
+  prioritize_incomplete: true  # fetch ME/UT before AZ when they have fewer bills
+  skip_if_fetched_within_hours: 20  # skip states already synced recently (incremental runs)
+  incremental_overlap_days: 1  # overlap when using last fetch date (avoid gaps)
+  reference_data_ttl_hours: 168  # refresh committees/legislators weekly, not every run
 
 kansas_api:
   base_url: https://kslegislature.gov/api/v1
