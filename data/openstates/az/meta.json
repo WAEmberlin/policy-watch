@@ -1,0 +1,22 @@
+{
+  "state": "AZ",
+  "source": "bulk_import",
+  "fetched_at": "2026-06-28T17:37:56.297385+00:00",
+  "last_successful_fetch_at": "2026-06-28T17:37:56.297408+00:00",
+  "updated_since": null,
+  "import_mode": "full",
+  "backfill_complete": true,
+  "bulk_files": [
+    "AZ_56th-1st-regular_json_6rYfqrtJ5NJPNXevQf1EVI/AZ/56th-1st-regular/AZ_56th-1st-regular_bills.json",
+    "AZ_56th-2nd-regular_json_1Ilk8v2cnJlUKLLsvlVw9V/AZ/56th-2nd-regular/AZ_56th-2nd-regular_bills.json",
+    "AZ_57th-1st-regular_json_3Qq1xI4bM2dlJF3tJ79CzP/AZ/57th-1st-regular/AZ_57th-1st-regular_bills.json",
+    "AZ_57th-2nd-regular_json_1Kbqc2xbkXxwuFnyKpIXeX/AZ/57th-2nd-regular/AZ_57th-2nd-regular_bills.json"
+  ],
+  "counts": {
+    "bills": 7517,
+    "events": 0,
+    "committees": 0,
+    "legislators": 90,
+    "votes": 10896
+  }
+}

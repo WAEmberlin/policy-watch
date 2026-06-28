@@ -1,0 +1,20 @@
+{
+  "state": "KS",
+  "source": "bulk_import",
+  "fetched_at": "2026-06-28T17:33:06.757027+00:00",
+  "last_successful_fetch_at": "2026-06-28T17:33:06.757041+00:00",
+  "updated_since": null,
+  "import_mode": "full",
+  "backfill_complete": true,
+  "bulk_files": [
+    "KS_2023-2024_json_4ipY7IKskShRH8QmAtFJva/KS/2023-2024/KS_2023-2024_bills.json",
+    "KS_2025-2026_json_OGTdgWYxv95ltVtV82EVJ/KS/2025-2026/KS_2025-2026_bills.json"
+  ],
+  "counts": {
+    "bills": 3042,
+    "events": 0,
+    "committees": 0,
+    "legislators": 165,
+    "votes": 529
+  }
+}

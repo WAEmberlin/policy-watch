@@ -1,0 +1,21 @@
+{
+  "state": "CO",
+  "source": "bulk_import",
+  "fetched_at": "2026-06-28T17:33:05.316919+00:00",
+  "last_successful_fetch_at": "2026-06-28T17:33:05.316938+00:00",
+  "updated_since": null,
+  "import_mode": "full",
+  "backfill_complete": true,
+  "bulk_files": [
+    "CO_2025A_json_1ApSoX8OjhTy6ujcM4IHwW/CO/2025A/CO_2025A_bills.json",
+    "CO_2025B_json_2jHZurol4Qr50rnJCUuVtk/CO/2025B/CO_2025B_bills.json",
+    "CO_2026A_json_7VLb4mYpYFTWvLFQBVr8tB/CO/2026A/CO_2026A_bills.json"
+  ],
+  "counts": {
+    "bills": 1482,
+    "events": 0,
+    "committees": 0,
+    "legislators": 100,
+    "votes": 5683
+  }
+}

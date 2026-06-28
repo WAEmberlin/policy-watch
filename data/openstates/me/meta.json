@@ -1,0 +1,20 @@
+{
+  "state": "ME",
+  "source": "bulk_import",
+  "fetched_at": "2026-06-28T17:33:10.318928+00:00",
+  "last_successful_fetch_at": "2026-06-28T17:33:10.318940+00:00",
+  "updated_since": null,
+  "import_mode": "full",
+  "backfill_complete": true,
+  "bulk_files": [
+    "ME_131_json_6kPZVALE25fxxZPUZ3n8LA/ME/131/ME_131_bills.json",
+    "ME_132_json_3mIkUXHLi7FtyNdqptkSg4/ME/132/ME_132_bills.json"
+  ],
+  "counts": {
+    "bills": 4954,
+    "events": 0,
+    "committees": 0,
+    "legislators": 187,
+    "votes": 2689
+  }
+}
