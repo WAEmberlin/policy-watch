@@ -1,21 +1,14 @@
 {
   "state": "UT",
-  "source": "bulk_import",
-  "fetched_at": "2026-06-28T17:33:11.904314+00:00",
-  "last_successful_fetch_at": "2026-06-28T17:33:11.904323+00:00",
-  "updated_since": null,
-  "import_mode": "full",
-  "backfill_complete": true,
-  "bulk_files": [
-    "UT_2025_json_5ZrD1uj9YQJEdaE6E5xqHd/UT/2025/UT_2025_bills.json",
-    "UT_2025S2_json_27FgfCZ8queQUpcK4Zu4N1/UT/2025S2/UT_2025S2_bills.json",
-    "UT_2026_json_49KEm5b2WEwmOeFeKXOYkR/UT/2026/UT_2026_bills.json"
-  ],
+  "fetched_at": "2026-06-28T17:13:11.613245+00:00",
+  "last_successful_fetch_at": null,
+  "updated_since": "2026-06-01",
+  "backfill_complete": false,
   "counts": {
-    "bills": 1980,
+    "bills": 0,
     "events": 0,
     "committees": 0,
-    "legislators": 104,
+    "legislators": 0,
     "votes": 0
   }
 }
