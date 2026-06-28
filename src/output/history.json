@@ -2402,7 +2402,68 @@
     "location": "212-N-B",
     "committees": "Senate Committee on Education and House Committee on Education",
     "bill": "HB2763",
-    "is_canceled": false
+    "is_canceled": false,
+    "short_title": "Requiring school districts to provide elementary students with a certain amount of daily recess, prohibiting limiting or withholding recess for disciplinary reasons, requiring a Kansas state fitness test and designating required recess time as part of the school term.",
+    "short_title_source": "kansas_api",
+    "ks_api_status": "Vetoed",
+    "ks_api_latest_action": "No motion to reconsider vetoed bill; Veto sustained",
+    "sponsors": [
+      {
+        "name": "House Committee on Health and Human Services",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-04-11T01:16:10+00:00",
+        "tally": {
+          "yea": 74,
+          "nay": 47,
+          "present": 0,
+          "absent": 4,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-04-10T22:47:58+00:00",
+        "tally": {
+          "yea": 29,
+          "nay": 10,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-03-18T10:26:45+00:00",
+        "tally": {
+          "yea": 39,
+          "nay": 1,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-02-19T16:20:44+00:00",
+        "tally": {
+          "yea": 116,
+          "nay": 0,
+          "present": 0,
+          "absent": 9,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:58:36.534424+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/conference/conf_committee_20260409235814",
@@ -5689,7 +5750,7 @@
     "committees": "House Veterans and Military and Senators Thompson, Clifford and Faust Goudeau",
     "bill": "HB2626",
     "is_canceled": false,
-    "short_title": "Directing the capitol preservation committee to develop and approve plans for a registry kiosk of Kansas military forces killed in action or who died of wounds incurred during active duty to be placed within the state capitol, enacting the safeguarding American veteran empowerment (SAVE) act to limit compensation for assisting in veterans benefits matters, establishing the Kansas military affairs commission and prescribing the powers and duties thereof, expanding veterans preference in government employment to include current members of the national guard and such members' eligible spouses and permissive preference in private employment to include current servicemembers and such members\u2019 eligible spouses.",
+    "short_title": "Directing the capitol preservation committee to develop and approve plans for a registry kiosk of Kansas military forces killed in action or who died of wounds incurred during active duty to be placed within the state capitol, enacting the safeguarding American veteran empowerment (SAVE) act to limit compensation for assisting in veterans benefits matters, establishing the Kansas military affairs commission and prescribing the powers and duties thereof, expanding veterans preference in government employment to include current members of the national guard and such members' eligible spouses and permissive preference in private employment to include current servicemembers and such members’ eligible spouses.",
     "short_title_source": "kansas_api",
     "ks_api_status": "Vetoed",
     "ks_api_latest_action": "Motion to override veto failed; Veto sustained",
@@ -6615,7 +6676,7 @@
     "committees": "Senate Committee on Senate Select Committee on Veterans Affairs and House Committee on Veterans and Military",
     "bill": "HB2626",
     "is_canceled": false,
-    "short_title": "Directing the capitol preservation committee to develop and approve plans for a registry kiosk of Kansas military forces killed in action or who died of wounds incurred during active duty to be placed within the state capitol, enacting the safeguarding American veteran empowerment (SAVE) act to limit compensation for assisting in veterans benefits matters, establishing the Kansas military affairs commission and prescribing the powers and duties thereof, expanding veterans preference in government employment to include current members of the national guard and such members' eligible spouses and permissive preference in private employment to include current servicemembers and such members\u2019 eligible spouses.",
+    "short_title": "Directing the capitol preservation committee to develop and approve plans for a registry kiosk of Kansas military forces killed in action or who died of wounds incurred during active duty to be placed within the state capitol, enacting the safeguarding American veteran empowerment (SAVE) act to limit compensation for assisting in veterans benefits matters, establishing the Kansas military affairs commission and prescribing the powers and duties thereof, expanding veterans preference in government employment to include current members of the national guard and such members' eligible spouses and permissive preference in private employment to include current servicemembers and such members’ eligible spouses.",
     "short_title_source": "kansas_api",
     "ks_api_status": "Vetoed",
     "ks_api_latest_action": "Motion to override veto failed; Veto sustained",
@@ -7086,7 +7147,7 @@
     "committees": "Senate Committee on Senate Select Committee on Veterans Affairs and House Committee on Veterans and Military",
     "bill": "HB2626",
     "is_canceled": false,
-    "short_title": "Directing the capitol preservation committee to develop and approve plans for a registry kiosk of Kansas military forces killed in action or who died of wounds incurred during active duty to be placed within the state capitol, enacting the safeguarding American veteran empowerment (SAVE) act to limit compensation for assisting in veterans benefits matters, establishing the Kansas military affairs commission and prescribing the powers and duties thereof, expanding veterans preference in government employment to include current members of the national guard and such members' eligible spouses and permissive preference in private employment to include current servicemembers and such members\u2019 eligible spouses.",
+    "short_title": "Directing the capitol preservation committee to develop and approve plans for a registry kiosk of Kansas military forces killed in action or who died of wounds incurred during active duty to be placed within the state capitol, enacting the safeguarding American veteran empowerment (SAVE) act to limit compensation for assisting in veterans benefits matters, establishing the Kansas military affairs commission and prescribing the powers and duties thereof, expanding veterans preference in government employment to include current members of the national guard and such members' eligible spouses and permissive preference in private employment to include current servicemembers and such members’ eligible spouses.",
     "short_title_source": "kansas_api",
     "ks_api_status": "Vetoed",
     "ks_api_latest_action": "Motion to override veto failed; Veto sustained",
@@ -25486,7 +25547,16 @@
     "bill_number": "HB 2770",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2770/",
     "short_title": "House: HB2770: Introduced",
-    "short_title_source": "rss"
+    "short_title_source": "rss",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Appropriations",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:59:23.308973+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/d5d3461190791b9b42aeb5a4d6ee358b",
@@ -25502,7 +25572,42 @@
     "bill_number": "HB 2769",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2769/",
     "short_title": "House: HB2769: Introduced",
-    "short_title_source": "rss"
+    "short_title_source": "rss",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Monday, April 6, 2026",
+    "sponsors": [
+      {
+        "name": "House Committee on Taxation",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed;",
+        "date": "2026-03-19T13:13:17+00:00",
+        "tally": {
+          "yea": 33,
+          "nay": 7,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-03-12T11:07:19+00:00",
+        "tally": {
+          "yea": 94,
+          "nay": 25,
+          "present": 0,
+          "absent": 5,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:59:16.654240+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/667802b6897510bb5ada27e6a866cef0",
@@ -25518,7 +25623,16 @@
     "bill_number": "HB 2768",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2768/",
     "short_title": "House: HB2768: Introduced",
-    "short_title_source": "rss"
+    "short_title_source": "rss",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:59:09.950475+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/5bd2428253b04d13abcd6a40cdd6b240",
@@ -25534,7 +25648,42 @@
     "bill_number": "HB 2767",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2767/",
     "short_title": "House: HB2767: Introduced",
-    "short_title_source": "rss"
+    "short_title_source": "rss",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on Calendar",
+    "sponsors": [
+      {
+        "name": "House Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-19T19:56:35+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-05T12:01:56+00:00",
+        "tally": {
+          "yea": 115,
+          "nay": 3,
+          "present": 0,
+          "absent": 6,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:59:03.273514+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/df53067e441828622e98ddd6952cb4a7",
@@ -25550,7 +25699,16 @@
     "bill_number": "HB 2744",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2744/",
     "short_title": "Encouraging school districts to annually designate a Linda Brown and family walk to school day.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Education",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:57:22.730455+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/a6a6ea125828c378852076dbff7791e9",
@@ -25598,7 +25756,66 @@
     "bill_number": "HB 2739",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2739/",
     "short_title": "Providing that fire sprinkler systems shall not be required in this state for multi-family dwellings of four attached units or fewer, prohibiting municipal fire sprinkler requirements for multi-family dwellings of four or fewer attached living units and defining apartment buildings for purposes of the fire code.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Tuesday, April 7, 2026",
+    "sponsors": [
+      {
+        "name": "House Committee on Commerce, Labor and Economic Development",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-26T21:27:17+00:00",
+        "tally": {
+          "yea": 97,
+          "nay": 24,
+          "present": 0,
+          "absent": 4,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-26T15:34:36+00:00",
+        "tally": {
+          "yea": 38,
+          "nay": 1,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-19T19:56:18+00:00",
+        "tally": {
+          "yea": 38,
+          "nay": 2,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-02-19T16:19:49+00:00",
+        "tally": {
+          "yea": 97,
+          "nay": 19,
+          "present": 0,
+          "absent": 9,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:57:09.358945+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/163b4228a9c087861bb31850712d8209",
@@ -25639,7 +25856,16 @@
     "bill_number": "HB 2754",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2754/",
     "short_title": "Enacting the providing civil relief from coerced debt act to provide protections and remedies for victims of certain debts constituting a coerced debt because of actions by another individual within the context of domestic violence.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:57:42.957288+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/5b4ecb9276a7d4b47db6d046e85ef9a0",
@@ -25655,7 +25881,42 @@
     "bill_number": "HB 2747",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2747/",
     "short_title": "Specifying that courts shall consider certain factors in determining whether a prior violation of law is comparable to any act described in certain driving under the influence crimes when calculating a person's criminal history score under the Kansas sentencing guidelines act.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Monday, April 6, 2026",
+    "sponsors": [
+      {
+        "name": "House Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed;",
+        "date": "2026-03-19T13:12:20+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-02-18T11:13:37+00:00",
+        "tally": {
+          "yea": 124,
+          "nay": 0,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:57:36.275980+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/98af5327b0b1cf3d25bda245ea4fb229",
@@ -25687,7 +25948,66 @@
     "bill_number": "HB 2745",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2745/",
     "short_title": "Requiring a vote of the electors to approve increases in property tax revenues for the next year, establishing the property tax relief fund and providing transfers to counties that limit property taxes to certain increases, establishing the property tax limit in lieu of the revenue neutral rate to provide for certain budget increases of taxing subdivisions and continuing in existence the taxpayer notification costs fund.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Vetoed",
+    "ks_api_latest_action": "No motion to reconsider vetoed bill; Veto sustained",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Assessment and Taxation",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Concurred with amendments;",
+        "date": "2026-03-27T23:22:47+00:00",
+        "tally": {
+          "yea": 63,
+          "nay": 59,
+          "present": 0,
+          "absent": 3,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Substitute passed as amended;",
+        "date": "2026-03-27T19:10:41+00:00",
+        "tally": {
+          "yea": 22,
+          "nay": 18,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-02-26T11:16:26+00:00",
+        "tally": {
+          "yea": 76,
+          "nay": 45,
+          "present": 0,
+          "absent": 4,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Committee of the Whole - Be passed as amended;",
+        "date": "2026-02-25T12:46:58+00:00",
+        "tally": {
+          "yea": 87,
+          "nay": 22,
+          "present": 0,
+          "absent": 16,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:57:29.444680+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/9a485101e6820729cc93e56d4b271fb4",
@@ -25751,7 +26071,30 @@
     "bill_number": "HB 2740",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2740/",
     "short_title": "Adopting compounding standards established by the United States pharmacopeia and allowing for exemptions from such standards.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Senate Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Health and Human Services",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed;",
+        "date": "2026-02-19T09:36:19+00:00",
+        "tally": {
+          "yea": 122,
+          "nay": 0,
+          "present": 0,
+          "absent": 3,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:57:16.052590+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/d42207baa21b94ad7c93b40b078868be",
@@ -25767,7 +26110,16 @@
     "bill_number": "HB 2766",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2766/",
     "short_title": "Providing that artificial persons shall not possess any political powers relating to election activity or ballot-issue activity.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:58:56.577155+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/2f897bc792f48c56c3ef6221a1ae40e6",
@@ -25783,7 +26135,42 @@
     "bill_number": "HB 2760",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2760/",
     "short_title": "Enacting the esthetics licensure compact to provide interstate practice privileges for estheticians.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on Calendar",
+    "sponsors": [
+      {
+        "name": "House Committee on Health and Human Services",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-03-19T13:12:38+00:00",
+        "tally": {
+          "yea": 39,
+          "nay": 1,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-02-19T09:38:05+00:00",
+        "tally": {
+          "yea": 122,
+          "nay": 0,
+          "present": 0,
+          "absent": 3,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:58:16.401118+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/9e686211fe3d391369a770ffa03f1aad",
@@ -25799,7 +26186,16 @@
     "bill_number": "HB 2759",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2759/",
     "short_title": "Requiring registration of agents and political organizations representing countries of concern.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:58:09.688411+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/9a81125d753ca5efe0250d45f4279ee3",
@@ -25815,7 +26211,30 @@
     "bill_number": "HB 2758",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2758/",
     "short_title": "Directing the capitol preservation committee to develop and approve plans for a registry kiosk of Kansas military forces killed in action or who died of wounds incurred during active duty to be placed within the state capitol.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Introduced",
+    "ks_api_latest_action": "Died in Senate Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Veterans and Military",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed;",
+        "date": "2026-02-19T09:37:17+00:00",
+        "tally": {
+          "yea": 121,
+          "nay": 1,
+          "present": 0,
+          "absent": 3,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:58:03.030231+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/38d82843c598aa92075c46f5b1f10e39",
@@ -25831,7 +26250,16 @@
     "bill_number": "HB 2757",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2757/",
     "short_title": "Repealing or discontinuing certain income tax credit incentives, extending the income tax credit for angel investors and aviation-related employment and providing expanded options in the high performance tax credit program for tax credit transfers and wage requirements for rural businesses.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on Calendar",
+    "sponsors": [
+      {
+        "name": "House Committee on Commerce, Labor and Economic Development",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:57:56.320627+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/7b1bbf6c21268fd45cde2cd358ab70ef",
@@ -25847,7 +26275,16 @@
     "bill_number": "HB 2756",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2756/",
     "short_title": "Prohibiting certain sex offenders from residing within 1,000 feet of any school property.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:57:49.631513+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/965a2af92e9f49a0dde8d44af8a2fbee",
@@ -25863,7 +26300,16 @@
     "bill_number": "HB 2765",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2765/",
     "short_title": "Adding and removing certain substances in schedules I, III and IV of the uniform controlled substances act and making conforming changes to the criminal code definition of fentanyl-related controlled substance.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Stricken from Calendar by Rule 1507",
+    "sponsors": [
+      {
+        "name": "House Committee on Health and Human Services",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:58:49.893028+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/2ba5191d4790efdf89086a537f11a1eb",
@@ -25879,7 +26325,16 @@
     "bill_number": "HB 2764",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2764/",
     "short_title": "Prohibiting amendments, suspensions or repeals of employment security law provisions through budget provisos, appropriations bills or temporary fiscal measures without following specified review procedures, authorizing the secretary of labor to recognize and approve employer-sponsored supplemental unemployment benefit plans if such plans meet specific criteria, reorganizing sections for improved readability and compliance, enhancing federal conformity by incorporating references to federal laws and guidelines and updating the criteria for determining suitable work and disqualification conditions for unemployment benefits.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Commerce, Labor and Economic Development",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:58:43.196811+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/469c3d7587e026b3073f706c6712c7c2",
@@ -25895,7 +26350,66 @@
     "bill_number": "HB 2763",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2763/",
     "short_title": "Enacting the athletic licensure trainer compact to provide interstate practice privileges for athletic trainers.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Vetoed",
+    "ks_api_latest_action": "No motion to reconsider vetoed bill; Veto sustained",
+    "sponsors": [
+      {
+        "name": "House Committee on Health and Human Services",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-04-11T01:16:10+00:00",
+        "tally": {
+          "yea": 74,
+          "nay": 47,
+          "present": 0,
+          "absent": 4,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-04-10T22:47:58+00:00",
+        "tally": {
+          "yea": 29,
+          "nay": 10,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-03-18T10:26:45+00:00",
+        "tally": {
+          "yea": 39,
+          "nay": 1,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-02-19T16:20:44+00:00",
+        "tally": {
+          "yea": 116,
+          "nay": 0,
+          "present": 0,
+          "absent": 9,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:58:36.534424+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/bc2f63f9ee4dc7bac77665ea25c1db10",
@@ -25911,7 +26425,42 @@
     "bill_number": "HB 2762",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2762/",
     "short_title": "Modifying the crime of unlawful sexual relations to describe who is a person in a position of authority for a school.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on Calendar",
+    "sponsors": [
+      {
+        "name": "House Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-03-19T13:12:59+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed;",
+        "date": "2026-02-19T09:39:38+00:00",
+        "tally": {
+          "yea": 122,
+          "nay": 0,
+          "present": 0,
+          "absent": 3,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:58:29.803934+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/418335c7e17f68e9e5ffa080c37ea14b",
@@ -25952,7 +26501,42 @@
     "bill_number": "HB 2761",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2761/",
     "short_title": "Enacting the speech-language pathology assistant act to provide for the licensure of speech-language pathology assistants.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Friday, April 3, 2026",
+    "sponsors": [
+      {
+        "name": "House Committee on K-12 Education Budget",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed;",
+        "date": "2026-03-17T15:07:12+00:00",
+        "tally": {
+          "yea": 38,
+          "nay": 2,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-02-19T09:38:53+00:00",
+        "tally": {
+          "yea": 121,
+          "nay": 1,
+          "present": 0,
+          "absent": 3,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:58:23.097056+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/161912f95142ba8cf780c808826fb8a4",
@@ -25968,7 +26552,48 @@
     "bill_number": "HB 2687",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2687/",
     "short_title": "Prohibiting any governmental agency from regulating landings, takeoffs or the operation of aquatic aircraft on waters of the state.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Representative Roeser",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Bohi",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Carlin",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Esau",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Goddard",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Johnson",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Reavis",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Schwertfeger",
+        "role": "primary"
+      },
+      {
+        "name": "Representative VanHouden",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:51:21.553947+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/34cad676bb13e2d2049c8ccf54a23ac4",
@@ -26382,7 +27007,30 @@
     "bill_number": "HB 2738",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2738/",
     "short_title": "Directing the secretary for children and families to request or update a pending waiver application from the supplemental nutrition assistance program that would allow the state to prohibit the purchase of food commonly marketed, advertised or recognized as candy and soft drinks.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Senate Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Welfare Reform",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-02-19T09:34:55+00:00",
+        "tally": {
+          "yea": 72,
+          "nay": 50,
+          "present": 0,
+          "absent": 3,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:57:02.662210+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/2fa94e6f4992b9847bb85727024cf20b",
@@ -26398,7 +27046,54 @@
     "bill_number": "HB 2737",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2737/",
     "short_title": "Enacting the taxpayer agreement act to provide for an alternative method of tax increment financing of municipal economic development projects through taxpayer agreements.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Monday, April 6, 2026",
+    "sponsors": [
+      {
+        "name": "House Committee on Commerce, Labor and Economic Development",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Concurred with amendments;",
+        "date": "2026-03-19T10:01:34+00:00",
+        "tally": {
+          "yea": 121,
+          "nay": 3,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-03-18T10:26:25+00:00",
+        "tally": {
+          "yea": 34,
+          "nay": 6,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-02-18T11:12:47+00:00",
+        "tally": {
+          "yea": 110,
+          "nay": 14,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:56:55.964558+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/92fd9b6e8b0e1ee477d98d41d7a433d3",
@@ -26414,7 +27109,30 @@
     "bill_number": "HB 2736",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2736/",
     "short_title": "Requiring hospitals to screen all patients for eligibility for such hospital's financial assistance program or charity care policy.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Final Action - Not passed",
+    "sponsors": [
+      {
+        "name": "House Committee on Insurance",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Final Action - Not  passed;",
+        "date": "2026-02-19T09:24:26+00:00",
+        "tally": {
+          "yea": 20,
+          "nay": 102,
+          "present": 0,
+          "absent": 3,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:56:49.267512+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/a7dfd782ffe94b0cff7b14d1cd8e3789",
@@ -26430,7 +27148,16 @@
     "bill_number": "HB 2735",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2735/",
     "short_title": "Enacting the patient's right to save act to establish shared savings programs and providing for the duties and requirements of such programs.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Insurance",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:56:42.532797+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/7f3bf1ca451ae63b2ec6d0839b3388aa",
@@ -26446,7 +27173,16 @@
     "bill_number": "HB 2734",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2734/",
     "short_title": "Requiring expedited procedures for children who are under two years of age at the time that a petition is filed requesting such child be adjudicated to be a child in need of care, requiring permanency for such a child within 12 months and directing the secretary to report on such expedited procedures.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Stricken from Calendar by Rule 1507",
+    "sponsors": [
+      {
+        "name": "House Committee on Child Welfare and Foster Care",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:56:35.856669+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/a33375b9a60f768712243dd25f46eaff",
@@ -26462,7 +27198,42 @@
     "bill_number": "HB 2733",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2733/",
     "short_title": "Requiring any person who is candidate or who has been elected to certain offices shall be and must remain a resident of the state or the appropriate district.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Friday, March 20, 2026",
+    "sponsors": [
+      {
+        "name": "House Committee on Elections",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Consent Calendar Passed",
+        "date": "2026-03-10T16:14:33+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed;",
+        "date": "2026-02-17T09:51:06+00:00",
+        "tally": {
+          "yea": 122,
+          "nay": 0,
+          "present": 0,
+          "absent": 3,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:56:29.192700+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/fd14658f8dfef4f9f640ed9b9201bfd4",
@@ -26478,7 +27249,30 @@
     "bill_number": "HB 2732",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2732/",
     "short_title": "Directing the state registrar of vital statistics to provide death certificates to survivors of deceased veterans with a service-connected disability that state in such certificates the relationship between the cause of death and the service-connected disability of such veterans.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Senate Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Veterans and Military",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed;",
+        "date": "2026-02-19T09:19:16+00:00",
+        "tally": {
+          "yea": 119,
+          "nay": 3,
+          "present": 0,
+          "absent": 3,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:56:22.487632+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/37b33eda3a7564ffe00843027e97ecaa",
@@ -26494,7 +27288,90 @@
     "bill_number": "HB 2731",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2731/",
     "short_title": "Directing the secretary for children and families to contract with the office of the inspector general for the establishment of a fraud detection unit to detect, investigate and assist in prosecuting fraud in the food assistance program.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Vetoes Overridden",
+    "ks_api_latest_action": "Motion to override veto prevailed",
+    "sponsors": [
+      {
+        "name": "House Committee on Welfare Reform",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-04-10T19:00:23+00:00",
+        "tally": {
+          "yea": 29,
+          "nay": 10,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-04-10T16:34:09+00:00",
+        "tally": {
+          "yea": 84,
+          "nay": 39,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-27T17:38:54+00:00",
+        "tally": {
+          "yea": 80,
+          "nay": 43,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-27T11:38:49+00:00",
+        "tally": {
+          "yea": 28,
+          "nay": 11,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-03-19T13:12:00+00:00",
+        "tally": {
+          "yea": 37,
+          "nay": 3,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Final Action - Substitute passed;",
+        "date": "2026-02-19T09:17:56+00:00",
+        "tally": {
+          "yea": 85,
+          "nay": 37,
+          "present": 0,
+          "absent": 3,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:56:15.782083+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/f9b4e324b713698f9c513a9b84cd3ab6",
@@ -26510,7 +27387,16 @@
     "bill_number": "HB 2730",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2730/",
     "short_title": "Requiring managed care organizations to provide an explanation of benefits to KanCare and CHIP enrollees.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Health and Human Services",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:56:09.059812+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/c8b6205868e9b3ddeda96e3e5037c9e5",
@@ -26526,7 +27412,66 @@
     "bill_number": "HB 2729",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2729/",
     "short_title": "Requiring the Kansas department of health and environment to provide forms and notices to physicians pursuant to the woman's-right-to know act.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Vetoes Overridden",
+    "ks_api_latest_action": "Motion to override veto prevailed",
+    "sponsors": [
+      {
+        "name": "House Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-04-09T17:06:32+00:00",
+        "tally": {
+          "yea": 31,
+          "nay": 8,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-04-09T13:44:14+00:00",
+        "tally": {
+          "yea": 87,
+          "nay": 36,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed;",
+        "date": "2026-03-19T13:11:41+00:00",
+        "tally": {
+          "yea": 31,
+          "nay": 9,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed;",
+        "date": "2026-02-18T11:11:36+00:00",
+        "tally": {
+          "yea": 87,
+          "nay": 37,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:56:02.387896+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/ad895b0426392b23fc5285b0dc1b5b1f",
@@ -26542,7 +27487,16 @@
     "bill_number": "HB 2728",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2728/",
     "short_title": "Requiring the state corporation commission to establish uniform siting and permitting standards for certain energy facilities and limiting local governmental actions relating thereto",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Energy, Utilities and Telecommunications",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:55:55.676500+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/2a1ef95cbef46d3ce960664df88457da",
@@ -26558,7 +27512,78 @@
     "bill_number": "HB 2727",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2727/",
     "short_title": "Providing for the plaintiff to elect to limit recovery in claims brought for violations of the woman's-right-to-know act and making the laws providing for medical malpractice screening inapplicable when such election is made.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Vetoes Overridden",
+    "ks_api_latest_action": "Motion to override veto prevailed",
+    "sponsors": [
+      {
+        "name": "House Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-04-09T17:05:59+00:00",
+        "tally": {
+          "yea": 31,
+          "nay": 8,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-04-09T13:41:32+00:00",
+        "tally": {
+          "yea": 87,
+          "nay": 36,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed;",
+        "date": "2026-03-19T13:11:23+00:00",
+        "tally": {
+          "yea": 31,
+          "nay": 9,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed;",
+        "date": "2026-02-18T11:10:51+00:00",
+        "tally": {
+          "yea": 87,
+          "nay": 37,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Committee of the Whole - Amendment by  was rejected;",
+        "date": "2026-02-17T20:10:00+00:00",
+        "tally": {
+          "yea": 37,
+          "nay": 84,
+          "present": 0,
+          "absent": 4,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:55:48.996103+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/c86db1fc8851190f313e022f9f798ef0",
@@ -26574,7 +27599,16 @@
     "bill_number": "HB 2726",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2726/",
     "short_title": "Decreasing the number of votes required to not retain a judge of the district court in office from a majority to 40% in judicial districts that have nonpartisan selection of judges and retention elections.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:55:42.276422+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/6f24cb30fae97e422a8c6844869f9ca5",
@@ -26590,7 +27624,16 @@
     "bill_number": "HB 2725",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2725/",
     "short_title": "Requiring the director of the division of personnel services of the department of administration to add judges of the district court to the state drug screening program.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:55:35.590810+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/75c820610d92eaf8e93866920bf429c5",
@@ -26606,7 +27649,16 @@
     "bill_number": "HB 2724",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2724/",
     "short_title": "Authorizing judges to waive the docket fee in expungement cases by reviewing and granting a poverty affidavit.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:55:28.923549+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/833e6d86c222453eafca748d8c6d6a56",
@@ -26622,7 +27674,16 @@
     "bill_number": "HB 2723",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2723/",
     "short_title": "Requiring the supreme court to develop or procure a court date reminder program for the purpose of sending advance notifications to individuals with scheduled court dates for a criminal case or an infraction and requiring all courts to send certain notifications using such program.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:55:22.261184+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/93232d3e3229dbe5701cac81aa06fc97",
@@ -26638,7 +27699,16 @@
     "bill_number": "HB 2722",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2722/",
     "short_title": "Providing that certain resultant trusts are not subject to claims of the settlor's creditors.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:55:15.596538+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/4c38ed92ac0086951c63e7d98c158215",
@@ -26654,7 +27724,16 @@
     "bill_number": "HB 2721",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2721/",
     "short_title": "Modifying an exception to the Kansas Open Records Act concerning software programs for electronic data processing.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:55:08.941295+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/6fc984c83f350f92a87b5d22d0df9016",
@@ -26670,7 +27749,16 @@
     "bill_number": "HB 2720",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2720/",
     "short_title": "Enacting the Kansas surrogate medical decisions act to establish a hierarchy for identifying a surrogate who would make healthcare decisions and provide associated definitions and provider guidelines.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:55:02.279995+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/d90e3badb77a105d33b73753f4b15c1d",
@@ -26686,7 +27774,78 @@
     "bill_number": "HB 2719",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2719/",
     "short_title": "Providing an exception to the rules and regulations filing act for technical amendments, creating a process for certain rules and regulations to receive priority status in the adoption process, removing references to revival of rules and regulations, clarifying that the department of the budget is not required to approve proposed rules and regulations mandated by the federal government and adding references to department of corrections rules and regulations that are not subject to the act.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Vetoes Overridden",
+    "ks_api_latest_action": "Motion to override veto prevailed",
+    "sponsors": [
+      {
+        "name": "House Committee on Commerce, Labor and Economic Development",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-04-09T17:05:23+00:00",
+        "tally": {
+          "yea": 38,
+          "nay": 1,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-04-09T13:39:13+00:00",
+        "tally": {
+          "yea": 89,
+          "nay": 34,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Concurred with amendments;",
+        "date": "2026-03-24T11:11:03+00:00",
+        "tally": {
+          "yea": 122,
+          "nay": 0,
+          "present": 0,
+          "absent": 3,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-03-19T13:11:05+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed;",
+        "date": "2026-02-19T08:11:36+00:00",
+        "tally": {
+          "yea": 121,
+          "nay": 0,
+          "present": 0,
+          "absent": 4,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:54:55.603261+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/c39961551e531df34dc98a56e67efb55",
@@ -26702,7 +27861,16 @@
     "bill_number": "HB 2718",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2718/",
     "short_title": "Creating a right for an adult care home resident to use such resident's pharmacy of choice without being charged a fee or financial penalty by the adult care home because of such choice.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Health and Human Services",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:54:48.896409+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/18b396dd485dd0588973fe8599f7f503",
@@ -26718,7 +27886,16 @@
     "bill_number": "HB 2717",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2717/",
     "short_title": "Decreasing the minimum age requirement from age seven to six for compulsory school attendance of students.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Stricken from Calendar by Rule 1507",
+    "sponsors": [
+      {
+        "name": "House Committee on K-12 Education Budget",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:54:42.225213+00:00"
   },
   {
     "id": "https://example.com/li/conference/conf_committee_20260205161851",
@@ -26752,7 +27929,16 @@
     "bill_number": "HB 2716",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2716/",
     "short_title": "Permitting a person with a disability to be issued one special license plate for each vehicle owned, registered and operated by such person.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Transportation",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:54:35.564300+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/58312300ad670839d6d7dda3e03cc88d",
@@ -26768,7 +27954,16 @@
     "bill_number": "HB 2715",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2715/",
     "short_title": "Imposing property tax on new motor vehicles following the 12th month in which a new vehicle was purchased or acquired.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Taxation",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:54:28.901626+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/f9dd9967294593fe1f4c5ebe2cdaf818",
@@ -26784,7 +27979,16 @@
     "bill_number": "HB 2714",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2714/",
     "short_title": "Providing for a decreased gallonage tax on beer and cereal malt beverages that are produced and packaged within the United States.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Taxation",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:54:22.242766+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/4184e4963dfb785d636220fc795ca601",
@@ -26800,7 +28004,16 @@
     "bill_number": "HB 2713",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2713/",
     "short_title": "Imposing property tax on used motor vehicles following the 12th month in which a used vehicle was purchased or acquired.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Taxation",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:54:15.424995+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/62b86421415918911405a20ca7483c98",
@@ -26816,7 +28029,30 @@
     "bill_number": "HB 2712",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2712/",
     "short_title": "Increasing the authority for a countywide retailers' sales tax and providing for the dedicated apportionment of special purpose tax revenues up to 2% and limiting special purpose city and countywide retailers' sales taxes to 10 years.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on Senate General Orders",
+    "sponsors": [
+      {
+        "name": "House Committee on Taxation",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-03-05T11:09:19+00:00",
+        "tally": {
+          "yea": 108,
+          "nay": 11,
+          "present": 0,
+          "absent": 5,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:54:08.761078+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/964f819fbd2247d67e8864701f088c61",
@@ -26832,7 +28068,42 @@
     "bill_number": "HB 2711",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2711/",
     "short_title": "Modifying and updating procedures for dissolution of cities of the third class.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Friday, March 20, 2026",
+    "sponsors": [
+      {
+        "name": "House Committee on Elections",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Consent Calendar Passed",
+        "date": "2026-03-10T16:14:15+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed;",
+        "date": "2026-02-17T09:50:02+00:00",
+        "tally": {
+          "yea": 122,
+          "nay": 0,
+          "present": 0,
+          "absent": 3,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:54:02.081956+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/92714c5a15cff8cd1c041a54bec44375",
@@ -26848,7 +28119,16 @@
     "bill_number": "HB 2710",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2710/",
     "short_title": "Enacting the affirming parental rights act to require school districts to provide parents with an affirming parental rights document, requiring the investigation of parental rights violations and establishing certain remedies for parents aggrieved by such violations.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Education",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:53:55.284572+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/0dae3dfe86f9795da1ea74eba6117003",
@@ -26864,7 +28144,16 @@
     "bill_number": "HB 2696",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2696/",
     "short_title": "Providing for the modernization of notarization and the notary public process with respect to real estate documents for the purpose of mitigation of real estate document-related fraud, requiring the development, implementation and administration of a two-tiered authentication system for notarization of real estate documents and requiring use of a 3D biometric antifraud system by all notaries public by December 31, 2027.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:52:21.733660+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/cbaa7ae7193f3b9cd79a866bb2015875",
@@ -26880,7 +28169,16 @@
     "bill_number": "HB 2695",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2695/",
     "short_title": "Enacting the enhanced oversight and accountability for the prescription of psychotropic drug prescriptions act to require the secretary of health and environment to establish an online reporting system for adverse drug reactions.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Representative Howe",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:52:14.896725+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/e670434690a40a411d0d4ff58c527209",
@@ -26896,7 +28194,16 @@
     "bill_number": "HB 2694",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2694/",
     "short_title": "Enacting the opioid patients right to know act to require the disclosure of the risks associated with prescribed opioid use.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Representative Simmons",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:52:08.238447+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/04607915c489c08948f9ded0bbf2cef5",
@@ -26912,7 +28219,16 @@
     "bill_number": "HB 2693",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2693/",
     "short_title": "Prohibiting certain applications of swine waste, establishing setback rules and requiring applicators to prevent nuisance conditions.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Agriculture and Natural Resources",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:52:01.569630+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/bdec383741cbddc1a2fbd8b1ae71e2e9",
@@ -26928,7 +28244,60 @@
     "bill_number": "HB 2692",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2692/",
     "short_title": "Establishing standards of conduct for agents of the United States immigration and customs enforcement (ICE) prohibiting facial covering of agents, requiring vehicles be clearly marked, requiring judicial search warrants, prohibiting raids in places of worships, schools, daycare centers, hospitals and courts, requiring minimum training.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Representative Simmons",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Alcala",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Amyx",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Boatman",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Carr",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Haskins",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Martinez",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Meyer",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Mosley",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Ruiz",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Wikle",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Xu",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:51:54.904320+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/be837b687d1930cccf425dd09c32a561",
@@ -26944,7 +28313,16 @@
     "bill_number": "HB 2691",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2691/",
     "short_title": "Requiring cause for evictions from residential property, modifying the petition and notice requirements for eviction cases and removing the requirement to post bond before the court may grant a continuance.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Representative Xu",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:51:48.232956+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/3245bb888648d420b20c376fbc401ccb",
@@ -26960,7 +28338,16 @@
     "bill_number": "HB 2690",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2690/",
     "short_title": "Authorizing interior inspections of residential property without the consent of the occupant pursuant to an administrative warrant or when there is probable cause of imminent danger related to health and safety and allowing the city to abate certain interior code violations or delegate such authority to the county.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Representative Xu",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:51:41.570762+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/a9cff80d8d727d44cb51933dda4e8290",
@@ -26976,7 +28363,44 @@
     "bill_number": "HB 2689",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2689/",
     "short_title": "Enacting the Kansas tri-share child care act for the sharing of child care costs among employers, employees and the state, establishing the Kansas tri-share child care matching program to be administered by the director of the Kansas office of early childhood and creating the Kansas tri-share child care matching program fund.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Representative Osman",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Martinez",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Melton",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Meyer",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Oropeza",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Vaughn",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Wikle",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Xu",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:51:34.904592+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/9b47aba8b196dfa6d7475b5ed8703987",
@@ -26992,7 +28416,42 @@
     "bill_number": "HB 2688",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2688/",
     "short_title": "Providing that a nondisclosure agreement by any party in an action related to childhood sexual abuse or human trafficking shall not be judicially enforceable in a dispute involving childhood sexual abuse or human trafficking allegations or claims.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Senate Committee",
+    "sponsors": [
+      {
+        "name": "Representative Bohi",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Williams",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Barrett",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Lewis",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-02-19T09:08:39+00:00",
+        "tally": {
+          "yea": 122,
+          "nay": 0,
+          "present": 0,
+          "absent": 3,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:51:28.239817+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/6cb671d992ae361bb09344ad57a7584d",
@@ -27264,7 +28723,16 @@
     "bill_number": "HB 2701",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2701/",
     "short_title": "Permitting nonuniform zoning regulations within a zoning district.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Commerce, Labor and Economic Development",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:52:55.230534+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/6b92578b2b16c75a8ef2dbd23d6b17dc",
@@ -27280,7 +28748,66 @@
     "bill_number": "HB 2700",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2700/",
     "short_title": "Establishing the Kansas right-to-repair act to provide the right for persons who purchase or lease digital electronic equipment to obtain the legal authorization and necessary documentation and parts from original equipment manufacturers to diagnose, maintain and repair such equipment.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Thursday, April 9, 2026",
+    "sponsors": [
+      {
+        "name": "House Committee on Commerce, Labor and Economic Development",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-26T10:32:53+00:00",
+        "tally": {
+          "yea": 123,
+          "nay": 2,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-25T15:02:37+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-03-19T13:10:47+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-02-18T11:08:58+00:00",
+        "tally": {
+          "yea": 122,
+          "nay": 2,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:52:48.570381+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/b7f0f24fc1d1f3f1361ef26a68c55a76",
@@ -27296,7 +28823,16 @@
     "bill_number": "HB 2699",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2699/",
     "short_title": "Providing for official legal publications on a county website for counties with a population of 100,000 or more.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Commerce, Labor and Economic Development",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:52:41.864111+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/abb3f3713ed80c0567855fe9b9b19629",
@@ -27312,7 +28848,16 @@
     "bill_number": "HB 2698",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2698/",
     "short_title": "Providing for permanent seizures of animals in instances when the owner violates county resolutions and authorizing judges of competent jurisdiction to order such seizures.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Stricken from Calendar by Rule 1507",
+    "sponsors": [
+      {
+        "name": "House Committee on Commerce, Labor and Economic Development",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:52:35.199497+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/89e3e2ba40ca6ef9990952df3a229c42",
@@ -27328,7 +28873,16 @@
     "bill_number": "HB 2697",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2697/",
     "short_title": "Modifying the crime of unlawful acts involving theft detection shielding devices to include possessing, with the intent to commit theft, a computer program, application, software or other device adapted, designed or commonly used to operate a lock or locks on or start a motor vehicle without an ignition key or key fob, or to copy, store information relating to, or interfere with those functions and providing for exceptions.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:52:28.531563+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/dbc33a8da0d84f200d82da12fd8c4968",
@@ -27615,7 +29169,16 @@
     "bill_number": "HB 2709",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2709/",
     "short_title": "None",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Representative Chauncey",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:53:48.623224+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/d5f373ac13ffc550a7ac5fb5b1167271",
@@ -27631,7 +29194,16 @@
     "bill_number": "HB 2708",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2708/",
     "short_title": "Establishing within the legislative branch the office of the director for Kansas advisory commissions, the advisory commission on Asian American and Pacific Islander affairs and the Kansas Native American affairs commission and transferring the Hispanic and Latino American affairs commission and the advisory commission on African-American affairs to the legislative branch.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Representative Roeser",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:53:41.961365+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/4adc2148190f018ea252d386f4ae2055",
@@ -27647,7 +29219,148 @@
     "bill_number": "HB 2707",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2707/",
     "short_title": "Modifying the definition of abuse in the protection from abuse act to include certain acts or threats related to pets and specifying that courts may include orders relating to pets in protection from abuse act orders.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Representative Oropeza",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Alcala",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Amyx",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Ballard",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Boatman",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Bohi",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Brownlee Paige",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Carlin",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Carmichael",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Carr",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Curtis",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Featherston",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Haskins",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Hoye",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Martinez",
+        "role": "primary"
+      },
+      {
+        "name": "Representative McDonald",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Melton",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Meyer",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Mosley",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Neighbor",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Ohaebosim",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Poskin",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Ruiz",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Ruiz",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Sawyer",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Sawyer Clayton",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Schlingensiepen",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Schreiber",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Simmons",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Stogsdill",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Vaughn",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Wikle",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Woodard",
+        "role": "primary"
+      },
+      {
+        "name": "Representative Xu",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:53:35.296840+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/3e4c8cfd7d02fb4bf2c7234d10debea7",
@@ -27663,7 +29376,16 @@
     "bill_number": "HB 2706",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2706/",
     "short_title": "Prohibiting certain federal law enforcement officers from entering hospitals, schools and places of worship under certain circumstances and prohibiting law enforcement officers from wearing a facial covering that conceals or obscures their facial identity in the performance of their duties with certain exceptions.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Representative Carr",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:53:28.633689+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/ea595b0c735972e0f3e67b9cbcb95064",
@@ -27679,7 +29401,16 @@
     "bill_number": "HB 2705",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2705/",
     "short_title": "Providing that courts are not required to appoint counsel for an indigent inmate in certain habeas corpus actions.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Corrections and Juvenile Justice",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:53:21.967619+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/4b5b4a6182451c7588765a0b9415f4ee",
@@ -27695,7 +29426,16 @@
     "bill_number": "HB 2704",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2704/",
     "short_title": "Providing that amendments related to credit for time spent incarcerated are applicable to any sentence computed on or after October 20, 2023.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Corrections and Juvenile Justice",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:53:15.285635+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/9649379b4bf1511872137a8df36a9d2b",
@@ -27711,7 +29451,30 @@
     "bill_number": "HB 2703",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2703/",
     "short_title": "Enacting the Kansas health insurance affordability transparency act to require a report specifying the financial impact to covered individuals resulting from the passage of certain health insurance legislation.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on Senate General Orders",
+    "sponsors": [
+      {
+        "name": "House Committee on Insurance",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed;",
+        "date": "2026-02-19T09:16:32+00:00",
+        "tally": {
+          "yea": 87,
+          "nay": 35,
+          "present": 0,
+          "absent": 3,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:53:08.628165+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/f95db0832d8f4bec620bbd0652e1d0f0",
@@ -27727,7 +29490,42 @@
     "bill_number": "HB 2702",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2702/",
     "short_title": "Providing that applicants for a physician assistant license submit to a criminal record check, providing for the collaboration between physicians and physician assistants and requiring the revocation of a physician assistant license under certain circumstances.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Friday, April 3, 2026",
+    "sponsors": [
+      {
+        "name": "House Committee on Health and Human Services",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed;",
+        "date": "2026-03-18T10:25:52+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-02-19T09:10:17+00:00",
+        "tally": {
+          "yea": 120,
+          "nay": 2,
+          "present": 0,
+          "absent": 3,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:53:01.934719+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/5af45dd747bac0d0e349fdea29ee54a4",
@@ -27791,7 +29589,16 @@
     "bill_number": "HB 2683",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2683/",
     "short_title": "Allowing healthcare providers to charge fees to furnish a patient's healthcare records and providing for the disclosure of a deceased patient's healthcare records to certain individuals.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Health and Human Services",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:51:14.721418+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/6f261bc5c9ce1593431f8a22abebe6b4",
@@ -27807,7 +29614,16 @@
     "bill_number": "HB 2682",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2682/",
     "short_title": "Enacting the Kansas organic waste land application accountability act and authorizing the department of health and environment to regulate the land application of biosolids and organic waste materials, except when applied by a bona fide farmer conducting normal farming operations on land owned or leased by such farmer.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "House Committee on Agriculture and Natural Resources",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T15:51:08.064050+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/12c59dcc1696cf600dfb3243496e1448",
@@ -36098,7 +37914,7 @@
     "feed": "events",
     "bill_number": "SCR 1619",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1619/",
-    "short_title": "Proposing to amend section 1 of article 11 of the constitution of the state of Kansas to decrease the assessment percentage used to determine the assessed value of real property used for residential purposes and mobile homes used for residential purposes from 11\u00bd% to 9% for purposes of property taxation.",
+    "short_title": "Proposing to amend section 1 of article 11 of the constitution of the state of Kansas to decrease the assessment percentage used to determine the assessed value of real property used for residential purposes and mobile homes used for residential purposes from 11½% to 9% for purposes of property taxation.",
     "short_title_source": "scraped"
   },
   {
@@ -36761,7 +38577,7 @@
     "ks_api_enriched_at": "2026-06-28T12:04:51.120948+00:00"
   },
   {
-    "title": "Multiple sclerosis: A Veteran\u2019s journey back to VA care",
+    "title": "Multiple sclerosis: A Veteran’s journey back to VA care",
     "link": "https://news.va.gov/144680/multiple-sclerosis-veterans-journey-back-to-va/",
     "summary": "For one Veteran, a new diagnosis of multiple sclerosis exposed her to the excellence of VA care.",
     "source": "VA News",
@@ -36777,7 +38593,7 @@
   {
     "title": "Meet a VA Oncologist: Dr. Ruchika Gutt",
     "link": "https://news.va.gov/144542/meet-a-va-oncologist-dr-ruchika-gutt/",
-    "summary": "Bringing compassionate care and innovative treatment to our Veterans is a team of skilled, dedicated oncologists like Dr. Ruchika Gutt, Chief of Radiation Oncology at the Washington, DC VA Medical Center (VAMC). Keep reading as Dr. Gutt shares more about VA\u2019s cancer innovations and how a little kindness goes a long way during treatment.",
+    "summary": "Bringing compassionate care and innovative treatment to our Veterans is a team of skilled, dedicated oncologists like Dr. Ruchika Gutt, Chief of Radiation Oncology at the Washington, DC VA Medical Center (VAMC). Keep reading as Dr. Gutt shares more about VA’s cancer innovations and how a little kindness goes a long way during treatment.",
     "source": "VA News",
     "published": "2026-01-23T21:30:00+00:00"
   },
@@ -37427,7 +39243,7 @@
   {
     "title": "Winter storm, deep freeze put Veterans at risk: VA urges early planning",
     "link": "https://news.va.gov/144708/winter-storm-freeze-veterans-risk-urge-planning/",
-    "summary": "A powerful winter storm will bring heavy snow, dangerous ice and life\u2011threatening cold to some of the U.S. this weekend. VA urges Veterans to prepare now.",
+    "summary": "A powerful winter storm will bring heavy snow, dangerous ice and life‑threatening cold to some of the U.S. this weekend. VA urges Veterans to prepare now.",
     "source": "VA News",
     "published": "2026-01-23T14:30:00+00:00"
   },
@@ -40072,7 +41888,7 @@
     "published": "2026-01-21T15:30:00+00:00"
   },
   {
-    "title": "Here\u2019s how to see attorney and agent fees paid by VA",
+    "title": "Here’s how to see attorney and agent fees paid by VA",
     "link": "https://news.va.gov/144624/attorney-fees-paid-by-va/",
     "summary": "VA will now publish the amount of money it's legally obligated to pay to VA-accredited attorneys and claim agents assisting Veterans with disability claims.",
     "source": "VA News",
@@ -40081,7 +41897,7 @@
   {
     "title": "Primary care careers at VA: Meaningful, modern, made for you",
     "link": "https://news.va.gov/144537/primary-care-careers-at-va-made-for-you/",
-    "summary": "Did you know that every Veteran receiving health care through the Department of Veterans Affairs (VA) is provided a primary care physician? Over 9 million Veterans are enrolled in the VA health care system, so we\u2019re always looking for qualified, caring primary care physicians to join our team and provide the best care to those who served.",
+    "summary": "Did you know that every Veteran receiving health care through the Department of Veterans Affairs (VA) is provided a primary care physician? Over 9 million Veterans are enrolled in the VA health care system, so we’re always looking for qualified, caring primary care physicians to join our team and provide the best care to those who served.",
     "source": "VA News",
     "published": "2026-01-20T21:30:00+00:00"
   },
@@ -40732,7 +42548,7 @@
   {
     "title": "Jumpstart your January with Whole Health",
     "link": "https://news.va.gov/144549/jumpstart-your-january-with-whole-health/",
-    "summary": "Whole Health helps Veterans\u2014especially those transitioning from military to civilian life\u2014build meaningful goals and achieve balance in the new year.",
+    "summary": "Whole Health helps Veterans—especially those transitioning from military to civilian life—build meaningful goals and achieve balance in the new year.",
     "source": "VA News",
     "published": "2026-01-18T19:30:00+00:00"
   },
@@ -40744,9 +42560,9 @@
     "published": "2026-01-17T21:30:00+00:00"
   },
   {
-    "title": "Training rural workforce to care for women Veterans \u2013 VA continues its mission",
+    "title": "Training rural workforce to care for women Veterans – VA continues its mission",
     "link": "https://news.va.gov/144566/training-rural-workforce-for-women-veterans/",
-    "summary": "Expanding women\u2019s health care in rural areas: Training initiatives empower VA primary care teams to meet the growing needs of women Veterans.",
+    "summary": "Expanding women’s health care in rural areas: Training initiatives empower VA primary care teams to meet the growing needs of women Veterans.",
     "source": "VA News",
     "published": "2026-01-17T19:30:00+00:00"
   },
@@ -40760,7 +42576,7 @@
   {
     "title": "New year, new VA career",
     "link": "https://news.va.gov/144420/new-year-new-va-career/",
-    "summary": "At the Department of Veterans Affairs (VA), we\u2019re beginning the year with a wide range of open positions across our nationwide network, offering rewarding career opportunities for talented professionals in clinical and support roles.",
+    "summary": "At the Department of Veterans Affairs (VA), we’re beginning the year with a wide range of open positions across our nationwide network, offering rewarding career opportunities for talented professionals in clinical and support roles.",
     "source": "VA News",
     "published": "2026-01-16T21:30:00+00:00"
   },
@@ -41051,7 +42867,7 @@
   {
     "title": "VA Research Wrap Up: New findings on suicide risk, coronary angiography and arthritis",
     "link": "https://news.va.gov/144572/va-research-wrap-up-suicide-risk-angiography/",
-    "summary": "VA Research recently published three\u00a0News Briefs\u00a0highlighting findings on suicide risk, mortality, and coronary angiography and arthritis.",
+    "summary": "VA Research recently published three News Briefs highlighting findings on suicide risk, mortality, and coronary angiography and arthritis.",
     "source": "VA News",
     "published": "2026-01-16T14:30:00+00:00"
   },
@@ -41210,7 +43026,7 @@
     "short_title_source": "scraped"
   },
   {
-    "title": "Fight winter\u2019s chill with warming foods and drinks",
+    "title": "Fight winter’s chill with warming foods and drinks",
     "link": "https://news.va.gov/144495/fight-winters-chill-warming-foods-drinks/",
     "summary": "Seasonal recipes highlight ingredients that are both warming and nourishing",
     "source": "VA News",
@@ -42076,7 +43892,7 @@
     "short_title_source": "scraped"
   },
   {
-    "title": "A male Veteran\u2019s journey through breast cancer",
+    "title": "A male Veteran’s journey through breast cancer",
     "link": "https://news.va.gov/144470/a-male-veterans-journey-through-breast-cancer/",
     "summary": "Highlighting the importance of screening to identify and treat male breast cancer",
     "source": "VA News",
@@ -44709,7 +46525,7 @@
     "ks_api_enriched_at": "2026-06-28T02:52:30.694143+00:00"
   },
   {
-    "title": "VA Research Wrap Up: New findings on Alzheimer\u2019s disease, aging and pancreatic cancer",
+    "title": "VA Research Wrap Up: New findings on Alzheimer’s disease, aging and pancreatic cancer",
     "link": "https://news.va.gov/144430/va-research-wrap-up-alzheimers-aging-pancreatic/",
     "summary": "VA Research recently published findings on Alzheimer's disease, returning Veterans to home after nursing care, and pancreatic cancer.",
     "source": "VA News",
@@ -44902,14 +46718,14 @@
   {
     "title": "Did you hear that?",
     "link": "https://news.va.gov/144356/did-you-hear-that/",
-    "summary": "If you are worried about your ability to hear, it\u2019s important to talk to your provider.",
+    "summary": "If you are worried about your ability to hear, it’s important to talk to your provider.",
     "source": "VA News",
     "published": "2026-01-08T19:30:00+00:00"
   },
   {
     "title": "First mammogram proves life saving",
     "link": "https://news.va.gov/144301/first-mammogram-proves-life-saving/",
-    "summary": "Army Veteran Ann Hoffman\u2019s first mammogram unexpectedly revealed breast cancer, leading to life-saving treatment and a commitment to annual screenings. Getting a mammogram through VA is easy.",
+    "summary": "Army Veteran Ann Hoffman’s first mammogram unexpectedly revealed breast cancer, leading to life-saving treatment and a commitment to annual screenings. Getting a mammogram through VA is easy.",
     "source": "VA News",
     "published": "2026-01-08T15:30:00+00:00"
   },
@@ -45080,7 +46896,7 @@
   {
     "title": "91.7% of Veterans who use VA telehealth are satisfied",
     "link": "https://news.va.gov/144279/91-7-veterans-use-va-telehealth-are-satisfied/",
-    "summary": "Veterans\u2019 trust in and satisfaction with VA telehealth continued to rise for the fifth year in a row.",
+    "summary": "Veterans’ trust in and satisfaction with VA telehealth continued to rise for the fifth year in a row.",
     "source": "VA News",
     "published": "2026-01-06T15:30:00+00:00"
   },
@@ -45173,35 +46989,35 @@
     "published": "2026-01-03T21:30:00+00:00"
   },
   {
-    "title": "From country tunes to heroics: Ashley Perkins\u2019 lifesaving act",
+    "title": "From country tunes to heroics: Ashley Perkins’ lifesaving act",
     "link": "https://news.va.gov/144254/country-tunes-to-heroics-lifesaving-act/",
     "summary": "Ashley Perkins, a VHSO social worker, interrupted her country music performance to save a life with CPR skills.",
     "source": "VA News",
     "published": "2026-01-02T15:30:00+00:00"
   },
   {
-    "title": "Veterans: Join MVP\u2019s military experiences and exposures survey",
+    "title": "Veterans: Join MVP’s military experiences and exposures survey",
     "link": "https://news.va.gov/144249/join-mvps-military-experiences-exposures-survey/",
     "summary": "MVP recently launched a survey to learn more about the ways military experiences and toxic exposures affect health. Join MVP and take the survey today.",
     "source": "VA News",
     "published": "2026-01-01T15:30:00+00:00"
   },
   {
-    "title": "VA\u2019s 6-Service Challenge inspires Veteran wellness",
+    "title": "VA’s 6-Service Challenge inspires Veteran wellness",
     "link": "https://news.va.gov/144245/6-service-challenge-inspires-veteran-wellness/",
-    "summary": "Discover how Veterans improve wellness and build community through VA\u2019s Whole Health 6-Service Challenge using the Share My Health Data app and wearables.",
+    "summary": "Discover how Veterans improve wellness and build community through VA’s Whole Health 6-Service Challenge using the Share My Health Data app and wearables.",
     "source": "VA News",
     "published": "2025-12-31T15:30:00+00:00"
   },
   {
-    "title": "Year in Review:\u00a0An inside look at VA Careers\u2019 resources",
+    "title": "Year in Review: An inside look at VA Careers’ resources",
     "link": "https://news.va.gov/144236/year-in-review-inside-look-va-careers-resources/",
-    "summary": "In this Year in Review, we\u2019ll provide an overview of the tools and features on the VA Careers website to help job seekers find their perfect career match.",
+    "summary": "In this Year in Review, we’ll provide an overview of the tools and features on the VA Careers website to help job seekers find their perfect career match.",
     "source": "VA News",
     "published": "2025-12-30T21:30:00+00:00"
   },
   {
-    "title": "VA Pittsburgh kicks-off \u201cHome for the Holidays\u201d Veteran outreach",
+    "title": "VA Pittsburgh kicks-off “Home for the Holidays” Veteran outreach",
     "link": "https://news.va.gov/144259/va-pittsburgh-home-holidays-veteran-outreach/",
     "summary": "VA Pittsburgh Healthcare System's \"Home for the Holidays\" outreach event rapidly connected homeless Veterans with housing and support ahead of winter.",
     "source": "VA News",
@@ -45278,7 +47094,7 @@
   {
     "title": "LiveWholeHealth #298: Power your intentions in the New Year",
     "link": "https://news.va.gov/144195/livewholehealth-298-power-intentions-new-year/",
-    "summary": "The new year brings a chance to find renewed health and well-being. This \u201cNew You\u201d salad will nourish you so you can put your energy behind the new goals you set!",
+    "summary": "The new year brings a chance to find renewed health and well-being. This “New You” salad will nourish you so you can put your energy behind the new goals you set!",
     "source": "VA News",
     "published": "2025-12-29T21:30:00+00:00"
   },
@@ -47981,7 +49797,7 @@
     "published": "2025-12-27T21:30:00+00:00"
   },
   {
-    "title": "My HealtheVet and Telehealth \u201cmake all the difference\u201d for Veteran",
+    "title": "My HealtheVet and Telehealth “make all the difference” for Veteran",
     "link": "https://news.va.gov/144190/myhealthevet-telehealth-make-difference-for-vet/",
     "summary": "Veteran Jim Smith uses VA telehealth to manage his care and maintain his health so he can do his part to support fellow Veterans.",
     "source": "VA News",
@@ -47990,28 +49806,28 @@
   {
     "title": "Breaking the myth: Understanding Veteran homelessness",
     "link": "https://news.va.gov/144187/breaking-myth-veteran-homelessness/",
-    "summary": "Learn how Veteran homelessness takes many forms, how you can help break the stigma around homelessness, and how you can help homeless Veterans access the resources they\u2019ve earned and deserve.",
+    "summary": "Learn how Veteran homelessness takes many forms, how you can help break the stigma around homelessness, and how you can help homeless Veterans access the resources they’ve earned and deserve.",
     "source": "VA News",
     "published": "2025-12-26T19:30:00+00:00"
   },
   {
     "title": "Five essential suicide prevention resources",
     "link": "https://news.va.gov/144183/five-essential-suicide-prevention-resources/",
-    "summary": "In 2025, VA\u2019s Office of Suicide Prevention shared resources, practical guidance, and insights for Veterans.",
+    "summary": "In 2025, VA’s Office of Suicide Prevention shared resources, practical guidance, and insights for Veterans.",
     "source": "VA News",
     "published": "2025-12-26T15:30:00+00:00"
   },
   {
     "title": "VA Research Wrap Up: New findings on Veteran mortality, weight loss and heart failure",
     "link": "https://news.va.gov/144171/va-research-wrap-up-mortality-weight-loss-heart/",
-    "summary": "VA Research recently published three\u00a0News Briefs\u00a0highlighting findings on Veteran mortality, weight loss and heart failure.",
+    "summary": "VA Research recently published three News Briefs highlighting findings on Veteran mortality, weight loss and heart failure.",
     "source": "VA News",
     "published": "2025-12-26T14:30:00+00:00"
   },
   {
     "title": "VA Deputy Secretary discusses 2025 accomplishments, 2026 goals on Federal EHR Update",
     "link": "https://news.va.gov/144152/deputy-secretary-accomplishments-2026-goals-ehr/",
-    "summary": "The Honorable VA Deputy Secretary Paul Lawrence, Ph.D., appeared on VA's internal program, the weekly \u201cFederal Electronic Health Record (EHR) Update\u201d on Dec. 9. to discuss VA's 2025 accomplishments and goals for 2026.",
+    "summary": "The Honorable VA Deputy Secretary Paul Lawrence, Ph.D., appeared on VA's internal program, the weekly “Federal Electronic Health Record (EHR) Update” on Dec. 9. to discuss VA's 2025 accomplishments and goals for 2026.",
     "source": "VA News",
     "published": "2025-12-25T21:30:00+00:00"
   },
@@ -48037,23 +49853,23 @@
     "published": "2025-12-24T19:30:00+00:00"
   },
   {
-    "title": "Veteran\u2019s health and confidence restored by VA wellness program",
+    "title": "Veteran’s health and confidence restored by VA wellness program",
     "link": "https://news.va.gov/144093/health-confidence-restored-va-wellness-program/",
-    "summary": "Audrey Barrett\u2019s journey shows how personalized support and wellness helps Veterans embrace a healthier, happier and more empowered life.",
+    "summary": "Audrey Barrett’s journey shows how personalized support and wellness helps Veterans embrace a healthier, happier and more empowered life.",
     "source": "VA News",
     "published": "2025-12-24T15:30:00+00:00"
   },
   {
     "title": "TSGLI celebrates 20 years of honoring severely injured service members",
     "link": "https://news.va.gov/144151/tsgli-celebrates-20-years/",
-    "summary": "The Servicemembers\u2019 Group Life Insurance Traumatic Injury Protection (TSGLI) program is celebrating 20 years of providing short-term financial support to help eligible service members recover from traumatic injuries.",
+    "summary": "The Servicemembers’ Group Life Insurance Traumatic Injury Protection (TSGLI) program is celebrating 20 years of providing short-term financial support to help eligible service members recover from traumatic injuries.",
     "source": "VA News",
     "published": "2025-12-24T14:30:00+00:00"
   },
   {
     "title": "Year in Review: Federal job application changes",
     "link": "https://news.va.gov/144144/year-in-review-federal-job-application-changes/",
-    "summary": "In this edition of the Year in Review, we\u2019re taking another look at 2025\u2019s biggest federal job application changes and what they mean for job seekers.",
+    "summary": "In this edition of the Year in Review, we’re taking another look at 2025’s biggest federal job application changes and what they mean for job seekers.",
     "source": "VA News",
     "published": "2025-12-23T21:30:00+00:00"
   },
@@ -48086,9 +49902,9 @@
     "published": "2025-12-22T19:30:00+00:00"
   },
   {
-    "title": "Veteran homelessness isn\u2019t always visible",
+    "title": "Veteran homelessness isn’t always visible",
     "link": "https://news.va.gov/144072/veteran-homelessness-isnt-always-visible/",
-    "summary": "Veteran homelessness isn\u2019t always visible, and understanding its many forms can help connect those experiencing homelessness with vital VA support.",
+    "summary": "Veteran homelessness isn’t always visible, and understanding its many forms can help connect those experiencing homelessness with vital VA support.",
     "source": "VA News",
     "published": "2025-12-22T15:30:00+00:00"
   },
@@ -48121,16 +49937,16 @@
     "published": "2025-12-20T19:30:00+00:00"
   },
   {
-    "title": "Make\u00a0a difference\u00a0at\u00a0a rural VA",
+    "title": "Make a difference at a rural VA",
     "link": "https://news.va.gov/143984/make-a-difference-at-a-rural-va/",
-    "summary": "Here's a look at\u00a0Carl Vinson VA,\u00a0located\u00a0in rural Dublin, Ga., a small town with a big heart. See if a career serving Veterans here is right for you!",
+    "summary": "Here's a look at Carl Vinson VA, located in rural Dublin, Ga., a small town with a big heart. See if a career serving Veterans here is right for you!",
     "source": "VA News",
     "published": "2025-12-19T21:30:00+00:00"
   },
   {
     "title": "Five strategies for surviving the holidays",
     "link": "https://news.va.gov/144034/five-strategies-for-surviving-the-holidays/",
-    "summary": "The holidays can be joyous but also emotionally hard, especially if you\u2019re already experiencing challenges. Learn some ways to navigate the season.",
+    "summary": "The holidays can be joyous but also emotionally hard, especially if you’re already experiencing challenges. Learn some ways to navigate the season.",
     "source": "VA News",
     "published": "2025-12-19T19:30:00+00:00"
   },
@@ -48193,7 +50009,7 @@
     "published": "2025-12-17T19:30:00+00:00"
   },
   {
-    "title": "How VA\u2019s Mindfulness Coach app helped a Veteran healing and find joy",
+    "title": "How VA’s Mindfulness Coach app helped a Veteran healing and find joy",
     "link": "https://news.va.gov/143915/how-vas-mindfulness-coach-app-healing-find-joy/",
     "summary": "After loss and injury, an Army Veteran found healing through VA digital health tools, helping him rediscover purpose and strength.",
     "source": "VA News",
