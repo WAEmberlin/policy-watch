@@ -48,7 +48,7 @@ openstates:
   base_url: https://v3.openstates.org
   default_days_back: 7
   per_page: 20
-  request_delay_seconds: 0.5
+  request_delay_seconds: 1.1  # free tier: 1 request/second
   max_retries: 3
 
 kansas_api:

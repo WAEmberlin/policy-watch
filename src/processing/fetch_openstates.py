@@ -62,18 +62,20 @@ def fetch_state(
     full_refresh: bool,
 ) -> None:
     code = state_cfg["code"]
-    jurisdiction = state_cfg["openstates_jurisdiction"]
     state_dir = DATA_DIR / code
 
     print(f"\n=== Fetching Open States data for {code.upper()} ===")
 
     since = None if full_refresh else updated_since
-    include = ["sponsorships", "actions", "versions", "votes", "documents"]
+    # Light includes for list endpoint; votes/documents come from detail enrichment
+    include = ["sponsorships", "actions", "versions"]
+    # API accepts state codes (CO) more reliably than full OCD IDs for list queries
+    jurisdiction_query = code.upper()
 
-    bills = client.fetch_bills(jurisdiction=jurisdiction, updated_since=since, include=include)
-    events = client.fetch_events(jurisdiction=jurisdiction, updated_since=since)
-    committees = client.fetch_committees(jurisdiction=jurisdiction)
-    legislators = client.fetch_legislators(jurisdiction=jurisdiction, updated_since=since)
+    bills = client.fetch_bills(jurisdiction=jurisdiction_query, updated_since=since, include=include)
+    events = client.fetch_events(jurisdiction=jurisdiction_query, updated_since=since)
+    committees = client.fetch_committees(jurisdiction=jurisdiction_query)
+    legislators = client.fetch_legislators(jurisdiction=jurisdiction_query, updated_since=since)
 
     # Merge with existing for incremental updates
     bills = merge_by_id(load_json(state_dir / "bills.json", []), bills)
