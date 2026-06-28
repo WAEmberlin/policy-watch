@@ -35,8 +35,15 @@ class OpenStatesClient:
     def _headers(self) -> Dict[str, str]:
         headers = {"Accept": "application/json"}
         if self.api_key:
-            headers["X-API-Key"] = self.api_key
+            headers["X-API-KEY"] = self.api_key
         return headers
+
+    @staticmethod
+    def _format_include(include: Optional[List[str]]) -> Optional[str]:
+        """Open States expects include as a comma-separated string, not repeated params."""
+        if not include:
+            return None
+        return ",".join(include)
 
     def _throttle(self) -> None:
         elapsed = time.time() - self._last_request_at
@@ -65,9 +72,15 @@ class OpenStatesClient:
                     time.sleep(wait)
                     continue
 
+                if response.status_code >= 400:
+                    detail = response.text[:500]
+                    print(f"Open States HTTP {response.status_code} for {url}: {detail}")
+
                 response.raise_for_status()
                 return response.json()
 
+            except requests.HTTPError:
+                raise
             except requests.RequestException as exc:
                 if attempt >= self.max_retries:
                     raise
@@ -113,10 +126,18 @@ class OpenStatesClient:
         params: Dict[str, Any] = {"jurisdiction": jurisdiction}
         if updated_since:
             params["updated_since"] = updated_since
-        if include:
-            params["include"] = include
+        include_str = self._format_include(include)
+        if include_str:
+            params["include"] = include_str
 
-        return list(self.paginate("/bills", params))
+        try:
+            return list(self.paginate("/bills", params))
+        except requests.HTTPError as exc:
+            if include_str and exc.response is not None and exc.response.status_code in (400, 422):
+                print("Bills fetch rejected include params; retrying without include...")
+                params.pop("include", None)
+                return list(self.paginate("/bills", params))
+            raise
 
     def fetch_events(
         self,

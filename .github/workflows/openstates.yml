@@ -82,7 +82,8 @@ jobs:
         run: |
           git config user.name "civicwatch-bot"
           git config user.email "actions@github.com"
-          git add data docs config src/adapters src/processing
-          git commit -m "Open States sync and normalized data update" || echo "No changes"
+          git add data docs src/output config src/adapters src/processing
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          git commit -m "Open States sync and normalized data update"
           git pull --rebase origin main
           git push origin main

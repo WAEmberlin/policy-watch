@@ -12,6 +12,11 @@ sys.path.insert(0, str(ROOT / "src"))
 from processing.openstates_client import OpenStatesClient
 
 
+def test_format_include():
+    assert OpenStatesClient._format_include(["sponsorships", "actions"]) == "sponsorships,actions"
+    assert OpenStatesClient._format_include(None) is None
+
+
 def test_paginate_single_page():
     client = OpenStatesClient(api_key="test", request_delay=0)
 
