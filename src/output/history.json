@@ -2939,7 +2939,68 @@
     "location": "218-N",
     "committees": "Senate Committee on Public Health and Welfare and House Committee on Health and Human Services",
     "bill": "SB430",
-    "is_canceled": false
+    "is_canceled": false,
+    "short_title": "Adding mitragynine to schedule I of the uniform controlled substances act and reconciling multiple amendments to certain statutes in the Kansas criminal code.",
+    "short_title_source": "kansas_api",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Monday, April 27, 2026",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Public Health and Welfare",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-04-10T22:04:58+00:00",
+        "tally": {
+          "yea": 78,
+          "nay": 44,
+          "present": 0,
+          "absent": 3,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-04-10T22:46:36+00:00",
+        "tally": {
+          "yea": 38,
+          "nay": 0,
+          "present": 1,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-03-12T11:12:16+00:00",
+        "tally": {
+          "yea": 101,
+          "nay": 18,
+          "present": 0,
+          "absent": 5,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-02-18T18:18:28+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:02:08.308667+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/conference/conf_committee_20260410184519",
@@ -5402,7 +5463,68 @@
     "location": "218-N",
     "committees": "Senate Committee on Judiciary and House Committee on Corrections and Juvenile Justice",
     "bill": "SB374",
-    "is_canceled": false
+    "is_canceled": false,
+    "short_title": "Permitting a municipal judge to initiate a psychiatric or psychological examination to determine competence, setting forth relevant procedures and requiring further consideration of evaluation and treatment during the course of competency proceedings for defendants charged with the most serious offenses.",
+    "short_title_source": "kansas_api",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Thursday, April 9, 2026",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-26T21:25:07+00:00",
+        "tally": {
+          "yea": 121,
+          "nay": 0,
+          "present": 0,
+          "absent": 4,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-27T11:32:18+00:00",
+        "tally": {
+          "yea": 39,
+          "nay": 0,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-18T16:06:20+00:00",
+        "tally": {
+          "yea": 116,
+          "nay": 8,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-02-18T18:16:24+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:55:54.533941+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/conference/conf_committee_20260326152703",
@@ -8695,7 +8817,92 @@
     "location": "144-S",
     "committees": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs",
     "bill": "SB391",
-    "is_canceled": false
+    "is_canceled": false,
+    "short_title": "Prohibiting cities and counties from adopting or enforcing any ordinance or resolution that requires landlords to lease housing to tenants receiving financial assistance from or through the housing choice voucher program or any other housing assistance program or that otherwise restricts a landlord's ability to consider the income source of a prospective tenant.",
+    "short_title_source": "kansas_api",
+    "ks_api_status": "Vetoes Overridden",
+    "ks_api_latest_action": "Motion to override veto prevailed",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-04-10T16:45:13+00:00",
+        "tally": {
+          "yea": 85,
+          "nay": 38,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-04-09T14:59:33+00:00",
+        "tally": {
+          "yea": 31,
+          "nay": 8,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-27T19:32:57+00:00",
+        "tally": {
+          "yea": 29,
+          "nay": 11,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-25T16:48:08+00:00",
+        "tally": {
+          "yea": 76,
+          "nay": 48,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-18T16:00:26+00:00",
+        "tally": {
+          "yea": 75,
+          "nay": 49,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed;",
+        "date": "2026-02-18T11:10:15+00:00",
+        "tally": {
+          "yea": 31,
+          "nay": 9,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:57:52.429463+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/conference/conf_committee_20260324210133",
@@ -9045,7 +9252,92 @@
     "location": "144-S",
     "committees": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs",
     "bill": "SB391",
-    "is_canceled": false
+    "is_canceled": false,
+    "short_title": "Prohibiting cities and counties from adopting or enforcing any ordinance or resolution that requires landlords to lease housing to tenants receiving financial assistance from or through the housing choice voucher program or any other housing assistance program or that otherwise restricts a landlord's ability to consider the income source of a prospective tenant.",
+    "short_title_source": "kansas_api",
+    "ks_api_status": "Vetoes Overridden",
+    "ks_api_latest_action": "Motion to override veto prevailed",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-04-10T16:45:13+00:00",
+        "tally": {
+          "yea": 85,
+          "nay": 38,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-04-09T14:59:33+00:00",
+        "tally": {
+          "yea": 31,
+          "nay": 8,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-27T19:32:57+00:00",
+        "tally": {
+          "yea": 29,
+          "nay": 11,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-25T16:48:08+00:00",
+        "tally": {
+          "yea": 76,
+          "nay": 48,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-18T16:00:26+00:00",
+        "tally": {
+          "yea": 75,
+          "nay": 49,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed;",
+        "date": "2026-02-18T11:10:15+00:00",
+        "tally": {
+          "yea": 31,
+          "nay": 9,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:57:52.429463+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/conference/conf_committee_20260324161321",
@@ -11093,7 +11385,92 @@
     "location": "144-S",
     "committees": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs",
     "bill": "SB391",
-    "is_canceled": false
+    "is_canceled": false,
+    "short_title": "Prohibiting cities and counties from adopting or enforcing any ordinance or resolution that requires landlords to lease housing to tenants receiving financial assistance from or through the housing choice voucher program or any other housing assistance program or that otherwise restricts a landlord's ability to consider the income source of a prospective tenant.",
+    "short_title_source": "kansas_api",
+    "ks_api_status": "Vetoes Overridden",
+    "ks_api_latest_action": "Motion to override veto prevailed",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-04-10T16:45:13+00:00",
+        "tally": {
+          "yea": 85,
+          "nay": 38,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-04-09T14:59:33+00:00",
+        "tally": {
+          "yea": 31,
+          "nay": 8,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-27T19:32:57+00:00",
+        "tally": {
+          "yea": 29,
+          "nay": 11,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-25T16:48:08+00:00",
+        "tally": {
+          "yea": 76,
+          "nay": 48,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-18T16:00:26+00:00",
+        "tally": {
+          "yea": 75,
+          "nay": 49,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed;",
+        "date": "2026-02-18T11:10:15+00:00",
+        "tally": {
+          "yea": 31,
+          "nay": 9,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:57:52.429463+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/conference/conf_committee_20260323223711",
@@ -21024,7 +21401,92 @@
     "location": "144-S",
     "committees": "Senate Committee on Federal and State Affairs and House Committee on Federal and State Affairs",
     "bill": "SB391",
-    "is_canceled": false
+    "is_canceled": false,
+    "short_title": "Prohibiting cities and counties from adopting or enforcing any ordinance or resolution that requires landlords to lease housing to tenants receiving financial assistance from or through the housing choice voucher program or any other housing assistance program or that otherwise restricts a landlord's ability to consider the income source of a prospective tenant.",
+    "short_title_source": "kansas_api",
+    "ks_api_status": "Vetoes Overridden",
+    "ks_api_latest_action": "Motion to override veto prevailed",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-04-10T16:45:13+00:00",
+        "tally": {
+          "yea": 85,
+          "nay": 38,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-04-09T14:59:33+00:00",
+        "tally": {
+          "yea": 31,
+          "nay": 8,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-27T19:32:57+00:00",
+        "tally": {
+          "yea": 29,
+          "nay": 11,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-25T16:48:08+00:00",
+        "tally": {
+          "yea": 76,
+          "nay": 48,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-18T16:00:26+00:00",
+        "tally": {
+          "yea": 75,
+          "nay": 49,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed;",
+        "date": "2026-02-18T11:10:15+00:00",
+        "tally": {
+          "yea": 31,
+          "nay": 9,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:57:52.429463+00:00"
   },
   {
     "id": "https://example.com/li/conference/conf_committee_20260323223711",
@@ -29671,7 +30133,16 @@
     "bill_number": "SB 37",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB37/",
     "short_title": "Repealing the three-mile extraterritorial planning and zoning authority for cities.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:55:21.927571+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/3e25d27c1df39244f67203d8e6c5989d",
@@ -38462,7 +38933,16 @@
     "bill_number": "SB 437",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB437/",
     "short_title": "Establishing the technical college funding task force to design and make recommendations for a pilot outcomes-based funding model for Kansas technical colleges.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on Calendar",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Education",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:02:54.204010+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/4bf0ca8263fa665a404815a3b37e6680",
@@ -38478,7 +38958,30 @@
     "bill_number": "SB 436",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB436/",
     "short_title": "Increasing the cost threshold for when a county shall use the public bidding process in awarding a construction contract.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Emergency Final Action - Not passed",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Local Government, Transparency and Ethics",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Not passed;",
+        "date": "2026-02-18T18:19:29+00:00",
+        "tally": {
+          "yea": 12,
+          "nay": 26,
+          "present": 2,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:02:47.697825+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/8a702cb54cae4c1d6ef3b458c62efda0",
@@ -38494,7 +38997,66 @@
     "bill_number": "SB 435",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB435/",
     "short_title": "Authorizing the KPERS board of trustees to elect the vice chairperson of the board, requiring newly affiliated KP&F employers to contribute at the actuarial required rate for past and future service and repealing certain working after retirement statutes for state and local elected officials.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Thursday, April 9, 2026",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Financial Institutions and Insurance",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-27T17:15:35+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-25T12:34:07+00:00",
+        "tally": {
+          "yea": 125,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-12T12:54:12+00:00",
+        "tally": {
+          "yea": 118,
+          "nay": 0,
+          "present": 0,
+          "absent": 6,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed;",
+        "date": "2026-02-11T17:24:05+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:02:41.154626+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/b58f699553c34d4ea5cf51482faa4ddb",
@@ -38510,7 +39072,42 @@
     "bill_number": "SB 434",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB434/",
     "short_title": "Providing for a new determination of disability for the purposes of certain retailer's sales tax exemptions.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Conference",
+    "sponsors": [
+      {
+        "name": "House Committee on Taxation",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Substitute passed;",
+        "date": "2026-03-18T16:04:16+00:00",
+        "tally": {
+          "yea": 124,
+          "nay": 0,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-02-11T17:23:46+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:02:34.606228+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/4a770685956f4f2a23efca2212cd74f3",
@@ -38526,7 +39123,16 @@
     "bill_number": "SB 433",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB433/",
     "short_title": "Prohibiting certain conduct and improper collection of veterans benefits fees and requiring mandatory counseling concerning the benefit claims process.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:02:27.928083+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/b60dd5f56134cc069f44869a666dad3e",
@@ -38542,7 +39148,16 @@
     "bill_number": "SB 432",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB432/",
     "short_title": "Updating certain provisions of the Kansas dental practices act relating to in-person practice requirements in a dental office owned by a licensee.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on Calendar",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Government Efficiency",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:02:21.361608+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/354d59f8ce7f5b88b6d12611bdab75bf",
@@ -40118,7 +40733,30 @@
     "bill_number": "SB 431",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB431/",
     "short_title": "Establishing the remote practice of pharmacy, requiring certain conditions for such practice and limiting activities performed under such practice.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in House Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Public Health and Welfare",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed;",
+        "date": "2026-02-18T18:18:50+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:02:14.845277+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/19974a0a52a0f4a957f38c2d6e92fe2b",
@@ -40325,7 +40963,66 @@
     "bill_number": "SB 430",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB430/",
     "short_title": "Permitting licensed physical therapists to perform certain capillary blood tests.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Monday, April 27, 2026",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Public Health and Welfare",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-04-10T22:04:58+00:00",
+        "tally": {
+          "yea": 78,
+          "nay": 44,
+          "present": 0,
+          "absent": 3,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-04-10T22:46:36+00:00",
+        "tally": {
+          "yea": 38,
+          "nay": 0,
+          "present": 1,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-03-12T11:12:16+00:00",
+        "tally": {
+          "yea": 101,
+          "nay": 18,
+          "present": 0,
+          "absent": 5,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-02-18T18:18:28+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:02:08.308667+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/a6726bf5266e75a277c75561eb67d9d7",
@@ -40341,7 +41038,16 @@
     "bill_number": "SB 429",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB429/",
     "short_title": "Extending the sunset for the angel investor tax credit to 2031.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on Calendar",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Commerce",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:02:01.740134+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/4cbece38f3105f543a4c3ed46f8bbf23",
@@ -40357,7 +41063,16 @@
     "bill_number": "SB 428",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB428/",
     "short_title": "Senate: SB428: Referred to Committee on Government Efficiency",
-    "short_title_source": "rss"
+    "short_title_source": "rss",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Government Efficiency",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:01:55.139987+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/a709112c84454ae0a08439ea446ae6b2",
@@ -40373,7 +41088,42 @@
     "bill_number": "SB 427",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB427/",
     "short_title": "Senate: SB427: Referred to Committee on Judiciary",
-    "short_title_source": "rss"
+    "short_title_source": "rss",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Friday, March 27, 2026",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed;",
+        "date": "2026-03-17T11:44:25+00:00",
+        "tally": {
+          "yea": 123,
+          "nay": 0,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-02-18T11:15:27+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:01:48.637356+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/712e3944e7d44bfa5bd078394faf8750",
@@ -40389,7 +41139,30 @@
     "bill_number": "SB 426",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB426/",
     "short_title": "Senate: SB426: Referred to Committee on Judiciary",
-    "short_title_source": "rss"
+    "short_title_source": "rss",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Stricken from Calendar by Rule 1507",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-02-18T11:15:08+00:00",
+        "tally": {
+          "yea": 39,
+          "nay": 1,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:01:42.086192+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/71102f21c4cced1fc7f3be63d6a2a1e0",
@@ -40405,7 +41178,42 @@
     "bill_number": "SB 425",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB425/",
     "short_title": "Senate: SB425: Referred to Committee on Agriculture and Natural Resources",
-    "short_title_source": "rss"
+    "short_title_source": "rss",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Friday, April 3, 2026",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Agriculture and Natural Resources",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed;",
+        "date": "2026-03-18T16:01:30+00:00",
+        "tally": {
+          "yea": 121,
+          "nay": 3,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-02-18T11:14:05+00:00",
+        "tally": {
+          "yea": 37,
+          "nay": 3,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:01:35.564216+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/6a7a844bcec62e5326ce22e5e93f4de1",
@@ -40421,7 +41229,16 @@
     "bill_number": "SB 424",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB424/",
     "short_title": "Senate: SB424: Referred to Committee on Education",
-    "short_title_source": "rss"
+    "short_title_source": "rss",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Miller",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:01:29.006019+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/00cd427b8fd71d97a02e6e3d29d6e3e5",
@@ -40437,7 +41254,16 @@
     "bill_number": "SB 423",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB423/",
     "short_title": "Senate: SB423: Referred to Committee on Financial Institutions and Insurance",
-    "short_title_source": "rss"
+    "short_title_source": "rss",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Sykes",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:01:22.439904+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/9cb68fa2f3400d3517514230b96a8d55",
@@ -40453,7 +41279,30 @@
     "bill_number": "SB 422",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB422/",
     "short_title": "Senate: SB422: Referred to Committee on Financial Institutions and Insurance",
-    "short_title_source": "rss"
+    "short_title_source": "rss",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Stricken from Calendar by Rule 1507",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Financial Institutions and Insurance",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-02-18T18:18:09+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:01:15.918772+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/cd7d3cacd2f25a9be36b482568f2171d",
@@ -40469,7 +41318,16 @@
     "bill_number": "SB 421",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB421/",
     "short_title": "Senate: SB421: Referred to Committee on Education",
-    "short_title_source": "rss"
+    "short_title_source": "rss",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on Calendar",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Education",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:01:09.354040+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/2729f8ea9907661fe81cc946c7945f70",
@@ -40485,7 +41343,16 @@
     "bill_number": "SB 420",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB420/",
     "short_title": "Senate: SB420: Referred to Committee on Education",
-    "short_title_source": "rss"
+    "short_title_source": "rss",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Holscher",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:01:02.765292+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/ae47dfce75e440546b2e8599c4227214",
@@ -42343,7 +43210,30 @@
     "bill_number": "SB 419",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB419/",
     "short_title": "Enacting the Kansas intellectual rights and knowledge act, providing a civil cause of action and penalties for violations of such act and authorizing students and student associations to exercise political and ideological beliefs, values and missions.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in House Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Education",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed;",
+        "date": "2026-03-10T18:02:17+00:00",
+        "tally": {
+          "yea": 29,
+          "nay": 11,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:00:56.255429+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/3c42aeba80191e372defd50d988a1014",
@@ -42423,7 +43313,70 @@
     "bill_number": "SB 418",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB418/",
     "short_title": "Enacting the by-right housing development act to provide a streamlined permit approval process for by-right housing developments, allowing third-party review of new residential construction development documents and inspection of improvements, requiring political subdivisions to allow certain building provisions for single-family residences of a certain size, excluding owner initiated rezoning to a single-family residential district from protest petition provisions and providing for all land within the corporate limits of a city to be considered zoned for single-family residential use.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Tuesday, April 7, 2026",
+    "sponsors": [
+      {
+        "name": "Senator Rose",
+        "role": "primary"
+      },
+      {
+        "name": "Senator Masterson",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-26T18:00:20+00:00",
+        "tally": {
+          "yea": 117,
+          "nay": 5,
+          "present": 0,
+          "absent": 3,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-27T11:35:02+00:00",
+        "tally": {
+          "yea": 35,
+          "nay": 4,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-18T15:53:52+00:00",
+        "tally": {
+          "yea": 97,
+          "nay": 27,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-02-18T11:12:03+00:00",
+        "tally": {
+          "yea": 35,
+          "nay": 5,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:00:49.705400+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/d8821daf98accc073c40cfc666374185",
@@ -42439,7 +43392,16 @@
     "bill_number": "SB 417",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB417/",
     "short_title": "Establishing requirements for the development, construction, modification, maintenance, operation and decommissioning of certain industrial energy facilities and providing jurisdiction to the state corporation commission to control and permit such development, construction, modification, operation, maintenance and decommissioning of such facilities.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Utilities",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:00:43.085200+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/b68039fdfe64314c1f2e11e67bfaa018",
@@ -42455,7 +43417,16 @@
     "bill_number": "SB 416",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB416/",
     "short_title": "Authorizing interior inspections of residential property without the consent of the occupant pursuant to an administrative warrant or when there is probable cause of imminent danger related to health and safety.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Shane",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:00:36.506387+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/18c9fc1d716ea4bbfa8fb1508825e0d7",
@@ -42471,7 +43442,30 @@
     "bill_number": "SB 415",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB415/",
     "short_title": "Making certain violations of the residential landlord and tenant act subject to the remedies and enforcement provisions of the Kansas consumer protection act.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in House Committee",
+    "sponsors": [
+      {
+        "name": "Senator Shane",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-03-17T15:02:45+00:00",
+        "tally": {
+          "yea": 37,
+          "nay": 3,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:00:29.919045+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/05e17a98f7920c5540a99b11d57b508a",
@@ -42487,7 +43481,16 @@
     "bill_number": "SB 414",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB414/",
     "short_title": "Authorizing the secretary of corrections to enter into a memorandum of understanding to provide money from the evidence-based programs account to residential facilities with behavioral health crisis intervention services for juveniles.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:00:23.385809+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/54998da6fcb31ee1e5be41b8e6edb8f7",
@@ -42503,7 +43506,30 @@
     "bill_number": "SB 413",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB413/",
     "short_title": "Prohibiting counsel from suggesting an amount of damages for noneconomic loss in civil actions.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in House Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed;",
+        "date": "2026-02-18T11:11:31+00:00",
+        "tally": {
+          "yea": 29,
+          "nay": 11,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:00:16.809847+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/35680c07258d964a860abb52a08c3719",
@@ -42519,7 +43545,66 @@
     "bill_number": "SB 412",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB412/",
     "short_title": "Imposing the duty to notify nonparties to a conservatorship of any court order commanding performance or safekeeping of the conservatee's estate assets.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Thursday, April 9, 2026",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Financial Institutions and Insurance",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-27T11:34:19+00:00",
+        "tally": {
+          "yea": 39,
+          "nay": 0,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-25T12:31:27+00:00",
+        "tally": {
+          "yea": 125,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-03-11T11:33:16+00:00",
+        "tally": {
+          "yea": 122,
+          "nay": 0,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-02-18T18:17:49+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:00:10.215769+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/2c6e24a1f32f2440e3ac45276aee3fc3",
@@ -42535,7 +43620,16 @@
     "bill_number": "SB 411",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB411/",
     "short_title": "Providing for the use of triple trailers on highways, increasing the allowable gross weight for such vehicle combinations and allowing the use of trailers with dealer license plates.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Transportation",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T20:00:03.588037+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/40effe4336783fdb638e2270da25d81e",
@@ -42551,7 +43645,42 @@
     "bill_number": "SB 410",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB410/",
     "short_title": "Providing that earned wage access service registrants are subject to the Kansas financial institutions information security act.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Conference",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Financial Institutions and Insurance",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-03-11T11:32:40+00:00",
+        "tally": {
+          "yea": 122,
+          "nay": 0,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed;",
+        "date": "2026-02-18T18:17:30+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:59:57.066854+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/df88375ae136428c13086f46ee0602d6",
@@ -42567,7 +43696,16 @@
     "bill_number": "SB 409",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB409/",
     "short_title": "Requiring that a no cost-sharing requirement be imposed on insureds for diagnostic and supplemental breast examinations for breast cancer.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on Calendar",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Financial Institutions and Insurance",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:59:50.465639+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/a77156a3d5c5752e17fb0c7d7cea617b",
@@ -42583,7 +43721,54 @@
     "bill_number": "SB 408",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB408/",
     "short_title": "Excluding a child engaging in age-appropriate independent activities from the definition of a child in need of care in the revised Kansas code for care of children.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Thursday, April 9, 2026",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Concurred with amendments in conference;",
+        "date": "2026-03-26T22:11:05+00:00",
+        "tally": {
+          "yea": 39,
+          "nay": 0,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-18T16:09:53+00:00",
+        "tally": {
+          "yea": 124,
+          "nay": 0,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed;",
+        "date": "2026-02-18T11:11:13+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:59:43.897446+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/33528b8af0fd83e8104b792d996d770c",
@@ -42599,7 +43784,30 @@
     "bill_number": "SB 407",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB407/",
     "short_title": "Authorizing the adoption of certain rules and regulations related to hazardous waste monitoring and permit application fees by the Kansas department of health and environment.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Stricken from Calendar by Rule 1507",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Agriculture and Natural Resources",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-02-18T18:17:14+00:00",
+        "tally": {
+          "yea": 38,
+          "nay": 2,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:59:37.301413+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/5ecb41d48e1b985995a2187e485b4e13",
@@ -42615,7 +43823,30 @@
     "bill_number": "SB 406",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB406/",
     "short_title": "Directing the governor to approve eligible programs for workforce Pell grants and providing requirements for the state workforce development board with regard to eligibility, approval and financing of such programs.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on House Calendar",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Education",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed;",
+        "date": "2026-03-12T15:05:50+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:59:30.742545+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/c6df0d7882083571b14c8aad29746936",
@@ -42631,7 +43862,16 @@
     "bill_number": "SB 405",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB405/",
     "short_title": "Making it unlawful for a person to knowingly train artificial intelligence to encourage or support suicide or the unlawful killing of another person, provide emotional support, develop emotional relationships, act as a healthcare professional, simulate humans or encourage isolation.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:59:24.052982+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/f17039038f5801a5ee8fce545a7fbe79",
@@ -43512,7 +44752,30 @@
     "bill_number": "SB 404",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB404/",
     "short_title": "Modifying the registration period for personalized license plates and authorizing county treasurers to charge increased fees for vehicle registration transactions.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on House Calendar",
+    "sponsors": [
+      {
+        "name": "House Committee on Transportation",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-10T18:01:56+00:00",
+        "tally": {
+          "yea": 33,
+          "nay": 7,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:59:17.484522+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/014061d133703ed914076896cdfd6f62",
@@ -43528,7 +44791,66 @@
     "bill_number": "SB 403",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB403/",
     "short_title": "Providing for the pheasants forever and quail forever distinctive license plates.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Thursday, April 9, 2026",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Transportation",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-27T11:33:41+00:00",
+        "tally": {
+          "yea": 37,
+          "nay": 2,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-24T11:19:52+00:00",
+        "tally": {
+          "yea": 102,
+          "nay": 20,
+          "present": 0,
+          "absent": 3,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-12T12:53:20+00:00",
+        "tally": {
+          "yea": 105,
+          "nay": 13,
+          "present": 0,
+          "absent": 6,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Consent Calendar Passed",
+        "date": "2026-02-10T14:57:25+00:00",
+        "tally": {
+          "yea": 39,
+          "nay": 1,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:59:10.885792+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/645dbe925ff8318bdd526771bd7fbaaf",
@@ -43544,7 +44866,30 @@
     "bill_number": "SB 402",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB402/",
     "short_title": "Modifying the definition of household income, providing for one refund claim form and providing an eligibility exception for claimants who are required to live away from the homestead by reason of health or other hardship for purposes of homestead property tax refunds, providing that a person shall not lose eligibility for a homestead property tax refund claim or the SAFESR tax credit if the appraised valuation of the homestead subsequently exceeds $350,000 after qualifying in a previous tax year and establishing a constant household income threshold for purposes of the SAFESR tax credit.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on House Calendar",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Assessment and Taxation",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-02-25T16:49:02+00:00",
+        "tally": {
+          "yea": 39,
+          "nay": 1,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:59:04.274583+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/69c5ccbe5d84d1c97c4d02963e3962b5",
@@ -43560,7 +44905,16 @@
     "bill_number": "SB 401",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB401/",
     "short_title": "Requiring the county appraiser to conduct a new physical inspection before increasing the valuation of residential real property by more than 15%.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Haley",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:58:57.688198+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/e7ce2baadd1914d947a39ae55f6bc72f",
@@ -43576,7 +44930,16 @@
     "bill_number": "SB 400",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB400/",
     "short_title": "Requiring data centers to use closed-loop cooling systems to mitigate water consumption.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Utilities",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:58:51.164911+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/9110a5eb207dbc046346953389a6c31d",
@@ -43592,7 +44955,16 @@
     "bill_number": "SB 399",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB399/",
     "short_title": "Providing an exception to unauthorized practice of law under the Kansas consumer protection act for an employee of the judicial branch or a district court providing a standard form to a member of the public.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:58:44.648343+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/df360c30952929e7cffda3fc2c74fc23",
@@ -43608,7 +44980,54 @@
     "bill_number": "SB 398",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB398/",
     "short_title": "Requiring a proponent to demonstrate that it is more likely than not that certain specialized knowledge will help the trier of fact to understand evidence before certain qualified witnesses may testify.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Tuesday, April 7, 2026",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Concurred with amendments in conference;",
+        "date": "2026-03-26T22:10:35+00:00",
+        "tally": {
+          "yea": 39,
+          "nay": 0,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-18T16:08:27+00:00",
+        "tally": {
+          "yea": 124,
+          "nay": 0,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed;",
+        "date": "2026-02-18T18:16:56+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:58:38.131388+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/bd859ed3a9d64b8385c24c54e0d01e61",
@@ -43624,7 +45043,36 @@
     "bill_number": "SB 397",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB397/",
     "short_title": "Providing that a person shall not lose eligibility for a homestead property tax refund claim or the selective assistance for effective senior relief (SAFESR) tax credit if the appraised valuation of the homestead subsequently exceeds $350,000 after qualifying in a previous tax year.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Warren",
+        "role": "primary"
+      },
+      {
+        "name": "Senator Gossage",
+        "role": "primary"
+      },
+      {
+        "name": "Senator Rose",
+        "role": "primary"
+      },
+      {
+        "name": "Senator Shane",
+        "role": "primary"
+      },
+      {
+        "name": "Senator Thomas",
+        "role": "primary"
+      },
+      {
+        "name": "Senator Thompson",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:58:31.586766+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/27715f7a98b43c6e3bca477b6702752e",
@@ -43640,7 +45088,42 @@
     "bill_number": "SB 396",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB396/",
     "short_title": "Reorganizing the Clearwater cemetery district in Sedgwick county to remove Ohio township.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Friday, March 27, 2026",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Local Government, Transparency and Ethics",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed;",
+        "date": "2026-03-17T11:43:28+00:00",
+        "tally": {
+          "yea": 122,
+          "nay": 1,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-02-11T15:32:19+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:58:25.078240+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/b43c94c6e73fc63814945e63e4597d08",
@@ -43656,7 +45139,16 @@
     "bill_number": "SB 395",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB395/",
     "short_title": "Requiring treasurers of candidates and persons who support or oppose constitutional amendments to report lists of small donors' names and addresses to the public disclosure commission and providing that such lists shall not be a part of any report required to be made public.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:58:18.548769+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/b0670957e0ec197139d5135e23ece894",
@@ -43672,7 +45164,30 @@
     "bill_number": "SB 394",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB394/",
     "short_title": "Clarifying the signature verification requirements for advance voting ballot envelopes and providing for the repeal of advance voting statutes, except where advance voting is required by federal law, if a state or federal court issues a final order or judgment which is not subject to appeal invalidating such signature verification requirements.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on House Calendar",
+    "sponsors": [
+      {
+        "name": "House Committee on Elections",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-05T18:30:32+00:00",
+        "tally": {
+          "yea": 26,
+          "nay": 11,
+          "present": 1,
+          "absent": 2,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:58:12.012102+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/aad9e773b5c63b7244461879872319b9",
@@ -43688,7 +45203,30 @@
     "bill_number": "SB 393",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB393/",
     "short_title": "Authorizing the sale of alcoholic beverages 24 hours a day, seven days a week for the duration of the FIFA 2026 world cup.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in House Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-03-19T12:48:48+00:00",
+        "tally": {
+          "yea": 21,
+          "nay": 19,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:58:05.476718+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/57aef1fe753eb96876a8caeee9c3d5e7",
@@ -43704,7 +45242,30 @@
     "bill_number": "SB 392",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB392/",
     "short_title": "Prohibiting the filling of a vacancy in the joint candidacy of the governor and lieutenant governor and providing for when a candidate may withdraw in city, school district and community college elections.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on House Calendar",
+    "sponsors": [
+      {
+        "name": "House Committee on Elections",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed;",
+        "date": "2026-02-18T11:10:36+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:57:58.960466+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/1e7e915f385c4f68e2acdcbb34b62a46",
@@ -43720,7 +45281,90 @@
     "bill_number": "SB 391",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB391/",
     "short_title": "Prohibiting cities and counties from adopting or enforcing any ordinance or resolution that requires landlords to lease housing to tenants receiving financial assistance from or through the housing choice voucher program or any other housing assistance program or that otherwise restricts a landlord's ability to consider the income source of a prospective tenant.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Vetoes Overridden",
+    "ks_api_latest_action": "Motion to override veto prevailed",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-04-10T16:45:13+00:00",
+        "tally": {
+          "yea": 85,
+          "nay": 38,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-04-09T14:59:33+00:00",
+        "tally": {
+          "yea": 31,
+          "nay": 8,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-27T19:32:57+00:00",
+        "tally": {
+          "yea": 29,
+          "nay": 11,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-25T16:48:08+00:00",
+        "tally": {
+          "yea": 76,
+          "nay": 48,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-18T16:00:26+00:00",
+        "tally": {
+          "yea": 75,
+          "nay": 49,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed;",
+        "date": "2026-02-18T11:10:15+00:00",
+        "tally": {
+          "yea": 31,
+          "nay": 9,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:57:52.429463+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/8d50c8163146eabc2f5799ad2b77ee6c",
@@ -43736,7 +45380,30 @@
     "bill_number": "SB 390",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB390/",
     "short_title": "Prohibiting certain additives in food provided by schools as part of certain food service programs and requiring schools to certify that school facilities do not serve food that contains such food additives.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Stricken from Calendar by Rule 1507",
+    "sponsors": [
+      {
+        "name": "House Committee on Agriculture and Natural Resources",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-02-18T11:09:54+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:57:45.847556+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/23617f48c586b9f61dfef5be0bae4264",
@@ -44864,7 +46531,16 @@
     "bill_number": "SB 389",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB389/",
     "short_title": "Providing a sales tax exemption for feminine hygiene products, diapers and incontinence products.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Holscher",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:57:32.741084+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/0d542fb4c813bd414b04634b59a8c2ca",
@@ -44880,7 +46556,16 @@
     "bill_number": "SB 388",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB388/",
     "short_title": "Setting a maximum fee for the late payment of rent under the residential landlord and tenant act.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Holscher",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:57:26.195473+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/bc2ab2ab94112b8d4e5ffb046e8947de",
@@ -44896,7 +46581,30 @@
     "bill_number": "SB 387",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB387/",
     "short_title": "Requiring school districts to verify the household gross earned income of each student who qualifies for free meals under the national school lunch program and requiring legislative authorization to receive special assistance payments under federal law.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Stricken from Calendar by Rule 1507",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Government Efficiency",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-02-11T17:23:21+00:00",
+        "tally": {
+          "yea": 22,
+          "nay": 18,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:57:19.676438+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/e77005f73af8d9d18434432ba5a37964",
@@ -44912,7 +46620,16 @@
     "bill_number": "SB 386",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB386/",
     "short_title": "Electing to participate in the federal tax credit for individual contributions to scholarship granting organizations and increasing the aggregate tax credit limit on the tax credit for low income students scholarship program.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Education",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:57:13.147769+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/2640b51f180de84ffd9dc3a490c06297",
@@ -44928,7 +46645,16 @@
     "bill_number": "SB 385",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB385/",
     "short_title": "Establishing Erin's law to require school districts to provide training and age-appropriate student instruction on the identification and reporting of signs of child sexual abuse.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Education",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:57:06.639184+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/d7e28f8d8c8517daa5da0d04d4802a3c",
@@ -44944,7 +46670,30 @@
     "bill_number": "SB 384",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB384/",
     "short_title": "Extending the application deadline for authorization to operate as a public innovative district from December 1 to May 1 and deeming applications approved if not approved or denied within 30 days of submission.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on House Calendar",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Education",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-03-12T15:05:26+00:00",
+        "tally": {
+          "yea": 32,
+          "nay": 7,
+          "present": 1,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:57:00.086299+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/95a5875659c6b2f1fc2c6919d7ede81b",
@@ -44960,7 +46709,16 @@
     "bill_number": "SB 383",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB383/",
     "short_title": "Adding certain third parties who contract with school districts to the definition of special teacher and authorizing special education state aid reimbursement for qualified teachers who provide approved special education or related services to students with an IEP administered by such school district pursuant to a contract.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Education",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:56:53.545258+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/fd8100a05dcbf68b3b5de182a7b0c4bf",
@@ -44976,7 +46734,66 @@
     "bill_number": "SB 382",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB382/",
     "short_title": "Providing for the administration and proctoring of statewide assessments to virtual school students by such students' virtual schools.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Thursday, April 9, 2026",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Education",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-27T19:32:11+00:00",
+        "tally": {
+          "yea": 37,
+          "nay": 3,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-26T16:47:54+00:00",
+        "tally": {
+          "yea": 83,
+          "nay": 40,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-03-17T11:42:46+00:00",
+        "tally": {
+          "yea": 111,
+          "nay": 12,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-05T18:30:11+00:00",
+        "tally": {
+          "yea": 38,
+          "nay": 0,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:56:47.005257+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/f285db9010acc4a57e91f4cdae16f8aa",
@@ -44992,7 +46809,30 @@
     "bill_number": "SB 381",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB381/",
     "short_title": "Requiring instruction to provide students with an understanding of communist and socialist regimes and ideologies and that students pass an American civics examination in order to graduate with a high school diploma.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on House Calendar",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Education",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-03-12T15:05:03+00:00",
+        "tally": {
+          "yea": 26,
+          "nay": 14,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:56:40.458829+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/52b89ea57df72dfe39bd9c03f0c85df1",
@@ -45008,7 +46848,66 @@
     "bill_number": "SB 380",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB380/",
     "short_title": "Requiring retail electric suppliers to provide nondiscriminatory rates and services to entities that provide electric vehicle charging services and prohibiting any costs and expenses associated with a retail electric supplier's electric vehicle charging stations from being recovered in electric rates.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Thursday, April 9, 2026",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Utilities",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-27T11:33:01+00:00",
+        "tally": {
+          "yea": 39,
+          "nay": 0,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-26T15:26:19+00:00",
+        "tally": {
+          "yea": 125,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-18T15:50:37+00:00",
+        "tally": {
+          "yea": 122,
+          "nay": 2,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-02-18T11:09:32+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:56:33.917229+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/bd9585d4ad1656f2ac2fc79cfee5d1be",
@@ -45024,7 +46923,30 @@
     "bill_number": "SB 379",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB379/",
     "short_title": "Authorizing the state 911 board to establish a statewide program for emergency medical dispatch and telecommunicator cardiopulmonary resuscitation, medical direction and quality assurance services.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in House Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Utilities",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-02-18T11:08:51+00:00",
+        "tally": {
+          "yea": 37,
+          "nay": 3,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:56:27.311394+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/9b0b8f678c678c40627ed91d5111c9ec",
@@ -45040,7 +46962,16 @@
     "bill_number": "SB 378",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB378/",
     "short_title": "Providing a one-time, nonrefundable vehicle registration property tax credit for eligible vehicles.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Corson",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:56:20.711274+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/fcb69b9472a44108c94f3ef9c614d276",
@@ -45056,7 +46987,16 @@
     "bill_number": "SB 377",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB377/",
     "short_title": "Requiring cardiac emergency response plans at all recreational youth facilities, including the placement of automatic external defibrillators.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:56:14.204546+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/13961ab38ba2909b14103af08d6296bd",
@@ -45072,7 +47012,16 @@
     "bill_number": "SB 376",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB376/",
     "short_title": "Changing the age for determining when a slot machine is an antique for purposes of exempting such devices from criminal gambling statutes.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on Calendar",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:56:07.687968+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/fa2009935cf6edc10e83954654c56b27",
@@ -46224,7 +48173,78 @@
     "state": "KS",
     "feed": "events",
     "short_title": "Enacting the proxy advisor transparency act, requiring proxy advisors to make certain disclosures when recommending an action against company management, authorizing the attorney general to investigate and take enforcement actions against violators and establishing a private right of action for a declaratory judgment or injunctive relief.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Vetoes Overridden",
+    "ks_api_latest_action": "Motion to override veto prevailed",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-04-09T17:09:40+00:00",
+        "tally": {
+          "yea": 87,
+          "nay": 36,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-04-09T14:49:12+00:00",
+        "tally": {
+          "yea": 31,
+          "nay": 8,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Concurred with amendments in conference;",
+        "date": "2026-03-25T11:18:51+00:00",
+        "tally": {
+          "yea": 32,
+          "nay": 8,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-18T15:48:24+00:00",
+        "tally": {
+          "yea": 84,
+          "nay": 40,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-02-18T18:16:40+00:00",
+        "tally": {
+          "yea": 31,
+          "nay": 9,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:56:01.148445+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/3217c2a00f1916ea1c45e0d11acd7797",
@@ -46238,7 +48258,66 @@
     "state": "KS",
     "feed": "events",
     "short_title": "Requiring further consideration of evaluation and treatment during the course of competency proceedings for defendants charged with the most serious offenses.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Thursday, April 9, 2026",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-26T21:25:07+00:00",
+        "tally": {
+          "yea": 121,
+          "nay": 0,
+          "present": 0,
+          "absent": 4,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-27T11:32:18+00:00",
+        "tally": {
+          "yea": 39,
+          "nay": 0,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-18T16:06:20+00:00",
+        "tally": {
+          "yea": 116,
+          "nay": 8,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-02-18T18:16:24+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:55:54.533941+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/28d2ee2618ab9002faf1ac2b1c9bfdd8",
@@ -46252,7 +48331,16 @@
     "state": "KS",
     "feed": "events",
     "short_title": "Creating a maximum length of time for an agreement between a utility and law enforcement to install law enforcement equipment on a utility pole or structure.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on Calendar",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:55:47.987557+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/7db48b851d2a5d77fc3bd425074c70ab",
@@ -46266,7 +48354,30 @@
     "state": "KS",
     "feed": "events",
     "short_title": "Enacting the app store accountability act to regulate app store and developer operations with respect to minors, create requirements for age verification and parental consent and provide for enforcement under the Kansas consumer protection act and through a private cause of action.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on House Calendar",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-02-18T11:08:03+00:00",
+        "tally": {
+          "yea": 34,
+          "nay": 6,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:55:41.471271+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/9ca35df174396f719cfb2f6790fb19fc",
@@ -46280,7 +48391,16 @@
     "state": "KS",
     "feed": "events",
     "short_title": "Requiring landlords to offer to sell certain rental properties to the tenants of such properties before offering such properties for sale to the public.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Sykes",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:55:34.935537+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/1b1615b553bd62c774c9ec36fd281984",
@@ -46294,7 +48414,16 @@
     "state": "KS",
     "feed": "events",
     "short_title": "Modifying how a rental agreement terminates in the case of material noncompliance by the landlord with the rental agreement.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Sykes",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:55:28.428965+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/080727ac7ab20012bd81826c87e3c49e",
@@ -46308,7 +48437,16 @@
     "state": "KS",
     "feed": "events",
     "short_title": "Requiring certain disclosures to be made to prospective tenants and providing restrictions on fees for the late payment of rent under the residential landlord and tenant act.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Sykes",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:55:15.417614+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/5c0b6c7bd86a91a3c849edc07695ab96",
@@ -46322,7 +48460,66 @@
     "state": "KS",
     "feed": "events",
     "short_title": "Enacting the health care sharing ministries tax deduction act to provide a subtraction modification for qualified health care sharing expenses paid by a qualified individual and certain qualified health care shares received by a qualified individual.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Vetoes Overridden",
+    "ks_api_latest_action": "Motion to override veto prevailed",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Assessment and Taxation",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-03-27T13:58:25+00:00",
+        "tally": {
+          "yea": 87,
+          "nay": 37,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-03-27T10:39:39+00:00",
+        "tally": {
+          "yea": 30,
+          "nay": 9,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed;",
+        "date": "2026-03-10T11:32:30+00:00",
+        "tally": {
+          "yea": 87,
+          "nay": 36,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-02-18T11:07:37+00:00",
+        "tally": {
+          "yea": 33,
+          "nay": 7,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:55:08.901086+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/cd5fec4d8c6e67003f833108babb031c",
@@ -46336,7 +48533,30 @@
     "state": "KS",
     "feed": "events",
     "short_title": "Providing cities the authority to allow the driving of golf carts upon sidewalks.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in House Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Transportation",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed;",
+        "date": "2026-02-11T15:31:27+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:55:02.351790+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/7694ef28b83c245026aac2c10a83eaad",
@@ -46350,7 +48570,54 @@
     "state": "KS",
     "feed": "events",
     "short_title": "Designating a bridge on I-135 in Sedgwick county as the Don Snyder memorial bridge.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Friday, April 3, 2026",
+    "sponsors": [
+      {
+        "name": "House Committee on Transportation",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Concurred with amendments;",
+        "date": "2026-03-19T12:36:17+00:00",
+        "tally": {
+          "yea": 31,
+          "nay": 9,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Final Action - Substitute passed;",
+        "date": "2026-03-17T11:41:53+00:00",
+        "tally": {
+          "yea": 116,
+          "nay": 7,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Consent Calendar Passed",
+        "date": "2026-02-10T14:57:41+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:54:55.820075+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/1ea19ebacfc003ed24367151fde852c1",
@@ -46364,7 +48631,16 @@
     "state": "KS",
     "feed": "events",
     "short_title": "Providing for the election of county appraisers and discontinuing the authority to form appraisal districts with district appraisers.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Assessment and Taxation",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:54:49.270842+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/8deff5fc30d0808fe753097fc039ea03",
@@ -50360,7 +52636,30 @@
     "state": "KS",
     "feed": "events",
     "short_title": "Establishing the Kansas legal tender act and providing for an income tax subtraction modification for sales of specie.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on House Calendar",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2025-03-20T20:36:15+00:00",
+        "tally": {
+          "yea": 28,
+          "nay": 12,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T19:57:39.321782+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/2e1aab71177f840bcb83c13993b620c0",
