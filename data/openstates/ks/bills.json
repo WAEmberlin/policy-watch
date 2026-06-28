@@ -1,0 +1,2004 @@
+[
+  {
+    "id": "ocd-bill/ae9a43db-94c5-4e04-9430-5a83fe95ee24",
+    "session": "2025-2026",
+    "jurisdiction": {
+      "id": "ocd-jurisdiction/country:us/state:ks/government",
+      "name": "Kansas",
+      "classification": "state"
+    },
+    "from_organization": {
+      "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+      "name": "Senate",
+      "classification": "upper"
+    },
+    "identifier": "SB 341",
+    "title": "Providing requirements for agreements between a school district and a postsecondary educational institution for the provision of postsecondary courses taught in secondary schools.",
+    "classification": [
+      "bill"
+    ],
+    "subject": [
+      "Colleges and Universities",
+      "Schools"
+    ],
+    "extras": {},
+    "created_at": "2026-01-16T08:24:55.136060+00:00",
+    "updated_at": "2026-06-23T22:39:14.793099+00:00",
+    "openstates_url": "https://openstates.org/ks/bills/2025-2026/SB341/",
+    "first_action_date": "2026-01-15",
+    "latest_action_date": "2026-04-10",
+    "latest_action_description": "Died on Calendar",
+    "latest_passage_date": "",
+    "sponsorships": [
+      {
+        "id": "df643b30-99e1-4f36-898a-b138028e0acb",
+        "name": "Committee on Education",
+        "entity_type": "organization",
+        "primary": true,
+        "classification": "primary"
+      }
+    ],
+    "actions": [
+      {
+        "id": "747b5ee2-b51c-49c9-b21f-6fe6e391968d",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Died on Calendar",
+        "date": "2026-04-10",
+        "classification": [
+          "failure"
+        ],
+        "order": 0,
+        "related_entities": []
+      },
+      {
+        "id": "29197ca1-faef-4d08-908f-4aef26ed1df2",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Committee Report recommending bill be passed as amended by Senate Committee on Education",
+        "date": "2026-02-11",
+        "classification": [
+          "committee-passage-favorable"
+        ],
+        "order": 1,
+        "related_entities": []
+      },
+      {
+        "id": "8ddc8bd3-f2ca-4eae-9c72-6df4874ee270",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Hearing: Thursday, January 22, 2026, 2:30 PM — Room 144-S event",
+        "date": "2026-01-22",
+        "classification": [],
+        "order": 2,
+        "related_entities": []
+      },
+      {
+        "id": "f10c5188-1288-4199-afed-d626bbe5d573",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Referred to Senate Committee on Education",
+        "date": "2026-01-16",
+        "classification": [
+          "referral-committee"
+        ],
+        "order": 3,
+        "related_entities": []
+      },
+      {
+        "id": "2f632424-a4a8-452b-a82d-04b490581f7a",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Introduced",
+        "date": "2026-01-15",
+        "classification": [
+          "introduction"
+        ],
+        "order": 4,
+        "related_entities": []
+      }
+    ],
+    "versions": [
+      {
+        "id": "16fa5d0c-33ea-4e3a-91a3-f7b336a0d3e5",
+        "note": "As Amended by Senate Committee on Education",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_341/sb341_01_0000.pdf",
+            "media_type": "application/pdf"
+          },
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/documents/view-leg/?apn=b2025_26/year2/ready_for_publication/sb_341/sb341_01_0000.pdf",
+            "media_type": "text/html"
+          }
+        ]
+      },
+      {
+        "id": "57e97240-8168-4714-92d5-3a7e7830691e",
+        "note": "As Introduced",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_341/sb341_00_0000.pdf",
+            "media_type": "application/pdf"
+          },
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/documents/view-leg/?apn=b2025_26/year2/ready_for_publication/sb_341/sb341_00_0000.pdf",
+            "media_type": "text/html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ocd-bill/8ec6dfd2-ac48-4228-944a-f95c142f754b",
+    "session": "2025-2026",
+    "jurisdiction": {
+      "id": "ocd-jurisdiction/country:us/state:ks/government",
+      "name": "Kansas",
+      "classification": "state"
+    },
+    "from_organization": {
+      "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+      "name": "House",
+      "classification": "lower"
+    },
+    "identifier": "HB 2250",
+    "title": "Substitute for HB 2250 by Committee on Health and Human Services - Permitting the use of expedited partner therapy to treat sexually transmitted infections, authorizing a licensed private psychiatric hospital to maintain a stock supply of emergency medication kits for pharmaceutical emergencies, allowing expired emergency opioid antagonists to be used to treat an opioid overdose, permitting first responders to distribute and administer expired emergency opioid antagonists, permitting a pharmacist to distribute epinephrine delivery systems to a school for use in emergency medication kits and amending definitions related to medication in schools to allow for use of epinephrine delivery systems.",
+    "classification": [
+      "bill"
+    ],
+    "subject": [
+      "HB 2587",
+      "Health and Healthcare",
+      "SB 328",
+      "SB 448"
+    ],
+    "extras": {},
+    "created_at": "2025-02-04T18:42:58.428598+00:00",
+    "updated_at": "2026-06-22T22:42:40.659948+00:00",
+    "openstates_url": "https://openstates.org/ks/bills/2025-2026/HB2250/",
+    "first_action_date": "2025-02-04",
+    "latest_action_date": "2026-04-09",
+    "latest_action_description": "Engrossed on Friday, March 27, 2026",
+    "latest_passage_date": "2026-03-13",
+    "sponsorships": [
+      {
+        "id": "baceed8c-bbf2-4534-bcce-3c077ac19d7e",
+        "name": "Committee on Health and Human Services",
+        "entity_type": "organization",
+        "primary": true,
+        "classification": "primary"
+      }
+    ],
+    "actions": [
+      {
+        "id": "07c5732d-44ab-41fb-a3d6-3b596f08b031",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Approved by Governor on Thursday, April 9, 2026",
+        "date": "2026-04-09",
+        "classification": [
+          "executive-signature"
+        ],
+        "order": 0,
+        "related_entities": []
+      },
+      {
+        "id": "2b39d9cd-b33e-456a-b4e3-62e5df4ccffb",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Enrolled and presented to Governor on Friday, April 3, 2026",
+        "date": "2026-04-09",
+        "classification": [],
+        "order": 1,
+        "related_entities": []
+      },
+      {
+        "id": "df57db8b-2044-408c-8552-d25e1d39e0a8",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Engrossed on Friday, March 27, 2026",
+        "date": "2026-04-09",
+        "classification": [],
+        "order": 2,
+        "related_entities": []
+      },
+      {
+        "id": "2eee95de-b559-4f6e-a05d-5bbaea767674",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Conference Committee Report was adopted; Yea 124, Nay 1",
+        "date": "2026-03-26",
+        "classification": [],
+        "order": 3,
+        "related_entities": []
+      },
+      {
+        "id": "0f1ff3fa-c12a-46df-96a8-221fe02ac0f8",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Conference Committee Report was adopted; Yea 40, Nay 0",
+        "date": "2026-03-25",
+        "classification": [],
+        "order": 4,
+        "related_entities": []
+      },
+      {
+        "id": "6ea69c57-ffba-4b64-8a03-bf153b461d6f",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Conference committee report now available",
+        "date": "2026-03-25",
+        "classification": [],
+        "order": 5,
+        "related_entities": []
+      },
+      {
+        "id": "51948f82-7d96-4132-853e-b8c4fa26a6d4",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Motion to accede adopted; Sen. Beverly Gossage, Sen. William Clifford and Sen. Cindy Holscher appointed as conferees",
+        "date": "2026-03-17",
+        "classification": [],
+        "order": 6,
+        "related_entities": []
+      },
+      {
+        "id": "6ef7cf0d-44d2-45e2-9b4f-793ba5380154",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Nonconcurred with amendments; Conference Committee requested; appointed Rep. Will Carpenter, Rep. Ron Bryce and Rep. Susan Ruiz",
+        "date": "2026-03-17",
+        "classification": [],
+        "order": 7,
+        "related_entities": []
+      },
+      {
+        "id": "dee78245-5008-46ff-85c3-59d1160aea76",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Final Action - Passed as amended; Yea 39, Nay 0, Absent 1",
+        "date": "2026-03-13",
+        "classification": [
+          "passage"
+        ],
+        "order": 8,
+        "related_entities": []
+      },
+      {
+        "id": "c54a45b5-e4d2-4366-bb7d-893f028b6dd2",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Committee of the Whole - Be passed as amended",
+        "date": "2026-03-12",
+        "classification": [
+          "passage"
+        ],
+        "order": 9,
+        "related_entities": []
+      },
+      {
+        "id": "22125da8-1029-4ac8-b1c5-c48b5694cc8d",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Committee of the Whole - Committee Report be adopted",
+        "date": "2026-03-12",
+        "classification": [
+          "passage"
+        ],
+        "order": 10,
+        "related_entities": []
+      },
+      {
+        "id": "6d7a0627-7b77-45e3-916a-5c627997a3f9",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Committee Report recommending bill be passed as amended by Senate Committee on Public Health and Welfare",
+        "date": "2026-03-05",
+        "classification": [
+          "committee-passage-favorable"
+        ],
+        "order": 11,
+        "related_entities": []
+      },
+      {
+        "id": "c5f62e54-8b99-493e-b130-cab6143e36ee",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Referred to Senate Committee on Public Health and Welfare",
+        "date": "2026-02-25",
+        "classification": [
+          "referral-committee"
+        ],
+        "order": 12,
+        "related_entities": []
+      },
+      {
+        "id": "d7eb613a-7114-47d2-a3ce-66ff71fc65d7",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Received and Introduced",
+        "date": "2026-02-24",
+        "classification": [
+          "introduction"
+        ],
+        "order": 13,
+        "related_entities": []
+      },
+      {
+        "id": "5b27349a-4630-4d39-a3a7-1dbea1602b35",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Final Action - Substitute passed; Yea 120, Nay 1, Absent 4",
+        "date": "2026-02-19",
+        "classification": [
+          "passage"
+        ],
+        "order": 14,
+        "related_entities": []
+      },
+      {
+        "id": "c76bfddd-052d-457b-aa42-ec9efe0999b2",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Committee of the Whole - Substitute bill be passed",
+        "date": "2026-02-18",
+        "classification": [
+          "passage"
+        ],
+        "order": 15,
+        "related_entities": []
+      },
+      {
+        "id": "4285464e-8496-4f12-9fd1-e6704502e753",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Committee of the Whole - Committee Report be adopted recommending substitute bill be passed",
+        "date": "2026-02-18",
+        "classification": [
+          "passage"
+        ],
+        "order": 16,
+        "related_entities": []
+      },
+      {
+        "id": "2d2e3019-96b6-4179-91f8-2751060e7071",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Committee Report recommending substitute bill be passed by House Committee on Health and Human Services",
+        "date": "2026-02-17",
+        "classification": [
+          "committee-passage-favorable"
+        ],
+        "order": 17,
+        "related_entities": []
+      },
+      {
+        "id": "75a415f2-7a27-40c2-99b7-6960553a5276",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Withdrawn from House Committee on Health and Human Services; Referred to House Committee on Health and Human Services",
+        "date": "2025-02-25",
+        "classification": [
+          "referral-committee"
+        ],
+        "order": 18,
+        "related_entities": []
+      },
+      {
+        "id": "e874aa52-668c-4cb6-883e-80db8d396739",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Withdrawn from House Committee on Federal and State Affairs; Referred to House Committee on Federal and State Affairs",
+        "date": "2025-02-18",
+        "classification": [
+          "referral-committee"
+        ],
+        "order": 19,
+        "related_entities": []
+      },
+      {
+        "id": "6950d185-ec0c-4312-a98d-957fdc0887b3",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Referred to House Committee on Health and Human Services",
+        "date": "2025-02-04",
+        "classification": [
+          "referral-committee"
+        ],
+        "order": 20,
+        "related_entities": []
+      },
+      {
+        "id": "4dd05a2e-99c6-4f93-8f3a-81a81123c5ae",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Introduced",
+        "date": "2025-02-04",
+        "classification": [
+          "introduction"
+        ],
+        "order": 21,
+        "related_entities": []
+      }
+    ],
+    "versions": [
+      {
+        "id": "007b55f8-dbee-4fd9-832d-cc1051837227",
+        "note": "Enrolled",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2250/hb2250_enrolled.pdf",
+            "media_type": "application/pdf"
+          },
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/documents/view-leg/?apn=b2025_26/year2/ready_for_publication/hb_2250/hb2250_enrolled.pdf",
+            "media_type": "text/html"
+          }
+        ]
+      },
+      {
+        "id": "db414d72-d49a-4d31-877b-bddfd197faaa",
+        "note": "As Amended by Senate Committee",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2250/hb2250_02_0000.pdf",
+            "media_type": "application/pdf"
+          },
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/documents/view-leg/?apn=b2025_26/year2/ready_for_publication/hb_2250/hb2250_02_0000.pdf",
+            "media_type": "text/html"
+          }
+        ]
+      },
+      {
+        "id": "487d9a72-9b44-4ba3-a6f4-a93201e8af96",
+        "note": "Sub",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2250/hb2250_01_0000.pdf",
+            "media_type": "application/pdf"
+          },
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/documents/view-leg/?apn=b2025_26/year2/ready_for_publication/hb_2250/hb2250_01_0000.pdf",
+            "media_type": "text/html"
+          }
+        ]
+      },
+      {
+        "id": "7a372f02-6ba8-4b04-94d8-d911969d64e7",
+        "note": "As Introduced",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/bills/download/?apn=b2025_26/year1/ready_for_publication/hb_2250/hb2250_00_0000.pdf",
+            "media_type": "application/pdf"
+          },
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/documents/view-leg/?apn=b2025_26/year1/ready_for_publication/hb_2250/hb2250_00_0000.pdf",
+            "media_type": "text/html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ocd-bill/da3c230d-deaa-4c2c-a4f6-57c2a362fef7",
+    "session": "2025-2026",
+    "jurisdiction": {
+      "id": "ocd-jurisdiction/country:us/state:ks/government",
+      "name": "Kansas",
+      "classification": "state"
+    },
+    "from_organization": {
+      "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+      "name": "House",
+      "classification": "lower"
+    },
+    "identifier": "HB 2731",
+    "title": "Substitute for HB 2731 by Committee on Welfare Reform -Requiring the department of health and environment in coordination with the Kansas department for aging and disability services to seek federal approval to establish continuous medicaid eligibility for certain individuals with intellectual or developmental disabilities who are receiving services through a home and community based services waiver, requiring the secretary for children and families and the secretary of health and environment to enter into data-matching agreements with state agencies to verify eligibility for food and medical assistance, directing the department of health and environment to submit certain data to the centers for medicare and medicaid services, prohibiting certain public assistance program waivers or exemptions without legislative approval, prohibiting self-attestation for purposes of determining eligibility for public assistance programs, limiting retroactive enrollment in the medical assistance program, increasing the age limit for able-bodied adults without certain dependents and prohibiting certain exemptions from work requirements under the food assistance program.",
+    "classification": [
+      "bill"
+    ],
+    "subject": [
+      "Attorney General",
+      "Children and Families, Department for",
+      "SB 363"
+    ],
+    "extras": {},
+    "created_at": "2026-02-05T23:50:43.868172+00:00",
+    "updated_at": "2026-06-22T22:39:46.806569+00:00",
+    "openstates_url": "https://openstates.org/ks/bills/2025-2026/HB2731/",
+    "first_action_date": "2026-02-05",
+    "latest_action_date": "2026-04-10",
+    "latest_action_description": "Motion to override veto prevailed; Yea 84, Nay 39, Absent 2",
+    "latest_passage_date": "2026-03-19",
+    "sponsorships": [
+      {
+        "id": "2c1660e8-b729-4264-a871-428980f13761",
+        "name": "Committee on Welfare Reform",
+        "entity_type": "organization",
+        "primary": true,
+        "classification": "primary"
+      }
+    ],
+    "actions": [
+      {
+        "id": "b3538e81-5201-41f2-9fc2-064dac32dfdd",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Motion to override veto prevailed; Yea 29, Nay 10, Absent 1",
+        "date": "2026-04-10",
+        "classification": [],
+        "order": 0,
+        "related_entities": []
+      },
+      {
+        "id": "53ede878-4776-4325-91d1-3a735ac93610",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Motion to override veto prevailed; Yea 84, Nay 39, Absent 2",
+        "date": "2026-04-10",
+        "classification": [],
+        "order": 1,
+        "related_entities": []
+      },
+      {
+        "id": "b4637a2c-5893-4676-b6fd-371a516c579c",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Vetoed by Governor; Returned to House on Wednesday, April 8, 2026",
+        "date": "2026-04-09",
+        "classification": [
+          "executive-veto"
+        ],
+        "order": 2,
+        "related_entities": []
+      },
+      {
+        "id": "2e2b32ed-dc4a-48d4-80da-82ca645b7eb2",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Engrossed on Saturday, March 28, 2026",
+        "date": "2026-04-09",
+        "classification": [],
+        "order": 3,
+        "related_entities": []
+      },
+      {
+        "id": "c7202493-0637-47c8-b086-1bdbfaca2181",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Enrolled and presented to Governor on Monday, March 30, 2026",
+        "date": "2026-04-09",
+        "classification": [],
+        "order": 4,
+        "related_entities": []
+      },
+      {
+        "id": "b5ae7090-f55f-4dae-8e0d-51a83e0b2e48",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Conference Committee Report was adopted; Yea 80, Nay 43, Absent 2",
+        "date": "2026-03-27",
+        "classification": [],
+        "order": 5,
+        "related_entities": []
+      },
+      {
+        "id": "93e84687-eb52-4617-84a3-178513931236",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Conference Committee Report was adopted; Yea 28, Nay 11, Absent 1",
+        "date": "2026-03-27",
+        "classification": [],
+        "order": 6,
+        "related_entities": []
+      },
+      {
+        "id": "9b9b4d01-e788-4fc2-9361-a3bfc9c6b53a",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Conference committee report now available",
+        "date": "2026-03-27",
+        "classification": [],
+        "order": 7,
+        "related_entities": []
+      },
+      {
+        "id": "c2d4b23c-dd52-45c8-87a9-b4efc8af7d0f",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Conference Committee Report agree to disagree adopted; Rep. Francis Awerkamp, Rep. Dale Helwig and Rep. Suzanne Wikle appointed as second conferees",
+        "date": "2026-03-25",
+        "classification": [],
+        "order": 8,
+        "related_entities": []
+      },
+      {
+        "id": "db089c3c-951a-4c21-877f-ce6db5d5de88",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Conference Committee Report agree to disagree adopted; Sen. Renee Erickson, Sen. Michael Murphy and Sen. Cindy Holscher appointed as second conferees",
+        "date": "2026-03-25",
+        "classification": [],
+        "order": 9,
+        "related_entities": []
+      },
+      {
+        "id": "f90930f3-4ba9-497d-bc05-969b9116ab14",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Rep. Francis Awerkamp is appointed to replace Rep. Blake Carpenter on the Conference Committee",
+        "date": "2026-03-24",
+        "classification": [],
+        "order": 10,
+        "related_entities": []
+      },
+      {
+        "id": "cf848128-046a-45a7-89a0-c561556104cc",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Rep. Blake Carpenter and Rep. Suzanne Wikle are appointed to replace Rep. Francis Awerkamp and Rep. Jarrod Ousley on the Conference Committee",
+        "date": "2026-03-24",
+        "classification": [],
+        "order": 11,
+        "related_entities": []
+      },
+      {
+        "id": "db84cd74-3b97-4afb-8619-bcb14faff12a",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Motion to accede adopted; Sen. Renee Erickson, Sen. Michael Murphy and Sen. Cindy Holscher appointed as conferees",
+        "date": "2026-03-24",
+        "classification": [],
+        "order": 12,
+        "related_entities": []
+      },
+      {
+        "id": "72b5cb08-3cdd-46c8-b3dc-37204d079ff0",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Nonconcurred with amendments; Conference Committee requested; appointed Rep. Francis Awerkamp, Rep. Dale Helwig and Rep. Jarrod Ousley",
+        "date": "2026-03-23",
+        "classification": [],
+        "order": 13,
+        "related_entities": []
+      },
+      {
+        "id": "2d2d156b-553c-4058-a0c3-e82cda5bf058",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Final Action - Passed as amended; Yea 37, Nay 3",
+        "date": "2026-03-19",
+        "classification": [
+          "passage"
+        ],
+        "order": 14,
+        "related_entities": []
+      },
+      {
+        "id": "92aeb006-93fe-4034-bd5e-b0eee17346a0",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Committee of the Whole - Be passed as amended",
+        "date": "2026-03-18",
+        "classification": [
+          "passage"
+        ],
+        "order": 15,
+        "related_entities": []
+      },
+      {
+        "id": "54faa1d5-36c7-467b-8330-79af9e163a39",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Committee of the Whole - Amendment by Sen. Adam Thomas was adopted",
+        "date": "2026-03-18",
+        "classification": [
+          "passage"
+        ],
+        "order": 16,
+        "related_entities": []
+      },
+      {
+        "id": "1f7e35ab-96c0-4f58-b0a8-67c2adcad414",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Committee of the Whole - Motion to Amend - Offered by Sen. Adam Thomas",
+        "date": "2026-03-18",
+        "classification": [],
+        "order": 17,
+        "related_entities": []
+      },
+      {
+        "id": "1caaa729-9bb8-43c2-97d3-f736318f683e",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Committee Report recommending bill be passed by Senate Committee on Government Efficiency",
+        "date": "2026-03-10",
+        "classification": [
+          "committee-passage-favorable"
+        ],
+        "order": 18,
+        "related_entities": []
+      },
+      {
+        "id": "27a41806-ff0a-4fb4-8668-2fb149635324",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Referred to Senate Committee on Government Efficiency",
+        "date": "2026-02-25",
+        "classification": [
+          "referral-committee"
+        ],
+        "order": 19,
+        "related_entities": []
+      },
+      {
+        "id": "0b61f634-027b-433c-96f1-8e3d0624cb32",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Received and Introduced",
+        "date": "2026-02-24",
+        "classification": [
+          "introduction"
+        ],
+        "order": 20,
+        "related_entities": []
+      },
+      {
+        "id": "1caa4dd6-923e-41ca-b8f5-ab64b875b147",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Final Action - Substitute passed; Yea 85, Nay 37, Absent 3",
+        "date": "2026-02-19",
+        "classification": [
+          "passage"
+        ],
+        "order": 21,
+        "related_entities": []
+      },
+      {
+        "id": "ff137fe3-57f8-43cd-b955-54a9cb2d7549",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Committee of the Whole - Substitute bill be passed",
+        "date": "2026-02-18",
+        "classification": [
+          "passage"
+        ],
+        "order": 22,
+        "related_entities": []
+      },
+      {
+        "id": "5f683d06-177e-40be-84da-511c63778424",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Committee of the Whole - Committee Report be adopted recommending substitute bill be passed",
+        "date": "2026-02-18",
+        "classification": [
+          "passage"
+        ],
+        "order": 23,
+        "related_entities": []
+      },
+      {
+        "id": "0ee86c30-601e-4c13-b90d-cabf4ba6f650",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Committee Report recommending substitute bill be passed by House Committee on Welfare Reform",
+        "date": "2026-02-16",
+        "classification": [
+          "committee-passage-favorable"
+        ],
+        "order": 24,
+        "related_entities": []
+      },
+      {
+        "id": "b58979e2-ee57-402b-af4f-39460483371c",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Referred to House Committee on Welfare Reform",
+        "date": "2026-02-05",
+        "classification": [
+          "referral-committee"
+        ],
+        "order": 25,
+        "related_entities": []
+      },
+      {
+        "id": "2eb49d2c-7000-4567-bc2b-2070afae7a35",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Introduced",
+        "date": "2026-02-05",
+        "classification": [
+          "introduction"
+        ],
+        "order": 26,
+        "related_entities": []
+      }
+    ],
+    "versions": [
+      {
+        "id": "bab0c674-fc55-4340-8482-c38c19dfd1e1",
+        "note": "Enrolled",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2731/hb2731_enrolled.pdf",
+            "media_type": "application/pdf"
+          },
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/documents/view-leg/?apn=b2025_26/year2/ready_for_publication/hb_2731/hb2731_enrolled.pdf",
+            "media_type": "text/html"
+          }
+        ]
+      },
+      {
+        "id": "e264e68a-ce0f-4ba6-91da-655e1d1af43f",
+        "note": "{As Amended by Senate Committee of the Whole}",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2731/hb2731_02_0000.pdf",
+            "media_type": "application/pdf"
+          },
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/documents/view-leg/?apn=b2025_26/year2/ready_for_publication/hb_2731/hb2731_02_0000.pdf",
+            "media_type": "text/html"
+          }
+        ]
+      },
+      {
+        "id": "e899a9d0-ccdf-4245-b2b0-5f0cd02702ec",
+        "note": "Sub",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2731/hb2731_01_0000.pdf",
+            "media_type": "application/pdf"
+          },
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/documents/view-leg/?apn=b2025_26/year2/ready_for_publication/hb_2731/hb2731_01_0000.pdf",
+            "media_type": "text/html"
+          }
+        ]
+      },
+      {
+        "id": "31201e51-9225-44c8-af6e-fbd980075ef8",
+        "note": "As Introduced",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2731/hb2731_00_0000.pdf",
+            "media_type": "application/pdf"
+          },
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/documents/view-leg/?apn=b2025_26/year2/ready_for_publication/hb_2731/hb2731_00_0000.pdf",
+            "media_type": "text/html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ocd-bill/d7f7da34-3458-4522-b0c7-ed1a908162d1",
+    "session": "2025-2026",
+    "jurisdiction": {
+      "id": "ocd-jurisdiction/country:us/state:ks/government",
+      "name": "Kansas",
+      "classification": "state"
+    },
+    "from_organization": {
+      "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+      "name": "House",
+      "classification": "lower"
+    },
+    "identifier": "HB 2004",
+    "title": "Senate Substitute for HB 2004 by Committee on Government Efficiency - .Requiring the secretary for children and families and the office of inspector general to exchange information and documents related to cash assistance, childcare assistance and food assistance fraud investigations and requiring the secretary for children and families and the secretary of health and environment to execute a memorandum of understanding or other written data-sharing instrument upon written request of the United States department of agriculture or the United States department of health and human services and comply with data requests from such federal agencies.",
+    "classification": [
+      "bill"
+    ],
+    "subject": [
+      "Taxation"
+    ],
+    "extras": {},
+    "created_at": "2025-01-10T18:02:22.692134+00:00",
+    "updated_at": "2026-06-22T22:39:23.468608+00:00",
+    "openstates_url": "https://openstates.org/ks/bills/2025-2026/HB2004/",
+    "first_action_date": "2025-01-13",
+    "latest_action_date": "2026-04-09",
+    "latest_action_description": "Enrolled and presented to Governor on Monday, March 30, 2026",
+    "latest_passage_date": "2026-02-16",
+    "sponsorships": [
+      {
+        "id": "5950f319-ac6f-4684-b582-a5df849596d8",
+        "name": "Shannon Francis",
+        "entity_type": "person",
+        "person": {
+          "id": "ocd-person/cc0df3af-9c8b-4834-a629-c16e4c8debcb",
+          "name": "Shannon Francis",
+          "party": "Republican",
+          "current_role": {
+            "title": "Representative",
+            "org_classification": "lower",
+            "district": "125",
+            "division_id": "ocd-division/country:us/state:ks/sldl:125"
+          }
+        },
+        "primary": true,
+        "classification": "primary"
+      },
+      {
+        "id": "70f92a2d-27a1-4a85-aa02-4b5381ecb89b",
+        "name": "Committee on Government Efficiency",
+        "entity_type": "organization",
+        "primary": false,
+        "classification": "cosponsor"
+      }
+    ],
+    "actions": [
+      {
+        "id": "0400414e-c942-46f4-bd5e-421c1c1f24d2",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Motion to override veto prevailed; Yea 29, Nay 10, Absent 1",
+        "date": "2026-04-09",
+        "classification": [],
+        "order": 0,
+        "related_entities": []
+      },
+      {
+        "id": "36ed8685-7d42-4596-8ba1-2610a56d06b2",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Motion to override veto prevailed; Yea 85, Nay 38, Absent 2",
+        "date": "2026-04-09",
+        "classification": [],
+        "order": 1,
+        "related_entities": []
+      },
+      {
+        "id": "8da41a89-301b-40ee-8174-cb713400eb96",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Vetoed by Governor; Returned to House on Wednesday, April 8, 2026",
+        "date": "2026-04-09",
+        "classification": [
+          "executive-veto"
+        ],
+        "order": 2,
+        "related_entities": []
+      },
+      {
+        "id": "274932d2-24d7-4f8e-a1bd-d0f199580bdb",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Enrolled and presented to Governor on Monday, March 30, 2026",
+        "date": "2026-04-09",
+        "classification": [],
+        "order": 3,
+        "related_entities": []
+      },
+      {
+        "id": "9f8722dc-eeff-4d5e-aa67-0209ecd52ab3",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Conference Committee Report was adopted; Yea 84, Nay 37, Absent 4",
+        "date": "2026-03-26",
+        "classification": [],
+        "order": 4,
+        "related_entities": []
+      },
+      {
+        "id": "49ba2616-b6c6-4a83-95ee-5c7ab5344733",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Conference Committee Report was adopted; Yea 28, Nay 11, Absent 1",
+        "date": "2026-03-26",
+        "classification": [],
+        "order": 5,
+        "related_entities": []
+      },
+      {
+        "id": "835af400-dfe4-4beb-a014-885166811954",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Conference committee report now available",
+        "date": "2026-03-26",
+        "classification": [],
+        "order": 6,
+        "related_entities": []
+      },
+      {
+        "id": "75270c5c-f5e1-4cb9-bfd1-14f5a3fa55c2",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Conference Committee Report agree to disagree adopted; Rep. Francis Awerkamp, Rep. Dale Helwig and Rep. Suzanne Wikle appointed as second conferees",
+        "date": "2026-03-23",
+        "classification": [],
+        "order": 7,
+        "related_entities": []
+      },
+      {
+        "id": "8592f7d1-99cf-4966-be7b-fd0cadd4f8d5",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Conference Committee Report agree to disagree adopted; Sen. Renee Erickson, Sen. Michael Murphy and Sen. Cindy Holscher appointed as second conferees",
+        "date": "2026-03-17",
+        "classification": [],
+        "order": 8,
+        "related_entities": []
+      },
+      {
+        "id": "f83c9642-7c5d-40e0-b3f7-f748f91619dc",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Conference committee report now available",
+        "date": "2026-03-17",
+        "classification": [],
+        "order": 9,
+        "related_entities": []
+      },
+      {
+        "id": "166b2843-dc08-46dc-9830-285e570ba786",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Motion to accede adopted; Sen. Renee Erickson, Sen. Michael Murphy and Sen. Cindy Holscher appointed as conferees",
+        "date": "2026-02-18",
+        "classification": [],
+        "order": 10,
+        "related_entities": []
+      },
+      {
+        "id": "bdcf46ed-49e9-4555-ad34-009a56c52034",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Nonconcurred with amendments; Conference Committee requested; appointed Rep. Francis Awerkamp, Rep. Dale Helwig and Rep. Jarrod Ousley",
+        "date": "2026-02-18",
+        "classification": [],
+        "order": 11,
+        "related_entities": []
+      },
+      {
+        "id": "5b9cd615-2666-4596-9b2b-e7a1c4d55ce8",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Emergency Final Action - Substitute passed; Yea 28, Nay 9, Absent 3",
+        "date": "2026-02-16",
+        "classification": [
+          "passage"
+        ],
+        "order": 12,
+        "related_entities": []
+      },
+      {
+        "id": "21825529-d2d0-44a4-b7d5-65d7708e50c7",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Committee of the Whole - Substitute bill be passed",
+        "date": "2026-02-16",
+        "classification": [
+          "passage"
+        ],
+        "order": 13,
+        "related_entities": []
+      },
+      {
+        "id": "9cde68e8-00db-420c-8c4b-e42cc095ffd8",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Committee of the Whole - Committee Report be adopted recommending substitute bill be passed",
+        "date": "2026-02-16",
+        "classification": [
+          "passage"
+        ],
+        "order": 14,
+        "related_entities": []
+      },
+      {
+        "id": "048dd51a-2df2-46d3-ae01-b994b641ae89",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Committee Report recommending substitute bill be passed by Senate Committee on Government Efficiency",
+        "date": "2026-02-10",
+        "classification": [
+          "committee-passage-favorable"
+        ],
+        "order": 15,
+        "related_entities": []
+      },
+      {
+        "id": "288d3da0-eacc-4cb4-8082-1f2cee3a0cb5",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Withdrawn from Senate Committee on Government Efficiency; Referred to Senate Committee on Government Efficiency",
+        "date": "2026-02-03",
+        "classification": [
+          "referral-committee"
+        ],
+        "order": 16,
+        "related_entities": []
+      },
+      {
+        "id": "aacf095f-fe35-4d78-bc05-bad98f4f73e4",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Withdrawn from Calendar, Rereferred to Senate Committee on Assessment and Taxation",
+        "date": "2026-01-12",
+        "classification": [
+          "referral-committee"
+        ],
+        "order": 17,
+        "related_entities": []
+      },
+      {
+        "id": "52faac25-e3bd-4425-b492-95049a67f270",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Committee of the Whole - Passed over and retain a place on the calendar",
+        "date": "2025-03-20",
+        "classification": [],
+        "order": 18,
+        "related_entities": []
+      },
+      {
+        "id": "1118f0e9-3bec-40a4-906f-03c0fbf6e36a",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Committee Report recommending bill be passed as amended by Senate Committee on Assessment and Taxation",
+        "date": "2025-03-19",
+        "classification": [
+          "committee-passage-favorable"
+        ],
+        "order": 19,
+        "related_entities": []
+      },
+      {
+        "id": "ecfe0683-7211-4b51-b11b-62fdb48d6003",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Referred to Senate Committee on Assessment and Taxation",
+        "date": "2025-02-04",
+        "classification": [
+          "referral-committee"
+        ],
+        "order": 20,
+        "related_entities": []
+      },
+      {
+        "id": "5410a06f-5fa5-4977-af53-e62661a86c14",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Received and Introduced",
+        "date": "2025-02-03",
+        "classification": [
+          "introduction"
+        ],
+        "order": 21,
+        "related_entities": []
+      },
+      {
+        "id": "4458742c-ec9e-4140-92dd-d747f0a441f4",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Final Action - Passed; Yea 116, Nay 1, Absent 8",
+        "date": "2025-01-31",
+        "classification": [
+          "passage"
+        ],
+        "order": 22,
+        "related_entities": []
+      },
+      {
+        "id": "bf76e06c-bdb5-49c8-9c5b-358cd2d89225",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Committee Report recommending bill be passed and placed on Consent Calendar by House Committee on Taxation",
+        "date": "2025-01-28",
+        "classification": [
+          "committee-passage-favorable"
+        ],
+        "order": 23,
+        "related_entities": []
+      },
+      {
+        "id": "c6911d5a-83a7-499c-ad3d-901aff2dc4f2",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Withdrawn from House Committee on Taxation; Referred to House Committee on Taxation",
+        "date": "2025-01-15",
+        "classification": [
+          "referral-committee"
+        ],
+        "order": 24,
+        "related_entities": []
+      },
+      {
+        "id": "ba2467e8-1e01-45d9-a660-991bdf47d7a9",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Referred to House Committee on Transportation",
+        "date": "2025-01-13",
+        "classification": [
+          "referral-committee"
+        ],
+        "order": 25,
+        "related_entities": []
+      },
+      {
+        "id": "7c9b7c6f-0709-4ce6-b240-aa8292453602",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Introduced",
+        "date": "2025-01-13",
+        "classification": [
+          "introduction"
+        ],
+        "order": 26,
+        "related_entities": []
+      },
+      {
+        "id": "890e4a3d-ede7-4382-93fb-fa78c8d9e119",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Prefiled for Introduction on Friday, January 10, 2025",
+        "date": "2025-01-13",
+        "classification": [
+          "filing"
+        ],
+        "order": 27,
+        "related_entities": []
+      }
+    ],
+    "versions": [
+      {
+        "id": "91cd7cfa-89cb-4dbc-a9f0-efbc31773a9f",
+        "note": "Enrolled",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2004/hb2004_enrolled.pdf",
+            "media_type": "application/pdf"
+          },
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/documents/view-leg/?apn=b2025_26/year2/ready_for_publication/hb_2004/hb2004_enrolled.pdf",
+            "media_type": "text/html"
+          }
+        ]
+      },
+      {
+        "id": "54668581-fa1f-45e3-9604-9e4cbaf0e303",
+        "note": "S Sub for",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/bills/download/?apn=b2025_26/year2/ready_for_publication/hb2004_02_0000.pdf",
+            "media_type": "application/pdf"
+          },
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/documents/view-leg/?apn=b2025_26/year2/ready_for_publication/hb2004_02_0000.pdf",
+            "media_type": "text/html"
+          }
+        ]
+      },
+      {
+        "id": "37298573-6b95-430b-acd2-ea149adfeb50",
+        "note": "As Amended by Senate Committee on Assessment and Taxation",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/bills/download/?apn=b2025_26/year1/ready_for_publication/hb_2004/hb2004_01_0000.pdf",
+            "media_type": "application/pdf"
+          },
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/documents/view-leg/?apn=b2025_26/year1/ready_for_publication/hb_2004/hb2004_01_0000.pdf",
+            "media_type": "text/html"
+          }
+        ]
+      },
+      {
+        "id": "a82aac51-2631-465a-b775-dd4a88882b61",
+        "note": "As Introduced",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/bills/download/?apn=b2025_26/year1/ready_for_publication/hb_2004/hb2004_00_0000.pdf",
+            "media_type": "application/pdf"
+          },
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/documents/view-leg/?apn=b2025_26/year1/ready_for_publication/hb_2004/hb2004_00_0000.pdf",
+            "media_type": "text/html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ocd-bill/1ea49626-6777-48fe-8ab4-c55714044099",
+    "session": "2025-2026",
+    "jurisdiction": {
+      "id": "ocd-jurisdiction/country:us/state:ks/government",
+      "name": "Kansas",
+      "classification": "state"
+    },
+    "from_organization": {
+      "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+      "name": "Senate",
+      "classification": "upper"
+    },
+    "identifier": "SB 260",
+    "title": "House Subsitute for SB 260 by Committee on Federal and State Affairs - Relating to campaign finance; concerning a vacancy in the joint candidacy of the governor and lieutenant governor; relating to reasons for withdrawal of candidacy from national, state and local offices; relating to the election of the board of directors of certain irrigation districts; specifying when such elections may be conducted by the mail ballot election law; relating to the crime of corrupt political advertising; removing the requirements that treasurers be listed in political advertising attributions; clarifying campaign finance reports regarding vendor information.",
+    "classification": [
+      "bill"
+    ],
+    "subject": [
+      "Funds",
+      "Gambling and Gaming",
+      "HB 2446",
+      "Named Acts",
+      "SB 392",
+      "SB 451",
+      "SB 65",
+      "State Treasurer"
+    ],
+    "extras": {},
+    "created_at": "2025-02-11T23:00:50.298389+00:00",
+    "updated_at": "2026-06-22T22:34:41.321307+00:00",
+    "openstates_url": "https://openstates.org/ks/bills/2025-2026/SB260/",
+    "first_action_date": "2025-02-11",
+    "latest_action_date": "2026-04-09",
+    "latest_action_description": "Enrolled and presented to Governor on Monday, March 30, 2026",
+    "latest_passage_date": "2026-03-18",
+    "sponsorships": [
+      {
+        "id": "c009a0ab-d677-4a0e-b4c0-3f5d4cb8d3dd",
+        "name": "Committee on Ways and Means",
+        "entity_type": "organization",
+        "primary": true,
+        "classification": "primary"
+      },
+      {
+        "id": "da19bf5a-c496-4bcc-8bac-21cc5d5ac83d",
+        "name": "Committee on Federal and State Affairs",
+        "entity_type": "organization",
+        "primary": false,
+        "classification": "cosponsor"
+      }
+    ],
+    "actions": [
+      {
+        "id": "4958a516-5c27-470e-b5c0-fb246e97ea75",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Approved by Governor on Tuesday, April 7, 2026",
+        "date": "2026-04-09",
+        "classification": [
+          "executive-signature"
+        ],
+        "order": 0,
+        "related_entities": []
+      },
+      {
+        "id": "ddbdb074-4350-4d1d-a051-a50059541580",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Enrolled and presented to Governor on Monday, March 30, 2026",
+        "date": "2026-04-09",
+        "classification": [],
+        "order": 1,
+        "related_entities": []
+      },
+      {
+        "id": "2def99c5-4736-47cb-ab86-b5adaecbf6e9",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Conference Committee Report was adopted; Yea 39, Nay 1",
+        "date": "2026-03-27",
+        "classification": [],
+        "order": 2,
+        "related_entities": []
+      },
+      {
+        "id": "f84b4c15-ef9b-419c-ba88-7415c243fd51",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Conference Committee Report was adopted; Yea 98, Nay 27",
+        "date": "2026-03-25",
+        "classification": [],
+        "order": 3,
+        "related_entities": []
+      },
+      {
+        "id": "2657c22b-a127-4704-a8cd-503439832d4c",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Conference committee report now available",
+        "date": "2026-03-25",
+        "classification": [],
+        "order": 4,
+        "related_entities": []
+      },
+      {
+        "id": "2bee2f21-7f67-4518-8f0e-27c02e6b309a",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Rep. Pat Proctor, Rep. Paul Waggoner, and Rep. Kirk Haskins are appointed to replace Rep. Tom Kessler, Rep. Rebecca Schmoe, and Rep. Heather Meyer on the Conference Committee",
+        "date": "2026-03-23",
+        "classification": [],
+        "order": 5,
+        "related_entities": []
+      },
+      {
+        "id": "7314d07d-a6a1-4b7e-a4e6-6d00a466c67a",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Motion to accede adopted; Rep. Tom Kessler, Rep. Rebecca Schmoe and Rep. Heather Meyer appointed as conferees",
+        "date": "2026-03-23",
+        "classification": [],
+        "order": 6,
+        "related_entities": []
+      },
+      {
+        "id": "70aeb580-2c07-451c-9e2e-ba3a594c166a",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Nonconcurred with amendments; Conference Committee requested; appointed Sen. Mike Thompson, Sen. Tory Marie Blew and Sen. Oletha Faust Goudeau",
+        "date": "2026-03-23",
+        "classification": [],
+        "order": 7,
+        "related_entities": []
+      },
+      {
+        "id": "b4dc9a62-8070-4a0f-a7a4-6c418f036113",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Emergency Final Action - Substitute passed; Yea 110, Nay 14, Absent 1",
+        "date": "2026-03-18",
+        "classification": [
+          "passage"
+        ],
+        "order": 8,
+        "related_entities": []
+      },
+      {
+        "id": "0eb81353-868f-43e6-a0d2-477afaabd6fd",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Motion to advance to Emergency Final Action adopted",
+        "date": "2026-03-18",
+        "classification": [],
+        "order": 9,
+        "related_entities": []
+      },
+      {
+        "id": "5ac958a0-8903-4e84-8c16-982601f75400",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Committee of the Whole - Substitute bill be passed",
+        "date": "2026-03-18",
+        "classification": [
+          "passage"
+        ],
+        "order": 10,
+        "related_entities": []
+      },
+      {
+        "id": "d20e3155-5be9-4215-ac26-3723f1348ef6",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Committee of the Whole - Committee Report be adopted recommending substitute bill be passed",
+        "date": "2026-03-18",
+        "classification": [
+          "passage"
+        ],
+        "order": 11,
+        "related_entities": []
+      },
+      {
+        "id": "4c724a0b-47ac-4f33-92fa-1faea17cab17",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Committee Report recommending substitute bill be passed by House Committee on Federal and State Affairs",
+        "date": "2026-03-16",
+        "classification": [
+          "committee-passage-favorable"
+        ],
+        "order": 12,
+        "related_entities": []
+      },
+      {
+        "id": "51d20dd4-7995-4a29-9c9c-a480261a496e",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Referred to House Committee on Federal and State Affairs",
+        "date": "2025-02-25",
+        "classification": [
+          "referral-committee"
+        ],
+        "order": 13,
+        "related_entities": []
+      },
+      {
+        "id": "46b0c7ff-2593-4fd5-87b2-40279fe0c05c",
+        "organization": {
+          "id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Received and Introduced",
+        "date": "2025-02-25",
+        "classification": [
+          "introduction"
+        ],
+        "order": 14,
+        "related_entities": []
+      },
+      {
+        "id": "9bfaf12a-7933-4170-a8f7-38246997b253",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Final Action - Passed as amended; Yea 36, Nay 4",
+        "date": "2025-02-19",
+        "classification": [
+          "passage"
+        ],
+        "order": 15,
+        "related_entities": []
+      },
+      {
+        "id": "30acca6d-a35e-474b-a36c-b9647f2632bd",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Committee of the Whole - Be passed as amended",
+        "date": "2025-02-18",
+        "classification": [
+          "passage"
+        ],
+        "order": 16,
+        "related_entities": []
+      },
+      {
+        "id": "cd61a43b-7ad8-47f5-b796-25ea3adb3d45",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Committee of the Whole - Committee Report be adopted",
+        "date": "2025-02-18",
+        "classification": [
+          "passage"
+        ],
+        "order": 17,
+        "related_entities": []
+      },
+      {
+        "id": "5b99b9d8-298e-4196-a025-ae51de367bac",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Committee Report recommending bill be passed as amended by Senate Committee on Federal and State Affairs",
+        "date": "2025-02-17",
+        "classification": [
+          "committee-passage-favorable"
+        ],
+        "order": 18,
+        "related_entities": []
+      },
+      {
+        "id": "04fb3a64-6b96-4f95-ae60-f8222b9ab1b0",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Referred to Senate Committee on Federal and State Affairs",
+        "date": "2025-02-13",
+        "classification": [
+          "referral-committee"
+        ],
+        "order": 19,
+        "related_entities": []
+      },
+      {
+        "id": "4dd79a81-d183-4dba-9c22-5fb9c114205f",
+        "organization": {
+          "id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Introduced",
+        "date": "2025-02-11",
+        "classification": [
+          "introduction"
+        ],
+        "order": 20,
+        "related_entities": []
+      }
+    ],
+    "versions": [
+      {
+        "id": "6142d9d5-c93c-4d76-beee-5c2ebcb27980",
+        "note": "Enrolled",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_260/sb260_enrolled.pdf",
+            "media_type": "application/pdf"
+          },
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/documents/view-leg/?apn=b2025_26/year2/ready_for_publication/sb_260/sb260_enrolled.pdf",
+            "media_type": "text/html"
+          }
+        ]
+      },
+      {
+        "id": "7d78b3bd-42e0-49bc-beb9-85812c6d0d2c",
+        "note": "H Sub for",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_260/sb260_02_0000.pdf",
+            "media_type": "application/pdf"
+          },
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/documents/view-leg/?apn=b2025_26/year2/ready_for_publication/sb_260/sb260_02_0000.pdf",
+            "media_type": "text/html"
+          }
+        ]
+      },
+      {
+        "id": "932c4651-6d40-4e19-97e2-e1e41f2b21ce",
+        "note": "As Amended by Senate Committee on Federal and State Affairs",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/bills/download/?apn=b2025_26/year1/ready_for_publication/sb_260/sb260_01_0000.pdf",
+            "media_type": "application/pdf"
+          },
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/documents/view-leg/?apn=b2025_26/year1/ready_for_publication/sb_260/sb260_01_0000.pdf",
+            "media_type": "text/html"
+          }
+        ]
+      },
+      {
+        "id": "a9eb6d2e-11f3-4373-96f4-892e0cdea64c",
+        "note": "As Introduced",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/bills/download/?apn=b2025_26/year1/ready_for_publication/sb_260/sb260_00_0000.pdf",
+            "media_type": "application/pdf"
+          },
+          {
+            "url": "https://www.kslegislature.gov/b2025_26/documents/view-leg/?apn=b2025_26/year1/ready_for_publication/sb_260/sb260_00_0000.pdf",
+            "media_type": "text/html"
+          }
+        ]
+      }
+    ]
+  }
+]
