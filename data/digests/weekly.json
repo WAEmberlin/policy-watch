@@ -1,12 +1,12 @@
 {
   "federal": {
     "label": "Federal Weekly Digest",
-    "generated_at": "2026-06-28T02:55:28.481300+00:00",
+    "generated_at": "2026-06-28T17:23:44.111693+00:00",
     "period_days": 7,
     "summary": {
       "total_bills": 37,
       "total_events": 72,
-      "total_votes": 0
+      "total_votes": 1008
     },
     "important_bills": [
       {
@@ -80,7 +80,78 @@
         "ai_summary": "Bill HR 1266 Combating Illicit Xylazine Act Latest action: Forwarded by Subcommittee to Full Committee by Voice Vote."
       }
     ],
-    "major_votes": [],
+    "major_votes": [
+      {
+        "bill_id": "ocd-bill/ae9a43db-94c5-4e04-9430-5a83fe95ee24",
+        "bill_number": "SB 341",
+        "action": "Committee Report recommending bill be passed as amended by Senate Committee on Education",
+        "date": "2026-02-11",
+        "state": "KS"
+      },
+      {
+        "bill_id": "ocd-bill/8ec6dfd2-ac48-4228-944a-f95c142f754b",
+        "bill_number": "HB 2250",
+        "action": "Committee Report recommending substitute bill be passed by House Committee on Health and Human Services",
+        "date": "2026-02-17",
+        "state": "KS"
+      },
+      {
+        "bill_id": "ocd-bill/da3c230d-deaa-4c2c-a4f6-57c2a362fef7",
+        "bill_number": "HB 2731",
+        "action": "Committee Report recommending substitute bill be passed by House Committee on Welfare Reform",
+        "date": "2026-02-16",
+        "state": "KS"
+      },
+      {
+        "bill_id": "ocd-bill/d7f7da34-3458-4522-b0c7-ed1a908162d1",
+        "bill_number": "HB 2004",
+        "action": "Committee Report recommending bill be passed and placed on Consent Calendar by House Committee on Taxation",
+        "date": "2025-01-28",
+        "state": "KS"
+      },
+      {
+        "bill_id": "ocd-bill/1ea49626-6777-48fe-8ab4-c55714044099",
+        "bill_number": "SB 260",
+        "action": "Committee Report recommending bill be passed as amended by Senate Committee on Federal and State Affairs",
+        "date": "2025-02-17",
+        "state": "KS"
+      },
+      {
+        "bill_id": "ocd-bill/49e72130-f014-4f6b-b843-7c604662e053",
+        "bill_number": "HB 1188",
+        "action": "House Committee on Appropriations Refer Unamended to House Committee of the Whole",
+        "date": "2026-03-20",
+        "state": "CO"
+      },
+      {
+        "bill_id": "ocd-bill/f828def3-018c-4364-bba4-b69c3bb3c686",
+        "bill_number": "HB 1260",
+        "action": "House Committee on Appropriations Refer Unamended to House Committee of the Whole",
+        "date": "2026-03-20",
+        "state": "CO"
+      },
+      {
+        "bill_id": "ocd-bill/bca36b36-f2a8-4eaf-a91e-d7a899c2c064",
+        "bill_number": "SB 125",
+        "action": "Senate Committee on Appropriations Refer Amended to Senate Committee of the Whole",
+        "date": "2026-05-06",
+        "state": "CO"
+      },
+      {
+        "bill_id": "ocd-bill/55c3a0a8-e630-4959-bb01-86a3bf2775e0",
+        "bill_number": "HB 1044",
+        "action": "House Committee on Health & Human Services Refer Amended to House Committee of the Whole",
+        "date": "2026-02-25",
+        "state": "CO"
+      },
+      {
+        "bill_id": "ocd-bill/83dbddfa-34c2-4b71-9904-437cab1bb4a4",
+        "bill_number": "SB 48",
+        "action": "Senate Committee on Appropriations Refer Amended to Senate Committee of the Whole",
+        "date": "2026-03-20",
+        "state": "CO"
+      }
+    ],
     "committee_activity": [
       {
         "id": "338613",
@@ -202,6 +273,23 @@
         "updated_at": "2026-07-01"
       },
       {
+        "id": "119425",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "title": "Full Committee Hearing on The Growing Business of Sports: Reviewing Federal Tax Policy in the Multibillion-Dollar Industry",
+        "description": "Congressional meeting before the House Ways and Means.",
+        "scheduled_date": "2026-06-30",
+        "scheduled_time": "14:00",
+        "location": "Room 1100, Longworth House Office Building",
+        "chamber": "House",
+        "committees": [
+          "House Ways and Means"
+        ],
+        "url": "https://www.congress.gov/event/119th-congress/house-event/119425",
+        "updated_at": "2026-06-30"
+      },
+      {
         "id": "119422",
         "source": "congress",
         "level": "federal",
@@ -234,58 +322,638 @@
         ],
         "url": "https://www.congress.gov/event/119th-congress/house-event/119435",
         "updated_at": "2026-06-30"
-      },
-      {
-        "id": "119430",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "title": "Various Measures",
-        "description": "Congressional meeting before the House Financial Services.",
-        "scheduled_date": "2026-06-30",
-        "scheduled_time": "14:00",
-        "location": "Room 2128, Rayburn House Office Building",
-        "chamber": "House",
-        "committees": [
-          "House Financial Services"
-        ],
-        "url": "https://www.congress.gov/event/119th-congress/house-event/119430",
-        "updated_at": "2026-06-30"
       }
     ],
     "ai_analysis": "Impact analysis pending — insufficient classification data.\nThis federal-level federal bill relates to Veterans. Status: Subcommittee Hearings Held.\nImpact analysis pending — insufficient classification data.\nImpact analysis pending — insufficient classification data.\nImpact analysis pending — insufficient classification data."
   },
   "ks": {
     "label": "Kansas Weekly Digest",
-    "generated_at": "2026-06-28T02:55:28.482583+00:00",
+    "generated_at": "2026-06-28T17:23:44.113974+00:00",
     "period_days": 7,
     "summary": {
-      "total_bills": 0,
+      "total_bills": 5,
       "total_events": 0,
-      "total_votes": 0
+      "total_votes": 5
     },
-    "important_bills": [],
-    "major_votes": [],
+    "important_bills": [
+      {
+        "bill_number": "HB 2731",
+        "title": "Substitute for HB 2731 by Committee on Welfare Reform -Requiring the department of health and environment in coordination with the Kansas department for aging and disability services to seek federal approval to establish continuous medicaid eligibility for certain individuals with intellectual or developmental disabilities who are receiving services through a home and community based services waiver, requiring the secretary for children and families and the secretary of health and environment to enter into data-matching agreements with state agencies to verify eligibility for food and medical assistance, directing the department of health and environment to submit certain data to the centers for medicare and medicaid services, prohibiting certain public assistance program waivers or exemptions without legislative approval, prohibiting self-attestation for purposes of determining eligibility for public assistance programs, limiting retroactive enrollment in the medical assistance program, increasing the age limit for able-bodied adults without certain dependents and prohibiting certain exemptions from work requirements under the food assistance program.",
+        "latest_action": "Motion to override veto prevailed",
+        "url": "https://openstates.org/ks/bills/2025-2026/HB2731/",
+        "ai_summary": "Bill HB 2731 Substitute for HB 2731 by Committee on Welfare Reform -Requiring the department of health and environment in coordination with the Kansas department for aging and disability services to seek federal approval to establish continuous medicaid eligibility for certain individuals with intellectual or developmental disabilities who are receiving services through a home and community based services waiver, requiring the secretary for children and families and the secretary of health and environment to enter into data-matching agreements with state agencies to verify eligibility for food and medical assistance, directing the department of health and environment to submit certain data to the centers for medicare and medicaid services, prohibiting certain public assistance program waivers or exemptions without legislative approval, prohibiting self-attestation for purposes of determining eligibility for public assistance programs, limiting retroactive enrollment in the medical assistance program, increasing the age limit for able-bodied adults without certain dependents and prohibiting certain exemptions from work requirements under the food assistance program. Substitute for HB 2731 by Committee on Welfare Reform -Requiring the department of health and environment in coordination with the Kansas department for aging and disability services to seek federal approval to establish continuous medicaid eligibility for certain individuals with intellectual or developmental disabilities who are receiving services through a home and community based services waiver, requiring the secretary for children and families and the secretary of health and environment to Latest action: Motion to override veto prevailed Sponsors: House Committee on Welfare Reform"
+      },
+      {
+        "bill_number": "HB 2250",
+        "title": "Substitute for HB 2250 by Committee on Health and Human Services - Permitting the use of expedited partner therapy to treat sexually transmitted infections, authorizing a licensed private psychiatric hospital to maintain a stock supply of emergency medication kits for pharmaceutical emergencies, allowing expired emergency opioid antagonists to be used to treat an opioid overdose, permitting first responders to distribute and administer expired emergency opioid antagonists, permitting a pharmacist to distribute epinephrine delivery systems to a school for use in emergency medication kits and amending definitions related to medication in schools to allow for use of epinephrine delivery systems.",
+        "latest_action": "Approved by Governor on Thursday, April 9, 2026",
+        "url": "https://openstates.org/ks/bills/2025-2026/HB2250/",
+        "ai_summary": "Bill HB 2250 Substitute for HB 2250 by Committee on Health and Human Services - Permitting the use of expedited partner therapy to treat sexually transmitted infections, authorizing a licensed private psychiatric hospital to maintain a stock supply of emergency medication kits for pharmaceutical emergencies, allowing expired emergency opioid antagonists to be used to treat an opioid overdose, permitting first responders to distribute and administer expired emergency opioid antagonists, permitting a pharmacist to distribute epinephrine delivery systems to a school for use in emergency medication kits and amending definitions related to medication in schools to allow for use of epinephrine delivery systems. Substitute for HB 2250 by Committee on Health and Human Services - Permitting the use of expedited partner therapy to treat sexually transmitted infections, authorizing a licensed private psychiatric hospital to maintain a stock supply of emergency medication kits for pharmaceutical emergencies, allowing expired emergency opioid antagonists to be used to treat an opioid overdose, permitting first responders to distribute and administer expired emergency opioid antagonists, permitting a pharmacis Latest action: Approved by Governor on Thursday, April 9, 2026 Sponsors: House Committee on Health and Human Services"
+      },
+      {
+        "bill_number": "HB 2004",
+        "title": "Senate Substitute for HB 2004 by Committee on Government Efficiency - .Requiring the secretary for children and families and the office of inspector general to exchange information and documents related to cash assistance, childcare assistance and food assistance fraud investigations and requiring the secretary for children and families and the secretary of health and environment to execute a memorandum of understanding or other written data-sharing instrument upon written request of the United States department of agriculture or the United States department of health and human services and comply with data requests from such federal agencies.",
+        "latest_action": "Motion to override veto prevailed",
+        "url": "https://openstates.org/ks/bills/2025-2026/HB2004/",
+        "ai_summary": "Bill HB 2004 Senate Substitute for HB 2004 by Committee on Government Efficiency - .Requiring the secretary for children and families and the office of inspector general to exchange information and documents related to cash assistance, childcare assistance and food assistance fraud investigations and requiring the secretary for children and families and the secretary of health and environment to execute a memorandum of understanding or other written data-sharing instrument upon written request of the United States department of agriculture or the United States department of health and human services and comply with data requests from such federal agencies. Senate Substitute for HB 2004 by Committee on Government Efficiency - .Requiring the secretary for children and families and the office of inspector general to exchange information and documents related to cash assistance, childcare assistance and food assistance fraud investigations and requiring the secretary for children and families and the secretary of health and environment to execute a memorandum of understanding or other written data-sharing instrument upon written request of the United  Latest action: Motion to override veto prevailed Sponsors: Senate Committee on Government Efficiency"
+      },
+      {
+        "bill_number": "SB 341",
+        "title": "Providing requirements for agreements between a school district and a postsecondary educational institution for the provision of postsecondary courses taught in secondary schools.",
+        "latest_action": "Introduced",
+        "url": "https://openstates.org/ks/bills/2025-2026/SB341/",
+        "ai_summary": "Bill SB 341 Providing requirements for agreements between a school district and a postsecondary educational institution for the provision of postsecondary courses taught in secondary schools. Latest action: Introduced Sponsors: Committee on Education"
+      },
+      {
+        "bill_number": "SB 260",
+        "title": "House Subsitute for SB 260 by Committee on Federal and State Affairs - Relating to campaign finance; concerning a vacancy in the joint candidacy of the governor and lieutenant governor; relating to reasons for withdrawal of candidacy from national, state and local offices; relating to the election of the board of directors of certain irrigation districts; specifying when such elections may be conducted by the mail ballot election law; relating to the crime of corrupt political advertising; removing the requirements that treasurers be listed in political advertising attributions; clarifying campaign finance reports regarding vendor information.",
+        "latest_action": "Introduced",
+        "url": "https://openstates.org/ks/bills/2025-2026/SB260/",
+        "ai_summary": "Bill SB 260 House Subsitute for SB 260 by Committee on Federal and State Affairs - Relating to campaign finance; concerning a vacancy in the joint candidacy of the governor and lieutenant governor; relating to reasons for withdrawal of candidacy from national, state and local offices; relating to the election of the board of directors of certain irrigation districts; specifying when such elections may be conducted by the mail ballot election law; relating to the crime of corrupt political advertising; removing the requirements that treasurers be listed in political advertising attributions; clarifying campaign finance reports regarding vendor information. Latest action: Introduced Sponsors: Committee on Ways and Means, Committee on Federal and State Affairs"
+      }
+    ],
+    "major_votes": [
+      {
+        "bill_id": "ocd-bill/ae9a43db-94c5-4e04-9430-5a83fe95ee24",
+        "bill_number": "SB 341",
+        "action": "Committee Report recommending bill be passed as amended by Senate Committee on Education",
+        "date": "2026-02-11",
+        "state": "KS"
+      },
+      {
+        "bill_id": "ocd-bill/8ec6dfd2-ac48-4228-944a-f95c142f754b",
+        "bill_number": "HB 2250",
+        "action": "Committee Report recommending substitute bill be passed by House Committee on Health and Human Services",
+        "date": "2026-02-17",
+        "state": "KS"
+      },
+      {
+        "bill_id": "ocd-bill/da3c230d-deaa-4c2c-a4f6-57c2a362fef7",
+        "bill_number": "HB 2731",
+        "action": "Committee Report recommending substitute bill be passed by House Committee on Welfare Reform",
+        "date": "2026-02-16",
+        "state": "KS"
+      },
+      {
+        "bill_id": "ocd-bill/d7f7da34-3458-4522-b0c7-ed1a908162d1",
+        "bill_number": "HB 2004",
+        "action": "Committee Report recommending bill be passed and placed on Consent Calendar by House Committee on Taxation",
+        "date": "2025-01-28",
+        "state": "KS"
+      },
+      {
+        "bill_id": "ocd-bill/1ea49626-6777-48fe-8ab4-c55714044099",
+        "bill_number": "SB 260",
+        "action": "Committee Report recommending bill be passed as amended by Senate Committee on Federal and State Affairs",
+        "date": "2025-02-17",
+        "state": "KS"
+      }
+    ],
     "committee_activity": [],
-    "ai_analysis": "No significant activity this week."
+    "ai_analysis": "This state-level KS bill relates to Healthcare, Environment. Status: Vetoes Overridden.\nThis state-level KS bill relates to Education, Public Safety, Healthcare. Status: Approved by Governor.\nThis state-level KS bill relates to Healthcare, Environment. Status: Vetoes Overridden.\nThis state-level KS bill relates to Education. Status: Introduced.\nThis state-level KS bill relates to Public Safety. Status: Introduced."
   },
   "co": {
     "label": "Colorado Weekly Digest",
-    "generated_at": "2026-06-28T02:55:28.482933+00:00",
+    "generated_at": "2026-06-28T17:23:44.114954+00:00",
     "period_days": 7,
     "summary": {
-      "total_bills": 0,
-      "total_events": 0,
-      "total_votes": 0
+      "total_bills": 75,
+      "total_events": 5,
+      "total_votes": 70
     },
-    "important_bills": [],
-    "major_votes": [],
-    "committee_activity": [],
-    "ai_analysis": "No significant activity this week."
+    "important_bills": [
+      {
+        "bill_number": "SB 167",
+        "title": "Prescription Drug Out-of-Pocket Expense Credit",
+        "latest_action": "Introduced In Senate - Assigned to Health & Human Services",
+        "url": "https://openstates.org/co/bills/2026A/SB167/",
+        "ai_summary": "Bill SB 167 Prescription Drug Out-of-Pocket Expense Credit Latest action: Introduced In Senate - Assigned to Health & Human Services Sponsors: A. Benavidez, K. Mullica, A. Boesenecker"
+      },
+      {
+        "bill_number": "SB 162",
+        "title": "Sensitive Test Results in Health Care",
+        "latest_action": "Introduced In Senate - Assigned to Health & Human Services",
+        "url": "https://openstates.org/co/bills/2026A/SB162/",
+        "ai_summary": "Bill SB 162 Sensitive Test Results in Health Care Latest action: Introduced In Senate - Assigned to Health & Human Services Sponsors: L. Frizell, K. Mullica, E. Hamrick"
+      },
+      {
+        "bill_number": "SB 157",
+        "title": "Determination of Town Abandonment",
+        "latest_action": "Introduced In Senate - Assigned to Local Government & Housing",
+        "url": "https://openstates.org/co/bills/2026A/SB157/",
+        "ai_summary": "Bill SB 157 Determination of Town Abandonment Latest action: Introduced In Senate - Assigned to Local Government & Housing Sponsors: N. Hinrichsen, R. Pelton, M. Martinez"
+      },
+      {
+        "bill_number": "HB 1410",
+        "title": "2026-27 Long Appropriations Bill",
+        "latest_action": "Introduced In House - Assigned to Appropriations",
+        "url": "https://openstates.org/co/bills/2026A/HB1410/",
+        "ai_summary": "Bill HB 1410 2026-27 Long Appropriations Bill Latest action: Introduced In House - Assigned to Appropriations Sponsors: E. Sirota, J. Bridges, K. Brown"
+      },
+      {
+        "bill_number": "HB 1407",
+        "title": "State Money Used to Refinance American Rescue Plan Money",
+        "latest_action": "Introduced In House - Assigned to Appropriations",
+        "url": "https://openstates.org/co/bills/2026A/HB1407/",
+        "ai_summary": "Bill HB 1407 State Money Used to Refinance American Rescue Plan Money Latest action: Introduced In House - Assigned to Appropriations Sponsors: K. Brown, R. Taggart, J. Amabile"
+      },
+      {
+        "bill_number": "HB 1404",
+        "title": "Transfer Tobacco Education Fund to Preschool Program Fund",
+        "latest_action": "Introduced In House - Assigned to Appropriations",
+        "url": "https://openstates.org/co/bills/2026A/HB1404/",
+        "ai_summary": "Bill HB 1404 Transfer Tobacco Education Fund to Preschool Program Fund Latest action: Introduced In House - Assigned to Appropriations Sponsors: E. Sirota, R. Taggart, J. Amabile"
+      },
+      {
+        "bill_number": "HB 1389",
+        "title": "Comprehensive Human Sexuality Education Grant Appropriation",
+        "latest_action": "Introduced In House - Assigned to Appropriations",
+        "url": "https://openstates.org/co/bills/2026A/HB1389/",
+        "ai_summary": "Bill HB 1389 Comprehensive Human Sexuality Education Grant Appropriation Latest action: Introduced In House - Assigned to Appropriations Sponsors: K. Brown, E. Sirota, J. Amabile"
+      },
+      {
+        "bill_number": "HB 1350",
+        "title": "Appropriations to Legacy School Food Programs",
+        "latest_action": "Introduced In House - Assigned to Appropriations",
+        "url": "https://openstates.org/co/bills/2026A/HB1350/",
+        "ai_summary": "Bill HB 1350 Appropriations to Legacy School Food Programs Latest action: Introduced In House - Assigned to Appropriations Sponsors: K. Brown, R. Taggart, J. Amabile"
+      },
+      {
+        "bill_number": "HB 1351",
+        "title": "Healthy School Meals for All State Education Fund",
+        "latest_action": "Introduced In House - Assigned to Appropriations",
+        "url": "https://openstates.org/co/bills/2026A/HB1351/",
+        "ai_summary": "Bill HB 1351 Healthy School Meals for All State Education Fund Latest action: Introduced In House - Assigned to Appropriations Sponsors: K. Brown, E. Sirota, J. Amabile"
+      },
+      {
+        "bill_number": "HB 1395",
+        "title": "Repeal Wildfire Resilient Homes Grant Program",
+        "latest_action": "Introduced In House - Assigned to Appropriations",
+        "url": "https://openstates.org/co/bills/2026A/HB1395/",
+        "ai_summary": "Bill HB 1395 Repeal Wildfire Resilient Homes Grant Program Latest action: Introduced In House - Assigned to Appropriations Sponsors: E. Sirota, R. Taggart, J. Amabile"
+      }
+    ],
+    "major_votes": [
+      {
+        "bill_id": "ocd-bill/49e72130-f014-4f6b-b843-7c604662e053",
+        "bill_number": "HB 1188",
+        "action": "House Committee on Appropriations Refer Unamended to House Committee of the Whole",
+        "date": "2026-03-20",
+        "state": "CO"
+      },
+      {
+        "bill_id": "ocd-bill/f828def3-018c-4364-bba4-b69c3bb3c686",
+        "bill_number": "HB 1260",
+        "action": "House Committee on Appropriations Refer Unamended to House Committee of the Whole",
+        "date": "2026-03-20",
+        "state": "CO"
+      },
+      {
+        "bill_id": "ocd-bill/bca36b36-f2a8-4eaf-a91e-d7a899c2c064",
+        "bill_number": "SB 125",
+        "action": "Senate Committee on Appropriations Refer Amended to Senate Committee of the Whole",
+        "date": "2026-05-06",
+        "state": "CO"
+      },
+      {
+        "bill_id": "ocd-bill/55c3a0a8-e630-4959-bb01-86a3bf2775e0",
+        "bill_number": "HB 1044",
+        "action": "House Committee on Health & Human Services Refer Amended to House Committee of the Whole",
+        "date": "2026-02-25",
+        "state": "CO"
+      },
+      {
+        "bill_id": "ocd-bill/83dbddfa-34c2-4b71-9904-437cab1bb4a4",
+        "bill_number": "SB 48",
+        "action": "Senate Committee on Appropriations Refer Amended to Senate Committee of the Whole",
+        "date": "2026-03-20",
+        "state": "CO"
+      },
+      {
+        "bill_id": "ocd-bill/174a578a-ddfb-4b45-a727-092f3f2697df",
+        "bill_number": "HB 1111",
+        "action": "House Committee on Appropriations Refer Amended to House Committee of the Whole",
+        "date": "2026-05-01",
+        "state": "CO"
+      },
+      {
+        "bill_id": "ocd-bill/b26bc76a-dfa3-4478-b5b7-f9af4de499ea",
+        "bill_number": "SB 101",
+        "action": "Senate Committee on Transportation & Energy Refer Amended to Senate Committee of the Whole",
+        "date": "2026-04-13",
+        "state": "CO"
+      },
+      {
+        "bill_id": "ocd-bill/067818e7-30dd-4773-b247-9bb322592ad7",
+        "bill_number": "SB 162",
+        "action": "Senate Committee on Health & Human Services Refer Amended to Senate Committee of the Whole",
+        "date": "2026-04-22",
+        "state": "CO"
+      },
+      {
+        "bill_id": "ocd-bill/589587df-0a28-4436-af39-b45edb2863fb",
+        "bill_number": "HB 1407",
+        "action": "House Committee on Appropriations Refer Unamended to House Committee of the Whole",
+        "date": "2026-04-06",
+        "state": "CO"
+      },
+      {
+        "bill_id": "ocd-bill/d1d797e3-a05f-4c0e-b60e-28be9f9a0c39",
+        "bill_number": "SB 157",
+        "action": "Senate Committee on Appropriations Refer Amended - Consent Calendar to Senate Committee of the Whole",
+        "date": "2026-04-28",
+        "state": "CO"
+      }
+    ],
+    "committee_activity": [
+      {
+        "id": "ocd-event/b1b749f7-d7d2-4104-acd2-885928e57f6d",
+        "source": "openstates",
+        "level": "state",
+        "state": "CO",
+        "title": "Water Resources and Agriculture Review Committee",
+        "description": "",
+        "scheduled_date": "2026-06-25T15:00:00+00:00",
+        "scheduled_time": "",
+        "location": "HCR 0112, 200 E Colfax Ave, Denver, CO 80203",
+        "chamber": "",
+        "committees": [],
+        "url": "",
+        "updated_at": "2026-06-25T15:00:00+00:00"
+      },
+      {
+        "id": "ocd-event/732eca15-99dc-4caf-a8b6-18707d8c56fa",
+        "source": "openstates",
+        "level": "state",
+        "state": "CO",
+        "title": "Legislative Audit Committee",
+        "description": "",
+        "scheduled_date": "2026-08-10T15:00:00+00:00",
+        "scheduled_time": "",
+        "location": "Old Supreme Court, 200 E Colfax Ave, Denver, CO 80203",
+        "chamber": "",
+        "committees": [],
+        "url": "",
+        "updated_at": "2026-08-10T15:00:00+00:00"
+      },
+      {
+        "id": "ocd-event/adaec3e1-1e3e-4942-b1b2-588cf955b5ea",
+        "source": "openstates",
+        "level": "state",
+        "state": "CO",
+        "title": "Legislative Council",
+        "description": "",
+        "scheduled_date": "2026-09-03T15:00:00+00:00",
+        "scheduled_time": "",
+        "location": "Old State Library, 200 E Colfax Ave, Denver, CO 80203",
+        "chamber": "",
+        "committees": [],
+        "url": "",
+        "updated_at": "2026-09-03T15:00:00+00:00"
+      },
+      {
+        "id": "ocd-event/6a5dd6d7-117f-4adf-b499-67fdecf96f26",
+        "source": "openstates",
+        "level": "state",
+        "state": "CO",
+        "title": "Legislative Audit Committee",
+        "description": "",
+        "scheduled_date": "2026-10-19T15:00:00+00:00",
+        "scheduled_time": "",
+        "location": "Old Supreme Court, 200 E Colfax Ave, Denver, CO 80203",
+        "chamber": "",
+        "committees": [],
+        "url": "",
+        "updated_at": "2026-10-19T15:00:00+00:00"
+      },
+      {
+        "id": "ocd-event/458cba74-952b-42e2-9165-49c316d85668",
+        "source": "openstates",
+        "level": "state",
+        "state": "CO",
+        "title": "Legislative Audit Committee",
+        "description": "",
+        "scheduled_date": "2026-12-07T16:00:00+00:00",
+        "scheduled_time": "",
+        "location": "Old Supreme Court, 200 E Colfax Ave, Denver, CO 80203",
+        "chamber": "",
+        "committees": [],
+        "url": "",
+        "updated_at": "2026-12-07T16:00:00+00:00"
+      }
+    ],
+    "ai_analysis": "This state-level CO bill relates to Healthcare. Status: Introduced In Senate - Assigned to Health & Human Services.\nThis state-level CO bill relates to Healthcare. Status: Introduced In Senate - Assigned to Health & Human Services.\nImpact analysis pending — insufficient classification data.\nThis state-level CO bill relates to Taxation. Status: Introduced In House - Assigned to Appropriations.\nThis state-level CO bill relates to Taxation. Status: Introduced In House - Assigned to Appropriations."
   },
   "az": {
     "label": "Arizona Weekly Digest",
-    "generated_at": "2026-06-28T02:55:28.483277+00:00",
+    "generated_at": "2026-06-28T17:23:44.117301+00:00",
+    "period_days": 7,
+    "summary": {
+      "total_bills": 933,
+      "total_events": 10,
+      "total_votes": 933
+    },
+    "important_bills": [
+      {
+        "bill_number": "SB 1669",
+        "title": "sexual offenses; victim; evidence",
+        "latest_action": "Signed by Governor",
+        "url": "https://openstates.org/az/bills/57th-2nd-regular/SB1669/",
+        "ai_summary": "Bill SB 1669 sexual offenses; victim; evidence Latest action: Signed by Governor Sponsors: Shawnna Bolick"
+      },
+      {
+        "bill_number": "SB 1560",
+        "title": "cap; water supply development fund",
+        "latest_action": "Signed by Governor",
+        "url": "https://openstates.org/az/bills/57th-2nd-regular/SB1560/",
+        "ai_summary": "Bill SB 1560 cap; water supply development fund Latest action: Signed by Governor Sponsors: Tim Dunn"
+      },
+      {
+        "bill_number": "SB 1552",
+        "title": "ADOT; revisions.",
+        "latest_action": "Signed by Governor",
+        "url": "https://openstates.org/az/bills/57th-2nd-regular/SB1552/",
+        "ai_summary": "Bill SB 1552 ADOT; revisions. Latest action: Signed by Governor Sponsors: Dave Farnsworth"
+      },
+      {
+        "bill_number": "SB 1683",
+        "title": "landownership; foreign adversary; prohibition",
+        "latest_action": "Signed by Governor",
+        "url": "https://openstates.org/az/bills/57th-2nd-regular/SB1683/",
+        "ai_summary": "Bill SB 1683 landownership; foreign adversary; prohibition Latest action: Signed by Governor Sponsors: Frank Carroll"
+      },
+      {
+        "bill_number": "SB 1671",
+        "title": "gaming; racing; boxing; conflict-of-interest continuation",
+        "latest_action": "Signed by Governor",
+        "url": "https://openstates.org/az/bills/57th-2nd-regular/SB1671/",
+        "ai_summary": "Bill SB 1671 gaming; racing; boxing; conflict-of-interest continuation Latest action: Signed by Governor Sponsors: Shawnna Bolick"
+      },
+      {
+        "bill_number": "SB 1627",
+        "title": "schools; prohibition; unmanned aircraft",
+        "latest_action": "Signed by Governor",
+        "url": "https://openstates.org/az/bills/57th-2nd-regular/SB1627/",
+        "ai_summary": "Bill SB 1627 schools; prohibition; unmanned aircraft Latest action: Signed by Governor Sponsors: J.D. Mesnard"
+      },
+      {
+        "bill_number": "SB 1497",
+        "title": "classical learning; tests; examinations",
+        "latest_action": "Signed by Governor",
+        "url": "https://openstates.org/az/bills/57th-2nd-regular/SB1497/",
+        "ai_summary": "Bill SB 1497 classical learning; tests; examinations Latest action: Signed by Governor Sponsors: Carine Werner, Hildy Angius"
+      },
+      {
+        "bill_number": "SB 1620",
+        "title": "Arizona space commission; board; membership",
+        "latest_action": "Signed by Governor",
+        "url": "https://openstates.org/az/bills/57th-2nd-regular/SB1620/",
+        "ai_summary": "Bill SB 1620 Arizona space commission; board; membership Latest action: Signed by Governor Sponsors: David Gowan, Janae Shamp"
+      },
+      {
+        "bill_number": "SB 1336",
+        "title": "state land department; continuation; oversight",
+        "latest_action": "Signed by Governor",
+        "url": "https://openstates.org/az/bills/57th-2nd-regular/SB1336/",
+        "ai_summary": "Bill SB 1336 state land department; continuation; oversight Latest action: Signed by Governor Sponsors: Tim Dunn"
+      },
+      {
+        "bill_number": "SB 1713",
+        "title": "AHCCCS; procurement; contracting",
+        "latest_action": "Signed by Governor",
+        "url": "https://openstates.org/az/bills/57th-2nd-regular/SB1713/",
+        "ai_summary": "Bill SB 1713 AHCCCS; procurement; contracting Latest action: Signed by Governor Sponsors: T.J. Shope"
+      }
+    ],
+    "major_votes": [
+      {
+        "bill_id": "ocd-bill/fc4e2f28-2af8-4190-8dad-6db6c84081c6",
+        "bill_number": "SB 1366",
+        "action": "PASSED",
+        "date": "2026-06-02",
+        "state": "AZ"
+      },
+      {
+        "bill_id": "ocd-bill/432e0fef-6d61-46ac-ac84-66d8eed9806a",
+        "bill_number": "HB 2481",
+        "action": "PASSED",
+        "date": "2026-06-09",
+        "state": "AZ"
+      },
+      {
+        "bill_id": "ocd-bill/0d9b1734-c324-4131-aa60-052757858c51",
+        "bill_number": "HB 2380",
+        "action": "PASSED",
+        "date": "2026-06-09",
+        "state": "AZ"
+      },
+      {
+        "bill_id": "ocd-bill/161ddd62-ad24-4fb6-ab81-04d0ea2f4e2b",
+        "bill_number": "SB 1271",
+        "action": "PASSED",
+        "date": "2026-06-02",
+        "state": "AZ"
+      },
+      {
+        "bill_id": "ocd-bill/0a6a2275-be06-42d4-8c38-10a8ab452d64",
+        "bill_number": "SB 1345",
+        "action": "PASSED",
+        "date": "2026-06-09",
+        "state": "AZ"
+      },
+      {
+        "bill_id": "ocd-bill/5ec546f8-437a-43be-b610-4f7c109ed4b2",
+        "bill_number": "SB 1243",
+        "action": "PASSED",
+        "date": "2026-06-02",
+        "state": "AZ"
+      },
+      {
+        "bill_id": "ocd-bill/b53fcf8b-1cf8-4737-9990-47395bd3883a",
+        "bill_number": "SB 1741",
+        "action": "PASSED",
+        "date": "2026-06-09",
+        "state": "AZ"
+      },
+      {
+        "bill_id": "ocd-bill/7e6143b4-dc37-4c30-9a38-0ea72c037419",
+        "bill_number": "SB 1246",
+        "action": "PASSED",
+        "date": "2026-06-02",
+        "state": "AZ"
+      },
+      {
+        "bill_id": "ocd-bill/aaad9c21-3ebc-48e1-b55e-f666f6b40d91",
+        "bill_number": "SB 1286",
+        "action": "PASSED",
+        "date": "2026-06-02",
+        "state": "AZ"
+      },
+      {
+        "bill_id": "ocd-bill/0507511f-7d23-400e-91fa-d4a4e1755405",
+        "bill_number": "SB 1210",
+        "action": "PASSED",
+        "date": "2026-06-02",
+        "state": "AZ"
+      }
+    ],
+    "committee_activity": [
+      {
+        "id": "ocd-event/b4a2848b-4973-485d-9e1c-9f1ebe1ae0f8",
+        "source": "openstates",
+        "level": "state",
+        "state": "AZ",
+        "title": "Property Tax Exemption for Disabled Vets",
+        "description": "",
+        "scheduled_date": "2026-07-01T17:00:00+00:00",
+        "scheduled_time": "",
+        "location": "Wesley Bolin Plaza",
+        "chamber": "",
+        "committees": [],
+        "url": "",
+        "updated_at": "2026-07-01T17:00:00+00:00"
+      },
+      {
+        "id": "ocd-event/bef01dc4-4ca2-453e-84d2-5f17af579c23",
+        "source": "openstates",
+        "level": "state",
+        "state": "AZ",
+        "title": "Taiwan Art Exhibition Grand Opening",
+        "description": "",
+        "scheduled_date": "2026-07-01T17:00:00+00:00",
+        "scheduled_time": "",
+        "location": "Historic Senate Chamber",
+        "chamber": "",
+        "committees": [],
+        "url": "",
+        "updated_at": "2026-07-01T17:00:00+00:00"
+      },
+      {
+        "id": "ocd-event/24d06c85-0116-4d5a-950f-3eef06944b61",
+        "source": "openstates",
+        "level": "state",
+        "state": "AZ",
+        "title": "Petition Turn-in",
+        "description": "",
+        "scheduled_date": "2026-07-02T15:30:00+00:00",
+        "scheduled_time": "",
+        "location": "Rose Garden",
+        "chamber": "",
+        "committees": [],
+        "url": "",
+        "updated_at": "2026-07-02T15:30:00+00:00"
+      },
+      {
+        "id": "ocd-event/a3ed643b-1b27-4aec-a81e-53608e5e484b",
+        "source": "openstates",
+        "level": "state",
+        "state": "AZ",
+        "title": "Family Medicine Introduction to Advocacy",
+        "description": "",
+        "scheduled_date": "2026-07-20T20:00:00+00:00",
+        "scheduled_time": "",
+        "location": "Historic Senate Chamber",
+        "chamber": "",
+        "committees": [],
+        "url": "",
+        "updated_at": "2026-07-20T20:00:00+00:00"
+      },
+      {
+        "id": "ocd-event/f27e803b-a5ae-4814-b051-e734db7b299c",
+        "source": "openstates",
+        "level": "state",
+        "state": "AZ",
+        "title": "Brain Capital on the AZ Capitol Hill",
+        "description": "",
+        "scheduled_date": "2026-07-22T17:00:00+00:00",
+        "scheduled_time": "",
+        "location": "Historic Senate Chamber",
+        "chamber": "",
+        "committees": [],
+        "url": "",
+        "updated_at": "2026-07-22T17:00:00+00:00"
+      },
+      {
+        "id": "ocd-event/4626cc3a-bde5-4b1a-80f8-c5d761a62872",
+        "source": "openstates",
+        "level": "state",
+        "state": "AZ",
+        "title": "Roundtable Event",
+        "description": "",
+        "scheduled_date": "2026-07-24T21:30:00+00:00",
+        "scheduled_time": "",
+        "location": "Historic Senate Chamber",
+        "chamber": "",
+        "committees": [],
+        "url": "",
+        "updated_at": "2026-07-24T21:30:00+00:00"
+      },
+      {
+        "id": "ocd-event/539b6f02-5172-4b25-9969-efb989d77abe",
+        "source": "openstates",
+        "level": "state",
+        "state": "AZ",
+        "title": "RESCHEDULED ASCE Report Card Release",
+        "description": "",
+        "scheduled_date": "2026-07-28T17:00:00+00:00",
+        "scheduled_time": "",
+        "location": "Historic Senate Chamber",
+        "chamber": "",
+        "committees": [],
+        "url": "",
+        "updated_at": "2026-07-28T17:00:00+00:00"
+      },
+      {
+        "id": "ocd-event/97d9673f-1977-4f79-a5e7-885583115f6b",
+        "source": "openstates",
+        "level": "state",
+        "state": "AZ",
+        "title": "ASCE Report Card Release",
+        "description": "",
+        "scheduled_date": "2026-08-11T17:00:00+00:00",
+        "scheduled_time": "",
+        "location": "Historic Senate Chamber",
+        "chamber": "",
+        "committees": [],
+        "url": "",
+        "updated_at": "2026-08-11T17:00:00+00:00"
+      },
+      {
+        "id": "ocd-event/0189b177-5b59-4ac2-8bfd-78742f53c0f2",
+        "source": "openstates",
+        "level": "state",
+        "state": "AZ",
+        "title": "National Navajo Code Talker Day",
+        "description": "",
+        "scheduled_date": "2026-08-14T14:00:00+00:00",
+        "scheduled_time": "",
+        "location": "Wesley Bolin Plaza",
+        "chamber": "",
+        "committees": [],
+        "url": "",
+        "updated_at": "2026-08-14T14:00:00+00:00"
+      },
+      {
+        "id": "ocd-event/e3ee7879-15f5-48c6-b931-c97cb9d5dac3",
+        "source": "openstates",
+        "level": "state",
+        "state": "AZ",
+        "title": "Taiwan Art Exhibition Grand Opening",
+        "description": "",
+        "scheduled_date": "2026-08-19T17:00:00+00:00",
+        "scheduled_time": "",
+        "location": "Arizona Capitol Museum",
+        "chamber": "",
+        "committees": [],
+        "url": "",
+        "updated_at": "2026-08-19T17:00:00+00:00"
+      }
+    ],
+    "ai_analysis": "Impact analysis pending — insufficient classification data.\nThis state-level AZ bill relates to Environment. Status: Signed by Governor.\nImpact analysis pending — insufficient classification data.\nImpact analysis pending — insufficient classification data.\nImpact analysis pending — insufficient classification data."
+  },
+  "ut": {
+    "label": "Utah Weekly Digest",
+    "generated_at": "2026-06-28T17:23:44.117938+00:00",
     "period_days": 7,
     "summary": {
       "total_bills": 0,
@@ -297,9 +965,9 @@
     "committee_activity": [],
     "ai_analysis": "No significant activity this week."
   },
-  "ut": {
-    "label": "Utah Weekly Digest",
-    "generated_at": "2026-06-28T02:55:28.483634+00:00",
+  "me": {
+    "label": "Maine Weekly Digest",
+    "generated_at": "2026-06-28T17:23:44.118412+00:00",
     "period_days": 7,
     "summary": {
       "total_bills": 0,

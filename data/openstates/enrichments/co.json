@@ -1,0 +1,481 @@
+{
+  "ocd-bill/df56f4e1-5928-4c85-8822-ff51f2b8fb17": {
+    "identifier": "HB 1410",
+    "sponsorships": [
+      {
+        "id": "f29cf97d-04b6-4c35-ac93-55c21c80b7a1",
+        "name": "E. Sirota",
+        "entity_type": "person",
+        "primary": true,
+        "classification": "sponsor"
+      },
+      {
+        "id": "907026e1-a8bd-4a18-b1fc-107737a68ed9",
+        "name": "J. Bridges",
+        "entity_type": "person",
+        "primary": true,
+        "classification": "sponsor"
+      },
+      {
+        "id": "1314be09-7eaa-40f3-87f7-e68d1f2a66fd",
+        "name": "K. Brown",
+        "entity_type": "person",
+        "primary": true,
+        "classification": "sponsor"
+      },
+      {
+        "id": "fd24748f-5824-4d23-abc7-585f90a8f58e",
+        "name": "R. Taggart",
+        "entity_type": "person",
+        "primary": true,
+        "classification": "sponsor"
+      },
+      {
+        "id": "d752415f-d242-4890-8f33-c221fc472501",
+        "name": "J. Amabile",
+        "entity_type": "person",
+        "primary": true,
+        "classification": "sponsor"
+      },
+      {
+        "id": "c343e054-55f8-4e43-8d05-71264d95128d",
+        "name": "B. Kirkmeyer",
+        "entity_type": "person",
+        "primary": true,
+        "classification": "sponsor"
+      },
+      {
+        "id": "15186d93-fcd6-4dec-9dd3-ced435b5c31e",
+        "name": "J. Bacon",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "0f793f6a-8de1-407f-a4bf-bc5aae0a0e6e",
+        "name": "A. Boesenecker",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "517621fa-0f64-4c55-bc52-3b678d9d65d9",
+        "name": "C. Clifford",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "eb931633-3957-44a2-8d63-b60cb011953b",
+        "name": "M. Duran",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "6f8038e4-c8b7-45f7-93b9-edd0b7edc617",
+        "name": "C. Espenoza",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "94c538ef-e1e1-423e-9ead-798bb310bdad",
+        "name": "L. García",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "7135e9e8-93cd-4216-9d8f-66d7ded03883",
+        "name": "L. Gilchrist",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "3f7cff62-4247-4314-81a7-e70cd1161337",
+        "name": "L. Goldstein",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "91800dfa-7f31-4122-b3b5-084833f7f8f1",
+        "name": "J. Jackson",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "23034a3b-39eb-4781-9b5e-05f920434090",
+        "name": "M. Lindsay",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "e34e0303-661e-487f-a9e0-ae09c0df907a",
+        "name": "J. McCluskie",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "92126b90-d43d-4482-a460-0a98e994f973",
+        "name": "K. McCormick",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "cbc1a33b-6a9a-40d7-8353-9f922ff56709",
+        "name": "K. Nguyen",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "9ae672a2-41f5-40b0-98aa-e97d275de1d9",
+        "name": "A. Paschal",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "c7592561-6c7c-4fdd-a8d5-ebe339081c81",
+        "name": "J. Phillips",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "020d92d8-b497-46de-9c17-0c677407d730",
+        "name": "G. Rydin",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "b4eb1662-4a58-4e74-b164-c07a1552c43f",
+        "name": "L. Smith",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "396155ae-894a-4e4d-8526-2747caa05f5d",
+        "name": "T. Story",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "bdf856d3-87db-44c8-b7ae-49aa759db178",
+        "name": "B. Titone",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "776cf94c-41c7-42f4-a48e-9dd61efa6921",
+        "name": "S. Woodrow",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "c15727af-27ef-47cc-be7e-be46818f893c",
+        "name": "C. Kolker",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "8d93972c-bbf1-4296-92b9-622d743162b0",
+        "name": "W. Lindstedt",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "88725e2f-7f18-4c55-bc46-c53fb52e7f82",
+        "name": "M. Snyder",
+        "entity_type": "person",
+        "primary": false,
+        "classification": "cosponsor"
+      }
+    ],
+    "actions": [
+      {
+        "id": "31be4739-9a99-4d56-ba1a-2bf2172ec6ec",
+        "organization": {
+          "id": "ocd-organization/1f6f6532-1bc8-4ddb-8350-27fcd47c6795",
+          "name": "Office of the Governor",
+          "classification": "executive"
+        },
+        "description": "Governor Signed",
+        "date": "2026-05-08",
+        "classification": [
+          "executive-signature"
+        ],
+        "order": 0,
+        "related_entities": []
+      },
+      {
+        "id": "3dac7945-3b64-47f4-b28c-b0c02dddcc79",
+        "organization": {
+          "id": "ocd-organization/1f6f6532-1bc8-4ddb-8350-27fcd47c6795",
+          "name": "Office of the Governor",
+          "classification": "executive"
+        },
+        "description": "Sent to the Governor",
+        "date": "2026-04-30",
+        "classification": [
+          "executive-receipt"
+        ],
+        "order": 1,
+        "related_entities": []
+      },
+      {
+        "id": "650c1844-85e6-46b0-8772-e99f61ee0c5d",
+        "organization": {
+          "id": "ocd-organization/98d43d46-9571-4a40-9007-581d84d41bb8",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Signed by the President of the Senate",
+        "date": "2026-04-30",
+        "classification": [
+          "passage"
+        ],
+        "order": 2,
+        "related_entities": []
+      },
+      {
+        "id": "b0fd9862-5b8a-41ac-b28a-32de32dde17c",
+        "organization": {
+          "id": "ocd-organization/e047d0e5-2c93-4e39-bea3-04c0d9d11b20",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Signed by the Speaker of the House",
+        "date": "2026-04-30",
+        "classification": [
+          "passage"
+        ],
+        "order": 3,
+        "related_entities": []
+      },
+      {
+        "id": "bdaca6f7-a8a2-48e0-bd3e-0287d3ad7064",
+        "organization": {
+          "id": "ocd-organization/e047d0e5-2c93-4e39-bea3-04c0d9d11b20",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "House Consideration of First Conference Committee Report result was to Adopt Committee Report - Repass",
+        "date": "2026-04-28",
+        "classification": [],
+        "order": 4,
+        "related_entities": []
+      },
+      {
+        "id": "98af504f-7376-47a4-b411-3ad2217a13eb",
+        "organization": {
+          "id": "ocd-organization/98d43d46-9571-4a40-9007-581d84d41bb8",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Senate Consideration of First Conference Committee Report result was to Adopt Committee Report - Repass",
+        "date": "2026-04-28",
+        "classification": [],
+        "order": 5,
+        "related_entities": []
+      },
+      {
+        "id": "30243f35-d59d-4735-b25b-07808a618d27",
+        "organization": {
+          "id": "ocd-organization/e047d0e5-2c93-4e39-bea3-04c0d9d11b20",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "House Considered Senate Amendments - Result was to Not Concur - Request Conference Committee",
+        "date": "2026-04-17",
+        "classification": [],
+        "order": 6,
+        "related_entities": []
+      },
+      {
+        "id": "2c442965-488e-462b-82c1-75cf2c0ef7d6",
+        "organization": {
+          "id": "ocd-organization/98d43d46-9571-4a40-9007-581d84d41bb8",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Senate Third Reading Passed - No Amendments",
+        "date": "2026-04-16",
+        "classification": [
+          "passage",
+          "reading-3"
+        ],
+        "order": 7,
+        "related_entities": []
+      },
+      {
+        "id": "366f2cc6-1e5f-4c40-8b01-bdfd8492349d",
+        "organization": {
+          "id": "ocd-organization/98d43d46-9571-4a40-9007-581d84d41bb8",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Senate Second Reading Special Order - Passed with Amendments - Committee, Floor",
+        "date": "2026-04-15",
+        "classification": [],
+        "order": 8,
+        "related_entities": []
+      },
+      {
+        "id": "714278ef-8b33-4f87-98f7-ea1344abf72d",
+        "organization": {
+          "id": "ocd-organization/98d43d46-9571-4a40-9007-581d84d41bb8",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Senate Committee on Appropriations Refer Amended to Senate Committee of the Whole",
+        "date": "2026-04-14",
+        "classification": [
+          "committee-passage",
+          "referral-committee"
+        ],
+        "order": 9,
+        "related_entities": [
+          {
+            "name": "Senate Committee of the Whole",
+            "entity_type": "organization"
+          },
+          {
+            "name": "Appropriations",
+            "entity_type": "organization"
+          }
+        ]
+      },
+      {
+        "id": "b53cf5ff-6094-4d9b-a521-bb1c04b01e89",
+        "organization": {
+          "id": "ocd-organization/98d43d46-9571-4a40-9007-581d84d41bb8",
+          "name": "Senate",
+          "classification": "upper"
+        },
+        "description": "Introduced In Senate - Assigned to Appropriations",
+        "date": "2026-04-13",
+        "classification": [
+          "introduction"
+        ],
+        "order": 10,
+        "related_entities": [
+          {
+            "name": "Appropriations",
+            "entity_type": "organization"
+          }
+        ]
+      },
+      {
+        "id": "67250cb8-e800-4a27-8846-b9ebd72da4fd",
+        "organization": {
+          "id": "ocd-organization/e047d0e5-2c93-4e39-bea3-04c0d9d11b20",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "House Third Reading Passed - No Amendments",
+        "date": "2026-04-11",
+        "classification": [
+          "passage",
+          "reading-3"
+        ],
+        "order": 11,
+        "related_entities": []
+      },
+      {
+        "id": "ae4496c2-3b9e-4b34-a331-3a0d3e22f80e",
+        "organization": {
+          "id": "ocd-organization/e047d0e5-2c93-4e39-bea3-04c0d9d11b20",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "House Second Reading Special Order - Passed with Amendments - Floor",
+        "date": "2026-04-10",
+        "classification": [],
+        "order": 12,
+        "related_entities": []
+      },
+      {
+        "id": "d128bb7d-f492-4608-9d93-77264bfade9c",
+        "organization": {
+          "id": "ocd-organization/e047d0e5-2c93-4e39-bea3-04c0d9d11b20",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "House Second Reading Special Order - Laid Over Daily with Amendments - Floor",
+        "date": "2026-04-08",
+        "classification": [],
+        "order": 13,
+        "related_entities": []
+      },
+      {
+        "id": "056d709f-f10b-4562-9cae-6247237579b7",
+        "organization": {
+          "id": "ocd-organization/e047d0e5-2c93-4e39-bea3-04c0d9d11b20",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "House Committee on Appropriations Refer Unamended to House Committee of the Whole",
+        "date": "2026-04-07",
+        "classification": [
+          "committee-passage",
+          "referral-committee"
+        ],
+        "order": 14,
+        "related_entities": [
+          {
+            "name": "Appropriations",
+            "entity_type": "organization"
+          },
+          {
+            "name": "House Committee of the Whole",
+            "entity_type": "organization"
+          }
+        ]
+      },
+      {
+        "id": "e4befa87-1628-4040-ab23-91b8042c3c2e",
+        "organization": {
+          "id": "ocd-organization/e047d0e5-2c93-4e39-bea3-04c0d9d11b20",
+          "name": "House",
+          "classification": "lower"
+        },
+        "description": "Introduced In House - Assigned to Appropriations",
+        "date": "2026-04-06",
+        "classification": [
+          "introduction"
+        ],
+        "order": 15,
+        "related_entities": [
+          {
+            "name": "Appropriations",
+            "entity_type": "organization"
+          }
+        ]
+      }
+    ],
+    "votes": null,
+    "versions": [],
+    "documents": null,
+    "enriched_at": "2026-06-28T17:23:40.604811+00:00"
+  },
+  "_meta": {
+    "state": "CO",
+    "updated_at": "2026-06-28T17:23:40.637847+00:00",
+    "enriched_this_run": 1
+  }
+}
