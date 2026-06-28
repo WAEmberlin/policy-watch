@@ -25,6 +25,7 @@ class OpenStatesClient:
         request_delay: float = DEFAULT_DELAY,
         max_retries: int = DEFAULT_MAX_RETRIES,
         per_page: int = DEFAULT_PER_PAGE,
+        request_budget: Optional[int] = None,
     ) -> None:
         self.api_key = api_key or os.environ.get("OPENSTATES_API_KEY", "")
         self.base_url = base_url.rstrip("/")
@@ -32,6 +33,9 @@ class OpenStatesClient:
         self.max_retries = max_retries
         self.per_page = min(int(per_page), MAX_PER_PAGE)
         self._last_request_at = 0.0
+        self.request_count = 0
+        self.request_budget = request_budget
+        self.quota_exhausted = False
 
     def _headers(self) -> Dict[str, str]:
         headers = {"Accept": "application/json"}
@@ -54,11 +58,20 @@ class OpenStatesClient:
         if elapsed < self.request_delay:
             time.sleep(self.request_delay - elapsed)
 
+    def _check_budget(self) -> None:
+        if self.request_budget and self.request_count >= self.request_budget:
+            self.quota_exhausted = True
+            raise requests.HTTPError(
+                f"Open States request budget exhausted ({self.request_count}/{self.request_budget})"
+            )
+
     def _request(self, method: str, path: str, params: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        self._check_budget()
         url = f"{self.base_url}{path}"
         params = dict(params or {})
 
         for attempt in range(1, self.max_retries + 1):
+            self._check_budget()
             self._throttle()
             try:
                 response = requests.request(
@@ -69,6 +82,7 @@ class OpenStatesClient:
                     timeout=60,
                 )
                 self._last_request_at = time.time()
+                self.request_count += 1
 
                 if response.status_code == 429:
                     retry_after = response.headers.get("Retry-After")

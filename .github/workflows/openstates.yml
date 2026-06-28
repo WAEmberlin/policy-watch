@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       full_refresh:
-        description: "Backfill from 2026-03-01 (initial_backfill_since) through now"
+        description: "Backfill states missing data from 2026-03-01 (skips already-complete states)"
         required: false
         default: "false"
         type: boolean
@@ -16,6 +16,16 @@ on:
         required: false
         default: ""
         type: string
+      states:
+        description: "Comma-separated state codes only (e.g. me,ut) — saves API quota"
+        required: false
+        default: ""
+        type: string
+      force:
+        description: "Re-fetch even if recently synced"
+        required: false
+        default: "false"
+        type: boolean
 
 permissions:
   contents: write
@@ -44,8 +54,14 @@ jobs:
           if [ "${{ github.event.inputs.full_refresh }}" = "true" ]; then
             ARGS="--full-refresh"
           fi
+          if [ "${{ github.event.inputs.force }}" = "true" ]; then
+            ARGS="$ARGS --force"
+          fi
           if [ -n "${{ github.event.inputs.since_date }}" ]; then
             ARGS="$ARGS --since ${{ github.event.inputs.since_date }}"
+          fi
+          if [ -n "${{ github.event.inputs.states }}" ]; then
+            ARGS="$ARGS --states ${{ github.event.inputs.states }}"
           fi
           if [ -n "$OPENSTATES_API_KEY" ]; then
             python src/processing/fetch_openstates.py $ARGS
