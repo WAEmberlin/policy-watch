@@ -12,9 +12,33 @@ sys.path.insert(0, str(ROOT / "src"))
 from processing.openstates_client import OpenStatesClient
 
 
-def test_format_include():
-    assert OpenStatesClient._format_include(["sponsorships", "actions"]) == "sponsorships,actions"
-    assert OpenStatesClient._format_include(None) is None
+def test_normalize_date_param():
+    assert OpenStatesClient._normalize_date_param("2026-06-21T00:00:00Z") == "2026-06-21"
+    assert OpenStatesClient._normalize_date_param("2026-06-21") == "2026-06-21"
+    assert OpenStatesClient._normalize_date_param(None) is None
+
+
+def test_fetch_bills_passes_include_list_and_date():
+    client = OpenStatesClient(api_key="test", request_delay=0)
+
+    mock_response = MagicMock()
+    mock_response.status_code = 200
+    mock_response.json.return_value = {
+        "results": [],
+        "pagination": {"page": 1, "max_page": 1},
+    }
+    mock_response.raise_for_status = MagicMock()
+
+    with patch("processing.openstates_client.requests.request", return_value=mock_response) as req:
+        client.fetch_bills(
+            "CO",
+            updated_since="2026-06-21T00:00:00Z",
+            include=["sponsorships", "actions"],
+        )
+        _, kwargs = req.call_args
+        params = kwargs["params"]
+        assert params["updated_since"] == "2026-06-21"
+        assert params["include"] == ["sponsorships", "actions"]
 
 
 def test_paginate_single_page():

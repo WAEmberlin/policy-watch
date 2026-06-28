@@ -39,11 +39,14 @@ class OpenStatesClient:
         return headers
 
     @staticmethod
-    def _format_include(include: Optional[List[str]]) -> Optional[str]:
-        """Open States expects include as a comma-separated string, not repeated params."""
-        if not include:
+    def _normalize_date_param(value: Optional[str]) -> Optional[str]:
+        """Open States rejects trailing Z; YYYY-MM-DD is the safest format."""
+        if not value:
             return None
-        return ",".join(include)
+        cleaned = value.strip().replace("Z", "").replace("+00:00", "")
+        if "T" in cleaned:
+            return cleaned.split("T", 1)[0]
+        return cleaned[:10]
 
     def _throttle(self) -> None:
         elapsed = time.time() - self._last_request_at
@@ -124,16 +127,17 @@ class OpenStatesClient:
         include: Optional[List[str]] = None,
     ) -> List[Dict[str, Any]]:
         params: Dict[str, Any] = {"jurisdiction": jurisdiction}
-        if updated_since:
-            params["updated_since"] = updated_since
-        include_str = self._format_include(include)
-        if include_str:
-            params["include"] = include_str
+        since = self._normalize_date_param(updated_since)
+        if since:
+            params["updated_since"] = since
+        if include:
+            # Repeated include= query params (requests list serialization)
+            params["include"] = include
 
         try:
             return list(self.paginate("/bills", params))
         except requests.HTTPError as exc:
-            if include_str and exc.response is not None and exc.response.status_code in (400, 422):
+            if include and exc.response is not None and exc.response.status_code in (400, 422):
                 print("Bills fetch rejected include params; retrying without include...")
                 params.pop("include", None)
                 return list(self.paginate("/bills", params))
@@ -145,8 +149,9 @@ class OpenStatesClient:
         updated_since: Optional[str] = None,
     ) -> List[Dict[str, Any]]:
         params: Dict[str, Any] = {"jurisdiction": jurisdiction}
-        if updated_since:
-            params["updated_since"] = updated_since
+        since = self._normalize_date_param(updated_since)
+        if since:
+            params["updated_since"] = since
         return list(self.paginate("/events", params))
 
     def fetch_committees(self, jurisdiction: str) -> List[Dict[str, Any]]:
@@ -158,6 +163,7 @@ class OpenStatesClient:
         updated_since: Optional[str] = None,
     ) -> List[Dict[str, Any]]:
         params: Dict[str, Any] = {"jurisdiction": jurisdiction}
-        if updated_since:
-            params["updated_since"] = updated_since
+        since = self._normalize_date_param(updated_since)
+        if since:
+            params["updated_since"] = since
         return list(self.paginate("/people", params))

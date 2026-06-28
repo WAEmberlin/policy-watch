@@ -132,7 +132,7 @@ def main() -> None:
     os_cfg = config.get("openstates", {})
     days_back = args.days_back or os_cfg.get("default_days_back", 7)
 
-    updated_since = (datetime.now(timezone.utc) - timedelta(days=days_back)).strftime("%Y-%m-%dT00:00:00Z")
+    updated_since = (datetime.now(timezone.utc) - timedelta(days=days_back)).strftime("%Y-%m-%d")
 
     client = OpenStatesClient(
         api_key=api_key,
