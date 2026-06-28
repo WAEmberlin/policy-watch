@@ -52,6 +52,8 @@ def infer_item_state(item: Dict[str, Any]) -> Optional[str]:
         return "AZ"
     if "utah" in src:
         return "UT"
+    if "maine" in src:
+        return "ME"
     if item.get("type") == "state_legislation" and item.get("state"):
         return str(item["state"]).upper()
     return None
@@ -73,6 +75,8 @@ def infer_hearing_state(hearing: Dict[str, Any]) -> Optional[str]:
         return "AZ"
     if "utah" in src:
         return "UT"
+    if "maine" in src:
+        return "ME"
     return None
 
 

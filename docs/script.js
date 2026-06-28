@@ -9,7 +9,7 @@ let selectedCategory = "";
 let selectedState = "";
 const DAYS_PER_CHUNK = 7;  // Show 7 days per "page"
 
-const STATE_NAMES = { KS: "Kansas", CO: "Colorado", AZ: "Arizona", UT: "Utah", Federal: "U.S. Congress" };
+const STATE_NAMES = { KS: "Kansas", CO: "Colorado", AZ: "Arizona", UT: "Utah", ME: "Maine", Federal: "U.S. Congress" };
 
 function inferItemState(item) {
     if (item.level === "federal") return "Federal";
@@ -20,6 +20,7 @@ function inferItemState(item) {
     if (src.includes("colorado")) return "CO";
     if (src.includes("arizona")) return "AZ";
     if (src.includes("utah")) return "UT";
+    if (src.includes("maine")) return "ME";
     return "";
 }
 

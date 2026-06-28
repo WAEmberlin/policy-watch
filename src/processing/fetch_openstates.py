@@ -55,6 +55,21 @@ def load_json(path: Path, default: Any) -> Any:
         return json.load(f)
 
 
+def resolve_updated_since(config: Dict[str, Any], args: argparse.Namespace) -> str:
+    """Return YYYY-MM-DD filter for Open States updated_since."""
+    os_cfg = config.get("openstates", {})
+    if args.since:
+        since = args.since.strip()
+        print(f"Using --since {since}")
+        return since
+    if args.full_refresh:
+        since = os_cfg.get("initial_backfill_since", "2026-03-01")
+        print(f"Backfill mode: fetching records updated since {since}")
+        return since
+    days_back = args.days_back or os_cfg.get("default_days_back", 7)
+    return (datetime.now(timezone.utc) - timedelta(days=days_back)).strftime("%Y-%m-%d")
+
+
 def fetch_state(
     client: OpenStatesClient,
     state_cfg: Dict[str, Any],
@@ -66,22 +81,54 @@ def fetch_state(
 
     print(f"\n=== Fetching Open States data for {code.upper()} ===")
 
-    since = None if full_refresh else updated_since
+    since = updated_since
+    print(f"  updated_since={since}")
     # Light includes for list endpoint; votes/documents come from detail enrichment
     include = ["sponsorships", "actions", "versions"]
     # API accepts state codes (CO) more reliably than full OCD IDs for list queries
     jurisdiction_query = code.upper()
+    existing_bills = load_json(state_dir / "bills.json", [])
+    existing_events = load_json(state_dir / "events.json", [])
+    existing_committees = load_json(state_dir / "committees.json", [])
+    existing_legislators = load_json(state_dir / "legislators.json", [])
 
-    bills = client.fetch_bills(jurisdiction=jurisdiction_query, updated_since=since, include=include)
-    events = client.fetch_events(jurisdiction=jurisdiction_query, updated_since=since)
-    committees = client.fetch_committees(jurisdiction=jurisdiction_query)
-    legislators = client.fetch_legislators(jurisdiction=jurisdiction_query, updated_since=since)
+    try:
+        bills = client.fetch_bills(jurisdiction=jurisdiction_query, updated_since=since, include=include)
+    except Exception as exc:
+        print(f"WARNING: bills fetch failed for {code.upper()}, keeping {len(existing_bills)} cached: {exc}")
+        bills = []
 
-    # Merge with existing for incremental updates
-    bills = merge_by_id(load_json(state_dir / "bills.json", []), bills)
-    events = merge_by_id(load_json(state_dir / "events.json", []), events)
-    committees = merge_by_id(load_json(state_dir / "committees.json", []), committees)
-    legislators = merge_by_id(load_json(state_dir / "legislators.json", []), legislators)
+    try:
+        events = client.fetch_events(jurisdiction=jurisdiction_query, updated_since=since)
+    except Exception as exc:
+        print(f"WARNING: events fetch failed for {code.upper()}, keeping {len(existing_events)} cached: {exc}")
+        events = []
+
+    if full_refresh or not existing_committees:
+        try:
+            committees = client.fetch_committees(jurisdiction=jurisdiction_query)
+        except Exception as exc:
+            print(f"WARNING: committees fetch failed for {code.upper()}, keeping cached: {exc}")
+            committees = existing_committees
+    else:
+        committees = existing_committees
+        print(f"Using cached committees for {code.upper()} ({len(committees)} records)")
+
+    if full_refresh or not existing_legislators:
+        try:
+            legislators = client.fetch_legislators(jurisdiction=jurisdiction_query, updated_since=since)
+        except Exception as exc:
+            print(f"WARNING: legislators fetch failed for {code.upper()}, keeping cached: {exc}")
+            legislators = existing_legislators
+    else:
+        legislators = existing_legislators
+        print(f"Using cached legislators for {code.upper()} ({len(legislators)} records)")
+
+    # Merge with existing for incremental updates (never drop cached rows on empty fetch)
+    bills = merge_by_id(existing_bills, bills)
+    events = merge_by_id(existing_events, events)
+    committees = merge_by_id(existing_committees, committees)
+    legislators = merge_by_id(existing_legislators, legislators)
 
     save_json(state_dir / "bills.json", bills)
     save_json(state_dir / "events.json", events)
@@ -120,8 +167,13 @@ def fetch_state(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Fetch Open States legislative data")
-    parser.add_argument("--full-refresh", action="store_true", help="Fetch all records, not just last 7 days")
+    parser.add_argument(
+        "--full-refresh",
+        action="store_true",
+        help="Backfill from initial_backfill_since in config (default 2026-03-01), not all history",
+    )
     parser.add_argument("--days-back", type=int, default=None, help="Override days-back from config")
+    parser.add_argument("--since", type=str, default=None, help="Fetch updates since YYYY-MM-DD")
     args = parser.parse_args()
 
     api_key = os.environ.get("OPENSTATES_API_KEY", "")
@@ -130,9 +182,8 @@ def main() -> None:
 
     config = load_config()
     os_cfg = config.get("openstates", {})
-    days_back = args.days_back or os_cfg.get("default_days_back", 7)
 
-    updated_since = (datetime.now(timezone.utc) - timedelta(days=days_back)).strftime("%Y-%m-%d")
+    updated_since = resolve_updated_since(config, args)
 
     client = OpenStatesClient(
         api_key=api_key,

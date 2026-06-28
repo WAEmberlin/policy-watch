@@ -42,6 +42,7 @@ jobs:
           EMAIL_RECIPIENTS_CO: ${{ secrets.EMAIL_RECIPIENTS_CO }}
           EMAIL_RECIPIENTS_AZ: ${{ secrets.EMAIL_RECIPIENTS_AZ }}
           EMAIL_RECIPIENTS_UT: ${{ secrets.EMAIL_RECIPIENTS_UT }}
+          EMAIL_RECIPIENTS_ME: ${{ secrets.EMAIL_RECIPIENTS_ME }}
           EMAIL_RECIPIENTS_FEDERAL: ${{ secrets.EMAIL_RECIPIENTS_FEDERAL }}
           EMAIL_RECIPIENTS_ALL: ${{ secrets.EMAIL_RECIPIENTS_ALL }}
         run: |

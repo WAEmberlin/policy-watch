@@ -27,6 +27,7 @@ def test_states_config_loads():
     assert "co" in codes
     assert "az" in codes
     assert "ut" in codes
+    assert "me" in codes
 
 
 def test_enriched_bill_schema():

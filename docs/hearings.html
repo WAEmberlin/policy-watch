@@ -95,6 +95,7 @@ tailwind.config = {
                             <option value="CO">Colorado</option>
                             <option value="AZ">Arizona</option>
                             <option value="UT">Utah</option>
+                            <option value="ME">Maine</option>
                         </select>
                     </div>
                     <div class="flex items-center gap-2">
@@ -145,6 +146,7 @@ tailwind.config = {
                             <option value="CO">Colorado</option>
                             <option value="AZ">Arizona</option>
                             <option value="UT">Utah</option>
+                            <option value="ME">Maine</option>
                         </select>
                     </div>
                     <div class="flex items-center gap-2">
@@ -214,12 +216,13 @@ function getYearFromDate(dateStr) {
     }
 }
 
-const STATE_LABELS = { KS: "Kansas", CO: "Colorado", AZ: "Arizona", UT: "Utah", Federal: "Federal" };
+const STATE_LABELS = { KS: "Kansas", CO: "Colorado", AZ: "Arizona", UT: "Utah", ME: "Maine", Federal: "Federal" };
 const STATE_BADGE_COLORS = {
     KS: "bg-emerald-500",
     CO: "bg-sky-500",
     AZ: "bg-orange-500",
     UT: "bg-violet-500",
+    ME: "bg-teal-600",
     Federal: "bg-civic-blue",
 };
 
@@ -232,6 +235,7 @@ function inferHearingState(hearing) {
     if (source.includes("colorado")) return "CO";
     if (source.includes("arizona")) return "AZ";
     if (source.includes("utah")) return "UT";
+    if (source.includes("maine")) return "ME";
     return "";
 }
 

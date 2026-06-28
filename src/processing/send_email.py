@@ -45,22 +45,17 @@ def parse_recipient_config() -> Dict[str, List[str]]:
     """
     Load recipient lists from EMAIL_DIGEST_RECIPIENTS (JSON secret).
 
-    Example JSON (store in GitHub Secrets — never commit):
-    {
-      "ks": ["person-a@example.com"],
-      "co": ["person-b@example.com"],
-      "az": [],
-      "ut": [],
-      "federal": ["person-c@example.com"],
-      "all": ["admin@example.com"]
-    }
-
-    Also supports per-digest env vars: EMAIL_RECIPIENTS_KS, EMAIL_RECIPIENTS_CO, etc.
-    (comma-separated addresses)
+    Digest IDs come from config/email_digests.yaml (ks, co, az, ut, me, federal, all).
+    Also supports per-digest env vars: EMAIL_RECIPIENTS_KS, etc.
     """
+    digest_cfg = load_digest_config()
     recipients: Dict[str, List[str]] = {
-        "ks": [], "co": [], "az": [], "ut": [], "federal": [], "all": [],
+        d["id"]: [] for d in digest_cfg.get("digests", []) if d.get("id")
     }
+    if "federal" not in recipients:
+        recipients["federal"] = []
+    if "all" not in recipients:
+        recipients["all"] = []
 
     raw = os.environ.get("EMAIL_DIGEST_RECIPIENTS", "").strip()
     if raw:
@@ -69,11 +64,12 @@ def parse_recipient_config() -> Dict[str, List[str]]:
             if isinstance(parsed, dict):
                 for key, addrs in parsed.items():
                     key_lower = key.lower()
-                    if key_lower in recipients:
-                        if isinstance(addrs, str):
-                            recipients[key_lower] = [a.strip() for a in addrs.split(",") if a.strip()]
-                        elif isinstance(addrs, list):
-                            recipients[key_lower] = [str(a).strip() for a in addrs if str(a).strip()]
+                    if key_lower not in recipients:
+                        recipients[key_lower] = []
+                    if isinstance(addrs, str):
+                        recipients[key_lower] = [a.strip() for a in addrs.split(",") if a.strip()]
+                    elif isinstance(addrs, list):
+                        recipients[key_lower] = [str(a).strip() for a in addrs if str(a).strip()]
         except json.JSONDecodeError as exc:
             print(f"WARNING: EMAIL_DIGEST_RECIPIENTS is not valid JSON: {exc}")
 
@@ -170,11 +166,16 @@ def send_all_digests(digest_filter: str | None = None, dry_run: bool = False) ->
     return sent_count
 
 
+def _digest_ids() -> List[str]:
+    cfg = load_digest_config()
+    return [d["id"] for d in cfg.get("digests", []) if d.get("id")]
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Send Policy Watch email digests")
     parser.add_argument(
         "--digest",
-        choices=["ks", "co", "az", "ut", "federal", "all"],
+        choices=_digest_ids(),
         help="Send only one digest type (default: send all configured digests)",
     )
     parser.add_argument("--dry-run", action="store_true", help="Print what would be sent without emailing")
