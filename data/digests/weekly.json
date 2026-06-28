@@ -1,7 +1,7 @@
 {
   "federal": {
     "label": "Federal Weekly Digest",
-    "generated_at": "2026-06-28T15:33:23.734870+00:00",
+    "generated_at": "2026-06-28T17:23:44.111693+00:00",
     "period_days": 7,
     "summary": {
       "total_bills": 37,
@@ -273,6 +273,23 @@
         "updated_at": "2026-07-01"
       },
       {
+        "id": "119425",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "title": "Full Committee Hearing on The Growing Business of Sports: Reviewing Federal Tax Policy in the Multibillion-Dollar Industry",
+        "description": "Congressional meeting before the House Ways and Means.",
+        "scheduled_date": "2026-06-30",
+        "scheduled_time": "14:00",
+        "location": "Room 1100, Longworth House Office Building",
+        "chamber": "House",
+        "committees": [
+          "House Ways and Means"
+        ],
+        "url": "https://www.congress.gov/event/119th-congress/house-event/119425",
+        "updated_at": "2026-06-30"
+      },
+      {
         "id": "119422",
         "source": "congress",
         "level": "federal",
@@ -305,30 +322,13 @@
         ],
         "url": "https://www.congress.gov/event/119th-congress/house-event/119435",
         "updated_at": "2026-06-30"
-      },
-      {
-        "id": "119430",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "title": "Various Measures",
-        "description": "Congressional meeting before the House Financial Services.",
-        "scheduled_date": "2026-06-30",
-        "scheduled_time": "14:00",
-        "location": "Room 2128, Rayburn House Office Building",
-        "chamber": "House",
-        "committees": [
-          "House Financial Services"
-        ],
-        "url": "https://www.congress.gov/event/119th-congress/house-event/119430",
-        "updated_at": "2026-06-30"
       }
     ],
     "ai_analysis": "Impact analysis pending — insufficient classification data.\nThis federal-level federal bill relates to Veterans. Status: Subcommittee Hearings Held.\nImpact analysis pending — insufficient classification data.\nImpact analysis pending — insufficient classification data.\nImpact analysis pending — insufficient classification data."
   },
   "ks": {
     "label": "Kansas Weekly Digest",
-    "generated_at": "2026-06-28T15:33:23.735877+00:00",
+    "generated_at": "2026-06-28T17:23:44.113974+00:00",
     "period_days": 7,
     "summary": {
       "total_bills": 5,
@@ -336,6 +336,13 @@
       "total_votes": 5
     },
     "important_bills": [
+      {
+        "bill_number": "HB 2731",
+        "title": "Substitute for HB 2731 by Committee on Welfare Reform -Requiring the department of health and environment in coordination with the Kansas department for aging and disability services to seek federal approval to establish continuous medicaid eligibility for certain individuals with intellectual or developmental disabilities who are receiving services through a home and community based services waiver, requiring the secretary for children and families and the secretary of health and environment to enter into data-matching agreements with state agencies to verify eligibility for food and medical assistance, directing the department of health and environment to submit certain data to the centers for medicare and medicaid services, prohibiting certain public assistance program waivers or exemptions without legislative approval, prohibiting self-attestation for purposes of determining eligibility for public assistance programs, limiting retroactive enrollment in the medical assistance program, increasing the age limit for able-bodied adults without certain dependents and prohibiting certain exemptions from work requirements under the food assistance program.",
+        "latest_action": "Motion to override veto prevailed",
+        "url": "https://openstates.org/ks/bills/2025-2026/HB2731/",
+        "ai_summary": "Bill HB 2731 Substitute for HB 2731 by Committee on Welfare Reform -Requiring the department of health and environment in coordination with the Kansas department for aging and disability services to seek federal approval to establish continuous medicaid eligibility for certain individuals with intellectual or developmental disabilities who are receiving services through a home and community based services waiver, requiring the secretary for children and families and the secretary of health and environment to enter into data-matching agreements with state agencies to verify eligibility for food and medical assistance, directing the department of health and environment to submit certain data to the centers for medicare and medicaid services, prohibiting certain public assistance program waivers or exemptions without legislative approval, prohibiting self-attestation for purposes of determining eligibility for public assistance programs, limiting retroactive enrollment in the medical assistance program, increasing the age limit for able-bodied adults without certain dependents and prohibiting certain exemptions from work requirements under the food assistance program. Substitute for HB 2731 by Committee on Welfare Reform -Requiring the department of health and environment in coordination with the Kansas department for aging and disability services to seek federal approval to establish continuous medicaid eligibility for certain individuals with intellectual or developmental disabilities who are receiving services through a home and community based services waiver, requiring the secretary for children and families and the secretary of health and environment to Latest action: Motion to override veto prevailed Sponsors: House Committee on Welfare Reform"
+      },
       {
         "bill_number": "HB 2250",
         "title": "Substitute for HB 2250 by Committee on Health and Human Services - Permitting the use of expedited partner therapy to treat sexually transmitted infections, authorizing a licensed private psychiatric hospital to maintain a stock supply of emergency medication kits for pharmaceutical emergencies, allowing expired emergency opioid antagonists to be used to treat an opioid overdose, permitting first responders to distribute and administer expired emergency opioid antagonists, permitting a pharmacist to distribute epinephrine delivery systems to a school for use in emergency medication kits and amending definitions related to medication in schools to allow for use of epinephrine delivery systems.",
@@ -349,13 +356,6 @@
         "latest_action": "Motion to override veto prevailed",
         "url": "https://openstates.org/ks/bills/2025-2026/HB2004/",
         "ai_summary": "Bill HB 2004 Senate Substitute for HB 2004 by Committee on Government Efficiency - .Requiring the secretary for children and families and the office of inspector general to exchange information and documents related to cash assistance, childcare assistance and food assistance fraud investigations and requiring the secretary for children and families and the secretary of health and environment to execute a memorandum of understanding or other written data-sharing instrument upon written request of the United States department of agriculture or the United States department of health and human services and comply with data requests from such federal agencies. Senate Substitute for HB 2004 by Committee on Government Efficiency - .Requiring the secretary for children and families and the office of inspector general to exchange information and documents related to cash assistance, childcare assistance and food assistance fraud investigations and requiring the secretary for children and families and the secretary of health and environment to execute a memorandum of understanding or other written data-sharing instrument upon written request of the United  Latest action: Motion to override veto prevailed Sponsors: Senate Committee on Government Efficiency"
-      },
-      {
-        "bill_number": "HB 2731",
-        "title": "Substitute for HB 2731 by Committee on Welfare Reform -Requiring the department of health and environment in coordination with the Kansas department for aging and disability services to seek federal approval to establish continuous medicaid eligibility for certain individuals with intellectual or developmental disabilities who are receiving services through a home and community based services waiver, requiring the secretary for children and families and the secretary of health and environment to enter into data-matching agreements with state agencies to verify eligibility for food and medical assistance, directing the department of health and environment to submit certain data to the centers for medicare and medicaid services, prohibiting certain public assistance program waivers or exemptions without legislative approval, prohibiting self-attestation for purposes of determining eligibility for public assistance programs, limiting retroactive enrollment in the medical assistance program, increasing the age limit for able-bodied adults without certain dependents and prohibiting certain exemptions from work requirements under the food assistance program.",
-        "latest_action": "Introduced",
-        "url": "https://openstates.org/ks/bills/2025-2026/HB2731/",
-        "ai_summary": "Bill HB 2731 Substitute for HB 2731 by Committee on Welfare Reform -Requiring the department of health and environment in coordination with the Kansas department for aging and disability services to seek federal approval to establish continuous medicaid eligibility for certain individuals with intellectual or developmental disabilities who are receiving services through a home and community based services waiver, requiring the secretary for children and families and the secretary of health and environment to enter into data-matching agreements with state agencies to verify eligibility for food and medical assistance, directing the department of health and environment to submit certain data to the centers for medicare and medicaid services, prohibiting certain public assistance program waivers or exemptions without legislative approval, prohibiting self-attestation for purposes of determining eligibility for public assistance programs, limiting retroactive enrollment in the medical assistance program, increasing the age limit for able-bodied adults without certain dependents and prohibiting certain exemptions from work requirements under the food assistance program. Latest action: Introduced Sponsors: Committee on Welfare Reform"
       },
       {
         "bill_number": "SB 341",
@@ -410,11 +410,11 @@
       }
     ],
     "committee_activity": [],
-    "ai_analysis": "This state-level KS bill relates to Education, Public Safety, Healthcare. Status: Approved by Governor.\nThis state-level KS bill relates to Healthcare, Environment. Status: Vetoes Overridden.\nThis state-level KS bill relates to Healthcare, Environment. Status: Introduced.\nThis state-level KS bill relates to Education. Status: Introduced.\nThis state-level KS bill relates to Public Safety. Status: Introduced."
+    "ai_analysis": "This state-level KS bill relates to Healthcare, Environment. Status: Vetoes Overridden.\nThis state-level KS bill relates to Education, Public Safety, Healthcare. Status: Approved by Governor.\nThis state-level KS bill relates to Healthcare, Environment. Status: Vetoes Overridden.\nThis state-level KS bill relates to Education. Status: Introduced.\nThis state-level KS bill relates to Public Safety. Status: Introduced."
   },
   "co": {
     "label": "Colorado Weekly Digest",
-    "generated_at": "2026-06-28T15:33:23.736358+00:00",
+    "generated_at": "2026-06-28T17:23:44.114954+00:00",
     "period_days": 7,
     "summary": {
       "total_bills": 75,
@@ -646,7 +646,7 @@
   },
   "az": {
     "label": "Arizona Weekly Digest",
-    "generated_at": "2026-06-28T15:33:23.737599+00:00",
+    "generated_at": "2026-06-28T17:23:44.117301+00:00",
     "period_days": 7,
     "summary": {
       "total_bills": 933,
@@ -953,7 +953,7 @@
   },
   "ut": {
     "label": "Utah Weekly Digest",
-    "generated_at": "2026-06-28T15:33:23.737882+00:00",
+    "generated_at": "2026-06-28T17:23:44.117938+00:00",
     "period_days": 7,
     "summary": {
       "total_bills": 0,
@@ -967,7 +967,7 @@
   },
   "me": {
     "label": "Maine Weekly Digest",
-    "generated_at": "2026-06-28T15:33:23.738146+00:00",
+    "generated_at": "2026-06-28T17:23:44.118412+00:00",
     "period_days": 7,
     "summary": {
       "total_bills": 0,
