@@ -34,6 +34,11 @@ jobs:
       - name: Fetch Kansas Legislature calendars
         run: python src/processing/fetch_kansas_calendar.py
 
+      - name: Enrich Kansas bills (official REST API)
+        env:
+          KANSAS_LEGISLATURE_API_KEY: ${{ secrets.KANSAS_LEGISLATURE_API_KEY }}
+        run: python src/processing/enrich_kansas_api.py
+
       - name: Fetch Congress API legislation
         env:
           CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
@@ -53,6 +58,9 @@ jobs:
           else
             echo "CONGRESS_API_KEY not set, skipping hearings fetch"
           fi
+
+      - name: Normalize and merge enrichments
+        run: python src/processing/normalize_data.py --skip-ai
 
       - name: Build HTML digest
         run: python src/processing/summarize.py
@@ -126,7 +134,7 @@ jobs:
         run: |
           git config user.name "civicwatch-bot"
           git config user.email "actions@github.com"
-          git add docs src/output
+          git add docs src/output data/kansas data/normalized
           git commit -m "Automated CivicWatch update" || echo "No changes"
           git pull --rebase origin main
           git push origin main

@@ -52,7 +52,7 @@ tailwind.config = {
                     <h1 class="text-3xl font-bold">
                         <span class="text-white">Civic</span><span class="text-civic-gold">Watch</span>
                     </h1>
-                    <div class="text-slate-300 text-sm mt-1">Conference Committee Hearings</div>
+                    <div class="text-slate-300 text-sm mt-1">Legislative Hearings — All States</div>
                 </div>
             </div>
         </div>
@@ -87,11 +87,14 @@ tailwind.config = {
                 <!-- Filters -->
                 <div id="upcoming-filters" class="flex flex-wrap gap-3 items-center mb-6 p-4 bg-slate-50 rounded-xl border border-slate-200">
                     <div class="flex items-center gap-2">
-                        <label for="upcoming-source-filter" class="text-sm font-semibold text-slate-600">Source:</label>
-                        <select id="upcoming-source-filter" class="px-3 py-2 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm">
-                            <option value="">All Sources</option>
-                            <option value="State">State (Kansas Legislature)</option>
-                            <option value="Federal">Federal (US Congress)</option>
+                        <label for="upcoming-state-filter" class="text-sm font-semibold text-slate-600">State:</label>
+                        <select id="upcoming-state-filter" class="px-3 py-2 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm">
+                            <option value="">All States / Federal</option>
+                            <option value="Federal">Federal (U.S. Congress)</option>
+                            <option value="KS">Kansas</option>
+                            <option value="CO">Colorado</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="UT">Utah</option>
                         </select>
                     </div>
                     <div class="flex items-center gap-2">
@@ -134,11 +137,14 @@ tailwind.config = {
                 <!-- Filters -->
                 <div id="historical-filters" class="flex flex-wrap gap-3 items-center mb-6 p-4 bg-slate-50 rounded-xl border border-slate-200">
                     <div class="flex items-center gap-2">
-                        <label for="historical-source-filter" class="text-sm font-semibold text-slate-600">Source:</label>
-                        <select id="historical-source-filter" class="px-3 py-2 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm">
-                            <option value="">All Sources</option>
-                            <option value="State">State (Kansas Legislature)</option>
-                            <option value="Federal">Federal (US Congress)</option>
+                        <label for="historical-state-filter" class="text-sm font-semibold text-slate-600">State:</label>
+                        <select id="historical-state-filter" class="px-3 py-2 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm">
+                            <option value="">All States / Federal</option>
+                            <option value="Federal">Federal (U.S. Congress)</option>
+                            <option value="KS">Kansas</option>
+                            <option value="CO">Colorado</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="UT">Utah</option>
                         </select>
                     </div>
                     <div class="flex items-center gap-2">
@@ -173,7 +179,7 @@ tailwind.config = {
     
     <!-- Footer -->
     <div class="text-center text-slate-500 text-sm mt-6">
-        CivicWatch - Tracking legislation for Kansas and U.S. Congress
+        CivicWatch - Hearings for Kansas, Colorado, Arizona, Utah, and U.S. Congress
     </div>
 </div>
 
@@ -208,17 +214,33 @@ function getYearFromDate(dateStr) {
     }
 }
 
-function filterHearings(hearings, sourceFilter, yearFilter, committeeFilter) {
+const STATE_LABELS = { KS: "Kansas", CO: "Colorado", AZ: "Arizona", UT: "Utah", Federal: "Federal" };
+const STATE_BADGE_COLORS = {
+    KS: "bg-emerald-500",
+    CO: "bg-sky-500",
+    AZ: "bg-orange-500",
+    UT: "bg-violet-500",
+    Federal: "bg-civic-blue",
+};
+
+function inferHearingState(hearing) {
+    if (hearing.state) return hearing.state;
+    if (hearing.level === "federal") return "Federal";
+    const source = (hearing.source || "").toLowerCase();
+    if (source.includes("federal") || source.includes("congress")) return "Federal";
+    if (source.includes("kansas")) return "KS";
+    if (source.includes("colorado")) return "CO";
+    if (source.includes("arizona")) return "AZ";
+    if (source.includes("utah")) return "UT";
+    return "";
+}
+
+function filterHearings(hearings, stateFilter, yearFilter, committeeFilter) {
     return hearings.filter(hearing => {
-        // Filter by source
-        if (sourceFilter) {
-            const source = hearing.source || "";
-            if (sourceFilter === "State" && !source.includes("Kansas")) {
-                return false;
-            }
-            if (sourceFilter === "Federal" && !source.includes("Federal")) {
-                return false;
-            }
+        // Filter by state
+        if (stateFilter) {
+            const hearingState = inferHearingState(hearing);
+            if (hearingState !== stateFilter) return false;
         }
         
         // Filter by year
@@ -302,9 +324,8 @@ function populateCommitteeFilters(hearings, filterId) {
     });
 }
 
-function renderHearings(hearings, container, emptyMessage, sourceFilter = "", yearFilter = "", committeeFilter = "") {
-    // Filter hearings
-    const filtered = filterHearings(hearings, sourceFilter, yearFilter, committeeFilter);
+function renderHearings(hearings, container, emptyMessage, stateFilter = "", yearFilter = "", committeeFilter = "") {
+    const filtered = filterHearings(hearings, stateFilter, yearFilter, committeeFilter);
     
     if (filtered.length === 0) {
         container.innerHTML = `
@@ -313,7 +334,7 @@ function renderHearings(hearings, container, emptyMessage, sourceFilter = "", ye
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                 </svg>
                 <p class="text-slate-500 font-medium">${emptyMessage}</p>
-                ${(sourceFilter || yearFilter || committeeFilter) ? '<p class="text-slate-400 text-sm mt-1">Try adjusting your filters.</p>' : ''}
+                ${(stateFilter || yearFilter || committeeFilter) ? '<p class="text-slate-400 text-sm mt-1">Try adjusting your filters.</p>' : '<p class="text-slate-400 text-sm mt-1">Open States hearings appear after the daily sync runs with OPENSTATES_API_KEY set.</p>'}
             </div>
         `;
         return;
@@ -392,17 +413,16 @@ function renderHearings(hearings, container, emptyMessage, sourceFilter = "", ye
                 ? `${title} - ${hearing.scheduled_time}`
                 : title;
             
-            // Show source (State vs Federal)
-            const source = hearing.source || "Unknown";
-            const isState = source.includes('Kansas');
-            const sourceBadgeClass = isState 
-                ? 'bg-emerald-500' 
-                : 'bg-civic-blue';
+            // Show state badge
+            const hearingState = inferHearingState(hearing);
+            const source = hearing.source || (hearingState ? `${STATE_LABELS[hearingState] || hearingState}` : "Unknown");
+            const badgeClass = STATE_BADGE_COLORS[hearingState] || "bg-slate-500";
+            const badgeLabel = hearingState === "Federal" ? "Federal (US Congress)" : `State (${STATE_LABELS[hearingState] || hearingState})`;
             
             card.innerHTML = `
                 <div class="mb-3">
-                    <span class="inline-block px-3 py-1 ${sourceBadgeClass} text-white rounded-full text-xs font-semibold uppercase tracking-wide mb-2">
-                        ${source}
+                    <span class="inline-block px-3 py-1 ${badgeClass} text-white rounded-full text-xs font-semibold uppercase tracking-wide mb-2">
+                        ${badgeLabel}
                     </span>
                     <h4 class="text-lg font-semibold ${isCanceled ? 'text-red-600 line-through' : 'text-civic-navy'}">
                         ${titleWithTime}
@@ -433,7 +453,7 @@ function renderHearings(hearings, container, emptyMessage, sourceFilter = "", ye
                 ${(hearing.link || hearing.url) ? `
                 <a href="${hearing.link || hearing.url}" target="_blank" rel="noopener noreferrer" 
                    class="inline-flex items-center gap-1 text-civic-blue hover:text-civic-blue-dark font-medium text-sm transition-colors">
-                    ${hearing.source && hearing.source.includes("Federal") ? "View on Congress.gov" : "View Full Schedule"}
+                    ${hearing.source && hearing.source.includes("Federal") ? "View on Congress.gov" : hearing.url ? "View details" : "View Full Schedule"}
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                     </svg>
@@ -453,41 +473,41 @@ function setupFilters() {
     const historicalContainer = document.getElementById("historical-hearings-container");
     
     function applyUpcomingFilters() {
-        const sourceFilter = document.getElementById("upcoming-source-filter").value;
+        const stateFilter = document.getElementById("upcoming-state-filter").value;
         const yearFilter = document.getElementById("upcoming-year-filter").value;
         const committeeFilter = document.getElementById("upcoming-committee-filter").value;
         renderHearings(allUpcomingHearings, upcomingContainer, "No upcoming hearings scheduled",
-                      sourceFilter, yearFilter, committeeFilter);
+                      stateFilter, yearFilter, committeeFilter);
     }
     
     function applyHistoricalFilters() {
-        const sourceFilter = document.getElementById("historical-source-filter").value;
+        const stateFilter = document.getElementById("historical-state-filter").value;
         const yearFilter = document.getElementById("historical-year-filter").value;
         const committeeFilter = document.getElementById("historical-committee-filter").value;
         renderHearings(allHistoricalHearings, historicalContainer, "No historical hearings available",
-                      sourceFilter, yearFilter, committeeFilter);
+                      stateFilter, yearFilter, committeeFilter);
     }
     
     // Upcoming filters
-    document.getElementById("upcoming-source-filter").addEventListener("change", applyUpcomingFilters);
+    document.getElementById("upcoming-state-filter").addEventListener("change", applyUpcomingFilters);
     document.getElementById("upcoming-year-filter").addEventListener("change", applyUpcomingFilters);
     document.getElementById("upcoming-committee-filter").addEventListener("change", applyUpcomingFilters);
     
     // Historical filters
-    document.getElementById("historical-source-filter").addEventListener("change", applyHistoricalFilters);
+    document.getElementById("historical-state-filter").addEventListener("change", applyHistoricalFilters);
     document.getElementById("historical-year-filter").addEventListener("change", applyHistoricalFilters);
     document.getElementById("historical-committee-filter").addEventListener("change", applyHistoricalFilters);
 }
 
 function clearFilters(type) {
     if (type === "upcoming") {
-        document.getElementById("upcoming-source-filter").value = "";
+        document.getElementById("upcoming-state-filter").value = "";
         document.getElementById("upcoming-year-filter").value = "";
         document.getElementById("upcoming-committee-filter").value = "";
         renderHearings(allUpcomingHearings, document.getElementById("upcoming-hearings-container"), 
                       "No upcoming hearings scheduled", "", "", "");
     } else if (type === "historical") {
-        document.getElementById("historical-source-filter").value = "";
+        document.getElementById("historical-state-filter").value = "";
         document.getElementById("historical-year-filter").value = "";
         document.getElementById("historical-committee-filter").value = "";
         renderHearings(allHistoricalHearings, document.getElementById("historical-hearings-container"), 

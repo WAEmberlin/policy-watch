@@ -105,6 +105,15 @@ mark {
                     </svg>
                     Live Streams
                 </a>
+                <a href="dashboard.html" class="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors shadow-sm hover:shadow-md">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                    Multi-State Dashboards
+                </a>
+                <a href="legislators.html" class="inline-flex items-center gap-2 px-5 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors shadow-sm hover:shadow-md">
+                    Legislators
+                </a>
             </div>
             
             <!-- Weekly Overview Section -->
@@ -145,6 +154,10 @@ mark {
             <!-- Filters Section -->
             <div id="filters-container" class="mb-8 p-4 bg-slate-50 rounded-xl border border-slate-200">
                 <div class="flex flex-wrap gap-3 items-center">
+                    <select id="state-filter" class="flex-1 min-w-[160px] px-4 py-2.5 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer">
+                        <option value="">All States / Federal</option>
+                        <option value="Federal">Federal (U.S. Congress)</option>
+                    </select>
                     <select id="source-filter" class="flex-1 min-w-[180px] px-4 py-2.5 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer">
                         <option value="">All Sources</option>
                     </select>
@@ -172,7 +185,7 @@ mark {
     
     <!-- Footer -->
     <div class="text-center text-slate-500 text-sm mt-6">
-        CivicWatch - Tracking legislation for Kansas and U.S. Congress
+        CivicWatch - Tracking legislation for Kansas, Colorado, Arizona, Utah, and U.S. Congress
     </div>
 </div>
 <script src="script.js"></script>

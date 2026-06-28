@@ -1,0 +1,82 @@
+# CivicWatch state configuration
+# Add new states here without code changes.
+
+states:
+  - code: ks
+    name: Kansas
+    level: state
+    sources:
+      - kansas_rss
+      - openstates
+    openstates_jurisdiction: ocd-jurisdiction/country:us/state:ks/government
+    enrichment: kansas_api
+    enabled: true
+
+  - code: co
+    name: Colorado
+    level: state
+    sources:
+      - openstates
+    openstates_jurisdiction: ocd-jurisdiction/country:us/state:co/government
+    enrichment: openstates_detail
+    enabled: true
+
+  - code: az
+    name: Arizona
+    level: state
+    sources:
+      - openstates
+    openstates_jurisdiction: ocd-jurisdiction/country:us/state:az/government
+    enrichment: openstates_detail
+    enabled: true
+
+  - code: ut
+    name: Utah
+    level: state
+    sources:
+      - openstates
+    openstates_jurisdiction: ocd-jurisdiction/country:us/state:ut/government
+    enrichment: openstates_detail
+    enabled: true
+
+federal:
+  sources:
+    - congress
+  enabled: true
+
+openstates:
+  base_url: https://v3.openstates.org
+  default_days_back: 7
+  per_page: 20
+  request_delay_seconds: 0.5
+  max_retries: 3
+
+kansas_api:
+  base_url: https://kslegislature.gov/api/v1
+  api_key_env: KANSAS_LEGISLATURE_API_KEY
+  max_enrich_per_run: 75
+  reenrich_hours: 24
+  request_delay_seconds: 2.1
+
+enrichment:
+  # Kansas: official REST API (RSS stays primary ingest)
+  kansas_api: ks
+  # CO/AZ/UT: Open States detail re-fetch for sponsors/votes
+  openstates_detail: [co, az, ut]
+
+topic_dashboards:
+  - id: veterans
+    label: Veterans Legislation
+    keywords: [veteran, veterans, va, military, armed forces]
+  - id: education
+    label: Education Legislation
+    keywords: [education, school, university, student, teacher]
+  - id: property_tax
+    label: Property Tax Legislation
+    keywords: [property tax, mill levy, assessment, homestead]
+  - id: ai_technology
+    label: AI & Technology Legislation
+    keywords: [artificial intelligence, ai, technology, data privacy, cybersecurity]
+  - id: public_safety
+    label: Public Safety Legislation
+    keywords: [public safety, police, crime, fire, emergency]
