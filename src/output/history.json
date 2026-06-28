@@ -7826,7 +7826,56 @@
     "location": "118-N",
     "committees": "Senate Committee on Government Efficiency and House Committee on Legislative Modernization",
     "bill": "SB51",
-    "is_canceled": false
+    "is_canceled": false,
+    "short_title": "House Substitute for SB 51 by Committee on Legislative Modernization - Authorizing the chief information security officer to receive audit reports, updating statutes related to services provided by the chief information technology officer and authorizing the office of information technology services to provide certain services to political subdivisions and hospitals.",
+    "short_title_source": "kansas_api",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Monday, April 27, 2026",
+    "sponsors": [
+      {
+        "name": "House Committee on Legislative Modernization",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Concurred with amendments in conference;",
+        "date": "2026-04-09T15:04:34+00:00",
+        "tally": {
+          "yea": 38,
+          "nay": 1,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Substitute passed;",
+        "date": "2026-03-18T15:47:36+00:00",
+        "tally": {
+          "yea": 123,
+          "nay": 1,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed;",
+        "date": "2025-02-19T18:07:28+00:00",
+        "tally": {
+          "yea": 34,
+          "nay": 6,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:47:11.347196+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/conference/conf_committee_20260325135853",
@@ -28250,7 +28299,54 @@
     "bill_number": "SB 51",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB51/",
     "short_title": "House: SB51: Withdrawn from Calendar; Referred to Committee on Legislative Modernization",
-    "short_title_source": "rss"
+    "short_title_source": "rss",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Monday, April 27, 2026",
+    "sponsors": [
+      {
+        "name": "House Committee on Legislative Modernization",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Concurred with amendments in conference;",
+        "date": "2026-04-09T15:04:34+00:00",
+        "tally": {
+          "yea": 38,
+          "nay": 1,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Substitute passed;",
+        "date": "2026-03-18T15:47:36+00:00",
+        "tally": {
+          "yea": 123,
+          "nay": 1,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed;",
+        "date": "2025-02-19T18:07:28+00:00",
+        "tally": {
+          "yea": 34,
+          "nay": 6,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:47:11.347196+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/6871f19f52bfb6fbe1d67f23781099c1",
@@ -31223,7 +31319,16 @@
     "bill_number": "SB 509",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB509/",
     "short_title": "Providing countywide retailers' sales tax authority for Sheridan county for the purpose of financing the costs of constructing a jail and law enforcement center.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Ways and Means",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:47:04.467758+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/efaec82e833192f6ed9ec9942600fee8",
@@ -31239,7 +31344,16 @@
     "bill_number": "SB 508",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB508/",
     "short_title": "Increasing the annual limit on transfers from the lottery operating fund to the community crisis stabilization centers fund and the clubhouse model program fund.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:46:57.816847+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/1c007078ffddce6753f272a6dc452746",
@@ -31255,7 +31369,16 @@
     "bill_number": "SB 507",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB507/",
     "short_title": "Prohibiting the enforcement of federal immigration laws at polling places and locations designated for the canvassing, auditing and recounting of ballots.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:46:51.161062+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/f0adc3aee13a3c8b92112c845bdc74cf",
@@ -31477,7 +31600,16 @@
     "bill_number": "SB 506",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB506/",
     "short_title": "Increasing the penalty for a second or subsequent adjudication of criminal use of weapons and modifying the penalties for the crime of criminal possession of a weapon by a convicted felon and the length of the ban on possessing a weapon for certain felons.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:46:44.497514+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/1d342758df4c967f9fdace9da871529f",
@@ -31493,7 +31625,16 @@
     "bill_number": "SB 505",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB505/",
     "short_title": "Prohibiting certain conduct in connection with the sale or resale of entertainment tickets and providing that violation of such requirements is a deceptive act or practice subject to penalties under the Kansas consumer protection act.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:46:37.856299+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/16b3b70302d3c254a9e5b4f73f3d27ba",
@@ -31509,7 +31650,16 @@
     "bill_number": "SB 504",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB504/",
     "short_title": "Enacting the Kansas healthcare professional employment mobility and patient access act to prohibit post-employment noncompete agreements.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:46:31.185375+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/004b4a538acba73a3e673650ed1bf37f",
@@ -31731,7 +31881,16 @@
     "bill_number": "SB 503",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB503/",
     "short_title": "Removing the criminal prohibition against firearm suppressors and firearm barrel length qualification requirement.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:46:24.354058+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/61595e18e4bb6a015f4f82570c0df41d",
@@ -31747,7 +31906,30 @@
     "bill_number": "SB 502",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB502/",
     "short_title": "Authorizing the adoption of administrative rules and regulations concerning sports wagering by the Kansas racing and gaming commission.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on House Calendar",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Consent Calendar Passed",
+        "date": "2026-03-09T15:23:00+00:00",
+        "tally": {
+          "yea": 39,
+          "nay": 0,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:46:17.721245+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/3f58a68518bfc9133d19a13e4e2860c8",
@@ -31763,7 +31945,16 @@
     "bill_number": "SB 501",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB501/",
     "short_title": "Requiring law enforcement agencies to adopt policies related to racial and other biased-based policing using technology and criminalizing violation of racial and other biased-based policing policies.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:46:11.031636+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/0099b95dd177dbec07abdc0bf540a160",
@@ -32070,7 +32261,16 @@
     "bill_number": "SB 500",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB500/",
     "short_title": "Creating the Kansas public employees retirement system cost-of-living adjustment commission, prescribing powers and duties of the commission and establishing procedures of the legislature relating to the annual cost-of-living adjustment rate recommended by the commission.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Ways and Means",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:46:04.374295+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/81e3d6be16f42e6a124a95c5c3525ced",
@@ -32086,7 +32286,16 @@
     "bill_number": "SB 499",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB499/",
     "short_title": "Enacting the Kansas age-appropriate design code act to require businesses to assess and mitigate risks of compulsive use in minors, enacting the Kansas stopping likeness abuse by nonconsensual digital replicas act to create a private right of action for the unauthorized digital replication and distribution of individuals' digital likenesses and enacting the Kansas saving human connection act to prohibit deceptive practices and ensure transparency in chatbot interactions.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:45:57.725338+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/ccf1b02c7a2dc1afc0b5a227d637f37f",
@@ -32278,7 +32487,30 @@
     "bill_number": "SB 498",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB498/",
     "short_title": "Providing an income tax credit for the retail sale of higher ethanol blends of fuel and discontinuing the income tax credit for qualified alternative-fueled motor vehicle property or fueling station expenditures.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in House Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Assessment and Taxation",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-10T18:02:38+00:00",
+        "tally": {
+          "yea": 38,
+          "nay": 1,
+          "present": 1,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:45:51.056382+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/a9e9e2a71d5ef36e62376e1cede4a644",
@@ -32369,7 +32601,30 @@
     "bill_number": "SB 497",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB497/",
     "short_title": "Adding kratom and delta-8 THC to schedule I of the uniform controlled substances act.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in House Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Public Health and Welfare",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed;",
+        "date": "2026-03-05T14:49:03+00:00",
+        "tally": {
+          "yea": 33,
+          "nay": 5,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:45:44.194839+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/b71c764d485cb52298ae12ff7aee580f",
@@ -32385,7 +32640,16 @@
     "bill_number": "SB 496",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB496/",
     "short_title": "Requiring postsecondary educational institutions to provide annual training on freedom of speech, association and exercise of religion to certain individuals based on materials, programs and procedures developed by the state board of regents, in consultation with the attorney general, requiring the state board of regents to confirm that each such institution has complied with training requirements and authorizing the attorney general to bring an action to enforce compliance.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on Calendar",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Education",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:45:37.494908+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/95622c4bf42d07ef8b4a5d6a353a756b",
@@ -32401,7 +32665,16 @@
     "bill_number": "SB 495",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB495/",
     "short_title": "Enacting the motor vehicle right to repair act.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Commerce",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:45:30.806756+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/e2754cf202a247012597563ffe7a418b",
@@ -32996,7 +33269,16 @@
     "bill_number": "SB 494",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB494/",
     "short_title": "Expanding the definition of stalking to include more technology-based methods, requiring law enforcement agencies to adopt policies for making primary aggressor assessments when responding to domestic violence calls and requiring a prosecutor to affirm such assessment was completed, prohibiting public agencies from charging fees to victims of domestic violence for public records, allowing evidence of other domestic violence offenses to be admissible in a criminal action in which the defendant is accused of a domestic violence offense, adding certain contact to options for protection from abuse or stalking orders and allowing lifetime extensions of protection from abuse orders for victims of domestic battery.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:45:24.135582+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/4c905e75cd614732b2a00419585d5b6a",
@@ -33012,7 +33294,16 @@
     "bill_number": "SB 493",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB493/",
     "short_title": "Adding an element to the crime of sexual exploitation of a child that involves communication through electronic means and social media and providing criminal penalties therefor.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:45:17.487771+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/cc1bea1547b99ef0a5dbd67421e97762",
@@ -33028,7 +33319,16 @@
     "bill_number": "SB 492",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB492/",
     "short_title": "Requiring law enforcement agencies to share records with other law enforcement agencies about law enforcement officers related to criminal conduct or conduct giving rise to licensing or certification sanctions.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:45:10.831430+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/710da9474280cc2abd9b20d9df835706",
@@ -33044,7 +33344,16 @@
     "bill_number": "SB 491",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB491/",
     "short_title": "Enacting the Haylee Weissenbach protecting students act to establish the office of education inspector general, authorize the education inspector general to conduct audits, investigations and reviews of educational institutions, require reporting of suspected professional and criminal misconduct by school employees and agents, require certain individuals to register on an educator misconduct registry, require criminal history record checks of school employees and agents and provide for civil penalties for violations of this act.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Education",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:45:04.170911+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/848bc26e0b4c616fd67ea7065b1fec26",
@@ -33060,7 +33369,16 @@
     "bill_number": "SB 490",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB490/",
     "short_title": "Authorizing the imposition of a privilege tax by a municipality for the privilege of selling alcoholic beverages, food and food ingredients and tobacco within a community improvement district.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Assessment and Taxation",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:44:57.520586+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/7d1165c0c0889edcb48aa8359b0fe354",
@@ -33076,7 +33394,16 @@
     "bill_number": "SB 489",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB489/",
     "short_title": "Providing for a universal homestead exemption from ad valorem property taxation.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Assessment and Taxation",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:44:44.222010+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/985c9c81d5f0f029b9ae4a9d4bc2ff72",
@@ -33092,7 +33419,16 @@
     "bill_number": "SB 488",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB488/",
     "short_title": "Enacting the Kansas property tax freedom act of 2026, providing for the phased elimination of property taxation and for revenue replacement grants to taxing subdivisions, establishing the Kansas fair share purchase surcharge and providing such revenue to taxing subdivisions, the state general fund and the new property tax freedom reserve fund and providing for freedom dividend rebates.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:44:37.569427+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/a24f96055b21b7bb77e70eb525c3c9fe",
@@ -35011,7 +35347,54 @@
     "bill_number": "SB 487",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB487/",
     "short_title": "Requiring the Kansas bureau of investigation to implement a statewide offender registration system for agencies who register offenders under the offender registration act.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Thursday, April 9, 2026",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Concurred with amendments in conference;",
+        "date": "2026-03-27T11:35:44+00:00",
+        "tally": {
+          "yea": 39,
+          "nay": 0,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-18T16:07:30+00:00",
+        "tally": {
+          "yea": 124,
+          "nay": 0,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-02-18T18:22:12+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:44:30.911541+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/3f50581ed4490f973af76f7f482e63f5",
@@ -35027,7 +35410,16 @@
     "bill_number": "SB 486",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB486/",
     "short_title": "Creating a civil cause of action for violations of the constitution or laws of the United States by any person acting under the color of law.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Holscher",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:44:24.232714+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/91ee38eee62671acfd045fa5be669a5b",
@@ -35043,7 +35435,16 @@
     "bill_number": "SB 485",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB485/",
     "short_title": "Providing that under rental agreements governed by the residential landlord tenant act, a landlord is required to count certain income when considering a tenant or prospective tenant's qualifications for housing, providing for the sealing and expungement of court records in eviction actions related to such rental agreements and requiring mediation in such eviction cases unless the court finds that mediation would not aid the parties materially.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Holscher",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:44:17.585633+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/85e5b96231c2fe2e74e198c227008e07",
@@ -35059,7 +35460,16 @@
     "bill_number": "SB 484",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB484/",
     "short_title": "Moving marijuana from schedule I to schedule III of the uniform controlled substances act.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Holscher",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:44:10.937232+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/5c60a3ac5712b071147c2fd5465919c6",
@@ -35075,7 +35485,16 @@
     "bill_number": "SB 483",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB483/",
     "short_title": "Requiring all legislators and the spouses of legislators who are in leadership positions to disclose the amount of any salary they receive paid by public funds, providing that such information be published on the legislative website and requiring such information be provided in statements of substantial interest.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Holscher",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:44:04.290639+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/6746abde7f4c327cbbabba6df91c9cc4",
@@ -35091,7 +35510,16 @@
     "bill_number": "SB 482",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB482/",
     "short_title": "Requiring landlords to return the security deposit and certain portions of rent payments that would be due when a dwelling unit is condemned due to action or inaction of the landlord.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:43:57.652339+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/7d0d280598f1ad61ab23d01b9049b7b4",
@@ -35107,7 +35535,30 @@
     "bill_number": "SB 481",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB481/",
     "short_title": "Permitting a municipal judge to initiate a psychiatric or psychological examination to determine competence and setting forth relevant procedures.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Stricken from Calendar by Rule 1507",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-02-18T18:21:53+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:43:50.999886+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/3ad7dcf4c1694382ad07c418e39b302b",
@@ -35123,7 +35574,54 @@
     "bill_number": "SB 480",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB480/",
     "short_title": "Reviving repealed statutes related to estates of absentees.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Thursday, April 9, 2026",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Concurred with amendments in conference;",
+        "date": "2026-03-26T22:11:35+00:00",
+        "tally": {
+          "yea": 39,
+          "nay": 0,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-18T16:11:44+00:00",
+        "tally": {
+          "yea": 124,
+          "nay": 0,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-02-18T18:21:35+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:43:44.325262+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/d511fa992d5eec4c4956db09dca78192",
@@ -35139,7 +35637,16 @@
     "bill_number": "SB 479",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB479/",
     "short_title": "Authorizing comprehensive wellness programs for the Kansas highway patrol and Kansas bureau of investigation, permitting law enforcement personnel of other state agencies to participate in such programs and making annual transfers from the state highway fund and the state general fund for the purpose of financing the implementation of such programs.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Corson",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:43:30.970553+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/fe24bfb8b751bca74b7415e30ddee60d",
@@ -35155,7 +35662,20 @@
     "bill_number": "SB 478",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB478/",
     "short_title": "Increasing the criminal penalties for assault or battery of a utility or communications employee.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on Calendar",
+    "sponsors": [
+      {
+        "name": "Senator Corson",
+        "role": "primary"
+      },
+      {
+        "name": "Senator Claeys",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:43:24.301307+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/e930fc96d1dba6e87ad32002470f28c6",
@@ -35171,7 +35691,16 @@
     "bill_number": "SB 477",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB477/",
     "short_title": "Establishing the Kansas first responder scholarship program to provide postsecondary tuition assistance to certain first responders and dependents of such first responders.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Corson",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:43:17.647869+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/e8df179d676d07696a10f3bed2624cef",
@@ -35187,7 +35716,16 @@
     "bill_number": "SB 476",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB476/",
     "short_title": "Exempting certain property used for thrift store purposes by a church or religious organization from property tax.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Kloos",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:43:10.989932+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/6f6f260a01d4b4f1eec3fd76d9de1cb4",
@@ -35203,7 +35741,16 @@
     "bill_number": "SB 475",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB475/",
     "short_title": "Requiring hospitals use a surgical smoke plume evacuation system and adopt policies for the evacuation of surgical smoke during certain surgical procedures.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Public Health and Welfare",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:43:04.338504+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/8e7181861beab89ed390ff6caccba4df",
@@ -35219,7 +35766,16 @@
     "bill_number": "SB 474",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB474/",
     "short_title": "Enacting the Kansas short-term, limited duration insurance act; establishing definitions, disclosure, premiums, renewal and underwriting requirements relating thereto and authorizing the commissioner of insurance to adopt rules and regulations to implement and oversee the act.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Sykes",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:42:57.686118+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/85bdc269f728e15d69222d9a81eb8534",
@@ -35235,7 +35791,42 @@
     "bill_number": "SB 473",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB473/",
     "short_title": "Authorizing Audubon of Kansas to convey certain property in Wabaunsee county and requiring any deeds or conveyances related to such property be reviewed and approved by the state historical society.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Friday, March 27, 2026",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Agriculture and Natural Resources",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed;",
+        "date": "2026-03-17T11:37:34+00:00",
+        "tally": {
+          "yea": 121,
+          "nay": 2,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Consent Calendar Passed",
+        "date": "2026-02-17T13:34:04+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:42:51.033823+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/ec3abbf8e6b6ccca2423298bdaa16eed",
@@ -35251,7 +35842,16 @@
     "bill_number": "SB 472",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB472/",
     "short_title": "Authorizing the administrator to set and the commissioner of insurance to cause to be published in the Kansas register certain fees and eliminating the 10% credit to the state general fund required of fee funded agencies as reimbursement for certain services provided by the state.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on Calendar",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Financial Institutions and Insurance",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:42:44.348284+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/3bf4b5d3a41ff7e7b60adbc102d3547b",
@@ -36684,7 +37284,16 @@
     "bill_number": "SB 471",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB471/",
     "short_title": "Increasing the Kansas minimum wage to $16 an hour and making such minimum wage applicable to employers and employees covered under the provisions of the federal fair labor standards act.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Holscher",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:42:37.693808+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/4f699572e29432500b5a446939757b75",
@@ -36700,7 +37309,16 @@
     "bill_number": "SB 470",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB470/",
     "short_title": "Providing a sales tax exemption for sales of electricity delivered to residential premises for noncommercial use.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Haley",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:42:31.027485+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/9ec754d0c78ef419f1ba0c55bb01b866",
@@ -36716,7 +37334,16 @@
     "bill_number": "SB 469",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB469/",
     "short_title": "Enacting the safe and transparent arrest act to require all law enforcement agencies operating in Kansas to adopt a written policy regarding the use of facial coverings and prohibit law enforcement officers from wearing a facial covering that conceals or obscures their facial identity in the performance of their duties except as expressly authorized by law.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Holscher",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:42:24.371372+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/7d819f1f70f7458ac5e244942d0d2f09",
@@ -36732,7 +37359,16 @@
     "bill_number": "SB 468",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB468/",
     "short_title": "Repealing the prohibition on municipal establishment of guaranteed income programs.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Holscher",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:42:17.725566+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/b4445f6b3f77cc624cbfdcc05b71bb12",
@@ -36748,7 +37384,16 @@
     "bill_number": "SB 467",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB467/",
     "short_title": "Enacting the use of artificial intelligence in medical decisions transparency act and requiring that all medical necessity determinations be made by a competent licensed physician or healthcare professional.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Holscher",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:42:10.898624+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/6361de49c3692d0143b81d61a5b2d84f",
@@ -36764,7 +37409,16 @@
     "bill_number": "SB 466",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB466/",
     "short_title": "Providing tenants with relief from use by landlords of old eviction or rental arrears records to deny housing.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Faust Goudeau",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:42:04.251051+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/7c6ea564e48c5064bed1ddf7a933d213",
@@ -36780,7 +37434,16 @@
     "bill_number": "SB 465",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB465/",
     "short_title": "Including limited liability partnerships as an entity required to obtain county approval to establish a dairy or swine production facility.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on Calendar",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Agriculture and Natural Resources",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:41:57.609826+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/a7c74f778876460a55010b3b227ea2c9",
@@ -36796,7 +37459,16 @@
     "bill_number": "SB 464",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB464/",
     "short_title": "Providing for the licensure of anesthesiologist assistants.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Public Health and Welfare",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:41:50.960085+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/d5f765c68b00e525878fd8ff01c36af0",
@@ -36812,7 +37484,30 @@
     "bill_number": "SB 463",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB463/",
     "short_title": "Prohibiting certain persons from recovering damages in certain civil actions and creating requirements for actions involving negligent security.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Stricken from Calendar by Rule 1507",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-02-18T18:21:14+00:00",
+        "tally": {
+          "yea": 30,
+          "nay": 10,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:41:44.158213+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/8b6a50480304290dec0b8dffa6f9e3a2",
@@ -36828,7 +37523,90 @@
     "bill_number": "SB 462",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB462/",
     "short_title": "Prohibiting certain public nuisance claims, requiring the attorney general to bring nuisance actions that are not wholly contained in one political subdivision, requiring special injury for certain public nuisance actions and providing an accrual period for the statute of limitations in public nuisance actions.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Vetoes Overridden",
+    "ks_api_latest_action": "Motion to override veto prevailed",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-04-09T19:11:37+00:00",
+        "tally": {
+          "yea": 86,
+          "nay": 37,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Motion to override veto prevailed;",
+        "date": "2026-04-09T15:00:09+00:00",
+        "tally": {
+          "yea": 30,
+          "nay": 9,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-27T22:04:16+00:00",
+        "tally": {
+          "yea": 29,
+          "nay": 10,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Conference Committee Report was adopted;",
+        "date": "2026-03-27T18:04:06+00:00",
+        "tally": {
+          "yea": 86,
+          "nay": 37,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-18T16:10:55+00:00",
+        "tally": {
+          "yea": 84,
+          "nay": 40,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-02-18T18:20:55+00:00",
+        "tally": {
+          "yea": 29,
+          "nay": 11,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:41:37.489903+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/a6837caa776d1846a44f8381022f864d",
@@ -36844,7 +37622,16 @@
     "bill_number": "SB 461",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB461/",
     "short_title": "Requiring offenders convicted of distribution of a controlled substance causing great bodily harm or death to register under the Kansas offender registration act.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:41:30.796219+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/7f9995980908c21cdb779b7edf3394bb",
@@ -36860,7 +37647,16 @@
     "bill_number": "SB 460",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB460/",
     "short_title": "Authorizing municpal court services agencies to issue identification certificates to individuals under probation supervision.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:41:24.153834+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/988d9f204f8be336865d27944a710a8a",
@@ -36876,7 +37672,54 @@
     "bill_number": "SB 459",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB459/",
     "short_title": "Changing the membership of the prisoner review board and requiring parole hearings to be postponed if proper notice of the public comment session is not made to the victim.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Tuesday, April 7, 2026",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Concurred with amendments in conference;",
+        "date": "2026-03-26T11:55:27+00:00",
+        "tally": {
+          "yea": 32,
+          "nay": 7,
+          "present": 1,
+          "absent": 0,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "house",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-18T16:05:07+00:00",
+        "tally": {
+          "yea": 124,
+          "nay": 0,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-02-18T11:16:34+00:00",
+        "tally": {
+          "yea": 33,
+          "nay": 7,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:41:17.516332+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/3f371bdd3b0fd44e5d4d7f3ecd8902b9",
@@ -36892,7 +37735,16 @@
     "bill_number": "SB 458",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB458/",
     "short_title": "Requiring state assessments performance levels and cut scores to be based on the 2024 performance levels and cut scores.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Education",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:41:10.842374+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/a48a142619e42de4a7abc9124a62c7cc",
@@ -36908,7 +37760,16 @@
     "bill_number": "SB 457",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB457/",
     "short_title": "Establishing the Affordable Healthcare for Kansans program to expand medicaid eligibility.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Education",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:41:04.209399+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/b8ea4c8ff8a626c6fa8add6745992283",
@@ -36924,7 +37785,16 @@
     "bill_number": "SB 456",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB456/",
     "short_title": "Creating the Kansas law enforcement trust fund, establishing the purposes and requirements for such fund and making a transfer from the state general fund to such fund during FY 2027.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Corson",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:40:57.564268+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/ae929df939e4cd17377a4dc230724663",
@@ -36940,7 +37810,16 @@
     "bill_number": "SB 455",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB455/",
     "short_title": "Restoring homestead renters as eligible to participate in certain homestead property tax refund claims.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Corson",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:40:50.914620+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/0bbdf370ba6827bc422035a6910e53cf",
@@ -36956,7 +37835,30 @@
     "bill_number": "SB 454",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB454/",
     "short_title": "Enacting the crush transnational repression in Kansas act to enhance the criminal penalty for committing certain crimes in the context of transnational repression and to require the development of transactional repression recognition and response training.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in House Committee",
+    "sponsors": [
+      {
+        "name": "Senator Bowser",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-03-19T12:49:13+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:40:44.269976+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/a2964c9ac24465c2e667261e60b0ce54",
@@ -36972,7 +37874,16 @@
     "bill_number": "SB 453",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB453/",
     "short_title": "Enacting the Kansas critical infrastructure protection act to prohibit access to state critical infrastructure by countries of concern and the acquisition of critical software and other technology used in state infrastructure from countries of concern.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Bowser",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:40:37.604415+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/ffaaa18d2dfe5905d9547193f57bf79b",
@@ -36988,7 +37899,30 @@
     "bill_number": "SB 452",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB452/",
     "short_title": "Including federal law enforcement officers in the definition of law enforcement officer that is used in certain crimes and traffic provisions and clarifying that enforcement of a federal law is covered under the tort claims act.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on House Calendar",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-03-05T18:30:52+00:00",
+        "tally": {
+          "yea": 31,
+          "nay": 7,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:40:30.961331+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/6e63941712f5ebaf494b831b4c19cf87",
@@ -37004,7 +37938,30 @@
     "bill_number": "SB 451",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB451/",
     "short_title": "Requiring campaign finance treasurer reports to include the products and services provided by vendors that are paid by an advertising agency, public relations firm or political consultant from a campaign account expenditure.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on House Calendar",
+    "sponsors": [
+      {
+        "name": "House Committee on Elections",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-02-18T18:20:35+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:40:24.278943+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/720fcb8291a68ae7750dd7eba787588d",
@@ -37020,7 +37977,30 @@
     "bill_number": "SB 450",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB450/",
     "short_title": "Authorizing the secretary of administration to grant a monetary award to a state employee who reports activity that constitutes fraud, waste or abuse of funds in any program administered by a state agency.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in House Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Emergency Final Action - Passed as amended;",
+        "date": "2026-02-18T18:19:50+00:00",
+        "tally": {
+          "yea": 33,
+          "nay": 6,
+          "present": 1,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:40:17.621389+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/222f1437fb0087c410a6baff2f247ad4",
@@ -39237,7 +40217,16 @@
     "bill_number": "SB 449",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB449/",
     "short_title": "Enacting the clean air preservation act to prohibit solar radiation modification, geoengineering, weather modification, cloud seeding and other polluting atmospheric experiments or interventions and creating a crime for violation thereof.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Federal and State Affairs",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:40:10.948739+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/66477eb3c31d58b69d26db62173390bf",
@@ -39253,7 +40242,30 @@
     "bill_number": "SB 448",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB448/",
     "short_title": "Permitting the use of expedited partner therapy to treat a sexually transmitted disease.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Stricken from Calendar by Rule 1507",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Public Health and Welfare",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed;",
+        "date": "2026-02-18T11:16:12+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:40:04.170886+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/1976fb2b2f153107d73fc87bae0c351d",
@@ -39269,7 +40281,16 @@
     "bill_number": "SB 447",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB447/",
     "short_title": "Creating a domestic violence task force to study domestic violence across the state and make policy recommendations.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:39:57.491709+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/5d2a2441c23a84b77840cb766490dc9e",
@@ -39285,7 +40306,16 @@
     "bill_number": "SB 446",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB446/",
     "short_title": "Creating an exception to certain mandatory reporting obligations for licensed social workers when working under the supervision of an attorney and permitting an attorney to require a licensed social worker to keep ethical obligations of attorney-client privilege while working under the supervision of such attorney.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Judiciary",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:39:50.850967+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/fd73102d9afe1f93076d2b9fb5a830e9",
@@ -39301,7 +40331,42 @@
     "bill_number": "SB 445",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB445/",
     "short_title": "Providing that the law enforcement officers memorial advisory committee may receive requests for the Kansas highway patrol and the Kansas bureau of investigation to provide temporary personal and other assistance in support of funeral services honoring law enforcement officers who have lost their lives in the line of duty in the service of the state.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Approved by Governor",
+    "ks_api_latest_action": "Approved by Governor on Friday, March 20, 2026",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Transportation",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "house",
+        "result": "Final Action - Passed;",
+        "date": "2026-03-10T11:33:28+00:00",
+        "tally": {
+          "yea": 123,
+          "nay": 0,
+          "present": 0,
+          "absent": 1,
+          "not_voting": 0
+        }
+      },
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed;",
+        "date": "2026-02-18T11:15:47+00:00",
+        "tally": {
+          "yea": 40,
+          "nay": 0,
+          "present": 0,
+          "absent": 0,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:39:44.190262+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/c3ef05e7d50dd47cb104de0307d7d18a",
@@ -39317,7 +40382,16 @@
     "bill_number": "SB 444",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB444/",
     "short_title": "Authorizing interior inspections of residential property without the consent of the occupant pursuant to an administrative warrant or if there is probable cause of imminent danger related to health and safety and allowing cities to abate certain interior code violations or delegate such authority to the county.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Sykes",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:39:37.515992+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/1f4676c9986479f6b4eee0bff685af57",
@@ -39333,7 +40407,16 @@
     "bill_number": "SB 443",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB443/",
     "short_title": "Requiring cause for evictions from residential property, modifying the petition and notice requirements for eviction cases and removing the requirement to post bond before the court may grant a continuance.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Sykes",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:39:30.867926+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/a0dcbc610f9d133b74d7cc2429bd41ae",
@@ -39349,7 +40432,16 @@
     "bill_number": "SB 442",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB442/",
     "short_title": "Increasing the criminal penalties for exposing another to a communicable disease and modifying the elements of such crime to include otherwise lawful or unlawful sexual intercourse or sodomy.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senator Sykes",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:39:24.227061+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/ab1bbea3aa9baab181f932fd35bb5d53",
@@ -39365,7 +40457,16 @@
     "bill_number": "SB 441",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB441/",
     "short_title": "Enacting the applied behavior analysis services in school act to authorize the provision of medically necessary behavioral health services by private providers in schools and requiring school districts to adopt policies for the provision of such services.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on Calendar",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Education",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:39:17.563396+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/2bddf9004ff07303912652efca836c26",
@@ -39381,7 +40482,16 @@
     "bill_number": "SB 440",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB440/",
     "short_title": "Authorizing a special education pilot program that provides provisional accreditation to a private entity for the purpose of operating a special education teacher training program, allowing such entity to collect data from such program and providing requirements for full accreditation of such program.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Education",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:39:10.915826+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/9a328df2afc92a24e3a3d81d7de58eef",
@@ -39397,7 +40507,30 @@
     "bill_number": "SB 439",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB439/",
     "short_title": "Enacting the utility railroad crossing act and establishing a process and limitations for utilities to interact with railroad right-of-way.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in House Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Utilities",
+        "role": "primary"
+      }
+    ],
+    "votes": [
+      {
+        "chamber": "senate",
+        "result": "Final Action - Passed as amended;",
+        "date": "2026-03-05T14:48:42+00:00",
+        "tally": {
+          "yea": 33,
+          "nay": 5,
+          "present": 0,
+          "absent": 2,
+          "not_voting": 0
+        }
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:39:04.275923+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/b856c0434776a397a75dba2230efa37b",
@@ -39413,7 +40546,16 @@
     "bill_number": "SB 438",
     "bill_url": "https://www.kslegislature.gov/li/b2025_26/measures/SB438/",
     "short_title": "Requiring eligible boards of education to consider participation in the community eligibility program, providing a financial hardship exception from such participation and requiring the state department of education to assist school districts seeking such participation.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died on Calendar",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Education",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:38:57.316384+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/449048aea2cc7428e8d6843c9a0356fc",
@@ -56511,7 +57653,16 @@
     "state": "KS",
     "feed": "events",
     "short_title": "Requiring that each attendance center needs assessment be conducted by the local board of education and include input from board members, teachers, school site councils and school administrators and that board members receive certain state assessment data and identify allocations of money in the school district budget and budget summary.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Education",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:44:50.872094+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/acda6ec16d56bbbb2b54a2f982d35f6d",
@@ -56525,7 +57676,16 @@
     "state": "KS",
     "feed": "events",
     "short_title": "Requiring school districts to demonstrate improvement in academic performance and be in compliance with all federal and state statutes and rules and regulations to achieve or maintain accreditation.",
-    "short_title_source": "scraped"
+    "short_title_source": "scraped",
+    "ks_api_status": "Dead / Failed",
+    "ks_api_latest_action": "Died in Committee",
+    "sponsors": [
+      {
+        "name": "Senate Committee on Education",
+        "role": "primary"
+      }
+    ],
+    "ks_api_enriched_at": "2026-06-28T21:43:37.632524+00:00"
   },
   {
     "id": "https://kslegislature.gov/li/data/feeds/rss/events/2082e67d39e169ba8f3990e60b6f9762",
