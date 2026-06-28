@@ -67,7 +67,7 @@ def fetch_bill_detail(client: OpenStatesClient, bill: Dict[str, Any]) -> Dict[st
         else:
             return bill
 
-    params = {"include": "sponsorships,actions,versions,votes,documents"}
+    params = {"include": ["sponsorships", "actions", "versions", "votes", "documents"]}
     try:
         data = client._request("GET", path, params)
         return data if isinstance(data, dict) and data.get("id") else bill
