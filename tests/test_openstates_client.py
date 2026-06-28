@@ -5,6 +5,7 @@ from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 import pytest
+import requests
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
@@ -63,16 +64,9 @@ def test_retry_on_rate_limit():
 
     rate_limited = MagicMock()
     rate_limited.status_code = 429
+    rate_limited.headers = {}
 
-    success = MagicMock()
-    success.status_code = 200
-    success.json.return_value = {
-        "results": [],
-        "pagination": {"page": 1, "max_page": 1},
-    }
-    success.raise_for_status = MagicMock()
-
-    with patch("processing.openstates_client.requests.request", side_effect=[rate_limited, success]):
+    with patch("processing.openstates_client.requests.request", return_value=rate_limited):
         with patch("processing.openstates_client.time.sleep"):
-            results = client.fetch_bills("ocd-jurisdiction/country:us/state:ks/government")
-            assert results == []
+            with pytest.raises(requests.HTTPError):
+                client.fetch_bills("CO")

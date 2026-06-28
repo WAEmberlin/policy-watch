@@ -39,6 +39,15 @@ states:
     enrichment: openstates_detail
     enabled: true
 
+  - code: me
+    name: Maine
+    level: state
+    sources:
+      - openstates
+    openstates_jurisdiction: ocd-jurisdiction/country:us/state:me/government
+    enrichment: openstates_detail
+    enabled: true
+
 federal:
   sources:
     - congress
@@ -47,9 +56,11 @@ federal:
 openstates:
   base_url: https://v3.openstates.org
   default_days_back: 7
-  per_page: 20
-  request_delay_seconds: 1.1  # free tier: 1 request/second
-  max_retries: 3
+  # First backfill / full_refresh: fetch bills & events updated since this date
+  initial_backfill_since: "2026-03-01"
+  per_page: 50
+  request_delay_seconds: 6.0  # free tier: ~1 request/second; stay under limit
+  max_retries: 6
 
 kansas_api:
   base_url: https://kslegislature.gov/api/v1
@@ -61,8 +72,8 @@ kansas_api:
 enrichment:
   # Kansas: official REST API (RSS stays primary ingest)
   kansas_api: ks
-  # CO/AZ/UT: Open States detail re-fetch for sponsors/votes
-  openstates_detail: [co, az, ut]
+  # CO/AZ/UT/ME: Open States detail re-fetch for sponsors/votes
+  openstates_detail: [co, az, ut, me]
 
 topic_dashboards:
   - id: veterans

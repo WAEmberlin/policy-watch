@@ -134,7 +134,23 @@ jobs:
         run: |
           git config user.name "civicwatch-bot"
           git config user.email "actions@github.com"
+          git fetch origin main
           git add docs src/output data/kansas data/normalized
-          git commit -m "Automated CivicWatch update" || echo "No changes"
-          git pull --rebase origin main
-          git push origin main
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git reset --soft origin/main
+          git add docs src/output data/kansas data/normalized
+          git commit -m "Automated CivicWatch update"
+          for attempt in 1 2 3 4 5; do
+            if git push origin main; then
+              exit 0
+            fi
+            git fetch origin main
+            git reset --soft origin/main
+            git add docs src/output data/kansas data/normalized
+            git commit -m "Automated CivicWatch update"
+            sleep $((attempt * 15))
+          done
+          exit 1

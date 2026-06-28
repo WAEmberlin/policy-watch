@@ -7,10 +7,15 @@ on:
   workflow_dispatch:
     inputs:
       full_refresh:
-        description: "Fetch all records (not just last 7 days)"
+        description: "Backfill from 2026-03-01 (initial_backfill_since) through now"
         required: false
         default: "false"
         type: boolean
+      since_date:
+        description: "Optional YYYY-MM-DD override for updated_since filter"
+        required: false
+        default: ""
+        type: string
 
 permissions:
   contents: write
@@ -38,6 +43,9 @@ jobs:
           ARGS=""
           if [ "${{ github.event.inputs.full_refresh }}" = "true" ]; then
             ARGS="--full-refresh"
+          fi
+          if [ -n "${{ github.event.inputs.since_date }}" ]; then
+            ARGS="$ARGS --since ${{ github.event.inputs.since_date }}"
           fi
           if [ -n "$OPENSTATES_API_KEY" ]; then
             python src/processing/fetch_openstates.py $ARGS
@@ -82,8 +90,27 @@ jobs:
         run: |
           git config user.name "civicwatch-bot"
           git config user.email "actions@github.com"
+          git fetch origin main
           git add data docs src/output config src/adapters src/processing
-          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          # Recommit on latest main to avoid rebase conflicts with hourly CivicWatch updates
+          git reset --soft origin/main
+          git add data docs src/output config src/adapters src/processing
           git commit -m "Open States sync and normalized data update"
-          git pull --rebase origin main
-          git push origin main
+          for attempt in 1 2 3 4 5; do
+            if git push origin main; then
+              echo "Push succeeded on attempt $attempt"
+              exit 0
+            fi
+            echo "Push rejected, refreshing from main and retrying ($attempt/5)..."
+            git fetch origin main
+            git reset --soft origin/main
+            git add data docs src/output config src/adapters src/processing
+            git commit -m "Open States sync and normalized data update"
+            sleep $((attempt * 15))
+          done
+          echo "Failed to push after 5 attempts"
+          exit 1

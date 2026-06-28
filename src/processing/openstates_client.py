@@ -9,9 +9,9 @@ from typing import Any, Callable, Dict, Iterator, List, Optional
 import requests
 
 DEFAULT_BASE_URL = "https://v3.openstates.org"
-DEFAULT_DELAY = 0.5
-DEFAULT_MAX_RETRIES = 3
-DEFAULT_PER_PAGE = 20
+DEFAULT_DELAY = 6.0
+DEFAULT_MAX_RETRIES = 6
+DEFAULT_PER_PAGE = 50
 
 
 class OpenStatesClient:
@@ -70,9 +70,15 @@ class OpenStatesClient:
                 self._last_request_at = time.time()
 
                 if response.status_code == 429:
-                    wait = min(60, 2 ** attempt)
+                    retry_after = response.headers.get("Retry-After")
+                    wait = int(retry_after) if retry_after and retry_after.isdigit() else min(60, 2 ** attempt)
                     print(f"Open States rate limited; waiting {wait}s (attempt {attempt})")
                     time.sleep(wait)
+                    if attempt >= self.max_retries:
+                        raise requests.HTTPError(
+                            f"Open States rate limit exceeded after {self.max_retries} attempts",
+                            response=response,
+                        )
                     continue
 
                 if response.status_code >= 400:
@@ -91,7 +97,7 @@ class OpenStatesClient:
                 print(f"Open States request failed ({exc}); retry in {wait}s")
                 time.sleep(wait)
 
-        return {"results": [], "pagination": {"page": 1, "max_page": 1, "total_items": 0}}
+        raise requests.RequestError(f"Open States request failed after {self.max_retries} attempts: {url}")
 
     def paginate(
         self,
