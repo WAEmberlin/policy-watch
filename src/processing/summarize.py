@@ -315,7 +315,9 @@ for item in history:
                 "bill": item.get("bill", ""),
                 "link": item.get("link", ""),
                 "published": item.get("published", ""),
-                "source": "State (Kansas Legislature)"  # Mark as state hearing
+                "source": "State (Kansas Legislature)",  # Mark as state hearing
+                "state": "KS",
+                "level": "state",
             }
             
             # Separate into upcoming (today or future) and historical (past)
@@ -465,6 +467,161 @@ print(f"Total upcoming hearings: {len(all_upcoming_hearings)} ({len(upcoming_hea
 print(f"Total historical hearings: {len(all_historical_hearings)} ({len(historical_hearings)} state, {len(federal_historical)} federal)")
 
 # -------------------------
+# Merge multi-state hearings (Open States + Kansas API enrichments)
+# -------------------------
+STATE_HEARING_LABELS = {
+    "KS": "State (Kansas)",
+    "CO": "State (Colorado)",
+    "AZ": "State (Arizona)",
+    "UT": "State (Utah)",
+}
+
+
+def _hearing_dedup_key(hearing: dict) -> str:
+    url = hearing.get("url") or hearing.get("link") or ""
+    if url:
+        return url
+    return f"{hearing.get('title', '')}|{hearing.get('scheduled_date', '')}|{hearing.get('state', '')}"
+
+
+def _merge_hearing_lists(existing: list, new_items: list) -> list:
+    seen = {_hearing_dedup_key(h) for h in existing}
+    merged = list(existing)
+    for hearing in new_items:
+        key = _hearing_dedup_key(hearing)
+        if key not in seen:
+            merged.append(hearing)
+            seen.add(key)
+    return merged
+
+
+def _normalized_event_to_hearing(event: dict) -> dict:
+    state = event.get("state")
+    level = event.get("level", "")
+    if level == "federal":
+        source = "Federal (US Congress)"
+    elif state:
+        source = STATE_HEARING_LABELS.get(state, f"State ({state})")
+    else:
+        source = event.get("source", "Unknown")
+
+    committees = event.get("committees") or []
+    if isinstance(committees, list):
+        committee_names = [
+            c if isinstance(c, str) else c.get("name", "")
+            for c in committees
+        ]
+        committees_str = ", ".join(n for n in committee_names if n)
+    else:
+        committees_str = str(committees)
+
+    return {
+        "title": event.get("title", ""),
+        "scheduled_date": event.get("scheduled_date", ""),
+        "scheduled_time": event.get("scheduled_time", ""),
+        "location": event.get("location", ""),
+        "committees": committees_str,
+        "committee": committees_str.split(",")[0].strip() if committees_str else "",
+        "link": event.get("url", ""),
+        "url": event.get("url", ""),
+        "source": source,
+        "state": state,
+        "level": level,
+        "chamber": event.get("chamber", ""),
+        "description": event.get("description", ""),
+    }
+
+
+def _classify_hearing_by_date(hearing: dict, today: datetime) -> str:
+    """Return 'upcoming' or 'historical'."""
+    scheduled = hearing.get("scheduled_date", "")
+    if not scheduled:
+        return "upcoming"
+    try:
+        if "T" in scheduled:
+            scheduled_dt = datetime.fromisoformat(scheduled.replace("Z", "+00:00"))
+        else:
+            scheduled_dt = datetime.fromisoformat(scheduled + "T00:00:00+00:00")
+        if scheduled_dt.tzinfo is None:
+            scheduled_dt = scheduled_dt.replace(tzinfo=timezone.utc)
+        if scheduled_dt.date() >= today.date():
+            return "upcoming"
+        return "historical"
+    except (ValueError, TypeError):
+        return "upcoming"
+
+
+# Load normalized events for Open States hearings (CO, AZ, UT, KS committee events)
+_normalized_events_path = os.path.join(DATA_DIR, "normalized", "events.json")
+_extra_upcoming = []
+_extra_historical = []
+
+if os.path.exists(_normalized_events_path):
+    try:
+        with open(_normalized_events_path, "r", encoding="utf-8") as f:
+            _norm_events = json.load(f)
+        if isinstance(_norm_events, list):
+            for event in _norm_events:
+                # Congress events already come from fetch_hearings.py
+                if event.get("source") == "congress":
+                    continue
+                # Kansas RSS conference committees already extracted from history above
+                if event.get("source") == "kansas_rss":
+                    continue
+                hearing = _normalized_event_to_hearing(event)
+                bucket = _classify_hearing_by_date(hearing, today_start)
+                if bucket == "upcoming":
+                    _extra_upcoming.append(hearing)
+                else:
+                    _extra_historical.append(hearing)
+            print(f"Merged {len(_extra_upcoming)} upcoming + {len(_extra_historical)} historical Open States hearings")
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"Warning: Could not load normalized events for hearings: {e}")
+
+# Kansas API enrichment hearings (stream URLs, committee details)
+_ks_enrichments_path = os.path.join(DATA_DIR, "kansas", "enrichments.json")
+if os.path.exists(_ks_enrichments_path):
+    try:
+        with open(_ks_enrichments_path, "r", encoding="utf-8") as f:
+            _ks_enrich = json.load(f)
+        ks_hearing_count = 0
+        for key, record in _ks_enrich.items():
+            if key == "_meta" or not isinstance(record, dict):
+                continue
+            for h in record.get("hearings") or []:
+                hearing = {
+                    "title": h.get("title") or f"Hearing on {record.get('bill_number', key)}",
+                    "scheduled_date": h.get("scheduled_date", ""),
+                    "scheduled_time": "",
+                    "location": h.get("location", ""),
+                    "committees": h.get("title", ""),
+                    "committee": h.get("title", ""),
+                    "bill": record.get("bill_number", key),
+                    "link": h.get("url", ""),
+                    "url": h.get("url", ""),
+                    "source": STATE_HEARING_LABELS["KS"],
+                    "state": "KS",
+                    "level": "state",
+                }
+                bucket = _classify_hearing_by_date(hearing, today_start)
+                if bucket == "upcoming":
+                    _extra_upcoming.append(hearing)
+                else:
+                    _extra_historical.append(hearing)
+                ks_hearing_count += 1
+        if ks_hearing_count:
+            print(f"Merged {ks_hearing_count} Kansas API enrichment hearings")
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"Warning: Could not load Kansas enrichments for hearings: {e}")
+
+all_upcoming_hearings = _merge_hearing_lists(all_upcoming_hearings, _extra_upcoming)
+all_historical_hearings = _merge_hearing_lists(all_historical_hearings, _extra_historical)
+all_upcoming_hearings.sort(key=lambda x: x.get("scheduled_date", ""))
+all_historical_hearings.sort(key=lambda x: x.get("scheduled_date", "") or "", reverse=True)
+
+print(f"After multi-state merge: {len(all_upcoming_hearings)} upcoming, {len(all_historical_hearings)} historical")
+
+# -------------------------
 # Load Kansas Legislature calendars (by date for hearings page)
 # -------------------------
 kansas_calendars = {}
@@ -495,6 +652,51 @@ if os.path.exists(DAILY_SUMMARIES_FILE):
     except (json.JSONDecodeError, IOError) as e:
         print(f"Warning: Could not load daily_summaries.json: {e}")
 
+# -------------------------
+# Load unified normalized data (expansion layer — additive, does not replace existing)
+# -------------------------
+normalized_bills = []
+normalized_events = []
+normalized_legislators = []
+normalized_dashboards = {}
+normalized_search_index = {}
+weekly_digests = {}
+configured_states = []
+
+def _load_expansion_json(path, default):
+    if not os.path.exists(path):
+        return default
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            return data if data is not None else default
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"Warning: Could not load {path}: {e}")
+        return default
+
+normalized_bills = _load_expansion_json(os.path.join(DATA_DIR, "normalized", "bills.json"), [])
+normalized_events = _load_expansion_json(os.path.join(DATA_DIR, "normalized", "events.json"), [])
+normalized_legislators = _load_expansion_json(os.path.join(DATA_DIR, "normalized", "legislators.json"), [])
+normalized_dashboards = _load_expansion_json(os.path.join(DATA_DIR, "normalized", "dashboards.json"), {})
+normalized_search_index = _load_expansion_json(os.path.join(DATA_DIR, "normalized", "search_index.json"), {})
+weekly_digests = _load_expansion_json(os.path.join(DATA_DIR, "digests", "weekly.json"), {})
+
+try:
+    import yaml
+    states_config_path = os.path.join("config", "states.yaml")
+    if os.path.exists(states_config_path):
+        with open(states_config_path, "r", encoding="utf-8") as f:
+            states_cfg = yaml.safe_load(f)
+            configured_states = [
+                {"code": s["code"], "name": s.get("name", s["code"].upper())}
+                for s in states_cfg.get("states", []) if s.get("enabled")
+            ]
+except Exception as e:
+    print(f"Warning: Could not load states config: {e}")
+
+if normalized_bills:
+    print(f"Loaded {len(normalized_bills)} normalized bills from expansion layer")
+
 output = {
     "last_updated": now.isoformat(),
     "years": site_years,
@@ -505,7 +707,17 @@ output = {
     "upcoming_hearings": all_upcoming_hearings,  # Upcoming hearings (state + federal)
     "historical_hearings": all_historical_hearings,  # Past hearings (state + federal)
     "daily_summaries": daily_summaries,  # Daily AI-generated summaries by date
-    "kansas_calendars": kansas_calendars  # Kansas House/Senate calendar links by date (YYYY-MM-DD)
+    "kansas_calendars": kansas_calendars,  # Kansas House/Senate calendar links by date (YYYY-MM-DD)
+    # Expansion layer (additive — existing frontend ignores these keys until updated)
+    "normalized": {
+        "bills_count": len(normalized_bills),
+        "events_count": len(normalized_events),
+        "legislators_count": len(normalized_legislators),
+    },
+    "states": configured_states,
+    "dashboards": normalized_dashboards,
+    "search_index": normalized_search_index,
+    "weekly_digests": weekly_digests,
 }
 
 # Ensure legislation key is always present

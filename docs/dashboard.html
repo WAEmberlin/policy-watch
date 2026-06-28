@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CivicWatch Dashboards</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                civic: { navy: '#001f3f', gold: '#ffc107', blue: '#1a73e8', 'blue-dark': '#1557b0' }
+            }
+        }
+    }
+}
+</script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+<div class="max-w-6xl mx-auto px-4 py-8">
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div class="bg-gradient-to-r from-civic-navy to-slate-800 px-8 py-6">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+                <div>
+                    <h1 class="text-3xl font-bold"><span class="text-white">Civic</span><span class="text-civic-gold">Watch</span> Dashboards</h1>
+                    <p class="text-slate-300 text-sm mt-1">Multi-state legislative intelligence</p>
+                </div>
+                <div class="flex gap-3">
+                    <a href="index.html" class="px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg text-sm">Main Feed</a>
+                    <a href="legislators.html" class="px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg text-sm">Legislators</a>
+                    <a href="hearings.html" class="px-4 py-2 bg-civic-blue hover:bg-civic-blue-dark text-white rounded-lg text-sm">Hearings</a>
+                </div>
+            </div>
+        </div>
+        <div class="p-6 md:p-8">
+            <!-- Unified Search -->
+            <div class="mb-8 p-4 bg-slate-50 rounded-xl border border-slate-200">
+                <h2 class="text-lg font-semibold text-civic-navy mb-3">Unified Search</h2>
+                <div class="flex flex-wrap gap-3">
+                    <input type="text" id="unified-search" placeholder="Search bills across all states (e.g. Veterans)..."
+                           class="flex-1 min-w-[200px] px-4 py-2 border-2 border-slate-200 rounded-lg focus:border-civic-blue outline-none" />
+                    <select id="state-filter" class="px-4 py-2 border-2 border-slate-200 rounded-lg bg-white">
+                        <option value="">All States</option>
+                    </select>
+                    <select id="level-filter" class="px-4 py-2 border-2 border-slate-200 rounded-lg bg-white">
+                        <option value="">All Levels</option>
+                        <option value="federal">Federal</option>
+                        <option value="state">State</option>
+                    </select>
+                    <button id="search-btn" class="px-5 py-2 bg-civic-blue text-white rounded-lg hover:bg-civic-blue-dark">Search</button>
+                </div>
+                <div id="search-results" class="mt-4"></div>
+            </div>
+
+            <!-- Dashboard tabs -->
+            <div id="dashboard-tabs" class="flex flex-wrap gap-2 mb-6"></div>
+            <div id="dashboard-content" class="min-h-[200px]">
+                <p class="text-slate-500 italic text-center py-8">Loading dashboards...</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="expansion.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    CivicWatchExpansion.initDashboards();
+});
+</script>
+</body>
+</html>

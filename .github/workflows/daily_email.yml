@@ -24,33 +24,45 @@ jobs:
       
       - name: Install dependencies
         run: |
-          pip install requests beautifulsoup4 feedparser
+          pip install pyyaml requests beautifulsoup4 feedparser
       
-      - name: Send email update
+      - name: Send email digests
         env:
           EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
           EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          # Legacy fallback — receives "all" digest if EMAIL_DIGEST_RECIPIENTS not set
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          # Primary: JSON map of digest_id → email addresses (never committed to repo)
+          EMAIL_DIGEST_RECIPIENTS: ${{ secrets.EMAIL_DIGEST_RECIPIENTS }}
+          # Optional per-digest overrides (comma-separated addresses)
+          EMAIL_RECIPIENTS_KS: ${{ secrets.EMAIL_RECIPIENTS_KS }}
+          EMAIL_RECIPIENTS_CO: ${{ secrets.EMAIL_RECIPIENTS_CO }}
+          EMAIL_RECIPIENTS_AZ: ${{ secrets.EMAIL_RECIPIENTS_AZ }}
+          EMAIL_RECIPIENTS_UT: ${{ secrets.EMAIL_RECIPIENTS_UT }}
+          EMAIL_RECIPIENTS_FEDERAL: ${{ secrets.EMAIL_RECIPIENTS_FEDERAL }}
+          EMAIL_RECIPIENTS_ALL: ${{ secrets.EMAIL_RECIPIENTS_ALL }}
         run: |
-          # Check if all required secrets are set
-          if [ -z "$EMAIL_HOST" ] || [ -z "$EMAIL_USER" ] || [ -z "$EMAIL_PASS" ] || [ -z "$EMAIL_TO" ]; then
-            echo "ERROR: Missing required email configuration secrets"
-            echo "Required: EMAIL_HOST, EMAIL_USER, EMAIL_PASS, EMAIL_TO"
+          if [ -z "$EMAIL_HOST" ] || [ -z "$EMAIL_USER" ] || [ -z "$EMAIL_PASS" ]; then
+            echo "ERROR: Missing SMTP secrets (EMAIL_HOST, EMAIL_USER, EMAIL_PASS)"
             exit 1
           fi
-          
-          echo "Sending email update at $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+          if [ -z "$EMAIL_DIGEST_RECIPIENTS" ] && [ -z "$EMAIL_TO" ] && \
+             [ -z "$EMAIL_RECIPIENTS_KS" ] && [ -z "$EMAIL_RECIPIENTS_ALL" ]; then
+            echo "WARNING: No recipient secrets configured."
+            echo "Set EMAIL_DIGEST_RECIPIENTS or see EMAIL_DIGEST_SETUP.md"
+          fi
+          echo "Sending email digests at $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
           python src/processing/send_email.py
       
       - name: Email status
         if: always()
         run: |
           if [ $? -eq 0 ]; then
-            echo "✅ Email sent successfully"
+            echo "Email digest job completed"
           else
-            echo "❌ Email failed - check logs above"
+            echo "Email failed - check logs above"
             exit 1
           fi
-

@@ -6,7 +6,27 @@ let searchMode = false;
 let searchResults = [];
 let selectedSource = "";
 let selectedCategory = "";
+let selectedState = "";
 const DAYS_PER_CHUNK = 7;  // Show 7 days per "page"
+
+const STATE_NAMES = { KS: "Kansas", CO: "Colorado", AZ: "Arizona", UT: "Utah", Federal: "U.S. Congress" };
+
+function inferItemState(item) {
+    if (item.level === "federal") return "Federal";
+    if (item.state) return item.state;
+    const src = (item.source || "").toLowerCase();
+    if (src.includes("congress") || src.includes("federal") || src.includes("u.s.")) return "Federal";
+    if (src.includes("kansas")) return "KS";
+    if (src.includes("colorado")) return "CO";
+    if (src.includes("arizona")) return "AZ";
+    if (src.includes("utah")) return "UT";
+    return "";
+}
+
+function itemMatchesStateFilter(item) {
+    if (!selectedState) return true;
+    return inferItemState(item) === selectedState;
+}
 
 async function loadData() {
     try {
@@ -133,6 +153,27 @@ function setupFilters() {
         });
     }
     
+    // Populate state filter from site config
+    const stateFilter = document.getElementById("state-filter");
+    if (stateFilter) {
+        const states = allData.states || [];
+        states.forEach(s => {
+            const option = document.createElement("option");
+            option.value = s.code.toUpperCase();
+            option.textContent = s.name;
+            stateFilter.appendChild(option);
+        });
+        stateFilter.addEventListener("change", () => {
+            selectedState = stateFilter.value;
+            currentPage = 0;
+            if (searchMode && searchQuery) {
+                performSearch(searchQuery);
+            } else if (currentYear) {
+                displayUnifiedView(currentYear, 0);
+            }
+        });
+    }
+
     // Populate source filter
     const sourceFilter = document.getElementById("source-filter");
     const categoryFilter = document.getElementById("category-filter");
@@ -179,6 +220,8 @@ function setupFilters() {
             categoryFilter.value = "";
             selectedSource = "";
             selectedCategory = "";
+            selectedState = "";
+            if (stateFilter) stateFilter.value = "";
             currentPage = 0;
             if (currentYear) {
                 displayUnifiedView(currentYear, 0);
@@ -285,6 +328,54 @@ function displayUnifiedView(year, chunkIndex) {
             const source = item.source || "";
             return source.includes(selectedCategory);
         });
+    }
+    if (selectedState) {
+        allItems = allItems.filter(item => itemMatchesStateFilter(item));
+    }
+
+    // Include Open States bill updates for CO/AZ/UT (not already in RSS feed)
+    if (selectedState && selectedState !== "Federal" && selectedState !== "KS") {
+        const multiStateBills = (allData.search_index || {}).bills || [];
+        multiStateBills.forEach(bill => {
+            if ((bill.state || "").toUpperCase() !== selectedState) return;
+            const date = bill.latest_action_date ? bill.latest_action_date.split("T")[0] : "";
+            if (!isDateInRange(date, dateRange.start, dateRange.end)) return;
+            allItems.push({
+                title: `${bill.bill_number}: ${bill.title}`,
+                link: bill.url,
+                summary: bill.summary || bill.latest_action || "",
+                source: `State (${STATE_NAMES[bill.state] || bill.state})`,
+                state: bill.state,
+                level: "state",
+                published: bill.latest_action_date,
+                latest_action: bill.latest_action,
+                bill_number: bill.bill_number,
+                date: date,
+            });
+        });
+        allItems.sort((a, b) => (b.published || b.date || "").localeCompare(a.published || a.date || ""));
+    } else if (!selectedState) {
+        // When showing all states, include recent CO/AZ/UT activity in the feed
+        const multiStateBills = (allData.search_index || {}).bills || [];
+        multiStateBills.forEach(bill => {
+            if (!bill.state || bill.state === "KS") return;
+            if (bill.level === "federal") return;
+            const date = bill.latest_action_date ? bill.latest_action_date.split("T")[0] : "";
+            if (!isDateInRange(date, dateRange.start, dateRange.end)) return;
+            allItems.push({
+                title: `${bill.bill_number}: ${bill.title}`,
+                link: bill.url,
+                summary: bill.summary || bill.latest_action || "",
+                source: `State (${STATE_NAMES[bill.state] || bill.state})`,
+                state: bill.state,
+                level: "state",
+                published: bill.latest_action_date,
+                latest_action: bill.latest_action,
+                bill_number: bill.bill_number,
+                date: date,
+            });
+        });
+        allItems.sort((a, b) => (b.published || b.date || "").localeCompare(a.published || a.date || ""));
     }
 
     // Group by date and source
@@ -420,9 +511,10 @@ function displayUnifiedView(year, chunkIndex) {
             dateSection.appendChild(summaryDiv);
         }
 
-        // Get ALL sources for this date from the full grouped structure
+        // Get ALL sources for this date (RSS + multi-state from groupedByDate)
         const rssSources = grouped[date] || {};
-        const allSources = Object.keys(rssSources).sort();
+        const chunkSources = groupedByDate[date] || {};
+        const allSources = [...new Set([...Object.keys(rssSources), ...Object.keys(chunkSources)])].sort();
 
         // Render ALL sources for this date (even if empty in this chunk)
         allSources.forEach(source => {
@@ -434,6 +526,18 @@ function displayUnifiedView(year, chunkIndex) {
             // Apply category filter for Kansas items
             if (selectedCategory && !source.includes(selectedCategory)) {
                 return;
+            }
+
+            // Apply state filter
+            if (selectedState === "Federal") {
+                const sl = source.toLowerCase();
+                if (!sl.includes("congress") && !sl.includes("federal") && !sl.includes("u.s.")) return;
+            } else if (selectedState === "KS") {
+                if (!source.includes("Kansas")) return;
+            } else if (selectedState) {
+                const stateName = STATE_NAMES[selectedState] || selectedState;
+                if (source.includes("Kansas") || source.toLowerCase().includes("congress")) return;
+                if (!source.includes(stateName)) return;
             }
 
             const sourceSection = document.createElement("div");
@@ -450,9 +554,12 @@ function displayUnifiedView(year, chunkIndex) {
             sourceSection.appendChild(srcHeader);
 
             // Get items for this source in this chunk
-            const itemsInChunk = groupedByDate[date] && groupedByDate[date][source] 
+            let itemsInChunk = groupedByDate[date] && groupedByDate[date][source] 
                 ? groupedByDate[date][source] 
                 : [];
+            if (selectedState) {
+                itemsInChunk = itemsInChunk.filter(item => itemMatchesStateFilter({ ...item, source }));
+            }
 
             // Show items or empty state
             if (itemsInChunk.length === 0) {
@@ -603,6 +710,34 @@ function performSearch(query) {
             });
         }
     });
+
+    // Also search multi-state index
+    const indexBills = (allData.search_index || {}).bills || [];
+    indexBills.forEach(bill => {
+        const title = (bill.title || "").toLowerCase();
+        const summary = (bill.summary || "").toLowerCase();
+        const action = (bill.latest_action || "").toLowerCase();
+        const searchText = `${title} ${summary} ${action} ${(bill.bill_number || "").toLowerCase()}`;
+        if (searchText.includes(searchQuery)) {
+            searchResults.push({
+                title: `${bill.bill_number}: ${bill.title}`,
+                link: bill.url,
+                summary: bill.summary || bill.latest_action || "",
+                source: bill.level === "federal" ? "Federal (U.S. Congress)" : `State (${STATE_NAMES[bill.state] || bill.state})`,
+                state: bill.state,
+                level: bill.level,
+                published: bill.latest_action_date,
+                date: bill.latest_action_date ? bill.latest_action_date.split("T")[0] : "",
+                bill_number: bill.bill_number,
+                latest_action: bill.latest_action,
+            });
+        }
+    });
+
+    // Apply state filter to search results
+    if (selectedState) {
+        searchResults = searchResults.filter(item => itemMatchesStateFilter(item));
+    }
 
     // Sort search results by date (newest first)
     searchResults.sort((a, b) => {

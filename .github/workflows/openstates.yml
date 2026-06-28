@@ -1,0 +1,88 @@
+name: Open States Sync
+
+on:
+  schedule:
+    # 6:30 PM Central (CST) = 00:30 UTC
+    - cron: "30 0 * * *"
+  workflow_dispatch:
+    inputs:
+      full_refresh:
+        description: "Fetch all records (not just last 7 days)"
+        required: false
+        default: "false"
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch Open States data
+        env:
+          OPENSTATES_API_KEY: ${{ secrets.OPENSTATES_API_KEY }}
+        run: |
+          ARGS=""
+          if [ "${{ github.event.inputs.full_refresh }}" = "true" ]; then
+            ARGS="--full-refresh"
+          fi
+          if [ -n "$OPENSTATES_API_KEY" ]; then
+            python src/processing/fetch_openstates.py $ARGS
+          else
+            echo "OPENSTATES_API_KEY not set, skipping Open States fetch"
+          fi
+
+      - name: Enrich state data (Kansas API + Open States detail)
+        env:
+          KANSAS_LEGISLATURE_API_KEY: ${{ secrets.KANSAS_LEGISLATURE_API_KEY }}
+          OPENSTATES_API_KEY: ${{ secrets.OPENSTATES_API_KEY }}
+        run: python src/processing/enrich_all_states.py
+
+      - name: Normalize data from all sources
+        run: python src/processing/normalize_data.py --skip-ai
+
+      - name: Generate AI enrichments
+        run: python src/processing/normalize_data.py
+
+      - name: Generate weekly digests
+        run: python src/processing/generate_digests.py
+
+      - name: Run existing fetch pipeline (preserve Congress + Kansas)
+        env:
+          CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
+        run: |
+          python src/processing/fetch_feeds.py
+          python src/processing/fetch_kansas_rss.py
+          python src/processing/fetch_kansas_calendar.py
+          if [ -n "$CONGRESS_API_KEY" ]; then
+            python src/processing/fetch_congress_api.py
+            python src/processing/fetch_hearings.py || echo "Hearings fetch failed, continuing..."
+          fi
+
+      - name: Build site data
+        run: python src/processing/summarize.py
+
+      - name: Run tests
+        run: pytest tests/ -v --tb=short
+
+      - name: Commit updated data
+        run: |
+          git config user.name "civicwatch-bot"
+          git config user.email "actions@github.com"
+          git add data docs config src/adapters src/processing
+          git commit -m "Open States sync and normalized data update" || echo "No changes"
+          git pull --rebase origin main
+          git push origin main
