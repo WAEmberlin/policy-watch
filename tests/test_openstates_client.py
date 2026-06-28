@@ -13,6 +13,11 @@ sys.path.insert(0, str(ROOT / "src"))
 from processing.openstates_client import OpenStatesClient
 
 
+def test_per_page_capped_at_api_max():
+    client = OpenStatesClient(api_key="test", request_delay=0, per_page=50)
+    assert client.per_page == 20
+
+
 def test_normalize_date_param():
     assert OpenStatesClient._normalize_date_param("2026-06-21T00:00:00Z") == "2026-06-21"
     assert OpenStatesClient._normalize_date_param("2026-06-21") == "2026-06-21"

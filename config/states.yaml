@@ -58,7 +58,7 @@ openstates:
   default_days_back: 7
   # First backfill / full_refresh: fetch bills & events updated since this date
   initial_backfill_since: "2026-03-01"
-  per_page: 50
+  per_page: 20  # Open States API max is 20
   request_delay_seconds: 6.0  # free tier: ~1 request/second; stay under limit
   max_retries: 6
 
