@@ -11,7 +11,8 @@ import requests
 DEFAULT_BASE_URL = "https://v3.openstates.org"
 DEFAULT_DELAY = 6.0
 DEFAULT_MAX_RETRIES = 6
-DEFAULT_PER_PAGE = 50
+DEFAULT_PER_PAGE = 20
+MAX_PER_PAGE = 20
 
 
 class OpenStatesClient:
@@ -29,7 +30,7 @@ class OpenStatesClient:
         self.base_url = base_url.rstrip("/")
         self.request_delay = request_delay
         self.max_retries = max_retries
-        self.per_page = per_page
+        self.per_page = min(int(per_page), MAX_PER_PAGE)
         self._last_request_at = 0.0
 
     def _headers(self) -> Dict[str, str]:
