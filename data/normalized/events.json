@@ -34,6 +34,23 @@
     "updated_at": "2026-07-15"
   },
   {
+    "id": "119400",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Committee on House Administration Subcommittee on Modernization and Innovation Hearing: “Modernizing Public Access to Legislative Data and Information.”",
+    "description": "Congressional meeting before the House Administration Subcommittee on Modernization and Innovation.",
+    "scheduled_date": "2026-07-01",
+    "scheduled_time": "18:00",
+    "location": "Room 1310, Longworth House Office Building",
+    "chamber": "House",
+    "committees": [
+      "House Administration Subcommittee on Modernization and Innovation"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119400",
+    "updated_at": "2026-07-01"
+  },
+  {
     "id": "119427",
     "source": "congress",
     "level": "federal",
@@ -131,23 +148,6 @@
       "House Science, Space, and Technology"
     ],
     "url": "https://www.congress.gov/event/119th-congress/house-event/119428",
-    "updated_at": "2026-07-01"
-  },
-  {
-    "id": "119400",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Committee on House Administration Subcommittee on Modernization and Innovation Hearing: “Modernizing Public Access to Legislative Data and Information.”",
-    "description": "Congressional meeting before the House Administration Subcommittee on Modernization and Innovation.",
-    "scheduled_date": "2026-07-01",
-    "scheduled_time": "18:00",
-    "location": "Room 1310, Longworth House Office Building",
-    "chamber": "House",
-    "committees": [
-      "House Administration Subcommittee on Modernization and Innovation"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/119400",
     "updated_at": "2026-07-01"
   },
   {
@@ -406,6 +406,21 @@
     "updated_at": "2026-06-29"
   },
   {
+    "id": "119385",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "China’s Economic Espionage and Subnational Influence in the United States",
+    "description": "Congressional meeting in the House.",
+    "scheduled_date": "2026-06-25",
+    "scheduled_time": "14:30",
+    "location": "Room 390, Cannon House Office Building",
+    "chamber": "House",
+    "committees": [],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119385",
+    "updated_at": "2026-06-25"
+  },
+  {
     "id": "119410",
     "source": "congress",
     "level": "federal",
@@ -520,21 +535,6 @@
       "House Small Business"
     ],
     "url": "https://www.congress.gov/event/119th-congress/house-event/119404",
-    "updated_at": "2026-06-25"
-  },
-  {
-    "id": "119385",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "China’s Economic Espionage and Subnational Influence in the United States",
-    "description": "Congressional meeting in the House.",
-    "scheduled_date": "2026-06-25",
-    "scheduled_time": "14:30",
-    "location": "Room 390, Cannon House Office Building",
-    "chamber": "House",
-    "committees": [],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/119385",
     "updated_at": "2026-06-25"
   },
   {
@@ -980,88 +980,20 @@
     "updated_at": "2026-06-24"
   },
   {
-    "id": "338579",
+    "id": "338610",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "Hearings to examine the global reach of Mexican drug cartels and risks to U.S. national security.",
-    "description": "Congressional meeting before the Senate Caucus on International Narcotics Control.",
+    "title": "Hearings to examine protecting patients and taxpayers, focusing on combating healthcare fraud and leakage to strengthen program integrity.",
+    "description": "Congressional meeting before the Joint Economic Committee.",
     "scheduled_date": "2026-06-24",
     "scheduled_time": "18:00",
-    "location": "Room 419, Dirksen Senate Office Building",
-    "chamber": "Senate",
+    "location": "Room G50, Dirksen Senate Office Building",
+    "chamber": "Nochamber",
     "committees": [
-      "Senate Caucus on International Narcotics Control"
+      "Joint Economic Committee"
     ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338579",
-    "updated_at": "2026-06-24"
-  },
-  {
-    "id": "338585",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine the nominations of Thomas B. Chapman, of Maryland, to be a Member of the National Transportation Safety Board, Edward Eppler, of Connecticut, to be Chief Financial Officer, Department of Transportation, Karen Jean Hedlund, of New York, to be a Member of the Surface Transportation Board, and Brien Lorenze, of Virginia, and Karen Sessions, of Texas, each to be a Commissioner of the Consumer Product Safety Commission.",
-    "description": "Congressional meeting before the Senate Commerce, Science, and Transportation.",
-    "scheduled_date": "2026-06-24",
-    "scheduled_time": "14:00",
-    "location": "Room 253, Russell Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Commerce, Science, and Transportation"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338585",
-    "updated_at": "2026-06-24"
-  },
-  {
-    "id": "338582",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine reforming the U.S. Postal Service's business model.",
-    "description": "Congressional meeting before the Senate Homeland Security and Governmental Affairs.",
-    "scheduled_date": "2026-06-24",
-    "scheduled_time": "13:30",
-    "location": "Room 342, Dirksen Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Homeland Security and Governmental Affairs"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338582",
-    "updated_at": "2026-06-24"
-  },
-  {
-    "id": "338584",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine the nomination of Mark Cruz, of Oregon, to be Director of the Indian Health Service, Department of Health and Human Services.",
-    "description": "Congressional meeting before the Senate Indian Affairs.",
-    "scheduled_date": "2026-06-24",
-    "scheduled_time": "14:00",
-    "location": "Room 628, Dirksen Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Indian Affairs"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338584",
-    "updated_at": "2026-06-24"
-  },
-  {
-    "id": "338587",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine the nomination of Kevin Lilly, of Texas, to be Assistant Secretary for Fish and Wildlife.",
-    "description": "Congressional meeting before the Senate Environment and Public Works.",
-    "scheduled_date": "2026-06-24",
-    "scheduled_time": "14:00",
-    "location": "Room 406, Dirksen Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Environment and Public Works"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338587",
+    "url": "https://www.congress.gov/event/119th-congress/nochamber-event/338610",
     "updated_at": "2026-06-24"
   },
   {
@@ -1082,20 +1014,88 @@
     "updated_at": "2026-06-24"
   },
   {
-    "id": "338610",
+    "id": "338584",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "Hearings to examine protecting patients and taxpayers, focusing on combating healthcare fraud and leakage to strengthen program integrity.",
-    "description": "Congressional meeting before the Joint Economic Committee.",
+    "title": "Hearings to examine the nomination of Mark Cruz, of Oregon, to be Director of the Indian Health Service, Department of Health and Human Services.",
+    "description": "Congressional meeting before the Senate Indian Affairs.",
+    "scheduled_date": "2026-06-24",
+    "scheduled_time": "14:00",
+    "location": "Room 628, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Indian Affairs"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338584",
+    "updated_at": "2026-06-24"
+  },
+  {
+    "id": "338579",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine the global reach of Mexican drug cartels and risks to U.S. national security.",
+    "description": "Congressional meeting before the Senate Caucus on International Narcotics Control.",
     "scheduled_date": "2026-06-24",
     "scheduled_time": "18:00",
-    "location": "Room G50, Dirksen Senate Office Building",
-    "chamber": "Nochamber",
+    "location": "Room 419, Dirksen Senate Office Building",
+    "chamber": "Senate",
     "committees": [
-      "Joint Economic Committee"
+      "Senate Caucus on International Narcotics Control"
     ],
-    "url": "https://www.congress.gov/event/119th-congress/nochamber-event/338610",
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338579",
+    "updated_at": "2026-06-24"
+  },
+  {
+    "id": "338587",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine the nomination of Kevin Lilly, of Texas, to be Assistant Secretary for Fish and Wildlife.",
+    "description": "Congressional meeting before the Senate Environment and Public Works.",
+    "scheduled_date": "2026-06-24",
+    "scheduled_time": "14:00",
+    "location": "Room 406, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Environment and Public Works"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338587",
+    "updated_at": "2026-06-24"
+  },
+  {
+    "id": "338582",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine reforming the U.S. Postal Service's business model.",
+    "description": "Congressional meeting before the Senate Homeland Security and Governmental Affairs.",
+    "scheduled_date": "2026-06-24",
+    "scheduled_time": "13:30",
+    "location": "Room 342, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Homeland Security and Governmental Affairs"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338582",
+    "updated_at": "2026-06-24"
+  },
+  {
+    "id": "338585",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine the nominations of Thomas B. Chapman, of Maryland, to be a Member of the National Transportation Safety Board, Edward Eppler, of Connecticut, to be Chief Financial Officer, Department of Transportation, Karen Jean Hedlund, of New York, to be a Member of the Surface Transportation Board, and Brien Lorenze, of Virginia, and Karen Sessions, of Texas, each to be a Commissioner of the Consumer Product Safety Commission.",
+    "description": "Congressional meeting before the Senate Commerce, Science, and Transportation.",
+    "scheduled_date": "2026-06-24",
+    "scheduled_time": "14:00",
+    "location": "Room 253, Russell Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Commerce, Science, and Transportation"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338585",
     "updated_at": "2026-06-24"
   },
   {
@@ -1218,23 +1218,6 @@
     "updated_at": "2026-06-23"
   },
   {
-    "id": "338578",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine improving safety across the National Airspace System.",
-    "description": "Congressional meeting before the Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation.",
-    "scheduled_date": "2026-06-23",
-    "scheduled_time": "14:00",
-    "location": "Room 253, Russell Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338578",
-    "updated_at": "2026-06-23"
-  },
-  {
     "id": "338577",
     "source": "congress",
     "level": "federal",
@@ -1269,6 +1252,23 @@
     "updated_at": "2026-06-23"
   },
   {
+    "id": "338578",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine improving safety across the National Airspace System.",
+    "description": "Congressional meeting before the Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation.",
+    "scheduled_date": "2026-06-23",
+    "scheduled_time": "14:00",
+    "location": "Room 253, Russell Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338578",
+    "updated_at": "2026-06-23"
+  },
+  {
     "id": "338575",
     "source": "congress",
     "level": "federal",
@@ -1286,23 +1286,6 @@
     "updated_at": "2026-06-18"
   },
   {
-    "id": "338571",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Business meeting to consider S.1133, to provide for media coverage of Federal court proceedings, S.1146, to permit the televising of Supreme Court proceedings, S.4591, to protect intellectual property rights in the voice and visual likeness of individuals, and the nominations of Benjamin M. Flowers, of Ohio, to be United States Circuit Judge for the Sixth Circuit, Matthew A. Schwartz, of New York, to be United States Circuit Judge for the Second Circuit,  Michael J. Hendershot, to be United States District Judge for the Northern District of Ohio, Jeffrey T. Kuntz, to be United States District Judge for the Southern District of Florida, Arthur Roberts Jones, and John George Edward Marck, both to be a United States District Judge for the Southern District of Texas, Don Richard Berthiaume, Jr., of Virginia, to be Inspector General, Department of Justice, and Sean Costello, of Alabama, to be United States Attorney for the Southern District of Alabama.",
-    "description": "Congressional meeting before the Senate Judiciary.",
-    "scheduled_date": "2026-06-18",
-    "scheduled_time": "13:00",
-    "location": "Room 216, Hart Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Judiciary"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338571",
-    "updated_at": "2026-06-18"
-  },
-  {
     "id": "338574",
     "source": "congress",
     "level": "federal",
@@ -1317,6 +1300,23 @@
       "Senate Commerce, Science, and Transportation"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338574",
+    "updated_at": "2026-06-18"
+  },
+  {
+    "id": "338571",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Business meeting to consider S.1133, to provide for media coverage of Federal court proceedings, S.1146, to permit the televising of Supreme Court proceedings, S.4591, to protect intellectual property rights in the voice and visual likeness of individuals, and the nominations of Benjamin M. Flowers, of Ohio, to be United States Circuit Judge for the Sixth Circuit, Matthew A. Schwartz, of New York, to be United States Circuit Judge for the Second Circuit,  Michael J. Hendershot, to be United States District Judge for the Northern District of Ohio, Jeffrey T. Kuntz, to be United States District Judge for the Southern District of Florida, Arthur Roberts Jones, and John George Edward Marck, both to be a United States District Judge for the Southern District of Texas, Don Richard Berthiaume, Jr., of Virginia, to be Inspector General, Department of Justice, and Sean Costello, of Alabama, to be United States Attorney for the Southern District of Alabama.",
+    "description": "Congressional meeting before the Senate Judiciary.",
+    "scheduled_date": "2026-06-18",
+    "scheduled_time": "13:00",
+    "location": "Room 216, Hart Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Judiciary"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338571",
     "updated_at": "2026-06-18"
   },
   {
@@ -1388,23 +1388,6 @@
     "updated_at": "2026-06-17"
   },
   {
-    "id": "338573",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Business meeting to consider S.1547, to amend title 54, United States Code, to reauthorize the National Parks and Public Land Legacy Restoration Fund.",
-    "description": "Congressional meeting before the Senate Energy and Natural Resources.",
-    "scheduled_date": "2026-06-17",
-    "scheduled_time": "13:30",
-    "location": "Room 366, Dirksen Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Energy and Natural Resources"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338573",
-    "updated_at": "2026-06-17"
-  },
-  {
     "id": "338570",
     "source": "congress",
     "level": "federal",
@@ -1419,6 +1402,23 @@
       "Senate Energy and Natural Resources"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338570",
+    "updated_at": "2026-06-17"
+  },
+  {
+    "id": "338573",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Business meeting to consider S.1547, to amend title 54, United States Code, to reauthorize the National Parks and Public Land Legacy Restoration Fund.",
+    "description": "Congressional meeting before the Senate Energy and Natural Resources.",
+    "scheduled_date": "2026-06-17",
+    "scheduled_time": "13:30",
+    "location": "Room 366, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Energy and Natural Resources"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338573",
     "updated_at": "2026-06-17"
   },
   {
@@ -1439,23 +1439,6 @@
     "updated_at": "2026-06-17"
   },
   {
-    "id": "338562",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine the future of K-12 education in the age of artificial intelligence.",
-    "description": "Congressional meeting before the Senate Health, Education, Labor, and Pensions Subcommittee on Education and the American Family.",
-    "scheduled_date": "2026-06-16",
-    "scheduled_time": "18:00",
-    "location": "Room 430, Dirksen Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Health, Education, Labor, and Pensions Subcommittee on Education and the American Family"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338562",
-    "updated_at": "2026-06-16"
-  },
-  {
     "id": "338560",
     "source": "congress",
     "level": "federal",
@@ -1470,6 +1453,23 @@
       "Senate Armed Services Subcommittee on Airland"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338560",
+    "updated_at": "2026-06-16"
+  },
+  {
+    "id": "338562",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine the future of K-12 education in the age of artificial intelligence.",
+    "description": "Congressional meeting before the Senate Health, Education, Labor, and Pensions Subcommittee on Education and the American Family.",
+    "scheduled_date": "2026-06-16",
+    "scheduled_time": "18:00",
+    "location": "Room 430, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Health, Education, Labor, and Pensions Subcommittee on Education and the American Family"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338562",
     "updated_at": "2026-06-16"
   },
   {
@@ -1553,6 +1553,23 @@
       "House Veterans' Affairs Subcommittee on Technology Modernization"
     ],
     "url": "https://www.congress.gov/event/119th-congress/house-event/119376",
+    "updated_at": "2026-06-12"
+  },
+  {
+    "id": "119355",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "[POSTPONED] “Calling the Fouls: Accountability and Transparency in NCAA Enforcement”",
+    "description": "Postponed congressional meeting before the House Education and Workforce.",
+    "scheduled_date": "2026-06-12",
+    "scheduled_time": "13:00",
+    "location": "",
+    "chamber": "House",
+    "committees": [
+      "House Education and Workforce"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119355",
     "updated_at": "2026-06-12"
   },
   {
@@ -1743,23 +1760,6 @@
     "updated_at": "2026-06-10"
   },
   {
-    "id": "338547",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine the President's proposed budget request for fiscal year 2027 for the U.S. Fish and Wildlife Service.",
-    "description": "Congressional meeting before the Senate Environment and Public Works.",
-    "scheduled_date": "2026-06-10",
-    "scheduled_time": "14:00",
-    "location": "Room 406, Dirksen Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Environment and Public Works"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338547",
-    "updated_at": "2026-06-10"
-  },
-  {
     "id": "338542",
     "source": "congress",
     "level": "federal",
@@ -1774,6 +1774,23 @@
       "Senate Agriculture, Nutrition, and Forestry"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338542",
+    "updated_at": "2026-06-10"
+  },
+  {
+    "id": "338547",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine the President's proposed budget request for fiscal year 2027 for the U.S. Fish and Wildlife Service.",
+    "description": "Congressional meeting before the Senate Environment and Public Works.",
+    "scheduled_date": "2026-06-10",
+    "scheduled_time": "14:00",
+    "location": "Room 406, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Environment and Public Works"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338547",
     "updated_at": "2026-06-10"
   },
   {
@@ -1996,23 +2013,6 @@
     "updated_at": "2026-06-09"
   },
   {
-    "id": "338541",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine how technological advances are driving transportation innovation.",
-    "description": "Congressional meeting before the Senate Commerce, Science, and Transportation Subcommittee on Surface Transportation, Freight, Pipelines, and Safety.",
-    "scheduled_date": "2026-06-09",
-    "scheduled_time": "14:00",
-    "location": "Room 253, Russell Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Commerce, Science, and Transportation Subcommittee on Surface Transportation, Freight, Pipelines, and Safety"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338541",
-    "updated_at": "2026-06-09"
-  },
-  {
     "id": "338545",
     "source": "congress",
     "level": "federal",
@@ -2027,6 +2027,23 @@
       "Senate Appropriations Subcommittee on Department of Defense"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338545",
+    "updated_at": "2026-06-09"
+  },
+  {
+    "id": "338541",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine how technological advances are driving transportation innovation.",
+    "description": "Congressional meeting before the Senate Commerce, Science, and Transportation Subcommittee on Surface Transportation, Freight, Pipelines, and Safety.",
+    "scheduled_date": "2026-06-09",
+    "scheduled_time": "14:00",
+    "location": "Room 253, Russell Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Commerce, Science, and Transportation Subcommittee on Surface Transportation, Freight, Pipelines, and Safety"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338541",
     "updated_at": "2026-06-09"
   },
   {
@@ -2166,23 +2183,6 @@
     "updated_at": "2026-06-08"
   },
   {
-    "id": "338513",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Closed business meeting to markup the National Defense Authorization Act for fiscal year 2027.",
-    "description": "Congressional meeting before the Senate Armed Services Subcommittee on Strategic Forces.",
-    "scheduled_date": "2026-06-08",
-    "scheduled_time": "20:30",
-    "location": "Room 232A, Russell Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Armed Services Subcommittee on Strategic Forces"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338513",
-    "updated_at": "2026-06-08"
-  },
-  {
     "id": "338514",
     "source": "congress",
     "level": "federal",
@@ -2197,6 +2197,23 @@
       "Senate Armed Services Subcommittee on Seapower"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338514",
+    "updated_at": "2026-06-08"
+  },
+  {
+    "id": "338513",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Closed business meeting to markup the National Defense Authorization Act for fiscal year 2027.",
+    "description": "Congressional meeting before the Senate Armed Services Subcommittee on Strategic Forces.",
+    "scheduled_date": "2026-06-08",
+    "scheduled_time": "20:30",
+    "location": "Room 232A, Russell Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Armed Services Subcommittee on Strategic Forces"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338513",
     "updated_at": "2026-06-08"
   },
   {
@@ -2719,23 +2736,6 @@
     "updated_at": "2026-06-03"
   },
   {
-    "id": "338512",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine the human cost of dangerous foreign drugs.",
-    "description": "Congressional meeting before the Senate Aging (Special).",
-    "scheduled_date": "2026-06-03",
-    "scheduled_time": "19:30",
-    "location": "Room 216, Hart Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Aging (Special)"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338512",
-    "updated_at": "2026-06-03"
-  },
-  {
     "id": "338511",
     "source": "congress",
     "level": "federal",
@@ -2753,20 +2753,20 @@
     "updated_at": "2026-06-03"
   },
   {
-    "id": "338505",
+    "id": "338512",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "Hearings to examine federal benefits cliffs on small businesses and workers.",
-    "description": "Congressional meeting before the Senate Small Business and Entrepreneurship.",
+    "title": "Hearings to examine the human cost of dangerous foreign drugs.",
+    "description": "Congressional meeting before the Senate Aging (Special).",
     "scheduled_date": "2026-06-03",
-    "scheduled_time": "18:30",
-    "location": "Room 428A, Russell Senate Office Building",
+    "scheduled_time": "19:30",
+    "location": "Room 216, Hart Senate Office Building",
     "chamber": "Senate",
     "committees": [
-      "Senate Small Business and Entrepreneurship"
+      "Senate Aging (Special)"
     ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338505",
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338512",
     "updated_at": "2026-06-03"
   },
   {
@@ -2787,20 +2787,37 @@
     "updated_at": "2026-06-03"
   },
   {
-    "id": "338427",
+    "id": "338504",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "Hearings to examine gender transition procedures on minors.",
-    "description": "Congressional meeting before the Senate Health, Education, Labor, and Pensions.",
+    "title": "Hearings to examine the President's proposed budget request for fiscal year 2027 for the Federal Highway Administration.",
+    "description": "Congressional meeting before the Senate Environment and Public Works.",
     "scheduled_date": "2026-06-03",
     "scheduled_time": "14:00",
-    "location": "Room 430, Dirksen Senate Office Building",
+    "location": "Room 406, Dirksen Senate Office Building",
     "chamber": "Senate",
     "committees": [
-      "Senate Health, Education, Labor, and Pensions"
+      "Senate Environment and Public Works"
     ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338427",
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338504",
+    "updated_at": "2026-06-03"
+  },
+  {
+    "id": "338505",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine federal benefits cliffs on small businesses and workers.",
+    "description": "Congressional meeting before the Senate Small Business and Entrepreneurship.",
+    "scheduled_date": "2026-06-03",
+    "scheduled_time": "18:30",
+    "location": "Room 428A, Russell Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Small Business and Entrepreneurship"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338505",
     "updated_at": "2026-06-03"
   },
   {
@@ -2838,6 +2855,23 @@
     "updated_at": "2026-06-03"
   },
   {
+    "id": "338427",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine gender transition procedures on minors.",
+    "description": "Congressional meeting before the Senate Health, Education, Labor, and Pensions.",
+    "scheduled_date": "2026-06-03",
+    "scheduled_time": "14:00",
+    "location": "Room 430, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Health, Education, Labor, and Pensions"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338427",
+    "updated_at": "2026-06-03"
+  },
+  {
     "id": "338524",
     "source": "congress",
     "level": "federal",
@@ -2852,23 +2886,6 @@
       "Senate Commerce, Science, and Transportation"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338524",
-    "updated_at": "2026-06-03"
-  },
-  {
-    "id": "338504",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine the President's proposed budget request for fiscal year 2027 for the Federal Highway Administration.",
-    "description": "Congressional meeting before the Senate Environment and Public Works.",
-    "scheduled_date": "2026-06-03",
-    "scheduled_time": "14:00",
-    "location": "Room 406, Dirksen Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Environment and Public Works"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338504",
     "updated_at": "2026-06-03"
   },
   {
@@ -2957,23 +2974,6 @@
     "updated_at": "2026-06-02"
   },
   {
-    "id": "338502",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Closed hearings to examine proposed budget estimates and justification for fiscal year 2027 for the Intelligence Community.",
-    "description": "Congressional meeting before the Senate Appropriations Subcommittee on Department of Defense.",
-    "scheduled_date": "2026-06-02",
-    "scheduled_time": "14:30",
-    "location": "Room 217, Capitol Visitor Center (Senate side",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Appropriations Subcommittee on Department of Defense"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338502",
-    "updated_at": "2026-06-02"
-  },
-  {
     "id": "338503",
     "source": "congress",
     "level": "federal",
@@ -3005,6 +3005,23 @@
       "Senate Appropriations Subcommittee on Department of Homeland Security"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338500",
+    "updated_at": "2026-06-02"
+  },
+  {
+    "id": "338502",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Closed hearings to examine proposed budget estimates and justification for fiscal year 2027 for the Intelligence Community.",
+    "description": "Congressional meeting before the Senate Appropriations Subcommittee on Department of Defense.",
+    "scheduled_date": "2026-06-02",
+    "scheduled_time": "14:30",
+    "location": "Room 217, Capitol Visitor Center (Senate side",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Appropriations Subcommittee on Department of Defense"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338502",
     "updated_at": "2026-06-02"
   },
   {
@@ -3617,23 +3634,6 @@
       "Senate Commerce Committee"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/62821",
-    "updated_at": "2025-10-08"
-  },
-  {
-    "id": "https://www.congress.gov/event/119th-congress/senate-event/61877",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "BAD MEDICINE: CLOSING LOOPHOLES THAT KILL AMERICAN PATIENTS",
-    "description": "Congressional hearing before the Senate Aging (Temporary Special) Committee.",
-    "scheduled_date": "2025-10-08",
-    "scheduled_time": "",
-    "location": "",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Aging (Temporary Special) Committee"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/61877",
     "updated_at": "2025-10-08"
   },
   {
@@ -4581,6 +4581,23 @@
     ],
     "url": "https://www.congress.gov/event/119th-congress/house-event/61445",
     "updated_at": "2025-04-08"
+  },
+  {
+    "id": "https://www.congress.gov/event/119th-congress/senate-event/62718",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "HEARING ON CONSTRUCTING THE SURFACE TRANSPORTATION REAUTHORIZATION BILL: UNITED STATES SECRETARY OF TRANSPORTATION'S PERSPECTIVE",
+    "description": "Congressional hearing before the Senate Public Works Committee.",
+    "scheduled_date": "2025-04-02",
+    "scheduled_time": "",
+    "location": "",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Public Works Committee"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/62718",
+    "updated_at": "2025-04-02"
   },
   {
     "id": "https://www.congress.gov/event/119th-congress/house-event/59906",
