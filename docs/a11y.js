@@ -1,5 +1,5 @@
 /**
- * CivicWatch accessibility helpers — skip link, live region announcements.
+ * CivicWatch accessibility helpers — skip link and live region announcements.
  */
 (function (global) {
   'use strict';

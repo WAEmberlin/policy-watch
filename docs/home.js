@@ -178,7 +178,7 @@ const CivicWatchHome = (() => {
         cards.forEach((card) => {
             const el = document.createElement('button');
             el.type = 'button';
-            el.className = 'state-snapshot-card flex-shrink-0 min-w-[140px] p-4 rounded-xl border border-slate-200 bg-white hover:border-civic-blue hover:shadow-md transition-all text-left';
+            el.className = 'state-snapshot-card flex-shrink-0 min-w-[140px] p-4 rounded-xl border-2 border-slate-200 bg-white hover:border-civic-blue hover:shadow-md transition-all text-left';
             el.setAttribute('data-state', card.value);
             el.setAttribute('aria-label', `Filter feed to ${card.label}`);
 
@@ -239,9 +239,8 @@ const CivicWatchHome = (() => {
 
         document.querySelectorAll('.state-snapshot-card').forEach((card) => {
             const active = card.getAttribute('data-state') === state;
-            card.classList.toggle('ring-2', active);
-            card.classList.toggle('ring-civic-blue', active);
             card.classList.toggle('border-civic-blue', active);
+            card.classList.toggle('border-slate-200', !active);
         });
 
         const hiddenSelect = document.getElementById('state-filter');
