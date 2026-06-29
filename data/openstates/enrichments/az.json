@@ -1,7 +1,462 @@
 {
   "_meta": {
     "state": "AZ",
-    "updated_at": "2026-06-28T17:23:40.995525+00:00",
-    "enriched_this_run": 0
+    "updated_at": "2026-06-29T05:22:00.919270+00:00",
+    "enriched_this_run": 5
+  },
+  "ocd-bill/671d7224-2303-4362-b387-be7afa55a60b": {
+    "identifier": "SCM 1003",
+    "sponsorships": [
+      {
+        "id": "7668036b-e4e7-4891-adc6-53f360883e58",
+        "name": "Anthony Kern",
+        "entity_type": "person",
+        "person": {
+          "id": "ocd-person/f4ea36ef-3e74-4753-be45-43d3029a8a0d",
+          "name": "Anthony Kern",
+          "party": "Republican"
+        },
+        "primary": true,
+        "classification": "primary"
+      }
+    ],
+    "actions": [],
+    "votes": [],
+    "versions": [
+      {
+        "id": "3455a18e-d734-4ac6-8539-ed002e906d59",
+        "note": "Introduced Version",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.azleg.gov/legtext/56leg/2R/bills/SCM1003P.htm",
+            "media_type": "text/html"
+          },
+          {
+            "url": "https://www.azleg.gov/legtext/56leg/2r/bills/scm1003p.pdf",
+            "media_type": "application/pdf"
+          }
+        ]
+      }
+    ],
+    "documents": [],
+    "enriched_at": "2026-06-29T05:21:33.258324+00:00"
+  },
+  "ocd-bill/7b1bbd6d-d8cf-426e-9e51-0e3b864b481e": {
+    "identifier": "SR 1001",
+    "sponsorships": [
+      {
+        "id": "4fe4a46c-2a61-43f7-a7a5-3eb84ecf3652",
+        "name": "Lela Alston",
+        "entity_type": "person",
+        "person": {
+          "id": "ocd-person/030638cb-5fcd-4637-8c59-c129e28db988",
+          "name": "Lela Alston",
+          "party": "Democratic",
+          "current_role": {
+            "title": "Senator",
+            "org_classification": "upper",
+            "district": "5",
+            "division_id": "ocd-division/country:us/state:az/sldu:5"
+          }
+        },
+        "primary": true,
+        "classification": "primary"
+      },
+      {
+        "id": "5b7b78f4-04af-42b2-886c-0297c29bd4b0",
+        "name": "Flavio Bravo",
+        "entity_type": "person",
+        "person": {
+          "id": "ocd-person/36cc8d88-e944-4889-b8ab-cf5610f3f03e",
+          "name": "Flavio Bravo",
+          "party": "Democratic",
+          "current_role": {
+            "title": "Senator",
+            "org_classification": "upper",
+            "district": "26",
+            "division_id": "ocd-division/country:us/state:az/sldu:26"
+          }
+        },
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "fff09af4-bb6e-4221-a95f-c34cf4727f19",
+        "name": "Brian Fernandez",
+        "entity_type": "person",
+        "person": {
+          "id": "ocd-person/5425612b-fb2c-4857-8f75-31523345eb2b",
+          "name": "Brian Fernandez",
+          "party": "Democratic",
+          "current_role": {
+            "title": "Senator",
+            "org_classification": "upper",
+            "district": "23",
+            "division_id": "ocd-division/country:us/state:az/sldu:23"
+          }
+        },
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "ccc2a97c-9afd-4be3-ace0-3cb4cdee693f",
+        "name": "Sally Ann Gonzales",
+        "entity_type": "person",
+        "person": {
+          "id": "ocd-person/3c965e03-1e51-4f10-a037-4fb2f35292c5",
+          "name": "Sally Gonzales",
+          "party": "Democratic",
+          "current_role": {
+            "title": "Senator",
+            "org_classification": "upper",
+            "district": "20",
+            "division_id": "ocd-division/country:us/state:az/sldu:20"
+          }
+        },
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "76d980c4-c077-4f7f-908b-25d9e8254750",
+        "name": "Christine Marsh",
+        "entity_type": "person",
+        "person": {
+          "id": "ocd-person/597de349-4f1f-4e72-a537-d0626b5abddc",
+          "name": "Christine Marsh",
+          "party": "Democratic"
+        },
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "87decdaa-3cd9-4a18-9a37-22441726fc00",
+        "name": "Patricia Contreras",
+        "entity_type": "person",
+        "person": {
+          "id": "ocd-person/61dc96d8-140a-4042-b832-ac51bf0796f3",
+          "name": "Patty Contreras",
+          "party": "Democratic",
+          "current_role": {
+            "title": "Representative",
+            "org_classification": "lower",
+            "district": "12",
+            "division_id": "ocd-division/country:us/state:az/sldl:12"
+          }
+        },
+        "primary": false,
+        "classification": "cosponsor"
+      }
+    ],
+    "actions": [],
+    "votes": [],
+    "versions": [
+      {
+        "id": "1c5d7f88-fc54-4d18-aea4-810f6b6cff94",
+        "note": "Senate Engrossed Version",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.azleg.gov/legtext/56leg/2R/bills/SR1001S.htm",
+            "media_type": "text/html"
+          },
+          {
+            "url": "https://www.azleg.gov/legtext/56leg/2r/bills/sr1001s.pdf",
+            "media_type": "application/pdf"
+          }
+        ]
+      },
+      {
+        "id": "39edba8d-96ff-4f7f-a114-dbbf902dbfc3",
+        "note": "Introduced Version",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.azleg.gov/legtext/56leg/2R/bills/SR1001P.htm",
+            "media_type": "text/html"
+          },
+          {
+            "url": "https://www.azleg.gov/legtext/56leg/2r/bills/sr1001p.pdf",
+            "media_type": "application/pdf"
+          }
+        ]
+      }
+    ],
+    "documents": [],
+    "enriched_at": "2026-06-29T05:21:39.451094+00:00"
+  },
+  "ocd-bill/08efa73d-8b17-4f12-a7f6-54acf3f9e0d4": {
+    "identifier": "SCR 1024",
+    "sponsorships": [
+      {
+        "id": "9327b54e-8ea2-4d6c-9656-510b0019a2ea",
+        "name": "Lela Alston",
+        "entity_type": "person",
+        "person": {
+          "id": "ocd-person/030638cb-5fcd-4637-8c59-c129e28db988",
+          "name": "Lela Alston",
+          "party": "Democratic",
+          "current_role": {
+            "title": "Senator",
+            "org_classification": "upper",
+            "district": "5",
+            "division_id": "ocd-division/country:us/state:az/sldu:5"
+          }
+        },
+        "primary": true,
+        "classification": "primary"
+      },
+      {
+        "id": "8d9e124b-66a1-45f5-bb84-8cc4b635a1ed",
+        "name": "Flavio Bravo",
+        "entity_type": "person",
+        "person": {
+          "id": "ocd-person/36cc8d88-e944-4889-b8ab-cf5610f3f03e",
+          "name": "Flavio Bravo",
+          "party": "Democratic",
+          "current_role": {
+            "title": "Senator",
+            "org_classification": "upper",
+            "district": "26",
+            "division_id": "ocd-division/country:us/state:az/sldu:26"
+          }
+        },
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "11946545-95e2-4250-b477-55b3aae8732d",
+        "name": "Brian Fernandez",
+        "entity_type": "person",
+        "person": {
+          "id": "ocd-person/5425612b-fb2c-4857-8f75-31523345eb2b",
+          "name": "Brian Fernandez",
+          "party": "Democratic",
+          "current_role": {
+            "title": "Senator",
+            "org_classification": "upper",
+            "district": "23",
+            "division_id": "ocd-division/country:us/state:az/sldu:23"
+          }
+        },
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "eb0c748d-3371-4e03-a193-9d0bb22ead35",
+        "name": "Sally Ann Gonzales",
+        "entity_type": "person",
+        "person": {
+          "id": "ocd-person/3c965e03-1e51-4f10-a037-4fb2f35292c5",
+          "name": "Sally Gonzales",
+          "party": "Democratic",
+          "current_role": {
+            "title": "Senator",
+            "org_classification": "upper",
+            "district": "20",
+            "division_id": "ocd-division/country:us/state:az/sldu:20"
+          }
+        },
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "bf75ee8f-1893-4287-97b0-dcfcee73316f",
+        "name": "Patricia Contreras",
+        "entity_type": "person",
+        "person": {
+          "id": "ocd-person/61dc96d8-140a-4042-b832-ac51bf0796f3",
+          "name": "Patty Contreras",
+          "party": "Democratic",
+          "current_role": {
+            "title": "Representative",
+            "org_classification": "lower",
+            "district": "12",
+            "division_id": "ocd-division/country:us/state:az/sldl:12"
+          }
+        },
+        "primary": false,
+        "classification": "cosponsor"
+      },
+      {
+        "id": "b9915b0c-da58-42f4-a51c-7b7c738d7e83",
+        "name": "Laura Terech",
+        "entity_type": "person",
+        "person": {
+          "id": "ocd-person/60e499a9-9dad-46fb-9c2e-a6036c54a728",
+          "name": "Laura Terech",
+          "party": "Democratic"
+        },
+        "primary": false,
+        "classification": "cosponsor"
+      }
+    ],
+    "actions": [],
+    "votes": [],
+    "versions": [
+      {
+        "id": "8cfa25de-bb77-44dd-aaf3-167572605ede",
+        "note": "Senate Engrossed Version",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.azleg.gov/legtext/56leg/2R/bills/SCR1024S.htm",
+            "media_type": "text/html"
+          },
+          {
+            "url": "https://www.azleg.gov/legtext/56leg/2r/bills/scr1024s.pdf",
+            "media_type": "application/pdf"
+          }
+        ]
+      },
+      {
+        "id": "6ca5512f-037f-4010-86bd-34604f4d767e",
+        "note": "Introduced Version",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.azleg.gov/legtext/56leg/2R/bills/SCR1024P.htm",
+            "media_type": "text/html"
+          },
+          {
+            "url": "https://www.azleg.gov/legtext/56leg/2r/bills/scr1024p.pdf",
+            "media_type": "application/pdf"
+          }
+        ]
+      }
+    ],
+    "documents": [],
+    "enriched_at": "2026-06-29T05:21:45.554235+00:00"
+  },
+  "ocd-bill/df089e53-d0b8-4ee5-b1ba-9e1e6e1c4631": {
+    "identifier": "SCR 1037",
+    "sponsorships": [
+      {
+        "id": "556b6145-69e0-475f-861f-f5986f823850",
+        "name": "Lela Alston",
+        "entity_type": "person",
+        "person": {
+          "id": "ocd-person/030638cb-5fcd-4637-8c59-c129e28db988",
+          "name": "Lela Alston",
+          "party": "Democratic",
+          "current_role": {
+            "title": "Senator",
+            "org_classification": "upper",
+            "district": "5",
+            "division_id": "ocd-division/country:us/state:az/sldu:5"
+          }
+        },
+        "primary": true,
+        "classification": "primary"
+      },
+      {
+        "id": "c220ada5-8bbd-4cfe-a675-373dd93bcd84",
+        "name": "Janeen Connolly",
+        "entity_type": "person",
+        "person": {
+          "id": "ocd-person/acfd8972-7a82-41f3-9fd7-0993cfa7365c",
+          "name": "Janeen Connolly",
+          "party": "Democratic",
+          "current_role": {
+            "title": "Representative",
+            "org_classification": "lower",
+            "district": "8",
+            "division_id": "ocd-division/country:us/state:az/sldl:8"
+          }
+        },
+        "primary": false,
+        "classification": "cosponsor"
+      }
+    ],
+    "actions": [],
+    "votes": [],
+    "versions": [
+      {
+        "id": "1b171434-a139-4b64-83fe-91c3f45d4742",
+        "note": "Introduced Version",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.azleg.gov/legtext/57leg/2R/bills/SCR1037P.htm",
+            "media_type": "text/html"
+          },
+          {
+            "url": "https://www.azleg.gov/legtext/57leg/2r/bills/scr1037p.pdf",
+            "media_type": "application/pdf"
+          }
+        ]
+      }
+    ],
+    "documents": [],
+    "enriched_at": "2026-06-29T05:21:51.829795+00:00"
+  },
+  "ocd-bill/05aca1e1-a683-4519-81c0-7b8643136eda": {
+    "identifier": "SR 1001",
+    "sponsorships": [
+      {
+        "id": "6b8c4496-4e13-42d2-ab8b-05c0f5e80dcb",
+        "name": "Lela Alston",
+        "entity_type": "person",
+        "person": {
+          "id": "ocd-person/030638cb-5fcd-4637-8c59-c129e28db988",
+          "name": "Lela Alston",
+          "party": "Democratic",
+          "current_role": {
+            "title": "Senator",
+            "org_classification": "upper",
+            "district": "5",
+            "division_id": "ocd-division/country:us/state:az/sldu:5"
+          }
+        },
+        "primary": true,
+        "classification": "primary"
+      },
+      {
+        "id": "b39cd65b-53d6-4a4b-b59d-0c7a8ce7a9e4",
+        "name": "Janeen Connolly",
+        "entity_type": "person",
+        "person": {
+          "id": "ocd-person/acfd8972-7a82-41f3-9fd7-0993cfa7365c",
+          "name": "Janeen Connolly",
+          "party": "Democratic",
+          "current_role": {
+            "title": "Representative",
+            "org_classification": "lower",
+            "district": "8",
+            "division_id": "ocd-division/country:us/state:az/sldl:8"
+          }
+        },
+        "primary": false,
+        "classification": "cosponsor"
+      }
+    ],
+    "actions": [],
+    "votes": [],
+    "versions": [
+      {
+        "id": "b8747c6a-4aa5-4b6c-899e-0a276cc58277",
+        "note": "Introduced Version",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://www.azleg.gov/legtext/57leg/2R/bills/SR1001P.htm",
+            "media_type": "text/html"
+          },
+          {
+            "url": "https://www.azleg.gov/legtext/57leg/2r/bills/sr1001p.pdf",
+            "media_type": "application/pdf"
+          }
+        ]
+      }
+    ],
+    "documents": [],
+    "enriched_at": "2026-06-29T05:21:58.083801+00:00"
   }
 }

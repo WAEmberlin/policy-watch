@@ -1,0 +1,123 @@
+{
+  "ocd-bill/826e43cb-0ceb-408b-8212-d2318688a4bf": {
+    "identifier": "SP 1012",
+    "sponsorships": [
+      {
+        "id": "1a8a0353-1bee-4410-ab60-9af223860310",
+        "name": "Harold STEWART",
+        "entity_type": "person",
+        "person": {
+          "id": "ocd-person/bd417e77-81d9-4e60-8b2a-b940da10bc37",
+          "name": "Trey Stewart",
+          "party": "Republican",
+          "current_role": {
+            "title": "Senator",
+            "org_classification": "upper",
+            "district": "2",
+            "division_id": "ocd-division/country:us/state:me/sldu:2"
+          }
+        },
+        "primary": true,
+        "classification": "primary"
+      }
+    ],
+    "actions": [],
+    "votes": [],
+    "versions": [],
+    "documents": [],
+    "enriched_at": "2026-06-29T05:22:04.173680+00:00"
+  },
+  "ocd-bill/dcdaaddf-b02c-4258-878c-36c5aa5c093e": {
+    "identifier": "HP 6",
+    "sponsorships": [],
+    "actions": [],
+    "votes": [],
+    "versions": [],
+    "documents": [],
+    "enriched_at": "2026-06-29T05:22:10.287769+00:00"
+  },
+  "ocd-bill/d4baba9f-21c0-4977-bff4-f4247905a926": {
+    "identifier": "SP 984",
+    "sponsorships": [
+      {
+        "id": "ec21683d-5ab2-48ca-9dc2-36a8981551a2",
+        "name": "Eloise VITELLI",
+        "entity_type": "person",
+        "person": {
+          "id": "ocd-person/7506df16-2523-4f35-85a2-d8fdf5c59b38",
+          "name": "Eloise Vitelli",
+          "party": "Democratic"
+        },
+        "primary": true,
+        "classification": "primary"
+      }
+    ],
+    "actions": [],
+    "votes": [],
+    "versions": [],
+    "documents": [],
+    "enriched_at": "2026-06-29T05:22:16.537584+00:00"
+  },
+  "ocd-bill/a5e2d90a-c7d4-46f2-996e-deea2e03e123": {
+    "identifier": "SP 1003",
+    "sponsorships": [
+      {
+        "id": "4f2aaedc-4290-4569-838b-15f68e98d8f1",
+        "name": "Eloise VITELLI",
+        "entity_type": "person",
+        "person": {
+          "id": "ocd-person/7506df16-2523-4f35-85a2-d8fdf5c59b38",
+          "name": "Eloise Vitelli",
+          "party": "Democratic"
+        },
+        "primary": true,
+        "classification": "primary"
+      }
+    ],
+    "actions": [],
+    "votes": [],
+    "versions": [],
+    "documents": [],
+    "enriched_at": "2026-06-29T05:22:22.780489+00:00"
+  },
+  "ocd-bill/e71b22d6-bcd1-42db-9b12-febe568b2de8": {
+    "identifier": "SP 1006",
+    "sponsorships": [
+      {
+        "id": "df07b4c2-0109-405d-bb4b-0aebdae9ecf0",
+        "name": "Troy JACKSON",
+        "entity_type": "person",
+        "person": {
+          "id": "ocd-person/78ccbb5e-2908-43c7-b609-5ed18f8ff685",
+          "name": "Troy Jackson",
+          "party": "Democratic"
+        },
+        "primary": true,
+        "classification": "primary"
+      }
+    ],
+    "actions": [],
+    "votes": [],
+    "versions": [
+      {
+        "id": "af00cbc6-4854-41d2-be29-dc1b2b816de4",
+        "note": "Documents and Disposition",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "http://www.mainelegislature.org/legis/bills/getPDF.asp?paper=SP1006&item=1&snum=131",
+            "media_type": "application/pdf"
+          }
+        ]
+      }
+    ],
+    "documents": [],
+    "enriched_at": "2026-06-29T05:22:29.064899+00:00"
+  },
+  "_meta": {
+    "state": "ME",
+    "updated_at": "2026-06-29T05:22:31.477314+00:00",
+    "enriched_this_run": 5
+  }
+}
