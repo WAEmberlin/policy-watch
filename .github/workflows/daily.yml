@@ -141,7 +141,6 @@ jobs:
             exit 0
           fi
           git reset --soft origin/main
-          git checkout origin/main -- data/openstates
           git add docs src/output data/kansas data/normalized
           git commit -m "Automated CivicWatch update"
           for attempt in 1 2 3 4 5; do

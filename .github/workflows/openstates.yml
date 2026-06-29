@@ -114,7 +114,6 @@ jobs:
           fi
           # Recommit on latest main to avoid rebase conflicts with hourly CivicWatch updates
           git reset --soft origin/main
-          git checkout origin/main -- data/openstates
           git add data docs src/output config src/adapters src/processing
           git commit -m "Open States sync and normalized data update"
           for attempt in 1 2 3 4 5; do
@@ -125,7 +124,6 @@ jobs:
             echo "Push rejected, refreshing from main and retrying ($attempt/5)..."
             git fetch origin main
             git reset --soft origin/main
-            git checkout origin/main -- data/openstates
             git add data docs src/output config src/adapters src/processing
             git commit -m "Open States sync and normalized data update"
             sleep $((attempt * 15))
