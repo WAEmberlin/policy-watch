@@ -20,6 +20,11 @@ const CivicWatchHome = (() => {
 
     const META_SOURCE_PATTERNS = [/congress\.gov api/i, /openstates/i, /data sync/i, /api feed/i];
 
+    const VETERANS_KEYWORDS = [
+        'veteran', 'veterans', 'military', 'armed forces', 'armed services',
+        'national guard', 'defense', 'servicemember', 'service member',
+    ];
+
     let callbacks = {};
 
     function isMetaSource(source) {
@@ -393,25 +398,99 @@ const CivicWatchHome = (() => {
         return String(text).replace(regex, '<mark>$1</mark>');
     }
 
+    function matchesVeteransTopic(text) {
+        if (!text) return false;
+        const haystack = String(text).toLowerCase();
+        if (/\bva\b/.test(haystack)) return true;
+        return VETERANS_KEYWORDS.some((kw) => haystack.includes(kw));
+    }
+
+    function itemVeteransText(item) {
+        return [
+            item.title, item.short_title, item.summary, item.latest_action, item.bill_number,
+        ].filter(Boolean).join(' ');
+    }
+
+    function renderVeteransCallout(items) {
+        const matches = items.filter((item) => matchesVeteransTopic(itemVeteransText(item)));
+        if (matches.length === 0) return null;
+
+        const box = document.createElement('div');
+        box.className = 'veterans-day-callout mb-4 p-3 rounded-lg border';
+        box.style.cssText = 'background: color-mix(in srgb, var(--cw-accent-warn, #f59e0b) 8%, var(--cw-surface)); border-color: color-mix(in srgb, var(--cw-accent-warn, #f59e0b) 35%, var(--cw-border));';
+
+        const labelRow = document.createElement('div');
+        labelRow.className = 'flex flex-wrap items-center gap-2 mb-2';
+        const badge = document.createElement('span');
+        badge.className = 'inline-block px-2 py-0.5 text-xs font-semibold rounded uppercase tracking-wide';
+        badge.style.cssText = 'background: color-mix(in srgb, var(--cw-accent-warn, #f59e0b) 18%, var(--cw-surface)); color: var(--cw-text);';
+        badge.textContent = 'Veterans & Military';
+        labelRow.appendChild(badge);
+        if (matches.length > 1) {
+            const count = document.createElement('span');
+            count.className = 'text-xs text-slate-500';
+            count.textContent = `${matches.length} items`;
+            labelRow.appendChild(count);
+        }
+        box.appendChild(labelRow);
+
+        const list = document.createElement('ul');
+        list.className = 'space-y-1 text-sm';
+        matches.slice(0, 5).forEach((item) => {
+            const li = document.createElement('li');
+            const url = (typeof CivicWatchBillUtils !== 'undefined')
+                ? CivicWatchBillUtils.resolveBillUrl(item)
+                : (item.link || item.url);
+            const displayTitle = item.short_title || item.title || 'Bill';
+            const label = (item.bill_number && !displayTitle.startsWith(item.bill_number))
+                ? `${item.bill_number}: ${displayTitle}`
+                : displayTitle;
+            if (url) {
+                const a = document.createElement('a');
+                a.href = url;
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+                a.className = 'text-civic-blue hover:underline font-medium';
+                a.textContent = label;
+                li.appendChild(a);
+            } else {
+                li.textContent = label;
+            }
+            list.appendChild(li);
+        });
+        if (matches.length > 5) {
+            const more = document.createElement('li');
+            more.className = 'text-xs text-slate-500';
+            more.textContent = `Plus ${matches.length - 5} more`;
+            list.appendChild(more);
+        }
+        box.appendChild(list);
+        return box;
+    }
+
     function renderFeedDay(date, items, options) {
-        const { dailySummary, searchQuery, todayStr } = options;
+        const { searchQuery } = options;
         const section = document.createElement('section');
-        section.className = 'feed-day mb-8';
+        section.className = 'feed-day mb-6';
         section.setAttribute('aria-label', `Updates for ${date}`);
 
-        const header = document.createElement('h2');
-        header.className = 'text-xl font-bold text-civic-navy mb-4 pb-2 border-b border-slate-200';
-        header.textContent = formatDate(date);
-        section.appendChild(header);
+        const card = document.createElement('div');
+        card.className = 'feed-day-card rounded-xl border p-5 sm:p-6';
+        card.style.cssText = 'background: var(--cw-surface); border-color: var(--cw-border); box-shadow: 0 1px 2px color-mix(in srgb, var(--cw-text) 6%, transparent);';
 
-        if (dailySummary?.summary && date < todayStr) {
-            section.appendChild(renderDailySummary(dailySummary));
-        }
+        const header = document.createElement('h2');
+        header.className = 'text-xl font-bold text-civic-navy mb-4 pb-3 border-b';
+        header.style.borderColor = 'var(--cw-border)';
+        header.textContent = formatDate(date);
+        card.appendChild(header);
 
         const legislative = items.filter((i) => !isMetaItem(i));
         const meta = items.filter((i) => isMetaItem(i));
 
         if (legislative.length === 0 && meta.length === 0) return null;
+
+        const veteransCallout = renderVeteransCallout(legislative);
+        if (veteransCallout) card.appendChild(veteransCallout);
 
         const byState = {};
         legislative.forEach((item) => {
@@ -432,7 +511,7 @@ const CivicWatchHome = (() => {
                 const subHeader = document.createElement('h3');
                 subHeader.className = 'text-sm font-semibold uppercase tracking-wide text-slate-500 mb-3 mt-4';
                 subHeader.textContent = STATE_NAMES[st] || st;
-                section.appendChild(subHeader);
+                card.appendChild(subHeader);
             }
 
             const grid = document.createElement('div');
@@ -440,13 +519,14 @@ const CivicWatchHome = (() => {
             stateItems.forEach((item) => {
                 grid.appendChild(renderBillCard(item, searchQuery));
             });
-            section.appendChild(grid);
+            card.appendChild(grid);
         });
 
         if (meta.length > 0) {
-            section.appendChild(renderMetaSection(meta, searchQuery));
+            card.appendChild(renderMetaSection(meta, searchQuery));
         }
 
+        section.appendChild(card);
         return section;
     }
 
@@ -482,24 +562,6 @@ const CivicWatchHome = (() => {
         });
         wrapper.appendChild(list);
         return wrapper;
-    }
-
-    function renderDailySummary(daySummary) {
-        const summaryDiv = document.createElement('div');
-        summaryDiv.className = 'border-l-4 border-civic-blue p-4 mb-5 rounded-r-lg';
-        summaryDiv.style.background = 'linear-gradient(to right, var(--cw-surface-muted), var(--cw-surface))';
-
-        const summaryHeader = document.createElement('div');
-        summaryHeader.className = 'font-semibold text-civic-blue text-xs uppercase tracking-wider mb-2';
-        summaryHeader.textContent = 'Daily Summary';
-        summaryDiv.appendChild(summaryHeader);
-
-        const summaryText = document.createElement('div');
-        summaryText.className = 'text-slate-700 leading-relaxed text-sm';
-        summaryText.textContent = daySummary.summary;
-        summaryDiv.appendChild(summaryText);
-
-        return summaryDiv;
     }
 
     function formatDate(dateStr) {

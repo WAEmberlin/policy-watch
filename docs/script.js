@@ -429,11 +429,9 @@ function displayUnifiedView(year, chunkIndex) {
 
     const chunkDates = Object.keys(itemsByDate).sort().reverse();
     const allDatesInYear = Object.keys(grouped).sort().reverse();
-    const dailySummaries = allData.daily_summaries || {};
 
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    const todayStr = today.toISOString().split('T')[0];
 
     let renderedDays = 0;
     chunkDates.forEach(date => {
@@ -442,9 +440,7 @@ function displayUnifiedView(year, chunkIndex) {
 
         const daySection = typeof CivicWatchHome !== "undefined"
             ? CivicWatchHome.renderFeedDay(date, dayItems, {
-                dailySummary: dailySummaries[date],
                 searchQuery: "",
-                todayStr,
             })
             : null;
 
@@ -631,9 +627,7 @@ function displaySearchResults() {
     dates.forEach(date => {
         const daySection = typeof CivicWatchHome !== "undefined"
             ? CivicWatchHome.renderFeedDay(date, itemsByDate[date], {
-                dailySummary: null,
                 searchQuery: searchQuery,
-                todayStr: "",
             })
             : null;
         if (daySection) container.appendChild(daySection);
@@ -765,6 +759,87 @@ function setupSearch() {
     }
 }
 
+function escapeHtmlText(text) {
+    const div = document.createElement("div");
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+function extractRecapBillKey(line) {
+    const m = String(line).trim().match(/^((?:HR|H\.R\.|H\.?\s*R\.?|S\.|SR|S\.R\.|SB|HB|HF|SF|LD|SP)\s*)(\d+)/i);
+    if (!m) return null;
+    const type = m[1].replace(/\./g, "").replace(/\s+/g, "").toUpperCase();
+    return `${type} ${m[2]}`;
+}
+
+function recapLineBillUrl(line, sectionId) {
+    const trimmed = String(line).trim();
+    const m = trimmed.match(/^(HR|H\.R\.|S\.|SR|S\.R\.|H\.?\s*RES\.?|S\.?\s*RES\.?)\s*(\d+)\s*:/i);
+    if (!m || sectionId !== "federal") return null;
+    const rawType = m[1].replace(/\./g, "").replace(/\s+/g, "").toUpperCase();
+    const num = m[2];
+    const congress = "119th-congress";
+    if (rawType === "HR" || rawType.startsWith("HRES")) {
+        return `https://www.congress.gov/bill/${congress}/house-bill/${num}`;
+    }
+    if (rawType === "S" || rawType === "SB") {
+        return `https://www.congress.gov/bill/${congress}/senate-bill/${num}`;
+    }
+    if (rawType === "SR" || rawType === "SRES") {
+        return `https://www.congress.gov/bill/${congress}/senate-resolution/${num}`;
+    }
+    return null;
+}
+
+function buildVeteransBillKeys(veteransHighlight) {
+    const keys = new Set();
+    if (!veteransHighlight?.items) return keys;
+    veteransHighlight.items.forEach((item) => {
+        const key = extractRecapBillKey(item.title || "");
+        if (key) keys.add(key);
+    });
+    return keys;
+}
+
+function renderWeeklyRecapLines(recapLines, section) {
+    const veteransBillKeys = buildVeteransBillKeys(section.veterans_highlight);
+    let skipIndented = false;
+    let html = "";
+
+    recapLines.forEach((line) => {
+        const trimmed = line.trim();
+        if (trimmed === "") return;
+
+        if (line.startsWith("   ")) {
+            if (skipIndented) return;
+            html += `<p class="my-1 ml-4 text-slate-600">${escapeHtmlText(trimmed)}</p>`;
+            return;
+        }
+
+        skipIndented = false;
+        const billKey = extractRecapBillKey(trimmed);
+        if (billKey && veteransBillKeys.has(billKey)) {
+            skipIndented = true;
+            return;
+        }
+
+        if (trimmed.endsWith(":") && !billKey) {
+            html += `<p class="my-1 font-medium text-slate-800">${escapeHtmlText(line)}</p>`;
+            return;
+        }
+
+        const url = recapLineBillUrl(trimmed, section.id);
+        if (url) {
+            html += `<p class="my-1"><a href="${url}" class="text-civic-blue hover:underline font-medium" target="_blank" rel="noopener">${escapeHtmlText(trimmed)}</a></p>`;
+            return;
+        }
+
+        html += `<p class="my-1">${escapeHtmlText(line)}</p>`;
+    });
+
+    return html;
+}
+
 async function loadWeeklyOverview() {
     const container = document.getElementById("weekly-overview-content");
     const section = document.getElementById("weekly-overview-section");
@@ -850,17 +925,20 @@ async function loadWeeklyOverview() {
                         html += `<span class="text-xs text-amber-700">${highlight.total_matches} matches</span>`;
                     }
                     html += `</div>`;
-                    html += `<p class="text-sm font-medium text-amber-950"><span class="font-semibold">Highlight:</span> ${highlight.summary}</p>`;
+                    html += `<p class="text-sm text-amber-900 mb-2">Notable veterans & military activity this week:</p>`;
                     if (Array.isArray(highlight.items) && highlight.items.length > 0) {
-                        html += `<ul class="mt-2 space-y-1 text-sm text-amber-900">`;
+                        html += `<ul class="space-y-1 text-sm">`;
                         highlight.items.forEach(item => {
                             const label = item.title || "Item";
                             if (item.url) {
-                                html += `<li><a href="${item.url}" class="text-civic-blue hover:underline" target="_blank" rel="noopener">${label}</a></li>`;
+                                html += `<li><a href="${item.url}" class="text-civic-blue hover:underline font-medium" target="_blank" rel="noopener">${escapeHtmlText(label)}</a></li>`;
                             } else {
-                                html += `<li>${label}</li>`;
+                                html += `<li>${escapeHtmlText(label)}</li>`;
                             }
                         });
+                        if (highlight.total_matches > highlight.items.length) {
+                            html += `<li class="text-xs text-amber-700">Plus ${highlight.total_matches - highlight.items.length} more</li>`;
+                        }
                         html += `</ul>`;
                     }
                     html += `</div>`;
@@ -868,18 +946,7 @@ async function loadWeeklyOverview() {
 
                 html += `<div class="leading-relaxed text-slate-700 text-sm">`;
                 const recapLines = section.recap_lines || [];
-                recapLines.forEach(line => {
-                    if (line.trim() === "") {
-                        return;
-                    }
-                    if (line.startsWith("   ")) {
-                        html += `<p class="my-1 ml-4 text-slate-600">${line.trim()}</p>`;
-                    } else if (line.endsWith(":")) {
-                        html += `<p class="my-1 font-medium text-slate-800">${line}</p>`;
-                    } else {
-                        html += `<p class="my-1">${line}</p>`;
-                    }
-                });
+                html += renderWeeklyRecapLines(recapLines, section);
                 html += `</div>`;
                 html += `</div>`;
             });
