@@ -60,6 +60,7 @@ def test_openstates_normalize_bill():
         "title": "Education funding bill",
         "updated_at": "2026-01-20T00:00:00+00:00",
         "openstates_url": "https://openstates.org/bills/test",
+        "sources": [{"url": "https://leg.colorado.gov/bills/HB26-1001"}],
         "actions": [{"description": "Passed House", "date": "2026-01-19"}],
         "sponsorships": [{"person": {"name": "Jane Doe", "party": "R"}, "primary": True}],
     }]
@@ -69,6 +70,7 @@ def test_openstates_normalize_bill():
     assert result[0].source == "openstates"
     assert result[0].state == "CO"
     assert result[0].latest_action == "Passed House"
+    assert result[0].url == "https://leg.colorado.gov/bills/HB26-1001"
 
 
 def test_fix_hearing_url():

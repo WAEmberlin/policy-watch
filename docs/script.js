@@ -201,7 +201,9 @@ function setupFilters() {
     sourceFilter.addEventListener("change", () => {
         selectedSource = sourceFilter.value;
         currentPage = 0;
-        if (currentYear) {
+        if (searchMode && searchQuery) {
+            performSearch(searchQuery);
+        } else if (currentYear) {
             displayUnifiedView(currentYear, 0);
         }
     });
@@ -209,7 +211,9 @@ function setupFilters() {
     categoryFilter.addEventListener("change", () => {
         selectedCategory = categoryFilter.value;
         currentPage = 0;
-        if (currentYear) {
+        if (searchMode && searchQuery) {
+            performSearch(searchQuery);
+        } else if (currentYear) {
             displayUnifiedView(currentYear, 0);
         }
     });
@@ -343,7 +347,7 @@ function displayUnifiedView(year, chunkIndex) {
             if (!isDateInRange(date, dateRange.start, dateRange.end)) return;
             allItems.push({
                 title: `${bill.bill_number}: ${bill.title}`,
-                link: bill.url,
+                link: (typeof CivicWatchBillUtils !== "undefined" ? CivicWatchBillUtils.resolveBillUrl(bill) : bill.url),
                 summary: bill.summary || bill.latest_action || "",
                 source: `State (${STATE_NAMES[bill.state] || bill.state})`,
                 state: bill.state,
@@ -365,7 +369,7 @@ function displayUnifiedView(year, chunkIndex) {
             if (!isDateInRange(date, dateRange.start, dateRange.end)) return;
             allItems.push({
                 title: `${bill.bill_number}: ${bill.title}`,
-                link: bill.url,
+                link: (typeof CivicWatchBillUtils !== "undefined" ? CivicWatchBillUtils.resolveBillUrl(bill) : bill.url),
                 summary: bill.summary || bill.latest_action || "",
                 source: `State (${STATE_NAMES[bill.state] || bill.state})`,
                 state: bill.state,
@@ -722,7 +726,7 @@ function performSearch(query) {
         if (searchText.includes(searchQuery)) {
             searchResults.push({
                 title: `${bill.bill_number}: ${bill.title}`,
-                link: bill.url,
+                link: (typeof CivicWatchBillUtils !== "undefined" ? CivicWatchBillUtils.resolveBillUrl(bill) : bill.url),
                 summary: bill.summary || bill.latest_action || "",
                 source: bill.level === "federal" ? "Federal (U.S. Congress)" : `State (${STATE_NAMES[bill.state] || bill.state})`,
                 state: bill.state,
@@ -971,6 +975,12 @@ function setupSearch() {
         if (e.key === "Enter") {
             handleSearch();
         }
+    });
+
+    let searchDebounce = null;
+    searchInput.addEventListener("input", () => {
+        clearTimeout(searchDebounce);
+        searchDebounce = setTimeout(handleSearch, 300);
     });
 
     if (searchButton) {
