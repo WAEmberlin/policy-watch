@@ -3,49 +3,48 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Upcoming Hearings - CivicWatch</title>
+<title>Upcoming & Historical Hearings — CivicWatch</title>
+<link rel="stylesheet" href="theme.css" />
+<link rel="stylesheet" href="sr-only.css" />
+<script src="theme.js"></script>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
     theme: {
         extend: {
             colors: {
+                white: 'var(--cw-white)',
                 civic: {
-                    navy: '#001f3f',
-                    gold: '#ffc107',
-                    blue: '#1a73e8',
-                    'blue-dark': '#1557b0',
+                    navy: 'var(--cw-navy)',
+                    gold: 'var(--cw-gold)',
+                    blue: 'var(--cw-blue)',
+                    'blue-dark': 'var(--cw-blue-dark)',
+                },
+                slate: {
+                    50: 'var(--cw-slate-50)',
+                    100: 'var(--cw-slate-100)',
+                    200: 'var(--cw-slate-200)',
+                    300: 'var(--cw-slate-300)',
+                    400: 'var(--cw-slate-400)',
+                    500: 'var(--cw-slate-500)',
+                    600: 'var(--cw-slate-600)',
+                    700: 'var(--cw-slate-700)',
+                    800: 'var(--cw-slate-800)',
                 }
             }
         }
     }
 }
 </script>
-<style>
-/* Smooth scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
-::-webkit-scrollbar-track {
-    background: #f1f5f9;
-    border-radius: 4px;
-}
-::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
-}
-</style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-<div class="max-w-6xl mx-auto px-4 py-8">
+<body class="cw-page-bg min-h-screen" data-cw-page="hearings">
+<div id="cw-page-wrapper" class="max-w-6xl mx-auto px-4 py-4">
+<main id="cw-main-content">
     <!-- Main Card -->
-    <div class="bg-white rounded-2xl shadow-xl shadow-slate-200/50 overflow-hidden">
+    <div class="cw-card shadow-xl shadow-slate-200/50">
         <!-- Header -->
-        <div class="bg-gradient-to-r from-civic-navy to-slate-800 px-8 py-6">
+        <div class="cw-card-header">
+            <div class="flex items-center justify-between gap-4 flex-wrap">
             <div class="flex items-center gap-4">
                 <img src="CivicWatch Logo.png" alt="CivicWatch Logo" class="h-14 w-auto hidden sm:block" />
                 <div>
@@ -55,26 +54,12 @@ tailwind.config = {
                     <div class="text-slate-300 text-sm mt-1">Legislative Hearings — All States</div>
                 </div>
             </div>
+            <div data-cw-theme-toggle></div>
+            </div>
         </div>
         
         <!-- Content Area -->
-        <div class="p-6 md:p-8">
-            <!-- Nav Links -->
-            <div class="flex flex-wrap gap-3 mb-6">
-                <a href="index.html" class="inline-flex items-center gap-2 text-civic-blue hover:text-civic-blue-dark font-medium transition-colors">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-                    </svg>
-                    Back to Main
-                </a>
-                <a href="livestreams.html" class="inline-flex items-center gap-2 text-civic-blue hover:text-civic-blue-dark font-medium transition-colors">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-                    </svg>
-                    Live Streams
-                </a>
-            </div>
-            
+        <div class="cw-card-body p-6 md:p-8">
             <!-- Upcoming Hearings Section -->
             <div class="mb-12">
                 <h2 class="text-2xl font-bold text-civic-navy mb-6 flex items-center gap-3">
@@ -85,10 +70,12 @@ tailwind.config = {
                 </h2>
                 
                 <!-- Filters -->
-                <div id="upcoming-filters" class="flex flex-wrap gap-3 items-center mb-6 p-4 bg-slate-50 rounded-xl border border-slate-200">
+                <div id="upcoming-filters" class="flex flex-col gap-3 mb-6 p-4 rounded-xl border border-slate-200" style="background: var(--cw-surface-muted); border-color: var(--cw-border);">
+                    <div id="upcoming-state-chips"></div>
+                    <div class="flex flex-wrap gap-3 items-center">
                     <div class="flex items-center gap-2">
                         <label for="upcoming-state-filter" class="text-sm font-semibold text-slate-600">State:</label>
-                        <select id="upcoming-state-filter" class="px-3 py-2 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm">
+                        <select id="upcoming-state-filter" class="px-3 py-2 border-2 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm" style="border-color: var(--cw-border); background: var(--cw-surface);">
                             <option value="">All States / Federal</option>
                             <option value="Federal">Federal (U.S. Congress)</option>
                             <option value="KS">Kansas</option>
@@ -100,19 +87,20 @@ tailwind.config = {
                     </div>
                     <div class="flex items-center gap-2">
                         <label for="upcoming-year-filter" class="text-sm font-semibold text-slate-600">Year:</label>
-                        <select id="upcoming-year-filter" class="px-3 py-2 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm">
+                        <select id="upcoming-year-filter" class="px-3 py-2 border-2 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm" style="border-color: var(--cw-border); background: var(--cw-surface);">
                             <option value="">All Years</option>
                         </select>
                     </div>
                     <div class="flex items-center gap-2">
                         <label for="upcoming-committee-filter" class="text-sm font-semibold text-slate-600">Committee:</label>
-                        <select id="upcoming-committee-filter" class="px-3 py-2 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm min-w-[220px] max-w-[320px]">
+                        <select id="upcoming-committee-filter" class="px-3 py-2 border-2 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm min-w-[220px] max-w-[320px]" style="border-color: var(--cw-border); background: var(--cw-surface);">
                             <option value="">All Committees</option>
                         </select>
                     </div>
-                    <button onclick="clearFilters('upcoming')" class="px-4 py-2 bg-white hover:bg-slate-100 text-slate-600 rounded-lg font-medium transition-colors border-2 border-slate-200 text-sm">
+                    <button onclick="clearFilters('upcoming')" class="px-4 py-2 rounded-lg font-medium transition-colors border-2 text-sm" style="background: var(--cw-surface); border-color: var(--cw-border); color: var(--cw-text-muted);">
                         Clear Filters
                     </button>
+                    </div>
                 </div>
                 
                 <div id="upcoming-hearings-container">
@@ -136,10 +124,12 @@ tailwind.config = {
                 </h2>
                 
                 <!-- Filters -->
-                <div id="historical-filters" class="flex flex-wrap gap-3 items-center mb-6 p-4 bg-slate-50 rounded-xl border border-slate-200">
+                <div id="historical-filters" class="flex flex-col gap-3 mb-6 p-4 rounded-xl border border-slate-200" style="background: var(--cw-surface-muted); border-color: var(--cw-border);">
+                    <div id="historical-state-chips"></div>
+                    <div class="flex flex-wrap gap-3 items-center">
                     <div class="flex items-center gap-2">
                         <label for="historical-state-filter" class="text-sm font-semibold text-slate-600">State:</label>
-                        <select id="historical-state-filter" class="px-3 py-2 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm">
+                        <select id="historical-state-filter" class="px-3 py-2 border-2 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm" style="border-color: var(--cw-border); background: var(--cw-surface);">
                             <option value="">All States / Federal</option>
                             <option value="Federal">Federal (U.S. Congress)</option>
                             <option value="KS">Kansas</option>
@@ -151,19 +141,20 @@ tailwind.config = {
                     </div>
                     <div class="flex items-center gap-2">
                         <label for="historical-year-filter" class="text-sm font-semibold text-slate-600">Year:</label>
-                        <select id="historical-year-filter" class="px-3 py-2 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm">
+                        <select id="historical-year-filter" class="px-3 py-2 border-2 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm" style="border-color: var(--cw-border); background: var(--cw-surface);">
                             <option value="">All Years</option>
                         </select>
                     </div>
                     <div class="flex items-center gap-2">
                         <label for="historical-committee-filter" class="text-sm font-semibold text-slate-600">Committee:</label>
-                        <select id="historical-committee-filter" class="px-3 py-2 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm min-w-[220px] max-w-[320px]">
+                        <select id="historical-committee-filter" class="px-3 py-2 border-2 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm min-w-[220px] max-w-[320px]" style="border-color: var(--cw-border); background: var(--cw-surface);">
                             <option value="">All Committees</option>
                         </select>
                     </div>
-                    <button onclick="clearFilters('historical')" class="px-4 py-2 bg-white hover:bg-slate-100 text-slate-600 rounded-lg font-medium transition-colors border-2 border-slate-200 text-sm">
+                    <button onclick="clearFilters('historical')" class="px-4 py-2 rounded-lg font-medium transition-colors border-2 text-sm" style="background: var(--cw-surface); border-color: var(--cw-border); color: var(--cw-text-muted);">
                         Clear Filters
                     </button>
+                    </div>
                 </div>
                 
                 <div id="historical-hearings-container">
@@ -178,15 +169,21 @@ tailwind.config = {
             </div>
         </div>
     </div>
-    
-    <!-- Footer -->
-    <div class="text-center text-slate-500 text-sm mt-6">
-        CivicWatch — Hearings for Kansas, Colorado, Arizona, Utah, Maine, and U.S. Congress
-    </div>
+</main>
 </div>
 
+<script src="a11y.js"></script>
+<script src="shell.js"></script>
 <script src="stream-utils.js"></script>
 <script>
+CivicWatchShell.init({
+    page: 'hearings',
+    stateChips: [
+        { select: 'upcoming-state-filter', chips: 'upcoming-state-chips' },
+        { select: 'historical-state-filter', chips: 'historical-state-chips' },
+    ],
+});
+
 // Store original data
 let allUpcomingHearings = [];
 let allHistoricalHearings = [];
@@ -428,7 +425,7 @@ function renderHearings(hearings, container, emptyMessage, stateFilter = "", yea
                 ? CivicWatchStreamUtils.resolveHearingStream(hearing)
                 : null;
             const streamHtml = streamInfo
-                ? CivicWatchStreamUtils.renderStreamActions(streamInfo, { compact: true })
+                ? CivicWatchStreamUtils.renderStreamActions(streamInfo, { compact: true, hearingTitle: titleWithTime })
                 : "";
             
             card.innerHTML = `
@@ -507,6 +504,15 @@ function setupHearingStreamHandlers() {
     });
 }
 
+function syncStateChips(prefix) {
+    const select = document.getElementById(prefix + '-state-filter');
+    const chips = document.getElementById(prefix + '-state-chips');
+    if (!select || !chips) return;
+    chips.querySelectorAll('.cw-state-chip').forEach(function (chip) {
+        chip.setAttribute('aria-pressed', chip.dataset.state === select.value ? 'true' : 'false');
+    });
+}
+
 function setupFilters() {
     const upcomingContainer = document.getElementById("upcoming-hearings-container");
     const historicalContainer = document.getElementById("historical-hearings-container");
@@ -528,12 +534,18 @@ function setupFilters() {
     }
     
     // Upcoming filters
-    document.getElementById("upcoming-state-filter").addEventListener("change", applyUpcomingFilters);
+    document.getElementById("upcoming-state-filter").addEventListener("change", function () {
+        syncStateChips('upcoming');
+        applyUpcomingFilters();
+    });
     document.getElementById("upcoming-year-filter").addEventListener("change", applyUpcomingFilters);
     document.getElementById("upcoming-committee-filter").addEventListener("change", applyUpcomingFilters);
     
     // Historical filters
-    document.getElementById("historical-state-filter").addEventListener("change", applyHistoricalFilters);
+    document.getElementById("historical-state-filter").addEventListener("change", function () {
+        syncStateChips('historical');
+        applyHistoricalFilters();
+    });
     document.getElementById("historical-year-filter").addEventListener("change", applyHistoricalFilters);
     document.getElementById("historical-committee-filter").addEventListener("change", applyHistoricalFilters);
 }
@@ -543,12 +555,14 @@ function clearFilters(type) {
         document.getElementById("upcoming-state-filter").value = "";
         document.getElementById("upcoming-year-filter").value = "";
         document.getElementById("upcoming-committee-filter").value = "";
+        syncStateChips('upcoming');
         renderHearings(allUpcomingHearings, document.getElementById("upcoming-hearings-container"), 
                       "No upcoming hearings scheduled", "", "", "");
     } else if (type === "historical") {
         document.getElementById("historical-state-filter").value = "";
         document.getElementById("historical-year-filter").value = "";
         document.getElementById("historical-committee-filter").value = "";
+        syncStateChips('historical');
         renderHearings(allHistoricalHearings, document.getElementById("historical-hearings-container"), 
                       "No historical hearings available", "", "", "");
     }

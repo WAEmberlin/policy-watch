@@ -3,47 +3,72 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>CivicWatch Legislators</title>
+<title>Legislators — CivicWatch</title>
+<link rel="stylesheet" href="theme.css" />
+<link rel="stylesheet" href="sr-only.css" />
+<script src="theme.js"></script>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
     theme: {
         extend: {
             colors: {
-                civic: { navy: '#001f3f', gold: '#ffc107', blue: '#1a73e8', 'blue-dark': '#1557b0' }
+                white: 'var(--cw-white)',
+                civic: {
+                    navy: 'var(--cw-navy)',
+                    gold: 'var(--cw-gold)',
+                    blue: 'var(--cw-blue)',
+                    'blue-dark': 'var(--cw-blue-dark)',
+                },
+                slate: {
+                    50: 'var(--cw-slate-50)',
+                    100: 'var(--cw-slate-100)',
+                    200: 'var(--cw-slate-200)',
+                    300: 'var(--cw-slate-300)',
+                    400: 'var(--cw-slate-400)',
+                    500: 'var(--cw-slate-500)',
+                    600: 'var(--cw-slate-600)',
+                    700: 'var(--cw-slate-700)',
+                    800: 'var(--cw-slate-800)',
+                }
             }
         }
     }
 }
 </script>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-<div class="max-w-6xl mx-auto px-4 py-8">
-    <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-        <div class="bg-gradient-to-r from-civic-navy to-slate-800 px-8 py-6">
+<body class="cw-page-bg min-h-screen" data-cw-page="legislators">
+<div id="cw-page-wrapper" class="max-w-6xl mx-auto px-4 py-4">
+<main id="cw-main-content">
+    <div class="cw-card shadow-xl">
+        <div class="cw-card-header">
             <div class="flex flex-wrap items-center justify-between gap-4">
-                <h1 class="text-3xl font-bold"><span class="text-white">Civic</span><span class="text-civic-gold">Watch</span> Legislators</h1>
-                <div class="flex gap-3">
-                    <a href="index.html" class="px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg text-sm">Main Feed</a>
-                    <a href="dashboard.html" class="px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg text-sm">Dashboards</a>
+                <div>
+                    <h1 class="text-3xl font-bold"><span class="text-white">Civic</span><span class="text-civic-gold">Watch</span> Legislators</h1>
+                    <p class="text-slate-300 text-sm mt-1">Browse legislators across all tracked states</p>
                 </div>
+                <div data-cw-theme-toggle></div>
             </div>
         </div>
-        <div class="p-6 md:p-8">
+        <div class="cw-card-body p-6 md:p-8">
             <div class="flex gap-3 mb-6">
-                <select id="leg-state-filter" class="px-4 py-2 border-2 border-slate-200 rounded-lg bg-white">
+                <select id="leg-state-filter" class="px-4 py-2 border-2 rounded-lg" style="border-color: var(--cw-border); background: var(--cw-surface);">
                     <option value="">All States</option>
                 </select>
-                <input type="text" id="leg-search" placeholder="Search by name..." class="flex-1 px-4 py-2 border-2 border-slate-200 rounded-lg" />
+                <input type="text" id="leg-search" placeholder="Search by name..." class="flex-1 px-4 py-2 border-2 rounded-lg" style="border-color: var(--cw-border); background: var(--cw-surface);" />
             </div>
             <div id="legislators-list" class="grid gap-4 md:grid-cols-2">
                 <p class="text-slate-500 italic col-span-2 text-center py-8">Loading legislators...</p>
             </div>
         </div>
     </div>
+</main>
 </div>
+<script src="a11y.js"></script>
+<script src="shell.js"></script>
 <script src="expansion.js"></script>
 <script>
+CivicWatchShell.init({ page: 'legislators' });
 document.addEventListener('DOMContentLoaded', () => {
     CivicWatchExpansion.initLegislators();
 });
