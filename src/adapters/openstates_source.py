@@ -5,6 +5,7 @@ from __future__ import annotations
 from typing import Any, Dict, List, Optional
 
 from .base import LegislativeSource, NormalizedBill, NormalizedEvent, NormalizedLegislator
+from processing.bill_urls import resolve_official_bill_url
 
 
 def _state_from_jurisdiction(jurisdiction: str) -> str:
@@ -14,6 +15,23 @@ def _state_from_jurisdiction(jurisdiction: str) -> str:
         if part.startswith("state:"):
             return part.split(":")[-1].upper()
     return ""
+
+
+def _collect_document_urls(bill: Dict[str, Any]) -> List[str]:
+    urls: List[str] = []
+    for src in bill.get("sources") or []:
+        url = src.get("url") if isinstance(src, dict) else str(src)
+        if url and url not in urls:
+            urls.append(url)
+    for version in bill.get("versions") or []:
+        for link in version.get("links") or []:
+            url = link.get("url") or ""
+            if url and url not in urls:
+                urls.append(url)
+    openstates_url = bill.get("openstates_url") or ""
+    if openstates_url and openstates_url not in urls:
+        urls.append(openstates_url)
+    return urls
 
 
 class OpenStatesSource(LegislativeSource):
@@ -81,11 +99,8 @@ class OpenStatesSource(LegislativeSource):
             elif "senate" in org_name:
                 chamber = "Senate"
 
-            doc_urls = [bill.get("openstates_url", "")]
-            for version in bill.get("versions") or []:
-                for link in version.get("links") or []:
-                    if link.get("url"):
-                        doc_urls.append(link["url"])
+            doc_urls = _collect_document_urls(bill)
+            official_url = resolve_official_bill_url({**bill, "document_urls": doc_urls})
 
             normalized.append(
                 NormalizedBill(
@@ -103,9 +118,9 @@ class OpenStatesSource(LegislativeSource):
                     status=latest_action,
                     chamber=chamber,
                     committees=[{"name": c.get("name", "")} for c in (bill.get("committees") or [])],
-                    document_urls=[u for u in doc_urls if u],
+                    document_urls=doc_urls,
                     updated_at=bill.get("updated_at", ""),
-                    url=bill.get("openstates_url", ""),
+                    url=official_url,
                 )
             )
         return normalized

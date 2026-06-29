@@ -5,6 +5,8 @@ from __future__ import annotations
 from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, List, Optional
 
+from processing.bill_urls import resolve_official_bill_url
+
 
 def _parse_date(value: str) -> Optional[datetime]:
     if not value:
@@ -40,7 +42,8 @@ def build_search_index(
                 "chamber": b.get("chamber"),
                 "classification": b.get("classification", []),
                 "sponsors": [s.get("name", "") for s in (b.get("sponsors") or [])],
-                "url": b.get("url"),
+                "url": resolve_official_bill_url(b),
+                "document_urls": b.get("document_urls") or [],
                 "ai_topics": b.get("ai_topics", []),
             }
             for b in bills
@@ -171,6 +174,17 @@ def build_dashboards(
     )[:50]
 
     recent_votes = sorted(votes, key=lambda x: x.get("date", ""), reverse=True)[:50]
+    bill_by_id = {b.get("id"): b for b in bills if b.get("id")}
+    enriched_votes = []
+    for vote in recent_votes:
+        entry = dict(vote)
+        bill = bill_by_id.get(vote.get("bill_id"))
+        if bill:
+            entry.setdefault("state", bill.get("state"))
+            entry.setdefault("title", bill.get("title"))
+            entry["url"] = resolve_official_bill_url(bill)
+        enriched_votes.append(entry)
+    recent_votes = enriched_votes
 
     signed_into_law = [
         b for b in bills
