@@ -1,0 +1,240 @@
+# CivicWatch live stream sources — floor sessions and major feeds.
+# youtube_channel_id: used for live detection (YouTube Data API) and channel embed fallback.
+# embed_url: iframe src when not live (or non-YouTube official player).
+# youtube_url: external "Watch on YouTube" link (optional).
+
+streams:
+  # ——— Kansas ———
+  - id: kansas-house-floor
+    title: Kansas House Floor
+    state: KS
+    jurisdiction: kansas
+    type: floor
+    target_id: kansas-house-floor
+    tab_pane: pane-kansas
+    youtube_channel_id: UC_0NO-Pb96CFABvxDwXAq8A
+    youtube_url: https://www.youtube.com/@KSLegislatureLIVE/streams
+
+  - id: kansas-senate-floor
+    title: Kansas Senate Floor
+    state: KS
+    jurisdiction: kansas
+    type: floor
+    target_id: kansas-senate-floor
+    tab_pane: pane-kansas
+    youtube_channel_id: UC_0NO-Pb96CFABvxDwXAq8A
+    youtube_url: https://www.youtube.com/@KSLegislatureLIVE/streams
+
+  - id: ks-house-judiciary
+    title: Kansas House Judiciary
+    state: KS
+    jurisdiction: kansas
+    type: committee
+    target_id: ks-house-judiciary
+    tab_pane: pane-kansas
+
+  - id: ks-house-judiciary-civil
+    title: Kansas House Judiciary — Civil Law
+    state: KS
+    jurisdiction: kansas
+    type: committee
+    target_id: ks-house-judiciary-civil
+    tab_pane: pane-kansas
+
+  - id: ks-house-judiciary-criminal
+    title: Kansas House Judiciary — Criminal Law
+    state: KS
+    jurisdiction: kansas
+    type: committee
+    target_id: ks-house-judiciary-criminal
+    tab_pane: pane-kansas
+
+  - id: ks-house-appropriations
+    title: Kansas House Appropriations
+    state: KS
+    jurisdiction: kansas
+    type: committee
+    target_id: ks-house-appropriations
+    tab_pane: pane-kansas
+
+  - id: ks-house-elections
+    title: Kansas House Elections
+    state: KS
+    jurisdiction: kansas
+    type: committee
+    target_id: ks-house-elections
+    tab_pane: pane-kansas
+
+  - id: ks-senate-judiciary
+    title: Kansas Senate Judiciary
+    state: KS
+    jurisdiction: kansas
+    type: committee
+    target_id: ks-senate-judiciary
+    tab_pane: pane-kansas
+
+  - id: ks-senate-ways-means
+    title: Kansas Senate Ways & Means
+    state: KS
+    jurisdiction: kansas
+    type: committee
+    target_id: ks-senate-ways-means
+    tab_pane: pane-kansas
+
+  - id: ks-senate-education
+    title: Kansas Senate Education
+    state: KS
+    jurisdiction: kansas
+    type: committee
+    target_id: ks-senate-education
+    tab_pane: pane-kansas
+
+  # ——— Colorado ———
+  - id: colorado-floor
+    title: Colorado General Assembly
+    state: CO
+    jurisdiction: colorado
+    type: floor
+    target_id: colorado-floor
+    tab_pane: pane-colorado
+    embed_url: https://coloradochannel.net/watch-meetings/
+    external_url: https://leg.colorado.gov/watch-and-listen
+    youtube_url: https://coloradochannel.net/watch-meetings/
+
+  # ——— Arizona ———
+  - id: arizona-floor
+    title: Arizona Legislature
+    state: AZ
+    jurisdiction: arizona
+    type: floor
+    target_id: arizona-floor
+    tab_pane: pane-arizona
+    youtube_channel_id: UCR9-72f8u572x5cO5G_s-PA
+    youtube_url: https://www.youtube.com/user/arizonacapitoltv
+
+  # ——— Utah ———
+  - id: utah-floor
+    title: Utah Legislature
+    state: UT
+    jurisdiction: utah
+    type: floor
+    target_id: utah-floor
+    tab_pane: pane-utah
+    youtube_channel_id: UCY4k63K-25eH43_x_J4-d1A
+    youtube_url: https://www.youtube.com/user/UtahLegislature
+
+  # ——— Maine ———
+  - id: maine-floor
+    title: Maine Legislature
+    state: ME
+    jurisdiction: maine
+    type: floor
+    target_id: maine-floor
+    tab_pane: pane-maine
+    youtube_channel_id: UCJVLbCO6mq1wb12kTyljD8w
+    youtube_url: https://www.youtube.com/channel/UCJVLbCO6mq1wb12kTyljD8w
+
+  # ——— U.S. House ———
+  - id: us-house-floor
+    title: US House Floor
+    state: Federal
+    jurisdiction: us-house
+    type: floor
+    target_id: house-floor-section
+    tab_pane: pane-house
+    embed_url: https://live.house.gov/
+    youtube_channel_id: UC2T-e0o8_5QYd21ZJ1pB90w
+    youtube_url: https://www.youtube.com/@USHouseClerk/live
+    external_url: https://live.house.gov/
+
+  - id: us-house-judiciary
+    title: US House Judiciary Committee
+    state: Federal
+    jurisdiction: us-house
+    type: committee
+    target_id: house-judiciary
+    tab_pane: pane-house
+
+  - id: us-house-oversight
+    title: US House Oversight & Accountability
+    state: Federal
+    jurisdiction: us-house
+    type: committee
+    target_id: house-oversight
+    tab_pane: pane-house
+
+  - id: us-house-armed
+    title: US House Armed Services
+    state: Federal
+    jurisdiction: us-house
+    type: committee
+    target_id: house-armed
+    tab_pane: pane-house
+
+  - id: us-house-energy
+    title: US House Energy & Commerce
+    state: Federal
+    jurisdiction: us-house
+    type: committee
+    target_id: house-energy
+    tab_pane: pane-house
+
+  - id: us-house-waysmeans
+    title: US House Ways & Means
+    state: Federal
+    jurisdiction: us-house
+    type: committee
+    target_id: house-waysmeans
+    tab_pane: pane-house
+
+  # ——— U.S. Senate ———
+  - id: us-senate-floor
+    title: US Senate Floor
+    state: Federal
+    jurisdiction: us-senate
+    type: floor
+    target_id: senate-floor-section
+    tab_pane: pane-senate
+    embed_url: https://www.senate.gov/floor/
+    external_url: https://www.senate.gov/floor/
+
+  - id: us-senate-judiciary
+    title: US Senate Judiciary
+    state: Federal
+    jurisdiction: us-senate
+    type: committee
+    target_id: senate-judiciary
+    tab_pane: pane-senate
+
+  - id: us-senate-commerce
+    title: US Senate Commerce
+    state: Federal
+    jurisdiction: us-senate
+    type: committee
+    target_id: senate-commerce
+    tab_pane: pane-senate
+
+  - id: us-senate-armed
+    title: US Senate Armed Services
+    state: Federal
+    jurisdiction: us-senate
+    type: committee
+    target_id: senate-armed
+    tab_pane: pane-senate
+
+  - id: us-senate-finance
+    title: US Senate Finance
+    state: Federal
+    jurisdiction: us-senate
+    type: committee
+    target_id: senate-finance
+    tab_pane: pane-senate
+
+# Default floor stream id per state (for hearings page links)
+state_floor_stream:
+  KS: kansas-house-floor
+  CO: colorado-floor
+  AZ: arizona-floor
+  UT: utah-floor
+  ME: maine-floor
+  Federal: us-house-floor

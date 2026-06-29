@@ -65,6 +65,11 @@ jobs:
       - name: Build HTML digest
         run: python src/processing/summarize.py
 
+      - name: Update live stream config and status
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python src/processing/fetch_youtube_live.py
+
       - name: Generate weekly overview (Fridays at 11pm Central, or if >6 days old)
         env:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
