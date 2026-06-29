@@ -27,11 +27,11 @@
   ];
 
   function injectSkipLink() {
-    if (document.querySelector('.skip-link, .cw-skip-link')) return;
+    if (document.querySelector('.cw-skip-link, .skip-link')) return;
     var mainId = document.getElementById('cw-main-content') ? 'cw-main-content' : 'main-content';
     var skip = document.createElement('a');
     skip.href = '#' + mainId;
-    skip.className = 'cw-skip-link sr-only-focusable skip-link';
+    skip.className = 'cw-skip-link';
     skip.textContent = 'Skip to main content';
     document.body.insertBefore(skip, document.body.firstChild);
   }
