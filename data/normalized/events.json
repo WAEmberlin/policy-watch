@@ -34,6 +34,23 @@
     "updated_at": "2026-07-15"
   },
   {
+    "id": "119427",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "“Direct Contracting: A Prescription for Lower Health Care Costs”",
+    "description": "Congressional meeting before the House Education and Workforce Subcommittee on Health, Employment, Labor, and Pensions.",
+    "scheduled_date": "2026-07-01",
+    "scheduled_time": "14:15",
+    "location": "Room 2175, Rayburn House Office Building",
+    "chamber": "House",
+    "committees": [
+      "House Education and Workforce Subcommittee on Health, Employment, Labor, and Pensions"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119427",
+    "updated_at": "2026-07-01"
+  },
+  {
     "id": "119407",
     "source": "congress",
     "level": "federal",
@@ -63,23 +80,6 @@
       "House Small Business"
     ],
     "url": "https://www.congress.gov/event/119th-congress/house-event/119426",
-    "updated_at": "2026-07-01"
-  },
-  {
-    "id": "119427",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "“Direct Contracting: A Prescription for Lower Health Care Costs”",
-    "description": "Congressional meeting before the House Education and Workforce Subcommittee on Health, Employment, Labor, and Pensions.",
-    "scheduled_date": "2026-07-01",
-    "scheduled_time": "14:15",
-    "location": "Room 2175, Rayburn House Office Building",
-    "chamber": "House",
-    "committees": [
-      "House Education and Workforce Subcommittee on Health, Employment, Labor, and Pensions"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/119427",
     "updated_at": "2026-07-01"
   },
   {
@@ -151,20 +151,54 @@
     "updated_at": "2026-07-01"
   },
   {
-    "id": "119419",
+    "id": "119363",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "\"Taking Account: Implementation of the Coast Guard Authorization Act of 2025, Reconciliation, and Force Design 2028.\"",
-    "description": "Congressional meeting before the House Transportation and Infrastructure Subcommittee on Coast Guard and Maritime Transportation.",
+    "title": "“Northern Exposure: Assessing the Evolving Threat Landscape at America's Northern Border”",
+    "description": "Congressional meeting before the Homeland Security Subcommittee on Border Security and Enforcement.",
     "scheduled_date": "2026-06-30",
-    "scheduled_time": "14:00",
-    "location": "Room 2167, Rayburn House Office Building",
+    "scheduled_time": "18:00",
+    "location": "Room 310, Cannon House Office Building",
     "chamber": "House",
     "committees": [
-      "House Transportation and Infrastructure Subcommittee on Coast Guard and Maritime Transportation"
+      "Homeland Security Subcommittee on Border Security and Enforcement"
     ],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/119419",
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119363",
+    "updated_at": "2026-06-30"
+  },
+  {
+    "id": "119423",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "American Global Competitiveness at 250: Legislative Proposals to Secure U.S. Technology Leadership.",
+    "description": "Congressional meeting before the House Energy and Commerce Subcommittee on Commerce, Manufacturing, and Trade.",
+    "scheduled_date": "2026-06-30",
+    "scheduled_time": "18:00",
+    "location": "Room 2123, Rayburn House Office Building",
+    "chamber": "House",
+    "committees": [
+      "House Energy and Commerce Subcommittee on Commerce, Manufacturing, and Trade"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119423",
+    "updated_at": "2026-06-30"
+  },
+  {
+    "id": "119422",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Memorializing our Veterans: Outreach, Upkeep, and Community Partnerships \r\nat Veterans Cemeteries",
+    "description": "Congressional meeting before the House Veterans' Affairs Subcommittee on Disability Assistance and Memorial Affairs.",
+    "scheduled_date": "2026-06-30",
+    "scheduled_time": "18:15",
+    "location": "Room 360, Cannon House Office Building",
+    "chamber": "House",
+    "committees": [
+      "House Veterans' Affairs Subcommittee on Disability Assistance and Memorial Affairs"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119422",
     "updated_at": "2026-06-30"
   },
   {
@@ -185,20 +219,20 @@
     "updated_at": "2026-06-30"
   },
   {
-    "id": "119363",
+    "id": "119419",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "“Northern Exposure: Assessing the Evolving Threat Landscape at America's Northern Border”",
-    "description": "Congressional meeting before the Homeland Security Subcommittee on Border Security and Enforcement.",
+    "title": "\"Taking Account: Implementation of the Coast Guard Authorization Act of 2025, Reconciliation, and Force Design 2028.\"",
+    "description": "Congressional meeting before the House Transportation and Infrastructure Subcommittee on Coast Guard and Maritime Transportation.",
     "scheduled_date": "2026-06-30",
-    "scheduled_time": "18:00",
-    "location": "Room 310, Cannon House Office Building",
+    "scheduled_time": "14:00",
+    "location": "Room 2167, Rayburn House Office Building",
     "chamber": "House",
     "committees": [
-      "Homeland Security Subcommittee on Border Security and Enforcement"
+      "House Transportation and Infrastructure Subcommittee on Coast Guard and Maritime Transportation"
     ],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/119363",
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119419",
     "updated_at": "2026-06-30"
   },
   {
@@ -253,23 +287,6 @@
     "updated_at": "2026-06-30"
   },
   {
-    "id": "119423",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "American Global Competitiveness at 250: Legislative Proposals to Secure U.S. Technology Leadership.",
-    "description": "Congressional meeting before the House Energy and Commerce Subcommittee on Commerce, Manufacturing, and Trade.",
-    "scheduled_date": "2026-06-30",
-    "scheduled_time": "18:00",
-    "location": "Room 2123, Rayburn House Office Building",
-    "chamber": "House",
-    "committees": [
-      "House Energy and Commerce Subcommittee on Commerce, Manufacturing, and Trade"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/119423",
-    "updated_at": "2026-06-30"
-  },
-  {
     "id": "119425",
     "source": "congress",
     "level": "federal",
@@ -284,23 +301,6 @@
       "House Ways and Means"
     ],
     "url": "https://www.congress.gov/event/119th-congress/house-event/119425",
-    "updated_at": "2026-06-30"
-  },
-  {
-    "id": "119422",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Memorializing our Veterans: Outreach, Upkeep, and Community Partnerships \r\nat Veterans Cemeteries",
-    "description": "Congressional meeting before the House Veterans' Affairs Subcommittee on Disability Assistance and Memorial Affairs.",
-    "scheduled_date": "2026-06-30",
-    "scheduled_time": "18:15",
-    "location": "Room 360, Cannon House Office Building",
-    "chamber": "House",
-    "committees": [
-      "House Veterans' Affairs Subcommittee on Disability Assistance and Memorial Affairs"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/119422",
     "updated_at": "2026-06-30"
   },
   {
@@ -404,6 +404,23 @@
     ],
     "url": "https://www.congress.gov/event/119th-congress/house-event/118853",
     "updated_at": "2026-06-29"
+  },
+  {
+    "id": "119410",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "“Combating Waste, Fraud, and Abuse in SNAP”",
+    "description": "Congressional meeting before the House Oversight and Government Reform Subcommittee on Delivering on Government Efficiency.",
+    "scheduled_date": "2026-06-25",
+    "scheduled_time": "14:00",
+    "location": "Room 2154, Rayburn House Office Building",
+    "chamber": "House",
+    "committees": [
+      "House Oversight and Government Reform Subcommittee on Delivering on Government Efficiency"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119410",
+    "updated_at": "2026-06-25"
   },
   {
     "id": "119420",
@@ -654,23 +671,6 @@
       "House Veterans' Affairs Subcommittee on Disability Assistance and Memorial Affairs"
     ],
     "url": "https://www.congress.gov/event/119th-congress/house-event/119403",
-    "updated_at": "2026-06-25"
-  },
-  {
-    "id": "119410",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "“Combating Waste, Fraud, and Abuse in SNAP”",
-    "description": "Congressional meeting before the House Oversight and Government Reform Subcommittee on Delivering on Government Efficiency.",
-    "scheduled_date": "2026-06-25",
-    "scheduled_time": "14:00",
-    "location": "Room 2154, Rayburn House Office Building",
-    "chamber": "House",
-    "committees": [
-      "House Oversight and Government Reform Subcommittee on Delivering on Government Efficiency"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/119410",
     "updated_at": "2026-06-25"
   },
   {
@@ -1556,23 +1556,6 @@
     "updated_at": "2026-06-12"
   },
   {
-    "id": "119355",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "[POSTPONED] “Calling the Fouls: Accountability and Transparency in NCAA Enforcement”",
-    "description": "Postponed congressional meeting before the House Education and Workforce.",
-    "scheduled_date": "2026-06-12",
-    "scheduled_time": "13:00",
-    "location": "",
-    "chamber": "House",
-    "committees": [
-      "House Education and Workforce"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/119355",
-    "updated_at": "2026-06-12"
-  },
-  {
     "id": "338552",
     "source": "congress",
     "level": "federal",
@@ -1879,6 +1862,21 @@
     "updated_at": "2026-06-10"
   },
   {
+    "id": "119329",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Various Measures",
+    "description": "Congressional meeting in the House.",
+    "scheduled_date": "2026-06-09",
+    "scheduled_time": "14:00",
+    "location": "Room 2172, Rayburn House Office Building",
+    "chamber": "House",
+    "committees": [],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119329",
+    "updated_at": "2026-06-09"
+  },
+  {
     "id": "119358",
     "source": "congress",
     "level": "federal",
@@ -1910,21 +1908,6 @@
       "House Judiciary"
     ],
     "url": "https://www.congress.gov/event/119th-congress/house-event/119365",
-    "updated_at": "2026-06-09"
-  },
-  {
-    "id": "119329",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Various Measures",
-    "description": "Congressional meeting in the House.",
-    "scheduled_date": "2026-06-09",
-    "scheduled_time": "14:00",
-    "location": "Room 2172, Rayburn House Office Building",
-    "chamber": "House",
-    "committees": [],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/119329",
     "updated_at": "2026-06-09"
   },
   {
