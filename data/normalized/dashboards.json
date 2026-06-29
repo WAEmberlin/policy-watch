@@ -2,6 +2,34 @@
   "whats_new_today": [],
   "recent_bills": [
     {
+      "id": "119-S-1003",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "bill_number": "S 1003",
+      "title": "Lulu’s Law",
+      "summary": "",
+      "classification": [],
+      "sponsors": [],
+      "latest_action": "Signed by President.",
+      "latest_action_date": "2026-06-26T00:00:00",
+      "status": "Signed by President.",
+      "chamber": "Senate",
+      "votes": [],
+      "committees": [],
+      "events": [],
+      "document_urls": [
+        "https://www.congress.gov/bill/119th-congress/senate-bill/1003"
+      ],
+      "updated_at": "2026-06-26T00:00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1003",
+      "ai_summary_short": "",
+      "ai_summary_detailed": "",
+      "ai_impact_analysis": "",
+      "ai_topics": [],
+      "ai_tags": []
+    },
+    {
       "id": "119-HR-2478",
       "source": "congress",
       "level": "federal",
@@ -1012,6 +1040,74 @@
   ],
   "upcoming_hearings": [
     {
+      "id": "119419",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "title": "\"Taking Account: Implementation of the Coast Guard Authorization Act of 2025, Reconciliation, and Force Design 2028.\"",
+      "description": "Congressional meeting before the House Transportation and Infrastructure Subcommittee on Coast Guard and Maritime Transportation.",
+      "scheduled_date": "2026-06-30",
+      "scheduled_time": "14:00",
+      "location": "Room 2167, Rayburn House Office Building",
+      "chamber": "House",
+      "committees": [
+        "House Transportation and Infrastructure Subcommittee on Coast Guard and Maritime Transportation"
+      ],
+      "url": "https://www.congress.gov/event/119th-congress/house-event/119419",
+      "updated_at": "2026-06-30"
+    },
+    {
+      "id": "119416",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "title": "H.R.4398, the “Veteran Burial Timeliness and Death Certificate Accountability Act”; \r\nH.R.4805, the “Warrior Impact from Neurological and G-Force Stress Act”; \r\nH.R.6835, the “Veterans Spinal Trauma Access to New Devices Act”; \r\nH.R.9376, the “Trauma Outreach, Understanding, and Resiliency through Spirituality Act”; \r\nH.R.9316, the “Travel Assistance for Veterans in Medical Deserts Act”; \r\nDiscussion Draft: the “Foreign Medical Program Integrity and Improvement Act”; \r\nDiscussion Draft: To direct the Secretary of Veterans Affairs to seek to enter into a memorandum of \r\nunderstanding with the Secretary of Health and Human Services to avoid duplicative, improper, or \r\nerroneous billings or payments for hospital care and medical services furnished under the laws \r\nadministered by the Secretary of Veterans Affairs; \r\nDiscussion Draft: To direct the Secretary of Veterans Affairs to coordinate with the Secretary of \r\nHealth and Human Services in administering the Veterans Community Care Program, and for other \r\npurposes; \r\nDiscussion Draft: To direct the Secretary of Veterans Affairs to seek to enter into a memorandum of \r\nunderstanding with the Secretary of Health and Human Services and to provide for coordination \r\nbetween the Secretaries in the administration of the Veterans Community Care Program and certain \r\nhealth plans under the Medicare program, and for other purposes; \r\nDiscussion Draft: VA Coaching into Care Act;  \r\nDiscussion Draft: National Task Force on Caregiving Youth of Veterans Act; \r\nDiscussion Draft: the “VHA OPEN Policies Act of 2026”; \r\nDiscussion Draft: “To direct the Secretary of Veterans Affairs to report biennially on staffing of \r\nmedical facilities of the Department of Veterans Affairs”; \r\nH.R.9018: “Fostering TRUST Act of 2026”; \r\nDiscussion Draft: the “Veterans Health Administration Personnel Transparency and Accountability \r\nAct” \r\nAct”",
+      "description": "Congressional meeting before the House Veterans' Affairs Subcommittee on Health.",
+      "scheduled_date": "2026-06-30",
+      "scheduled_time": "14:15",
+      "location": "Room 360, Cannon House Office Building",
+      "chamber": "House",
+      "committees": [
+        "House Veterans' Affairs Subcommittee on Health"
+      ],
+      "url": "https://www.congress.gov/event/119th-congress/house-event/119416",
+      "updated_at": "2026-06-30"
+    },
+    {
+      "id": "119363",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "title": "“Northern Exposure: Assessing the Evolving Threat Landscape at America's Northern Border”",
+      "description": "Congressional meeting before the Homeland Security Subcommittee on Border Security and Enforcement.",
+      "scheduled_date": "2026-06-30",
+      "scheduled_time": "18:00",
+      "location": "Room 310, Cannon House Office Building",
+      "chamber": "House",
+      "committees": [
+        "Homeland Security Subcommittee on Border Security and Enforcement"
+      ],
+      "url": "https://www.congress.gov/event/119th-congress/house-event/119363",
+      "updated_at": "2026-06-30"
+    },
+    {
+      "id": "119435",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "title": "Oversight of the National Telecommunications and Information Administration",
+      "description": "Congressional meeting before the House Energy and Commerce Subcommittee on Communications and Technology.",
+      "scheduled_date": "2026-06-30",
+      "scheduled_time": "14:00",
+      "location": "",
+      "chamber": "House",
+      "committees": [
+        "House Energy and Commerce Subcommittee on Communications and Technology"
+      ],
+      "url": "https://www.congress.gov/event/119th-congress/house-event/119435",
+      "updated_at": "2026-06-30"
+    },
+    {
       "id": "119418",
       "source": "congress",
       "level": "federal",
@@ -1043,23 +1139,6 @@
         "House Financial Services"
       ],
       "url": "https://www.congress.gov/event/119th-congress/house-event/119430",
-      "updated_at": "2026-06-30"
-    },
-    {
-      "id": "119416",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "title": "H.R.4398, the “Veteran Burial Timeliness and Death Certificate Accountability Act”; \r\nH.R.4805, the “Warrior Impact from Neurological and G-Force Stress Act”; \r\nH.R.6835, the “Veterans Spinal Trauma Access to New Devices Act”; \r\nH.R.9376, the “Trauma Outreach, Understanding, and Resiliency through Spirituality Act”; \r\nH.R.9316, the “Travel Assistance for Veterans in Medical Deserts Act”; \r\nDiscussion Draft: the “Foreign Medical Program Integrity and Improvement Act”; \r\nDiscussion Draft: To direct the Secretary of Veterans Affairs to seek to enter into a memorandum of \r\nunderstanding with the Secretary of Health and Human Services to avoid duplicative, improper, or \r\nerroneous billings or payments for hospital care and medical services furnished under the laws \r\nadministered by the Secretary of Veterans Affairs; \r\nDiscussion Draft: To direct the Secretary of Veterans Affairs to coordinate with the Secretary of \r\nHealth and Human Services in administering the Veterans Community Care Program, and for other \r\npurposes; \r\nDiscussion Draft: To direct the Secretary of Veterans Affairs to seek to enter into a memorandum of \r\nunderstanding with the Secretary of Health and Human Services and to provide for coordination \r\nbetween the Secretaries in the administration of the Veterans Community Care Program and certain \r\nhealth plans under the Medicare program, and for other purposes; \r\nDiscussion Draft: VA Coaching into Care Act;  \r\nDiscussion Draft: National Task Force on Caregiving Youth of Veterans Act; \r\nDiscussion Draft: the “VHA OPEN Policies Act of 2026”; \r\nDiscussion Draft: “To direct the Secretary of Veterans Affairs to report biennially on staffing of \r\nmedical facilities of the Department of Veterans Affairs”; \r\nH.R.9018: “Fostering TRUST Act of 2026”; \r\nDiscussion Draft: the “Veterans Health Administration Personnel Transparency and Accountability \r\nAct” \r\nAct”",
-      "description": "Congressional meeting before the House Veterans' Affairs Subcommittee on Health.",
-      "scheduled_date": "2026-06-30",
-      "scheduled_time": "14:15",
-      "location": "Room 360, Cannon House Office Building",
-      "chamber": "House",
-      "committees": [
-        "House Veterans' Affairs Subcommittee on Health"
-      ],
-      "url": "https://www.congress.gov/event/119th-congress/house-event/119416",
       "updated_at": "2026-06-30"
     },
     {
@@ -1114,23 +1193,6 @@
       "updated_at": "2026-06-30"
     },
     {
-      "id": "119435",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "title": "Oversight of the National Telecommunications and Information Administration",
-      "description": "Congressional meeting before the House Energy and Commerce Subcommittee on Communications and Technology.",
-      "scheduled_date": "2026-06-30",
-      "scheduled_time": "14:00",
-      "location": "",
-      "chamber": "House",
-      "committees": [
-        "House Energy and Commerce Subcommittee on Communications and Technology"
-      ],
-      "url": "https://www.congress.gov/event/119th-congress/house-event/119435",
-      "updated_at": "2026-06-30"
-    },
-    {
       "id": "119431",
       "source": "congress",
       "level": "federal",
@@ -1162,23 +1224,6 @@
         "House Foreign Affairs Subcommittee on Europe"
       ],
       "url": "https://www.congress.gov/event/119th-congress/house-event/119256",
-      "updated_at": "2026-06-30"
-    },
-    {
-      "id": "119363",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "title": "“Northern Exposure: Assessing the Evolving Threat Landscape at America's Northern Border”",
-      "description": "Congressional meeting before the Homeland Security Subcommittee on Border Security and Enforcement.",
-      "scheduled_date": "2026-06-30",
-      "scheduled_time": "18:00",
-      "location": "Room 310, Cannon House Office Building",
-      "chamber": "House",
-      "committees": [
-        "Homeland Security Subcommittee on Border Security and Enforcement"
-      ],
-      "url": "https://www.congress.gov/event/119th-congress/house-event/119363",
       "updated_at": "2026-06-30"
     },
     {
@@ -1233,6 +1278,55 @@
       "updated_at": "2026-06-30"
     },
     {
+      "id": "119407",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "title": "updated Subcommittee rosters due to changes on the Majority side; General Services Administration Capital Investment and Leasing Program Resolutions' an ANS to H.R. ____, the \"Water Resources Development Act of 2026\"; and other matters cleared for consideration",
+      "description": "Congressional meeting in the House.",
+      "scheduled_date": "2026-07-01",
+      "scheduled_time": "14:00",
+      "location": "Room 2167, Rayburn House Office Building",
+      "chamber": "House",
+      "committees": [],
+      "url": "https://www.congress.gov/event/119th-congress/house-event/119407",
+      "updated_at": "2026-07-01"
+    },
+    {
+      "id": "119426",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "title": "“250 Years of American Legacy: Small Businesses and the American Dream.”",
+      "description": "Congressional meeting before the House Small Business.",
+      "scheduled_date": "2026-07-01",
+      "scheduled_time": "14:00",
+      "location": "Room 2360, Rayburn House Office Building",
+      "chamber": "House",
+      "committees": [
+        "House Small Business"
+      ],
+      "url": "https://www.congress.gov/event/119th-congress/house-event/119426",
+      "updated_at": "2026-07-01"
+    },
+    {
+      "id": "119427",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "title": "“Direct Contracting: A Prescription for Lower Health Care Costs”",
+      "description": "Congressional meeting before the House Education and Workforce Subcommittee on Health, Employment, Labor, and Pensions.",
+      "scheduled_date": "2026-07-01",
+      "scheduled_time": "14:15",
+      "location": "Room 2175, Rayburn House Office Building",
+      "chamber": "House",
+      "committees": [
+        "House Education and Workforce Subcommittee on Health, Employment, Labor, and Pensions"
+      ],
+      "url": "https://www.congress.gov/event/119th-congress/house-event/119427",
+      "updated_at": "2026-07-01"
+    },
+    {
       "id": "119429",
       "source": "congress",
       "level": "federal",
@@ -1267,23 +1361,6 @@
       "updated_at": "2026-07-01"
     },
     {
-      "id": "119426",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "title": "“250 Years of American Legacy: Small Businesses and the American Dream.”",
-      "description": "Congressional meeting before the House Small Business.",
-      "scheduled_date": "2026-07-01",
-      "scheduled_time": "14:00",
-      "location": "Room 2360, Rayburn House Office Building",
-      "chamber": "House",
-      "committees": [
-        "House Small Business"
-      ],
-      "url": "https://www.congress.gov/event/119th-congress/house-event/119426",
-      "updated_at": "2026-07-01"
-    },
-    {
       "id": "119428",
       "source": "congress",
       "level": "federal",
@@ -1298,23 +1375,6 @@
         "House Science, Space, and Technology"
       ],
       "url": "https://www.congress.gov/event/119th-congress/house-event/119428",
-      "updated_at": "2026-07-01"
-    },
-    {
-      "id": "119427",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "title": "“Direct Contracting: A Prescription for Lower Health Care Costs”",
-      "description": "Congressional meeting before the House Education and Workforce Subcommittee on Health, Employment, Labor, and Pensions.",
-      "scheduled_date": "2026-07-01",
-      "scheduled_time": "14:15",
-      "location": "Room 2175, Rayburn House Office Building",
-      "chamber": "House",
-      "committees": [
-        "House Education and Workforce Subcommittee on Health, Employment, Labor, and Pensions"
-      ],
-      "url": "https://www.congress.gov/event/119th-congress/house-event/119427",
       "updated_at": "2026-07-01"
     },
     {
@@ -8994,6 +9054,34 @@
   ],
   "signed_into_law": [
     {
+      "id": "119-S-1003",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "bill_number": "S 1003",
+      "title": "Lulu’s Law",
+      "summary": "",
+      "classification": [],
+      "sponsors": [],
+      "latest_action": "Signed by President.",
+      "latest_action_date": "2026-06-26T00:00:00",
+      "status": "Signed by President.",
+      "chamber": "Senate",
+      "votes": [],
+      "committees": [],
+      "events": [],
+      "document_urls": [
+        "https://www.congress.gov/bill/119th-congress/senate-bill/1003"
+      ],
+      "updated_at": "2026-06-26T00:00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1003",
+      "ai_summary_short": "",
+      "ai_summary_detailed": "",
+      "ai_impact_analysis": "",
+      "ai_topics": [],
+      "ai_tags": []
+    },
+    {
       "id": "119-S-254",
       "source": "congress",
       "level": "federal",
@@ -10364,38 +10452,38 @@
       "ai_impact_analysis": "",
       "ai_topics": [],
       "ai_tags": []
-    },
-    {
-      "id": "119-S-201",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "S 201",
-      "title": "ACES Act of 2025",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Became Public Law No: 119-32.",
-      "latest_action_date": "2025-08-14T00:00:00",
-      "status": "Became Public Law No: 119-32.",
-      "chamber": "Senate",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/senate-bill/201"
-      ],
-      "updated_at": "2025-08-14T00:00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/senate-bill/201",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
     }
   ],
   "by_state": {
     "Federal": [
+      {
+        "id": "119-S-1003",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "S 1003",
+        "title": "Lulu’s Law",
+        "summary": "",
+        "classification": [],
+        "sponsors": [],
+        "latest_action": "Signed by President.",
+        "latest_action_date": "2026-06-26T00:00:00",
+        "status": "Signed by President.",
+        "chamber": "Senate",
+        "votes": [],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/senate-bill/1003"
+        ],
+        "updated_at": "2026-06-26T00:00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1003",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
       {
         "id": "119-HR-2478",
         "source": "congress",
@@ -11683,8 +11771,8 @@
         "committees": [],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hr_6047/hr6047_enrolled.pdf",
-          "https://www.congress.gov/bill/119th-congress/house-bill/6047"
+          "https://www.congress.gov/bill/119th-congress/house-bill/6047",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hr_6047/hr6047_enrolled.pdf"
         ],
         "updated_at": "2026-06-02T00:00:00",
         "url": "https://www.congress.gov/bill/119th-congress/house-bill/6047",
@@ -13521,11 +13609,11 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2312_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2312/hb2312_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2312/",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2312/hb2312_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2312_01_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2312/hb2312_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2312_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2312_00_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2312/"
         ],
         "updated_at": "2026-05-05T15:57:12+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2312/",
@@ -13744,8 +13832,8 @@
         ],
         "events": [],
         "document_urls": [
-          "https://www.kslegislature.gov/li/b2025_26/measures/SB152/",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb152_00_0000/fisc_note_sb152_00_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/SB152/",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_152/sb152_00_0000.pdf"
         ],
         "updated_at": "2026-04-29T16:17:38+00:00",
@@ -13835,9 +13923,9 @@
         "events": [],
         "document_urls": [
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2083_00_0000/fisc_note_hb2083_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2083_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2083/hb2083_00_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/HB2083/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2083/hb2083_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2083_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2083/hb2083_01_0000.pdf"
         ],
         "updated_at": "2026-04-27T14:18:10+00:00",
@@ -14046,13 +14134,13 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_enrolled.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2044_00_0000/fisc_note_hb2044_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2044_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2044_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2044_00_0000/fisc_note_hb2044_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_enrolled.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_01_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/HB2044/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2044_01_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_00_0000.pdf"
         ],
         "updated_at": "2026-03-27T23:25:55+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2044/",
@@ -14442,14 +14530,14 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2043_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2043_00_0000/fisc_note_hb2043_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_enrolled.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_02_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2043/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2043_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2043_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_00_0000.pdf"
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2043/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_enrolled.pdf"
         ],
         "updated_at": "2026-03-27T23:24:09+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2043/",
@@ -14890,15 +14978,15 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_01_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2192/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_03_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_enrolled.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_03_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_02_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2192/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_03_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_03_0000.pdf"
         ],
         "updated_at": "2026-03-26T18:47:22+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2192/",
@@ -15337,16 +15425,16 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_03_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_03_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/SCR1603/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_04_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_03_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_03_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_02_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_04_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_04_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_02_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_01_0000.pdf"
         ],
         "updated_at": "2026-03-19T15:09:26+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1603/",
@@ -15755,9 +15843,9 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb534_00_0000/fisc_note_sb534_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_534/sb534_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/SB534/"
+          "https://www.kslegislature.gov/li/b2025_26/measures/SB534/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb534_00_0000/fisc_note_sb534_00_0000.pdf"
         ],
         "updated_at": "2026-03-10T22:45:23+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB534/",
@@ -15918,8 +16006,8 @@
         ],
         "events": [],
         "document_urls": [
-          "https://www.kslegislature.gov/li/b2025_26/measures/HCR5035/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hcr_5035/hcr5035_00_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hcr_5035/hcr5035_00_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HCR5035/"
         ],
         "updated_at": "2026-03-09T17:05:48+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5035/",
@@ -15991,8 +16079,8 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1624/scr1624_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/SCR1624/"
+          "https://www.kslegislature.gov/li/b2025_26/measures/SCR1624/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1624/scr1624_00_0000.pdf"
         ],
         "updated_at": "2026-03-04T22:16:15+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1624/",
@@ -16065,8 +16153,8 @@
         "events": [],
         "document_urls": [
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2791/hb2791_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2791_00_0000/fisc_note_hb2791_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2791/"
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2791/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2791_00_0000/fisc_note_hb2791_00_0000.pdf"
         ],
         "updated_at": "2026-03-04T18:21:13+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2791/",
@@ -16354,8 +16442,8 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hcr_5034/hcr5034_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HCR5034/"
+          "https://www.kslegislature.gov/li/b2025_26/measures/HCR5034/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hcr_5034/hcr5034_00_0000.pdf"
         ],
         "updated_at": "2026-03-04T18:20:42+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5034/",
@@ -16475,11 +16563,11 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_sb33_02_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_sb33_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_02_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb33_00_0000/fisc_note_sb33_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_sb33_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_00_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/SB33/",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_01_0000.pdf"
         ],
@@ -16744,11 +16832,11 @@
         ],
         "events": [],
         "document_urls": [
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2377/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2377_00_0000/fisc_note_hb2377_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2377_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2377/hb2377_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2377/hb2377_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2377_01_0000.pdf"
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2377/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2377_00_0000/fisc_note_hb2377_00_0000.pdf"
         ],
         "updated_at": "2026-02-18T19:22:56+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2377/",
@@ -16912,8 +17000,8 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2782_00_0000/fisc_note_hb2782_00_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/HB2782/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2782_00_0000/fisc_note_hb2782_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2782/hb2782_00_0000.pdf"
         ],
         "updated_at": "2026-02-18T19:02:22+00:00",
@@ -17019,8 +17107,8 @@
         "events": [],
         "document_urls": [
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2408/hb2408_01_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2408/",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2408_01_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2408/",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2408/hb2408_00_0000.pdf"
         ],
         "updated_at": "2026-02-12T00:20:12+00:00",
@@ -17229,17 +17317,17 @@
         ],
         "events": [],
         "document_urls": [
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2745/",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2745_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2745/hb2745_00_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2745/",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2745_03_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2745/hb2745_enrolled.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2745_04_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2745/hb2745_03_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2745/hb2745_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2745_00_0000/fisc_note_hb2745_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2745/hb2745_enrolled.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2745_02_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2745/hb2745_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2745/hb2745_03_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2745/hb2745_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2745_04_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2745_00_0000/fisc_note_hb2745_00_0000.pdf"
         ],
         "updated_at": "2026-02-06T19:45:43+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2745/",
