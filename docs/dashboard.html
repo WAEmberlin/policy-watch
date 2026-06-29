@@ -3,47 +3,65 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>CivicWatch Dashboards</title>
+<title>Dashboards — CivicWatch</title>
+<link rel="stylesheet" href="theme.css" />
+<link rel="stylesheet" href="sr-only.css" />
+<script src="theme.js"></script>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
     theme: {
         extend: {
             colors: {
-                civic: { navy: '#001f3f', gold: '#ffc107', blue: '#1a73e8', 'blue-dark': '#1557b0' }
+                white: 'var(--cw-white)',
+                civic: {
+                    navy: 'var(--cw-navy)',
+                    gold: 'var(--cw-gold)',
+                    blue: 'var(--cw-blue)',
+                    'blue-dark': 'var(--cw-blue-dark)',
+                },
+                slate: {
+                    50: 'var(--cw-slate-50)',
+                    100: 'var(--cw-slate-100)',
+                    200: 'var(--cw-slate-200)',
+                    300: 'var(--cw-slate-300)',
+                    400: 'var(--cw-slate-400)',
+                    500: 'var(--cw-slate-500)',
+                    600: 'var(--cw-slate-600)',
+                    700: 'var(--cw-slate-700)',
+                    800: 'var(--cw-slate-800)',
+                }
             }
         }
     }
 }
 </script>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-<div class="max-w-6xl mx-auto px-4 py-8">
-    <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-        <div class="bg-gradient-to-r from-civic-navy to-slate-800 px-8 py-6">
+<body class="cw-page-bg min-h-screen" data-cw-page="dashboard">
+<div id="cw-page-wrapper" class="max-w-6xl mx-auto px-4 py-4">
+<main id="cw-main-content">
+    <div class="cw-card shadow-xl">
+        <div class="cw-card-header">
             <div class="flex flex-wrap items-center justify-between gap-4">
                 <div>
                     <h1 class="text-3xl font-bold"><span class="text-white">Civic</span><span class="text-civic-gold">Watch</span> Dashboards</h1>
                     <p class="text-slate-300 text-sm mt-1">Multi-state legislative intelligence</p>
                 </div>
-                <div class="flex gap-3">
-                    <a href="index.html" class="px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg text-sm">Main Feed</a>
-                    <a href="legislators.html" class="px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg text-sm">Legislators</a>
-                    <a href="hearings.html" class="px-4 py-2 bg-civic-blue hover:bg-civic-blue-dark text-white rounded-lg text-sm">Hearings</a>
-                </div>
+                <div data-cw-theme-toggle></div>
             </div>
         </div>
-        <div class="p-6 md:p-8">
+        <div class="cw-card-body p-6 md:p-8">
             <!-- Unified Search -->
-            <div class="mb-8 p-4 bg-slate-50 rounded-xl border border-slate-200">
+            <div class="mb-8 p-4 rounded-xl border" style="background: var(--cw-surface-muted); border-color: var(--cw-border);">
                 <h2 class="text-lg font-semibold text-civic-navy mb-3">Unified Search</h2>
                 <div class="flex flex-wrap gap-3">
                     <input type="text" id="unified-search" placeholder="Search bills across all states (e.g. Veterans)..."
-                           class="flex-1 min-w-[200px] px-4 py-2 border-2 border-slate-200 rounded-lg focus:border-civic-blue outline-none" />
-                    <select id="state-filter" class="px-4 py-2 border-2 border-slate-200 rounded-lg bg-white">
+                           class="flex-1 min-w-[200px] px-4 py-2 border-2 rounded-lg focus:border-civic-blue outline-none"
+                           style="border-color: var(--cw-border); background: var(--cw-surface);" />
+                    <select id="state-filter" class="px-4 py-2 border-2 rounded-lg" style="border-color: var(--cw-border); background: var(--cw-surface);">
                         <option value="">All States</option>
                     </select>
-                    <select id="level-filter" class="px-4 py-2 border-2 border-slate-200 rounded-lg bg-white">
+                    <select id="level-filter" class="px-4 py-2 border-2 rounded-lg" style="border-color: var(--cw-border); background: var(--cw-surface);">
                         <option value="">All Levels</option>
                         <option value="federal">Federal</option>
                         <option value="state">State</option>
@@ -60,10 +78,14 @@ tailwind.config = {
             </div>
         </div>
     </div>
+</main>
 </div>
+<script src="a11y.js"></script>
+<script src="shell.js"></script>
 <script src="bill-utils.js"></script>
 <script src="expansion.js"></script>
 <script>
+CivicWatchShell.init({ page: 'dashboard' });
 document.addEventListener('DOMContentLoaded', () => {
     CivicWatchExpansion.initDashboards();
 });

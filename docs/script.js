@@ -9,9 +9,21 @@ let selectedCategory = "";
 let selectedState = "";
 const DAYS_PER_CHUNK = 7;  // Show 7 days per "page"
 
+function a11yAnnounce(message) {
+    if (window.CivicWatchA11y && typeof CivicWatchA11y.announce === "function" && message) {
+        CivicWatchA11y.announce(message);
+    }
+}
+
+function setContentBusy(isBusy) {
+    const content = document.getElementById("content");
+    if (content) content.setAttribute("aria-busy", isBusy ? "true" : "false");
+}
+
 const STATE_NAMES = { KS: "Kansas", CO: "Colorado", AZ: "Arizona", UT: "Utah", ME: "Maine", Federal: "U.S. Congress" };
 
 function inferItemState(item) {
+    if (typeof CivicWatchHome !== "undefined") return CivicWatchHome.inferItemState(item);
     if (item.level === "federal") return "Federal";
     if (item.state) return item.state;
     const src = (item.source || "").toLowerCase();
@@ -29,13 +41,35 @@ function itemMatchesStateFilter(item) {
     return inferItemState(item) === selectedState;
 }
 
+function refreshView() {
+    updateFilterPills();
+    if (searchMode && searchQuery) {
+        performSearch(searchQuery);
+    } else if (currentYear) {
+        displayUnifiedView(currentYear, currentPage);
+    }
+}
+
+function updateFilterPills() {
+    if (typeof CivicWatchHome === "undefined") return;
+    CivicWatchHome.updateActiveFilterPills({
+        state: selectedState,
+        source: selectedSource,
+        category: selectedCategory,
+        search: searchMode ? searchQuery : "",
+    });
+}
+
 async function loadData() {
+    setContentBusy(true);
     try {
         const res = await fetch("site_data.json");
         allData = await res.json();
     } catch (error) {
+        setContentBusy(false);
         document.getElementById("content").innerHTML = 
-            "<div class='bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg text-red-700'>Error loading data. Please try again later.</div>";
+            "<div class='bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg text-red-700' role='alert'>Error loading data. Please try again later.</div>";
+        a11yAnnounce("Error loading data.");
         return;
     }
     
@@ -60,6 +94,14 @@ async function loadData() {
 
     // Setup filters
     setupFilters();
+
+    if (typeof CivicWatchHome !== "undefined") {
+        CivicWatchHome.fetchWeeklyCounts().then((weeklyCounts) => {
+            CivicWatchHome.renderStateSnapshots(allData, weeklyCounts);
+        });
+        CivicWatchHome.setSelectedState(selectedState);
+    }
+    updateFilterPills();
     
     // Load and display data
     const years = Object.keys(allData.years || {});
@@ -67,6 +109,7 @@ async function loadData() {
     yearTabs.innerHTML = "";
 
     if (years.length === 0) {
+        setContentBusy(false);
         document.getElementById("content").innerHTML = 
             "<p class='text-slate-500 italic text-center py-8'>No data available. Run the backfill script to populate history.</p>";
         return;
@@ -93,9 +136,12 @@ async function loadData() {
     let defaultYearSet = false;
     sortedYears.forEach((year) => {
         const btn = document.createElement("button");
+        btn.type = "button";
         btn.textContent = year;
         btn.className = "year-tab px-5 py-2.5 bg-slate-100 hover:bg-slate-200 border-2 border-transparent rounded-lg font-medium transition-all text-slate-700";
         btn.setAttribute("data-year", year);
+        btn.setAttribute("role", "tab");
+        btn.setAttribute("aria-selected", "false");
         btn.onclick = () => {
             searchMode = false;
             searchQuery = "";
@@ -166,12 +212,10 @@ function setupFilters() {
         });
         stateFilter.addEventListener("change", () => {
             selectedState = stateFilter.value;
+            if (typeof CivicWatchHome !== "undefined") CivicWatchHome.setSelectedState(selectedState);
             currentPage = 0;
-            if (searchMode && searchQuery) {
-                performSearch(searchQuery);
-            } else if (currentYear) {
-                displayUnifiedView(currentYear, 0);
-            }
+            refreshView();
+            a11yAnnounce("State filter applied.");
         });
     }
 
@@ -201,21 +245,15 @@ function setupFilters() {
     sourceFilter.addEventListener("change", () => {
         selectedSource = sourceFilter.value;
         currentPage = 0;
-        if (searchMode && searchQuery) {
-            performSearch(searchQuery);
-        } else if (currentYear) {
-            displayUnifiedView(currentYear, 0);
-        }
+        refreshView();
+        a11yAnnounce("Source filter applied.");
     });
     
     categoryFilter.addEventListener("change", () => {
         selectedCategory = categoryFilter.value;
         currentPage = 0;
-        if (searchMode && searchQuery) {
-            performSearch(searchQuery);
-        } else if (currentYear) {
-            displayUnifiedView(currentYear, 0);
-        }
+        refreshView();
+        a11yAnnounce("Category filter applied.");
     });
     
     const clearBtn = document.getElementById("clear-filters");
@@ -225,12 +263,8 @@ function setupFilters() {
             categoryFilter.value = "";
             selectedSource = "";
             selectedCategory = "";
-            selectedState = "";
-            if (stateFilter) stateFilter.value = "";
             currentPage = 0;
-            if (currentYear) {
-                displayUnifiedView(currentYear, 0);
-            }
+            refreshView();
         };
     }
 }
@@ -278,6 +312,7 @@ function displayUnifiedView(year, chunkIndex) {
     const yearData = allData.years[year];
     if (!yearData) return;
 
+    setContentBusy(true);
     const container = document.getElementById("content");
     container.innerHTML = "";
 
@@ -383,251 +418,48 @@ function displayUnifiedView(year, chunkIndex) {
         allItems.sort((a, b) => (b.published || b.date || "").localeCompare(a.published || a.date || ""));
     }
 
-    // Group by date and source
-    const groupedByDate = {};
+    // Group by date (flat list per day)
+    const itemsByDate = {};
     allItems.forEach(item => {
         const date = item.date || (item.published ? item.published.split("T")[0] : "");
         if (!date) return;
-        
-        if (!groupedByDate[date]) groupedByDate[date] = {};
-        if (!groupedByDate[date][item.source]) groupedByDate[date][item.source] = [];
-        groupedByDate[date][item.source].push(item);
+        if (!itemsByDate[date]) itemsByDate[date] = [];
+        itemsByDate[date].push(item);
     });
 
-    // Get all dates in this chunk (sorted newest first)
-    const chunkDates = Object.keys(groupedByDate).sort().reverse();
-    
-    // Also get all dates from full data structure to show empty states
+    const chunkDates = Object.keys(itemsByDate).sort().reverse();
     const allDatesInYear = Object.keys(grouped).sort().reverse();
-    // Filter to only dates in current chunk
-    const allDatesInChunk = allDatesInYear.filter(date => 
-        isDateInRange(date, dateRange.start, dateRange.end)
-    );
-
-    // Get daily summaries
     const dailySummaries = allData.daily_summaries || {};
-    
-    // Get today's date to check if a day has "ended"
+
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const todayStr = today.toISOString().split('T')[0];
 
-    // Render dates in this chunk (newest first)
-    // Show all dates in the chunk, even if they have no items (for empty state)
-    allDatesInChunk.forEach(date => {
-        const dateSection = document.createElement("div");
-        dateSection.className = "mb-8 p-6 bg-gradient-to-r from-slate-50 to-white rounded-xl border-l-4 border-civic-blue shadow-sm";
+    let renderedDays = 0;
+    chunkDates.forEach(date => {
+        const dayItems = itemsByDate[date];
+        if (!dayItems || dayItems.length === 0) return;
 
-        const dateHeader = document.createElement("h2");
-        dateHeader.className = "text-xl font-bold text-civic-navy mb-4";
-        dateHeader.textContent = formatDate(date);
-        dateSection.appendChild(dateHeader);
-        
-        // Show daily summary if available and the day has ended (not today)
-        const daySummary = dailySummaries[date];
-        if (daySummary && daySummary.summary && date < todayStr) {
-            const summaryDiv = document.createElement("div");
-            summaryDiv.className = "bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-civic-blue p-4 mb-5 rounded-r-lg";
-            
-            const summaryHeader = document.createElement("div");
-            summaryHeader.className = "font-semibold text-civic-blue text-xs uppercase tracking-wider mb-2";
-            summaryHeader.textContent = "Daily Summary";
-            summaryDiv.appendChild(summaryHeader);
-            
-            const summaryText = document.createElement("div");
-            summaryText.className = "text-slate-700 leading-relaxed";
-            summaryText.textContent = daySummary.summary;
-            summaryDiv.appendChild(summaryText);
-            
-            // Show counts if available
-            if (daySummary.counts && daySummary.counts.total > 0) {
-                const countsDiv = document.createElement("div");
-                countsDiv.className = "mt-3 text-sm text-slate-500";
-                const counts = daySummary.counts;
-                let countParts = [];
-                if (counts.kansas_house > 0 || counts.kansas_senate > 0) {
-                    const ks = [];
-                    if (counts.kansas_house > 0) ks.push(`${counts.kansas_house} House`);
-                    if (counts.kansas_senate > 0) ks.push(`${counts.kansas_senate} Senate`);
-                    countParts.push(`Kansas: ${ks.join(", ")}`);
-                }
-                if (counts.congress_house > 0 || counts.congress_senate > 0) {
-                    const cg = [];
-                    if (counts.congress_house > 0) cg.push(`${counts.congress_house} House`);
-                    if (counts.congress_senate > 0) cg.push(`${counts.congress_senate} Senate`);
-                    countParts.push(`Congress: ${cg.join(", ")}`);
-                }
-                if (countParts.length > 0) {
-                    countsDiv.textContent = countParts.join(" | ");
-                    summaryDiv.appendChild(countsDiv);
-                }
-            }
+        const daySection = typeof CivicWatchHome !== "undefined"
+            ? CivicWatchHome.renderFeedDay(date, dayItems, {
+                dailySummary: dailySummaries[date],
+                searchQuery: "",
+                todayStr,
+            })
+            : null;
 
-            // Show Kansas and Congress items from the daily summary (same structure for both)
-            const renderBillList = (label, items) => {
-                if (!items || items.length === 0) return null;
-                const section = document.createElement("div");
-                section.className = "mt-3";
-                const subHeader = document.createElement("div");
-                subHeader.className = "text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2";
-                subHeader.textContent = label;
-                section.appendChild(subHeader);
-                const ul = document.createElement("ul");
-                ul.className = "space-y-1.5 text-sm";
-                items.forEach(b => {
-                    const li = document.createElement("li");
-                    const a = document.createElement("a");
-                    a.href = b.url || "#";
-                    a.target = "_blank";
-                    a.rel = "noopener";
-                    a.className = "text-civic-blue hover:underline";
-                    a.textContent = b.bill + (b.short_title ? ": " + b.short_title : "");
-                    li.appendChild(a);
-                    if (b.action) {
-                        const actionSpan = document.createElement("span");
-                        actionSpan.className = "text-slate-500 block mt-0.5";
-                        actionSpan.textContent = b.action;
-                        li.appendChild(actionSpan);
-                    }
-                    ul.appendChild(li);
-                });
-                section.appendChild(ul);
-                return section;
-            };
-            if (daySummary.kansas) {
-                const kansasHouse = daySummary.kansas.house || [];
-                const kansasSenate = daySummary.kansas.senate || [];
-                const kansasAll = [...kansasHouse, ...kansasSenate];
-                if (kansasAll.length > 0) {
-                    const kansasEl = renderBillList("Kansas Legislature", kansasAll);
-                    if (kansasEl) summaryDiv.appendChild(kansasEl);
-                }
-            }
-            if (daySummary.congress) {
-                const congressHouse = daySummary.congress.house || [];
-                const congressSenate = daySummary.congress.senate || [];
-                const congressAll = [...congressHouse, ...congressSenate];
-                if (congressAll.length > 0) {
-                    const congressEl = renderBillList("U.S. Congress", congressAll);
-                    if (congressEl) summaryDiv.appendChild(congressEl);
-                }
-            }
-
-            dateSection.appendChild(summaryDiv);
+        if (daySection) {
+            container.appendChild(daySection);
+            renderedDays++;
         }
-
-        // Get ALL sources for this date (RSS + multi-state from groupedByDate)
-        const rssSources = grouped[date] || {};
-        const chunkSources = groupedByDate[date] || {};
-        const allSources = [...new Set([...Object.keys(rssSources), ...Object.keys(chunkSources)])].sort();
-
-        // Render ALL sources for this date (even if empty in this chunk)
-        allSources.forEach(source => {
-            // Apply source filter
-            if (selectedSource && source !== selectedSource) {
-                return;
-            }
-            
-            // Apply category filter for Kansas items
-            if (selectedCategory && !source.includes(selectedCategory)) {
-                return;
-            }
-
-            // Apply state filter
-            if (selectedState === "Federal") {
-                const sl = source.toLowerCase();
-                if (!sl.includes("congress") && !sl.includes("federal") && !sl.includes("u.s.")) return;
-            } else if (selectedState === "KS") {
-                if (!source.includes("Kansas")) return;
-            } else if (selectedState) {
-                const stateName = STATE_NAMES[selectedState] || selectedState;
-                if (source.includes("Kansas") || source.toLowerCase().includes("congress")) return;
-                if (!source.includes(stateName)) return;
-            }
-
-            const sourceSection = document.createElement("div");
-            sourceSection.className = "mb-5 p-4 bg-white rounded-lg border-l-3 border-emerald-500 shadow-sm border";
-
-            const srcHeader = document.createElement("h3");
-            srcHeader.className = "text-lg font-semibold text-emerald-600 mb-3 flex items-center gap-2";
-            srcHeader.innerHTML = `
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
-                </svg>
-                ${source}
-            `;
-            sourceSection.appendChild(srcHeader);
-
-            // Get items for this source in this chunk
-            let itemsInChunk = groupedByDate[date] && groupedByDate[date][source] 
-                ? groupedByDate[date][source] 
-                : [];
-            if (selectedState) {
-                itemsInChunk = itemsInChunk.filter(item => itemMatchesStateFilter({ ...item, source }));
-            }
-
-            // Show items or empty state
-            if (itemsInChunk.length === 0) {
-                const emptyMsg = document.createElement("p");
-                emptyMsg.className = "text-slate-400 italic text-sm py-2";
-                emptyMsg.textContent = "No updates for this date/source";
-                sourceSection.appendChild(emptyMsg);
-            } else {
-                const ul = document.createElement("ul");
-                ul.className = "space-y-3";
-                itemsInChunk.forEach(item => {
-                    const li = document.createElement("li");
-                    li.className = "pb-3 border-b border-slate-100 last:border-0 last:pb-0";
-                    
-                    const a = document.createElement("a");
-                    a.href = item.link || item.url || "#";
-                    // Use short_title for Kansas bills if available, otherwise use title
-                    const displayTitle = item.short_title || item.title || "(no title)";
-                    a.textContent = displayTitle;
-                    a.target = "_blank";
-                    a.rel = "noopener noreferrer";
-                    a.className = "text-civic-blue hover:text-civic-blue-dark font-medium hover:underline transition-colors";
-                    li.appendChild(a);
-                    
-                    // Show bill number
-                    if (item.bill_number) {
-                        const billNumDiv = document.createElement("div");
-                        billNumDiv.className = "text-sm text-civic-blue font-semibold mt-1";
-                        billNumDiv.textContent = `Bill: ${item.bill_number}`;
-                        li.appendChild(billNumDiv);
-                    }
-                    
-                    // Show official title for Congress bills if available and different
-                    if (item.official_title && item.official_title !== displayTitle) {
-                        const officialDiv = document.createElement("div");
-                        officialDiv.className = "text-sm text-slate-600 mt-1 italic";
-                        officialDiv.textContent = `Official: ${item.official_title}`;
-                        li.appendChild(officialDiv);
-                    }
-                    
-                    // Show summary if it exists and is different from display title
-                    if (item.summary && item.summary.trim() && item.summary !== displayTitle) {
-                        const summaryDiv = document.createElement("div");
-                        summaryDiv.className = "text-sm text-slate-500 mt-2 leading-relaxed";
-                        summaryDiv.textContent = item.summary;
-                        li.appendChild(summaryDiv);
-                    }
-                    
-                    ul.appendChild(li);
-                });
-                sourceSection.appendChild(ul);
-            }
-
-            dateSection.appendChild(sourceSection);
-        });
-
-        container.appendChild(dateSection);
     });
 
-    // Show message if no items in this chunk
-    if (chunkDates.length === 0 && allDatesInChunk.length === 0) {
-        container.innerHTML = `<p class='text-slate-500 italic text-center py-8'>No items found for ${formatDate(dateRange.start)} - ${formatDate(dateRange.end)}.</p>`;
+    if (renderedDays === 0) {
+        container.innerHTML = `<p class='text-slate-500 italic text-center py-8'>No legislative activity for ${formatDate(dateRange.start)} – ${formatDate(dateRange.end)}.</p>`;
     }
+
+    setContentBusy(false);
+    updateFilterPills();
 
     // Calculate total number of chunks available
     // Find the oldest date in the year
@@ -654,6 +486,7 @@ function performSearch(query) {
         return;
     }
 
+    setContentBusy(true);
     searchMode = true;
     searchQuery = query.toLowerCase().trim();
     searchResults = [];
@@ -752,6 +585,7 @@ function performSearch(query) {
     });
 
     displaySearchResults();
+    updateFilterPills();
 }
 
 function displaySearchResults() {
@@ -762,6 +596,7 @@ function displaySearchResults() {
     document.querySelectorAll(".year-tab").forEach(btn => {
         btn.classList.remove("bg-civic-blue", "text-white", "border-civic-blue");
         btn.classList.add("bg-slate-100", "text-slate-700", "border-transparent");
+        btn.setAttribute("aria-selected", "false");
     });
 
     // Hide pagination
@@ -769,8 +604,12 @@ function displaySearchResults() {
 
     if (searchResults.length === 0) {
         container.innerHTML = `<p class='text-slate-500 italic text-center py-8'>No results found for "${searchQuery}".</p>`;
+        a11yAnnounce(`No search results for ${searchQuery}.`);
+        setContentBusy(false);
         return;
     }
+
+    a11yAnnounce(`${searchResults.length} search result${searchResults.length === 1 ? "" : "s"} found.`);
 
     const resultsHeader = document.createElement("div");
     resultsHeader.className = "mb-6 p-5 bg-blue-50 rounded-xl border-l-4 border-civic-blue";
@@ -780,113 +619,28 @@ function displaySearchResults() {
     `;
     container.appendChild(resultsHeader);
 
-    // Group results by date
-    const groupedByDate = {};
+    // Group results by date (flat list)
+    const itemsByDate = {};
     searchResults.forEach(item => {
         const date = item.date || "Unknown";
-        if (!groupedByDate[date]) {
-            groupedByDate[date] = {};
-        }
-        const source = item.source || "Unknown";
-        if (!groupedByDate[date][source]) {
-            groupedByDate[date][source] = [];
-        }
-        groupedByDate[date][source].push(item);
+        if (!itemsByDate[date]) itemsByDate[date] = [];
+        itemsByDate[date].push(item);
     });
 
-    // Display results grouped by date and source
-    const dates = Object.keys(groupedByDate).sort().reverse();
-    
+    const dates = Object.keys(itemsByDate).sort().reverse();
     dates.forEach(date => {
-        const dateSection = document.createElement("div");
-        dateSection.className = "mb-8 p-6 bg-gradient-to-r from-slate-50 to-white rounded-xl border-l-4 border-civic-blue shadow-sm";
-
-        const dateHeader = document.createElement("h2");
-        dateHeader.className = "text-xl font-bold text-civic-navy mb-4";
-        dateHeader.textContent = formatDate(date);
-        dateSection.appendChild(dateHeader);
-
-        const sources = groupedByDate[date];
-        Object.keys(sources).sort().forEach(source => {
-            const sourceSection = document.createElement("div");
-            sourceSection.className = "mb-5 p-4 bg-white rounded-lg border-l-3 border-emerald-500 shadow-sm border";
-
-            const srcHeader = document.createElement("h3");
-            srcHeader.className = "text-lg font-semibold text-emerald-600 mb-3";
-            srcHeader.textContent = source;
-            sourceSection.appendChild(srcHeader);
-
-            const ul = document.createElement("ul");
-            ul.className = "space-y-3";
-            sources[source].forEach(item => {
-                const li = document.createElement("li");
-                li.className = "pb-3 border-b border-slate-100 last:border-0 last:pb-0";
-                
-                const a = document.createElement("a");
-                a.href = item.link || item.url || "#";
-                // Use short_title for Kansas bills if available, otherwise use title
-                const displayTitle = item.short_title || item.title || "(no title)";
-                a.target = "_blank";
-                a.rel = "noopener noreferrer";
-                a.className = "text-civic-blue hover:text-civic-blue-dark font-medium hover:underline transition-colors";
-                
-                // Highlight search terms in title
-                if (displayTitle) {
-                    const regex = new RegExp(`(${searchQuery})`, "gi");
-                    a.innerHTML = displayTitle.replace(regex, "<mark>$1</mark>");
-                } else {
-                    a.textContent = "(no title)";
-                }
-                
-                li.appendChild(a);
-                
-                // Show bill number
-                if (item.bill_number) {
-                    const billNumDiv = document.createElement("div");
-                    billNumDiv.className = "text-sm text-civic-blue font-semibold mt-1";
-                    billNumDiv.textContent = `Bill: ${item.bill_number}`;
-                    li.appendChild(billNumDiv);
-                }
-                
-                // Show official title for Congress bills if available and different
-                if (item.official_title && item.official_title !== displayTitle) {
-                    const officialDiv = document.createElement("div");
-                    officialDiv.className = "text-sm text-slate-600 mt-1 italic";
-                    // Highlight search terms in official title
-                    if (searchQuery) {
-                        const regex = new RegExp(`(${searchQuery})`, "gi");
-                        officialDiv.innerHTML = `Official: ${item.official_title.replace(regex, "<mark>$1</mark>")}`;
-                    } else {
-                        officialDiv.textContent = `Official: ${item.official_title}`;
-                    }
-                    li.appendChild(officialDiv);
-                }
-                
-                // Show summary if it exists and is different from display title
-                if (item.summary && item.summary.trim() && item.summary !== displayTitle) {
-                    const summaryDiv = document.createElement("div");
-                    summaryDiv.className = "text-sm text-slate-500 mt-2 leading-relaxed";
-                    
-                    // Also highlight search terms in summary
-                    if (item.summary && searchQuery) {
-                        const summary = item.summary;
-                        const regex = new RegExp(`(${searchQuery})`, "gi");
-                        summaryDiv.innerHTML = summary.replace(regex, "<mark>$1</mark>");
-                    } else {
-                        summaryDiv.textContent = item.summary;
-                    }
-                    
-                    li.appendChild(summaryDiv);
-                }
-                
-                ul.appendChild(li);
-            });
-            sourceSection.appendChild(ul);
-            dateSection.appendChild(sourceSection);
-        });
-
-        container.appendChild(dateSection);
+        const daySection = typeof CivicWatchHome !== "undefined"
+            ? CivicWatchHome.renderFeedDay(date, itemsByDate[date], {
+                dailySummary: null,
+                searchQuery: searchQuery,
+                todayStr: "",
+            })
+            : null;
+        if (daySection) container.appendChild(daySection);
     });
+
+    setContentBusy(false);
+    updateFilterPills();
 }
 
 function formatDate(dateStr) {
@@ -925,12 +679,13 @@ function renderPagination(year, current, total, dateRange) {
     if (current > 0) {
         const prevBtn = document.createElement("button");
         prevBtn.innerHTML = `
-            <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
             </svg>
             Previous 7 Days
         `;
         prevBtn.className = "px-4 py-2 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-lg text-sm font-medium transition-colors";
+        prevBtn.setAttribute("aria-label", "Show previous 7 days");
         prevBtn.onclick = () => {
             currentPage = current - 1;
             displayUnifiedView(year, current - 1);
@@ -944,11 +699,12 @@ function renderPagination(year, current, total, dateRange) {
         const nextBtn = document.createElement("button");
         nextBtn.innerHTML = `
             Next 7 Days
-            <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
             </svg>
         `;
         nextBtn.className = "px-4 py-2 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-lg text-sm font-medium transition-colors";
+        nextBtn.setAttribute("aria-label", "Show next 7 days");
         nextBtn.onclick = () => {
             currentPage = current + 1;
             displayUnifiedView(year, current + 1);
@@ -990,7 +746,21 @@ function setupSearch() {
     if (clearButton) {
         clearButton.addEventListener("click", () => {
             searchInput.value = "";
-            performSearch("");
+            selectedState = "";
+            selectedSource = "";
+            selectedCategory = "";
+            const sourceFilter = document.getElementById("source-filter");
+            const categoryFilter = document.getElementById("category-filter");
+            const stateFilter = document.getElementById("state-filter");
+            if (sourceFilter) sourceFilter.value = "";
+            if (categoryFilter) categoryFilter.value = "";
+            if (stateFilter) stateFilter.value = "";
+            if (typeof CivicWatchHome !== "undefined") CivicWatchHome.setSelectedState("");
+            searchMode = false;
+            searchQuery = "";
+            currentPage = 0;
+            if (currentYear) displayUnifiedView(currentYear, 0);
+            updateFilterPills();
         });
     }
 }
@@ -1000,29 +770,34 @@ async function loadWeeklyOverview() {
     const section = document.getElementById("weekly-overview-section");
     if (!container || !section) return;
     
-    // Set up toggle functionality
+    // Set up toggle functionality (collapsed by default; localStorage remembers preference)
     const header = document.getElementById("weekly-overview-header");
     if (header) {
-        // Ensure it starts collapsed
-        section.classList.add("collapsed");
-        section.classList.remove("expanded");
+        const saved = localStorage.getItem("civicwatch-weekly-expanded");
+        const expanded = saved === "true";
+        section.classList.toggle("collapsed", !expanded);
+        section.classList.toggle("expanded", expanded);
+        header.setAttribute("aria-expanded", expanded ? "true" : "false");
         
-        // Add click handler to header
         header.onclick = function(e) {
             e.preventDefault();
             e.stopPropagation();
             
-            if (section.classList.contains("collapsed")) {
+            const expanding = section.classList.contains("collapsed");
+            if (expanding) {
                 section.classList.remove("collapsed");
                 section.classList.add("expanded");
+                header.setAttribute("aria-expanded", "true");
+                localStorage.setItem("civicwatch-weekly-expanded", "true");
+                a11yAnnounce("Weekly overview expanded.");
             } else {
                 section.classList.remove("expanded");
                 section.classList.add("collapsed");
+                header.setAttribute("aria-expanded", "false");
+                localStorage.setItem("civicwatch-weekly-expanded", "false");
+                a11yAnnounce("Weekly overview collapsed.");
             }
         };
-        
-        // Also make the entire header clickable
-        header.style.cursor = "pointer";
     }
     
     try {
@@ -1134,6 +909,7 @@ async function loadWeeklyOverview() {
         
         // Update container content
         container.innerHTML = html;
+        container.setAttribute("aria-busy", "false");
     } catch (error) {
         // If weekly overview doesn't exist, hide the section
         if (section) {
@@ -1143,6 +919,47 @@ async function loadWeeklyOverview() {
 }
 
 window.onload = () => {
+    if (typeof CivicWatchHome !== "undefined") {
+        CivicWatchHome.init({
+            onStateFilter: (state) => {
+                selectedState = state;
+                currentPage = 0;
+                refreshView();
+                a11yAnnounce("State filter applied.");
+            },
+            onClearFilter: (key) => {
+                if (key === "state") {
+                    selectedState = "";
+                    if (typeof CivicWatchHome !== "undefined") CivicWatchHome.setSelectedState("");
+                    const stateFilter = document.getElementById("state-filter");
+                    if (stateFilter) stateFilter.value = "";
+                } else if (key === "source") {
+                    selectedSource = "";
+                    const sourceFilter = document.getElementById("source-filter");
+                    if (sourceFilter) sourceFilter.value = "";
+                } else if (key === "category") {
+                    selectedCategory = "";
+                    const categoryFilter = document.getElementById("category-filter");
+                    if (categoryFilter) categoryFilter.value = "";
+                } else if (key === "search") {
+                    const searchInput = document.getElementById("search-input");
+                    if (searchInput) searchInput.value = "";
+                    searchMode = false;
+                    searchQuery = "";
+                }
+                currentPage = 0;
+                refreshView();
+            },
+        });
+    }
+
+    const feedControls = document.getElementById("feed-controls");
+    if (feedControls) {
+        window.addEventListener("scroll", () => {
+            feedControls.classList.toggle("is-sticky", window.scrollY > 400);
+        }, { passive: true });
+    }
+
     loadData();
     setupSearch();
 };

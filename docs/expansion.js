@@ -4,6 +4,12 @@
 const CivicWatchExpansion = (() => {
     let siteData = null;
 
+    function a11yAnnounce(message) {
+        if (window.CivicWatchA11y && typeof CivicWatchA11y.announce === "function" && message) {
+            CivicWatchA11y.announce(message);
+        }
+    }
+
     async function loadSiteData() {
         if (siteData) return siteData;
         const res = await fetch('site_data.json');
@@ -120,9 +126,12 @@ const CivicWatchExpansion = (() => {
             const filters = getFilters();
 
             tabsEl.querySelectorAll('button').forEach(btn => {
-                btn.className = btn.dataset.tab === tabId
+                const isActive = btn.dataset.tab === tabId;
+                btn.className = isActive
                     ? 'px-4 py-2 bg-civic-blue text-white rounded-lg text-sm font-medium'
                     : 'px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-sm font-medium';
+                btn.setAttribute('role', 'tab');
+                btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
             });
 
             let items = getTabItems(tabId);
@@ -131,6 +140,7 @@ const CivicWatchExpansion = (() => {
                 items = CivicWatchBillUtils.filterByStateAndLevel(items, filters, {
                     getHaystack: (event) => `${event.title || ''} ${event.scheduled_date || ''}`,
                 });
+                contentEl.setAttribute('aria-busy', 'false');
                 contentEl.innerHTML = items.length
                     ? items.map(e => `<div class="p-4 mb-3 border border-slate-200 rounded-lg">
                         <strong>${e.title}</strong>
@@ -138,6 +148,7 @@ const CivicWatchExpansion = (() => {
                         ${e.url ? `<a href="${e.url}" class="text-civic-blue text-sm" target="_blank" rel="noopener">Details →</a>` : ''}
                     </div>`).join('')
                     : `<p class="text-slate-500 italic">${filters.state ? 'No upcoming hearings for the selected filters.' : 'No upcoming hearings.'}</p>`;
+                a11yAnnounce(`${items.length} upcoming hearing${items.length === 1 ? '' : 's'}.`);
                 return;
             }
 
@@ -146,27 +157,34 @@ const CivicWatchExpansion = (() => {
                     getHaystack: (vote) =>
                         `${vote.bill_number || ''} ${vote.action || ''} ${vote.motion_text || ''} ${vote.title || ''}`,
                 });
+                contentEl.setAttribute('aria-busy', 'false');
                 contentEl.innerHTML = items.length
                     ? items.map(renderVoteCard).join('')
                     : `<p class="text-slate-500 italic">${filters.state ? 'No recent votes for the selected state.' : 'No recent votes.'}</p>`;
+                a11yAnnounce(`${items.length} recent vote${items.length === 1 ? '' : 's'}.`);
                 return;
             }
 
             items = filterBills(items, filters);
+            contentEl.setAttribute('aria-busy', 'false');
             contentEl.innerHTML = items.length
                 ? `<div class="grid gap-4 md:grid-cols-2">${items.map(renderBillCard).join('')}</div>`
                 : `<p class="text-slate-500 italic">${filters.state || filters.level || filters.query ? 'No items match the selected filters.' : 'No items for this dashboard yet.'}</p>`;
+            a11yAnnounce(`${items.length} dashboard item${items.length === 1 ? '' : 's'}.`);
         }
 
         function renderSearchResults() {
             const filters = getFilters();
             const results = filterBills(bills, filters);
             if (!searchResultsEl) return;
+            if (filters.query) {
+                a11yAnnounce(`${results.length} search result${results.length === 1 ? '' : 's'}.`);
+            }
             searchResultsEl.innerHTML = filters.query
                 ? (results.length
                     ? `<p class="text-sm text-slate-500 mb-3">${results.length} result(s)</p>
                        <div class="grid gap-3 md:grid-cols-2">${results.slice(0, 40).map(renderBillCard).join('')}</div>`
-                    : '<p class="text-slate-500 italic">No results found.</p>')
+                    : '<p class="text-slate-500 italic" role="status">No results found.</p>')
                 : '';
         }
 
@@ -177,8 +195,11 @@ const CivicWatchExpansion = (() => {
 
         tabs.forEach(tab => {
             const btn = document.createElement('button');
+            btn.type = 'button';
             btn.textContent = tab.label;
             btn.dataset.tab = tab.id;
+            btn.setAttribute('role', 'tab');
+            btn.setAttribute('aria-selected', tab.id === activeTab ? 'true' : 'false');
             btn.className = 'px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-sm font-medium';
             btn.onclick = () => renderTab(tab.id);
             tabsEl.appendChild(btn);
@@ -218,6 +239,8 @@ const CivicWatchExpansion = (() => {
                         ${l.url ? `<a href="${l.url}" class="text-civic-blue text-sm mt-2 inline-block" target="_blank">Profile →</a>` : ''}
                     </div>`).join('')
                 : '<p class="text-slate-500 italic col-span-2 text-center py-8">No legislators match the selected filters.</p>';
+            listEl.setAttribute('aria-busy', 'false');
+            a11yAnnounce(`${filtered.length} legislator${filtered.length === 1 ? '' : 's'} shown.`);
         }
 
         searchEl.oninput = render;

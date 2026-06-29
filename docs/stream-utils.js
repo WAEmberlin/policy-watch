@@ -62,8 +62,12 @@ const CivicWatchStreamUtils = (() => {
     function renderStreamActions(stream, options = {}) {
         if (!stream) return "";
         const compact = options.compact;
+        const hearingTitle = options.hearingTitle || "";
         const watchLabel = options.watchLabel || "Watch on YouTube";
         const playLabel = options.playLabel || "▶ Play here";
+        const playAriaLabel = hearingTitle
+            ? `Play hearing stream here: ${hearingTitle}`
+            : "Play hearing stream here";
 
         let watchBtn = "";
         if (stream.watchUrl && stream.type !== "livestream") {
@@ -82,13 +86,15 @@ const CivicWatchStreamUtils = (() => {
         if (stream.embedUrl) {
             playBtn = `<button type="button"
                 class="hearing-play-btn inline-flex items-center gap-1 px-3 py-1.5 bg-civic-blue hover:bg-civic-blue-dark text-white rounded-lg text-sm font-medium transition-colors"
-                data-embed-url="${stream.embedUrl}">
+                data-embed-url="${stream.embedUrl}"
+                aria-label="${playAriaLabel}">
                 ${playLabel}
             </button>`;
         } else if (stream.livestreamId) {
             playBtn = `<button type="button"
                 class="hearing-play-livestream-btn inline-flex items-center gap-1 px-3 py-1.5 bg-civic-blue hover:bg-civic-blue-dark text-white rounded-lg text-sm font-medium transition-colors"
-                data-livestream-id="${stream.livestreamId}">
+                data-livestream-id="${stream.livestreamId}"
+                aria-label="Open live stream page${hearingTitle ? ': ' + hearingTitle : ''}">
                 ${playLabel}
             </button>`;
         }
@@ -102,14 +108,15 @@ const CivicWatchStreamUtils = (() => {
         return `<div class="${wrapClass}">${watchBtn}${playBtn}</div>`;
     }
 
-    function renderInlinePlayer(embedUrl) {
+    function renderInlinePlayer(embedUrl, title) {
         if (!embedUrl) return "";
+        const iframeTitle = title || "Hearing live stream";
         const sep = embedUrl.includes("?") ? "&" : "?";
         return `
             <div class="hearing-embed mt-3 rounded-xl overflow-hidden border border-slate-200 bg-slate-900">
                 <div class="relative pb-[56.25%] h-0">
                     <iframe class="absolute inset-0 w-full h-full" src="${embedUrl}${sep}autoplay=1&playsinline=1"
-                        title="Hearing live stream" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        title="${iframeTitle}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen loading="lazy"></iframe>
                 </div>
             </div>`;

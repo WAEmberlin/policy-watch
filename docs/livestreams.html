@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Live Streams - CivicWatch</title>
+  <title>Live Legislative Streams — CivicWatch</title>
+  <link rel="stylesheet" href="theme.css" />
+  <link rel="stylesheet" href="sr-only.css" />
+  <script src="theme.js"></script>
   <!-- Preconnect to embed origins to speed up first load when user opens a stream tab -->
   <link rel="preconnect" href="https://www.youtube.com" />
   <link rel="preconnect" href="https://live.house.gov" />
@@ -11,46 +14,41 @@
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
-    /* CivicWatch brand colors; Bootstrap handles layout */
-    :root {
-      --civic-navy: #001f3f;
-      --civic-gold: #ffc107;
-      --civic-blue: #1a73e8;
-    }
-    .civic-header { background: linear-gradient(to right, var(--civic-navy), #334155); }
+    /* Page-specific layout; colors from theme.css */
     .nav-tabs .nav-link { font-weight: 500; }
-    .nav-tabs .nav-link.active { color: var(--civic-navy); }
+    .nav-tabs .nav-link.active { color: var(--cw-navy); }
     /* 16:9 responsive embed wrapper */
-    .embed-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #f1f5f9; }
+    .embed-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
     .embed-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .embed-placeholder { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #64748b; font-size: 0.95rem; background: #f1f5f9; z-index: 1; }
+    .embed-placeholder { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; z-index: 1; }
     /* Live Now bar - minimal, clear */
     .live-now-bar { font-size: 0.875rem; }
   </style>
 </head>
-<body class="bg-light min-vh-100">
-  <div class="container-xl py-4">
+<body class="cw-page-bg min-vh-100" data-cw-page="live">
+  <a href="#main-content" class="skip-link sr-only-focusable">Skip to main content</a>
+  <div id="a11y-live-region" class="sr-only" aria-live="polite" aria-atomic="true" role="status"></div>
+  <div id="cw-page-wrapper" class="container-xl py-4">
     <!-- ========== Live Now bar: built by live-streams.js from config (only visible when isLive streams exist) ========== -->
-    <div id="live-now-bar" class="live-now-bar" aria-live="polite"></div>
+    <div id="live-now-bar" class="live-now-bar" aria-live="polite" aria-atomic="true"></div>
 
     <!-- Main card -->
-    <div class="card shadow-sm border-0 overflow-hidden">
-      <!-- Header -->
-      <div class="card-header civic-header text-white px-4 py-3">
+    <div class="card cw-card shadow-sm overflow-hidden">
+      <header class="card-header civic-header text-white px-4 py-3">
+        <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap">
         <div class="d-flex align-items-center gap-3 flex-wrap">
-          <img src="CivicWatch Logo.png" alt="CivicWatch" class="d-none d-sm-block" style="height: 3rem;" />
+          <img src="CivicWatch Logo.png" alt="CivicWatch — legislative and policy tracking" class="d-none d-sm-block" style="height: 3rem;" />
           <div>
             <h1 class="h4 mb-0 fw-bold">
-              <span class="text-white">Civic</span><span style="color: var(--civic-gold);">Watch</span>
+              <span class="text-white">Civic</span><span style="color: var(--cw-gold);">Watch</span>
             </h1>
-            <p class="mb-0 small text-white-50">Live Streams</p>
+            <p class="mb-0 small cw-text-on-header-muted">Live Streams</p>
           </div>
         </div>
-      </div>
-      <div class="card-body p-4">
-        <a href="index.html" class="btn btn-link btn-sm text-decoration-none p-0 mb-3">
-          ← Back to Main
-        </a>
+        <div data-cw-theme-toggle></div>
+        </div>
+      </header>
+      <main id="main-content" class="card-body p-4">
 
         <!--
           Top-level tabs: Kansas Legislature (existing) | US House | US Senate.
@@ -102,7 +100,7 @@
                   <p class="text-body-secondary mb-2">Watch the Kansas House when in session. KanView / YouTube official embeds only.</p>
                   <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
                     <a href="https://www.youtube.com/@KSLegislatureLIVE/streams" target="_blank" rel="noopener noreferrer" class="btn btn-danger btn-sm">Watch on YouTube – KS Legislature Live</a>
-                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="kansas-house-floor">▶ Play here</button>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="kansas-house-floor" aria-label="Play Kansas House floor stream here"><span aria-hidden="true">▶</span> Play here</button>
                   </div>
                   <div class="rounded border bg-light">
                     <div class="embed-wrapper" data-stream-id="kansas-house-floor" style="min-height: 280px;">
@@ -119,7 +117,7 @@
                   <p class="text-body-secondary mb-2">Watch the Kansas Senate when in session. KanView / YouTube official embeds only.</p>
                   <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
                     <a href="https://www.youtube.com/@KSLegislatureLIVE/streams" target="_blank" rel="noopener noreferrer" class="btn btn-danger btn-sm">Watch on YouTube – KS Legislature Live</a>
-                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="kansas-senate-floor">▶ Play here</button>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="kansas-senate-floor" aria-label="Play Kansas Senate floor stream here"><span aria-hidden="true">▶</span> Play here</button>
                   </div>
                   <div class="rounded border bg-light">
                     <div class="embed-wrapper" data-stream-id="kansas-senate-floor" style="min-height: 280px;">
@@ -148,7 +146,7 @@
                         <div class="accordion accordion-flush mt-2" id="ks-house-judiciary-sub">
                           <div class="accordion-item border-start border-3">
                             <h2 class="accordion-header">
-                              <button class="accordion-button collapsed py-2 small" type="button" data-bs-toggle="collapse" data-bs-target="#ks-house-judiciary-civil" aria-expanded="false">Civil Law Subcommittee</button>
+                              <button class="accordion-button collapsed py-2 small" type="button" data-bs-toggle="collapse" data-bs-target="#ks-house-judiciary-civil" aria-expanded="false" aria-controls="ks-house-judiciary-civil">Civil Law Subcommittee</button>
                             </h2>
                             <div id="ks-house-judiciary-civil" class="accordion-collapse collapse" data-bs-parent="#ks-house-judiciary-sub">
                               <div class="accordion-body p-0">
@@ -161,7 +159,7 @@
                           </div>
                           <div class="accordion-item border-start border-3">
                             <h2 class="accordion-header">
-                              <button class="accordion-button collapsed py-2 small" type="button" data-bs-toggle="collapse" data-bs-target="#ks-house-judiciary-criminal" aria-expanded="false">Criminal Law Subcommittee</button>
+                              <button class="accordion-button collapsed py-2 small" type="button" data-bs-toggle="collapse" data-bs-target="#ks-house-judiciary-criminal" aria-expanded="false" aria-controls="ks-house-judiciary-criminal">Criminal Law Subcommittee</button>
                             </h2>
                             <div id="ks-house-judiciary-criminal" class="accordion-collapse collapse" data-bs-parent="#ks-house-judiciary-sub">
                               <div class="accordion-body p-0">
@@ -257,7 +255,7 @@
               <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
                 <a href="https://coloradochannel.net/watch-meetings/" target="_blank" rel="noopener noreferrer" class="btn btn-danger btn-sm">Watch on Colorado Channel</a>
                 <a href="https://leg.colorado.gov/watch-and-listen" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">Official watch page</a>
-                <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="colorado-floor">▶ Play here</button>
+                <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="colorado-floor" aria-label="Play Colorado General Assembly stream here"><span aria-hidden="true">▶</span> Play here</button>
               </div>
               <div class="rounded border bg-light">
                 <div class="embed-wrapper" data-stream-id="colorado-floor" style="min-height: 280px;">
@@ -275,7 +273,7 @@
               <p class="text-body-secondary mb-2">Arizona Capitol Television covers floor and committee proceedings when in session.</p>
               <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
                 <a href="https://www.youtube.com/user/arizonacapitoltv" target="_blank" rel="noopener noreferrer" class="btn btn-danger btn-sm">Watch on YouTube – Arizona Capitol TV</a>
-                <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="arizona-floor">▶ Play here</button>
+                <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="arizona-floor" aria-label="Play Arizona Legislature stream here"><span aria-hidden="true">▶</span> Play here</button>
               </div>
               <div class="rounded border bg-light">
                 <div class="embed-wrapper" data-stream-id="arizona-floor" style="min-height: 280px;">
@@ -293,7 +291,7 @@
               <p class="text-body-secondary mb-2">Official Utah Legislature live streams on YouTube when the session is in progress.</p>
               <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
                 <a href="https://www.youtube.com/user/UtahLegislature" target="_blank" rel="noopener noreferrer" class="btn btn-danger btn-sm">Watch on YouTube – Utah Legislature</a>
-                <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="utah-floor">▶ Play here</button>
+                <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="utah-floor" aria-label="Play Utah Legislature stream here"><span aria-hidden="true">▶</span> Play here</button>
               </div>
               <div class="rounded border bg-light">
                 <div class="embed-wrapper" data-stream-id="utah-floor" style="min-height: 280px;">
@@ -311,7 +309,7 @@
               <p class="text-body-secondary mb-2">Maine State Legislature proceedings on YouTube when sessions and committees are live.</p>
               <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
                 <a href="https://www.youtube.com/channel/UCJVLbCO6mq1wb12kTyljD8w" target="_blank" rel="noopener noreferrer" class="btn btn-danger btn-sm">Watch on YouTube – Maine Legislature</a>
-                <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="maine-floor">▶ Play here</button>
+                <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="maine-floor" aria-label="Play Maine Legislature stream here"><span aria-hidden="true">▶</span> Play here</button>
               </div>
               <div class="rounded border bg-light">
                 <div class="embed-wrapper" data-stream-id="maine-floor" style="min-height: 280px;">
@@ -344,7 +342,7 @@
                 <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
                   <a href="https://live.house.gov/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">live.house.gov</a>
                   <a href="https://www.youtube.com/@USHouseClerk/live" target="_blank" rel="noopener noreferrer" class="btn btn-danger btn-sm">Watch on YouTube – House Clerk</a>
-                  <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="us-house-floor">▶ Play here</button>
+                  <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="us-house-floor" aria-label="Play U.S. House floor stream here"><span aria-hidden="true">▶</span> Play here</button>
                 </div>
                 <div class="rounded border bg-light">
                   <div class="embed-wrapper" data-stream-id="us-house-floor">
@@ -454,7 +452,7 @@
                 <p class="small text-muted mb-2">Official U.S. Senate floor proceedings. Stream is live when the Senate is in session.</p>
                 <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
                   <a href="https://www.senate.gov/floor/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">senate.gov/floor</a>
-                  <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="us-senate-floor">▶ Play here</button>
+                  <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="us-senate-floor" aria-label="Play U.S. Senate floor stream here"><span aria-hidden="true">▶</span> Play here</button>
                 </div>
                 <div class="rounded border bg-light">
                   <div class="embed-wrapper" data-stream-id="us-senate-floor">
@@ -534,14 +532,17 @@
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
 
-    <p class="text-center text-muted small mt-3">CivicWatch — Live streams for Kansas, Colorado, Arizona, Utah, Maine, and U.S. Congress</p>
+    <footer class="text-center text-muted small mt-3" data-cw-footer-replace>CivicWatch — Tracking legislation for Kansas, Colorado, Arizona, Utah, Maine, and U.S. Congress</footer>
   </div>
 
   <!-- Bootstrap 5 JS (required for tabs and accordions) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="a11y.js"></script>
+  <script src="shell.js"></script>
+  <script>CivicWatchShell.init({ page: 'live' });</script>
   <!-- Live streams config, Live Now bar, lazy-load, and goToTarget (defer = non-blocking parse) -->
   <script src="live-streams.js" defer></script>
 </body>

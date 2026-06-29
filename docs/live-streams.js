@@ -7,6 +7,12 @@
   var liveStreams = [];
   var stateFloorStream = {};
 
+  function a11yAnnounce(message) {
+    if (window.CivicWatchA11y && typeof CivicWatchA11y.announce === 'function') {
+      CivicWatchA11y.announce(message);
+    }
+  }
+
   function mergeStreamConfig(staticStream, liveInfo) {
     var merged = {
       id: staticStream.id,
@@ -51,14 +57,18 @@
       var id = btn.getAttribute('data-stream-id');
       var stream = liveStreams.filter(function (s) { return s.id === id; })[0];
       var hasEmbed = stream && stream.embedUrl;
+      var streamTitle = stream ? stream.title : 'stream';
       btn.disabled = !hasEmbed;
       btn.title = hasEmbed
         ? 'Load the stream in the player below without leaving CivicWatch'
         : 'No embed configured for this stream yet';
+      btn.setAttribute('aria-label', hasEmbed
+        ? (stream && stream.isLive ? 'Play live: ' : 'Play here: ') + streamTitle
+        : 'No embed configured for ' + streamTitle);
       if (stream && stream.isLive) {
         btn.classList.add('btn-danger');
         btn.classList.remove('btn-primary');
-        btn.textContent = '▶ Play live';
+        btn.innerHTML = '<span aria-hidden="true">▶</span> Play live';
       }
     });
   }
@@ -75,6 +85,7 @@
       empty.textContent = 'No hearings live at this time.';
       container.appendChild(empty);
       container.hidden = false;
+      a11yAnnounce('No streams live at this time.');
       return;
     }
     container.hidden = false;
@@ -96,6 +107,7 @@
       link.type = 'button';
       link.className = 'btn btn-link btn-sm p-0 text-decoration-none';
       link.textContent = stream.title;
+      link.setAttribute('aria-label', 'Go to live stream: ' + stream.title);
       link.addEventListener('click', function () {
         goToTarget(stream.targetId);
         setTimeout(function () {
@@ -106,6 +118,7 @@
       alert.appendChild(link);
     });
     container.appendChild(alert);
+    a11yAnnounce(live.length + ' stream' + (live.length === 1 ? '' : 's') + ' live now.');
   }
 
   function goToTarget(targetId) {
@@ -168,6 +181,7 @@
       if (!wrapper) return;
       if (loadEmbedInWrapper(wrapper, { autoplay: true, force: true })) {
         wrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        a11yAnnounce('Loading stream player.');
       }
     });
   }
@@ -210,7 +224,7 @@
       console.error('Live streams config failed to load:', err);
       var container = document.getElementById('live-now-bar');
       if (container) {
-        container.innerHTML = '<p class="small text-muted mb-0">Live stream config unavailable.</p>';
+        container.innerHTML = '<p class="small text-muted mb-0" role="alert">Live stream config unavailable.</p>';
       }
     });
   }

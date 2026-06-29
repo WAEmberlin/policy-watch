@@ -3,18 +3,33 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>CivicWatch - Legislative & Policy Updates</title>
+<title>CivicWatch — Legislative & Policy Updates</title>
+<link rel="stylesheet" href="theme.css" />
+<link rel="stylesheet" href="sr-only.css" />
+<script src="theme.js"></script>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
     theme: {
         extend: {
             colors: {
+                white: 'var(--cw-white)',
                 civic: {
-                    navy: '#001f3f',
-                    gold: '#ffc107',
-                    blue: '#1a73e8',
-                    'blue-dark': '#1557b0',
+                    navy: 'var(--cw-navy)',
+                    gold: 'var(--cw-gold)',
+                    blue: 'var(--cw-blue)',
+                    'blue-dark': 'var(--cw-blue-dark)',
+                },
+                slate: {
+                    50: 'var(--cw-slate-50)',
+                    100: 'var(--cw-slate-100)',
+                    200: 'var(--cw-slate-200)',
+                    300: 'var(--cw-slate-300)',
+                    400: 'var(--cw-slate-400)',
+                    500: 'var(--cw-slate-500)',
+                    600: 'var(--cw-slate-600)',
+                    700: 'var(--cw-slate-700)',
+                    800: 'var(--cw-slate-800)',
                 }
             }
         }
@@ -22,13 +37,6 @@ tailwind.config = {
 }
 </script>
 <style>
-/* Custom styles that Tailwind doesn't cover */
-mark {
-    background: #fef08a;
-    padding: 2px 4px;
-    border-radius: 3px;
-}
-
 #weekly-overview-content {
     overflow: hidden;
     transition: max-height 0.3s ease-out, padding 0.3s ease-out;
@@ -54,141 +62,151 @@ mark {
     transform: rotate(0deg);
 }
 
-/* Smooth scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+#state-chips {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
 }
-::-webkit-scrollbar-track {
-    background: #f1f5f9;
-    border-radius: 4px;
+#state-chips::-webkit-scrollbar {
+    display: none;
 }
-::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
+
+#feed-controls.is-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--cw-surface);
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    box-shadow: 0 1px 3px var(--cw-shadow);
 }
 </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-<div class="max-w-6xl mx-auto px-4 py-8">
-    <!-- Main Card -->
-    <div class="bg-white rounded-2xl shadow-xl shadow-slate-200/50 overflow-hidden">
+<body class="cw-page-bg" data-cw-page="home">
+<a href="#main-content" class="skip-link sr-only-focusable">Skip to main content</a>
+<div id="a11y-live-region" class="sr-only" aria-live="polite" aria-atomic="true" role="status"></div>
+<div id="cw-page-wrapper" class="max-w-6xl mx-auto px-4 py-8">
+    <div class="cw-card rounded-2xl overflow-hidden">
         <!-- Header -->
-        <div class="bg-gradient-to-r from-civic-navy to-slate-800 px-8 py-6">
-            <div class="flex items-center gap-4">
+        <header class="cw-header px-6 md:px-8 py-6">
+            <div class="flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-4 flex-1">
                 <img src="CivicWatch Logo.png" alt="CivicWatch Logo" class="h-14 w-auto hidden sm:block" />
-                <div>
+                <div class="flex-1">
                     <h1 class="text-3xl font-bold">
                         <span class="text-white">Civic</span><span class="text-civic-gold">Watch</span>
                     </h1>
-                    <div id="last-updated" class="text-slate-300 text-sm mt-1">Loading...</div>
+                    <div id="last-updated" class="cw-text-on-header-muted text-sm mt-1">Loading...</div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Content Area -->
-        <div class="p-6 md:p-8">
-            <!-- Quick Actions -->
-            <div class="mb-8 flex flex-wrap gap-3">
-                <a href="hearings.html" class="inline-flex items-center gap-2 px-5 py-2.5 bg-civic-blue hover:bg-civic-blue-dark text-white rounded-lg font-medium transition-colors shadow-sm hover:shadow-md">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                    </svg>
-                    View Upcoming Hearings
-                </a>
-                <a href="livestreams.html" class="inline-flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors shadow-sm hover:shadow-md">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-                    </svg>
-                    Live Streams
-                </a>
-                <a href="dashboard.html" class="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors shadow-sm hover:shadow-md">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                    </svg>
-                    Multi-State Dashboards
-                </a>
-                <a href="legislators.html" class="inline-flex items-center gap-2 px-5 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors shadow-sm hover:shadow-md">
-                    Legislators
-                </a>
+            <div data-cw-theme-toggle></div>
             </div>
-            
-            <!-- Weekly Overview Section -->
-            <div id="weekly-overview-section" class="collapsed mb-8 bg-gradient-to-r from-slate-50 to-slate-100 rounded-xl border border-slate-200 overflow-hidden">
-                <div id="weekly-overview-header" class="p-5 cursor-pointer hover:bg-slate-100/50 transition-colors flex justify-between items-center">
+        </header>
+
+        <!-- Main Content -->
+        <main id="main-content" class="p-6 md:p-8">
+            <!-- Live Now Strip -->
+            <section id="live-now-strip" class="mb-6 p-4 rounded-xl bg-slate-50 border border-slate-200" aria-live="polite">
+                <p class="text-sm text-slate-400 italic">Checking live streams…</p>
+            </section>
+
+            <!-- State Snapshot Row -->
+            <section id="state-snapshots" class="flex gap-3 overflow-x-auto pb-2 mb-8 -mx-1 px-1" aria-label="State overview">
+                <!-- Populated by home.js -->
+            </section>
+
+            <!-- Weekly Overview (collapsed by default) -->
+            <section id="weekly-overview-section" class="collapsed mb-8 bg-gradient-to-r from-slate-50 to-slate-100 rounded-xl border border-slate-200 overflow-hidden">
+                <button id="weekly-overview-header" type="button" class="w-full p-5 cursor-pointer hover:bg-slate-100/50 transition-colors flex justify-between items-center text-left" aria-expanded="false" aria-controls="weekly-overview-content">
                     <h2 class="text-xl font-semibold text-civic-navy flex items-center gap-3">
-                        <svg class="w-6 h-6 text-civic-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-6 h-6 text-civic-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                         </svg>
                         Weekly CivicWatch Overview
-                        <span id="weekly-overview-arrow" class="text-slate-400 transition-transform duration-300">▼</span>
+                        <span id="weekly-overview-arrow" class="text-slate-400 transition-transform duration-300" aria-hidden="true">▼</span>
                     </h2>
-                </div>
+                </button>
                 <div id="weekly-overview-content" class="border-t border-slate-200">
                     <p class="text-slate-500 italic">Loading weekly overview...</p>
                 </div>
-            </div>
-            
-            <!-- Search Section -->
-            <div id="search-container" class="mb-6">
-                <div class="flex flex-col sm:flex-row gap-3">
-                    <div class="relative flex-1">
-                        <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            </section>
+
+            <!-- Feed Controls: chips, search, filters -->
+            <section id="feed-controls" class="mb-6 pb-4 border-b border-slate-200">
+                <!-- State Filter Chips -->
+                <div id="state-chips" class="flex gap-2 overflow-x-auto pb-3 mb-4" role="group" aria-label="Filter by state"></div>
+
+                <!-- Search Bar -->
+                <div id="search-container" class="mb-3">
+                    <div class="relative">
+                        <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                         </svg>
-                        <input type="text" id="search-input" placeholder="Search by keyword (title, summary)..." 
-                               class="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-xl focus:border-civic-blue focus:ring-4 focus:ring-civic-blue/10 outline-none transition-all" />
+                        <input type="search" id="search-input" placeholder="Search bills by keyword…"
+                               class="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-xl focus:border-civic-blue focus:ring-4 focus:ring-civic-blue/10 outline-none transition-all"
+                               aria-label="Search bills" />
                     </div>
-                    <button id="search-button" class="px-6 py-3 bg-civic-blue hover:bg-civic-blue-dark text-white rounded-xl font-medium transition-colors shadow-sm">
-                        Search
-                    </button>
-                    <button id="clear-search" class="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-medium transition-colors">
-                        Clear
-                    </button>
                 </div>
-            </div>
-            
-            <!-- Filters Section -->
-            <div id="filters-container" class="mb-8 p-4 bg-slate-50 rounded-xl border border-slate-200">
-                <div class="flex flex-wrap gap-3 items-center">
-                    <select id="state-filter" class="flex-1 min-w-[160px] px-4 py-2.5 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer">
-                        <option value="">All States / Federal</option>
-                        <option value="Federal">Federal (U.S. Congress)</option>
-                    </select>
-                    <select id="source-filter" class="flex-1 min-w-[180px] px-4 py-2.5 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer">
-                        <option value="">All Sources</option>
-                    </select>
-                    <select id="category-filter" class="flex-1 min-w-[180px] px-4 py-2.5 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer">
-                        <option value="">All Categories</option>
-                    </select>
-                    <button id="clear-filters" class="px-4 py-2.5 bg-white hover:bg-slate-100 text-slate-600 rounded-lg font-medium transition-colors border-2 border-slate-200">
-                        Clear Filters
+
+                <!-- Filter toggle + active pills -->
+                <div class="flex flex-wrap items-center gap-3">
+                    <button id="filters-toggle" type="button" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors" aria-expanded="false" aria-controls="filters-drawer">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/></svg>
+                        Filters
                     </button>
+                    <button id="clear-search" type="button" class="text-sm text-slate-500 hover:text-slate-700 transition-colors">Clear all</button>
+                    <div id="active-filter-pills" class="flex flex-wrap gap-2" hidden></div>
                 </div>
-            </div>
-            
+
+                <!-- Secondary Filters (hidden by default) -->
+                <div id="filters-drawer" class="mt-4 p-4 bg-slate-50 rounded-xl border border-slate-200" hidden>
+                    <div class="flex flex-wrap gap-3 items-center">
+                        <select id="state-filter" class="sr-only" aria-hidden="true" tabindex="-1">
+                            <option value="">All States / Federal</option>
+                            <option value="Federal">Federal (U.S. Congress)</option>
+                        </select>
+                        <div class="flex-1 min-w-[160px]">
+                            <label for="source-filter" class="block text-xs font-semibold text-slate-500 mb-1">Source</label>
+                            <select id="source-filter" class="w-full px-4 py-2.5 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer">
+                                <option value="">All Sources</option>
+                            </select>
+                        </div>
+                        <div class="flex-1 min-w-[160px]">
+                            <label for="category-filter" class="block text-xs font-semibold text-slate-500 mb-1">Category</label>
+                            <select id="category-filter" class="w-full px-4 py-2.5 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer">
+                                <option value="">All Categories</option>
+                            </select>
+                        </div>
+                        <div class="flex items-end">
+                            <button id="clear-filters" type="button" class="px-4 py-2.5 bg-white hover:bg-slate-100 text-slate-600 rounded-lg font-medium transition-colors border-2 border-slate-200">
+                                Reset filters
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Year Tabs -->
-            <div id="year-tabs" class="flex flex-wrap gap-2 mb-8 pb-6 border-b-2 border-slate-200"></div>
-            
-            <!-- Main Content -->
-            <div id="content" class="min-h-[200px]">
+            <div id="year-tabs" class="flex flex-wrap gap-2 mb-6" role="tablist" aria-label="Select year"></div>
+
+            <!-- Feed -->
+            <div id="content" class="min-h-[200px]" role="feed" aria-busy="true">
                 <p class="text-slate-500 italic text-center py-8">Loading data...</p>
             </div>
-            
+
             <!-- Pagination -->
-            <div id="pagination" class="mt-8 pt-6 border-t-2 border-slate-200"></div>
-        </div>
+            <nav id="pagination" class="mt-8 pt-6 border-t-2 border-slate-200" aria-label="Feed pagination"></nav>
+        </main>
     </div>
-    
-    <!-- Footer -->
-    <div class="text-center text-slate-500 text-sm mt-6">
-        CivicWatch - Tracking legislation for Kansas, Colorado, Arizona, Utah, and U.S. Congress
-    </div>
+
+    <footer data-cw-footer-replace class="text-center text-slate-500 text-sm mt-6 px-4 cw-page-footer"></footer>
 </div>
+<script src="a11y.js"></script>
+<script src="shell.js"></script>
 <script src="bill-utils.js"></script>
+<script src="home.js"></script>
 <script src="script.js"></script>
+<script>CivicWatchShell.init({ page: 'home' });</script>
 </body>
 </html>
