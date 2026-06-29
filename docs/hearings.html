@@ -181,10 +181,11 @@ tailwind.config = {
     
     <!-- Footer -->
     <div class="text-center text-slate-500 text-sm mt-6">
-        CivicWatch - Hearings for Kansas, Colorado, Arizona, Utah, and U.S. Congress
+        CivicWatch — Hearings for Kansas, Colorado, Arizona, Utah, Maine, and U.S. Congress
     </div>
 </div>
 
+<script src="stream-utils.js"></script>
 <script>
 // Store original data
 let allUpcomingHearings = [];
@@ -406,7 +407,7 @@ function renderHearings(hearings, container, emptyMessage, stateFilter = "", yea
             const title = hearing.title || "Conference Committee Hearing";
             const isCanceled = title.toUpperCase().includes("CANCELED") || title.toUpperCase().includes("MEETING CANCELED");
             
-            card.className = `mb-4 p-5 rounded-xl border-l-4 shadow-sm transition-all ${
+            card.className = `hearing-card mb-4 p-5 rounded-xl border-l-4 shadow-sm transition-all ${
                 isCanceled 
                     ? 'bg-red-50 border-red-400 opacity-75' 
                     : 'bg-gradient-to-r from-slate-50 to-white border-civic-blue hover:shadow-md'
@@ -422,6 +423,13 @@ function renderHearings(hearings, container, emptyMessage, stateFilter = "", yea
             const source = hearing.source || (hearingState ? `${STATE_LABELS[hearingState] || hearingState}` : "Unknown");
             const badgeClass = STATE_BADGE_COLORS[hearingState] || "bg-slate-500";
             const badgeLabel = hearingState === "Federal" ? "Federal (US Congress)" : `State (${STATE_LABELS[hearingState] || hearingState})`;
+
+            const streamInfo = window.CivicWatchStreamUtils
+                ? CivicWatchStreamUtils.resolveHearingStream(hearing)
+                : null;
+            const streamHtml = streamInfo
+                ? CivicWatchStreamUtils.renderStreamActions(streamInfo, { compact: true })
+                : "";
             
             card.innerHTML = `
                 <div class="mb-3">
@@ -463,12 +471,39 @@ function renderHearings(hearings, container, emptyMessage, stateFilter = "", yea
                     </svg>
                 </a>
                 ` : ''}
+                ${streamHtml}
+                <div class="hearing-embed-slot"></div>
             `;
             
             dateSection.appendChild(card);
         });
         
         container.appendChild(dateSection);
+    });
+}
+
+function setupHearingStreamHandlers() {
+    document.addEventListener("click", function (e) {
+        const playBtn = e.target.closest(".hearing-play-btn");
+        if (playBtn) {
+            const card = playBtn.closest(".hearing-card");
+            const embedUrl = playBtn.getAttribute("data-embed-url");
+            if (!card || !embedUrl || !window.CivicWatchStreamUtils) return;
+            const slot = card.querySelector(".hearing-embed-slot");
+            if (slot) {
+                slot.innerHTML = CivicWatchStreamUtils.renderInlinePlayer(embedUrl);
+                slot.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            }
+            return;
+        }
+
+        const liveBtn = e.target.closest(".hearing-play-livestream-btn");
+        if (liveBtn) {
+            const streamId = liveBtn.getAttribute("data-livestream-id");
+            if (streamId) {
+                window.location.href = `livestreams.html#${streamId}`;
+            }
+        }
     });
 }
 
@@ -539,6 +574,7 @@ async function loadHearings() {
         
         // Setup filter event listeners
         setupFilters();
+        setupHearingStreamHandlers();
         
         // Initial render
         renderHearings(allUpcomingHearings, upcomingContainer, "No upcoming hearings scheduled");

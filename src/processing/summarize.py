@@ -1,7 +1,18 @@
 import json
 import os
+import sys
 from datetime import datetime, timezone
 from collections import defaultdict
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "src"))
+
+from processing.youtube_utils import (  # noqa: E402
+    extract_youtube_video_id,
+    is_youtube_url,
+    resolve_embed_url,
+)
 
 # Handle timezone on Windows (fallback if zoneinfo not available)
 try:
@@ -532,6 +543,35 @@ def _normalized_event_to_hearing(event: dict) -> dict:
     }
 
 
+def _enrich_hearing_stream(hearing: dict, state_floor_map: dict) -> dict:
+    """Add stream_url, embed_url, youtube_video_id, and livestream_id for the hearings UI."""
+    enriched = dict(hearing)
+    stream_url = enriched.get("stream_url") or ""
+    link = enriched.get("link") or enriched.get("url") or ""
+
+    if not stream_url and is_youtube_url(link):
+        stream_url = link
+    if stream_url:
+        enriched["stream_url"] = stream_url
+
+    video_id = extract_youtube_video_id(stream_url) or extract_youtube_video_id(link)
+    if video_id:
+        enriched["youtube_video_id"] = video_id
+        enriched["embed_url"] = resolve_embed_url(youtube_video_id=video_id)
+
+    state_key = ""
+    source = enriched.get("source") or ""
+    if enriched.get("level") == "federal" or enriched.get("state") == "Federal" or "Federal" in source:
+        state_key = "Federal"
+    elif enriched.get("state"):
+        state_key = str(enriched["state"]).upper()
+
+    if not enriched.get("embed_url") and state_key and state_key in state_floor_map:
+        enriched["livestream_id"] = state_floor_map[state_key]
+
+    return enriched
+
+
 def _classify_hearing_by_date(hearing: dict, today: datetime) -> str:
     """Return 'upcoming' or 'historical'."""
     scheduled = hearing.get("scheduled_date", "")
@@ -589,6 +629,8 @@ if os.path.exists(_ks_enrichments_path):
             if key == "_meta" or not isinstance(record, dict):
                 continue
             for h in record.get("hearings") or []:
+                stream_url = h.get("stream_url") or h.get("url", "")
+                page_url = h.get("url", "") or stream_url
                 hearing = {
                     "title": h.get("title") or f"Hearing on {record.get('bill_number', key)}",
                     "scheduled_date": h.get("scheduled_date", ""),
@@ -597,8 +639,9 @@ if os.path.exists(_ks_enrichments_path):
                     "committees": h.get("title", ""),
                     "committee": h.get("title", ""),
                     "bill": record.get("bill_number", key),
-                    "link": h.get("url", ""),
-                    "url": h.get("url", ""),
+                    "stream_url": stream_url,
+                    "link": page_url,
+                    "url": page_url,
                     "source": STATE_HEARING_LABELS["KS"],
                     "state": "KS",
                     "level": "state",
@@ -620,6 +663,29 @@ all_upcoming_hearings.sort(key=lambda x: x.get("scheduled_date", ""))
 all_historical_hearings.sort(key=lambda x: x.get("scheduled_date", "") or "", reverse=True)
 
 print(f"After multi-state merge: {len(all_upcoming_hearings)} upcoming, {len(all_historical_hearings)} historical")
+
+# -------------------------
+# Enrich hearings with stream/embed metadata for the hearings page
+# -------------------------
+livestreams_meta = {"state_floor_stream": {}}
+try:
+    import yaml
+
+    livestreams_path = os.path.join("config", "livestreams.yaml")
+    if os.path.exists(livestreams_path):
+        with open(livestreams_path, "r", encoding="utf-8") as f:
+            ls_cfg = yaml.safe_load(f) or {}
+            livestreams_meta["state_floor_stream"] = ls_cfg.get("state_floor_stream") or {}
+except Exception as e:
+    print(f"Warning: Could not load livestreams config: {e}")
+
+_state_floor_map = livestreams_meta["state_floor_stream"]
+all_upcoming_hearings = [
+    _enrich_hearing_stream(h, _state_floor_map) for h in all_upcoming_hearings
+]
+all_historical_hearings = [
+    _enrich_hearing_stream(h, _state_floor_map) for h in all_historical_hearings
+]
 
 # -------------------------
 # Load Kansas Legislature calendars (by date for hearings page)
@@ -718,6 +784,7 @@ output = {
     "dashboards": normalized_dashboards,
     "search_index": normalized_search_index,
     "weekly_digests": weekly_digests,
+    "livestreams": livestreams_meta,
 }
 
 # Ensure legislation key is always present

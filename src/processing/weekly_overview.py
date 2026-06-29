@@ -13,7 +13,12 @@ import os
 import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
+
+try:
+    import yaml
+except ImportError:
+    yaml = None  # type: ignore
 
 # Handle timezone on Windows (fallback if zoneinfo not available)
 try:
@@ -28,6 +33,7 @@ except (ImportError, Exception):
         central = timezone(timedelta(hours=-6))  # CST is UTC-6
 
 # File paths
+ROOT_DIR = Path(__file__).resolve().parents[2]
 OUTPUT_DIR = Path("src/output")
 DOCS_DIR = Path("docs")
 WEEKLY_DIR = DOCS_DIR / "weekly"
@@ -35,6 +41,10 @@ HISTORY_FILE = OUTPUT_DIR / "history.json"
 LEGISLATION_FILE = OUTPUT_DIR / "legislation.json"
 FEDERAL_HEARINGS_FILE = OUTPUT_DIR / "federal_hearings.json"
 HEARINGS_FILE = OUTPUT_DIR / "hearings.json"
+CONFIG_PATH = ROOT_DIR / "config" / "states.yaml"
+NORMALIZED_DIR = ROOT_DIR / "data" / "normalized"
+
+VETERANS_EXTRA_KEYWORDS = ["armed services"]
 
 # Output files
 LATEST_JSON = WEEKLY_DIR / "latest.json"
@@ -82,6 +92,205 @@ def is_within_last_7_days(date_str: str, now: datetime) -> bool:
     seven_days_ago = now - timedelta(days=7)
     # Only include items from the past week, not future dates
     return seven_days_ago <= dt <= now
+
+
+def load_state_config() -> Tuple[List[Dict[str, Any]], bool]:
+    """Load enabled states and federal flag from config/states.yaml."""
+    default_states = [
+        {"code": "ks", "name": "Kansas", "enabled": True},
+        {"code": "co", "name": "Colorado", "enabled": True},
+        {"code": "az", "name": "Arizona", "enabled": True},
+        {"code": "ut", "name": "Utah", "enabled": True},
+        {"code": "me", "name": "Maine", "enabled": True},
+    ]
+    federal_enabled = True
+
+    if not CONFIG_PATH.exists() or yaml is None:
+        return default_states, federal_enabled
+
+    try:
+        with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+            config = yaml.safe_load(f) or {}
+    except (OSError, yaml.YAMLError) as e:
+        print(f"Warning: Could not load {CONFIG_PATH}: {e}")
+        return default_states, federal_enabled
+
+    states = [s for s in config.get("states", default_states) if s.get("enabled", True)]
+    federal_enabled = config.get("federal", {}).get("enabled", True)
+    return states, federal_enabled
+
+
+def load_veterans_keywords() -> List[str]:
+    """Load veterans/military keywords from topic_dashboards in states.yaml."""
+    keywords = ["veteran", "veterans", "va", "military", "armed forces"]
+    if CONFIG_PATH.exists() and yaml is not None:
+        try:
+            with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+                config = yaml.safe_load(f) or {}
+            for dash in config.get("topic_dashboards", []):
+                if dash.get("id") == "veterans":
+                    keywords = list(dash.get("keywords") or keywords)
+                    break
+        except (OSError, yaml.YAMLError):
+            pass
+
+    merged = {kw.lower() for kw in keywords}
+    merged.update(kw.lower() for kw in VETERANS_EXTRA_KEYWORDS)
+    return sorted(merged)
+
+
+def item_search_text(item: Dict[str, Any]) -> str:
+    """Combine searchable text fields from a bill, event, or vote."""
+    parts = [
+        item.get("title", ""),
+        item.get("summary", ""),
+        item.get("description", ""),
+        item.get("motion_text", ""),
+        item.get("latest_action", ""),
+        item.get("bill_number", ""),
+        " ".join(item.get("committees") or []),
+    ]
+    return " ".join(str(p) for p in parts if p)
+
+
+def matches_veterans_topic(text: str, keywords: List[str]) -> bool:
+    """Return True if text matches veterans/military topic keywords."""
+    text_lower = text.lower()
+    for keyword in keywords:
+        kw = keyword.lower()
+        if kw == "va":
+            if re.search(r"\bva\b", text_lower):
+                return True
+        elif kw in text_lower:
+            return True
+    return False
+
+
+def _load_json_list(path: Path) -> List[Dict[str, Any]]:
+    if not path.exists():
+        return []
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return data if isinstance(data, list) else []
+    except (json.JSONDecodeError, OSError) as e:
+        print(f"Warning: Could not load {path}: {e}")
+        return []
+
+
+def _normalized_bill_to_item(bill: Dict[str, Any]) -> Dict[str, Any]:
+    bill_number = bill.get("bill_number", "")
+    bill_type = ""
+    bill_num = ""
+    match = re.match(r"^([A-Za-z]+)\s*(\d+)$", str(bill_number).strip())
+    if match:
+        bill_type = match.group(1).upper()
+        bill_num = match.group(2)
+
+    return {
+        "title": f"{bill_number}: {bill.get('title', '')}" if bill_number else bill.get("title", ""),
+        "summary": bill.get("summary", "") or bill.get("latest_action", ""),
+        "source": bill.get("source", ""),
+        "published": bill.get("latest_action_date") or bill.get("updated_at", ""),
+        "url": bill.get("url", ""),
+        "bill_number": bill_num,
+        "bill_type": bill_type,
+        "category": "bill",
+    }
+
+
+def _normalized_event_to_item(event: Dict[str, Any]) -> Dict[str, Any]:
+    return {
+        "title": event.get("title", "Legislative Event"),
+        "summary": event.get("description", ""),
+        "source": event.get("source", ""),
+        "published": event.get("scheduled_date") or event.get("updated_at", ""),
+        "scheduled_date": event.get("scheduled_date", ""),
+        "url": event.get("url", ""),
+        "committees": event.get("committees") or [],
+        "category": "hearing",
+    }
+
+
+def _normalized_vote_to_item(vote: Dict[str, Any]) -> Dict[str, Any]:
+    return {
+        "title": vote.get("bill_number") or vote.get("bill_id") or "Vote",
+        "summary": vote.get("motion_text", "") or vote.get("action", ""),
+        "source": vote.get("source", ""),
+        "published": vote.get("date", ""),
+        "url": vote.get("url", ""),
+        "bill_number": vote.get("bill_number", ""),
+        "category": "vote",
+    }
+
+
+def load_jurisdiction_items(now: datetime) -> Tuple[Dict[str, Dict[str, List[Dict]]], List[Dict[str, str]]]:
+    """
+    Load recent activity grouped by jurisdiction from normalized data,
+    with legacy src/output fallback for Congress and Kansas.
+    """
+    states_config, federal_enabled = load_state_config()
+    jurisdictions: Dict[str, Dict[str, List[Dict]]] = {}
+    section_order: List[Dict[str, str]] = []
+
+    if federal_enabled:
+        jurisdictions["federal"] = {"bills": [], "events": [], "votes": []}
+        section_order.append({"id": "federal", "label": "Congress / Federal"})
+
+    for state_cfg in states_config:
+        code = state_cfg["code"].lower()
+        jurisdictions[code] = {"bills": [], "events": [], "votes": []}
+        section_order.append({"id": code, "label": state_cfg.get("name", code.upper())})
+
+    normalized_available = (NORMALIZED_DIR / "bills.json").exists()
+    if normalized_available:
+        bills = _load_json_list(NORMALIZED_DIR / "bills.json")
+        events = _load_json_list(NORMALIZED_DIR / "events.json")
+        votes = _load_json_list(NORMALIZED_DIR / "votes.json")
+
+        for bill in bills:
+            date_str = bill.get("latest_action_date") or bill.get("updated_at", "")
+            if not is_within_last_7_days(date_str, now):
+                continue
+            if bill.get("level") == "federal" and "federal" in jurisdictions:
+                jurisdictions["federal"]["bills"].append(_normalized_bill_to_item(bill))
+            elif bill.get("state"):
+                code = str(bill["state"]).lower()
+                if code in jurisdictions:
+                    jurisdictions[code]["bills"].append(_normalized_bill_to_item(bill))
+
+        for event in events:
+            date_str = event.get("scheduled_date") or event.get("updated_at", "")
+            if not is_within_last_7_days(date_str, now):
+                continue
+            if event.get("level") == "federal" and "federal" in jurisdictions:
+                jurisdictions["federal"]["events"].append(_normalized_event_to_item(event))
+            elif event.get("state"):
+                code = str(event["state"]).lower()
+                if code in jurisdictions:
+                    jurisdictions[code]["events"].append(_normalized_event_to_item(event))
+
+        for vote in votes:
+            date_str = vote.get("date", "")
+            if not is_within_last_7_days(date_str, now):
+                continue
+            code = str(vote.get("state", "")).lower()
+            if code in jurisdictions:
+                jurisdictions[code]["votes"].append(_normalized_vote_to_item(vote))
+    else:
+        legacy = load_recent_items(now)
+        if "federal" in jurisdictions:
+            congress_items = legacy.get("congress", [])
+            jurisdictions["federal"]["bills"] = [
+                item for item in congress_items if item.get("category") != "hearing"
+            ]
+            jurisdictions["federal"]["events"] = [
+                item for item in congress_items if item.get("category") == "hearing"
+            ]
+        if "ks" in jurisdictions:
+            jurisdictions["ks"]["bills"] = legacy.get("kansas", [])
+
+    return jurisdictions, section_order
 
 
 def categorize_item(item: Dict) -> Optional[str]:
@@ -386,62 +595,103 @@ def truncate_summary(text: str, max_length: int = 100) -> str:
     return truncated
 
 
-def generate_summary(items: Dict[str, List[Dict]], week_start: datetime, week_end: datetime) -> str:
-    """
-    Generate a concise weekly summary suitable for 1-minute audio (~150 words).
-    
-    Shows top 2-3 items per category with brief descriptions, then summarizes the rest.
-    Only includes items from the past week (not future dates).
-    """
-    # Format week range
-    week_start_str = week_start.strftime("%B %d")
-    week_end_str = week_end.strftime("%B %d")
-    if week_start.year != week_end.year:
-        week_start_str += f", {week_start.year}"
-    week_end_str += f", {week_end.year}"
-    
-    lines = []
-    
-    # Intro
-    lines.append(f"CivicWatch weekly overview for {week_start_str} through {week_end_str}.")
-    lines.append("")
-    
-    # Congress section - show top 2-3 bills only
-    congress_bills = [item for item in items["congress"] if item.get("category") != "hearing"]
-    congress_hearings = [item for item in items["congress"] if item.get("category") == "hearing"]
-    
-    if congress_bills or congress_hearings:
-        lines.append("Congress:")
-        lines.append("")
-        
-        if congress_bills:
-            # Show top 2-3 bills with brief descriptions
-            top_bills = congress_bills[:3]
+def clean_display_text(text: str, max_length: int = 140) -> str:
+    """Normalize whitespace and truncate for display in highlights."""
+    cleaned = re.sub(r"\s+", " ", clean_html(text or "")).strip()
+    return truncate_summary(cleaned, max_length)
+
+
+def build_veterans_highlight(
+    activity: Dict[str, List[Dict]],
+    keywords: List[str],
+    max_items: int = 3,
+) -> Optional[Dict[str, Any]]:
+    """Build veterans/military highlight for a jurisdiction section."""
+    matches: List[Dict[str, Any]] = []
+
+    for item_type, items in (
+        ("bill", activity.get("bills", [])),
+        ("hearing", activity.get("events", [])),
+        ("vote", activity.get("votes", [])),
+    ):
+        for item in items:
+            if matches_veterans_topic(item_search_text(item), keywords):
+                label = clean_display_text(item.get("title", "Untitled"))
+                if item_type == "bill" and item.get("bill_type") and item.get("bill_number"):
+                    title = extract_bill_title(item.get("title", ""), item.get("bill_type", ""), item.get("bill_number", ""))
+                    label = clean_display_text(
+                        f"{item['bill_type']} {item['bill_number']}: {title}"
+                    )
+                matches.append(
+                    {
+                        "type": item_type,
+                        "title": label,
+                        "url": item.get("url", ""),
+                    }
+                )
+
+    if not matches:
+        return None
+
+    top_matches = matches[:max_items]
+    summary_parts = [m["title"] for m in top_matches]
+    remaining = len(matches) - len(top_matches)
+    summary = "; ".join(summary_parts)
+    if remaining > 0:
+        summary += f"; plus {remaining} more"
+
+    return {
+        "summary": summary,
+        "items": top_matches,
+        "total_matches": len(matches),
+    }
+
+
+def build_jurisdiction_recap(
+    activity: Dict[str, List[Dict]],
+    label: str,
+    is_federal: bool = False,
+) -> List[str]:
+    """Build recap lines for one jurisdiction."""
+    lines: List[str] = []
+    bills = activity.get("bills", [])
+    events = activity.get("events", [])
+    votes = activity.get("votes", [])
+    total = len(bills) + len(events) + len(votes)
+
+    if total == 0:
+        lines.append(f"{label}: No new activity this week.")
+        return lines
+
+    lines.append(f"{label}:")
+
+    if is_federal:
+        if bills:
+            top_bills = bills[:3]
             for bill in top_bills:
                 bill_num = bill.get("bill_number", "")
                 bill_type = bill.get("bill_type", "")
                 bill_id = f"{bill_type} {bill_num}" if bill_num and bill_type else ""
                 title = extract_bill_title(bill.get("title", "Untitled Bill"), bill_type, bill_num)
                 summary = clean_html(bill.get("summary", ""))
-                
+
                 if bill_id:
                     lines.append(f"{bill_id}: {title}")
                 else:
                     lines.append(title)
-                
+
                 if summary:
                     brief_summary = truncate_summary(summary, 100)
                     if brief_summary:
                         lines.append(f"   {brief_summary}")
-            
-            # Summarize the rest
-            remaining = len(congress_bills) - len(top_bills)
+
+            remaining = len(bills) - len(top_bills)
             if remaining > 0:
-                bill_groups = group_bills_by_theme(congress_bills[3:])
+                bill_groups = group_bills_by_theme(bills[3:])
                 group_summaries = []
                 total_grouped = 0
                 for theme, theme_bills in bill_groups.items():
-                    if theme != "other" and len(theme_bills) > 0:
+                    if theme != "other" and theme_bills:
                         theme_names = {
                             "immigration": "immigration",
                             "healthcare": "healthcare",
@@ -451,13 +701,12 @@ def generate_summary(items: Dict[str, List[Dict]], week_start: datetime, week_en
                             "environment": "environmental",
                             "technology": "technology",
                             "tax": "tax",
-                            "infrastructure": "infrastructure"
+                            "infrastructure": "infrastructure",
                         }
-                        theme_name = theme_names.get(theme, theme)
                         count = len(theme_bills)
-                        group_summaries.append(f"{count} {theme_name}")
+                        group_summaries.append(f"{count} {theme_names.get(theme, theme)}")
                         total_grouped += count
-                
+
                 other_count = remaining - total_grouped
                 if group_summaries:
                     if other_count > 0:
@@ -466,48 +715,90 @@ def generate_summary(items: Dict[str, List[Dict]], week_start: datetime, week_en
                         lines.append(f"   Plus {', '.join(group_summaries)} bills.")
                 else:
                     lines.append(f"   Plus {remaining} other bills.")
-            lines.append("")
-        
-        if congress_hearings:
-            lines.append(f"{len(congress_hearings)} hearings scheduled.")
-            lines.append("")
+
+        if events:
+            lines.append(f"{len(events)} hearings scheduled.")
     else:
-        lines.append("Congress: No new activity this week.")
-        lines.append("")
-    
-    # Kansas section - summarize by type
-    kansas_count = len(items["kansas"])
-    if kansas_count > 0:
-        lines.append("Kansas Legislature:")
-        kansas_groups = group_kansas_items(items["kansas"])
-        
         group_parts = []
+        kansas_groups = group_kansas_items(bills) if bills else {}
         if "introduced" in kansas_groups:
-            count = len(kansas_groups["introduced"])
-            group_parts.append(f"{count} bills introduced")
+            group_parts.append(f"{len(kansas_groups['introduced'])} bills introduced")
         if "committee" in kansas_groups:
-            count = len(kansas_groups["committee"])
-            group_parts.append(f"{count} committee actions")
+            group_parts.append(f"{len(kansas_groups['committee'])} committee actions")
         if "hearing" in kansas_groups:
-            count = len(kansas_groups["hearing"])
-            group_parts.append(f"{count} hearings")
+            group_parts.append(f"{len(kansas_groups['hearing'])} hearings")
         if "vote" in kansas_groups:
-            count = len(kansas_groups["vote"])
-            group_parts.append(f"{count} votes")
-        
+            group_parts.append(f"{len(kansas_groups['vote'])} votes")
+        if not group_parts and bills:
+            group_parts.append(f"{len(bills)} bills updated")
+        if events:
+            group_parts.append(f"{len(events)} hearings")
+        if votes:
+            group_parts.append(f"{len(votes)} votes")
+
         if group_parts:
             lines.append(f"   {', '.join(group_parts)}.")
         else:
-            lines.append(f"   {kansas_count} items tracked.")
+            lines.append(f"   {total} items tracked.")
+
+    return lines
+
+
+def generate_summary(
+    jurisdictions: Dict[str, Dict[str, List[Dict]]],
+    section_order: List[Dict[str, str]],
+    week_start: datetime,
+    week_end: datetime,
+    veterans_keywords: List[str],
+) -> Tuple[str, List[Dict[str, Any]], Dict[str, int]]:
+    """
+    Generate weekly summary script, structured sections, and per-jurisdiction counts.
+    """
+    week_start_str = week_start.strftime("%B %d")
+    week_end_str = week_end.strftime("%B %d")
+    if week_start.year != week_end.year:
+        week_start_str += f", {week_start.year}"
+    week_end_str += f", {week_end.year}"
+
+    lines = [f"CivicWatch weekly overview for {week_start_str} through {week_end_str}.", ""]
+    sections: List[Dict[str, Any]] = []
+    item_counts: Dict[str, int] = {}
+
+    for section_meta in section_order:
+        section_id = section_meta["id"]
+        label = section_meta["label"]
+        activity = jurisdictions.get(section_id, {"bills": [], "events": [], "votes": []})
+        is_federal = section_id == "federal"
+
+        recap_lines = build_jurisdiction_recap(activity, label, is_federal=is_federal)
+        veterans_highlight = build_veterans_highlight(activity, veterans_keywords)
+
+        if veterans_highlight:
+            highlight_line = f"Veterans & Military highlight: {truncate_summary(veterans_highlight['summary'], 220)}."
+            recap_with_highlight = recap_lines[:]
+            insert_at = 2 if len(recap_with_highlight) > 1 else len(recap_with_highlight)
+            recap_with_highlight.insert(insert_at, highlight_line)
+        else:
+            recap_with_highlight = recap_lines
+
+        lines.extend(recap_with_highlight)
         lines.append("")
-    else:
-        lines.append("Kansas Legislature: No new activity this week.")
-        lines.append("")
-    
-    # Closing
+
+        count = len(activity.get("bills", [])) + len(activity.get("events", [])) + len(activity.get("votes", []))
+        item_counts[section_id] = count
+
+        section_data: Dict[str, Any] = {
+            "id": section_id,
+            "label": label,
+            "recap_lines": recap_lines,
+            "item_count": count,
+        }
+        if veterans_highlight:
+            section_data["veterans_highlight"] = veterans_highlight
+        sections.append(section_data)
+
     lines.append("Explore full details at CivicWatch.")
-    
-    return "\n".join(lines)
+    return "\n".join(lines), sections, item_counts
 
 
 def get_voice_id(api_key: str, voice_name: str = "Austin Main") -> Optional[str]:
@@ -672,18 +963,22 @@ def main():
     week_end = now
     week_start = week_end - timedelta(days=7)
     
-    # Load recent items
+    # Load recent items by jurisdiction
     print("Loading items from the last 7 days...")
-    items = load_recent_items(now)
-    
-    congress_count = len(items["congress"])
-    kansas_count = len(items["kansas"])
-    
-    print(f"Found {congress_count} Congress items, {kansas_count} Kansas items")
-    
-    # Generate summary script
+    jurisdictions, section_order = load_jurisdiction_items(now)
+    veterans_keywords = load_veterans_keywords()
+
+    total_items = sum(
+        len(a.get("bills", [])) + len(a.get("events", [])) + len(a.get("votes", []))
+        for a in jurisdictions.values()
+    )
+    print(f"Found {total_items} items across {len(section_order)} jurisdictions")
+
+    # Generate summary script and structured sections
     print("Generating summary script...")
-    weekly_script = generate_summary(items, week_start, week_end)
+    weekly_script, sections, item_counts = generate_summary(
+        jurisdictions, section_order, week_start, week_end, veterans_keywords
+    )
     
     # Save text file
     with open(WEEKLY_TEXT, "w", encoding="utf-8") as f:
@@ -694,10 +989,8 @@ def main():
     metadata = {
         "week_start": week_start.isoformat(),
         "week_end": week_end.isoformat(),
-        "item_counts": {
-            "congress": congress_count,
-            "kansas": kansas_count
-        },
+        "item_counts": item_counts,
+        "sections": sections,
         "script": weekly_script,
         "generated_at": now.isoformat()
     }

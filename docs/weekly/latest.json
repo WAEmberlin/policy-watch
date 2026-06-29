@@ -1,12 +1,95 @@
 {
-  "week_start": "2026-06-21T13:16:49.160105-05:00",
-  "week_end": "2026-06-28T13:16:49.160105-05:00",
+  "week_start": "2026-06-21T19:54:16.747908-05:00",
+  "week_end": "2026-06-28T19:54:16.747908-05:00",
   "item_counts": {
-    "congress": 88,
-    "kansas": 0
+    "federal": 88,
+    "ks": 0,
+    "co": 0,
+    "az": 0,
+    "ut": 0,
+    "me": 0
   },
-  "script": "CivicWatch weekly overview for June 21 through June 28, 2026.\n\nCongress:\n\nHR 826: COVID Fraud Transparency Act of 2026\nHR 915: Small Business Technological Act of 2025\nHR 1181: Protecting Privacy in Purchases Act\n   Plus 1 immigration, 2 healthcare, 1 education, 3 economic, 1 environmental, 5 infrastructure bills, and 21 others.\n\n51 hearings scheduled.\n\nKansas Legislature: No new activity this week.\n\nExplore full details at CivicWatch.",
-  "generated_at": "2026-06-28T13:16:49.160105-05:00",
+  "sections": [
+    {
+      "id": "federal",
+      "label": "Congress / Federal",
+      "recap_lines": [
+        "Congress / Federal:",
+        "HR 2478: Financial Exploitation Prevention Act of 2025",
+        "   Motion to reconsider laid on the table Agreed to without objection.",
+        "HR 6921: To require the Secretary of Veterans Affairs to establish a new national cemetery in the State of Hawai'i, and for other purposes.",
+        "   Subcommittee Hearings Held",
+        "HR 6588: PROVIDE Act",
+        "   Subcommittee Hearings Held",
+        "   Plus 1 immigration, 2 healthcare, 1 education, 5 economic, 1 environmental, 1 technology, 1 tax, 4 infrastructure bills, and 17 others.",
+        "52 hearings scheduled."
+      ],
+      "item_count": 88,
+      "veterans_highlight": {
+        "summary": "HR 6921: To require the Secretary of Veterans Affairs to establish a new national cemetery in the State of Hawai'i, and for other purposes.; [RESCHEDULED] H.R. 8552, the \u201cVeterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026\u201d; H.R.; [POSTPONED] H.R. 5992, the \u201cStuck on Hold Act\u201d; H.R. 8532, the \u201cVA Home Loan Affordability Act\u201d; Discussion Draft, the \u201cVA Education...; plus 4 more",
+        "items": [
+          {
+            "type": "bill",
+            "title": "HR 6921: To require the Secretary of Veterans Affairs to establish a new national cemetery in the State of Hawai'i, and for other purposes.",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/6921"
+          },
+          {
+            "type": "hearing",
+            "title": "[RESCHEDULED] H.R. 8552, the \u201cVeterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026\u201d; H.R.",
+            "url": "https://www.congress.gov/event/119th-congress/house-event/119403"
+          },
+          {
+            "type": "hearing",
+            "title": "[POSTPONED] H.R. 5992, the \u201cStuck on Hold Act\u201d; H.R. 8532, the \u201cVA Home Loan Affordability Act\u201d; Discussion Draft, the \u201cVA Education...",
+            "url": "https://www.congress.gov/event/119th-congress/house-event/119402"
+          }
+        ],
+        "total_matches": 7
+      }
+    },
+    {
+      "id": "ks",
+      "label": "Kansas",
+      "recap_lines": [
+        "Kansas: No new activity this week."
+      ],
+      "item_count": 0
+    },
+    {
+      "id": "co",
+      "label": "Colorado",
+      "recap_lines": [
+        "Colorado: No new activity this week."
+      ],
+      "item_count": 0
+    },
+    {
+      "id": "az",
+      "label": "Arizona",
+      "recap_lines": [
+        "Arizona: No new activity this week."
+      ],
+      "item_count": 0
+    },
+    {
+      "id": "ut",
+      "label": "Utah",
+      "recap_lines": [
+        "Utah: No new activity this week."
+      ],
+      "item_count": 0
+    },
+    {
+      "id": "me",
+      "label": "Maine",
+      "recap_lines": [
+        "Maine: No new activity this week."
+      ],
+      "item_count": 0
+    }
+  ],
+  "script": "CivicWatch weekly overview for June 21 through June 28, 2026.\n\nCongress / Federal:\nHR 2478: Financial Exploitation Prevention Act of 2025\nVeterans & Military highlight: HR 6921: To require the Secretary of Veterans Affairs to establish a new national cemetery in the State of Hawai'i, and for other purposes.; [RESCHEDULED] H.R..\n   Motion to reconsider laid on the table Agreed to without objection.\nHR 6921: To require the Secretary of Veterans Affairs to establish a new national cemetery in the State of Hawai'i, and for other purposes.\n   Subcommittee Hearings Held\nHR 6588: PROVIDE Act\n   Subcommittee Hearings Held\n   Plus 1 immigration, 2 healthcare, 1 education, 5 economic, 1 environmental, 1 technology, 1 tax, 4 infrastructure bills, and 17 others.\n52 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nExplore full details at CivicWatch.",
+  "generated_at": "2026-06-28T19:54:16.747908-05:00",
   "audio_available": false,
   "audio_file": null
 }

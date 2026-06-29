@@ -1054,25 +1054,81 @@ async function loadWeeklyOverview() {
                 </div>
             `;
         }
-        
-        // Summary text
-        html += `<div class="leading-relaxed text-slate-700">`;
-        const script = data.script || "";
-        // Convert line breaks to HTML
-        const scriptHtml = script.split("\n").map(line => {
-            if (line.trim() === "") {
-                return "<br>";
-            }
-            return `<p class="my-2">${line}</p>`;
-        }).join("");
-        html += scriptHtml;
-        html += `</div>`;
+
+        if (Array.isArray(data.sections) && data.sections.length > 0) {
+            html += `<div class="space-y-6">`;
+            data.sections.forEach(section => {
+                html += `<div class="border border-slate-200 rounded-lg bg-white p-4">`;
+                html += `<div class="flex items-center justify-between gap-3 mb-3">`;
+                html += `<h3 class="font-semibold text-civic-navy text-lg">${section.label}</h3>`;
+                if (section.item_count > 0) {
+                    html += `<span class="text-xs font-medium px-2 py-1 bg-slate-100 text-slate-600 rounded-full">${section.item_count} items</span>`;
+                }
+                html += `</div>`;
+
+                if (section.veterans_highlight) {
+                    const highlight = section.veterans_highlight;
+                    html += `<div class="mb-4 p-3 bg-amber-50 border border-amber-200 rounded-lg">`;
+                    html += `<div class="flex items-center gap-2 mb-2">`;
+                    html += `<span class="inline-block px-2 py-0.5 bg-amber-100 text-amber-900 text-xs font-semibold rounded uppercase tracking-wide">Veterans & Military</span>`;
+                    if (highlight.total_matches > 1) {
+                        html += `<span class="text-xs text-amber-700">${highlight.total_matches} matches</span>`;
+                    }
+                    html += `</div>`;
+                    html += `<p class="text-sm font-medium text-amber-950"><span class="font-semibold">Highlight:</span> ${highlight.summary}</p>`;
+                    if (Array.isArray(highlight.items) && highlight.items.length > 0) {
+                        html += `<ul class="mt-2 space-y-1 text-sm text-amber-900">`;
+                        highlight.items.forEach(item => {
+                            const label = item.title || "Item";
+                            if (item.url) {
+                                html += `<li><a href="${item.url}" class="text-civic-blue hover:underline" target="_blank" rel="noopener">${label}</a></li>`;
+                            } else {
+                                html += `<li>${label}</li>`;
+                            }
+                        });
+                        html += `</ul>`;
+                    }
+                    html += `</div>`;
+                }
+
+                html += `<div class="leading-relaxed text-slate-700 text-sm">`;
+                const recapLines = section.recap_lines || [];
+                recapLines.forEach(line => {
+                    if (line.trim() === "") {
+                        return;
+                    }
+                    if (line.startsWith("   ")) {
+                        html += `<p class="my-1 ml-4 text-slate-600">${line.trim()}</p>`;
+                    } else if (line.endsWith(":")) {
+                        html += `<p class="my-1 font-medium text-slate-800">${line}</p>`;
+                    } else {
+                        html += `<p class="my-1">${line}</p>`;
+                    }
+                });
+                html += `</div>`;
+                html += `</div>`;
+            });
+            html += `</div>`;
+        } else {
+            // Fallback for older weekly overview format
+            html += `<div class="leading-relaxed text-slate-700">`;
+            const script = data.script || "";
+            const scriptHtml = script.split("\n").map(line => {
+                if (line.trim() === "") {
+                    return "<br>";
+                }
+                return `<p class="my-2">${line}</p>`;
+            }).join("");
+            html += scriptHtml;
+            html += `</div>`;
+        }
         
         // Item counts
         const counts = data.item_counts || {};
-        if (counts.congress > 0 || counts.kansas > 0) {
+        const countEntries = Object.entries(counts).filter(([, value]) => value > 0);
+        if (countEntries.length > 0) {
             html += `<div class="mt-5 pt-4 border-t border-slate-200 text-sm text-slate-500">`;
-            html += `This week: ${counts.congress} Congress items, ${counts.kansas} Kansas items`;
+            html += `This week: ${countEntries.map(([key, value]) => `${value} ${key}`).join(", ")}`;
             html += `</div>`;
         }
         
