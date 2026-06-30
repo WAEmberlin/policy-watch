@@ -1,1 +1,506 @@
-[]
+[
+  {
+    "id": "ocd-organization/f703e749-0841-4769-86e6-1bcfa42660db",
+    "name": "Administrative Rules and Regulations",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/5f24f583-a52c-448e-b643-40106d51d33a",
+    "name": "Agriculture and Natural Resources",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/8bb91430-7b47-4b3b-9c3f-4fff204ecb12",
+    "name": "Agriculture and Natural Resources",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/fd1194a0-cb4b-425c-896d-f602192aa64f",
+    "name": "Agriculture and Natural Resources Budget",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/de470356-4404-4b95-b71a-6d969606f623",
+    "name": "Alvin Sykes Cold Case DNA Task Force",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/6b8366d3-b1f8-4c85-99e5-b1c2a2c25e8f",
+    "name": "Appropriations",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/31ebbaaf-f595-49f5-b127-a95110756dbc",
+    "name": "Assessment and Taxation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/e63b53e0-74a9-4ace-b425-74045a7c8f13",
+    "name": "Calendar and Printing",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/2cc228ed-6772-4944-b432-1a5cf8e24e27",
+    "name": "Capitol Preservation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/95652faf-2535-4f98-89d2-292c867f1334",
+    "name": "Child Welfare System Oversight",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/020f28db-bc75-4703-964c-7f1da5128042",
+    "name": "Child Welfare System Task Force",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/d174abcb-3c07-4c63-ac0a-1e6f73c72042",
+    "name": "Child Welfare and Foster Care",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/90dbe4ee-3fb8-47e6-bd42-39c3102bf852",
+    "name": "Commerce",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/7a8a3bdd-099b-46b5-b231-15db9230a1a7",
+    "name": "Commerce, Labor and Economic Development",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/d9ae5686-e25d-424b-9140-d20849aef1e5",
+    "name": "Confirmation Oversight",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/3811ead5-bf0a-4e04-8a1c-1f31a45ab4fd",
+    "name": "Corrections and Juvenile Justice",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/f3f351db-2bf6-480a-9f6f-3b6544c52d09",
+    "name": "Criminal Justice Reform Commission",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/19814ca1-4b2c-451d-a426-62577a8b43d6",
+    "name": "Education",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/65f83dae-e7a9-429d-a226-6cb1c3447c0a",
+    "name": "Education",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/2cbabd6f-256d-462a-b81e-489588f06ec2",
+    "name": "Education Funding Task Force",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/e4339e9b-1c8d-45e2-a944-e9c1fafd3515",
+    "name": "Elections",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/9102d874-dd7b-4a32-8d84-254f4ebec190",
+    "name": "Energy, Utilities and Telecommunications",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/6106895d-62a2-4f76-8ea6-9285625eb99f",
+    "name": "Federal and State Affairs",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/c5635b2d-52b4-4d0e-b798-e130cbe3686e",
+    "name": "Federal and State Affairs",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/d7df5351-9108-4d81-835f-e072dc3a961d",
+    "name": "Fiduciary Financial Institutions Oversight",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/b6d9f53f-0cab-4b57-b6ee-fc60e51cb706",
+    "name": "Financial Institutions and Insurance",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/aca3c6b6-7fed-4150-b3f9-be6134f71aef",
+    "name": "Financial Institutions and Pensions",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/85259376-d97e-4b0d-89d8-1ae33c61aadf",
+    "name": "General Government Budget",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/120279cd-6229-4364-b3bb-1dc33969b552",
+    "name": "Government Efficiency",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/44a61e11-fe60-4532-b33a-eee44e1c2bc5",
+    "name": "Health Care Stabilization Fund Oversight",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/db3b2995-5172-4796-b337-ae18fcbbe8ee",
+    "name": "Health and Human Services",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/fa70ea4c-a41a-4aa7-81ae-116e939abad2",
+    "name": "Higher Education Budget",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/71bcae94-99c5-4495-bada-1082ee3587ca",
+    "name": "Information Technology",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/6f0d52e4-2162-42c8-aa94-3e397cc6a408",
+    "name": "Insurance",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/c234f4c9-742a-42be-8962-91cb488c9e9a",
+    "name": "Interstate Cooperation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/b4db6bf6-8b2c-4f55-b3d4-fcc2facfbc31",
+    "name": "Interstate Cooperation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/8f7de189-3d82-4517-b9c4-0bf3c28218dc",
+    "name": "J. Russell (Russ) Jennings Corrections and Juvenile Justice Oversight",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/05d937a6-9a8b-4db5-83ba-bc721ed04724",
+    "name": "Judiciary",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/6081f90b-0957-40a8-9517-186482c2f591",
+    "name": "Judiciary",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/a7f224a6-40d4-4354-ac0a-d72b8286a226",
+    "name": "K-12 Education Budget",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/604cf4eb-3699-431c-9c7a-8a17015fbdd0",
+    "name": "Kansas Security",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/671f81b2-b028-4955-aacf-34f1c83a81ad",
+    "name": "Legislative Budget",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/18314b88-e3a2-412a-8a96-87059d60895a",
+    "name": "Legislative Budget",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/67782dc4-d7d7-460d-9891-3c2526c117ce",
+    "name": "Legislative Coordinating Council",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/bd0cc560-817f-4318-bb4a-1585eacb0d1f",
+    "name": "Legislative Modernization",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/5ef6dc27-3a76-4b93-b08a-c7278c45fa74",
+    "name": "Legislative Post Audit",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/68c5a7b9-15fa-4b41-bb2f-42dde3a0afb7",
+    "name": "Legislative Task Force on Dyslexia",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/4ad2219e-9ad8-41f6-a2f8-039fcbd8a875",
+    "name": "Local Government",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/3a0d2af3-ca92-49c9-b610-41bfbdc19207",
+    "name": "Local Government, Transparency and Ethics",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/00bc7c96-1e63-453b-9f87-afc0f07ae4fb",
+    "name": "Organization, Calendar and Rules",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/e009e4fe-68de-4820-b905-5f19be438700",
+    "name": "Pensions, Investments and Benefits",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/d8e73de0-f342-4f96-824e-4a6a7a6767c1",
+    "name": "Public Health and Welfare",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/62699077-3cdb-466c-bbc0-51605de320aa",
+    "name": "Robert G. (Bob) Bethell Joint Committee on Home and Community Based Services and KanCare Oversight",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/fb8e239c-f23c-4947-8713-6dc73cc4d32f",
+    "name": "Rules and Journal",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/6c0ea659-a4e9-42ec-8652-974d43346184",
+    "name": "Senior Care Task Force",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/9c5d8d33-6b2a-41e4-b708-e46136ab7f97",
+    "name": "Social Services Budget",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/344f787c-d99a-496d-8fcb-a1bf0b6c4317",
+    "name": "Special Claims Against the State",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/7cf31317-dc63-4dbc-a47b-70203073309e",
+    "name": "Special Education and Related Services Funding Task Force",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/0f0f214e-55b0-41c2-a208-b05435825d75",
+    "name": "State Building Construction",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/ec5c9bac-0e90-4da9-a570-2396d39c88f5",
+    "name": "State-Tribal Relations",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/8618448e-696c-4251-a4b8-156f052433a1",
+    "name": "Taxation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/e9061b14-68b2-49c5-8cad-e0f1307b3ab2",
+    "name": "Transportation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/d2c20d6b-328f-4530-aa6c-0660c57e7b3e",
+    "name": "Transportation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/c8d5ce37-c8cb-4ea0-bd93-14cc1ec591fb",
+    "name": "Transportation and Public Safety Budget",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/92c1fdbe-f528-4471-9285-67305b6dc281",
+    "name": "Unemployment Compensation Modernization and Improvement Council",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/092aeaf9-42e8-435d-985e-c4036e3801e4",
+    "name": "Utilities",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/4cb23227-5e39-44e9-9b9c-606e156ab2b8",
+    "name": "Veterans Affairs Select",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/3ec94896-e671-4a84-ba7e-5d567dae97c8",
+    "name": "Veterans and Military",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/68880de8-daaf-42ed-abe6-7690c653490f",
+    "name": "Water",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/1504dfa4-04d1-485f-968f-cccc73f62daa",
+    "name": "Water Program Task Force",
+    "classification": "committee",
+    "parent_id": "ocd-organization/6ee5506b-e33f-45c3-965e-59a531f249e6",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/2110440d-8028-4ca5-83fa-08a72c90b69a",
+    "name": "Ways and Means",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c1d465f9-fab5-4cc0-aded-270423bf31ba",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/d53c1b18-bb21-4292-91d9-73247bd0e76f",
+    "name": "Welfare Reform",
+    "classification": "committee",
+    "parent_id": "ocd-organization/31d2e44e-f94c-4971-83ea-e1fe29613c73",
+    "extras": {}
+  }
+]

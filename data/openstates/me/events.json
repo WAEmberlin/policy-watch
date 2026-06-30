@@ -1,1 +1,65 @@
-[]
+[
+  {
+    "id": "ocd-event/1a597ab5-34ce-4de9-be40-14e4bb4e845c",
+    "name": "Real Estate Property Tax Relief Task Force",
+    "jurisdiction": {
+      "id": "ocd-jurisdiction/country:us/state:me/government",
+      "name": "Maine",
+      "classification": "state"
+    },
+    "description": "Meeting with Joint Standing Committee on Taxation",
+    "classification": "committee-meeting",
+    "start_date": "2026-06-30T14:00:00+00:00",
+    "end_date": "2026-06-30T21:00:00+00:00",
+    "all_day": false,
+    "status": "confirmed",
+    "upstream_id": "",
+    "deleted": false,
+    "location": {
+      "name": "Maine State House, 210 State St, Augusta, ME 04330, Room 228",
+      "url": ""
+    }
+  },
+  {
+    "id": "ocd-event/94a3d784-b905-4ec5-a950-dd9b9faa51bd",
+    "name": "ME-CAN Legislative Advisory Commission",
+    "jurisdiction": {
+      "id": "ocd-jurisdiction/country:us/state:me/government",
+      "name": "Maine",
+      "classification": "state"
+    },
+    "description": "Meeting",
+    "classification": "committee-meeting",
+    "start_date": "2026-07-15T15:00:00+00:00",
+    "end_date": "2026-07-15T21:00:00+00:00",
+    "all_day": false,
+    "status": "confirmed",
+    "upstream_id": "",
+    "deleted": false,
+    "location": {
+      "name": "Maine State House, 210 State St, Augusta, ME 04330, Room 126",
+      "url": ""
+    }
+  },
+  {
+    "id": "ocd-event/63e3cce2-2855-4983-8740-03373394a0e4",
+    "name": "Legislative Council",
+    "jurisdiction": {
+      "id": "ocd-jurisdiction/country:us/state:me/government",
+      "name": "Maine",
+      "classification": "state"
+    },
+    "description": "Legislative Council",
+    "classification": "committee-meeting",
+    "start_date": "2026-07-23T17:30:00+00:00",
+    "end_date": "2026-07-23T21:00:00+00:00",
+    "all_day": false,
+    "status": "confirmed",
+    "upstream_id": "",
+    "deleted": false,
+    "location": {
+      "name": "Maine State House, 210 State St, Augusta, ME 04330, Room 334",
+      "url": ""
+    }
+  }
+]

@@ -1,1 +1,499 @@
-[]
+[
+  {
+    "id": "ocd-organization/a880d697-de26-46c4-b985-465ce0924e6b",
+    "name": "Behavioral Health Legislative Policy",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/78a78501-c4d4-4b9d-acd3-693492e4c318",
+    "name": "Business and Labor",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/16aead18-89f2-40a1-beaa-f218f0751fdf",
+    "name": "Business and Labor Confirmation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/131156bb-285a-4683-ae19-3ede2095e876",
+    "name": "Business and Labor Interim",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/2fe15fb5-8bd7-4cf2-b92e-dd2223d4dd87",
+    "name": "Business, Labor and Commerce",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c7625e7e-dc12-49cf-aa73-fa96c5bf4b11",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/fee96d45-600f-4ca4-bc37-a004d4e2025a",
+    "name": "Child Welfare Legislative Oversight Panel",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/8601e2e3-e2a7-49f1-baad-a0f21703b61e",
+    "name": "Economic Development and Workforce Services",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/a65e48c6-eb3c-4953-a255-f1b251304e60",
+    "name": "Economic Development and Workforce Services",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c7625e7e-dc12-49cf-aa73-fa96c5bf4b11",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/5ce17d65-7e0e-4011-b229-2fc4e4d15730",
+    "name": "Economic Development and Workforce Services Confirmation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/c1412e4f-de52-445e-a175-4ab95e94b4da",
+    "name": "Economic Development and Workforce Services Interim",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/d1446c0f-fe52-48e8-a0fa-6a69a9c511f2",
+    "name": "Education",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c7625e7e-dc12-49cf-aa73-fa96c5bf4b11",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/2973baa7-ff38-44b4-8eea-830f48c8398e",
+    "name": "Education",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/a8d13415-f57e-4d87-ae7b-bd37471201b0",
+    "name": "Education Confirmation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/4410f575-04a9-4c4a-8db6-853f17ec2d44",
+    "name": "Education Interim",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/48b8f259-09b4-4f3f-9ee2-23e421a65027",
+    "name": "Ethics",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c7625e7e-dc12-49cf-aa73-fa96c5bf4b11",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/87cd6942-6e65-4e41-85d0-b8508e95c391",
+    "name": "Ethics",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/9f766f26-f81d-4a2d-82dd-6c58f56f0544",
+    "name": "Ethnic Studies Commission",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/717a3349-ab6f-4aec-ae4c-368d715749c1",
+    "name": "Executive Appropriations",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/923eaec8-04c4-40e5-8a07-d492082cba95",
+    "name": "Federalism Commission",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/201dbb2f-1724-4e0f-85b0-dfc06d47447e",
+    "name": "Government Operations",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c7625e7e-dc12-49cf-aa73-fa96c5bf4b11",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/3ae348f4-2721-4ad6-93d3-9399a5ac807a",
+    "name": "Government Operations Confirmation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/44ff075d-40b4-4779-8841-d8afb130c3bc",
+    "name": "Government Operations Interim",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/fd8c0d82-2075-466a-b671-4c0ecec2de29",
+    "name": "Government Operations and Political Subdivisions",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/ce2340af-46a0-4a82-baf5-7d0746dd2c40",
+    "name": "Health and Human Services",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c7625e7e-dc12-49cf-aa73-fa96c5bf4b11",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/02b46ea2-74c0-49f5-997b-15342a97d6f1",
+    "name": "Health and Human Services",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/b2fd78f4-ea35-4fee-8dd6-31503d2b4451",
+    "name": "Health and Human Services Confirmation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/711741fa-95ec-489c-9078-d63ff4db2b7f",
+    "name": "Health and Human Services Interim",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/598f105b-d347-48dd-8028-b09f129da679",
+    "name": "Judicial Confirmation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/0c1c4ca2-cc89-41b7-a187-a11b632cb9ee",
+    "name": "Judiciary",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c7625e7e-dc12-49cf-aa73-fa96c5bf4b11",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/242572b1-6f6e-43e1-b803-7b4cf082fbdb",
+    "name": "Judiciary Confirmation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/f9139247-b29d-4fdf-92ce-36862f1cae32",
+    "name": "Judiciary Interim",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/13e079ea-0b4a-4007-985b-c214e059853c",
+    "name": "Judiciary, Law Enforcement and Criminal Justice",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/08731fb2-2846-48fe-8f75-8de0275c6f42",
+    "name": "Law Enforcement and Criminal Justice",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c7625e7e-dc12-49cf-aa73-fa96c5bf4b11",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/6ff36133-6a41-4c71-9841-2e89193fad54",
+    "name": "Law Enforcement and Criminal Justice Confirmation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/570d2e98-e6b7-4ab2-9eff-5f293ff474df",
+    "name": "Law Enforcement and Criminal Justice Interim",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/a4a0a052-7860-41ec-a9dc-885c1fa93361",
+    "name": "Legislative Expense Oversight",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c7625e7e-dc12-49cf-aa73-fa96c5bf4b11",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/c4d174ac-d45c-4c40-a0a4-7aab5ac53a01",
+    "name": "Legislative Expense Oversight",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/18c8e4df-563c-48a9-8ca0-56e3c2e2fa8f",
+    "name": "Legislative Management",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/b6420886-6f80-42d1-bffb-bc0eaa2321c0",
+    "name": "Legislative Process",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/b6dc1987-cd63-4092-a782-c46d7871e228",
+    "name": "Legislative Redistricting",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/e28b23bb-7a38-40db-8735-565c2eb8463c",
+    "name": "Legislative Water Development Commission",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/bcd7a649-0a11-4853-8d93-fcaa07ac58e6",
+    "name": "Medical Cannabis Governance Structure Working Group",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/26db74e6-62a1-47ec-8dbe-e3a4589ea0e1",
+    "name": "Native American Legislative Liaison",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/1ff780bf-d7e9-4ff9-9c11-2996c160cc4b",
+    "name": "Natural Resources, Agriculture and Environment",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/7753f062-b7c1-4f00-884b-35476f44b865",
+    "name": "Natural Resources, Agriculture and Environment Confirmation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/6038dcaa-241d-4e58-b491-6f57295ec47a",
+    "name": "Natural Resources, Agriculture and Environment Interim",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/5950996e-6308-49b5-a817-7d54d74d6626",
+    "name": "Natural Resources, Agriculture, and Environment",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c7625e7e-dc12-49cf-aa73-fa96c5bf4b11",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/f4589243-19a6-4312-a858-2f1851bb3ced",
+    "name": "Olympic and Paralympic Winter Games Coordination",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/50fc872c-265c-4f12-88b7-b5745479b607",
+    "name": "Political Subdivisions",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c7625e7e-dc12-49cf-aa73-fa96c5bf4b11",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/9dd87c1c-626f-40fb-8a8a-101e50a15fbd",
+    "name": "Political Subdivisions Confirmation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/fc5ce8b5-e63f-49c5-867e-0bd24a089794",
+    "name": "Political Subdivisions Interim",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/62613b86-2636-4992-9153-d2e03d957f1d",
+    "name": "Public Utilities and Energy",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c7625e7e-dc12-49cf-aa73-fa96c5bf4b11",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/017bfc7c-1502-4f10-a79c-dcd5b32fdf44",
+    "name": "Public Utilities, Energy and Technology Interim",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/64b55eea-3e89-423f-b6ec-2cf77c85a7fd",
+    "name": "Retirement and Independent Entities Confirmation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/09918427-8b56-485f-90b1-e296f0a19635",
+    "name": "Retirement and Independent Entities Interim",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/aec86ed8-00b7-49f6-986d-b6e2aa5dab5a",
+    "name": "Revenue and Taxation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c7625e7e-dc12-49cf-aa73-fa96c5bf4b11",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/c63e26b6-bbfc-47a1-9abb-ddc6b2456b01",
+    "name": "Revenue and Taxation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/a3bbe592-48e7-4463-8115-2f71336b5d42",
+    "name": "Revenue and Taxation Confirmation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/495fa97e-e92c-40dc-8d25-8f70c3271ebb",
+    "name": "Revenue and Taxation Interim",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/b8f5f856-e12e-473a-a4cd-88d2394e64d2",
+    "name": "Revitalization Zone",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/d96a318e-d68a-4f0d-a397-87043d6bbb95",
+    "name": "Rules",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/80e6b04c-4952-4d8b-a13f-b6c5cfac5b77",
+    "name": "Rules",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c7625e7e-dc12-49cf-aa73-fa96c5bf4b11",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/bffc3a7b-f0b5-496f-8f4c-a604f6da9bef",
+    "name": "Rules Review and General Oversight",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/315bc8b9-f1f7-4b9a-9965-a4ca1fa376a6",
+    "name": "School Security Task Force",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/89d45bf7-cad4-4678-901a-cf21009b8dbe",
+    "name": "Transportation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c7625e7e-dc12-49cf-aa73-fa96c5bf4b11",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/da8b7551-f8f7-41f0-8206-6788c9afbe74",
+    "name": "Transportation Interim",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/528b2e7e-737a-4066-8e73-7e0dd68ac194",
+    "name": "Transportation, Public Utilities, Energy and Technology",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/a259168b-82f1-4f7f-b389-86eb4d3083a1",
+    "name": "Transportation, Public Utilities, Energy, and Technology Confirmation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/98cb21d7-f3ae-416b-93e7-df3da962aff9",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/b26bdc62-7da4-4d5d-8421-f9b2f27e6fe1",
+    "name": "Uniform State Laws Commission",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/031a3306-21d2-4f3d-a66d-675f182abefd",
+    "name": "Veterans and Military Affairs Commission",
+    "classification": "committee",
+    "parent_id": "ocd-organization/58fd9e6c-78ea-42ff-b58b-4f80d307cf19",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/36996ce8-fa69-4564-8a54-420f159d1a96",
+    "name": "Water Development Commission 2026",
+    "classification": "committee",
+    "parent_id": "ocd-organization/c7625e7e-dc12-49cf-aa73-fa96c5bf4b11",
+    "extras": {}
+  }
+]
