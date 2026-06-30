@@ -101,7 +101,7 @@ class CongressSource(LegislativeSource):
                     votes=bill.get("votes") or [],
                     committees=[{"name": c.get("name", c) if isinstance(c, dict) else str(c)} for c in (bill.get("committees") or [])],
                     document_urls=[bill.get("url", "")] if bill.get("url") else [],
-                    updated_at=bill.get("latest_action_date") or bill.get("published", ""),
+                    updated_at=bill.get("last_synced_at") or bill.get("latest_action_date") or bill.get("published", ""),
                     url=bill.get("url", ""),
                 )
             )

@@ -585,17 +585,18 @@ def deduplicate_bills(new_bills: List[Dict], existing_bills: List[Dict]) -> List
     new_count = 0
     updated_count = 0
     unchanged_count = 0
-    
+    sync_ts = datetime.now(timezone.utc).isoformat()
+
     for new_bill in new_bills:
         bill_id = f"{new_bill.get('bill_type', '')}-{new_bill.get('bill_number', '')}"
-        
+
         if bill_id and bill_id != "-" and bill_id in existing_by_id:
             existing_bill = existing_by_id[bill_id]
-            
+
             # Check if the new bill has a more recent action date
             new_action_date = new_bill.get("latest_action_date", "")
             existing_action_date = existing_bill.get("latest_action_date", "")
-            
+
             # Compare dates - update if new is more recent
             if new_action_date and new_action_date > existing_action_date:
                 # Update the existing bill with new data, but preserve enriched fields
@@ -603,12 +604,14 @@ def deduplicate_bills(new_bills: List[Dict], existing_bills: List[Dict]) -> List
                 for key, value in new_bill.items():
                     if key not in preserved_fields or not existing_bill.get(key):
                         existing_bill[key] = value
+                existing_bill["last_synced_at"] = sync_ts
                 updated_count += 1
             else:
                 unchanged_count += 1
         else:
             # New bill - add to existing
             if bill_id and bill_id != "-":
+                new_bill["last_synced_at"] = sync_ts
                 existing_by_id[bill_id] = new_bill
             new_count += 1
     
