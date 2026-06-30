@@ -4,9 +4,10 @@ from __future__ import annotations
 
 import json
 import os
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, time, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
+from zoneinfo import ZoneInfo
 
 import yaml
 
@@ -86,15 +87,45 @@ def _parse_ts(value: str) -> Optional[datetime]:
     try:
         ts = datetime.fromisoformat(value.replace("Z", "+00:00"))
         if ts.tzinfo is None:
+            # Congress/Open States often store date-only actions at midnight UTC.
+            # Treat as end of that calendar day in US Central so same-day actions
+            # remain in the digest window through the evening.
+            if ts.hour == 0 and ts.minute == 0 and ts.second == 0 and ts.microsecond == 0:
+                central = ZoneInfo("America/Chicago")
+                end_local = datetime.combine(ts.date(), time(23, 59, 59), tzinfo=central)
+                return end_local.astimezone(timezone.utc)
             ts = ts.replace(tzinfo=timezone.utc)
         return ts
     except ValueError:
         return None
 
 
+def _recency_fields_for_item(item: Dict[str, Any]) -> Tuple[str, ...]:
+    fields = ["last_synced_at", "published", "latest_action_date", "updated_at"]
+    if item.get("bill_number") or item.get("type") == "state_legislation":
+        fields = ["last_synced_at", "ks_api_enriched_at", "published", "latest_action_date", "updated_at"]
+    return tuple(fields)
+
+
+def item_recency_ts(item: Dict[str, Any]) -> Optional[datetime]:
+    """Best timestamp for whether a bill/item belongs in the digest window."""
+    best: Optional[datetime] = None
+    for field in _recency_fields_for_item(item):
+        ts = _parse_ts(str(item.get(field) or ""))
+        if ts and (best is None or ts > best):
+            best = ts
+    return best
+
+
+def is_within_window(item: Dict[str, Any], now: datetime, window_hours: int) -> bool:
+    ts = item_recency_ts(item)
+    if not ts:
+        return False
+    return (now - ts).total_seconds() <= window_hours * 3600
+
+
 def load_recent_items(window_hours: int = 6) -> List[Dict[str, Any]]:
     now = datetime.now(timezone.utc)
-    cutoff = window_hours * 3600
     recent: List[Dict[str, Any]] = []
     seen_links: set = set()
 
@@ -103,25 +134,28 @@ def load_recent_items(window_hours: int = 6) -> List[Dict[str, Any]]:
             history = json.load(f)
         if isinstance(history, list):
             for item in history:
-                ts = _parse_ts(item.get("published", ""))
-                if ts and (now - ts).total_seconds() <= cutoff:
-                    recent.append(dict(item))
+                if not is_within_window(item, now, window_hours):
+                    continue
+                entry = dict(item)
+                ts = item_recency_ts(item)
+                if ts:
+                    entry["published"] = ts.isoformat()
+                recent.append(entry)
 
     if LEGISLATION_FILE.exists():
         with open(LEGISLATION_FILE, encoding="utf-8") as f:
             legislation = json.load(f)
         if isinstance(legislation, list):
             for bill in legislation:
-                date_str = bill.get("latest_action_date") or bill.get("published", "")
-                ts = _parse_ts(date_str)
-                if not ts or (now - ts).total_seconds() > cutoff:
+                if not is_within_window(bill, now, window_hours):
                     continue
+                ts = item_recency_ts(bill)
                 display_title = bill.get("short_title") or bill.get("title", "")
                 recent.append({
                     "title": f"{bill.get('bill_type', '')} {bill.get('bill_number', '')}: {display_title}".strip(": "),
                     "summary": bill.get("summary", ""),
                     "source": bill.get("source", "Congress.gov API"),
-                    "published": date_str,
+                    "published": ts.isoformat() if ts else bill.get("latest_action_date", ""),
                     "link": bill.get("url", ""),
                     "bill_number": f"{bill.get('bill_type', '')} {bill.get('bill_number', '')}".strip(),
                     "official_title": bill.get("official_title", ""),
@@ -135,22 +169,21 @@ def load_recent_items(window_hours: int = 6) -> List[Dict[str, Any]]:
             normalized_bills = json.load(f)
         if isinstance(normalized_bills, list):
             for bill in normalized_bills:
-                date_str = bill.get("latest_action_date") or bill.get("updated_at", "")
-                ts = _parse_ts(date_str)
-                if not ts or (now - ts).total_seconds() > cutoff:
+                if not is_within_window(bill, now, window_hours):
                     continue
                 url = bill.get("url", "")
                 if url and url in seen_links:
                     continue
                 if url:
                     seen_links.add(url)
+                ts = item_recency_ts(bill)
                 display_title = bill.get("title", "")
                 bill_num = bill.get("bill_number", "")
                 recent.append({
                     "title": f"{bill_num}: {display_title}" if bill_num else display_title,
                     "summary": bill.get("summary") or bill.get("ai_summary_short", ""),
                     "source": bill.get("source", "openstates"),
-                    "published": date_str,
+                    "published": ts.isoformat() if ts else bill.get("latest_action_date", ""),
                     "link": url,
                     "bill_number": bill_num,
                     "latest_action": bill.get("latest_action", ""),
