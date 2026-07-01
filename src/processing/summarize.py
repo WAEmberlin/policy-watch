@@ -8,11 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from processing.youtube_utils import (  # noqa: E402
-    extract_youtube_video_id,
-    is_youtube_url,
-    resolve_embed_url,
-)
+from processing.hearing_stream_utils import enrich_hearing_stream  # noqa: E402
 
 # Handle timezone on Windows (fallback if zoneinfo not available)
 try:
@@ -485,6 +481,7 @@ STATE_HEARING_LABELS = {
     "CO": "State (Colorado)",
     "AZ": "State (Arizona)",
     "UT": "State (Utah)",
+    "ME": "State (Maine)",
 }
 
 
@@ -535,41 +532,13 @@ def _normalized_event_to_hearing(event: dict) -> dict:
         "committee": committees_str.split(",")[0].strip() if committees_str else "",
         "link": event.get("url", ""),
         "url": event.get("url", ""),
+        "stream_url": event.get("stream_url", ""),
         "source": source,
         "state": state,
         "level": level,
         "chamber": event.get("chamber", ""),
         "description": event.get("description", ""),
     }
-
-
-def _enrich_hearing_stream(hearing: dict, state_floor_map: dict) -> dict:
-    """Add stream_url, embed_url, youtube_video_id, and livestream_id for the hearings UI."""
-    enriched = dict(hearing)
-    stream_url = enriched.get("stream_url") or ""
-    link = enriched.get("link") or enriched.get("url") or ""
-
-    if not stream_url and is_youtube_url(link):
-        stream_url = link
-    if stream_url:
-        enriched["stream_url"] = stream_url
-
-    video_id = extract_youtube_video_id(stream_url) or extract_youtube_video_id(link)
-    if video_id:
-        enriched["youtube_video_id"] = video_id
-        enriched["embed_url"] = resolve_embed_url(youtube_video_id=video_id)
-
-    state_key = ""
-    source = enriched.get("source") or ""
-    if enriched.get("level") == "federal" or enriched.get("state") == "Federal" or "Federal" in source:
-        state_key = "Federal"
-    elif enriched.get("state"):
-        state_key = str(enriched["state"]).upper()
-
-    if not enriched.get("embed_url") and state_key and state_key in state_floor_map:
-        enriched["livestream_id"] = state_floor_map[state_key]
-
-    return enriched
 
 
 def _classify_hearing_by_date(hearing: dict, today: datetime) -> str:
@@ -617,6 +586,37 @@ if os.path.exists(_normalized_events_path):
             print(f"Merged {len(_extra_upcoming)} upcoming + {len(_extra_historical)} historical Open States hearings")
     except (json.JSONDecodeError, IOError) as e:
         print(f"Warning: Could not load normalized events for hearings: {e}")
+
+# Kansas API global hearings schedule (standing committees + /now/ snapshot)
+_ks_hearings_path = os.path.join(DATA_DIR, "kansas", "hearings.json")
+if os.path.exists(_ks_hearings_path):
+    try:
+        with open(_ks_hearings_path, "r", encoding="utf-8") as f:
+            _ks_hearings_data = json.load(f)
+        _ks_hearing_items = (
+            _ks_hearings_data.get("items")
+            if isinstance(_ks_hearings_data, dict)
+            else _ks_hearings_data
+        )
+        if not isinstance(_ks_hearing_items, list):
+            _ks_hearing_items = []
+        ks_schedule_count = 0
+        for hearing in _ks_hearing_items:
+            if not isinstance(hearing, dict):
+                continue
+            hearing = dict(hearing)
+            if not hearing.get("source"):
+                hearing["source"] = STATE_HEARING_LABELS["KS"]
+            bucket = _classify_hearing_by_date(hearing, today_start)
+            if bucket == "upcoming":
+                _extra_upcoming.append(hearing)
+            else:
+                _extra_historical.append(hearing)
+            ks_schedule_count += 1
+        if ks_schedule_count:
+            print(f"Merged {ks_schedule_count} Kansas API schedule hearings")
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"Warning: Could not load Kansas hearings schedule: {e}")
 
 # Kansas API enrichment hearings (stream URLs, committee details)
 _ks_enrichments_path = os.path.join(DATA_DIR, "kansas", "enrichments.json")
@@ -667,7 +667,7 @@ print(f"After multi-state merge: {len(all_upcoming_hearings)} upcoming, {len(all
 # -------------------------
 # Enrich hearings with stream/embed metadata for the hearings page
 # -------------------------
-livestreams_meta = {"state_floor_stream": {}}
+livestreams_meta = {"state_floor_stream": {}, "streams": []}
 try:
     import yaml
 
@@ -676,15 +676,19 @@ try:
         with open(livestreams_path, "r", encoding="utf-8") as f:
             ls_cfg = yaml.safe_load(f) or {}
             livestreams_meta["state_floor_stream"] = ls_cfg.get("state_floor_stream") or {}
+            livestreams_meta["streams"] = ls_cfg.get("streams") or []
 except Exception as e:
     print(f"Warning: Could not load livestreams config: {e}")
 
 _state_floor_map = livestreams_meta["state_floor_stream"]
+_livestreams = livestreams_meta["streams"]
 all_upcoming_hearings = [
-    _enrich_hearing_stream(h, _state_floor_map) for h in all_upcoming_hearings
+    enrich_hearing_stream(h, state_floor_map=_state_floor_map, streams=_livestreams)
+    for h in all_upcoming_hearings
 ]
 all_historical_hearings = [
-    _enrich_hearing_stream(h, _state_floor_map) for h in all_historical_hearings
+    enrich_hearing_stream(h, state_floor_map=_state_floor_map, streams=_livestreams)
+    for h in all_historical_hearings
 ]
 
 # -------------------------
@@ -745,6 +749,7 @@ normalized_events = _load_expansion_json(os.path.join(DATA_DIR, "normalized", "e
 normalized_legislators = _load_expansion_json(os.path.join(DATA_DIR, "normalized", "legislators.json"), [])
 normalized_dashboards = _load_expansion_json(os.path.join(DATA_DIR, "normalized", "dashboards.json"), {})
 normalized_search_index = _load_expansion_json(os.path.join(DATA_DIR, "normalized", "search_index.json"), {})
+normalized_legislator_stats = _load_expansion_json(os.path.join(DATA_DIR, "normalized", "legislator_stats.json"), {})
 weekly_digests = _load_expansion_json(os.path.join(DATA_DIR, "digests", "weekly.json"), {})
 
 try:
@@ -783,6 +788,7 @@ output = {
     "states": configured_states,
     "dashboards": normalized_dashboards,
     "search_index": normalized_search_index,
+    "legislator_stats": normalized_legislator_stats,
     "weekly_digests": weekly_digests,
     "livestreams": livestreams_meta,
 }

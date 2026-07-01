@@ -34,6 +34,16 @@ jobs:
       - name: Fetch Kansas Legislature calendars
         run: python src/processing/fetch_kansas_calendar.py
 
+      - name: Update live stream config and status
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python src/processing/fetch_youtube_live.py
+
+      - name: Fetch Kansas committee hearings (official REST API)
+        env:
+          KANSAS_LEGISLATURE_API_KEY: ${{ secrets.KANSAS_LEGISLATURE_API_KEY }}
+        run: python src/processing/fetch_kansas_hearings.py
+
       - name: Enrich Kansas bills (official REST API)
         env:
           KANSAS_LEGISLATURE_API_KEY: ${{ secrets.KANSAS_LEGISLATURE_API_KEY }}
@@ -64,11 +74,6 @@ jobs:
 
       - name: Build HTML digest
         run: python src/processing/summarize.py
-
-      - name: Update live stream config and status
-        env:
-          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
-        run: python src/processing/fetch_youtube_live.py
 
       - name: Generate weekly overview (Fridays at 11pm Central, or if >6 days old)
         env:

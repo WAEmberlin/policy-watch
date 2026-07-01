@@ -470,20 +470,43 @@ mark {
 #site-nav {
   display: flex;
   flex-wrap: nowrap;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
   border-bottom: 1px solid var(--cw-border);
   background: color-mix(in srgb, var(--cw-surface-muted) 85%, transparent);
 }
 #site-nav .site-nav-link {
-  flex: 1 1 0;
-  min-width: 0;
+  flex: 0 0 auto;
+  min-width: auto;
+  white-space: nowrap;
   text-align: center;
-  padding: 0.75rem 0.5rem;
+  padding: 0.75rem 0.875rem;
   font-size: 0.875rem;
   font-weight: 500;
   text-decoration: none;
   color: var(--cw-text-muted);
   border-bottom: 2px solid transparent;
   transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+#site-nav .site-nav-link__short {
+  display: none;
+}
+@media (max-width: 480px) {
+  #site-nav .site-nav-link {
+    padding: 0.65rem 0.7rem;
+    font-size: 0.8125rem;
+  }
+  #site-nav .site-nav-link__long {
+    display: none;
+  }
+  #site-nav .site-nav-link__short {
+    display: inline;
+  }
+  #site-nav .site-nav-link:not(:has(.site-nav-link__short)) .site-nav-link__long {
+    display: inline;
+  }
 }
 #site-nav .site-nav-link:hover {
   color: var(--cw-blue);
@@ -503,4 +526,44 @@ mark {
 [data-theme="high-contrast"] #site-nav .site-nav-link[aria-current="page"] {
   font-weight: 700;
   border-bottom-color: var(--cw-black);
+}
+
+/* Scrollable in-page tab rows (dashboard, legislators, year picker, etc.) */
+.cw-tab-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding-bottom: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+.cw-tab-row > button,
+.cw-tab-row > a,
+.cw-tab-row > .year-tab {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .cw-card-header {
+    padding: 1rem 1rem;
+  }
+  .cw-card-body {
+    padding: 1rem 1rem;
+  }
+  #cw-page-wrapper.cw-page-wrapper,
+  .cw-page-wrapper {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  .cw-card-header .flex.flex-wrap.items-center.justify-between {
+    gap: 0.75rem;
+  }
+  .cw-card-header h1 {
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
 }

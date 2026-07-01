@@ -168,12 +168,22 @@ class OpenStatesClient:
         self,
         jurisdiction: str,
         updated_since: Optional[str] = None,
+        include: Optional[List[str]] = None,
     ) -> List[Dict[str, Any]]:
         params: Dict[str, Any] = {"jurisdiction": jurisdiction}
         since = self._normalize_date_param(updated_since)
         if since:
             params["updated_since"] = since
-        return list(self.paginate("/events", params))
+        if include:
+            params["include"] = include
+        try:
+            return list(self.paginate("/events", params))
+        except requests.HTTPError as exc:
+            if include and exc.response is not None and exc.response.status_code in (400, 422):
+                print("Events fetch rejected include params; retrying without include...")
+                params.pop("include", None)
+                return list(self.paginate("/events", params))
+            raise
 
     def fetch_committees(self, jurisdiction: str) -> List[Dict[str, Any]]:
         return list(self.paginate("/committees", {"jurisdiction": jurisdiction}))

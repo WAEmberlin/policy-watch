@@ -6,6 +6,7 @@ from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, List, Optional
 
 from processing.bill_urls import resolve_official_bill_url
+from processing.legislator_urls import resolve_legislator_profile_url
 
 
 def _parse_date(value: str) -> Optional[datetime]:
@@ -69,7 +70,10 @@ def build_search_index(
                 "state": l.get("state"),
                 "district": l.get("district"),
                 "chamber": l.get("chamber"),
-                "url": l.get("url"),
+                "gender": l.get("gender"),
+                "birth_date": l.get("birth_date"),
+                "image": l.get("image"),
+                "url": resolve_legislator_profile_url(l),
             }
             for l in legislators
         ],

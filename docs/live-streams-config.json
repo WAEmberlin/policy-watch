@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-30T22:57:13.626855+00:00",
+  "generated_at": "2026-07-01T00:53:28.781131+00:00",
   "state_floor_stream": {
     "KS": "kansas-house-floor",
     "CO": "colorado-floor",
@@ -43,9 +43,9 @@
       "type": "committee",
       "targetId": "ks-house-judiciary",
       "tabPane": "pane-kansas",
-      "embedUrl": "",
+      "embedUrl": "https://www.youtube.com/embed/live_stream?channel=UC_0NO-Pb96CFABvxDwXAq8A",
       "youtubeUrl": "",
-      "youtubeChannelId": "",
+      "youtubeChannelId": "UC_0NO-Pb96CFABvxDwXAq8A",
       "externalUrl": ""
     },
     {
@@ -56,9 +56,9 @@
       "type": "committee",
       "targetId": "ks-house-judiciary-civil",
       "tabPane": "pane-kansas",
-      "embedUrl": "",
+      "embedUrl": "https://www.youtube.com/embed/live_stream?channel=UC_0NO-Pb96CFABvxDwXAq8A",
       "youtubeUrl": "",
-      "youtubeChannelId": "",
+      "youtubeChannelId": "UC_0NO-Pb96CFABvxDwXAq8A",
       "externalUrl": ""
     },
     {
@@ -69,9 +69,9 @@
       "type": "committee",
       "targetId": "ks-house-judiciary-criminal",
       "tabPane": "pane-kansas",
-      "embedUrl": "",
+      "embedUrl": "https://www.youtube.com/embed/live_stream?channel=UC_0NO-Pb96CFABvxDwXAq8A",
       "youtubeUrl": "",
-      "youtubeChannelId": "",
+      "youtubeChannelId": "UC_0NO-Pb96CFABvxDwXAq8A",
       "externalUrl": ""
     },
     {
@@ -82,9 +82,9 @@
       "type": "committee",
       "targetId": "ks-house-appropriations",
       "tabPane": "pane-kansas",
-      "embedUrl": "",
+      "embedUrl": "https://www.youtube.com/embed/live_stream?channel=UC_0NO-Pb96CFABvxDwXAq8A",
       "youtubeUrl": "",
-      "youtubeChannelId": "",
+      "youtubeChannelId": "UC_0NO-Pb96CFABvxDwXAq8A",
       "externalUrl": ""
     },
     {
@@ -95,9 +95,9 @@
       "type": "committee",
       "targetId": "ks-house-elections",
       "tabPane": "pane-kansas",
-      "embedUrl": "",
+      "embedUrl": "https://www.youtube.com/embed/live_stream?channel=UC_0NO-Pb96CFABvxDwXAq8A",
       "youtubeUrl": "",
-      "youtubeChannelId": "",
+      "youtubeChannelId": "UC_0NO-Pb96CFABvxDwXAq8A",
       "externalUrl": ""
     },
     {
@@ -108,9 +108,9 @@
       "type": "committee",
       "targetId": "ks-senate-judiciary",
       "tabPane": "pane-kansas",
-      "embedUrl": "",
+      "embedUrl": "https://www.youtube.com/embed/live_stream?channel=UC_0NO-Pb96CFABvxDwXAq8A",
       "youtubeUrl": "",
-      "youtubeChannelId": "",
+      "youtubeChannelId": "UC_0NO-Pb96CFABvxDwXAq8A",
       "externalUrl": ""
     },
     {
@@ -121,9 +121,9 @@
       "type": "committee",
       "targetId": "ks-senate-ways-means",
       "tabPane": "pane-kansas",
-      "embedUrl": "",
+      "embedUrl": "https://www.youtube.com/embed/live_stream?channel=UC_0NO-Pb96CFABvxDwXAq8A",
       "youtubeUrl": "",
-      "youtubeChannelId": "",
+      "youtubeChannelId": "UC_0NO-Pb96CFABvxDwXAq8A",
       "externalUrl": ""
     },
     {
@@ -134,9 +134,9 @@
       "type": "committee",
       "targetId": "ks-senate-education",
       "tabPane": "pane-kansas",
-      "embedUrl": "",
+      "embedUrl": "https://www.youtube.com/embed/live_stream?channel=UC_0NO-Pb96CFABvxDwXAq8A",
       "youtubeUrl": "",
-      "youtubeChannelId": "",
+      "youtubeChannelId": "UC_0NO-Pb96CFABvxDwXAq8A",
       "externalUrl": ""
     },
     {
@@ -153,12 +153,90 @@
       "externalUrl": "https://leg.colorado.gov/watch-and-listen"
     },
     {
+      "id": "co-house-judiciary",
+      "title": "Colorado House Judiciary",
+      "state": "CO",
+      "jurisdiction": "colorado",
+      "type": "committee",
+      "targetId": "co-house-judiciary",
+      "tabPane": "pane-colorado",
+      "embedUrl": "",
+      "youtubeUrl": "https://leg.colorado.gov/watch-and-listen",
+      "youtubeChannelId": "",
+      "externalUrl": "https://leg.colorado.gov/watch-and-listen"
+    },
+    {
+      "id": "co-house-finance",
+      "title": "Colorado House Finance",
+      "state": "CO",
+      "jurisdiction": "colorado",
+      "type": "committee",
+      "targetId": "co-house-finance",
+      "tabPane": "pane-colorado",
+      "embedUrl": "",
+      "youtubeUrl": "https://leg.colorado.gov/watch-and-listen",
+      "youtubeChannelId": "",
+      "externalUrl": "https://leg.colorado.gov/watch-and-listen"
+    },
+    {
+      "id": "co-house-education",
+      "title": "Colorado House Education",
+      "state": "CO",
+      "jurisdiction": "colorado",
+      "type": "committee",
+      "targetId": "co-house-education",
+      "tabPane": "pane-colorado",
+      "embedUrl": "",
+      "youtubeUrl": "https://leg.colorado.gov/watch-and-listen",
+      "youtubeChannelId": "",
+      "externalUrl": "https://leg.colorado.gov/watch-and-listen"
+    },
+    {
+      "id": "co-senate-judiciary",
+      "title": "Colorado Senate Judiciary",
+      "state": "CO",
+      "jurisdiction": "colorado",
+      "type": "committee",
+      "targetId": "co-senate-judiciary",
+      "tabPane": "pane-colorado",
+      "embedUrl": "",
+      "youtubeUrl": "https://leg.colorado.gov/watch-and-listen",
+      "youtubeChannelId": "",
+      "externalUrl": "https://leg.colorado.gov/watch-and-listen"
+    },
+    {
+      "id": "co-senate-health",
+      "title": "Colorado Senate Health & Human Services",
+      "state": "CO",
+      "jurisdiction": "colorado",
+      "type": "committee",
+      "targetId": "co-senate-health",
+      "tabPane": "pane-colorado",
+      "embedUrl": "",
+      "youtubeUrl": "https://leg.colorado.gov/watch-and-listen",
+      "youtubeChannelId": "",
+      "externalUrl": "https://leg.colorado.gov/watch-and-listen"
+    },
+    {
       "id": "arizona-floor",
       "title": "Arizona Legislature",
       "state": "AZ",
       "jurisdiction": "arizona",
       "type": "floor",
       "targetId": "arizona-floor",
+      "tabPane": "pane-arizona",
+      "embedUrl": "https://www.youtube.com/embed/live_stream?channel=UCR9-72f8u572x5cO5G_s-PA",
+      "youtubeUrl": "https://www.youtube.com/user/arizonacapitoltv",
+      "youtubeChannelId": "UCR9-72f8u572x5cO5G_s-PA",
+      "externalUrl": ""
+    },
+    {
+      "id": "az-committees",
+      "title": "Arizona Capitol Television Committees",
+      "state": "AZ",
+      "jurisdiction": "arizona",
+      "type": "committee",
+      "targetId": "az-committees",
       "tabPane": "pane-arizona",
       "embedUrl": "https://www.youtube.com/embed/live_stream?channel=UCR9-72f8u572x5cO5G_s-PA",
       "youtubeUrl": "https://www.youtube.com/user/arizonacapitoltv",
@@ -179,12 +257,38 @@
       "externalUrl": ""
     },
     {
+      "id": "utah-committees",
+      "title": "Utah Legislature Committees",
+      "state": "UT",
+      "jurisdiction": "utah",
+      "type": "committee",
+      "targetId": "utah-committees",
+      "tabPane": "pane-utah",
+      "embedUrl": "https://www.youtube.com/embed/live_stream?channel=UCY4k63K-25eH43_x_J4-d1A",
+      "youtubeUrl": "https://www.youtube.com/user/UtahLegislature",
+      "youtubeChannelId": "UCY4k63K-25eH43_x_J4-d1A",
+      "externalUrl": ""
+    },
+    {
       "id": "maine-floor",
       "title": "Maine Legislature",
       "state": "ME",
       "jurisdiction": "maine",
       "type": "floor",
       "targetId": "maine-floor",
+      "tabPane": "pane-maine",
+      "embedUrl": "https://www.youtube.com/embed/live_stream?channel=UCJVLbCO6mq1wb12kTyljD8w",
+      "youtubeUrl": "https://www.youtube.com/channel/UCJVLbCO6mq1wb12kTyljD8w",
+      "youtubeChannelId": "UCJVLbCO6mq1wb12kTyljD8w",
+      "externalUrl": ""
+    },
+    {
+      "id": "maine-committees",
+      "title": "Maine Legislature Committees",
+      "state": "ME",
+      "jurisdiction": "maine",
+      "type": "committee",
+      "targetId": "maine-committees",
       "tabPane": "pane-maine",
       "embedUrl": "https://www.youtube.com/embed/live_stream?channel=UCJVLbCO6mq1wb12kTyljD8w",
       "youtubeUrl": "https://www.youtube.com/channel/UCJVLbCO6mq1wb12kTyljD8w",

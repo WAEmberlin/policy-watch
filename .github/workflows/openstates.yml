@@ -87,10 +87,13 @@ jobs:
       - name: Run existing fetch pipeline (preserve Congress + Kansas)
         env:
           CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
+          KANSAS_LEGISLATURE_API_KEY: ${{ secrets.KANSAS_LEGISLATURE_API_KEY }}
         run: |
           python src/processing/fetch_feeds.py
           python src/processing/fetch_kansas_rss.py
           python src/processing/fetch_kansas_calendar.py
+          YOUTUBE_API_KEY=${{ secrets.YOUTUBE_API_KEY }} python src/processing/fetch_youtube_live.py
+          python src/processing/fetch_kansas_hearings.py
           if [ -n "$CONGRESS_API_KEY" ]; then
             python src/processing/fetch_congress_api.py
             python src/processing/fetch_hearings.py || echo "Hearings fetch failed, continuing..."

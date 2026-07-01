@@ -6,6 +6,8 @@ from typing import Any, Dict, List, Optional
 
 from .base import LegislativeSource, NormalizedBill, NormalizedEvent, NormalizedLegislator
 from processing.bill_urls import resolve_official_bill_url
+from processing.legislator_urls import resolve_legislator_profile_url
+from processing.youtube_utils import is_youtube_url
 
 
 def _state_from_jurisdiction(jurisdiction: str) -> str:
@@ -14,6 +16,47 @@ def _state_from_jurisdiction(jurisdiction: str) -> str:
     for part in parts:
         if part.startswith("state:"):
             return part.split(":")[-1].upper()
+    return ""
+
+
+_STREAM_NOTE_HINTS = ("stream", "video", "live", "watch", "broadcast", "webcast")
+_MEDIA_CLASS_HINTS = ("video", "live", "stream", "webcast")
+
+
+def _link_looks_like_stream(url: str, note: str = "") -> bool:
+    if not url:
+        return False
+    if is_youtube_url(url):
+        return True
+    lowered = url.lower()
+    if any(token in lowered for token in ("livestream", "live-stream", "harmony", "webcast", "coloradochannel")):
+        return True
+    note_lower = (note or "").lower()
+    return any(token in note_lower for token in _STREAM_NOTE_HINTS)
+
+
+def _event_stream_url(event: Dict[str, Any]) -> str:
+    for item in event.get("media") or []:
+        if not isinstance(item, dict):
+            continue
+        url = (item.get("url") or "").strip()
+        classification = " ".join(item.get("classification") or []).lower()
+        if url and (
+            is_youtube_url(url)
+            or any(token in classification for token in _MEDIA_CLASS_HINTS)
+            or _link_looks_like_stream(url)
+        ):
+            return url
+
+    for link in event.get("links") or []:
+        if isinstance(link, dict):
+            url = (link.get("url") or "").strip()
+            note = link.get("note") or ""
+        else:
+            url = str(link).strip()
+            note = ""
+        if url and _link_looks_like_stream(url, note):
+            return url
     return ""
 
 
@@ -134,6 +177,9 @@ class OpenStatesSource(LegislativeSource):
                 if name:
                     committees.append(name)
 
+            page_url = event.get("links", [{}])[0].get("url", "") if event.get("links") else ""
+            stream_url = _event_stream_url(event)
+
             normalized.append(
                 NormalizedEvent(
                     id=event.get("id", ""),
@@ -147,7 +193,8 @@ class OpenStatesSource(LegislativeSource):
                     location=(event.get("location") or {}).get("name", "") if isinstance(event.get("location"), dict) else str(event.get("location") or ""),
                     chamber="",
                     committees=committees,
-                    url=event.get("links", [{}])[0].get("url", "") if event.get("links") else "",
+                    url=page_url,
+                    stream_url=stream_url,
                     updated_at=event.get("updated_at", event.get("start_date", "")),
                 )
             )
@@ -158,6 +205,7 @@ class OpenStatesSource(LegislativeSource):
         for person in raw_legislators:
             current_role = (person.get("current_role") or {})
             committees = [m.get("organization", {}).get("name", "") for m in (person.get("memberships") or [])]
+            profile_url = resolve_legislator_profile_url({**person, "state": self.state_code})
 
             normalized.append(
                 NormalizedLegislator(
@@ -166,11 +214,14 @@ class OpenStatesSource(LegislativeSource):
                     level="state",
                     state=self.state_code,
                     name=person.get("name", ""),
-                    party=person.get("party", ""),
+                    party=person.get("party") or person.get("current_party", ""),
                     district=current_role.get("district", ""),
-                    chamber=current_role.get("title", ""),
+                    chamber=current_role.get("title", "") or current_role.get("chamber", ""),
                     committees=[c for c in committees if c],
-                    url=person.get("openstates_url", ""),
+                    url=profile_url,
+                    gender=person.get("gender", ""),
+                    birth_date=person.get("birth_date", ""),
+                    image=person.get("image", ""),
                     updated_at=person.get("updated_at", ""),
                 )
             )

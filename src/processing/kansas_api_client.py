@@ -90,3 +90,42 @@ class KansasApiClient:
             params["upcoming"] = "true"
         data = self._request("/hearings/", params)
         return data.get("results") or []
+
+    def list_hearings(
+        self,
+        *,
+        upcoming: bool = False,
+        from_date: Optional[str] = None,
+        to_date: Optional[str] = None,
+        limit: int = 100,
+        offset: int = 0,
+    ) -> Dict[str, Any]:
+        """Fetch committee hearings (global schedule, not filtered by bill)."""
+        params: Dict[str, Any] = {"limit": limit, "offset": offset}
+        if upcoming:
+            params["upcoming"] = "true"
+        if from_date:
+            params["from"] = from_date
+        if to_date:
+            params["to"] = to_date
+        return self._request("/hearings/", params)
+
+    def get_now(self) -> Dict[str, Any]:
+        """Current chamber/committee activity snapshot from /api/v1/now/."""
+        return self._request("/now/")
+
+    def list_committees(
+        self,
+        *,
+        status: Optional[str] = None,
+        committee_type: Optional[str] = None,
+        limit: int = 100,
+        offset: int = 0,
+    ) -> Dict[str, Any]:
+        """List committees; filter by status (Active/Inactive) or committee_type."""
+        params: Dict[str, Any] = {"limit": limit, "offset": offset}
+        if status:
+            params["status"] = status
+        if committee_type:
+            params["committee_type"] = committee_type
+        return self._request("/committees/", params)

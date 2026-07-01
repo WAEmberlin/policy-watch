@@ -43,22 +43,43 @@ tailwind.config = {
     <div class="cw-card shadow-xl">
         <div class="cw-card-header">
             <div class="flex flex-wrap items-center justify-between gap-4">
-                <div>
-                    <h1 class="text-3xl font-bold"><span class="text-white">Civic</span><span class="text-civic-gold">Watch</span> Legislators</h1>
-                    <p class="text-slate-300 text-sm mt-1">Browse legislators across all tracked states</p>
+                <div class="flex items-center gap-4">
+                    <img src="CivicWatch Logo.png" alt="CivicWatch Logo" class="h-14 w-auto hidden sm:block" />
+                    <div>
+                        <h1 class="text-3xl font-bold">
+                            <span class="text-white">Civic</span><span class="text-civic-gold">Watch</span>
+                        </h1>
+                        <div class="cw-text-on-header-muted text-sm mt-1">Legislators — All States</div>
+                    </div>
                 </div>
                 <div data-cw-theme-toggle></div>
             </div>
         </div>
         <div class="cw-card-body p-6 md:p-8">
-            <div class="flex gap-3 mb-6">
-                <select id="leg-state-filter" class="px-4 py-2 border-2 rounded-lg" style="border-color: var(--cw-border); background: var(--cw-surface);">
+            <div id="leg-tabs" class="cw-tab-row" role="tablist" aria-label="Legislators views">
+                <button type="button" id="leg-tab-directory" class="px-4 py-2 bg-civic-blue text-white rounded-lg text-sm font-medium" role="tab" aria-selected="true">Directory</button>
+                <button type="button" id="leg-tab-stats" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-sm font-medium" role="tab" aria-selected="false">Stats</button>
+            </div>
+            <div id="leg-directory-panel">
+            <div class="flex flex-col sm:flex-row gap-3 mb-6">
+                <select id="leg-state-filter" class="w-full sm:w-auto px-4 py-2 border-2 rounded-lg" style="border-color: var(--cw-border); background: var(--cw-surface);">
                     <option value="">All States</option>
                 </select>
-                <input type="text" id="leg-search" placeholder="Search by name..." class="flex-1 px-4 py-2 border-2 rounded-lg" style="border-color: var(--cw-border); background: var(--cw-surface);" />
+                <input type="text" id="leg-search" placeholder="Search by name..." class="w-full sm:flex-1 px-4 py-2 border-2 rounded-lg" style="border-color: var(--cw-border); background: var(--cw-surface);" />
             </div>
             <div id="legislators-list" class="grid gap-4 md:grid-cols-2">
                 <p class="text-slate-500 italic col-span-2 text-center py-8">Loading legislators...</p>
+            </div>
+            </div>
+            <div id="leg-stats-panel" class="hidden" role="tabpanel" aria-labelledby="leg-tab-stats">
+                <div class="flex gap-3 mb-6">
+                    <select id="leg-stats-state-filter" class="px-4 py-2 border-2 rounded-lg" style="border-color: var(--cw-border); background: var(--cw-surface);">
+                        <option value="">All States</option>
+                    </select>
+                </div>
+                <div id="legislators-stats">
+                    <p class="text-slate-500 italic text-center py-8">Loading stats...</p>
+                </div>
             </div>
         </div>
     </div>

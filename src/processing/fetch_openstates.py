@@ -230,7 +230,11 @@ def fetch_state(
             return False
 
     try:
-        events = client.fetch_events(jurisdiction=jurisdiction_query, updated_since=since)
+        events = client.fetch_events(
+            jurisdiction=jurisdiction_query,
+            updated_since=since,
+            include=["media", "links"],
+        )
     except Exception as exc:
         print(f"WARNING: events fetch failed for {code.upper()}, keeping {len(existing_events)} cached: {exc}")
         events = []

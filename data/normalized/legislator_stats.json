@@ -1,0 +1,149 @@
+{
+  "by_state": {
+    "AZ": {
+      "total": 93,
+      "party": {
+        "Democratic": 43,
+        "Republican": 50
+      },
+      "gender": {
+        "Male": 46,
+        "Female": 43,
+        "X": 1,
+        "Unknown": 3
+      },
+      "chamber": {
+        "Representative": 60,
+        "Senator": 30,
+        "Secretary Of State": 1,
+        "Governor": 1,
+        "Attorney General": 1
+      },
+      "age_buckets": {
+        "under_40": 1,
+        "40_59": 7,
+        "60_plus": 12,
+        "unknown": 73
+      },
+      "average_age": 62.5,
+      "race_available": false
+    },
+    "CO": {
+      "total": 104,
+      "party": {
+        "Democratic": 70,
+        "Republican": 34
+      },
+      "gender": {
+        "Female": 52,
+        "Male": 48,
+        "Unknown": 4
+      },
+      "chamber": {
+        "Senator": 35,
+        "Representative": 65,
+        "Lt_Governor": 1,
+        "Governor": 1,
+        "Secretary Of State": 1,
+        "Attorney General": 1
+      },
+      "age_buckets": {
+        "under_40": 7,
+        "40_59": 12,
+        "60_plus": 12,
+        "unknown": 73
+      },
+      "average_age": 52.8,
+      "race_available": false
+    },
+    "KS": {
+      "total": 169,
+      "party": {
+        "Democratic": 48,
+        "Republican": 121
+      },
+      "gender": {
+        "Female": 55,
+        "Male": 110,
+        "Unknown": 4
+      },
+      "chamber": {
+        "Representative": 125,
+        "Senator": 40,
+        "Lt_Governor": 1,
+        "Attorney General": 1,
+        "Governor": 1,
+        "Secretary Of State": 1
+      },
+      "age_buckets": {
+        "under_40": 5,
+        "40_59": 18,
+        "60_plus": 51,
+        "unknown": 95
+      },
+      "average_age": 63.7,
+      "race_available": false
+    },
+    "ME": {
+      "total": 189,
+      "party": {
+        "Independent": 6,
+        "Republican": 86,
+        "Democratic": 97
+      },
+      "gender": {
+        "Male": 110,
+        "Female": 76,
+        "X": 1,
+        "Unknown": 2
+      },
+      "chamber": {
+        "Representative": 152,
+        "Senator": 35,
+        "Attorney General": 1,
+        "Governor": 1
+      },
+      "age_buckets": {
+        "under_40": 3,
+        "40_59": 7,
+        "60_plus": 20,
+        "unknown": 159
+      },
+      "average_age": 60.1,
+      "race_available": false
+    },
+    "UT": {
+      "total": 107,
+      "party": {
+        "Republican": 86,
+        "Democratic": 20,
+        "Forward": 1
+      },
+      "gender": {
+        "Male": 71,
+        "Female": 34,
+        "Unknown": 2
+      },
+      "chamber": {
+        "Representative": 73,
+        "Senator": 29,
+        "House": 3,
+        "Lt_Governor": 1,
+        "Attorney General": 1
+      },
+      "age_buckets": {
+        "under_40": 1,
+        "40_59": 8,
+        "60_plus": 12,
+        "unknown": 86
+      },
+      "average_age": 59.7,
+      "race_available": false
+    }
+  },
+  "data_notes": {
+    "race": "Race and ethnicity are not included in Open States bulk legislator data for these states.",
+    "age": "Average age and age ranges are computed from birth_date when provided.",
+    "federal": "Congress members are not yet in the normalized legislator dataset."
+  }
+}
