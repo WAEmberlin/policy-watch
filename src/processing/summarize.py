@@ -719,6 +719,21 @@ if os.path.exists(_kansas_votes_path):
     except (json.JSONDecodeError, IOError) as e:
         print(f"Warning: Could not load Kansas vote_records.json: {e}")
 
+# Kansas U.S. House / Senate delegation (for district map)
+kansas_federal_delegation = {}
+_kansas_federal_path = os.path.join(DATA_DIR, "kansas", "federal_delegation.json")
+if os.path.exists(_kansas_federal_path):
+    try:
+        with open(_kansas_federal_path, "r", encoding="utf-8") as f:
+            _delegation_data = json.load(f)
+        if isinstance(_delegation_data, dict):
+            kansas_federal_delegation = _delegation_data
+            reps = len(_delegation_data.get("representatives") or [])
+            sens = len(_delegation_data.get("senators") or [])
+            print(f"Loaded Kansas federal delegation: {reps} representatives, {sens} senators")
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"Warning: Could not load Kansas federal_delegation.json: {e}")
+
 # -------------------------
 # Load daily summaries
 # -------------------------
@@ -793,6 +808,7 @@ output = {
     "daily_summaries": daily_summaries,  # Daily AI-generated summaries by date
     "kansas_calendars": kansas_calendars,  # Kansas House/Senate calendar links by date (YYYY-MM-DD)
     "kansas_vote_records": kansas_vote_records,
+    "kansas_federal_delegation": kansas_federal_delegation,
     # Expansion layer (additive — existing frontend ignores these keys until updated)
     "normalized": {
         "bills_count": len(normalized_bills),

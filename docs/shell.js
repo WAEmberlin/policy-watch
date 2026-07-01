@@ -60,19 +60,29 @@
 
   function injectNav(currentPage) {
     var existing = document.getElementById('site-nav');
+    var needsRebuild = false;
+
     if (existing) {
-      existing.querySelectorAll('.site-nav-link').forEach(function (link) {
-        link.removeAttribute('aria-current');
-        link.className = 'site-nav-link';
-      });
       NAV_ITEMS.forEach(function (item) {
-        var link = existing.querySelector('a[href="' + item.href + '"]');
-        if (link && item.id === currentPage) {
-          link.className = 'site-nav-link site-nav-link--active';
-          link.setAttribute('aria-current', 'page');
+        if (!existing.querySelector('a[href="' + item.href + '"]')) {
+          needsRebuild = true;
         }
       });
-      return;
+      if (!needsRebuild) {
+        existing.querySelectorAll('.site-nav-link').forEach(function (link) {
+          link.removeAttribute('aria-current');
+          link.className = 'site-nav-link';
+        });
+        NAV_ITEMS.forEach(function (item) {
+          var link = existing.querySelector('a[href="' + item.href + '"]');
+          if (link && item.id === currentPage) {
+            link.className = 'site-nav-link site-nav-link--active';
+            link.setAttribute('aria-current', 'page');
+          }
+        });
+        return;
+      }
+      existing.remove();
     }
 
     var nav = document.createElement('nav');
