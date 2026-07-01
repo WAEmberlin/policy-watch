@@ -706,6 +706,19 @@ if os.path.exists(KANSAS_CALENDARS_FILE):
     except (json.JSONDecodeError, IOError) as e:
         print(f"Warning: Could not load kansas_calendars.json: {e}")
 
+# Kansas roll-call vote records (per-member breakdown from official API)
+kansas_vote_records = {}
+_kansas_votes_path = os.path.join(DATA_DIR, "kansas", "vote_records.json")
+if os.path.exists(_kansas_votes_path):
+    try:
+        with open(_kansas_votes_path, "r", encoding="utf-8") as f:
+            _votes_data = json.load(f)
+        if isinstance(_votes_data, dict):
+            kansas_vote_records = {k: v for k, v in _votes_data.items() if k != "_meta" and isinstance(v, list)}
+            print(f"Loaded Kansas vote records for {len(kansas_vote_records)} bills")
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"Warning: Could not load Kansas vote_records.json: {e}")
+
 # -------------------------
 # Load daily summaries
 # -------------------------
@@ -779,6 +792,7 @@ output = {
     "historical_hearings": all_historical_hearings,  # Past hearings (state + federal)
     "daily_summaries": daily_summaries,  # Daily AI-generated summaries by date
     "kansas_calendars": kansas_calendars,  # Kansas House/Senate calendar links by date (YYYY-MM-DD)
+    "kansas_vote_records": kansas_vote_records,
     # Expansion layer (additive — existing frontend ignores these keys until updated)
     "normalized": {
         "bills_count": len(normalized_bills),

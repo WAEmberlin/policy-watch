@@ -84,6 +84,13 @@ class KansasApiClient:
         data = self._request("/votes/", {"bill_no": bill_no})
         return data.get("results") or []
 
+    def get_vote_detail(self, apn: str) -> Dict[str, Any]:
+        """Fetch one roll call with per-member yea/nay/absent breakdown."""
+        apn = (apn or "").strip().lstrip("/")
+        if not apn:
+            return {}
+        return self._request(f"/votes/{apn}/")
+
     def get_hearings(self, bill_no: str, upcoming: bool = False) -> list:
         params: Dict[str, Any] = {"bill": bill_no}
         if upcoming:

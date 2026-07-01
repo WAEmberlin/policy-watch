@@ -32,20 +32,30 @@ const CivicWatchExpansion = (() => {
         const link = url
             ? `<a href="${url}" class="text-civic-blue hover:underline text-sm" target="_blank" rel="noopener">View on ${stateLabel || 'official'} site →</a>`
             : '';
+        const hasVotes = typeof CivicWatchBillVotes !== 'undefined' && CivicWatchBillVotes.hasVotes(bill);
+        const billNo = CivicWatchBillVotes.normalizeBillNo(bill.bill_number || '');
+        const voteCount = hasVotes ? CivicWatchBillVotes.getVoteCount(bill) : 0;
+        const billTitle = bill.short_title || bill.title || '';
+        const voteBtn = hasVotes
+            ? `<button type="button" class="cw-vote-btn mt-2 px-3 py-1.5 text-sm font-medium rounded-lg bg-civic-blue text-white hover:bg-civic-blue-dark" data-bill-number="${billNo}" data-bill-title="${billTitle.replace(/"/g, '&quot;')}">Roll call votes (${voteCount})</button>`
+            : '';
+        const titleHtml = hasVotes
+            ? `<button type="button" class="cw-vote-btn text-left font-semibold text-civic-navy mt-2 hover:text-civic-blue" data-bill-number="${billNo}" data-bill-title="${billTitle.replace(/"/g, '&quot;')}">${bill.title || '(no title)'}</button>`
+            : `<h3 class="font-semibold text-civic-navy mt-2">${bill.title || '(no title)'}</h3>`;
         const cardInner = `
             <div class="flex items-start justify-between gap-2">
                 <span class="text-xs font-medium px-2 py-0.5 bg-slate-100 rounded">${stateLabel} ${bill.bill_number || ''}</span>
                 <span class="text-xs text-slate-400">${bill.source || ''}</span>
             </div>
-            <h3 class="font-semibold text-civic-navy mt-2">${bill.title || '(no title)'}</h3>
+            ${titleHtml}
             ${action}
             ${bill.ai_summary_short ? `<p class="text-sm text-slate-600 mt-2">${bill.ai_summary_short}</p>` : ''}
-            <div class="mt-2">${link}</div>`;
+            <div class="mt-2 flex flex-wrap gap-3 items-center">${link}${voteBtn}</div>`;
 
-        if (url) {
+        if (url && !hasVotes) {
             return `<a href="${url}" target="_blank" rel="noopener" class="block p-4 bg-white border border-slate-200 rounded-lg hover:shadow-md hover:border-civic-blue transition-all">${cardInner}</a>`;
         }
-        return `<div class="p-4 bg-white border border-slate-200 rounded-lg">${cardInner}</div>`;
+        return `<div class="p-4 bg-white border border-slate-200 rounded-lg hover:shadow-md hover:border-civic-blue transition-all">${cardInner}</div>`;
     }
 
     function renderVoteCard(vote) {
@@ -90,6 +100,9 @@ const CivicWatchExpansion = (() => {
 
     async function initDashboards() {
         const data = await loadSiteData();
+        if (typeof CivicWatchBillVotes !== 'undefined') {
+            CivicWatchBillVotes.init(data);
+        }
         const dashboards = data.dashboards || {};
         const searchIndex = data.search_index || {};
         const bills = searchIndex.bills || [];
@@ -206,6 +219,19 @@ const CivicWatchExpansion = (() => {
         });
 
         renderTab(activeTab);
+
+        contentEl.addEventListener('click', (event) => {
+            const btn = event.target.closest('.cw-vote-btn');
+            if (!btn || typeof CivicWatchBillVotes === 'undefined') return;
+            const billNo = btn.getAttribute('data-bill-number');
+            if (!billNo) return;
+            event.preventDefault();
+            CivicWatchBillVotes.open({
+                bill_number: billNo,
+                title: btn.getAttribute('data-bill-title') || btn.textContent,
+                short_title: btn.getAttribute('data-bill-title') || '',
+            });
+        });
 
         document.getElementById('state-filter')?.addEventListener('change', applyFilters);
         document.getElementById('level-filter')?.addEventListener('change', applyFilters);

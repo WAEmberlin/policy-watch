@@ -11,6 +11,7 @@
     { id: 'live', label: 'Live', href: 'livestreams.html' },
     { id: 'dashboard', label: 'Dashboards', shortLabel: 'Dash', href: 'dashboard.html' },
     { id: 'legislators', label: 'Legislators', shortLabel: 'Legislators', href: 'legislators.html' },
+    { id: 'map', label: 'District Map', shortLabel: 'Map', href: 'district-map.html' },
   ];
 
   var FOOTER_TEXT =
