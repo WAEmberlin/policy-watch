@@ -1,5 +1,39 @@
 [
   {
+    "id": "338620",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "To receive a closed briefing on the Department of War's fiscal year 2027 budget request.",
+    "description": "Congressional meeting before the Senate Energy and Natural Resources.",
+    "scheduled_date": "2026-07-15",
+    "scheduled_time": "20:30",
+    "location": "Room 217, Capitol Visitor Center (Senate side",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Energy and Natural Resources"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338620",
+    "stream_url": "",
+    "updated_at": "2026-07-15"
+  },
+  {
+    "id": "119439",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "HEARING",
+    "description": "Congressional meeting in the House.",
+    "scheduled_date": "2026-07-15",
+    "scheduled_time": "14:00",
+    "location": "Room 390, Cannon House Office Building",
+    "chamber": "House",
+    "committees": [],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119439",
+    "stream_url": "",
+    "updated_at": "2026-07-15"
+  },
+  {
     "id": "338613",
     "source": "congress",
     "level": "federal",
@@ -196,6 +230,42 @@
     "updated_at": "2026-07-01"
   },
   {
+    "id": "119435",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Oversight of the National Telecommunications and Information Administration",
+    "description": "Congressional meeting before the House Energy and Commerce Subcommittee on Communications and Technology.",
+    "scheduled_date": "2026-06-30",
+    "scheduled_time": "14:00",
+    "location": "Room 2123, Rayburn House Office Building",
+    "chamber": "House",
+    "committees": [
+      "House Energy and Commerce Subcommittee on Communications and Technology"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119435",
+    "stream_url": "",
+    "updated_at": "2026-06-30"
+  },
+  {
+    "id": "119423",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "American Global Competitiveness at 250: Legislative Proposals to Secure U.S. Technology Leadership.",
+    "description": "Congressional meeting before the House Energy and Commerce Subcommittee on Commerce, Manufacturing, and Trade.",
+    "scheduled_date": "2026-06-30",
+    "scheduled_time": "18:00",
+    "location": "Room 2123, Rayburn House Office Building",
+    "chamber": "House",
+    "committees": [
+      "House Energy and Commerce Subcommittee on Commerce, Manufacturing, and Trade"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119423",
+    "stream_url": "",
+    "updated_at": "2026-06-30"
+  },
+  {
     "id": "119430",
     "source": "congress",
     "level": "federal",
@@ -340,24 +410,6 @@
     "updated_at": "2026-06-30"
   },
   {
-    "id": "119423",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "American Global Competitiveness at 250: Legislative Proposals to Secure U.S. Technology Leadership.",
-    "description": "Congressional meeting before the House Energy and Commerce Subcommittee on Commerce, Manufacturing, and Trade.",
-    "scheduled_date": "2026-06-30",
-    "scheduled_time": "18:00",
-    "location": "Room 2123, Rayburn House Office Building",
-    "chamber": "House",
-    "committees": [
-      "House Energy and Commerce Subcommittee on Commerce, Manufacturing, and Trade"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/119423",
-    "stream_url": "",
-    "updated_at": "2026-06-30"
-  },
-  {
     "id": "119425",
     "source": "congress",
     "level": "federal",
@@ -372,24 +424,6 @@
       "House Ways and Means"
     ],
     "url": "https://www.congress.gov/event/119th-congress/house-event/119425",
-    "stream_url": "",
-    "updated_at": "2026-06-30"
-  },
-  {
-    "id": "119435",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Oversight of the National Telecommunications and Information Administration",
-    "description": "Congressional meeting before the House Energy and Commerce Subcommittee on Communications and Technology.",
-    "scheduled_date": "2026-06-30",
-    "scheduled_time": "14:00",
-    "location": "Room 2123, Rayburn House Office Building",
-    "chamber": "House",
-    "committees": [
-      "House Energy and Commerce Subcommittee on Communications and Technology"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/119435",
     "stream_url": "",
     "updated_at": "2026-06-30"
   },
@@ -464,6 +498,22 @@
     "url": "https://www.congress.gov/event/119th-congress/house-event/118853",
     "stream_url": "",
     "updated_at": "2026-06-29"
+  },
+  {
+    "id": "119386",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Oversight hearing titled \"Beneath the Surface: Earth MRI and America's Resource Potential\"",
+    "description": "Congressional meeting in the House.",
+    "scheduled_date": "2026-06-25",
+    "scheduled_time": "14:00",
+    "location": "Room 1324, Longworth House Office Building",
+    "chamber": "House",
+    "committees": [],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119386",
+    "stream_url": "",
+    "updated_at": "2026-06-25"
   },
   {
     "id": "119385",
@@ -550,22 +600,6 @@
       "House Energy and Commerce Subcommittee on Oversight and Investigations"
     ],
     "url": "https://www.congress.gov/event/119th-congress/house-event/119405",
-    "stream_url": "",
-    "updated_at": "2026-06-25"
-  },
-  {
-    "id": "119386",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Oversight hearing titled \"Beneath the Surface: Earth MRI and America's Resource Potential\"",
-    "description": "Congressional meeting in the House.",
-    "scheduled_date": "2026-06-25",
-    "scheduled_time": "14:00",
-    "location": "Room 1324, Longworth House Office Building",
-    "chamber": "House",
-    "committees": [],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/119386",
     "stream_url": "",
     "updated_at": "2026-06-25"
   },
@@ -696,24 +730,6 @@
     "updated_at": "2026-06-25"
   },
   {
-    "id": "338609",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine the nominations of Christopher Phelan, of Minnesota, to be Chairman of the Council of Economic Advisers, John Crews, of Virginia, to be a Member of the National Credit Union Administration Board, and Jeffrey Ledbetter, of Virginia, to be Inspector General, Department of Housing and Urban Development.",
-    "description": "Congressional meeting before the Senate Banking, Housing, and Urban Affairs.",
-    "scheduled_date": "2026-06-25",
-    "scheduled_time": "14:00",
-    "location": "Room 538, Dirksen Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Banking, Housing, and Urban Affairs"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338609",
-    "stream_url": "",
-    "updated_at": "2026-06-25"
-  },
-  {
     "id": "338606",
     "source": "congress",
     "level": "federal",
@@ -728,6 +744,24 @@
       "Senate Finance"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338606",
+    "stream_url": "",
+    "updated_at": "2026-06-25"
+  },
+  {
+    "id": "338609",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine the nominations of Christopher Phelan, of Minnesota, to be Chairman of the Council of Economic Advisers, John Crews, of Virginia, to be a Member of the National Credit Union Administration Board, and Jeffrey Ledbetter, of Virginia, to be Inspector General, Department of Housing and Urban Development.",
+    "description": "Congressional meeting before the Senate Banking, Housing, and Urban Affairs.",
+    "scheduled_date": "2026-06-25",
+    "scheduled_time": "14:00",
+    "location": "Room 538, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Banking, Housing, and Urban Affairs"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338609",
     "stream_url": "",
     "updated_at": "2026-06-25"
   },
@@ -1074,20 +1108,20 @@
     "updated_at": "2026-06-24"
   },
   {
-    "id": "338582",
+    "id": "338602",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "Hearings to examine reforming the U.S. Postal Service's business model.",
-    "description": "Congressional meeting before the Senate Homeland Security and Governmental Affairs.",
+    "title": "Hearings to examine the future of social security.",
+    "description": "Congressional meeting before the Senate Finance Subcommittee on Social Security, Pensions, and Family Policy.",
     "scheduled_date": "2026-06-24",
-    "scheduled_time": "13:30",
-    "location": "Room 342, Dirksen Senate Office Building",
+    "scheduled_time": "19:00",
+    "location": "Room 215, Dirksen Senate Office Building",
     "chamber": "Senate",
     "committees": [
-      "Senate Homeland Security and Governmental Affairs"
+      "Senate Finance Subcommittee on Social Security, Pensions, and Family Policy"
     ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338582",
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338602",
     "stream_url": "",
     "updated_at": "2026-06-24"
   },
@@ -1110,20 +1144,20 @@
     "updated_at": "2026-06-24"
   },
   {
-    "id": "338602",
+    "id": "338582",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "Hearings to examine the future of social security.",
-    "description": "Congressional meeting before the Senate Finance Subcommittee on Social Security, Pensions, and Family Policy.",
+    "title": "Hearings to examine reforming the U.S. Postal Service's business model.",
+    "description": "Congressional meeting before the Senate Homeland Security and Governmental Affairs.",
     "scheduled_date": "2026-06-24",
-    "scheduled_time": "19:00",
-    "location": "Room 215, Dirksen Senate Office Building",
+    "scheduled_time": "13:30",
+    "location": "Room 342, Dirksen Senate Office Building",
     "chamber": "Senate",
     "committees": [
-      "Senate Finance Subcommittee on Social Security, Pensions, and Family Policy"
+      "Senate Homeland Security and Governmental Affairs"
     ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338602",
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338582",
     "stream_url": "",
     "updated_at": "2026-06-24"
   },
@@ -1308,6 +1342,24 @@
     "updated_at": "2026-06-23"
   },
   {
+    "id": "338578",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine improving safety across the National Airspace System.",
+    "description": "Congressional meeting before the Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation.",
+    "scheduled_date": "2026-06-23",
+    "scheduled_time": "14:00",
+    "location": "Room 253, Russell Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338578",
+    "stream_url": "",
+    "updated_at": "2026-06-23"
+  },
+  {
     "id": "338581",
     "source": "congress",
     "level": "federal",
@@ -1340,24 +1392,6 @@
       "Senate Homeland Security and Governmental Affairs"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338577",
-    "stream_url": "",
-    "updated_at": "2026-06-23"
-  },
-  {
-    "id": "338578",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine improving safety across the National Airspace System.",
-    "description": "Congressional meeting before the Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation.",
-    "scheduled_date": "2026-06-23",
-    "scheduled_time": "14:00",
-    "location": "Room 253, Russell Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338578",
     "stream_url": "",
     "updated_at": "2026-06-23"
   },
@@ -1398,24 +1432,6 @@
     "updated_at": "2026-06-18"
   },
   {
-    "id": "338574",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Business meeting to consider S.4668, to protect the name, image, and likeness rights of, and provide protections for, student athletes and to promote fair competition among intercollegiate athletics, and a promotion list in the Coast Guard.",
-    "description": "Congressional meeting before the Senate Commerce, Science, and Transportation.",
-    "scheduled_date": "2026-06-18",
-    "scheduled_time": "14:00",
-    "location": "Room 253, Russell Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Commerce, Science, and Transportation"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338574",
-    "stream_url": "",
-    "updated_at": "2026-06-18"
-  },
-  {
     "id": "338571",
     "source": "congress",
     "level": "federal",
@@ -1430,6 +1446,24 @@
       "Senate Judiciary"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338571",
+    "stream_url": "",
+    "updated_at": "2026-06-18"
+  },
+  {
+    "id": "338574",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Business meeting to consider S.4668, to protect the name, image, and likeness rights of, and provide protections for, student athletes and to promote fair competition among intercollegiate athletics, and a promotion list in the Coast Guard.",
+    "description": "Congressional meeting before the Senate Commerce, Science, and Transportation.",
+    "scheduled_date": "2026-06-18",
+    "scheduled_time": "14:00",
+    "location": "Room 253, Russell Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Commerce, Science, and Transportation"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338574",
     "stream_url": "",
     "updated_at": "2026-06-18"
   },
@@ -2150,24 +2184,6 @@
     "updated_at": "2026-06-09"
   },
   {
-    "id": "338545",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine proposed budget estimates and justification for fiscal year 2027 for the Department of the Air Force.",
-    "description": "Congressional meeting before the Senate Appropriations Subcommittee on Department of Defense.",
-    "scheduled_date": "2026-06-09",
-    "scheduled_time": "14:30",
-    "location": "Room 192, Dirksen Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Appropriations Subcommittee on Department of Defense"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338545",
-    "stream_url": "",
-    "updated_at": "2026-06-09"
-  },
-  {
     "id": "338517",
     "source": "congress",
     "level": "federal",
@@ -2182,6 +2198,24 @@
       "Senate Armed Services Subcommittee on Personnel"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338517",
+    "stream_url": "",
+    "updated_at": "2026-06-09"
+  },
+  {
+    "id": "338545",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine proposed budget estimates and justification for fiscal year 2027 for the Department of the Air Force.",
+    "description": "Congressional meeting before the Senate Appropriations Subcommittee on Department of Defense.",
+    "scheduled_date": "2026-06-09",
+    "scheduled_time": "14:30",
+    "location": "Room 192, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Appropriations Subcommittee on Department of Defense"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338545",
     "stream_url": "",
     "updated_at": "2026-06-09"
   },
