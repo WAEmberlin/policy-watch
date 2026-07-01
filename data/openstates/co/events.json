@@ -1,1 +1,170 @@
-[]
+[
+  {
+    "id": "ocd-event/3e12da1a-a052-4430-821b-78e50af742fa",
+    "name": "Senate Floor Work",
+    "jurisdiction": {
+      "id": "ocd-jurisdiction/country:us/state:co/government",
+      "name": "Colorado",
+      "classification": "state"
+    },
+    "description": "",
+    "classification": "event",
+    "start_date": "2026-05-13T15:00:00+00:00",
+    "end_date": "",
+    "all_day": false,
+    "status": "tentative",
+    "upstream_id": "",
+    "deleted": false,
+    "location": {
+      "name": "Senate Chamber, 200 E Colfax Ave, Denver, CO 80203",
+      "url": ""
+    }
+  },
+  {
+    "id": "ocd-event/8bb80779-839f-440d-b65e-71b3381f8712",
+    "name": "House Floor Work",
+    "jurisdiction": {
+      "id": "ocd-jurisdiction/country:us/state:co/government",
+      "name": "Colorado",
+      "classification": "state"
+    },
+    "description": "",
+    "classification": "event",
+    "start_date": "2026-05-13T16:00:00+00:00",
+    "end_date": "",
+    "all_day": false,
+    "status": "tentative",
+    "upstream_id": "",
+    "deleted": false,
+    "location": {
+      "name": "House Chamber, 200 E Colfax Ave, Denver, CO 80203",
+      "url": ""
+    }
+  },
+  {
+    "id": "ocd-event/4b59ed43-09d7-46e3-a007-82202801dc6b",
+    "name": "Legislative Audit Committee",
+    "jurisdiction": {
+      "id": "ocd-jurisdiction/country:us/state:co/government",
+      "name": "Colorado",
+      "classification": "state"
+    },
+    "description": "",
+    "classification": "event",
+    "start_date": "2026-06-15T15:00:00+00:00",
+    "end_date": "",
+    "all_day": false,
+    "status": "tentative",
+    "upstream_id": "",
+    "deleted": false,
+    "location": {
+      "name": "Old Supreme Court, 200 E Colfax Ave, Denver, CO 80203",
+      "url": ""
+    }
+  },
+  {
+    "id": "ocd-event/b1b749f7-d7d2-4104-acd2-885928e57f6d",
+    "name": "Water Resources and Agriculture Review Committee",
+    "jurisdiction": {
+      "id": "ocd-jurisdiction/country:us/state:co/government",
+      "name": "Colorado",
+      "classification": "state"
+    },
+    "description": "",
+    "classification": "event",
+    "start_date": "2026-06-25T15:00:00+00:00",
+    "end_date": "",
+    "all_day": false,
+    "status": "tentative",
+    "upstream_id": "",
+    "deleted": false,
+    "location": {
+      "name": "HCR 0112, 200 E Colfax Ave, Denver, CO 80203",
+      "url": ""
+    }
+  },
+  {
+    "id": "ocd-event/732eca15-99dc-4caf-a8b6-18707d8c56fa",
+    "name": "Legislative Audit Committee",
+    "jurisdiction": {
+      "id": "ocd-jurisdiction/country:us/state:co/government",
+      "name": "Colorado",
+      "classification": "state"
+    },
+    "description": "",
+    "classification": "event",
+    "start_date": "2026-08-10T15:00:00+00:00",
+    "end_date": "",
+    "all_day": false,
+    "status": "tentative",
+    "upstream_id": "",
+    "deleted": false,
+    "location": {
+      "name": "Old Supreme Court, 200 E Colfax Ave, Denver, CO 80203",
+      "url": ""
+    }
+  },
+  {
+    "id": "ocd-event/adaec3e1-1e3e-4942-b1b2-588cf955b5ea",
+    "name": "Legislative Council",
+    "jurisdiction": {
+      "id": "ocd-jurisdiction/country:us/state:co/government",
+      "name": "Colorado",
+      "classification": "state"
+    },
+    "description": "",
+    "classification": "event",
+    "start_date": "2026-09-03T15:00:00+00:00",
+    "end_date": "",
+    "all_day": false,
+    "status": "tentative",
+    "upstream_id": "",
+    "deleted": false,
+    "location": {
+      "name": "Old State Library, 200 E Colfax Ave, Denver, CO 80203",
+      "url": ""
+    }
+  },
+  {
+    "id": "ocd-event/6a5dd6d7-117f-4adf-b499-67fdecf96f26",
+    "name": "Legislative Audit Committee",
+    "jurisdiction": {
+      "id": "ocd-jurisdiction/country:us/state:co/government",
+      "name": "Colorado",
+      "classification": "state"
+    },
+    "description": "",
+    "classification": "event",
+    "start_date": "2026-10-19T15:00:00+00:00",
+    "end_date": "",
+    "all_day": false,
+    "status": "tentative",
+    "upstream_id": "",
+    "deleted": false,
+    "location": {
+      "name": "Old Supreme Court, 200 E Colfax Ave, Denver, CO 80203",
+      "url": ""
+    }
+  },
+  {
+    "id": "ocd-event/458cba74-952b-42e2-9165-49c316d85668",
+    "name": "Legislative Audit Committee",
+    "jurisdiction": {
+      "id": "ocd-jurisdiction/country:us/state:co/government",
+      "name": "Colorado",
+      "classification": "state"
+    },
+    "description": "",
+    "classification": "event",
+    "start_date": "2026-12-07T16:00:00+00:00",
+    "end_date": "",
+    "all_day": false,
+    "status": "tentative",
+    "upstream_id": "",
+    "deleted": false,
+    "location": {
+      "name": "Old Supreme Court, 200 E Colfax Ave, Denver, CO 80203",
+      "url": ""
+    }
+  }
+]

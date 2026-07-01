@@ -1,1 +1,233 @@
-[]
+[
+  {
+    "id": "ocd-organization/7847c5f5-7da8-41a3-aca2-fda286c35e77",
+    "name": "Agriculture, Conservation and Forestry",
+    "classification": "committee",
+    "parent_id": "ocd-organization/1381ca6d-dedf-4bd3-8755-6f846f9e4848",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/f25448c0-906f-4843-84ee-db0c51a6045e",
+    "name": "Appropriations and Financial Affairs",
+    "classification": "committee",
+    "parent_id": "ocd-organization/1381ca6d-dedf-4bd3-8755-6f846f9e4848",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/51d337e5-254d-4c6a-8a30-ea8abba4ddbb",
+    "name": "Bills in Their Second Reading",
+    "classification": "committee",
+    "parent_id": "ocd-organization/fe33521e-3c48-445a-adf7-75ff8a7674e4",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/1988410d-9ef1-46c7-81a2-f0e8933ec1da",
+    "name": "Bills in the Second Reading",
+    "classification": "committee",
+    "parent_id": "ocd-organization/a26314f0-dc6f-4cfc-99ca-dee4bafc9d4c",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/5019a431-ca0e-452c-9072-e312fd7b3b51",
+    "name": "Conduct and Ethics",
+    "classification": "committee",
+    "parent_id": "ocd-organization/fe33521e-3c48-445a-adf7-75ff8a7674e4",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/d5d9a76d-a2b6-42d7-a7fa-57b5d75ae987",
+    "name": "Criminal Justice and Public Safety",
+    "classification": "committee",
+    "parent_id": "ocd-organization/1381ca6d-dedf-4bd3-8755-6f846f9e4848",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/e4d29dad-c398-476a-b1a8-ce90db35ad3b",
+    "name": "Education and Cultural Affairs",
+    "classification": "committee",
+    "parent_id": "ocd-organization/1381ca6d-dedf-4bd3-8755-6f846f9e4848",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/81e7b482-c8cb-43ba-b675-baab4ebcc879",
+    "name": "Elections",
+    "classification": "committee",
+    "parent_id": "ocd-organization/a26314f0-dc6f-4cfc-99ca-dee4bafc9d4c",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/b12eb09c-2a9c-4e76-a48a-5d086ac0fe06",
+    "name": "Energy, Utilities and Technology",
+    "classification": "committee",
+    "parent_id": "ocd-organization/1381ca6d-dedf-4bd3-8755-6f846f9e4848",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/d2d456d4-04cc-4793-8cbe-22a21f684ab8",
+    "name": "Engrossed Bills",
+    "classification": "committee",
+    "parent_id": "ocd-organization/a26314f0-dc6f-4cfc-99ca-dee4bafc9d4c",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/29b84dd8-0069-4894-8fe8-36df7f25dd17",
+    "name": "Engrossed Bills",
+    "classification": "committee",
+    "parent_id": "ocd-organization/fe33521e-3c48-445a-adf7-75ff8a7674e4",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/1e099027-258b-4171-89d2-846f9ee7208d",
+    "name": "Environment and Natural Resources",
+    "classification": "committee",
+    "parent_id": "ocd-organization/1381ca6d-dedf-4bd3-8755-6f846f9e4848",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/c36205ee-0a8f-4795-be16-65486837eeff",
+    "name": "Ethics",
+    "classification": "committee",
+    "parent_id": "ocd-organization/a26314f0-dc6f-4cfc-99ca-dee4bafc9d4c",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/0666b496-b2d1-45f8-b317-2d602faf5100",
+    "name": "Government Oversight",
+    "classification": "committee",
+    "parent_id": "ocd-organization/1381ca6d-dedf-4bd3-8755-6f846f9e4848",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/0f4c6ad6-2473-4eb8-b9f8-eacca6021477",
+    "name": "Health Coverage, Insurance and Financial Services",
+    "classification": "committee",
+    "parent_id": "ocd-organization/1381ca6d-dedf-4bd3-8755-6f846f9e4848",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/4e5f109f-5416-4527-91cc-0bcd2cf83f9a",
+    "name": "Health and Human Services",
+    "classification": "committee",
+    "parent_id": "ocd-organization/1381ca6d-dedf-4bd3-8755-6f846f9e4848",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/411abf59-6594-4287-8298-c0f0d570d002",
+    "name": "Housing and Economic Development",
+    "classification": "committee",
+    "parent_id": "ocd-organization/1381ca6d-dedf-4bd3-8755-6f846f9e4848",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/27f25be4-9737-4a18-bf65-5e5b42ed3d70",
+    "name": "Inland Fisheries and Wildlife",
+    "classification": "committee",
+    "parent_id": "ocd-organization/1381ca6d-dedf-4bd3-8755-6f846f9e4848",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/30ec564d-250b-470f-ac7d-b7dfdd3e15b1",
+    "name": "Judiciary",
+    "classification": "committee",
+    "parent_id": "ocd-organization/1381ca6d-dedf-4bd3-8755-6f846f9e4848",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/c9f5084c-916d-4623-bb31-e73ef76055e4",
+    "name": "Labor",
+    "classification": "committee",
+    "parent_id": "ocd-organization/1381ca6d-dedf-4bd3-8755-6f846f9e4848",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/ab8750fe-0bc9-4f1d-a377-32543427aeea",
+    "name": "Leaves of Absence",
+    "classification": "committee",
+    "parent_id": "ocd-organization/a26314f0-dc6f-4cfc-99ca-dee4bafc9d4c",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/646f53d4-faae-4210-8d43-89ceceff9718",
+    "name": "Legislative Council",
+    "classification": "committee",
+    "parent_id": "ocd-organization/1381ca6d-dedf-4bd3-8755-6f846f9e4848",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/54c9ec48-d672-4b6e-b6a6-4ab1193d2c6c",
+    "name": "Marine Resources",
+    "classification": "committee",
+    "parent_id": "ocd-organization/1381ca6d-dedf-4bd3-8755-6f846f9e4848",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/78a06c34-aab1-443d-9396-f6993295dd82",
+    "name": "Personnel",
+    "classification": "committee",
+    "parent_id": "ocd-organization/1381ca6d-dedf-4bd3-8755-6f846f9e4848",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/a54b6cd7-7f91-4f75-b729-ddc739adf0d4",
+    "name": "Rules",
+    "classification": "committee",
+    "parent_id": "ocd-organization/fe33521e-3c48-445a-adf7-75ff8a7674e4",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/3d346e84-1fd1-4f7e-ab4a-bb8094ac0521",
+    "name": "Rules",
+    "classification": "committee",
+    "parent_id": "ocd-organization/1381ca6d-dedf-4bd3-8755-6f846f9e4848",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/2c8c9bea-e180-488c-b053-7cce71cad172",
+    "name": "Rules and Business of the House",
+    "classification": "committee",
+    "parent_id": "ocd-organization/a26314f0-dc6f-4cfc-99ca-dee4bafc9d4c",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/660bdaed-9632-4664-b05c-eab4bf3dc8e3",
+    "name": "Senatorial Vote",
+    "classification": "committee",
+    "parent_id": "ocd-organization/fe33521e-3c48-445a-adf7-75ff8a7674e4",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/7d1dc3a5-dcca-46a3-bee8-9b1380d33b24",
+    "name": "State House Facilities",
+    "classification": "committee",
+    "parent_id": "ocd-organization/1381ca6d-dedf-4bd3-8755-6f846f9e4848",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/315b0b7a-a997-4a47-8d1c-719e7b06ca7f",
+    "name": "State and Local Government",
+    "classification": "committee",
+    "parent_id": "ocd-organization/1381ca6d-dedf-4bd3-8755-6f846f9e4848",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/ab20227d-2fcc-40ee-944e-d1f4745d3951",
+    "name": "Taxation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/1381ca6d-dedf-4bd3-8755-6f846f9e4848",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/83c44931-e243-4e61-afa6-3cce286cf060",
+    "name": "Transportation",
+    "classification": "committee",
+    "parent_id": "ocd-organization/1381ca6d-dedf-4bd3-8755-6f846f9e4848",
+    "extras": {}
+  },
+  {
+    "id": "ocd-organization/2799d1a0-633d-42e2-9903-742842fb9bc1",
+    "name": "Veterans and Legal Affairs",
+    "classification": "committee",
+    "parent_id": "ocd-organization/1381ca6d-dedf-4bd3-8755-6f846f9e4848",
+    "extras": {}
+  }
+]

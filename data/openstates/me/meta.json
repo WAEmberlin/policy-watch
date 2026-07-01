@@ -1,20 +1,14 @@
 {
   "state": "ME",
-  "source": "bulk_import",
-  "fetched_at": "2026-06-28T17:33:10.318928+00:00",
-  "last_successful_fetch_at": "2026-06-28T17:33:10.318940+00:00",
-  "updated_since": null,
-  "import_mode": "full",
+  "fetched_at": "2026-06-30T04:55:08.803048+00:00",
+  "last_successful_fetch_at": "2026-06-30T04:55:08.803060+00:00",
+  "updated_since": "2026-06-27",
   "backfill_complete": true,
-  "bulk_files": [
-    "ME_131_json_6kPZVALE25fxxZPUZ3n8LA/ME/131/ME_131_bills.json",
-    "ME_132_json_3mIkUXHLi7FtyNdqptkSg4/ME/132/ME_132_bills.json"
-  ],
   "counts": {
     "bills": 4954,
-    "events": 0,
-    "committees": 0,
-    "legislators": 187,
-    "votes": 2689
+    "events": 3,
+    "committees": 33,
+    "legislators": 189,
+    "votes": 3268
   }
 }
