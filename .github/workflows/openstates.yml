@@ -110,14 +110,16 @@ jobs:
           git config user.name "civicwatch-bot"
           git config user.email "actions@github.com"
           git fetch origin main
-          git add data docs src/output config src/adapters src/processing
+          # Only commit pipeline outputs — avoid reverting static docs/*.html/js on main.
+          GENERATED="docs/site_data.json docs/live_status.json docs/live-streams-config.json docs/weekly data src/output config src/adapters src/processing"
+          git add $GENERATED
           if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0
           fi
           # Recommit on latest main to avoid rebase conflicts with hourly CivicWatch updates
           git reset --soft origin/main
-          git add data docs src/output config src/adapters src/processing
+          git add $GENERATED
           git commit -m "Open States sync and normalized data update"
           for attempt in 1 2 3 4 5; do
             if git push origin main; then
@@ -127,7 +129,7 @@ jobs:
             echo "Push rejected, refreshing from main and retrying ($attempt/5)..."
             git fetch origin main
             git reset --soft origin/main
-            git add data docs src/output config src/adapters src/processing
+            git add $GENERATED
             git commit -m "Open States sync and normalized data update"
             sleep $((attempt * 15))
           done

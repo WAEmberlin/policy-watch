@@ -83,7 +83,7 @@ tailwind.config = {
 }
 </style>
 </head>
-<body class="cw-page-bg">
+<body class="cw-page-bg" data-cw-page="home">
 <a href="#main-content" class="skip-link">Skip to main content</a>
 <div id="a11y-live-region" class="sr-only" aria-live="polite" aria-atomic="true" role="status"></div>
 <div class="max-w-6xl mx-auto px-4 py-8">
@@ -103,35 +103,6 @@ tailwind.config = {
             <div data-cw-theme-toggle></div>
             </div>
         </header>
-
-        <!-- Unified Nav -->
-        <nav id="site-nav" class="flex border-b border-slate-200 bg-slate-50/80" aria-label="Main navigation">
-            <a href="index.html" class="site-nav-link flex-1 text-center py-3 text-sm font-medium text-civic-blue border-b-2 border-civic-blue bg-white" aria-current="page">Home</a>
-            <a href="hearings.html" class="site-nav-link flex-1 text-center py-3 text-sm font-medium text-slate-600 hover:text-civic-blue hover:bg-white transition-colors">Hearings</a>
-            <a href="livestreams.html" class="site-nav-link flex-1 text-center py-3 text-sm font-medium text-slate-600 hover:text-civic-blue hover:bg-white transition-colors">Live</a>
-            <a href="dashboard.html" class="site-nav-link flex-1 text-center py-3 text-sm font-medium text-slate-600 hover:text-civic-blue hover:bg-white transition-colors">Dashboards</a>
-            <a href="legislators.html" class="site-nav-link flex-1 text-center py-3 text-sm font-medium text-slate-600 hover:text-civic-blue hover:bg-white transition-colors">Legislators</a>
-        </nav>
-
-        <!-- Quick Actions (icon nav) -->
-        <div id="quick-actions" class="flex items-center justify-center gap-1 px-4 py-2 border-b border-slate-100 bg-white" aria-label="Quick links">
-            <a href="hearings.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-civic-blue rounded-md hover:bg-slate-50 transition-colors" title="Upcoming Hearings">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                <span class="hidden sm:inline">Hearings</span>
-            </a>
-            <a href="livestreams.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-red-600 rounded-md hover:bg-slate-50 transition-colors" title="Live Streams">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-                <span class="hidden sm:inline">Live</span>
-            </a>
-            <a href="dashboard.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-emerald-600 rounded-md hover:bg-slate-50 transition-colors" title="Dashboards">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-                <span class="hidden sm:inline">Dashboards</span>
-            </a>
-            <a href="legislators.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-purple-600 rounded-md hover:bg-slate-50 transition-colors" title="Legislators">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                <span class="hidden sm:inline">Legislators</span>
-            </a>
-        </div>
 
         <!-- Main Content -->
         <main id="main-content" class="p-6 md:p-8">
@@ -165,6 +136,13 @@ tailwind.config = {
             <section id="feed-controls" class="mb-6 pb-4 border-b border-slate-200">
                 <!-- State Filter Chips -->
                 <div id="state-chips" class="flex gap-2 overflow-x-auto pb-3 mb-4" role="group" aria-label="Filter by state"></div>
+
+                <!-- Topic filters -->
+                <div class="flex flex-wrap gap-2 mb-4" role="group" aria-label="Topic filters">
+                    <button type="button" id="veterans-filter-btn" class="px-4 py-2 rounded-full text-sm font-medium border-2 border-slate-200 bg-white text-slate-700 hover:border-amber-500 transition-colors whitespace-nowrap" aria-pressed="false">
+                        Military / Veterans
+                    </button>
+                </div>
 
                 <!-- Search Bar -->
                 <div id="search-container" class="mb-3">
@@ -230,15 +208,16 @@ tailwind.config = {
     </div>
 
     <!-- Footer -->
-    <footer class="text-center text-slate-500 text-sm mt-6 px-4">
+    <footer data-cw-footer-replace class="text-center text-slate-500 text-sm mt-6 px-4">
         CivicWatch — Tracking legislation for Kansas, Colorado, Arizona, Utah, Maine, and U.S. Congress
     </footer>
 </div>
 <script src="a11y.js"></script>
+<script src="shell.js"></script>
 <script src="bill-utils.js"></script>
 <script src="bill-votes.js"></script>
 <script src="home.js"></script>
 <script src="script.js"></script>
-<script>CivicWatchTheme.init();</script>
+<script>CivicWatchShell.init({ page: 'home' });</script>
 </body>
 </html>

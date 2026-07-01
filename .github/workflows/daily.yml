@@ -140,14 +140,17 @@ jobs:
           git config user.name "civicwatch-bot"
           git config user.email "actions@github.com"
           git fetch origin main
-          git add docs src/output data/kansas data/normalized
+          # Only commit pipeline outputs — never `git add docs/` wholesale.
+          # A stale checkout can otherwise revert merged HTML/JS on main.
+          GENERATED="docs/site_data.json docs/weekly src/output data/kansas data/normalized"
+          git add $GENERATED
           if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0
           fi
           git reset --soft origin/main
           git checkout origin/main -- data/openstates
-          git add docs src/output data/kansas data/normalized
+          git add $GENERATED
           git commit -m "Automated CivicWatch update"
           for attempt in 1 2 3 4 5; do
             if git push origin main; then
@@ -155,7 +158,7 @@ jobs:
             fi
             git fetch origin main
             git reset --soft origin/main
-            git add docs src/output data/kansas data/normalized
+            git add $GENERATED
             git commit -m "Automated CivicWatch update"
             sleep $((attempt * 15))
           done
