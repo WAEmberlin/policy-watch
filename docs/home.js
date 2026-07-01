@@ -20,10 +20,20 @@ const CivicWatchHome = (() => {
 
     const META_SOURCE_PATTERNS = [/congress\.gov api/i, /openstates/i, /data sync/i, /api feed/i];
 
-    const VETERANS_KEYWORDS = [
+    // Align with config/states.yaml topic_dashboards.veterans keywords
+    const VETERANS_STRONG_KEYWORDS = [
         'veteran', 'veterans', 'military', 'armed forces', 'armed services',
-        'national guard', 'defense', 'servicemember', 'service member',
+        'national guard', 'servicemember', 'service member', 'veterans affairs',
     ];
+
+    const VETERANS_DEFENSE_PHRASES = [
+        'national defense', 'department of defense', 'defense authorization',
+        'defense budget', 'foreign military', 'defense articles', 'defense spending',
+        'military sale', 'military forces', 'military personnel', 'military service',
+        'military academy', 'military installation',
+    ];
+
+    const VETERANS_TOPIC_PATTERN = /veteran|military|armed forces|armed services|national guard/;
 
     let callbacks = {};
 
@@ -247,6 +257,29 @@ const CivicWatchHome = (() => {
         if (hiddenSelect) hiddenSelect.value = state;
     }
 
+    function setVeteransFilterActive(active) {
+        const btn = document.getElementById('veterans-filter-btn');
+        if (!btn) return;
+        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+        btn.classList.toggle('border-amber-500', active);
+        btn.classList.toggle('bg-amber-500', active);
+        btn.classList.toggle('text-white', active);
+        btn.classList.toggle('border-slate-200', !active);
+        btn.classList.toggle('bg-white', !active);
+        btn.classList.toggle('text-slate-700', !active);
+    }
+
+    function initVeteransFilter() {
+        const btn = document.getElementById('veterans-filter-btn');
+        if (!btn) return;
+
+        btn.addEventListener('click', () => {
+            const next = btn.getAttribute('aria-pressed') !== 'true';
+            setVeteransFilterActive(next);
+            if (callbacks.onVeteransFilter) callbacks.onVeteransFilter(next);
+        });
+    }
+
     function initFilterDrawer() {
         const toggle = document.getElementById('filters-toggle');
         const drawer = document.getElementById('filters-drawer');
@@ -289,6 +322,9 @@ const CivicWatchHome = (() => {
         }
         if (filters.search) {
             pills.push({ key: 'search', label: `Search: "${filters.search}"`, value: filters.search });
+        }
+        if (filters.veterans) {
+            pills.push({ key: 'veterans', label: 'Military / Veterans', value: 'true' });
         }
 
         if (pills.length === 0) {
@@ -341,19 +377,35 @@ const CivicWatchHome = (() => {
 
         card.appendChild(header);
 
-        const titleLink = document.createElement('a');
-        titleLink.href = officialUrl || url;
-        titleLink.target = '_blank';
-        titleLink.rel = 'noopener noreferrer';
-        titleLink.className = 'block text-base font-semibold text-civic-navy hover:text-civic-blue transition-colors';
+        const hasVoteRecords = typeof CivicWatchBillVotes !== 'undefined'
+            && CivicWatchBillVotes.hasVotes(item);
 
-        if (searchQuery) {
-            const regex = new RegExp(`(${escapeRegex(searchQuery)})`, 'gi');
-            titleLink.innerHTML = highlightSafe(displayTitle, regex);
+        if (hasVoteRecords) {
+            const titleBtn = document.createElement('button');
+            titleBtn.type = 'button';
+            titleBtn.className = 'block text-left w-full text-base font-semibold text-civic-navy hover:text-civic-blue transition-colors';
+            if (searchQuery) {
+                const regex = new RegExp(`(${escapeRegex(searchQuery)})`, 'gi');
+                titleBtn.innerHTML = highlightSafe(displayTitle, regex);
+            } else {
+                titleBtn.textContent = displayTitle;
+            }
+            titleBtn.addEventListener('click', () => CivicWatchBillVotes.open(item));
+            card.appendChild(titleBtn);
         } else {
-            titleLink.textContent = displayTitle;
+            const titleLink = document.createElement('a');
+            titleLink.href = officialUrl || url;
+            titleLink.target = '_blank';
+            titleLink.rel = 'noopener noreferrer';
+            titleLink.className = 'block text-base font-semibold text-civic-navy hover:text-civic-blue transition-colors';
+            if (searchQuery) {
+                const regex = new RegExp(`(${escapeRegex(searchQuery)})`, 'gi');
+                titleLink.innerHTML = highlightSafe(displayTitle, regex);
+            } else {
+                titleLink.textContent = displayTitle;
+            }
+            card.appendChild(titleLink);
         }
-        card.appendChild(titleLink);
 
         const summaryText = item.summary || item.latest_action || '';
         const showSummary = summaryText.trim() && summaryText !== displayTitle;
@@ -386,6 +438,10 @@ const CivicWatchHome = (() => {
             card.appendChild(linkRow);
         }
 
+        if (typeof CivicWatchBillVotes !== 'undefined') {
+            CivicWatchBillVotes.attachVoteButton(card, item);
+        }
+
         return card;
     }
 
@@ -400,14 +456,35 @@ const CivicWatchHome = (() => {
     function matchesVeteransTopic(text) {
         if (!text) return false;
         const haystack = String(text).toLowerCase();
-        if (/\bva\b/.test(haystack)) return true;
-        return VETERANS_KEYWORDS.some((kw) => haystack.includes(kw));
+        if (/\bveterans?\s+affairs\b/.test(haystack)) return true;
+        if (/\btitle\s+38\b/.test(haystack)) return true;
+        if (/\bva\b/.test(haystack) && /veteran|affairs|benefit|health|secretary/.test(haystack)) return true;
+        if (VETERANS_STRONG_KEYWORDS.some((kw) => haystack.includes(kw))) return true;
+        return VETERANS_DEFENSE_PHRASES.some((ph) => haystack.includes(ph));
     }
 
     function itemVeteransText(item) {
-        return [
+        const parts = [
             item.title, item.short_title, item.summary, item.latest_action, item.bill_number,
-        ].filter(Boolean).join(' ');
+            item.link, item.url,
+        ];
+        if (Array.isArray(item.classification)) parts.push(item.classification.join(' '));
+        if (Array.isArray(item.ai_topics)) parts.push(item.ai_topics.join(' '));
+        return parts.filter(Boolean).join(' ');
+    }
+
+    function itemMatchesVeteransFilter(item) {
+        if (Array.isArray(item.ai_topics)) {
+            const topics = item.ai_topics.map((t) => String(t).toLowerCase());
+            if (topics.some((t) => VETERANS_TOPIC_PATTERN.test(t))) return true;
+        }
+        if (Array.isArray(item.classification)) {
+            const cls = item.classification.map((c) => String(c).toLowerCase());
+            if (cls.some((c) => VETERANS_TOPIC_PATTERN.test(c))) return true;
+        }
+        const link = String(item.link || item.url || '').toLowerCase();
+        if (link.includes('news.va.gov') || link.includes('va.gov')) return true;
+        return matchesVeteransTopic(itemVeteransText(item));
     }
 
     function renderVeteransCallout(items) {
@@ -468,7 +545,7 @@ const CivicWatchHome = (() => {
     }
 
     function renderFeedDay(date, items, options) {
-        const { searchQuery } = options;
+        const { searchQuery, veteransFilterActive } = options;
         const section = document.createElement('section');
         section.className = 'feed-day mb-6';
         section.setAttribute('aria-label', `Updates for ${date}`);
@@ -488,7 +565,7 @@ const CivicWatchHome = (() => {
 
         if (legislative.length === 0 && meta.length === 0) return null;
 
-        const veteransCallout = renderVeteransCallout(legislative);
+        const veteransCallout = veteransFilterActive ? null : renderVeteransCallout(legislative);
         if (veteransCallout) card.appendChild(veteransCallout);
 
         const byState = {};
@@ -577,6 +654,7 @@ const CivicWatchHome = (() => {
     async function init(options) {
         callbacks = options || {};
         initStateChips();
+        initVeteransFilter();
         initFilterDrawer();
         loadLiveNowStrip();
 
@@ -589,6 +667,7 @@ const CivicWatchHome = (() => {
     return {
         init,
         setSelectedState,
+        setVeteransFilterActive,
         updateActiveFilterPills,
         renderFeedDay,
         renderBillCard,
@@ -596,6 +675,7 @@ const CivicWatchHome = (() => {
         loadLiveNowStrip,
         inferItemState,
         isMetaItem,
+        itemMatchesVeteransFilter,
         fetchWeeklyCounts,
         formatDate,
         STATE_NAMES,

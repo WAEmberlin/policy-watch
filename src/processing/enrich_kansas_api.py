@@ -124,6 +124,8 @@ def parse_bill_status(raw: Dict[str, Any], votes: List[Dict[str, Any]], hearings
     for vote in votes[:10]:
         journal = vote.get("journal_element") or {}
         vote_records.append({
+            "apn": vote.get("apn") or "",
+            "rcs_num": vote.get("rcs_num") or "",
             "chamber": vote.get("chamber", ""),
             "result": journal.get("action_label") or vote.get("action_label", ""),
             "date": journal.get("occurred") or vote.get("occurred", ""),

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>District Map — CivicWatch</title>
+<link rel="stylesheet" href="theme.css" />
+<link rel="stylesheet" href="sr-only.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script src="theme.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                white: 'var(--cw-white)',
+                civic: {
+                    navy: 'var(--cw-navy)',
+                    gold: 'var(--cw-gold)',
+                    blue: 'var(--cw-blue)',
+                    'blue-dark': 'var(--cw-blue-dark)',
+                },
+                slate: {
+                    50: 'var(--cw-slate-50)',
+                    100: 'var(--cw-slate-100)',
+                    200: 'var(--cw-slate-200)',
+                    300: 'var(--cw-slate-300)',
+                    400: 'var(--cw-slate-400)',
+                    500: 'var(--cw-slate-500)',
+                    600: 'var(--cw-slate-600)',
+                    700: 'var(--cw-slate-700)',
+                    800: 'var(--cw-slate-800)',
+                }
+            }
+        }
+    }
+}
+</script>
+<style>
+.district-map-layout {
+    display: grid;
+    gap: 1rem;
+}
+@media (min-width: 768px) {
+    .district-map-layout {
+        grid-template-columns: minmax(0, 1.6fr) minmax(260px, 0.9fr);
+        align-items: start;
+    }
+}
+#district-map {
+    width: 100%;
+    height: min(70vh, 560px);
+    min-height: 320px;
+    border-radius: 0.75rem;
+    border: 2px solid var(--cw-border);
+    background: var(--cw-surface-muted);
+    z-index: 0;
+}
+.map-chamber-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+.map-chamber-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 2px solid var(--cw-border);
+    background: var(--cw-surface);
+    color: var(--cw-text);
+    cursor: pointer;
+}
+.map-chamber-btn--active {
+    background: var(--cw-blue);
+    border-color: var(--cw-blue);
+    color: #fff;
+}
+.map-chamber-btn--disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+.district-map-status {
+    font-size: 0.875rem;
+    color: var(--cw-text-muted);
+    margin-bottom: 0.75rem;
+}
+.district-map-status--error {
+    color: var(--cw-danger);
+}
+#district-info-panel {
+    border: 2px solid var(--cw-border);
+    border-radius: 0.75rem;
+    background: var(--cw-surface-muted);
+    padding: 1rem;
+    min-height: 200px;
+}
+.district-popup__title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--cw-navy);
+    margin: 0 0 0.75rem;
+}
+.district-popup__rep {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+.district-popup__photo {
+    width: 56px;
+    height: 56px;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    border: 1px solid var(--cw-border);
+    flex-shrink: 0;
+}
+.district-popup__name {
+    display: block;
+    color: var(--cw-navy);
+}
+.district-popup__meta {
+    font-size: 0.875rem;
+    color: var(--cw-text-muted);
+    margin: 0.15rem 0 0.35rem;
+}
+.district-popup__link {
+    font-size: 0.875rem;
+    color: var(--cw-blue);
+    text-decoration: none;
+}
+.district-popup__link:hover {
+    text-decoration: underline;
+}
+.district-popup__empty {
+    font-size: 0.875rem;
+    color: var(--cw-text-muted);
+    font-style: italic;
+}
+.district-map-tooltip {
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: none;
+    background: var(--cw-navy);
+    color: #fff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+.district-leaflet-popup .leaflet-popup-content-wrapper {
+    border-radius: 0.75rem;
+    border: 2px solid var(--cw-border);
+}
+.district-map-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    font-size: 0.75rem;
+    color: var(--cw-text-muted);
+    margin-top: 0.75rem;
+}
+.district-map-legend__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+.district-map-legend__swatch {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(0,0,0,0.15);
+}
+</style>
+</head>
+<body class="cw-page-bg min-h-screen" data-cw-page="map">
+<div id="cw-page-wrapper" class="max-w-6xl mx-auto px-4 py-4">
+<main id="cw-main-content">
+    <div class="cw-card shadow-xl">
+        <div class="cw-card-header">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+                <div class="flex items-center gap-4">
+                    <img src="CivicWatch Logo.png" alt="CivicWatch Logo" class="h-14 w-auto hidden sm:block" />
+                    <div>
+                        <h1 class="text-3xl font-bold">
+                            <span class="text-white">Civic</span><span class="text-civic-gold">Watch</span>
+                        </h1>
+                        <div class="cw-text-on-header-muted text-sm mt-1">District Map — Kansas State House</div>
+                    </div>
+                </div>
+                <div data-cw-theme-toggle></div>
+            </div>
+        </div>
+        <div class="cw-card-body p-6 md:p-8">
+            <div class="map-chamber-row" role="group" aria-label="Chamber selection">
+                <button type="button" id="map-chamber-house" class="map-chamber-btn map-chamber-btn--active" data-chamber="house" aria-pressed="true">Kansas House</button>
+                <button type="button" id="map-chamber-senate" class="map-chamber-btn map-chamber-btn--disabled" data-chamber="senate" aria-pressed="false" disabled title="Coming soon">Kansas Senate — Coming soon</button>
+                <button type="button" id="map-chamber-congress" class="map-chamber-btn map-chamber-btn--disabled" data-chamber="congress" aria-pressed="false" disabled title="Coming soon">U.S. Congress — Coming soon</button>
+            </div>
+            <p id="map-phase-note" class="text-sm text-slate-500 mb-4">
+                Showing Kansas State House districts (125). Click a district for representative details.
+            </p>
+            <p id="district-map-status" class="district-map-status" aria-live="polite">Loading map data…</p>
+            <div class="district-map-layout">
+                <div>
+                    <div id="district-map" role="application" aria-label="Interactive map of Kansas House districts"></div>
+                    <div class="district-map-legend" aria-hidden="true">
+                        <span class="district-map-legend__item"><span class="district-map-legend__swatch" style="background:#dc2626"></span> Republican</span>
+                        <span class="district-map-legend__item"><span class="district-map-legend__swatch" style="background:#2563eb"></span> Democratic</span>
+                        <span class="district-map-legend__item"><span class="district-map-legend__swatch" style="background:#94a3b8"></span> Other / unmatched</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-3">
+                        Boundaries: U.S. Census TIGER/Line 2024 (SLD lower). Refresh via
+                        <code class="text-xs">scripts/fetch_kansas_district_geojson.py</code>.
+                    </p>
+                </div>
+                <aside id="district-info-panel" aria-live="polite" aria-label="Selected district details">
+                    <p class="district-popup__empty">Click a district on the map to see representative details.</p>
+                </aside>
+            </div>
+        </div>
+    </div>
+</main>
+</div>
+<script src="a11y.js"></script>
+<script src="shell.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="district-map.js"></script>
+<script>
+CivicWatchShell.init({ page: 'map' });
+document.addEventListener('DOMContentLoaded', function () {
+    CivicWatchDistrictMap.init();
+});
+</script>
+</body>
+</html>
