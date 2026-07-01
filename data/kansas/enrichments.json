@@ -16910,7 +16910,7 @@
     "enriched_at": "2026-06-30T08:43:25.359048+00:00"
   },
   "_meta": {
-    "updated_at": "2026-07-01T01:42:09.747473+00:00",
+    "updated_at": "2026-07-01T02:09:05.382054+00:00",
     "total_bills": 899,
     "enriched_this_run": 75,
     "errors": 0
@@ -102669,7 +102669,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb365_00_0000/fisc_note_sb365_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:54:49.270842+00:00"
+    "enriched_at": "2026-07-01T02:07:40.188103+00:00"
   },
   "SB366": {
     "bill_number": "SB366",
@@ -102839,6 +102839,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day046_20260319/vote_records/vote_255_SB366.odt",
+        "rcs_num": "255",
         "chamber": "senate",
         "result": "Concurred with amendments;",
         "date": "2026-03-19T12:36:17+00:00",
@@ -102851,6 +102853,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/house/legislative_days/day044_20260317/vote_records/0259_SB366.odt",
+        "rcs_num": "0259",
         "chamber": "house",
         "result": "Final Action - Substitute passed;",
         "date": "2026-03-17T11:41:53+00:00",
@@ -102863,6 +102867,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day021_20260210/vote_records/vote_36_SB366.odt",
+        "rcs_num": "36",
         "chamber": "senate",
         "result": "Consent Calendar Passed",
         "date": "2026-02-10T14:57:41+00:00",
@@ -102885,7 +102891,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb366_00_0000/fisc_note_sb366_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:54:55.820075+00:00"
+    "enriched_at": "2026-07-01T02:07:41.372553+00:00"
   },
   "SB367": {
     "bill_number": "SB367",
@@ -103022,6 +103028,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day022_20260211/vote_records/vote_42_SB367.odt",
+        "rcs_num": "42",
         "chamber": "senate",
         "result": "Final Action - Passed;",
         "date": "2026-02-11T15:31:27+00:00",
@@ -103041,7 +103049,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb367_00_0000/fisc_note_sb367_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:55:02.351790+00:00"
+    "enriched_at": "2026-07-01T02:07:42.532744+00:00"
   },
   "SB368": {
     "bill_number": "SB368",
@@ -103238,6 +103246,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/house/legislative_days/day052_20260327/vote_records/0366_SB368.odt",
+        "rcs_num": "0366",
         "chamber": "house",
         "result": "Motion to override veto prevailed;",
         "date": "2026-03-27T13:58:25+00:00",
@@ -103250,6 +103260,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day052_20260327/vote_records/vote_333_SB368.odt",
+        "rcs_num": "333",
         "chamber": "senate",
         "result": "Motion to override veto prevailed;",
         "date": "2026-03-27T10:39:39+00:00",
@@ -103262,6 +103274,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/house/legislative_days/day039_20260310/vote_records/0230_SB368.odt",
+        "rcs_num": "0230",
         "chamber": "house",
         "result": "Final Action - Passed;",
         "date": "2026-03-10T11:32:30+00:00",
@@ -103274,6 +103288,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_66_SB368.odt",
+        "rcs_num": "66",
         "chamber": "senate",
         "result": "Final Action - Passed as amended;",
         "date": "2026-02-18T11:07:37+00:00",
@@ -103295,7 +103311,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb368_00_0000/fisc_note_sb368_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:55:08.901086+00:00"
+    "enriched_at": "2026-07-01T02:07:43.699404+00:00"
   },
   "SB369": {
     "bill_number": "SB369",
@@ -103369,7 +103385,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb369_00_0000/fisc_note_sb369_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:55:15.417614+00:00"
+    "enriched_at": "2026-07-01T02:07:44.816658+00:00"
   },
   "SB37": {
     "bill_number": "SB37",
@@ -103448,7 +103464,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_37/sb37_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:55:21.927571+00:00"
+    "enriched_at": "2026-07-01T02:07:45.962992+00:00"
   },
   "SB370": {
     "bill_number": "SB370",
@@ -103506,7 +103522,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb370_00_0000/fisc_note_sb370_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:55:28.428965+00:00"
+    "enriched_at": "2026-07-01T02:07:47.106978+00:00"
   },
   "SB371": {
     "bill_number": "SB371",
@@ -103564,7 +103580,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb371_00_0000/fisc_note_sb371_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:55:34.935537+00:00"
+    "enriched_at": "2026-07-01T02:07:48.233640+00:00"
   },
   "SB372": {
     "bill_number": "SB372",
@@ -103729,6 +103745,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_67_SB372.odt",
+        "rcs_num": "67",
         "chamber": "senate",
         "result": "Final Action - Passed as amended;",
         "date": "2026-02-18T11:08:03+00:00",
@@ -103753,7 +103771,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb372_00_0000/fisc_note_sb372_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:55:41.471271+00:00"
+    "enriched_at": "2026-07-01T02:07:49.387776+00:00"
   },
   "SB373": {
     "bill_number": "SB373",
@@ -103822,7 +103840,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb373_00_0000/fisc_note_sb373_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:55:47.987557+00:00"
+    "enriched_at": "2026-07-01T02:07:50.509170+00:00"
   },
   "SB374": {
     "bill_number": "SB374",
@@ -104069,6 +104087,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/house/legislative_days/day051_20260326/vote_records/0348_SB374.odt",
+        "rcs_num": "0348",
         "chamber": "house",
         "result": "Conference Committee Report was adopted;",
         "date": "2026-03-26T21:25:07+00:00",
@@ -104081,6 +104101,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day052_20260327/vote_records/vote_345_SB374.odt",
+        "rcs_num": "345",
         "chamber": "senate",
         "result": "Conference Committee Report was adopted;",
         "date": "2026-03-27T11:32:18+00:00",
@@ -104093,6 +104115,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/house/legislative_days/day045_20260318/vote_records/0284_SB374.odt",
+        "rcs_num": "0284",
         "chamber": "house",
         "result": "Emergency Final Action - Passed as amended;",
         "date": "2026-03-18T16:06:20+00:00",
@@ -104105,6 +104129,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_98_SB374.odt",
+        "rcs_num": "98",
         "chamber": "senate",
         "result": "Emergency Final Action - Passed as amended;",
         "date": "2026-02-18T18:16:24+00:00",
@@ -104128,7 +104154,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb374_00_0000/fisc_note_sb374_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:55:54.533941+00:00"
+    "enriched_at": "2026-07-01T02:07:51.668040+00:00"
   },
   "SB375": {
     "bill_number": "SB375",
@@ -104399,6 +104425,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/house/legislative_days/day053_20260409/vote_records/0413_SB375.odt",
+        "rcs_num": "0413",
         "chamber": "house",
         "result": "Motion to override veto prevailed;",
         "date": "2026-04-09T17:09:40+00:00",
@@ -104411,6 +104439,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day053_20260409/vote_records/vote_372_SB375.odt",
+        "rcs_num": "372",
         "chamber": "senate",
         "result": "Motion to override veto prevailed;",
         "date": "2026-04-09T14:49:12+00:00",
@@ -104423,6 +104453,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day050_20260325/vote_records/vote_295_SB375.odt",
+        "rcs_num": "295",
         "chamber": "senate",
         "result": "Concurred with amendments in conference;",
         "date": "2026-03-25T11:18:51+00:00",
@@ -104435,6 +104467,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/house/legislative_days/day045_20260318/vote_records/0269_SB375.odt",
+        "rcs_num": "0269",
         "chamber": "house",
         "result": "Emergency Final Action - Passed as amended;",
         "date": "2026-03-18T15:48:24+00:00",
@@ -104447,6 +104481,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_99_SB375.odt",
+        "rcs_num": "99",
         "chamber": "senate",
         "result": "Emergency Final Action - Passed as amended;",
         "date": "2026-02-18T18:16:40+00:00",
@@ -104471,7 +104507,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb375_00_0000/fisc_note_sb375_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:56:01.148445+00:00"
+    "enriched_at": "2026-07-01T02:07:52.882894+00:00"
   },
   "SB376": {
     "bill_number": "SB376",
@@ -104561,7 +104597,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb376_00_0000/fisc_note_sb376_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:56:07.687968+00:00"
+    "enriched_at": "2026-07-01T02:07:54.012650+00:00"
   },
   "SB377": {
     "bill_number": "SB377",
@@ -104619,7 +104655,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb377_00_0000/fisc_note_sb377_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:56:14.204546+00:00"
+    "enriched_at": "2026-07-01T02:07:55.141384+00:00"
   },
   "SB378": {
     "bill_number": "SB378",
@@ -104685,7 +104721,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb378_00_0000/fisc_note_sb378_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:56:20.711274+00:00"
+    "enriched_at": "2026-07-01T02:07:56.309039+00:00"
   },
   "SB379": {
     "bill_number": "SB379",
@@ -104871,6 +104907,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_68_SB379.odt",
+        "rcs_num": "68",
         "chamber": "senate",
         "result": "Final Action - Passed as amended;",
         "date": "2026-02-18T11:08:51+00:00",
@@ -104893,7 +104931,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb379_00_0000/fisc_note_sb379_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:56:27.311394+00:00"
+    "enriched_at": "2026-07-01T02:07:57.453609+00:00"
   },
   "SB380": {
     "bill_number": "SB380",
@@ -105132,6 +105170,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day052_20260327/vote_records/vote_338_SB380.odt",
+        "rcs_num": "338",
         "chamber": "senate",
         "result": "Conference Committee Report was adopted;",
         "date": "2026-03-27T11:33:01+00:00",
@@ -105144,6 +105184,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/house/legislative_days/day051_20260326/vote_records/0336_SB380.odt",
+        "rcs_num": "0336",
         "chamber": "house",
         "result": "Conference Committee Report was adopted;",
         "date": "2026-03-26T15:26:19+00:00",
@@ -105156,6 +105198,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/house/legislative_days/day045_20260318/vote_records/0271_SB380.odt",
+        "rcs_num": "0271",
         "chamber": "house",
         "result": "Emergency Final Action - Passed as amended;",
         "date": "2026-03-18T15:50:37+00:00",
@@ -105168,6 +105212,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_69_SB380.odt",
+        "rcs_num": "69",
         "chamber": "senate",
         "result": "Final Action - Passed as amended;",
         "date": "2026-02-18T11:09:32+00:00",
@@ -105191,7 +105237,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb380_00_0000/fisc_note_sb380_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:56:33.917229+00:00"
+    "enriched_at": "2026-07-01T02:07:58.621067+00:00"
   },
   "SB381": {
     "bill_number": "SB381",
@@ -105407,6 +105453,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day041_20260312/vote_records/vote_155_SB381.odt",
+        "rcs_num": "155",
         "chamber": "senate",
         "result": "Final Action - Passed as amended;",
         "date": "2026-03-12T15:05:03+00:00",
@@ -105429,7 +105477,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_sb381_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:56:40.458829+00:00"
+    "enriched_at": "2026-07-01T02:07:59.774126+00:00"
   },
   "SB382": {
     "bill_number": "SB382",
@@ -105703,6 +105751,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day052_20260327/vote_records/vote_359_SB382.odt",
+        "rcs_num": "359",
         "chamber": "senate",
         "result": "Conference Committee Report was adopted;",
         "date": "2026-03-27T19:32:11+00:00",
@@ -105715,6 +105765,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/house/legislative_days/day051_20260326/vote_records/0343_SB382.odt",
+        "rcs_num": "0343",
         "chamber": "house",
         "result": "Conference Committee Report was adopted;",
         "date": "2026-03-26T16:47:54+00:00",
@@ -105727,6 +105779,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/house/legislative_days/day044_20260317/vote_records/0260_SB382.odt",
+        "rcs_num": "0260",
         "chamber": "house",
         "result": "Final Action - Passed as amended;",
         "date": "2026-03-17T11:42:46+00:00",
@@ -105739,6 +105793,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day036_20260305/vote_records/vote_129_SB382.odt",
+        "rcs_num": "129",
         "chamber": "senate",
         "result": "Emergency Final Action - Passed as amended;",
         "date": "2026-03-05T18:30:11+00:00",
@@ -105764,7 +105820,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb382_00_0000/fisc_note_sb382_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:56:47.005257+00:00"
+    "enriched_at": "2026-07-01T02:08:00.951150+00:00"
   },
   "SB383": {
     "bill_number": "SB383",
@@ -105830,7 +105886,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb383_00_0000/fisc_note_sb383_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:56:53.545258+00:00"
+    "enriched_at": "2026-07-01T02:08:02.083972+00:00"
   },
   "SB384": {
     "bill_number": "SB384",
@@ -105990,6 +106046,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day041_20260312/vote_records/vote_156_SB384.odt",
+        "rcs_num": "156",
         "chamber": "senate",
         "result": "Final Action - Passed as amended;",
         "date": "2026-03-12T15:05:26+00:00",
@@ -106009,7 +106067,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb384_00_0000/fisc_note_sb384_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:57:00.086299+00:00"
+    "enriched_at": "2026-07-01T02:08:03.251973+00:00"
   },
   "SB385": {
     "bill_number": "SB385",
@@ -106092,7 +106150,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb385_00_0000/fisc_note_sb385_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:57:06.639184+00:00"
+    "enriched_at": "2026-07-01T02:08:04.396949+00:00"
   },
   "SB386": {
     "bill_number": "SB386",
@@ -106150,7 +106208,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb386_00_0000/fisc_note_sb386_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:57:13.147769+00:00"
+    "enriched_at": "2026-07-01T02:08:05.556157+00:00"
   },
   "SB387": {
     "bill_number": "SB387",
@@ -106387,6 +106445,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day022_20260211/vote_records/vote_49_SB387.odt",
+        "rcs_num": "49",
         "chamber": "senate",
         "result": "Emergency Final Action - Passed as amended;",
         "date": "2026-02-11T17:23:21+00:00",
@@ -106411,7 +106471,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb387_00_0000/fisc_note_sb387_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:57:19.676438+00:00"
+    "enriched_at": "2026-07-01T02:08:06.705582+00:00"
   },
   "SB388": {
     "bill_number": "SB388",
@@ -106469,7 +106529,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb388_00_0000/fisc_note_sb388_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:57:26.195473+00:00"
+    "enriched_at": "2026-07-01T02:08:07.848192+00:00"
   },
   "SB389": {
     "bill_number": "SB389",
@@ -106541,7 +106601,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb389_00_0000/fisc_note_sb389_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:57:32.741084+00:00"
+    "enriched_at": "2026-07-01T02:08:08.981384+00:00"
   },
   "SB39": {
     "bill_number": "SB39",
@@ -106726,6 +106786,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year1/senate/legislative_days/day045_20250320/vote_records/vote_245_SB39.odt",
+        "rcs_num": "245",
         "chamber": "senate",
         "result": "Emergency Final Action - Passed as amended;",
         "date": "2025-03-20T20:36:15+00:00",
@@ -106749,7 +106811,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb39_00_0000/fisc_note_sb39_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:57:39.321782+00:00"
+    "enriched_at": "2026-07-01T02:08:10.153427+00:00"
   },
   "SB390": {
     "bill_number": "SB390",
@@ -106909,6 +106971,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_70_SB390.odt",
+        "rcs_num": "70",
         "chamber": "senate",
         "result": "Final Action - Passed as amended;",
         "date": "2026-02-18T11:09:54+00:00",
@@ -106930,7 +106994,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_390/sb390_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:57:45.847556+00:00"
+    "enriched_at": "2026-07-01T02:08:11.342964+00:00"
   },
   "SB391": {
     "bill_number": "SB391",
@@ -107208,6 +107272,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/house/legislative_days/day054_20260410/vote_records/0431_SB391.odt",
+        "rcs_num": "0431",
         "chamber": "house",
         "result": "Motion to override veto prevailed;",
         "date": "2026-04-10T16:45:13+00:00",
@@ -107220,6 +107286,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day053_20260409/vote_records/vote_375_SB391.odt",
+        "rcs_num": "375",
         "chamber": "senate",
         "result": "Motion to override veto prevailed;",
         "date": "2026-04-09T14:59:33+00:00",
@@ -107232,6 +107300,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day052_20260327/vote_records/vote_360_SB391.odt",
+        "rcs_num": "360",
         "chamber": "senate",
         "result": "Conference Committee Report was adopted;",
         "date": "2026-03-27T19:32:57+00:00",
@@ -107244,6 +107314,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/house/legislative_days/day050_20260325/vote_records/0322_SB391.odt",
+        "rcs_num": "0322",
         "chamber": "house",
         "result": "Conference Committee Report was adopted;",
         "date": "2026-03-25T16:48:08+00:00",
@@ -107256,6 +107328,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/house/legislative_days/day045_20260318/vote_records/0278_SB391.odt",
+        "rcs_num": "0278",
         "chamber": "house",
         "result": "Emergency Final Action - Passed as amended;",
         "date": "2026-03-18T16:00:26+00:00",
@@ -107268,6 +107342,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_71_SB391.odt",
+        "rcs_num": "71",
         "chamber": "senate",
         "result": "Final Action - Passed;",
         "date": "2026-02-18T11:10:15+00:00",
@@ -107290,7 +107366,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb391_00_0000/fisc_note_sb391_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:57:52.429463+00:00"
+    "enriched_at": "2026-07-01T02:08:12.541466+00:00"
   },
   "SB392": {
     "bill_number": "SB392",
@@ -107423,6 +107499,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_72_SB392.odt",
+        "rcs_num": "72",
         "chamber": "senate",
         "result": "Final Action - Passed;",
         "date": "2026-02-18T11:10:36+00:00",
@@ -107444,7 +107522,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb392_00_0000/fisc_note_sb392_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:57:58.960466+00:00"
+    "enriched_at": "2026-07-01T02:08:13.686395+00:00"
   },
   "SB393": {
     "bill_number": "SB393",
@@ -107582,6 +107660,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day046_20260319/vote_records/vote_190_SB393.odt",
+        "rcs_num": "190",
         "chamber": "senate",
         "result": "Final Action - Passed as amended;",
         "date": "2026-03-19T12:48:48+00:00",
@@ -107602,7 +107682,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb393_00_0000/fisc_note_sb393_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:58:05.476718+00:00"
+    "enriched_at": "2026-07-01T02:08:14.841952+00:00"
   },
   "SB394": {
     "bill_number": "SB394",
@@ -107751,6 +107831,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day036_20260305/vote_records/vote_126_SB394.odt",
+        "rcs_num": "126",
         "chamber": "senate",
         "result": "Emergency Final Action - Passed as amended;",
         "date": "2026-03-05T18:30:32+00:00",
@@ -107773,7 +107855,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb394_00_0000/fisc_note_sb394_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:58:12.012102+00:00"
+    "enriched_at": "2026-07-01T02:08:15.996494+00:00"
   },
   "SB395": {
     "bill_number": "SB395",
@@ -107839,7 +107921,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb395_00_0000/fisc_note_sb395_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:58:18.548769+00:00"
+    "enriched_at": "2026-07-01T02:08:17.125960+00:00"
   },
   "SB396": {
     "bill_number": "SB396",
@@ -108012,6 +108094,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/house/legislative_days/day044_20260317/vote_records/0261_SB396.odt",
+        "rcs_num": "0261",
         "chamber": "house",
         "result": "Final Action - Passed;",
         "date": "2026-03-17T11:43:28+00:00",
@@ -108024,6 +108108,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day022_20260211/vote_records/vote_43_SB396.odt",
+        "rcs_num": "43",
         "chamber": "senate",
         "result": "Final Action - Passed as amended;",
         "date": "2026-02-11T15:32:19+00:00",
@@ -108043,7 +108129,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_396/sb396_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:58:25.078240+00:00"
+    "enriched_at": "2026-07-01T02:08:18.287927+00:00"
   },
   "SB397": {
     "bill_number": "SB397",
@@ -108129,7 +108215,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb397_00_0000/fisc_note_sb397_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:58:31.586766+00:00"
+    "enriched_at": "2026-07-01T02:08:19.421979+00:00"
   },
   "SB398": {
     "bill_number": "SB398",
@@ -108349,6 +108435,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day051_20260326/vote_records/vote_326_SB398.odt",
+        "rcs_num": "326",
         "chamber": "senate",
         "result": "Concurred with amendments in conference;",
         "date": "2026-03-26T22:10:35+00:00",
@@ -108361,6 +108449,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/house/legislative_days/day045_20260318/vote_records/0286_SB398.odt",
+        "rcs_num": "0286",
         "chamber": "house",
         "result": "Emergency Final Action - Passed as amended;",
         "date": "2026-03-18T16:08:27+00:00",
@@ -108373,6 +108463,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_86_SB398.odt",
+        "rcs_num": "86",
         "chamber": "senate",
         "result": "Emergency Final Action - Passed;",
         "date": "2026-02-18T18:16:56+00:00",
@@ -108395,7 +108487,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb398_00_0000/fisc_note_sb398_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:58:38.131388+00:00"
+    "enriched_at": "2026-07-01T02:08:20.592899+00:00"
   },
   "SB399": {
     "bill_number": "SB399",
@@ -108453,7 +108545,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb399_00_0000/fisc_note_sb399_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:58:44.648343+00:00"
+    "enriched_at": "2026-07-01T02:08:21.722957+00:00"
   },
   "SB400": {
     "bill_number": "SB400",
@@ -108511,7 +108603,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb400_00_0000/fisc_note_sb400_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:58:51.164911+00:00"
+    "enriched_at": "2026-07-01T02:08:22.854308+00:00"
   },
   "SB401": {
     "bill_number": "SB401",
@@ -108569,7 +108661,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb401_00_0000/fisc_note_sb401_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:58:57.688198+00:00"
+    "enriched_at": "2026-07-01T02:08:23.991187+00:00"
   },
   "SB402": {
     "bill_number": "SB402",
@@ -108750,6 +108842,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day030_20260225/vote_records/vote_111_SB402.odt",
+        "rcs_num": "111",
         "chamber": "senate",
         "result": "Emergency Final Action - Passed as amended;",
         "date": "2026-02-25T16:49:02+00:00",
@@ -108774,7 +108868,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb402_00_0000/fisc_note_sb402_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:59:04.274583+00:00"
+    "enriched_at": "2026-07-01T02:08:25.145201+00:00"
   },
   "SB403": {
     "bill_number": "SB403",
@@ -108993,6 +109087,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day052_20260327/vote_records/vote_339_SB403.odt",
+        "rcs_num": "339",
         "chamber": "senate",
         "result": "Conference Committee Report was adopted;",
         "date": "2026-03-27T11:33:41+00:00",
@@ -109005,6 +109101,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/house/legislative_days/day049_20260324/vote_records/0308_SB403.odt",
+        "rcs_num": "0308",
         "chamber": "house",
         "result": "Conference Committee Report was adopted;",
         "date": "2026-03-24T11:19:52+00:00",
@@ -109017,6 +109115,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/house/legislative_days/day041_20260312/vote_records/0248_SB403.odt",
+        "rcs_num": "0248",
         "chamber": "house",
         "result": "Emergency Final Action - Passed as amended;",
         "date": "2026-03-12T12:53:20+00:00",
@@ -109029,6 +109129,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day021_20260210/vote_records/vote_37_SB403.odt",
+        "rcs_num": "37",
         "chamber": "senate",
         "result": "Consent Calendar Passed",
         "date": "2026-02-10T14:57:25+00:00",
@@ -109051,7 +109153,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb403_00_0000/fisc_note_sb403_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:59:10.885792+00:00"
+    "enriched_at": "2026-07-01T02:08:26.300761+00:00"
   },
   "SB404": {
     "bill_number": "SB404",
@@ -109211,6 +109313,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day039_20260310/vote_records/vote_146_SB404.odt",
+        "rcs_num": "146",
         "chamber": "senate",
         "result": "Emergency Final Action - Passed as amended;",
         "date": "2026-03-10T18:01:56+00:00",
@@ -109233,7 +109337,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb404_00_0000/fisc_note_sb404_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:59:17.484522+00:00"
+    "enriched_at": "2026-07-01T02:08:27.435592+00:00"
   },
   "SB405": {
     "bill_number": "SB405",
@@ -109299,7 +109403,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb405_00_0000/fisc_note_sb405_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:59:24.052982+00:00"
+    "enriched_at": "2026-07-01T02:08:28.583720+00:00"
   },
   "SB406": {
     "bill_number": "SB406",
@@ -109451,6 +109555,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day041_20260312/vote_records/vote_157_SB406.odt",
+        "rcs_num": "157",
         "chamber": "senate",
         "result": "Final Action - Passed;",
         "date": "2026-03-12T15:05:50+00:00",
@@ -109472,7 +109578,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb406_00_0000/fisc_note_sb406_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:59:30.742545+00:00"
+    "enriched_at": "2026-07-01T02:08:29.724198+00:00"
   },
   "SB407": {
     "bill_number": "SB407",
@@ -109634,6 +109740,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_87_SB407.odt",
+        "rcs_num": "87",
         "chamber": "senate",
         "result": "Emergency Final Action - Passed as amended;",
         "date": "2026-02-18T18:17:14+00:00",
@@ -109653,7 +109761,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb407_00_0000/fisc_note_sb407_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:59:37.301413+00:00"
+    "enriched_at": "2026-07-01T02:08:30.897512+00:00"
   },
   "SB408": {
     "bill_number": "SB408",
@@ -109865,6 +109973,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day051_20260326/vote_records/vote_327_SB408.odt",
+        "rcs_num": "327",
         "chamber": "senate",
         "result": "Concurred with amendments in conference;",
         "date": "2026-03-26T22:11:05+00:00",
@@ -109877,6 +109987,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/house/legislative_days/day045_20260318/vote_records/0287_SB408.odt",
+        "rcs_num": "0287",
         "chamber": "house",
         "result": "Emergency Final Action - Passed as amended;",
         "date": "2026-03-18T16:09:53+00:00",
@@ -109889,6 +110001,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_73_SB408.odt",
+        "rcs_num": "73",
         "chamber": "senate",
         "result": "Final Action - Passed;",
         "date": "2026-02-18T11:11:13+00:00",
@@ -109911,7 +110025,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb408_00_0000/fisc_note_sb408_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:59:43.897446+00:00"
+    "enriched_at": "2026-07-01T02:08:32.061353+00:00"
   },
   "SB409": {
     "bill_number": "SB409",
@@ -109987,7 +110101,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb409_00_0000/fisc_note_sb409_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:59:50.465639+00:00"
+    "enriched_at": "2026-07-01T02:08:33.202378+00:00"
   },
   "SB410": {
     "bill_number": "SB410",
@@ -110186,6 +110300,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/house/legislative_days/day040_20260311/vote_records/0237_SB410.odt",
+        "rcs_num": "0237",
         "chamber": "house",
         "result": "Final Action - Passed as amended;",
         "date": "2026-03-11T11:32:40+00:00",
@@ -110198,6 +110314,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_88_SB410.odt",
+        "rcs_num": "88",
         "chamber": "senate",
         "result": "Emergency Final Action - Passed;",
         "date": "2026-02-18T18:17:30+00:00",
@@ -110219,7 +110337,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb410_00_0000/fisc_note_sb410_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T19:59:57.066854+00:00"
+    "enriched_at": "2026-07-01T02:08:34.364101+00:00"
   },
   "SB411": {
     "bill_number": "SB411",
@@ -110277,7 +110395,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb411_00_0000/fisc_note_sb411_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:00:03.588037+00:00"
+    "enriched_at": "2026-07-01T02:08:35.472742+00:00"
   },
   "SB412": {
     "bill_number": "SB412",
@@ -110516,6 +110634,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day052_20260327/vote_records/vote_340_SB412.odt",
+        "rcs_num": "340",
         "chamber": "senate",
         "result": "Conference Committee Report was adopted;",
         "date": "2026-03-27T11:34:19+00:00",
@@ -110528,6 +110648,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/house/legislative_days/day050_20260325/vote_records/0319_SB412.odt",
+        "rcs_num": "0319",
         "chamber": "house",
         "result": "Conference Committee Report was adopted;",
         "date": "2026-03-25T12:31:27+00:00",
@@ -110540,6 +110662,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/house/legislative_days/day040_20260311/vote_records/0238_SB412.odt",
+        "rcs_num": "0238",
         "chamber": "house",
         "result": "Final Action - Passed as amended;",
         "date": "2026-03-11T11:33:16+00:00",
@@ -110552,6 +110676,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_100_SB412.odt",
+        "rcs_num": "100",
         "chamber": "senate",
         "result": "Emergency Final Action - Passed as amended;",
         "date": "2026-02-18T18:17:49+00:00",
@@ -110575,7 +110701,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb412_00_0000/fisc_note_sb412_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:00:10.215769+00:00"
+    "enriched_at": "2026-07-01T02:08:36.631086+00:00"
   },
   "SB413": {
     "bill_number": "SB413",
@@ -110696,6 +110822,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_74_SB413.odt",
+        "rcs_num": "74",
         "chamber": "senate",
         "result": "Final Action - Passed;",
         "date": "2026-02-18T11:11:31+00:00",
@@ -110715,7 +110843,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb413_00_0000/fisc_note_sb413_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:00:16.809847+00:00"
+    "enriched_at": "2026-07-01T02:08:37.817173+00:00"
   },
   "SB414": {
     "bill_number": "SB414",
@@ -110781,7 +110909,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb414_00_0000/fisc_note_sb414_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:00:23.385809+00:00"
+    "enriched_at": "2026-07-01T02:08:38.978261+00:00"
   },
   "SB415": {
     "bill_number": "SB415",
@@ -110940,6 +111068,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day044_20260317/vote_records/vote_171_SB415.odt",
+        "rcs_num": "171",
         "chamber": "senate",
         "result": "Final Action - Passed as amended;",
         "date": "2026-03-17T15:02:45+00:00",
@@ -110962,7 +111092,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb415_00_0000/fisc_note_sb415_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:00:29.919045+00:00"
+    "enriched_at": "2026-07-01T02:08:40.116682+00:00"
   },
   "SB416": {
     "bill_number": "SB416",
@@ -111020,7 +111150,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb416_00_0000/fisc_note_sb416_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:00:36.506387+00:00"
+    "enriched_at": "2026-07-01T02:08:41.261889+00:00"
   },
   "SB417": {
     "bill_number": "SB417",
@@ -111111,7 +111241,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb417_00_0000/fisc_note_sb417_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:00:43.085200+00:00"
+    "enriched_at": "2026-07-01T02:08:42.383228+00:00"
   },
   "SB418": {
     "bill_number": "SB418",
@@ -111370,6 +111500,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/house/legislative_days/day051_20260326/vote_records/0344_SB418.odt",
+        "rcs_num": "0344",
         "chamber": "house",
         "result": "Conference Committee Report was adopted;",
         "date": "2026-03-26T18:00:20+00:00",
@@ -111382,6 +111514,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day052_20260327/vote_records/vote_346_SB418.odt",
+        "rcs_num": "346",
         "chamber": "senate",
         "result": "Conference Committee Report was adopted;",
         "date": "2026-03-27T11:35:02+00:00",
@@ -111394,6 +111528,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/house/legislative_days/day045_20260318/vote_records/0274_SB418.odt",
+        "rcs_num": "0274",
         "chamber": "house",
         "result": "Emergency Final Action - Passed as amended;",
         "date": "2026-03-18T15:53:52+00:00",
@@ -111406,6 +111542,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_75_SB418.odt",
+        "rcs_num": "75",
         "chamber": "senate",
         "result": "Final Action - Passed as amended;",
         "date": "2026-02-18T11:12:03+00:00",
@@ -111430,7 +111568,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_418/sb418_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:00:49.705400+00:00"
+    "enriched_at": "2026-07-01T02:08:43.550866+00:00"
   },
   "SB419": {
     "bill_number": "SB419",
@@ -111589,6 +111727,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day039_20260310/vote_records/vote_147_SB419.odt",
+        "rcs_num": "147",
         "chamber": "senate",
         "result": "Emergency Final Action - Passed;",
         "date": "2026-03-10T18:02:17+00:00",
@@ -111608,7 +111748,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb419_00_0000/fisc_note_sb419_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:00:56.255429+00:00"
+    "enriched_at": "2026-07-01T02:08:44.706724+00:00"
   },
   "SB420": {
     "bill_number": "SB420",
@@ -111666,7 +111806,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb420_00_0000/fisc_note_sb420_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:01:02.765292+00:00"
+    "enriched_at": "2026-07-01T02:08:45.843734+00:00"
   },
   "SB421": {
     "bill_number": "SB421",
@@ -111764,7 +111904,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb421_00_0000/fisc_note_sb421_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:01:09.354040+00:00"
+    "enriched_at": "2026-07-01T02:08:46.982890+00:00"
   },
   "SB422": {
     "bill_number": "SB422",
@@ -111913,6 +112053,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_89_SB422.odt",
+        "rcs_num": "89",
         "chamber": "senate",
         "result": "Emergency Final Action - Passed as amended;",
         "date": "2026-02-18T18:18:09+00:00",
@@ -111932,7 +112074,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb422_00_0000/fisc_note_sb422_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:01:15.918772+00:00"
+    "enriched_at": "2026-07-01T02:08:48.142898+00:00"
   },
   "SB423": {
     "bill_number": "SB423",
@@ -111990,7 +112132,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb423_00_0000/fisc_note_sb423_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:01:22.439904+00:00"
+    "enriched_at": "2026-07-01T02:08:49.264639+00:00"
   },
   "SB424": {
     "bill_number": "SB424",
@@ -112048,7 +112190,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb424_00_0000/fisc_note_sb424_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:01:29.006019+00:00"
+    "enriched_at": "2026-07-01T02:08:50.404691+00:00"
   },
   "SB425": {
     "bill_number": "SB425",
@@ -112226,6 +112368,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/house/legislative_days/day045_20260318/vote_records/0279_SB425.odt",
+        "rcs_num": "0279",
         "chamber": "house",
         "result": "Emergency Final Action - Passed;",
         "date": "2026-03-18T16:01:30+00:00",
@@ -112238,6 +112382,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_76_SB425.odt",
+        "rcs_num": "76",
         "chamber": "senate",
         "result": "Final Action - Passed as amended;",
         "date": "2026-02-18T11:14:05+00:00",
@@ -112258,7 +112404,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb425_00_0000/fisc_note_sb425_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:01:35.564216+00:00"
+    "enriched_at": "2026-07-01T02:08:51.558817+00:00"
   },
   "SB426": {
     "bill_number": "SB426",
@@ -112420,6 +112566,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_77_SB426.odt",
+        "rcs_num": "77",
         "chamber": "senate",
         "result": "Final Action - Passed as amended;",
         "date": "2026-02-18T11:15:08+00:00",
@@ -112442,7 +112590,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb426_00_0000/fisc_note_sb426_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:01:42.086192+00:00"
+    "enriched_at": "2026-07-01T02:08:52.710607+00:00"
   },
   "SB427": {
     "bill_number": "SB427",
@@ -112612,6 +112760,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/house/legislative_days/day044_20260317/vote_records/0262_SB427.odt",
+        "rcs_num": "0262",
         "chamber": "house",
         "result": "Final Action - Passed;",
         "date": "2026-03-17T11:44:25+00:00",
@@ -112624,6 +112774,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_78_SB427.odt",
+        "rcs_num": "78",
         "chamber": "senate",
         "result": "Final Action - Passed as amended;",
         "date": "2026-02-18T11:15:27+00:00",
@@ -112644,7 +112796,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb427_00_0000/fisc_note_sb427_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:01:48.637356+00:00"
+    "enriched_at": "2026-07-01T02:08:53.892456+00:00"
   },
   "SB428": {
     "bill_number": "SB428",
@@ -112710,7 +112862,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb428_00_0000/fisc_note_sb428_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:01:55.139987+00:00"
+    "enriched_at": "2026-07-01T02:08:55.018088+00:00"
   },
   "SB429": {
     "bill_number": "SB429",
@@ -112786,7 +112938,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb429_00_0000/fisc_note_sb429_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:02:01.740134+00:00"
+    "enriched_at": "2026-07-01T02:08:56.144140+00:00"
   },
   "SB430": {
     "bill_number": "SB430",
@@ -113041,6 +113193,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/house/legislative_days/day054_20260410/vote_records/0437_SB430.odt",
+        "rcs_num": "0437",
         "chamber": "house",
         "result": "Conference Committee Report was adopted;",
         "date": "2026-04-10T22:04:58+00:00",
@@ -113053,6 +113207,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day054_20260410/vote_records/vote_402_SB430.odt",
+        "rcs_num": "402",
         "chamber": "senate",
         "result": "Conference Committee Report was adopted;",
         "date": "2026-04-10T22:46:36+00:00",
@@ -113065,6 +113221,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/house/legislative_days/day041_20260312/vote_records/0243_SB430.odt",
+        "rcs_num": "0243",
         "chamber": "house",
         "result": "Final Action - Passed as amended;",
         "date": "2026-03-12T11:12:16+00:00",
@@ -113077,6 +113235,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_101_SB430.odt",
+        "rcs_num": "101",
         "chamber": "senate",
         "result": "Emergency Final Action - Passed as amended;",
         "date": "2026-02-18T18:18:28+00:00",
@@ -113100,7 +113260,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb430_00_0000/fisc_note_sb430_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:02:08.308667+00:00"
+    "enriched_at": "2026-07-01T02:08:57.313238+00:00"
   },
   "SB431": {
     "bill_number": "SB431",
@@ -113287,6 +113447,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_102_SB431.odt",
+        "rcs_num": "102",
         "chamber": "senate",
         "result": "Emergency Final Action - Passed;",
         "date": "2026-02-18T18:18:50+00:00",
@@ -113306,7 +113468,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb431_00_0000/fisc_note_sb431_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:02:14.845277+00:00"
+    "enriched_at": "2026-07-01T02:08:58.464691+00:00"
   },
   "SB432": {
     "bill_number": "SB432",
@@ -113382,7 +113544,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb432_00_0000/fisc_note_sb432_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:02:21.361608+00:00"
+    "enriched_at": "2026-07-01T02:08:59.593136+00:00"
   },
   "SB433": {
     "bill_number": "SB433",
@@ -113440,7 +113602,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb433_00_0000/fisc_note_sb433_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:02:27.928083+00:00"
+    "enriched_at": "2026-07-01T02:09:00.773147+00:00"
   },
   "SB434": {
     "bill_number": "SB434",
@@ -113671,6 +113833,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/house/legislative_days/day045_20260318/vote_records/0282_SB434.odt",
+        "rcs_num": "0282",
         "chamber": "house",
         "result": "Emergency Final Action - Substitute passed;",
         "date": "2026-03-18T16:04:16+00:00",
@@ -113683,6 +113847,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day022_20260211/vote_records/vote_50_SB434.odt",
+        "rcs_num": "50",
         "chamber": "senate",
         "result": "Emergency Final Action - Passed as amended;",
         "date": "2026-02-11T17:23:46+00:00",
@@ -113707,7 +113873,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb434_00_0000/fisc_note_sb434_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:02:34.606228+00:00"
+    "enriched_at": "2026-07-01T02:09:01.942345+00:00"
   },
   "SB435": {
     "bill_number": "SB435",
@@ -113946,6 +114112,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day052_20260327/vote_records/vote_350_SB435.odt",
+        "rcs_num": "350",
         "chamber": "senate",
         "result": "Conference Committee Report was adopted;",
         "date": "2026-03-27T17:15:35+00:00",
@@ -113958,6 +114126,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/house/legislative_days/day050_20260325/vote_records/0320_SB435.odt",
+        "rcs_num": "0320",
         "chamber": "house",
         "result": "Conference Committee Report was adopted;",
         "date": "2026-03-25T12:34:07+00:00",
@@ -113970,6 +114140,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/house/legislative_days/day041_20260312/vote_records/0249_SB435.odt",
+        "rcs_num": "0249",
         "chamber": "house",
         "result": "Emergency Final Action - Passed as amended;",
         "date": "2026-03-12T12:54:12+00:00",
@@ -113982,6 +114154,8 @@
         }
       },
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day022_20260211/vote_records/vote_51_SB435.odt",
+        "rcs_num": "51",
         "chamber": "senate",
         "result": "Emergency Final Action - Passed;",
         "date": "2026-02-11T17:24:05+00:00",
@@ -114004,7 +114178,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb435_00_0000/fisc_note_sb435_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:02:41.154626+00:00"
+    "enriched_at": "2026-07-01T02:09:03.096566+00:00"
   },
   "SB436": {
     "bill_number": "SB436",
@@ -114122,6 +114296,8 @@
     ],
     "votes": [
       {
+        "apn": "b2025_26/year2/senate/legislative_days/day027_20260218/vote_records/vote_90_SB436.odt",
+        "rcs_num": "90",
         "chamber": "senate",
         "result": "Emergency Final Action - Not passed;",
         "date": "2026-02-18T18:19:29+00:00",
@@ -114143,7 +114319,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_436/sb436_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:02:47.697825+00:00"
+    "enriched_at": "2026-07-01T02:09:04.251077+00:00"
   },
   "SB437": {
     "bill_number": "SB437",
@@ -114244,7 +114420,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb437_00_0000/fisc_note_sb437_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-06-28T20:02:54.204010+00:00"
+    "enriched_at": "2026-07-01T02:09:05.382030+00:00"
   },
   "SB438": {
     "bill_number": "SB438",

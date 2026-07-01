@@ -1,13 +1,13 @@
 {
-  "week_start": "2026-06-21T19:54:16.747908-05:00",
-  "week_end": "2026-06-28T19:54:16.747908-05:00",
+  "week_start": "2026-06-23T21:14:13.131017-05:00",
+  "week_end": "2026-06-30T21:14:13.131017-05:00",
   "item_counts": {
-    "federal": 88,
+    "federal": 65,
     "ks": 0,
-    "co": 0,
+    "co": 1,
     "az": 0,
-    "ut": 0,
-    "me": 0
+    "ut": 2,
+    "me": 1
   },
   "sections": [
     {
@@ -15,18 +15,18 @@
       "label": "Congress / Federal",
       "recap_lines": [
         "Congress / Federal:",
-        "HR 2478: Financial Exploitation Prevention Act of 2025",
+        "HR 6644: Housing for the 21st Century Act",
+        "   Presented to President.",
+        "HR 5347: Health Care Efficiency Through Flexibility Act",
         "   Motion to reconsider laid on the table Agreed to without objection.",
-        "HR 6921: To require the Secretary of Veterans Affairs to establish a new national cemetery in the State of Hawai'i, and for other purposes.",
-        "   Subcommittee Hearings Held",
-        "HR 6588: PROVIDE Act",
-        "   Subcommittee Hearings Held",
-        "   Plus 1 immigration, 2 healthcare, 1 education, 5 economic, 1 environmental, 1 technology, 1 tax, 4 infrastructure bills, and 17 others.",
-        "52 hearings scheduled."
+        "HR 5498: Small Business Health Options Awareness Act of 2025",
+        "   Placed on the Union Calendar, Calendar No. 622.",
+        "   Plus 2 healthcare, 1 education, 2 economic, 1 defense, 1 tax, 1 infrastructure bills, and 9 others.",
+        "45 hearings scheduled."
       ],
-      "item_count": 88,
+      "item_count": 65,
       "veterans_highlight": {
-        "summary": "HR 6921: To require the Secretary of Veterans Affairs to establish a new national cemetery in the State of Hawai'i, and for other purposes.; [RESCHEDULED] H.R. 8552, the \u201cVeterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026\u201d; H.R.; [POSTPONED] H.R. 5992, the \u201cStuck on Hold Act\u201d; H.R. 8532, the \u201cVA Home Loan Affordability Act\u201d; Discussion Draft, the \u201cVA Education...; plus 4 more",
+        "summary": "HR 6921: To require the Secretary of Veterans Affairs to establish a new national cemetery in the State of Hawai'i, and for other purposes.; Memorializing our Veterans: Outreach, Upkeep, and Community Partnerships at Veterans Cemeteries; H.R. 8552, the \u201cVeterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026\u201d; H.R. 9006, the \u201cLocating Our Unclaimed Veterans Act\u201d; H.R.; plus 3 more",
         "items": [
           {
             "type": "bill",
@@ -35,16 +35,16 @@
           },
           {
             "type": "hearing",
-            "title": "[RESCHEDULED] H.R. 8552, the \u201cVeterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026\u201d; H.R.",
-            "url": "https://www.congress.gov/event/119th-congress/house-event/119403"
+            "title": "Memorializing our Veterans: Outreach, Upkeep, and Community Partnerships at Veterans Cemeteries",
+            "url": "https://www.congress.gov/event/119th-congress/house-event/119422"
           },
           {
             "type": "hearing",
-            "title": "[POSTPONED] H.R. 5992, the \u201cStuck on Hold Act\u201d; H.R. 8532, the \u201cVA Home Loan Affordability Act\u201d; Discussion Draft, the \u201cVA Education...",
-            "url": "https://www.congress.gov/event/119th-congress/house-event/119402"
+            "title": "H.R. 8552, the \u201cVeterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026\u201d; H.R. 9006, the \u201cLocating Our Unclaimed Veterans Act\u201d; H.R.",
+            "url": "https://www.congress.gov/event/119th-congress/house-event/119431"
           }
         ],
-        "total_matches": 7
+        "total_matches": 6
       }
     },
     {
@@ -59,9 +59,10 @@
       "id": "co",
       "label": "Colorado",
       "recap_lines": [
-        "Colorado: No new activity this week."
+        "Colorado:",
+        "   1 hearings."
       ],
-      "item_count": 0
+      "item_count": 1
     },
     {
       "id": "az",
@@ -75,21 +76,23 @@
       "id": "ut",
       "label": "Utah",
       "recap_lines": [
-        "Utah: No new activity this week."
+        "Utah:",
+        "   2 hearings."
       ],
-      "item_count": 0
+      "item_count": 2
     },
     {
       "id": "me",
       "label": "Maine",
       "recap_lines": [
-        "Maine: No new activity this week."
+        "Maine:",
+        "   1 hearings."
       ],
-      "item_count": 0
+      "item_count": 1
     }
   ],
-  "script": "CivicWatch weekly overview for June 21 through June 28, 2026.\n\nCongress / Federal:\nHR 2478: Financial Exploitation Prevention Act of 2025\nVeterans & Military highlight: HR 6921: To require the Secretary of Veterans Affairs to establish a new national cemetery in the State of Hawai'i, and for other purposes.; [RESCHEDULED] H.R..\n   Motion to reconsider laid on the table Agreed to without objection.\nHR 6921: To require the Secretary of Veterans Affairs to establish a new national cemetery in the State of Hawai'i, and for other purposes.\n   Subcommittee Hearings Held\nHR 6588: PROVIDE Act\n   Subcommittee Hearings Held\n   Plus 1 immigration, 2 healthcare, 1 education, 5 economic, 1 environmental, 1 technology, 1 tax, 4 infrastructure bills, and 17 others.\n52 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nExplore full details at CivicWatch.",
-  "generated_at": "2026-06-28T19:54:16.747908-05:00",
+  "script": "CivicWatch weekly overview for June 23 through June 30, 2026.\n\nCongress / Federal:\nHR 6644: Housing for the 21st Century Act\nVeterans & Military highlight: HR 6921: To require the Secretary of Veterans Affairs to establish a new national cemetery in the State of Hawai'i, and for other purposes.; Memorializing our Veterans: Outreach, Upkeep, and Community Partnerships at....\n   Presented to President.\nHR 5347: Health Care Efficiency Through Flexibility Act\n   Motion to reconsider laid on the table Agreed to without objection.\nHR 5498: Small Business Health Options Awareness Act of 2025\n   Placed on the Union Calendar, Calendar No. 622.\n   Plus 2 healthcare, 1 education, 2 economic, 1 defense, 1 tax, 1 infrastructure bills, and 9 others.\n45 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado:\n   1 hearings.\n\nArizona: No new activity this week.\n\nUtah:\n   2 hearings.\n\nMaine:\n   1 hearings.\n\nExplore full details at CivicWatch.",
+  "generated_at": "2026-06-30T21:14:13.131017-05:00",
   "audio_available": false,
   "audio_file": null
 }
