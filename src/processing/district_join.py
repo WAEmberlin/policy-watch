@@ -32,35 +32,9 @@ def normalize_district(district: Any) -> str:
     return text
 
 
-def extract_district_from_feature(
-    properties: Dict[str, Any],
-    *,
-    layer: str = "house",
-) -> str:
-    """Map Census properties to a legislator district key for the given layer."""
+def extract_district_from_feature(properties: Dict[str, Any]) -> str:
+    """Map Census SLD lower properties to a legislator district key."""
     props = properties or {}
-    layer_key = (layer or "house").lower()
-
-    if layer_key in ("congress", "cd", "cd119"):
-        for key in ("BASENAME", "CD119", "DISTRICT"):
-            value = props.get(key)
-            if value not in (None, ""):
-                return normalize_district(value)
-        geoid = str(props.get("GEOID") or "")
-        if len(geoid) >= 2 and geoid[-2:].isdigit():
-            return normalize_district(geoid[-2:])
-        return ""
-
-    if layer_key in ("senate", "upper", "sldu"):
-        for key in ("BASENAME", "SLDU", "DISTRICT", "SLDUST"):
-            value = props.get(key)
-            if value not in (None, ""):
-                return normalize_district(value)
-        geoid = str(props.get("GEOID") or "")
-        if len(geoid) >= 2 and geoid[-2:].isdigit():
-            return normalize_district(geoid[-2:])
-        return ""
-
     for key in ("BASENAME", "SLDL", "DISTRICT", "SLDLST"):
         value = props.get(key)
         if value not in (None, ""):
@@ -98,27 +72,12 @@ def build_district_legislator_index(
     return index
 
 
-def build_congressional_index(
-    delegation: Dict[str, Any],
-) -> Dict[str, List[Dict[str, Any]]]:
-    """Index U.S. House members by district from federal delegation payload."""
-    index: Dict[str, List[Dict[str, Any]]] = {}
-    for rep in delegation.get("representatives") or []:
-        district = normalize_district(rep.get("district"))
-        if not district:
-            continue
-        index.setdefault(district, []).append(rep)
-    return index
-
-
 def lookup_legislators_for_feature(
     properties: Dict[str, Any],
     index: Dict[str, List[Dict[str, Any]]],
-    *,
-    layer: str = "house",
 ) -> List[Dict[str, Any]]:
     """Return legislators matching a GeoJSON feature's district properties."""
-    district = extract_district_from_feature(properties, layer=layer)
+    district = extract_district_from_feature(properties)
     if not district:
         return []
     return list(index.get(district, []))
