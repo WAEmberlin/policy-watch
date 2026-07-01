@@ -216,36 +216,174 @@ const CivicWatchExpansion = (() => {
     async function initLegislators() {
         const data = await loadSiteData();
         const legislators = (data.search_index || {}).legislators || [];
+        const statsData = data.legislator_stats || {};
         populateStateFilter('leg-state-filter', data.states);
+        populateStateFilter('leg-stats-state-filter', data.states);
 
         const listEl = document.getElementById('legislators-list');
+        const statsEl = document.getElementById('legislators-stats');
         const searchEl = document.getElementById('leg-search');
         const stateEl = document.getElementById('leg-state-filter');
+        const statsStateEl = document.getElementById('leg-stats-state-filter');
+        const directoryPanel = document.getElementById('leg-directory-panel');
+        const statsPanel = document.getElementById('leg-stats-panel');
+        const tabDirectory = document.getElementById('leg-tab-directory');
+        const tabStats = document.getElementById('leg-tab-stats');
+        let activeView = 'directory';
 
-        function render() {
+        function getSelectedState() {
+            return activeView === 'stats'
+                ? (statsStateEl?.value || '')
+                : (stateEl?.value || '');
+        }
+
+        function syncStateFilters(value) {
+            if (stateEl && stateEl.value !== value) stateEl.value = value;
+            if (statsStateEl && statsStateEl.value !== value) statsStateEl.value = value;
+        }
+
+        function formatChamber(chamber) {
+            const lower = (chamber || '').toLowerCase();
+            if (lower === 'lower' || lower === 'house') return 'House';
+            if (lower === 'upper' || lower === 'senate') return 'Senate';
+            return chamber || '';
+        }
+
+        function renderLegislatorCard(l) {
+            const chamberLabel = formatChamber(l.chamber);
+            const district = l.district ? `District ${l.district}` : '';
+            const meta = [l.party, l.state, chamberLabel, district].filter(Boolean).join(' · ');
+            const inner = `
+                <h3 class="font-semibold text-civic-navy">${l.name}</h3>
+                <p class="text-sm text-slate-500">${meta}</p>
+                ${l.url ? '<span class="text-civic-blue text-sm mt-2 inline-block">Official profile →</span>' : ''}`;
+            if (l.url) {
+                return `<a href="${l.url}" target="_blank" rel="noopener noreferrer" class="block p-4 border border-slate-200 rounded-lg hover:shadow-md hover:border-civic-blue transition-all">${inner}</a>`;
+            }
+            return `<div class="p-4 border border-slate-200 rounded-lg">${inner}</div>`;
+        }
+
+        function renderStatBars(title, counts) {
+            const entries = Object.entries(counts || {}).sort((a, b) => b[1] - a[1]);
+            if (!entries.length) {
+                return `<div class="mb-6"><h3 class="font-semibold text-civic-navy mb-2">${title}</h3><p class="text-sm text-slate-500 italic">No data available.</p></div>`;
+            }
+            const total = entries.reduce((sum, [, count]) => sum + count, 0);
+            const rows = entries.map(([label, count]) => {
+                const pct = total ? Math.round((count / total) * 100) : 0;
+                return `<div class="mb-3">
+                    <div class="flex justify-between text-sm mb-1"><span>${label}</span><span class="text-slate-500">${count} (${pct}%)</span></div>
+                    <div class="h-2 rounded-full bg-slate-100 overflow-hidden"><div class="h-full bg-civic-blue rounded-full" style="width:${pct}%"></div></div>
+                </div>`;
+            }).join('');
+            return `<div class="mb-6"><h3 class="font-semibold text-civic-navy mb-3">${title}</h3>${rows}</div>`;
+        }
+
+        function renderStats() {
+            if (!statsEl) return;
+            const state = getSelectedState();
+            const byState = statsData.by_state || {};
+            const notes = statsData.data_notes || {};
+
+            if (state === 'FEDERAL') {
+                statsEl.innerHTML = `<p class="text-slate-500 italic text-center py-8">${notes.federal || 'Congress members are not yet in the normalized legislator dataset.'}</p>`;
+                statsEl.setAttribute('aria-busy', 'false');
+                return;
+            }
+
+            const stateKey = state || '';
+            const statesToShow = stateKey ? [stateKey] : Object.keys(byState).sort();
+
+            if (stateKey && !byState[stateKey]) {
+                statsEl.innerHTML = '<p class="text-slate-500 italic text-center py-8">No legislator stats available for the selected state.</p>';
+                statsEl.setAttribute('aria-busy', 'false');
+                return;
+            }
+
+            if (!statesToShow.length) {
+                statsEl.innerHTML = '<p class="text-slate-500 italic text-center py-8">No legislator stats available yet.</p>';
+                return;
+            }
+
+            statsEl.innerHTML = statesToShow.map(st => {
+                const bucket = byState[st] || {};
+                const ageBuckets = bucket.age_buckets || {};
+                const ageSummary = bucket.average_age != null
+                    ? `<p class="text-sm text-slate-600 mb-4">Average age: <strong>${bucket.average_age}</strong> (where birth date is known)</p>`
+                    : '<p class="text-sm text-slate-500 mb-4">Average age unavailable — most legislators lack birth dates in source data.</p>';
+                return `<section class="mb-10 p-5 rounded-xl border" style="border-color: var(--cw-border); background: var(--cw-surface-muted);">
+                    <h2 class="text-xl font-bold text-civic-navy mb-1">${st}</h2>
+                    <p class="text-sm text-slate-500 mb-4">${bucket.total || 0} legislators</p>
+                    ${renderStatBars('Party', bucket.party)}
+                    ${renderStatBars('Gender', bucket.gender)}
+                    ${renderStatBars('Chamber', bucket.chamber)}
+                    ${ageSummary}
+                    ${renderStatBars('Age ranges', {
+                        'Under 40': ageBuckets.under_40 || 0,
+                        '40–59': ageBuckets['40_59'] || 0,
+                        '60+': ageBuckets['60_plus'] || 0,
+                        'Unknown': ageBuckets.unknown || 0,
+                    })}
+                    <p class="text-sm text-slate-500 italic">${notes.race || 'Race and ethnicity data is not available from the current source.'}</p>
+                </section>`;
+            }).join('');
+            statsEl.setAttribute('aria-busy', 'false');
+            a11yAnnounce('Legislator stats updated.');
+        }
+
+        function setActiveView(view) {
+            activeView = view;
+            const isDirectory = view === 'directory';
+            directoryPanel.classList.toggle('hidden', !isDirectory);
+            statsPanel.classList.toggle('hidden', isDirectory);
+            tabDirectory.className = isDirectory
+                ? 'px-4 py-2 bg-civic-blue text-white rounded-lg text-sm font-medium'
+                : 'px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-sm font-medium';
+            tabStats.className = !isDirectory
+                ? 'px-4 py-2 bg-civic-blue text-white rounded-lg text-sm font-medium'
+                : 'px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-sm font-medium';
+            tabDirectory.setAttribute('aria-selected', isDirectory ? 'true' : 'false');
+            tabStats.setAttribute('aria-selected', !isDirectory ? 'true' : 'false');
+            if (!isDirectory) renderStats();
+        }
+
+        function renderDirectory() {
             const q = (searchEl.value || '').toLowerCase();
-            const state = stateEl.value;
+            const state = getSelectedState();
+
+            if (state === 'FEDERAL') {
+                listEl.innerHTML = `<p class="text-slate-500 italic col-span-2 text-center py-8">${statsData.data_notes?.federal || 'Congress members are not yet in the normalized legislator dataset.'}</p>`;
+                listEl.setAttribute('aria-busy', 'false');
+                if (activeView === 'stats') renderStats();
+                return;
+            }
+
             const filtered = legislators.filter(l => {
-                if (state && state !== 'FEDERAL' && (l.state || '').toUpperCase() !== state) return false;
+                if (state && (l.state || '').toUpperCase() !== state) return false;
                 if (q && !(l.name || '').toLowerCase().includes(q)) return false;
                 return true;
             });
 
             listEl.innerHTML = filtered.length
-                ? filtered.map(l => `
-                    <div class="p-4 border border-slate-200 rounded-lg">
-                        <h3 class="font-semibold text-civic-navy">${l.name}</h3>
-                        <p class="text-sm text-slate-500">${l.party || ''} · ${l.state || ''} · ${l.chamber || ''} ${l.district ? 'District ' + l.district : ''}</p>
-                        ${l.url ? `<a href="${l.url}" class="text-civic-blue text-sm mt-2 inline-block" target="_blank">Profile →</a>` : ''}
-                    </div>`).join('')
+                ? filtered.map(renderLegislatorCard).join('')
                 : '<p class="text-slate-500 italic col-span-2 text-center py-8">No legislators match the selected filters.</p>';
             listEl.setAttribute('aria-busy', 'false');
             a11yAnnounce(`${filtered.length} legislator${filtered.length === 1 ? '' : 's'} shown.`);
+            if (activeView === 'stats') renderStats();
         }
 
-        searchEl.oninput = render;
-        stateEl.onchange = render;
-        render();
+        searchEl.oninput = renderDirectory;
+        stateEl?.addEventListener('change', () => {
+            syncStateFilters(stateEl.value);
+            renderDirectory();
+        });
+        statsStateEl?.addEventListener('change', () => {
+            syncStateFilters(statsStateEl.value);
+            renderDirectory();
+        });
+        tabDirectory?.addEventListener('click', () => setActiveView('directory'));
+        tabStats?.addEventListener('click', () => setActiveView('stats'));
+        renderDirectory();
     }
 
     return { initDashboards, initLegislators, loadSiteData };

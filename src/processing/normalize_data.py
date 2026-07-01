@@ -21,6 +21,8 @@ from adapters.openstates_source import OpenStatesSource  # noqa: E402
 from processing.ai_enrichment import enrich_bills  # noqa: E402
 from processing.unified_search import build_search_index, build_dashboards  # noqa: E402
 from processing.enrichment_utils import apply_enrichments_to_bills  # noqa: E402
+from processing.import_openstates_bulk import fetch_legislators_csv  # noqa: E402
+from processing.legislator_stats import build_legislator_stats  # noqa: E402
 
 CONFIG_PATH = ROOT / "config" / "states.yaml"
 DATA_DIR = ROOT / "data"
@@ -58,6 +60,37 @@ def dedupe_bills(bills: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
             index[key] = bill
 
     return list(index.values())
+
+
+def enrich_legislators_with_csv(raw_legislators: List[Dict[str, Any]], state_code: str) -> List[Dict[str, Any]]:
+    """Merge Open States bulk CSV demographics and profile links into cached API records."""
+    csv_rows = fetch_legislators_csv(state_code)
+    if not csv_rows:
+        return raw_legislators
+
+    csv_by_id = {row.get("id"): row for row in csv_rows if row.get("id")}
+    merged: List[Dict[str, Any]] = []
+    seen: Set[str] = set()
+
+    for leg in raw_legislators:
+        leg_id = leg.get("id", "")
+        csv = csv_by_id.get(leg_id, {})
+        record = {**leg}
+        for field in ("links", "sources", "gender", "birth_date", "image", "name", "party"):
+            if csv.get(field) and not record.get(field):
+                record[field] = csv[field]
+        if csv.get("current_role") and not record.get("current_role"):
+            record["current_role"] = csv["current_role"]
+        merged.append(record)
+        if leg_id:
+            seen.add(leg_id)
+
+    for csv in csv_rows:
+        leg_id = csv.get("id", "")
+        if leg_id and leg_id not in seen:
+            merged.append(csv)
+
+    return merged
 
 
 def normalize_all(skip_ai: bool = False) -> Dict[str, Any]:
@@ -99,11 +132,15 @@ def normalize_all(skip_ai: bool = False) -> Dict[str, Any]:
             continue
 
         os_source = OpenStatesSource(code, state_cfg["openstates_jurisdiction"])
+        legislators_raw = enrich_legislators_with_csv(
+            load_json(state_dir / "legislators.json", []),
+            code,
+        )
         os_source.set_data(
             bills=load_json(state_dir / "bills.json", []),
             events=load_json(state_dir / "events.json", []),
             committees=load_json(state_dir / "committees.json", []),
-            legislators=load_json(state_dir / "legislators.json", []),
+            legislators=legislators_raw,
         )
 
         os_bills = os_source.normalize_bills(os_source.fetch_bills())
@@ -134,9 +171,11 @@ def normalize_all(skip_ai: bool = False) -> Dict[str, Any]:
 
     search_index = build_search_index(all_bills, all_events, all_legislators)
     dashboards = build_dashboards(all_bills, all_events, all_votes, config)
+    legislator_stats = build_legislator_stats(all_legislators)
 
     save_json(NORMALIZED_DIR / "search_index.json", search_index)
     save_json(NORMALIZED_DIR / "dashboards.json", dashboards)
+    save_json(NORMALIZED_DIR / "legislator_stats.json", legislator_stats)
 
     meta = {
         "normalized_at": datetime.now(timezone.utc).isoformat(),

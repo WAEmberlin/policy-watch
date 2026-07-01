@@ -214,10 +214,12 @@ KANSAS_FEEDS = {
         "feed_key": "senate_actions"
     },
     "committee_hearings": {
-        "url": "https://kslegislature.gov/li/rss/committee_hearings.xml",
+        # Retired in 2025 site redesign — use fetch_kansas_hearings.py (REST API) instead.
+        "url": "https://www.kslegislature.gov/b2025_26/hearings/",
         "name": "Kansas Legislature",
         "category": "Committee",
-        "feed_key": "committee_hearings"
+        "feed_key": "committee_hearings",
+        "disabled": True,
     },
     "bill_introductions": {
         "url": "https://kslegislature.gov/li/rss/bill_introductions.xml",
@@ -442,6 +444,9 @@ def fetch_kansas_feeds() -> List[Dict]:
     all_items = []
     
     for feed_key, feed_config in KANSAS_FEEDS.items():
+        if feed_config.get("disabled"):
+            print(f"Skipping disabled feed: {feed_key}")
+            continue
         url = feed_config["url"]
         print(f"Fetching {feed_config['category']} feed: {url}")
         

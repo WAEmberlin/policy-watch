@@ -9,8 +9,8 @@
     { id: 'home', label: 'Home', href: 'index.html' },
     { id: 'hearings', label: 'Hearings', href: 'hearings.html' },
     { id: 'live', label: 'Live', href: 'livestreams.html' },
-    { id: 'dashboard', label: 'Dashboards', href: 'dashboard.html' },
-    { id: 'legislators', label: 'Legislators', href: 'legislators.html' },
+    { id: 'dashboard', label: 'Dashboards', shortLabel: 'Dash', href: 'dashboard.html' },
+    { id: 'legislators', label: 'Legislators', shortLabel: 'Legislators', href: 'legislators.html' },
   ];
 
   var FOOTER_TEXT =
@@ -44,7 +44,16 @@
       a.className += ' site-nav-link--active';
       a.setAttribute('aria-current', 'page');
     }
-    a.textContent = item.label;
+    var longLabel = document.createElement('span');
+    longLabel.className = 'site-nav-link__long';
+    longLabel.textContent = item.label;
+    a.appendChild(longLabel);
+    if (item.shortLabel && item.shortLabel !== item.label) {
+      var shortLabel = document.createElement('span');
+      shortLabel.className = 'site-nav-link__short';
+      shortLabel.textContent = item.shortLabel;
+      a.appendChild(shortLabel);
+    }
     return a;
   }
 

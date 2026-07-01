@@ -32,6 +32,8 @@ streams:
     type: committee
     target_id: ks-house-judiciary
     tab_pane: pane-kansas
+    youtube_channel_id: UC_0NO-Pb96CFABvxDwXAq8A
+    committee_kpid: ctte_h_jud_1
 
   - id: ks-house-judiciary-civil
     title: Kansas House Judiciary — Civil Law
@@ -40,6 +42,7 @@ streams:
     type: committee
     target_id: ks-house-judiciary-civil
     tab_pane: pane-kansas
+    youtube_channel_id: UC_0NO-Pb96CFABvxDwXAq8A
 
   - id: ks-house-judiciary-criminal
     title: Kansas House Judiciary — Criminal Law
@@ -48,6 +51,7 @@ streams:
     type: committee
     target_id: ks-house-judiciary-criminal
     tab_pane: pane-kansas
+    youtube_channel_id: UC_0NO-Pb96CFABvxDwXAq8A
 
   - id: ks-house-appropriations
     title: Kansas House Appropriations
@@ -56,6 +60,8 @@ streams:
     type: committee
     target_id: ks-house-appropriations
     tab_pane: pane-kansas
+    youtube_channel_id: UC_0NO-Pb96CFABvxDwXAq8A
+    committee_kpid: ctte_h_apprprtns_1
 
   - id: ks-house-elections
     title: Kansas House Elections
@@ -64,6 +70,8 @@ streams:
     type: committee
     target_id: ks-house-elections
     tab_pane: pane-kansas
+    youtube_channel_id: UC_0NO-Pb96CFABvxDwXAq8A
+    committee_kpid: ctte_h_electns_1
 
   - id: ks-senate-judiciary
     title: Kansas Senate Judiciary
@@ -72,6 +80,8 @@ streams:
     type: committee
     target_id: ks-senate-judiciary
     tab_pane: pane-kansas
+    youtube_channel_id: UC_0NO-Pb96CFABvxDwXAq8A
+    committee_kpid: ctte_s_jud_1
 
   - id: ks-senate-ways-means
     title: Kansas Senate Ways & Means
@@ -80,6 +90,8 @@ streams:
     type: committee
     target_id: ks-senate-ways-means
     tab_pane: pane-kansas
+    youtube_channel_id: UC_0NO-Pb96CFABvxDwXAq8A
+    committee_kpid: ctte_s_wam_1
 
   - id: ks-senate-education
     title: Kansas Senate Education
@@ -88,6 +100,8 @@ streams:
     type: committee
     target_id: ks-senate-education
     tab_pane: pane-kansas
+    youtube_channel_id: UC_0NO-Pb96CFABvxDwXAq8A
+    committee_kpid: ctte_s_ed_1
 
   # ——— Colorado ———
   - id: colorado-floor
@@ -101,6 +115,56 @@ streams:
     external_url: https://leg.colorado.gov/watch-and-listen
     youtube_url: https://coloradochannel.net/watch-meetings/
 
+  - id: co-house-judiciary
+    title: Colorado House Judiciary
+    state: CO
+    jurisdiction: colorado
+    type: committee
+    target_id: co-house-judiciary
+    tab_pane: pane-colorado
+    committee_keywords: ["house judiciary", "judiciary committee"]
+    external_url: https://leg.colorado.gov/watch-and-listen
+
+  - id: co-house-finance
+    title: Colorado House Finance
+    state: CO
+    jurisdiction: colorado
+    type: committee
+    target_id: co-house-finance
+    tab_pane: pane-colorado
+    committee_keywords: ["house finance", "finance committee"]
+    external_url: https://leg.colorado.gov/watch-and-listen
+
+  - id: co-house-education
+    title: Colorado House Education
+    state: CO
+    jurisdiction: colorado
+    type: committee
+    target_id: co-house-education
+    tab_pane: pane-colorado
+    committee_keywords: ["house education", "education committee"]
+    external_url: https://leg.colorado.gov/watch-and-listen
+
+  - id: co-senate-judiciary
+    title: Colorado Senate Judiciary
+    state: CO
+    jurisdiction: colorado
+    type: committee
+    target_id: co-senate-judiciary
+    tab_pane: pane-colorado
+    committee_keywords: ["senate judiciary"]
+    external_url: https://leg.colorado.gov/watch-and-listen
+
+  - id: co-senate-health
+    title: Colorado Senate Health & Human Services
+    state: CO
+    jurisdiction: colorado
+    type: committee
+    target_id: co-senate-health
+    tab_pane: pane-colorado
+    committee_keywords: ["senate health", "health & human services", "health and human services"]
+    external_url: https://leg.colorado.gov/watch-and-listen
+
   # ——— Arizona ———
   - id: arizona-floor
     title: Arizona Legislature
@@ -108,6 +172,16 @@ streams:
     jurisdiction: arizona
     type: floor
     target_id: arizona-floor
+    tab_pane: pane-arizona
+    youtube_channel_id: UCR9-72f8u572x5cO5G_s-PA
+    youtube_url: https://www.youtube.com/user/arizonacapitoltv
+
+  - id: az-committees
+    title: Arizona Capitol Television Committees
+    state: AZ
+    jurisdiction: arizona
+    type: committee
+    target_id: az-committees
     tab_pane: pane-arizona
     youtube_channel_id: UCR9-72f8u572x5cO5G_s-PA
     youtube_url: https://www.youtube.com/user/arizonacapitoltv
@@ -123,6 +197,16 @@ streams:
     youtube_channel_id: UCY4k63K-25eH43_x_J4-d1A
     youtube_url: https://www.youtube.com/user/UtahLegislature
 
+  - id: utah-committees
+    title: Utah Legislature Committees
+    state: UT
+    jurisdiction: utah
+    type: committee
+    target_id: utah-committees
+    tab_pane: pane-utah
+    youtube_channel_id: UCY4k63K-25eH43_x_J4-d1A
+    youtube_url: https://www.youtube.com/user/UtahLegislature
+
   # ——— Maine ———
   - id: maine-floor
     title: Maine Legislature
@@ -130,6 +214,16 @@ streams:
     jurisdiction: maine
     type: floor
     target_id: maine-floor
+    tab_pane: pane-maine
+    youtube_channel_id: UCJVLbCO6mq1wb12kTyljD8w
+    youtube_url: https://www.youtube.com/channel/UCJVLbCO6mq1wb12kTyljD8w
+
+  - id: maine-committees
+    title: Maine Legislature Committees
+    state: ME
+    jurisdiction: maine
+    type: committee
+    target_id: maine-committees
     tab_pane: pane-maine
     youtube_channel_id: UCJVLbCO6mq1wb12kTyljD8w
     youtube_url: https://www.youtube.com/channel/UCJVLbCO6mq1wb12kTyljD8w

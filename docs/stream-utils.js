@@ -56,6 +56,14 @@ const CivicWatchStreamUtils = (() => {
             };
         }
 
+        const externalWatch = streamUrl || (link && !/leg\.colorado\.gov\/bills|openstates\.org/i.test(link) ? link : "");
+        if (externalWatch) {
+            return {
+                type: "external",
+                watchUrl: externalWatch,
+            };
+        }
+
         return null;
     }
 
@@ -63,7 +71,8 @@ const CivicWatchStreamUtils = (() => {
         if (!stream) return "";
         const compact = options.compact;
         const hearingTitle = options.hearingTitle || "";
-        const watchLabel = options.watchLabel || "Watch on YouTube";
+        const watchLabel = options.watchLabel
+            || (stream.type === "external" ? "Watch live" : "Watch on YouTube");
         const playLabel = options.playLabel || "▶ Play here";
         const playAriaLabel = hearingTitle
             ? `Play hearing stream here: ${hearingTitle}`

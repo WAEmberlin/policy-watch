@@ -195,6 +195,11 @@ def fetch_legislators_csv(state_code: str) -> List[Dict[str, Any]]:
                     "district": row.get("current_district", ""),
                     "title": row.get("current_chamber", ""),
                 },
+                "gender": row.get("gender", ""),
+                "birth_date": row.get("birth_date", ""),
+                "image": row.get("image", ""),
+                "links": row.get("links", ""),
+                "sources": row.get("sources", ""),
                 "openstates_url": "",
                 "updated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
             }

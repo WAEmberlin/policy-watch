@@ -52,6 +52,7 @@ class NormalizedEvent:
     chamber: str = ""
     committees: List[str] = field(default_factory=list)
     url: str = ""
+    stream_url: str = ""
     updated_at: str = ""
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,6 +74,9 @@ class NormalizedLegislator:
     cosponsored_bills: List[str] = field(default_factory=list)
     voting_history: List[Dict[str, Any]] = field(default_factory=list)
     url: str = ""
+    gender: str = ""
+    birth_date: str = ""
+    image: str = ""
     updated_at: str = ""
 
     def to_dict(self) -> Dict[str, Any]:

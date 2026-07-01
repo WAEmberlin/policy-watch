@@ -18,10 +18,10 @@ OUTPUT_DIR = Path(__file__).resolve().parent.parent / "output"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 CALENDARS_FILE = OUTPUT_DIR / "kansas_calendars.json"
 
-# Kansas Legislature calendar RSS feeds (from https://www.kslegislature.gov/li/data/feeds/rss/calendar/ )
+# Kansas Legislature calendar RSS feeds (2025-26 biennium paths)
 CALENDAR_FEEDS = {
-    "house": "https://www.kslegislature.gov/li/data/feeds/rss/calendar/house/",
-    "senate": "https://www.kslegislature.gov/li/data/feeds/rss/calendar/senate/",
+    "house": "https://www.kslegislature.gov/b2025_26/feeds/rss/calendar/house/",
+    "senate": "https://www.kslegislature.gov/b2025_26/feeds/rss/calendar/senate/",
 }
 
 
