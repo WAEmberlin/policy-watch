@@ -1,0 +1,69 @@
+{
+  "_meta": {
+    "source": "https://unitedstates.github.io/congress-legislators/legislators-current.json",
+    "state": "KS",
+    "fetched_at": "2026-06-30"
+  },
+  "representatives": [
+    {
+      "name": "Tracey Mann",
+      "party": "Republican",
+      "url": "https://mann.house.gov",
+      "image": "https://bioguide.congress.gov/bioguide/photo/M/M000871.jpg",
+      "level": "federal",
+      "state": "KS",
+      "chamber": "Representative",
+      "district": "1"
+    },
+    {
+      "name": "Derek Schmidt",
+      "party": "Republican",
+      "url": "https://schmidt.house.gov",
+      "image": "https://bioguide.congress.gov/bioguide/photo/S/S001228.jpg",
+      "level": "federal",
+      "state": "KS",
+      "chamber": "Representative",
+      "district": "2"
+    },
+    {
+      "name": "Sharice Davids",
+      "party": "Democrat",
+      "url": "https://davids.house.gov",
+      "image": "https://bioguide.congress.gov/bioguide/photo/D/D000629.jpg",
+      "level": "federal",
+      "state": "KS",
+      "chamber": "Representative",
+      "district": "3"
+    },
+    {
+      "name": "Ron Estes",
+      "party": "Republican",
+      "url": "https://estes.house.gov",
+      "image": "https://bioguide.congress.gov/bioguide/photo/E/E000298.jpg",
+      "level": "federal",
+      "state": "KS",
+      "chamber": "Representative",
+      "district": "4"
+    }
+  ],
+  "senators": [
+    {
+      "name": "Jerry Moran",
+      "party": "Republican",
+      "url": "https://www.moran.senate.gov",
+      "image": "https://bioguide.congress.gov/bioguide/photo/M/M000934.jpg",
+      "level": "federal",
+      "state": "KS",
+      "chamber": "Senator"
+    },
+    {
+      "name": "Roger Marshall",
+      "party": "Republican",
+      "url": "https://www.marshall.senate.gov",
+      "image": "https://bioguide.congress.gov/bioguide/photo/M/M001198.jpg",
+      "level": "federal",
+      "state": "KS",
+      "chamber": "Senator"
+    }
+  ]
+}
