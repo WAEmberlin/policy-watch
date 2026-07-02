@@ -70,6 +70,22 @@
     "updated_at": "2026-07-15"
   },
   {
+    "id": "338621",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine the nominations of Jules Hurst III, of Virginia, to be Under Secretary (Comptroller), Richard O'Malley, of Wisconsin, to be a Deputy Under Secretary, Roger Mason, of Virginia, to be Director of the National Reconnaissance Office, and Erich Hernandez-Baquero, of Florida, to be an Assistant Secretary of the Air Force, all of the Department of Defense.",
+    "description": "Congressional meeting in the Senate.",
+    "scheduled_date": "2026-07-14",
+    "scheduled_time": "13:30",
+    "location": "Room G50, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338621",
+    "stream_url": "",
+    "updated_at": "2026-07-14"
+  },
+  {
     "id": "119438",
     "source": "congress",
     "level": "federal",
@@ -464,6 +480,24 @@
     "updated_at": "2026-06-30"
   },
   {
+    "id": "119256",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "[POSTPONED] Arms Control and Nonproliferation in an Era of Great Power Competition",
+    "description": "Postponed congressional meeting before the House Foreign Affairs Subcommittee on Europe.",
+    "scheduled_date": "2026-06-30",
+    "scheduled_time": "14:00",
+    "location": "Room 2172, Rayburn House Office Building",
+    "chamber": "House",
+    "committees": [
+      "House Foreign Affairs Subcommittee on Europe"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119256",
+    "stream_url": "",
+    "updated_at": "2026-06-30"
+  },
+  {
     "id": "118853",
     "source": "congress",
     "level": "federal",
@@ -712,24 +746,6 @@
     "updated_at": "2026-06-25"
   },
   {
-    "id": "338606",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine the nominations of Brett Doyle, of Connecticut, David Foley, Jr., of Virginia, Samuel Negatu, of the District of Columbia, Peter-Anthony Pappas, of New Jersey, and Bartholomew Thanhauser, of New York, each to be a Member of the United States International Trade Commission.",
-    "description": "Congressional meeting before the Senate Finance.",
-    "scheduled_date": "2026-06-25",
-    "scheduled_time": "14:00",
-    "location": "Room 215, Dirksen Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Finance"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338606",
-    "stream_url": "",
-    "updated_at": "2026-06-25"
-  },
-  {
     "id": "338609",
     "source": "congress",
     "level": "federal",
@@ -744,6 +760,24 @@
       "Senate Banking, Housing, and Urban Affairs"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338609",
+    "stream_url": "",
+    "updated_at": "2026-06-25"
+  },
+  {
+    "id": "338606",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine the nominations of Brett Doyle, of Connecticut, David Foley, Jr., of Virginia, Samuel Negatu, of the District of Columbia, Peter-Anthony Pappas, of New Jersey, and Bartholomew Thanhauser, of New York, each to be a Member of the United States International Trade Commission.",
+    "description": "Congressional meeting before the Senate Finance.",
+    "scheduled_date": "2026-06-25",
+    "scheduled_time": "14:00",
+    "location": "Room 215, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Finance"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338606",
     "stream_url": "",
     "updated_at": "2026-06-25"
   },
@@ -1108,20 +1142,20 @@
     "updated_at": "2026-06-24"
   },
   {
-    "id": "338584",
+    "id": "338610",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "Hearings to examine the nomination of Mark Cruz, of Oregon, to be Director of the Indian Health Service, Department of Health and Human Services.",
-    "description": "Congressional meeting before the Senate Indian Affairs.",
+    "title": "Hearings to examine protecting patients and taxpayers, focusing on combating healthcare fraud and leakage to strengthen program integrity.",
+    "description": "Congressional meeting before the Joint Economic Committee.",
     "scheduled_date": "2026-06-24",
-    "scheduled_time": "14:00",
-    "location": "Room 628, Dirksen Senate Office Building",
-    "chamber": "Senate",
+    "scheduled_time": "18:00",
+    "location": "Room G50, Dirksen Senate Office Building",
+    "chamber": "Nochamber",
     "committees": [
-      "Senate Indian Affairs"
+      "Joint Economic Committee"
     ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338584",
+    "url": "https://www.congress.gov/event/119th-congress/nochamber-event/338610",
     "stream_url": "",
     "updated_at": "2026-06-24"
   },
@@ -1144,6 +1178,24 @@
     "updated_at": "2026-06-24"
   },
   {
+    "id": "338584",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine the nomination of Mark Cruz, of Oregon, to be Director of the Indian Health Service, Department of Health and Human Services.",
+    "description": "Congressional meeting before the Senate Indian Affairs.",
+    "scheduled_date": "2026-06-24",
+    "scheduled_time": "14:00",
+    "location": "Room 628, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Indian Affairs"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338584",
+    "stream_url": "",
+    "updated_at": "2026-06-24"
+  },
+  {
     "id": "338582",
     "source": "congress",
     "level": "federal",
@@ -1158,24 +1210,6 @@
       "Senate Homeland Security and Governmental Affairs"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338582",
-    "stream_url": "",
-    "updated_at": "2026-06-24"
-  },
-  {
-    "id": "338610",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine protecting patients and taxpayers, focusing on combating healthcare fraud and leakage to strengthen program integrity.",
-    "description": "Congressional meeting before the Joint Economic Committee.",
-    "scheduled_date": "2026-06-24",
-    "scheduled_time": "18:00",
-    "location": "Room G50, Dirksen Senate Office Building",
-    "chamber": "Nochamber",
-    "committees": [
-      "Joint Economic Committee"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/nochamber-event/338610",
     "stream_url": "",
     "updated_at": "2026-06-24"
   },
@@ -1324,24 +1358,6 @@
     "updated_at": "2026-06-23"
   },
   {
-    "id": "338578",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine improving safety across the National Airspace System.",
-    "description": "Congressional meeting before the Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation.",
-    "scheduled_date": "2026-06-23",
-    "scheduled_time": "14:00",
-    "location": "Room 253, Russell Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338578",
-    "stream_url": "",
-    "updated_at": "2026-06-23"
-  },
-  {
     "id": "338581",
     "source": "congress",
     "level": "federal",
@@ -1392,6 +1408,24 @@
       "Senate Banking, Housing, and Urban Affairs"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338580",
+    "stream_url": "",
+    "updated_at": "2026-06-23"
+  },
+  {
+    "id": "338578",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine improving safety across the National Airspace System.",
+    "description": "Congressional meeting before the Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation.",
+    "scheduled_date": "2026-06-23",
+    "scheduled_time": "14:00",
+    "location": "Room 253, Russell Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338578",
     "stream_url": "",
     "updated_at": "2026-06-23"
   },
