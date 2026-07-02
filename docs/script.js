@@ -337,30 +337,7 @@ function isDateInRange(dateStr, startDate, endDate) {
     }
 }
 
-function displayUnifiedView(year, chunkIndex) {
-    const yearData = allData.years[year];
-    if (!yearData) return;
-
-    setContentBusy(true);
-    const container = document.getElementById("content");
-    container.innerHTML = "";
-
-    // Update active year tab
-    document.querySelectorAll(".year-tab").forEach(btn => {
-        if (btn.getAttribute("data-year") === year) {
-            btn.classList.remove("bg-slate-100", "text-slate-700", "border-transparent");
-            btn.classList.add("bg-civic-blue", "text-white", "border-civic-blue");
-        } else {
-            btn.classList.remove("bg-civic-blue", "text-white", "border-civic-blue");
-            btn.classList.add("bg-slate-100", "text-slate-700", "border-transparent");
-        }
-    });
-
-    // Get date range for this chunk
-    const dateRange = getDateRangeForChunk(chunkIndex);
-    
-    // Get all items from RSS feeds for this year
-    // This includes Congress.gov API items which are added to grouped structure by summarize.py
+function collectGroupedItems(yearData) {
     const grouped = yearData.grouped || {};
     let allItems = [];
     Object.keys(grouped).forEach(date => {
@@ -374,40 +351,33 @@ function displayUnifiedView(year, chunkIndex) {
             })));
         });
     });
-    
-    // Filter items to only those in the current 7-day chunk
-    allItems = allItems.filter(item => {
-        const itemDate = item.date || (item.published ? item.published.split("T")[0] : "");
-        return isDateInRange(itemDate, dateRange.start, dateRange.end);
-    });
-    
-    // Sort by date (newest first)
-    allItems.sort((a, b) => {
-        const dateA = a.published || a.date || "";
-        const dateB = b.published || b.date || "";
-        return dateB.localeCompare(dateA);
-    });
+    return allItems;
+}
 
-    // Apply filters
+function applyFeedFilters(allItems) {
+    let filtered = allItems;
     if (selectedSource) {
-        allItems = allItems.filter(item => item.source === selectedSource);
+        filtered = filtered.filter(item => item.source === selectedSource);
     }
     if (selectedCategory) {
-        allItems = allItems.filter(item => {
+        filtered = filtered.filter(item => {
             const source = item.source || "";
             return source.includes(selectedCategory);
         });
     }
     if (selectedState) {
-        allItems = allItems.filter(item => itemMatchesStateFilter(item));
+        filtered = filtered.filter(item => itemMatchesStateFilter(item));
     }
     if (veteransFilterActive) {
-        allItems = allItems.filter(item => itemMatchesVeteransFilter(item));
+        filtered = filtered.filter(item => itemMatchesVeteransFilter(item));
     }
+    return filtered;
+}
 
-    // Include Open States bill updates for CO/AZ/UT (not already in RSS feed)
+function appendMultiStateBillsForRange(allItems, dateRange) {
+    const multiStateBills = (allData.search_index || {}).bills || [];
+
     if (selectedState && selectedState !== "Federal" && selectedState !== "KS") {
-        const multiStateBills = (allData.search_index || {}).bills || [];
         multiStateBills.forEach(bill => {
             if ((bill.state || "").toUpperCase() !== selectedState) return;
             const date = bill.latest_action_date ? bill.latest_action_date.split("T")[0] : "";
@@ -429,10 +399,7 @@ function displayUnifiedView(year, chunkIndex) {
             if (!itemMatchesVeteransFilter(enriched)) return;
             allItems.push(enriched);
         });
-        allItems.sort((a, b) => (b.published || b.date || "").localeCompare(a.published || a.date || ""));
     } else if (!selectedState) {
-        // When showing all states, include recent CO/AZ/UT activity in the feed
-        const multiStateBills = (allData.search_index || {}).bills || [];
         multiStateBills.forEach(bill => {
             if (!bill.state || bill.state === "KS") return;
             if (bill.level === "federal") return;
@@ -455,7 +422,93 @@ function displayUnifiedView(year, chunkIndex) {
             if (!itemMatchesVeteransFilter(enriched)) return;
             allItems.push(enriched);
         });
-        allItems.sort((a, b) => (b.published || b.date || "").localeCompare(a.published || a.date || ""));
+    }
+
+    return allItems;
+}
+
+function getFeedItemsForDateRange(yearData, dateRange) {
+    let allItems = collectGroupedItems(yearData);
+    allItems = allItems.filter(item => {
+        const itemDate = item.date || (item.published ? item.published.split("T")[0] : "");
+        return isDateInRange(itemDate, dateRange.start, dateRange.end);
+    });
+    allItems = applyFeedFilters(allItems);
+    allItems = appendMultiStateBillsForRange(allItems, dateRange);
+    allItems.sort((a, b) => (b.published || b.date || "").localeCompare(a.published || a.date || ""));
+    return allItems;
+}
+
+function getTotalChunksForYear(allDatesInYear) {
+    const oldestDate = allDatesInYear.length > 0 ? allDatesInYear[allDatesInYear.length - 1] : null;
+    if (!oldestDate) return 1;
+    const oldest = new Date(oldestDate + "T00:00:00");
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+    const daysDiff = Math.ceil((now - oldest) / (1000 * 60 * 60 * 24));
+    return Math.max(1, Math.ceil(daysDiff / DAYS_PER_CHUNK));
+}
+
+function findFirstNonEmptyChunkIndex(year, totalChunks) {
+    const yearData = allData.years[year];
+    if (!yearData) return 0;
+    for (let i = 0; i < totalChunks; i++) {
+        const range = getDateRangeForChunk(i);
+        if (getFeedItemsForDateRange(yearData, range).length > 0) {
+            return i;
+        }
+    }
+    return 0;
+}
+
+function recentWeekHasNoActivity(year) {
+    const yearData = allData.years[year];
+    if (!yearData) return false;
+    return getFeedItemsForDateRange(yearData, getDateRangeForChunk(0)).length === 0;
+}
+
+function feedFallbackNotice(dateRange) {
+    const rangeLabel = `${formatDate(dateRange.start)} – ${formatDate(dateRange.end)}`;
+    return `No activity in the last 7 days — showing ${rangeLabel}`;
+}
+
+function displayUnifiedView(year, chunkIndex) {
+    const yearData = allData.years[year];
+    if (!yearData) return;
+
+    setContentBusy(true);
+    const container = document.getElementById("content");
+    container.innerHTML = "";
+
+    // Update active year tab
+    document.querySelectorAll(".year-tab").forEach(btn => {
+        if (btn.getAttribute("data-year") === year) {
+            btn.classList.remove("bg-slate-100", "text-slate-700", "border-transparent");
+            btn.classList.add("bg-civic-blue", "text-white", "border-civic-blue");
+        } else {
+            btn.classList.remove("bg-civic-blue", "text-white", "border-civic-blue");
+            btn.classList.add("bg-slate-100", "text-slate-700", "border-transparent");
+        }
+    });
+
+    // Get date range for this chunk
+    const grouped = yearData.grouped || {};
+    const allDatesInYear = Object.keys(grouped).sort().reverse();
+    const totalChunks = getTotalChunksForYear(allDatesInYear);
+
+    let effectiveChunkIndex = chunkIndex;
+    let dateRange = getDateRangeForChunk(effectiveChunkIndex);
+    let allItems = getFeedItemsForDateRange(yearData, dateRange);
+
+    // When the current week is empty, fall back to the most recent 7-day window with data
+    if (chunkIndex === 0 && allItems.length === 0) {
+        const fallbackChunk = findFirstNonEmptyChunkIndex(year, totalChunks);
+        if (fallbackChunk > 0) {
+            effectiveChunkIndex = fallbackChunk;
+            currentPage = fallbackChunk;
+            dateRange = getDateRangeForChunk(effectiveChunkIndex);
+            allItems = getFeedItemsForDateRange(yearData, dateRange);
+        }
     }
 
     // Group by date (flat list per day)
@@ -468,10 +521,18 @@ function displayUnifiedView(year, chunkIndex) {
     });
 
     const chunkDates = Object.keys(itemsByDate).sort().reverse();
-    const allDatesInYear = Object.keys(grouped).sort().reverse();
 
     const today = new Date();
     today.setHours(0, 0, 0, 0);
+
+    const showFallbackNote = recentWeekHasNoActivity(year) && allItems.length > 0;
+    if (showFallbackNote) {
+        const notice = document.createElement("p");
+        notice.className = "text-sm text-slate-500 text-center mb-4 italic";
+        notice.setAttribute("role", "status");
+        notice.textContent = feedFallbackNotice(dateRange);
+        container.appendChild(notice);
+    }
 
     let renderedDays = 0;
     chunkDates.forEach(date => {
@@ -498,19 +559,7 @@ function displayUnifiedView(year, chunkIndex) {
     setContentBusy(false);
     updateFilterPills();
 
-    // Calculate total number of chunks available
-    // Find the oldest date in the year
-    const oldestDate = allDatesInYear.length > 0 ? allDatesInYear[allDatesInYear.length - 1] : null;
-    let totalChunks = 1;
-    if (oldestDate) {
-        const oldest = new Date(oldestDate + "T00:00:00");
-        const now = new Date();
-        now.setHours(0, 0, 0, 0);
-        const daysDiff = Math.ceil((now - oldest) / (1000 * 60 * 60 * 24));
-        totalChunks = Math.max(1, Math.ceil(daysDiff / DAYS_PER_CHUNK));
-    }
-
-    renderPagination(year, chunkIndex, totalChunks, dateRange);
+    renderPagination(year, effectiveChunkIndex, totalChunks, dateRange);
 }
 
 function performSearch(query) {

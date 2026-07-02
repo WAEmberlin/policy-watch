@@ -17,24 +17,28 @@ from processing.email_digest import (
 )
 
 
-def test_item_recency_prefers_last_synced_at():
+def test_item_recency_uses_latest_action_date():
     now = datetime.now(timezone.utc)
     item = {
-        "latest_action_date": "2026-01-01T00:00:00",
-        "last_synced_at": now.isoformat(),
+        "latest_action_date": now.isoformat(),
+        "last_synced_at": "2026-01-01T00:00:00",
+        "ks_api_enriched_at": now.isoformat(),
     }
     assert is_within_window(item, now, window_hours=6)
 
 
-def test_item_recency_uses_ks_api_enriched_at_for_state_bills():
+def test_enrichment_timestamp_does_not_qualify_stale_bill():
     now = datetime.now(timezone.utc)
     item = {
         "type": "state_legislation",
         "bill_number": "HB 100",
         "published": "2026-04-01T15:00:00+00:00",
+        "latest_action_date": "2026-04-01T15:00:00+00:00",
         "ks_api_enriched_at": now.isoformat(),
+        "last_synced_at": now.isoformat(),
+        "updated_at": now.isoformat(),
     }
-    assert is_within_window(item, now, window_hours=6)
+    assert not is_within_window(item, now, window_hours=6)
 
 
 def test_midnight_action_date_counts_through_central_end_of_day():

@@ -101,10 +101,8 @@ def _parse_ts(value: str) -> Optional[datetime]:
 
 
 def _recency_fields_for_item(item: Dict[str, Any]) -> Tuple[str, ...]:
-    fields = ["last_synced_at", "published", "latest_action_date", "updated_at"]
-    if item.get("bill_number") or item.get("type") == "state_legislation":
-        fields = ["last_synced_at", "ks_api_enriched_at", "published", "latest_action_date", "updated_at"]
-    return tuple(fields)
+    """Fields that reflect legislative activity — not sync or enrichment timestamps."""
+    return ("published", "latest_action_date")
 
 
 def item_recency_ts(item: Dict[str, Any]) -> Optional[datetime]:
