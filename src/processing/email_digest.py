@@ -240,6 +240,19 @@ def partition_hearings(hearings: List[Dict[str, Any]]) -> Dict[str, List[Dict[st
     return buckets
 
 
+def is_utah_hearing_feed_item(item: Dict[str, Any]) -> bool:
+    """Utah committee RSS notices belong in Hearing Updates, not general Updates."""
+    if item.get("feed") == "utah_committee_rss":
+        return True
+    return item.get("type") == "state_hearing" and infer_item_state(item) == "UT"
+
+
+def split_state_items(items: List[Dict[str, Any]]) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
+    updates = [item for item in items if not is_utah_hearing_feed_item(item)]
+    hearing_updates = [item for item in items if is_utah_hearing_feed_item(item)]
+    return updates, hearing_updates
+
+
 def render_item(item: Dict[str, Any]) -> str:
     display_title = item.get("short_title") or item.get("title", "(no title)")
     html = f"<li><strong>{display_title}</strong><br>"
@@ -254,6 +267,42 @@ def render_item(item: Dict[str, Any]) -> str:
     link = item.get("link") or item.get("url") or "#"
     html += f'<a href="{link}">{link}</a><br><p>{item.get("summary", "")}</p></li><hr>'
     return html
+
+
+def render_utah_hearing_update(item: Dict[str, Any]) -> str:
+    display_title = item.get("title", "(no title)")
+    html = f"<li><strong>{display_title}</strong><br>"
+
+    notice_date = item.get("notice_date", "")
+    notice_time = item.get("notice_time", "")
+    notice_place = item.get("notice_place") or item.get("location", "")
+    if notice_date:
+        html += f"Date: {notice_date}<br>"
+    if notice_time:
+        html += f"Time: {notice_time}<br>"
+    if notice_place:
+        html += f"Place: {notice_place}<br>"
+
+    link = item.get("link") or item.get("url") or ""
+    if link:
+        html += f'<a href="{link}">View notice</a><br>'
+
+    stream_url = item.get("livestream_url") or item.get("stream_url") or ""
+    if stream_url:
+        html += f'<a href="{stream_url}">Live stream options</a><br>'
+
+    agenda_items = [
+        entry for entry in (item.get("agenda_items") or [])
+        if str(entry).strip().upper() != "NOTICE"
+    ]
+    summary = item.get("summary", "")
+    if summary and summary.strip().upper() != "NOTICE":
+        if not agenda_items:
+            html += f"<p>{summary}</p>"
+    if agenda_items:
+        html += f"<p>{'; '.join(agenda_items[:5])}</p>"
+
+    return html + "</li><hr>"
 
 
 def render_hearing(hearing: Dict[str, Any]) -> str:
@@ -287,6 +336,23 @@ def _render_items_section(title: str, items: List[Dict[str, Any]]) -> str:
     for item in items:
         html += render_item(item)
     html += "</ul>"
+    return html
+
+
+def _render_hearing_updates_section(title: str, items: List[Dict[str, Any]]) -> str:
+    if not items:
+        return ""
+    html = f"<h3>{title}</h3><ul>"
+    for item in items:
+        html += render_utah_hearing_update(item)
+    html += "</ul>"
+    return html
+
+
+def _render_state_sections(name: str, state_items: List[Dict[str, Any]]) -> str:
+    updates, hearing_updates = split_state_items(state_items)
+    html = _render_items_section(f"{name} — Updates", updates)
+    html += _render_hearing_updates_section(f"{name} — Hearing Updates", hearing_updates)
     return html
 
 
@@ -336,7 +402,7 @@ def build_digest_html(
             state_hearings = hearings_by_state.get(code, [])
             total += len(state_items) + len(state_hearings)
             html += f"<h2>{name}</h2>"
-            html += _render_items_section(f"{name} — Updates", state_items)
+            html += _render_state_sections(name, state_items)
             html += _render_hearings_section(f"{name} — Hearings Tomorrow", state_hearings)
 
         total += len(federal_items) + len(federal_hearings)
@@ -375,7 +441,7 @@ def build_digest_html(
     html += f"<p>{name} legislative updates from the last {window} hours, plus relevant federal activity.</p>"
 
     html += f"<h2>{name}</h2>"
-    html += _render_items_section(f"{name} — Updates", state_items)
+    html += _render_state_sections(name, state_items)
     html += _render_hearings_section(f"{name} — Hearings Tomorrow", state_hearings)
 
     html += "<h2>Federal (U.S. Congress)</h2>"

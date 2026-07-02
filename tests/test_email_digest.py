@@ -14,6 +14,8 @@ from processing.email_digest import (
     item_recency_ts,
     partition_by_state,
     partition_hearings,
+    render_utah_hearing_update,
+    split_state_items,
 )
 
 
@@ -98,3 +100,48 @@ def test_federal_only_digest():
     assert "Federal Policy Watch" in html
     assert "KS Bill" not in html and "KS" not in html or "Kansas" not in html.split("Federal")[0]
     assert total == 1
+
+
+def test_utah_hearing_updates_separate_section():
+    items = {
+        "UT": [
+            {"title": "HB 100", "link": "http://bill", "published": "2026-01-01", "state": "UT"},
+            {
+                "title": "Legislative Audit Subcommittee — 12/8/2026",
+                "link": "http://le.utah.gov/Interim/2026/html/00002131.htm",
+                "published": "2026-01-01",
+                "state": "UT",
+                "feed": "utah_committee_rss",
+                "notice_date": "Tuesday, December 8, 2026",
+                "notice_time": "4:00 p.m.",
+                "notice_place": "Room 445 State Capitol",
+                "livestream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=SPEAUD",
+            },
+        ],
+        "FEDERAL": [],
+    }
+    updates, hearing_updates = split_state_items(items["UT"])
+    assert len(updates) == 1
+    assert len(hearing_updates) == 1
+
+    html, _, total = build_digest_html("ut", items, {"UT": []}, {"UT": "Utah"})
+    assert "Utah — Hearing Updates" in html
+    assert html.index("Utah — Hearing Updates") < html.index("Federal")
+    assert "NOTICE" not in html
+    assert "Live stream options" in html
+    assert total == 2
+
+
+def test_render_utah_hearing_update_skips_notice_summary():
+    html = render_utah_hearing_update({
+        "title": "Legislative Audit Subcommittee — 12/8/2026",
+        "link": "http://le.utah.gov/Interim/2026/html/00002131.htm",
+        "summary": "NOTICE",
+        "notice_date": "Tuesday, December 8, 2026",
+        "notice_time": "4:00 p.m.",
+        "notice_place": "Room 445 State Capitol",
+        "livestream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=SPEAUD",
+    })
+    assert "NOTICE" not in html
+    assert "Date: Tuesday, December 8, 2026" in html
+    assert "Live stream options" in html
