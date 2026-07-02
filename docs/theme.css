@@ -124,54 +124,66 @@
 }
 
 [data-theme="high-contrast"] {
-  --cw-navy: #000080;
-  --cw-gold: #ffb800;
-  --cw-blue: #0000cc;
-  --cw-blue-dark: #000099;
+  --cw-navy: #8ec8ff;
+  --cw-gold: #e8b84a;
+  --cw-blue: #56c8e8;
+  --cw-blue-dark: #3db8dc;
 
-  --cw-white: #ffffff;
-  --cw-black: #000000;
+  --cw-white: #122238;
+  --cw-black: #f5f5f0;
 
-  --cw-slate-50: #ffffff;
-  --cw-slate-100: #f0f0f0;
-  --cw-slate-200: #000000;
-  --cw-slate-300: #000000;
-  --cw-slate-400: #000000;
-  --cw-slate-500: #000000;
-  --cw-slate-600: #000000;
-  --cw-slate-700: #000000;
-  --cw-slate-800: #000080;
+  --cw-slate-50: #0f1c30;
+  --cw-slate-100: #122238;
+  --cw-slate-200: #1a2d48;
+  --cw-slate-300: #4a6a8a;
+  --cw-slate-400: #6a8aa8;
+  --cw-slate-500: #a0b4c8;
+  --cw-slate-600: #b8c4d4;
+  --cw-slate-700: #d4dce8;
+  --cw-slate-800: #f5f5f0;
 
-  --cw-bg: #ffffff;
-  --cw-bg-gradient-end: #ffffff;
-  --cw-surface: #ffffff;
-  --cw-surface-muted: #f0f0f0;
-  --cw-surface-hover: #e8e8e8;
-  --cw-text: #000000;
-  --cw-text-muted: #000000;
-  --cw-text-subtle: #000000;
-  --cw-text-on-header: #ffffff;
-  --cw-text-on-header-muted: #ffffff;
-  --cw-border: #000000;
-  --cw-border-strong: #000000;
-  --cw-header-gradient-end: #000000;
-  --cw-shadow: transparent;
-  --cw-mark-bg: #ffff00;
-  --cw-scrollbar-track: #ffffff;
-  --cw-scrollbar-thumb: #000000;
-  --cw-scrollbar-thumb-hover: #000080;
+  --cw-bg: #0a1628;
+  --cw-bg-gradient-end: #122238;
+  --cw-surface: #122238;
+  --cw-surface-muted: #0f1c30;
+  --cw-surface-hover: #1a2d48;
+  --cw-text: #f5f5f0;
+  --cw-text-muted: #b8c4d4;
+  --cw-text-subtle: #a0b4c8;
+  --cw-text-on-header: #f5f5f0;
+  --cw-text-on-header-muted: #c8d4e4;
+  --cw-border: #4a6a8a;
+  --cw-border-strong: #6a8aa8;
+  --cw-header-gradient-end: #0a1628;
+  --cw-shadow: rgba(0, 0, 0, 0.4);
+  --cw-mark-bg: #3d4a28;
+  --cw-scrollbar-track: #0f1c30;
+  --cw-scrollbar-thumb: #4a6a8a;
+  --cw-scrollbar-thumb-hover: #6a8aa8;
+  --cw-danger: #ff8a8a;
+  --cw-success: #4ade80;
+  --cw-live: #ff8a8a;
 
-  --cw-focus-color: #000000;
+  --cw-focus-color: #e8b84a;
   --cw-focus-offset: 3px;
   --cw-focus-width: 4px;
 
-  --cw-theme-segment-bg: #ffffff;
-  --cw-theme-segment-border: #000000;
-  --cw-theme-segment-active-bg: #000080;
-  --cw-theme-segment-active-text: #ffffff;
-  --cw-theme-segment-text: #000000;
+  --cw-theme-segment-bg: #0f1c30;
+  --cw-theme-segment-border: #4a6a8a;
+  --cw-theme-segment-active-bg: #e8b84a;
+  --cw-theme-segment-active-text: #0a1628;
+  --cw-theme-segment-text: #b8c4d4;
 
-  color-scheme: light;
+  --bs-body-bg: var(--cw-bg);
+  --bs-body-color: var(--cw-text);
+  --bs-border-color: var(--cw-border);
+  --bs-secondary-color: var(--cw-text-muted);
+  --bs-tertiary-bg: var(--cw-surface-muted);
+  --bs-emphasis-color: var(--cw-text);
+  --bs-link-color: var(--cw-blue);
+  --bs-link-hover-color: var(--cw-blue-dark);
+
+  color-scheme: dark;
 }
 
 /* Page shell */
@@ -225,7 +237,7 @@ mark {
 }
 
 [data-theme="high-contrast"] mark {
-  border: 1px solid var(--cw-black);
+  border: 1px solid var(--cw-gold);
 }
 
 ::-webkit-scrollbar {
@@ -525,7 +537,7 @@ mark {
 [data-theme="high-contrast"] #site-nav .site-nav-link--active,
 [data-theme="high-contrast"] #site-nav .site-nav-link[aria-current="page"] {
   font-weight: 700;
-  border-bottom-color: var(--cw-black);
+  border-bottom-color: var(--cw-gold);
 }
 
 /* Scrollable in-page tab rows (dashboard, legislators, year picker, etc.) */
