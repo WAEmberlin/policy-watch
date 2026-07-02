@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
 from processing.hearing_stream_utils import enrich_hearing_stream  # noqa: E402
+from processing.veteran_impact import build_veteran_impact_lookup, load_co_bills  # noqa: E402
 
 # Handle timezone on Windows (fallback if zoneinfo not available)
 try:
@@ -764,6 +765,36 @@ normalized_dashboards = _load_expansion_json(os.path.join(DATA_DIR, "normalized"
 normalized_search_index = _load_expansion_json(os.path.join(DATA_DIR, "normalized", "search_index.json"), {})
 normalized_legislator_stats = _load_expansion_json(os.path.join(DATA_DIR, "normalized", "legislator_stats.json"), {})
 weekly_digests = _load_expansion_json(os.path.join(DATA_DIR, "digests", "weekly.json"), {})
+federal_delegation = _load_expansion_json(os.path.join(DATA_DIR, "federal", "delegation.json"), [])
+
+if federal_delegation:
+    search_legislators = list((normalized_search_index or {}).get("legislators") or [])
+    seen_ids = {leg.get("id") for leg in search_legislators if leg.get("id")}
+    added = 0
+    for member in federal_delegation:
+        member_id = member.get("id")
+        if member_id and member_id in seen_ids:
+            continue
+        search_legislators.append(
+            {
+                "id": member.get("id"),
+                "name": member.get("name"),
+                "party": member.get("party"),
+                "state": member.get("state"),
+                "district": member.get("district"),
+                "chamber": member.get("chamber"),
+                "gender": member.get("gender"),
+                "birth_date": member.get("birth_date"),
+                "image": member.get("image"),
+                "url": member.get("url"),
+            }
+        )
+        if member_id:
+            seen_ids.add(member_id)
+        added += 1
+    normalized_search_index = {**(normalized_search_index or {}), "legislators": search_legislators}
+    if added:
+        print(f"Merged {added} federal delegation members into search_index")
 
 try:
     import yaml
@@ -780,6 +811,21 @@ except Exception as e:
 
 if normalized_bills:
     print(f"Loaded {len(normalized_bills)} normalized bills from expansion layer")
+
+# -------------------------
+# Veteran impact lookup (CO CSV + rule-based fallback)
+# -------------------------
+co_veteran_data = load_co_bills()
+veteran_impact_lookup = build_veteran_impact_lookup(
+    co_data=co_veteran_data,
+    normalized_bills=normalized_bills,
+)
+co_meta = co_veteran_data.get("_meta") or {}
+if veteran_impact_lookup:
+    print(
+        f"Built veteran impact lookup with {len(veteran_impact_lookup)} entries "
+        f"({co_meta.get('matched_openstates', 0)} CO CSV bills matched Open States)"
+    )
 
 output = {
     "last_updated": now.isoformat(),
@@ -805,6 +851,13 @@ output = {
     "legislator_stats": normalized_legislator_stats,
     "weekly_digests": weekly_digests,
     "livestreams": livestreams_meta,
+    "veteran_impact": {
+        "lookup": veteran_impact_lookup,
+        "co_stats": co_meta.get("stats", {}),
+        "co_matched": co_meta.get("matched_openstates", 0),
+        "co_tracked": co_meta.get("total_tracked", 0),
+        "co_gaps": co_meta.get("gaps", []),
+    },
 }
 
 # Ensure legislation key is always present

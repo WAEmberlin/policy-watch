@@ -93,6 +93,9 @@ async function loadData() {
         if (typeof CivicWatchBillVotes !== 'undefined') {
             CivicWatchBillVotes.init(allData);
         }
+        if (typeof CivicWatchHome !== 'undefined' && CivicWatchHome.setVeteranImpactLookup) {
+            CivicWatchHome.setVeteranImpactLookup((allData.veteran_impact || {}).lookup || {});
+        }
     } catch (error) {
         setContentBusy(false);
         document.getElementById("content").innerHTML = 
@@ -374,6 +377,31 @@ function applyFeedFilters(allItems) {
     return filtered;
 }
 
+function enrichMultiStateBill(bill, date) {
+    const impactLookup = (allData?.veteran_impact || {}).lookup || {};
+    const enriched = {
+        title: `${bill.bill_number}: ${bill.title}`,
+        link: (typeof CivicWatchBillUtils !== "undefined" ? CivicWatchBillUtils.resolveBillUrl(bill) : bill.url),
+        summary: bill.summary || bill.latest_action || "",
+        source: `State (${STATE_NAMES[bill.state] || bill.state})`,
+        state: bill.state,
+        level: "state",
+        published: bill.latest_action_date,
+        latest_action: bill.latest_action,
+        bill_number: bill.bill_number,
+        date: date,
+        classification: bill.classification,
+        ai_topics: bill.ai_topics,
+    };
+    if (typeof CivicWatchHome !== "undefined" && CivicWatchHome.resolveVeteranImpact) {
+        enriched.veteran_impact = CivicWatchHome.resolveVeteranImpact(enriched);
+    } else if (impactLookup) {
+        const key = `${String(bill.state || "").toUpperCase()}|${bill.bill_number}`;
+        enriched.veteran_impact = impactLookup[key] || null;
+    }
+    return enriched;
+}
+
 function appendMultiStateBillsForRange(allItems, dateRange) {
     const multiStateBills = (allData.search_index || {}).bills || [];
 
@@ -382,20 +410,7 @@ function appendMultiStateBillsForRange(allItems, dateRange) {
             if ((bill.state || "").toUpperCase() !== selectedState) return;
             const date = bill.latest_action_date ? bill.latest_action_date.split("T")[0] : "";
             if (!isDateInRange(date, dateRange.start, dateRange.end)) return;
-            const enriched = {
-                title: `${bill.bill_number}: ${bill.title}`,
-                link: (typeof CivicWatchBillUtils !== "undefined" ? CivicWatchBillUtils.resolveBillUrl(bill) : bill.url),
-                summary: bill.summary || bill.latest_action || "",
-                source: `State (${STATE_NAMES[bill.state] || bill.state})`,
-                state: bill.state,
-                level: "state",
-                published: bill.latest_action_date,
-                latest_action: bill.latest_action,
-                bill_number: bill.bill_number,
-                date: date,
-                classification: bill.classification,
-                ai_topics: bill.ai_topics,
-            };
+            const enriched = enrichMultiStateBill(bill, date);
             if (!itemMatchesVeteransFilter(enriched)) return;
             allItems.push(enriched);
         });
@@ -405,20 +420,7 @@ function appendMultiStateBillsForRange(allItems, dateRange) {
             if (bill.level === "federal") return;
             const date = bill.latest_action_date ? bill.latest_action_date.split("T")[0] : "";
             if (!isDateInRange(date, dateRange.start, dateRange.end)) return;
-            const enriched = {
-                title: `${bill.bill_number}: ${bill.title}`,
-                link: (typeof CivicWatchBillUtils !== "undefined" ? CivicWatchBillUtils.resolveBillUrl(bill) : bill.url),
-                summary: bill.summary || bill.latest_action || "",
-                source: `State (${STATE_NAMES[bill.state] || bill.state})`,
-                state: bill.state,
-                level: "state",
-                published: bill.latest_action_date,
-                latest_action: bill.latest_action,
-                bill_number: bill.bill_number,
-                date: date,
-                classification: bill.classification,
-                ai_topics: bill.ai_topics,
-            };
+            const enriched = enrichMultiStateBill(bill, date);
             if (!itemMatchesVeteransFilter(enriched)) return;
             allItems.push(enriched);
         });

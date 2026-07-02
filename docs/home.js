@@ -35,7 +35,20 @@ const CivicWatchHome = (() => {
 
     const VETERANS_TOPIC_PATTERN = /veteran|military|armed forces|armed services|national guard/;
 
+    const VETERAN_IMPACT_STYLES = {
+        red: 'bg-red-50 border-red-200 hover:border-red-300',
+        yellow: 'bg-amber-50 border-amber-200 hover:border-amber-300',
+        green: 'bg-green-50 border-green-200 hover:border-green-300',
+    };
+
+    const VETERAN_IMPACT_BADGE = {
+        red: 'bg-red-100 text-red-900 border-red-200',
+        yellow: 'bg-amber-100 text-amber-900 border-amber-200',
+        green: 'bg-green-100 text-green-900 border-green-200',
+    };
+
     let callbacks = {};
+    let veteranImpactLookup = {};
 
     function isMetaSource(source) {
         if (!source) return false;
@@ -257,6 +270,63 @@ const CivicWatchHome = (() => {
         if (hiddenSelect) hiddenSelect.value = state;
     }
 
+    function setVeteranImpactLookup(lookup) {
+        veteranImpactLookup = lookup && typeof lookup === 'object' ? lookup : {};
+    }
+
+    function normalizeCoBillSlug(billNumber) {
+        const raw = String(billNumber || '').trim().toUpperCase().replace(/\s+/g, '');
+        const match = raw.match(/^([A-Z]+)26-(\d+)$/) || raw.match(/^([A-Z]+)(\d+)$/);
+        if (!match) return '';
+        return `${match[1]}26-${match[2]}`;
+    }
+
+    function buildVeteranImpactKey(state, billNumber) {
+        const st = String(state || 'Federal').toUpperCase();
+        const num = String(billNumber || '').trim().toUpperCase();
+        if (!num) return '';
+        if (st === 'CO') {
+            const slug = normalizeCoBillSlug(num);
+            if (slug) return `CO|${slug}`;
+        }
+        const generic = num.match(/^([A-Z]+)\s*(\d+[A-Z]?)$/);
+        return generic ? `${st}|${generic[1]} ${generic[2]}` : `${st}|${num}`;
+    }
+
+    function resolveVeteranImpact(item) {
+        if (item.veteran_impact) return item.veteran_impact;
+        if (!veteranImpactLookup || Object.keys(veteranImpactLookup).length === 0) return null;
+
+        const state = inferItemState(item);
+        let billNumber = item.bill_number || '';
+        if (!billNumber) {
+            const titleMatch = String(item.title || '').match(/^([A-Za-z]+\s*\d+[A-Za-z]?)\s*:/);
+            if (titleMatch) billNumber = titleMatch[1];
+        }
+        if (!billNumber) return null;
+
+        const keys = [buildVeteranImpactKey(state, billNumber)];
+        if (state === 'CO') {
+            const slug = normalizeCoBillSlug(billNumber);
+            if (slug) keys.push(`CO|${slug}`);
+        }
+        for (const key of keys) {
+            if (key && veteranImpactLookup[key]) return veteranImpactLookup[key];
+        }
+        return null;
+    }
+
+    function veteranImpactCardClasses(level) {
+        return VETERAN_IMPACT_STYLES[level] || '';
+    }
+
+    function veteranImpactLabel(level) {
+        if (level === 'red') return 'High impact';
+        if (level === 'yellow') return 'Moderate impact';
+        if (level === 'green') return 'Ceremonial / general';
+        return '';
+    }
+
     function setVeteransFilterActive(active) {
         const btn = document.getElementById('veterans-filter-btn');
         if (!btn) return;
@@ -348,8 +418,10 @@ const CivicWatchHome = (() => {
     }
 
     function renderBillCard(item, searchQuery) {
+        const impact = resolveVeteranImpact(item);
         const card = document.createElement('article');
-        card.className = 'bill-card p-4 bg-white rounded-lg border border-slate-200 hover:border-civic-blue/40 hover:shadow-sm transition-all';
+        const impactClasses = impact ? veteranImpactCardClasses(impact.level) : '';
+        card.className = `bill-card p-4 rounded-lg border transition-all ${impactClasses || 'bg-white border-slate-200 hover:border-civic-blue/40 hover:shadow-sm'}`;
 
         const state = inferItemState(item);
         const displayTitle = item.short_title || item.title || '(no title)';
@@ -373,6 +445,14 @@ const CivicWatchHome = (() => {
             billNum.className = 'text-xs font-semibold text-civic-blue';
             billNum.textContent = item.bill_number;
             header.appendChild(billNum);
+        }
+
+        if (impact) {
+            const impactBadge = document.createElement('span');
+            impactBadge.className = `inline-block px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide border ${VETERAN_IMPACT_BADGE[impact.level] || 'bg-slate-100 text-slate-700 border-slate-200'}`;
+            impactBadge.textContent = impact.level;
+            impactBadge.title = veteranImpactLabel(impact.level);
+            header.appendChild(impactBadge);
         }
 
         card.appendChild(header);
@@ -474,6 +554,7 @@ const CivicWatchHome = (() => {
     }
 
     function itemMatchesVeteransFilter(item) {
+        if (resolveVeteranImpact(item)) return true;
         if (Array.isArray(item.ai_topics)) {
             const topics = item.ai_topics.map((t) => String(t).toLowerCase());
             if (topics.some((t) => VETERANS_TOPIC_PATTERN.test(t))) return true;
@@ -668,6 +749,7 @@ const CivicWatchHome = (() => {
         init,
         setSelectedState,
         setVeteransFilterActive,
+        setVeteranImpactLookup,
         updateActiveFilterPills,
         renderFeedDay,
         renderBillCard,
@@ -676,6 +758,7 @@ const CivicWatchHome = (() => {
         inferItemState,
         isMetaItem,
         itemMatchesVeteransFilter,
+        resolveVeteranImpact,
         fetchWeeklyCounts,
         formatDate,
         STATE_NAMES,
