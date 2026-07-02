@@ -5,6 +5,9 @@ Fetch Utah Legislature committee hearing schedules via the official committee RS
 The feed is built from committee IDs configured in config/state_feeds.yaml:
   https://le.utah.gov/asp/billtrack/comrssfeed.asp?com=INTBUS|HSTBUS|...
 
+When a hearing links to an interim notice page, fetches DATE/TIME/PLACE and the
+committee livestream page during the RSS pull (cached in committee_hearings.json).
+
 Writes:
   - data/utah/committee_hearings.json
   - src/output/history.json (upcoming committee meeting notices)
@@ -28,6 +31,12 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
 from processing.feed_history_utils import merge_with_history, save_history  # noqa: E402
+from processing.utah_notice_utils import (  # noqa: E402
+    agenda_preview,
+    fetch_notice_details,
+    filter_agenda_items,
+    is_interim_notice_url,
+)
 
 CONFIG_PATH = ROOT / "config" / "state_feeds.yaml"
 OUTPUT_FILE = ROOT / "data" / "utah" / "committee_hearings.json"
@@ -37,6 +46,7 @@ SESSION_BLOCK_RE = re.compile(
     re.IGNORECASE,
 )
 COMMITTEE_CODE_RE = re.compile(r"[?&]com=([A-Z0-9]+)")
+SESSION_YEAR_RE = re.compile(r"/Interim/(\d{4})/", re.IGNORECASE)
 
 
 def load_config() -> Dict[str, Any]:
@@ -54,6 +64,14 @@ def build_feed_url(cfg: Dict[str, Any]) -> str:
 def parse_committee_code(link: str) -> str:
     match = COMMITTEE_CODE_RE.search(link or "")
     return match.group(1) if match else ""
+
+
+def session_year_from_urls(*urls: str) -> str:
+    for url in urls:
+        match = SESSION_YEAR_RE.search(url or "")
+        if match:
+            return match.group(1)
+    return str(datetime.now().year)
 
 
 def parse_session_block(header_text: str) -> Optional[Tuple[str, str, str]]:
@@ -76,6 +94,69 @@ def parse_session_block(header_text: str) -> Optional[Tuple[str, str, str]]:
     return scheduled_iso, location, date_part
 
 
+def load_notice_cache() -> Dict[str, Dict[str, str]]:
+    if not OUTPUT_FILE.exists():
+        return {}
+    with open(OUTPUT_FILE, encoding="utf-8") as f:
+        payload = json.load(f)
+    cache: Dict[str, Dict[str, str]] = {}
+    for item in payload.get("items", []):
+        notice_url = item.get("link") or item.get("url") or ""
+        if not notice_url or not item.get("notice_date"):
+            continue
+        cache[notice_url] = {
+            "notice_date": item.get("notice_date", ""),
+            "notice_time": item.get("notice_time", ""),
+            "notice_place": item.get("notice_place", ""),
+            "livestream_url": item.get("livestream_url") or item.get("stream_url", ""),
+        }
+    return cache
+
+
+def enrich_hearing_from_notice(
+    hearing: Dict[str, Any],
+    notice_cache: Dict[str, Dict[str, str]],
+    *,
+    fetch_missing: bool = True,
+) -> None:
+    notice_url = hearing.get("link") or hearing.get("url") or ""
+    committee_code = hearing.get("committee_code", "")
+    session_year = session_year_from_urls(notice_url, hearing.get("committee_link", ""))
+
+    cached = notice_cache.get(notice_url, {})
+    if cached.get("notice_date"):
+        hearing.update(cached)
+        hearing["stream_url"] = cached.get("livestream_url", "")
+        return
+
+    if not fetch_missing or not is_interim_notice_url(notice_url):
+        return
+
+    details = fetch_notice_details(
+        notice_url,
+        committee_code=committee_code,
+        session_year=session_year,
+    )
+    if any(details.values()):
+        hearing.update(details)
+        hearing["stream_url"] = details.get("livestream_url", "")
+        notice_cache[notice_url] = details
+
+
+def apply_hearing_fields_to_history(hearing: Dict[str, Any], history_item: Dict[str, Any]) -> None:
+    preview = agenda_preview(
+        hearing.get("agenda_items") or [],
+        fallback=hearing.get("description", ""),
+    )
+    history_item["summary"] = preview
+    history_item["agenda_items"] = hearing.get("agenda_items") or []
+    for field in ("notice_date", "notice_time", "notice_place", "livestream_url", "stream_url", "location"):
+        if hearing.get(field):
+            history_item[field] = hearing[field]
+    if hearing.get("livestream_url"):
+        history_item["stream_url"] = hearing["livestream_url"]
+
+
 def parse_committee_entry(entry: Dict[str, Any]) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
     """Return (hearing records, history feed items) for one RSS entry."""
     committee = entry.get("title", "Utah Committee").strip()
@@ -96,18 +177,20 @@ def parse_committee_entry(entry: Dict[str, Any]) -> Tuple[List[Dict[str, Any]], 
             continue
         scheduled_iso, location, date_part = block
         ul = bold.find_next_sibling("ul")
-        agenda_items: List[str] = []
+        raw_agenda_items: List[str] = []
         notice_url = committee_link
         if ul:
             for li in ul.find_all("li"):
                 text = li.get_text(" ", strip=True)
-                if text:
-                    agenda_items.append(text)
                 anchor = li.find("a", href=True)
                 if anchor and "NOTICE" in text.upper():
                     notice_url = anchor["href"]
+                    continue
+                if text:
+                    raw_agenda_items.append(text)
 
-        agenda_preview = "; ".join(agenda_items[:3]) if agenda_items else "Committee meeting scheduled"
+        agenda_items = filter_agenda_items(raw_agenda_items)
+        description = agenda_preview(agenda_items, fallback="Committee meeting scheduled")
         title = f"{committee} — {date_part}"
         hearing = {
             "title": title,
@@ -117,24 +200,29 @@ def parse_committee_entry(entry: Dict[str, Any]) -> Tuple[List[Dict[str, Any]], 
             "committees": committee,
             "committee": committee,
             "committee_code": committee_code,
+            "committee_link": committee_link,
             "link": notice_url or committee_link,
             "url": notice_url or committee_link,
             "stream_url": "",
             "source": "State (Utah)",
             "state": "UT",
             "level": "state",
-            "description": agenda_preview,
+            "description": description,
             "agenda_items": agenda_items,
             "feed": "utah_committee_rss",
+            "notice_date": "",
+            "notice_time": "",
+            "notice_place": "",
+            "livestream_url": "",
         }
         hearings.append(hearing)
 
-        digest = md5(f"{committee_code}|{scheduled_iso}|{agenda_preview}".encode()).hexdigest()[:12]
+        digest = md5(f"{committee_code}|{scheduled_iso}|{description}".encode()).hexdigest()[:12]
         item_id = f"ut-rss:{committee_code}:{scheduled_iso}:{digest}"
-        history_items.append({
+        history_item = {
             "id": item_id,
             "title": title,
-            "summary": agenda_preview,
+            "summary": description,
             "link": notice_url or committee_link,
             "published": scheduled_iso or datetime.now(timezone.utc).isoformat(),
             "source": "State (Utah)",
@@ -144,7 +232,9 @@ def parse_committee_entry(entry: Dict[str, Any]) -> Tuple[List[Dict[str, Any]], 
             "feed": "utah_committee_rss",
             "committee": committee,
             "location": location,
-        })
+            "agenda_items": agenda_items,
+        }
+        history_items.append(history_item)
 
     return hearings, history_items
 
@@ -158,8 +248,11 @@ def main() -> None:
     if feed.bozo and not feed.entries:
         raise RuntimeError(f"Utah RSS parse error: {feed.bozo_exception}")
 
+    notice_cache = load_notice_cache()
     all_hearings: List[Dict[str, Any]] = []
     all_history: List[Dict[str, Any]] = []
+    fetched_notices = 0
+
     for entry in feed.entries:
         entry_dict = {
             "title": entry.get("title", ""),
@@ -167,6 +260,12 @@ def main() -> None:
             "summary": entry.get("summary") or entry.get("description") or "",
         }
         hearings, history_items = parse_committee_entry(entry_dict)
+        for hearing, history_item in zip(hearings, history_items):
+            before = notice_cache.get(hearing.get("link", ""), {}).get("notice_date", "")
+            enrich_hearing_from_notice(hearing, notice_cache)
+            if not before and hearing.get("notice_date"):
+                fetched_notices += 1
+            apply_hearing_fields_to_history(hearing, history_item)
         all_hearings.extend(hearings)
         all_history.extend(history_items)
 
@@ -182,7 +281,11 @@ def main() -> None:
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
 
-    print(f"Parsed {len(all_hearings)} Utah committee hearing blocks from {len(feed.entries)} RSS entries")
+    print(
+        f"Parsed {len(all_hearings)} Utah committee hearing blocks from {len(feed.entries)} RSS entries"
+    )
+    if fetched_notices:
+        print(f"Fetched notice details for {fetched_notices} interim pages")
 
     if all_history:
         combined = merge_with_history(all_history)

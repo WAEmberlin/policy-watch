@@ -14,6 +14,10 @@ from processing.fetch_utah_committee_rss import (  # noqa: E402
     parse_committee_entry,
     parse_session_block,
 )
+from processing.utah_notice_utils import (  # noqa: E402
+    filter_agenda_items,
+    parse_notice_html,
+)
 
 
 def test_normalize_az_bill_number():
@@ -58,5 +62,33 @@ def test_parse_committee_entry():
     assert hearings[0]["committee_code"] == "HSTJUD"
     assert hearings[0]["state"] == "UT"
     assert "Veterans treatment court funding" in hearings[0]["description"]
+    assert "NOTICE" not in hearings[0]["agenda_items"]
+    assert hearings[0]["description"] != "NOTICE"
     assert len(history) == 1
     assert history[0]["feed"] == "utah_committee_rss"
+    assert history[0]["summary"] != "NOTICE"
+
+
+def test_parse_notice_html_extracts_meeting_details():
+    html = """
+    <html><body>
+    <p>The chair(s) of the Legislative Audit Subcommittee have scheduled the following meeting:</p>
+    <p>DATE: Tuesday, December 8, 2026</p>
+    <p>TIME: 4:00 p.m.</p>
+    <p>PLACE: Room 445 State Capitol</p>
+    <p>Members of the public may participate remotely by visiting:
+    <a href="https://le.utah.gov/committee/committee.jsp?year=2026&amp;com=SPEAUD">committee webpage</a></p>
+    </body></html>
+    """
+    details = parse_notice_html(
+        html,
+        fallback_stream_url="https://le.utah.gov/committee/committee.jsp?year=2026&com=SPEAUD",
+    )
+    assert details["notice_date"] == "Tuesday, December 8, 2026"
+    assert details["notice_time"] == "4:00 p.m."
+    assert details["notice_place"] == "Room 445 State Capitol"
+    assert "committee.jsp" in details["livestream_url"]
+
+
+def test_filter_agenda_items_removes_notice():
+    assert filter_agenda_items(["NOTICE", "Budget review"]) == ["Budget review"]
