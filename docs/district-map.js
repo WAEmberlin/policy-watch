@@ -1,5 +1,5 @@
 /**
- * CivicWatch district map — Phase 1: Kansas State House (SLD lower).
+ * CivicWatch district map — multi-state legislative and congressional districts.
  * Join logic mirrors src/processing/district_join.py for tests.
  */
 (function (global) {
@@ -22,6 +22,20 @@
     sen: true,
   };
 
+  var US_HOUSE_CHAMBERS = {
+    'u.s. representative': true,
+    'us representative': true,
+    'u.s. house': true,
+    'us house': true,
+  };
+
+  var US_SENATE_CHAMBERS = {
+    'u.s. senator': true,
+    'us senator': true,
+    'u.s. senate': true,
+    'us senate': true,
+  };
+
   var PARTY_COLORS = {
     Republican: '#dc2626',
     Democratic: '#2563eb',
@@ -32,11 +46,71 @@
   var DEFAULT_DISTRICT_COLOR = '#94a3b8';
   var DEFAULT_DISTRICT_FILL = '#cbd5e1';
 
+  var STATE_CONFIG = {
+    KS: {
+      name: 'Kansas',
+      center: [38.5, -98.5],
+      zoom: 7,
+      chambers: {
+        house: { file: 'ks-sld-lower.geojson', chamber: 'house', label: 'Kansas House', note: '125 districts' },
+        senate: { file: 'ks-sld-upper.geojson', chamber: 'senate', label: 'Kansas Senate', note: '40 districts' },
+        us_house: { file: 'ks-cd119.geojson', chamber: 'us_house', label: 'U.S. House', note: '4 districts' },
+        us_senate: { file: 'ks-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
+      },
+    },
+    CO: {
+      name: 'Colorado',
+      center: [39.0, -105.5],
+      zoom: 7,
+      chambers: {
+        house: { file: 'co-sld-lower.geojson', chamber: 'house', label: 'Colorado House', note: '65 districts' },
+        senate: { file: 'co-sld-upper.geojson', chamber: 'senate', label: 'Colorado Senate', note: '35 districts' },
+        us_house: { file: 'co-cd119.geojson', chamber: 'us_house', label: 'U.S. House', note: '8 districts' },
+        us_senate: { file: 'co-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
+      },
+    },
+    AZ: {
+      name: 'Arizona',
+      center: [34.2, -111.6],
+      zoom: 7,
+      chambers: {
+        house: { file: 'az-sld-lower.geojson', chamber: 'house', label: 'Arizona House', note: '30 districts' },
+        senate: { file: 'az-sld-upper.geojson', chamber: 'senate', label: 'Arizona Senate', note: '30 districts' },
+        us_house: { file: 'az-cd119.geojson', chamber: 'us_house', label: 'U.S. House', note: '9 districts' },
+        us_senate: { file: 'az-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
+      },
+    },
+    UT: {
+      name: 'Utah',
+      center: [39.3, -111.7],
+      zoom: 7,
+      chambers: {
+        house: { file: 'ut-sld-lower.geojson', chamber: 'house', label: 'Utah House', note: '75 districts' },
+        senate: { file: 'ut-sld-upper.geojson', chamber: 'senate', label: 'Utah Senate', note: '29 districts' },
+        us_house: { file: 'ut-cd119.geojson', chamber: 'us_house', label: 'U.S. House', note: '4 districts' },
+        us_senate: { file: 'ut-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
+      },
+    },
+    ME: {
+      name: 'Maine',
+      center: [45.3, -69.0],
+      zoom: 7,
+      chambers: {
+        house: { file: 'me-sld-lower.geojson', chamber: 'house', label: 'Maine House', note: '151 districts' },
+        senate: { file: 'me-sld-upper.geojson', chamber: 'senate', label: 'Maine Senate', note: '35 districts' },
+        us_house: { file: 'me-cd119.geojson', chamber: 'us_house', label: 'U.S. House', note: '2 districts' },
+        us_senate: { file: 'me-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
+      },
+    },
+  };
+
   function normalizeChamber(chamber) {
     var raw = String(chamber || '')
       .trim()
       .toLowerCase()
       .replace(/_/g, ' ');
+    if (US_HOUSE_CHAMBERS[raw]) return 'us_house';
+    if (US_SENATE_CHAMBERS[raw]) return 'us_senate';
     if (HOUSE_CHAMBERS[raw]) return 'house';
     if (SENATE_CHAMBERS[raw]) return 'senate';
     return raw;
@@ -52,7 +126,7 @@
 
   function extractDistrictFromFeature(properties) {
     var props = properties || {};
-    var keys = ['BASENAME', 'SLDL', 'DISTRICT', 'SLDLST'];
+    var keys = ['BASENAME', 'SLDL', 'SLDU', 'CD119', 'CD', 'DISTRICT', 'SLDLST'];
     for (var i = 0; i < keys.length; i++) {
       var value = props[keys[i]];
       if (value != null && value !== '') return normalizeDistrict(value);
@@ -79,6 +153,17 @@
     return index;
   }
 
+  function listLegislatorsForChamber(legislators, state, chamber) {
+    var targetState = String(state || 'KS').toUpperCase();
+    var targetChamber = normalizeChamber(chamber || 'house');
+    return (legislators || []).filter(function (leg) {
+      return (
+        String(leg.state || '').toUpperCase() === targetState &&
+        normalizeChamber(leg.chamber) === targetChamber
+      );
+    });
+  }
+
   function lookupLegislatorsForFeature(properties, index) {
     var district = extractDistrictFromFeature(properties);
     if (!district) return [];
@@ -98,11 +183,17 @@
     var normalized = normalizeChamber(chamber);
     if (normalized === 'house') return 'House';
     if (normalized === 'senate') return 'Senate';
+    if (normalized === 'us_house') return 'U.S. House';
+    if (normalized === 'us_senate') return 'U.S. Senate';
     return chamber || '';
   }
 
-  function buildPopupHtml(district, legislators) {
-    var districtLabel = district ? 'District ' + district : 'Unknown district';
+  function buildPopupHtml(district, legislators, statewide) {
+    var districtLabel = statewide
+      ? 'Statewide'
+      : district
+        ? 'District ' + district
+        : 'Unknown district';
     if (!legislators.length) {
       return (
         '<div class="district-popup">' +
@@ -154,8 +245,8 @@
     );
   }
 
-  function buildPanelHtml(district, legislators) {
-    return buildPopupHtml(district, legislators);
+  function buildPanelHtml(district, legislators, statewide) {
+    return buildPopupHtml(district, legislators, statewide);
   }
 
   function styleForLegislators(legislators) {
@@ -171,6 +262,20 @@
     };
   }
 
+  function mergeFederalDelegation(legislators, delegation) {
+    var merged = (legislators || []).slice();
+    var seen = {};
+    merged.forEach(function (leg) {
+      if (leg.id) seen[leg.id] = true;
+    });
+    (delegation || []).forEach(function (member) {
+      if (member.id && seen[member.id]) return;
+      merged.push(member);
+      if (member.id) seen[member.id] = true;
+    });
+    return merged;
+  }
+
   function loadJson(url) {
     return fetch(url).then(function (res) {
       if (!res.ok) throw new Error('Failed to load ' + url + ' (' + res.status + ')');
@@ -178,35 +283,13 @@
     });
   }
 
-  function setChamberToggleState(activeChamber) {
-    var houseBtn = document.getElementById('map-chamber-house');
-    var senateBtn = document.getElementById('map-chamber-senate');
-    var congressBtn = document.getElementById('map-chamber-congress');
-    [houseBtn, senateBtn, congressBtn].forEach(function (btn) {
-      if (!btn) return;
-      var isActive = btn.dataset.chamber === activeChamber;
-      btn.className = isActive
-        ? 'map-chamber-btn map-chamber-btn--active'
-        : 'map-chamber-btn map-chamber-btn--disabled';
-      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-      btn.disabled = !isActive;
-    });
-    var note = document.getElementById('map-phase-note');
-    if (note) {
-      note.textContent =
-        activeChamber === 'house'
-          ? 'Showing Kansas State House districts (125). Click a district for representative details.'
-          : 'Coming soon — additional chambers and states are planned for a later phase.';
-    }
-  }
-
   function init() {
     var mapEl = document.getElementById('district-map');
     var panelEl = document.getElementById('district-info-panel');
     var statusEl = document.getElementById('district-map-status');
+    var stateSelect = document.getElementById('map-state-select');
+    var subtitleEl = document.getElementById('map-subtitle');
     if (!mapEl) return;
-
-    setChamberToggleState('house');
 
     var map = L.map(mapEl, {
       scrollWheelZoom: true,
@@ -220,12 +303,66 @@
 
     var geoLayer = null;
     var districtIndex = {};
+    var statewideLegislators = [];
     var selectedLayer = null;
+    var legislators = [];
+    var activeState = 'KS';
+    var activeChamberKey = 'house';
+    var activeChamberConfig = null;
+    var siteDataLoaded = false;
 
     function setStatus(message, isError) {
       if (!statusEl) return;
       statusEl.textContent = message || '';
       statusEl.className = isError ? 'district-map-status district-map-status--error' : 'district-map-status';
+    }
+
+    function getStateConfig(stateCode) {
+      return STATE_CONFIG[String(stateCode || 'KS').toUpperCase()] || STATE_CONFIG.KS;
+    }
+
+    function updateSubtitle(stateCode, chamberConfig) {
+      if (!subtitleEl || !chamberConfig) return;
+      var stateCfg = getStateConfig(stateCode);
+      subtitleEl.textContent = 'District Map — ' + chamberConfig.label + ' (' + stateCfg.name + ')';
+    }
+
+    function updatePhaseNote(stateCode, chamberKey, chamberConfig) {
+      var note = document.getElementById('map-phase-note');
+      if (!note || !chamberConfig) return;
+      var stateCfg = getStateConfig(stateCode);
+      note.textContent =
+        'Showing ' +
+        chamberConfig.label +
+        ' (' +
+        (chamberConfig.note || '') +
+        ') for ' +
+        stateCfg.name +
+        '. Click a district for representative details.';
+    }
+
+    function setChamberToggleState(stateCode, activeChamberKey) {
+      var stateCfg = getStateConfig(stateCode);
+      var buttons = document.querySelectorAll('[data-chamber-key]');
+      buttons.forEach(function (btn) {
+        var key = btn.getAttribute('data-chamber-key');
+        var available = !!(stateCfg.chambers && stateCfg.chambers[key]);
+        var isActive = key === activeChamberKey;
+        btn.className = isActive
+          ? 'map-chamber-btn map-chamber-btn--active'
+          : available
+            ? 'map-chamber-btn'
+            : 'map-chamber-btn map-chamber-btn--disabled';
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        btn.disabled = !available || isActive;
+      });
+    }
+
+    function legislatorsForFeature(feature) {
+      if (activeChamberConfig && activeChamberConfig.statewide) {
+        return statewideLegislators.slice();
+      }
+      return lookupLegislatorsForFeature(feature.properties, districtIndex);
     }
 
     function highlightLayer(layer) {
@@ -237,23 +374,29 @@
       if (layer.bringToFront) layer.bringToFront();
     }
 
-    function showDistrict(district, legislators, layer) {
+    function showDistrict(district, matchedLegislators, layer) {
       highlightLayer(layer);
-      var html = buildPanelHtml(district, legislators);
+      var statewide = !!(activeChamberConfig && activeChamberConfig.statewide);
+      var html = buildPanelHtml(district, matchedLegislators, statewide);
       if (panelEl) panelEl.innerHTML = html;
-      layer.bindPopup(buildPopupHtml(district, legislators), { maxWidth: 320, className: 'district-leaflet-popup' }).openPopup();
+      layer
+        .bindPopup(buildPopupHtml(district, matchedLegislators, statewide), {
+          maxWidth: 320,
+          className: 'district-leaflet-popup',
+        })
+        .openPopup();
       if (window.CivicWatchA11y && typeof CivicWatchA11y.announce === 'function') {
-        var name = legislators.length ? legislators[0].name : 'No legislator matched';
-        CivicWatchA11y.announce('District ' + district + ': ' + name);
+        var name = matchedLegislators.length ? matchedLegislators[0].name : 'No legislator matched';
+        CivicWatchA11y.announce((statewide ? 'Statewide' : 'District ' + district) + ': ' + name);
       }
     }
 
     function onEachFeature(feature, layer) {
       var district = extractDistrictFromFeature(feature.properties);
-      var legislators = lookupLegislatorsForFeature(feature.properties, districtIndex);
+      var matchedLegislators = legislatorsForFeature(feature);
       layer.on({
         click: function () {
-          showDistrict(district, legislators, layer);
+          showDistrict(district, matchedLegislators, layer);
         },
         mouseover: function (e) {
           if (selectedLayer === e.target) return;
@@ -264,56 +407,148 @@
           geoLayer.resetStyle(e.target);
         },
       });
-      layer.bindTooltip(district ? 'District ' + district : 'District', {
-        sticky: true,
-        direction: 'top',
-        className: 'district-map-tooltip',
-      });
+      if (!(activeChamberConfig && activeChamberConfig.statewide)) {
+        layer.bindTooltip(district ? 'District ' + district : 'District', {
+          sticky: true,
+          direction: 'top',
+          className: 'district-map-tooltip',
+        });
+      } else {
+        layer.bindTooltip(getStateConfig(activeState).name, {
+          sticky: true,
+          direction: 'top',
+          className: 'district-map-tooltip',
+        });
+      }
     }
 
     function styleFeature(feature) {
-      var legislators = lookupLegislatorsForFeature(feature.properties, districtIndex);
-      return styleForLegislators(legislators);
+      return styleForLegislators(legislatorsForFeature(feature));
     }
 
-    setStatus('Loading map data…');
+    function clearMapLayer() {
+      if (geoLayer) {
+        map.removeLayer(geoLayer);
+        geoLayer = null;
+      }
+      selectedLayer = null;
+      if (panelEl) {
+        panelEl.innerHTML =
+          '<p class="district-popup__empty">Click a district on the map to see representative details.</p>';
+      }
+    }
 
-    Promise.all([loadJson('site_data.json'), loadJson('data/geo/ks-sld-lower.geojson')])
+    function loadChamber(stateCode, chamberKey) {
+      var stateCfg = getStateConfig(stateCode);
+      var chamberConfig = (stateCfg.chambers || {})[chamberKey];
+      if (!chamberConfig) return;
+
+      activeState = String(stateCode || 'KS').toUpperCase();
+      activeChamberKey = chamberKey;
+      activeChamberConfig = chamberConfig;
+
+      setChamberToggleState(activeState, activeChamberKey);
+      updateSubtitle(activeState, chamberConfig);
+      updatePhaseNote(activeState, activeChamberKey, chamberConfig);
+      map.setView(stateCfg.center, stateCfg.zoom);
+
+      if (!siteDataLoaded) {
+        setStatus('Loading map data…');
+        return;
+      }
+
+      setStatus('Loading ' + chamberConfig.label + ' boundaries…');
+      clearMapLayer();
+
+      var geoUrl = 'data/geo/' + chamberConfig.file;
+      loadJson(geoUrl)
+        .then(function (geojson) {
+          if (chamberConfig.statewide) {
+            statewideLegislators = listLegislatorsForChamber(legislators, activeState, chamberConfig.chamber);
+            districtIndex = {};
+          } else {
+            statewideLegislators = [];
+            districtIndex = buildDistrictLegislatorIndex(legislators, activeState, chamberConfig.chamber);
+          }
+
+          geoLayer = L.geoJSON(geojson, {
+            style: styleFeature,
+            onEachFeature: onEachFeature,
+          }).addTo(map);
+
+          map.fitBounds(geoLayer.getBounds(), { padding: [16, 16] });
+
+          var matched = 0;
+          geojson.features.forEach(function (feature) {
+            if (legislatorsForFeature(feature).length) matched += 1;
+          });
+
+          var unitLabel = chamberConfig.statewide ? 'state' : 'districts';
+          setStatus(
+            matched +
+              ' of ' +
+              geojson.features.length +
+              ' ' +
+              unitLabel +
+              ' matched to ' +
+              chamberConfig.label +
+              ' legislators.'
+          );
+        })
+        .catch(function (err) {
+          console.error(err);
+          setStatus(
+            'Could not load map data for ' +
+              chamberConfig.label +
+              '. Run scripts/fetch_district_geojson.py to generate GeoJSON.',
+            true
+          );
+          if (panelEl) {
+            panelEl.innerHTML =
+              '<p class="district-popup__empty">Map data failed to load. See console for details.</p>';
+          }
+        });
+    }
+
+    if (stateSelect) {
+      Object.keys(STATE_CONFIG).forEach(function (code) {
+        var option = document.createElement('option');
+        option.value = code;
+        option.textContent = STATE_CONFIG[code].name;
+        if (code === 'KS') option.selected = true;
+        stateSelect.appendChild(option);
+      });
+      stateSelect.addEventListener('change', function () {
+        loadChamber(stateSelect.value, 'house');
+      });
+    }
+
+    document.querySelectorAll('[data-chamber-key]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (btn.disabled) return;
+        loadChamber(stateSelect ? stateSelect.value : activeState, btn.getAttribute('data-chamber-key'));
+      });
+    });
+
+    setStatus('Loading map data…');
+    Promise.all([
+      loadJson('site_data.json'),
+      loadJson('data/federal/delegation.json').catch(function () {
+        return [];
+      }),
+    ])
       .then(function (results) {
         var siteData = results[0];
-        var geojson = results[1];
-        var legislators = ((siteData.search_index || {}).legislators || []).slice();
-        districtIndex = buildDistrictLegislatorIndex(legislators, 'KS', 'house');
-
-        geoLayer = L.geoJSON(geojson, {
-          style: styleFeature,
-          onEachFeature: onEachFeature,
-        }).addTo(map);
-
-        map.fitBounds(geoLayer.getBounds(), { padding: [16, 16] });
-
-        var matched = 0;
-        geojson.features.forEach(function (feature) {
-          if (lookupLegislatorsForFeature(feature.properties, districtIndex).length) matched += 1;
-        });
-
-        setStatus(
-          matched +
-            ' of ' +
-            geojson.features.length +
-            ' districts matched to Kansas House legislators.'
+        legislators = mergeFederalDelegation(
+          (siteData.search_index || {}).legislators || [],
+          results[1]
         );
+        siteDataLoaded = true;
+        loadChamber(activeState, activeChamberKey);
       })
       .catch(function (err) {
         console.error(err);
-        setStatus(
-          'Could not load map data. Run scripts/fetch_kansas_district_geojson.py to generate GeoJSON.',
-          true
-        );
-        if (panelEl) {
-          panelEl.innerHTML =
-            '<p class="district-popup__empty">Map data failed to load. See console for details.</p>';
-        }
+        setStatus('Could not load legislator data from site_data.json.', true);
       });
 
     window.addEventListener('resize', function () {
@@ -326,6 +561,7 @@
     normalizeDistrict: normalizeDistrict,
     extractDistrictFromFeature: extractDistrictFromFeature,
     buildDistrictLegislatorIndex: buildDistrictLegislatorIndex,
+    listLegislatorsForChamber: listLegislatorsForChamber,
     lookupLegislatorsForFeature: lookupLegislatorsForFeature,
     init: init,
   };

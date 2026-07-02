@@ -8,11 +8,21 @@ HOUSE_CHAMBERS = frozenset(
     {"representative", "lower", "house", "state representative", "state rep", "rep"}
 )
 SENATE_CHAMBERS = frozenset({"senator", "upper", "senate", "state senator", "sen"})
+US_HOUSE_CHAMBERS = frozenset(
+    {"u.s. representative", "us representative", "u.s. house", "us house"}
+)
+US_SENATE_CHAMBERS = frozenset({"u.s. senator", "us senator", "u.s. senate", "us senate"})
+
+DISTRICT_PROPERTY_KEYS = ("BASENAME", "SLDL", "SLDU", "CD119", "CD", "DISTRICT", "SLDLST")
 
 
 def normalize_chamber(chamber: Optional[str]) -> str:
-    """Return 'house', 'senate', or a lowercased raw chamber label."""
+    """Return normalized chamber label for district joins."""
     raw = (chamber or "").strip().lower().replace("_", " ")
+    if raw in US_HOUSE_CHAMBERS:
+        return "us_house"
+    if raw in US_SENATE_CHAMBERS:
+        return "us_senate"
     if raw in HOUSE_CHAMBERS:
         return "house"
     if raw in SENATE_CHAMBERS:
@@ -33,9 +43,9 @@ def normalize_district(district: Any) -> str:
 
 
 def extract_district_from_feature(properties: Dict[str, Any]) -> str:
-    """Map Census SLD lower properties to a legislator district key."""
+    """Map Census district properties to a legislator district key."""
     props = properties or {}
-    for key in ("BASENAME", "SLDL", "DISTRICT", "SLDLST"):
+    for key in DISTRICT_PROPERTY_KEYS:
         value = props.get(key)
         if value not in (None, ""):
             return normalize_district(value)
@@ -70,6 +80,23 @@ def build_district_legislator_index(
             continue
         index.setdefault(district, []).append(leg)
     return index
+
+
+def list_legislators_for_chamber(
+    legislators: List[Dict[str, Any]],
+    *,
+    state: str,
+    chamber: str,
+) -> List[Dict[str, Any]]:
+    """Return all legislators for a state/chamber (used for statewide U.S. Senate)."""
+    target_state = state.upper()
+    target_chamber = normalize_chamber(chamber)
+    return [
+        leg
+        for leg in legislators
+        if (leg.get("state") or "").upper() == target_state
+        and normalize_chamber(leg.get("chamber")) == target_chamber
+    ]
 
 
 def lookup_legislators_for_feature(

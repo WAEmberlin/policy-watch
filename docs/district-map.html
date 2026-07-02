@@ -57,11 +57,26 @@ tailwind.config = {
     background: var(--cw-surface-muted);
     z-index: 0;
 }
+.map-controls-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.map-state-select {
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    border: 2px solid var(--cw-border);
+    background: var(--cw-surface);
+    color: var(--cw-text);
+    font-size: 0.875rem;
+    min-width: 10rem;
+}
 .map-chamber-row {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 1rem;
 }
 .map-chamber-btn {
     padding: 0.5rem 1rem;
@@ -184,33 +199,39 @@ tailwind.config = {
                         <h1 class="text-3xl font-bold">
                             <span class="text-white">Civic</span><span class="text-civic-gold">Watch</span>
                         </h1>
-                        <div class="cw-text-on-header-muted text-sm mt-1">District Map — Kansas State House</div>
+                        <div id="map-subtitle" class="cw-text-on-header-muted text-sm mt-1">District Map — Kansas House</div>
                     </div>
                 </div>
                 <div data-cw-theme-toggle></div>
             </div>
         </div>
         <div class="cw-card-body p-6 md:p-8">
-            <div class="map-chamber-row" role="group" aria-label="Chamber selection">
-                <button type="button" id="map-chamber-house" class="map-chamber-btn map-chamber-btn--active" data-chamber="house" aria-pressed="true">Kansas House</button>
-                <button type="button" id="map-chamber-senate" class="map-chamber-btn map-chamber-btn--disabled" data-chamber="senate" aria-pressed="false" disabled title="Coming soon">Kansas Senate — Coming soon</button>
-                <button type="button" id="map-chamber-congress" class="map-chamber-btn map-chamber-btn--disabled" data-chamber="congress" aria-pressed="false" disabled title="Coming soon">U.S. Congress — Coming soon</button>
+            <div class="map-controls-row">
+                <label for="map-state-select" class="text-sm font-medium text-slate-600">State</label>
+                <select id="map-state-select" class="map-state-select" aria-label="Select state"></select>
+                <div class="map-chamber-row" role="group" aria-label="Chamber selection">
+                    <button type="button" class="map-chamber-btn map-chamber-btn--active" data-chamber-key="house" aria-pressed="true">State House</button>
+                    <button type="button" class="map-chamber-btn" data-chamber-key="senate" aria-pressed="false">State Senate</button>
+                    <button type="button" class="map-chamber-btn" data-chamber-key="us_house" aria-pressed="false">U.S. House</button>
+                    <button type="button" class="map-chamber-btn" data-chamber-key="us_senate" aria-pressed="false">U.S. Senate</button>
+                </div>
             </div>
             <p id="map-phase-note" class="text-sm text-slate-500 mb-4">
-                Showing Kansas State House districts (125). Click a district for representative details.
+                Showing Kansas House (125 districts). Click a district for representative details.
             </p>
             <p id="district-map-status" class="district-map-status" aria-live="polite">Loading map data…</p>
             <div class="district-map-layout">
                 <div>
-                    <div id="district-map" role="application" aria-label="Interactive map of Kansas House districts"></div>
+                    <div id="district-map" role="application" aria-label="Interactive district map"></div>
                     <div class="district-map-legend" aria-hidden="true">
                         <span class="district-map-legend__item"><span class="district-map-legend__swatch" style="background:#dc2626"></span> Republican</span>
                         <span class="district-map-legend__item"><span class="district-map-legend__swatch" style="background:#2563eb"></span> Democratic</span>
                         <span class="district-map-legend__item"><span class="district-map-legend__swatch" style="background:#94a3b8"></span> Other / unmatched</span>
                     </div>
                     <p class="text-xs text-slate-400 mt-3">
-                        Boundaries: U.S. Census TIGER/Line 2024 (SLD lower). Refresh via
-                        <code class="text-xs">scripts/fetch_kansas_district_geojson.py</code>.
+                        Boundaries: U.S. Census TIGER/Line 2024. Refresh via
+                        <code class="text-xs">scripts/fetch_district_geojson.py</code> and
+                        <code class="text-xs">scripts/fetch_federal_delegation.py</code>.
                     </p>
                 </div>
                 <aside id="district-info-panel" aria-live="polite" aria-label="Selected district details">
