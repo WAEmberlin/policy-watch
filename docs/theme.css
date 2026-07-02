@@ -487,6 +487,26 @@ mark {
   background-color: #f0fdf4 !important;
   border-color: #bbf7d0 !important;
 }
+
+/* Veterans impact filter chips — keep level colors readable in dark/high-contrast */
+[data-theme="dark"] #veterans-filter-red-btn[aria-pressed="false"],
+[data-theme="high-contrast"] #veterans-filter-red-btn[aria-pressed="false"] {
+  background-color: #fef2f2 !important;
+  border-color: #fecaca !important;
+  color: #7f1d1d !important;
+}
+[data-theme="dark"] #veterans-filter-yellow-btn[aria-pressed="false"],
+[data-theme="high-contrast"] #veterans-filter-yellow-btn[aria-pressed="false"] {
+  background-color: #fffbeb !important;
+  border-color: #fde68a !important;
+  color: #78350f !important;
+}
+[data-theme="dark"] #veterans-filter-green-btn[aria-pressed="false"],
+[data-theme="high-contrast"] #veterans-filter-green-btn[aria-pressed="false"] {
+  background-color: #f0fdf4 !important;
+  border-color: #bbf7d0 !important;
+  color: #14532d !important;
+}
 [data-theme="dark"] .border-slate-200,
 [data-theme="high-contrast"] .border-slate-200 { border-color: var(--cw-border) !important; }
 

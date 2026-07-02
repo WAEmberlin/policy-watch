@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Veterans Impact Guide — CivicWatch</title>
+<link rel="stylesheet" href="theme.css" />
+<link rel="stylesheet" href="sr-only.css" />
+<script src="theme.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                white: 'var(--cw-white)',
+                civic: {
+                    navy: 'var(--cw-navy)',
+                    gold: 'var(--cw-gold)',
+                    blue: 'var(--cw-blue)',
+                    'blue-dark': 'var(--cw-blue-dark)',
+                },
+                slate: {
+                    50: 'var(--cw-slate-50)',
+                    100: 'var(--cw-slate-100)',
+                    200: 'var(--cw-slate-200)',
+                    300: 'var(--cw-slate-300)',
+                    400: 'var(--cw-slate-400)',
+                    500: 'var(--cw-slate-500)',
+                    600: 'var(--cw-slate-600)',
+                    700: 'var(--cw-slate-700)',
+                    800: 'var(--cw-slate-800)',
+                }
+            }
+        }
+    }
+}
+</script>
+</head>
+<body class="cw-page-bg min-h-screen" data-cw-page="veterans">
+<div id="cw-page-wrapper" class="max-w-6xl mx-auto px-4 py-4">
+<main id="cw-main-content">
+    <div class="cw-card shadow-xl">
+        <div class="cw-card-header">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+                <div class="flex items-center gap-4">
+                    <img src="CivicWatch Logo.png" alt="CivicWatch Logo" class="h-14 w-auto hidden sm:block" />
+                    <div>
+                        <h1 class="text-3xl font-bold">
+                            <span class="text-white">Civic</span><span class="text-civic-gold">Watch</span>
+                        </h1>
+                        <p class="cw-text-on-header-muted text-sm mt-1">Veterans &amp; Military Impact Guide</p>
+                    </div>
+                </div>
+                <div data-cw-theme-toggle></div>
+            </div>
+        </div>
+
+        <div class="p-6 md:p-8 space-y-8">
+            <section>
+                <h2 class="text-2xl font-bold text-civic-navy mb-3">How CivicWatch classifies veteran-related bills</h2>
+                <p class="text-slate-600 leading-relaxed">
+                    CivicWatch tags legislation that affects veterans, service members, or military families with a
+                    <strong>Red</strong>, <strong>Yellow</strong>, or <strong>Green</strong> impact level. Colored cards
+                    on the homepage make it easier to spot bills that may materially change benefits, services, or rights
+                    versus ceremonial or general military mentions.
+                </p>
+                <p class="text-slate-600 leading-relaxed mt-3">
+                    Use the filter buttons on the <a href="index.html" class="text-civic-blue hover:underline">homepage</a>
+                    to show all military/veterans activity, or narrow to a single impact level.
+                </p>
+            </section>
+
+            <section class="grid gap-4 md:grid-cols-3">
+                <article class="veteran-impact-card veteran-impact-card--red rounded-xl border p-5">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="veteran-impact-badge inline-block px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide border bg-red-100 text-red-900 border-red-200">Red</span>
+                        <h3 class="veteran-impact-title text-lg font-bold">High impact</h3>
+                    </div>
+                    <p class="veteran-impact-summary text-sm leading-relaxed mb-3">
+                        Bills that could directly affect benefits, healthcare, housing, disability ratings, or survivor support.
+                        These often involve VA programs, Title 38, GI Bill, compensation, or access to care.
+                    </p>
+                    <ul class="veteran-impact-summary text-sm space-y-1 list-disc list-inside">
+                        <li>VA benefits &amp; compensation</li>
+                        <li>GI Bill &amp; education benefits</li>
+                        <li>Healthcare &amp; mental health (PTSD, TBI)</li>
+                        <li>Housing &amp; homelessness programs</li>
+                        <li>Disability ratings &amp; service-connected claims</li>
+                        <li>Survivor &amp; burial benefits</li>
+                    </ul>
+                </article>
+
+                <article class="veteran-impact-card veteran-impact-card--yellow rounded-xl border p-5">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="veteran-impact-badge inline-block px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide border bg-amber-100 text-amber-900 border-amber-200">Yellow</span>
+                        <h3 class="veteran-impact-title text-lg font-bold">Moderate impact</h3>
+                    </div>
+                    <p class="veteran-impact-summary text-sm leading-relaxed mb-3">
+                        Bills that adjust how veterans interact with employment, licensing, courts, or support systems —
+                        important, but usually narrower in scope than core benefit changes.
+                    </p>
+                    <ul class="veteran-impact-summary text-sm space-y-1 list-disc list-inside">
+                        <li>Veterans employment preference</li>
+                        <li>Professional licensing &amp; certification</li>
+                        <li>Military spouse employment</li>
+                        <li>Veterans treatment / diversion courts</li>
+                        <li>Justice outreach &amp; reentry support</li>
+                        <li>Mental health access (non-VA program changes)</li>
+                    </ul>
+                </article>
+
+                <article class="veteran-impact-card veteran-impact-card--green rounded-xl border p-5">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="veteran-impact-badge inline-block px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide border bg-green-100 text-green-900 border-green-200">Green</span>
+                        <h3 class="veteran-impact-title text-lg font-bold">Ceremonial / general</h3>
+                    </div>
+                    <p class="veteran-impact-summary text-sm leading-relaxed mb-3">
+                        Recognition, memorials, honor resolutions, and general military mentions. Worth tracking for
+                        visibility, but typically low direct effect on benefits or services.
+                    </p>
+                    <ul class="veteran-impact-summary text-sm space-y-1 list-disc list-inside">
+                        <li>Memorial designations &amp; highway naming</li>
+                        <li>Honor resolutions &amp; commemorative days</li>
+                        <li>Ceremonial recognitions</li>
+                        <li>General armed forces references</li>
+                        <li>Non-binding resolutions of support</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="rounded-xl border p-5 bg-slate-50" style="border-color: var(--cw-border); background: var(--cw-surface-muted);">
+                <h2 class="text-xl font-bold text-civic-navy mb-3">Where the data comes from</h2>
+                <ul class="text-slate-600 text-sm space-y-2 list-disc list-inside leading-relaxed">
+                    <li><strong>Colorado</strong> — CivicWatch imports a curated legislative tracker CSV when available. CSV impact levels take priority.</li>
+                    <li><strong>All other states &amp; federal</strong> — Keyword and topic rules classify bills from Open States, Congress.gov, and RSS feed text.</li>
+                    <li><strong>Not legal advice</strong> — Impact levels are automated triage signals to help you prioritize reading. Always review the full bill text and official analysis.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold text-civic-navy mb-3">Using the filters</h2>
+                <dl class="space-y-4 text-sm">
+                    <div>
+                        <dt class="font-semibold text-slate-800">Military / Veterans (all)</dt>
+                        <dd class="text-slate-600 mt-1">Shows every veteran- or military-related item, regardless of impact color.</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-red-900">Red</dt>
+                        <dd class="text-slate-600 mt-1">Only high-impact bills with a Red classification.</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-amber-900">Yellow</dt>
+                        <dd class="text-slate-600 mt-1">Only moderate-impact bills with a Yellow classification.</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-green-900">Green</dt>
+                        <dd class="text-slate-600 mt-1">Only ceremonial or general military bills with a Green classification.</dd>
+                    </div>
+                </dl>
+                <p class="mt-4">
+                    <a href="index.html" class="inline-flex items-center gap-1 text-civic-blue hover:underline font-medium">← Back to homepage feed</a>
+                </p>
+            </section>
+        </div>
+    </div>
+</main>
+</div>
+<script src="shell.js"></script>
+<script>CivicWatchShell.init({ page: 'veterans' });</script>
+</body>
+</html>

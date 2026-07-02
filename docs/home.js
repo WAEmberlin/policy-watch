@@ -47,6 +47,36 @@ const CivicWatchHome = (() => {
         green: 'bg-green-100 text-green-900 border-green-200',
     };
 
+    const VETERANS_IMPACT_FILTER_BUTTONS = {
+        all: {
+            id: 'veterans-filter-btn',
+            active: ['border-amber-500', 'bg-amber-500', 'text-white'],
+            inactive: ['border-slate-200', 'bg-white', 'text-slate-700'],
+        },
+        red: {
+            id: 'veterans-filter-red-btn',
+            active: ['border-red-600', 'bg-red-600', 'text-white'],
+            inactive: ['border-red-200', 'bg-red-50', 'text-red-900'],
+        },
+        yellow: {
+            id: 'veterans-filter-yellow-btn',
+            active: ['border-amber-500', 'bg-amber-500', 'text-white'],
+            inactive: ['border-amber-200', 'bg-amber-50', 'text-amber-900'],
+        },
+        green: {
+            id: 'veterans-filter-green-btn',
+            active: ['border-green-600', 'bg-green-600', 'text-white'],
+            inactive: ['border-green-200', 'bg-green-50', 'text-green-900'],
+        },
+    };
+
+    const VETERANS_IMPACT_FILTER_LABELS = {
+        all: 'Military / Veterans',
+        red: 'Red — High impact',
+        yellow: 'Yellow — Moderate impact',
+        green: 'Green — Ceremonial / general',
+    };
+
     let callbacks = {};
     let veteranImpactLookup = {};
 
@@ -389,26 +419,32 @@ const CivicWatchHome = (() => {
         return '';
     }
 
+    function setVeteransImpactFilter(level) {
+        const activeLevel = level || null;
+        Object.entries(VETERANS_IMPACT_FILTER_BUTTONS).forEach(([key, config]) => {
+            const btn = document.getElementById(config.id);
+            if (!btn) return;
+            const isActive = activeLevel === key;
+            btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            config.active.forEach((cls) => btn.classList.toggle(cls, isActive));
+            config.inactive.forEach((cls) => btn.classList.toggle(cls, !isActive));
+        });
+    }
+
     function setVeteransFilterActive(active) {
-        const btn = document.getElementById('veterans-filter-btn');
-        if (!btn) return;
-        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
-        btn.classList.toggle('border-amber-500', active);
-        btn.classList.toggle('bg-amber-500', active);
-        btn.classList.toggle('text-white', active);
-        btn.classList.toggle('border-slate-200', !active);
-        btn.classList.toggle('bg-white', !active);
-        btn.classList.toggle('text-slate-700', !active);
+        setVeteransImpactFilter(active ? 'all' : null);
     }
 
     function initVeteransFilter() {
-        const btn = document.getElementById('veterans-filter-btn');
-        if (!btn) return;
-
-        btn.addEventListener('click', () => {
-            const next = btn.getAttribute('aria-pressed') !== 'true';
-            setVeteransFilterActive(next);
-            if (callbacks.onVeteransFilter) callbacks.onVeteransFilter(next);
+        Object.entries(VETERANS_IMPACT_FILTER_BUTTONS).forEach(([level, config]) => {
+            const btn = document.getElementById(config.id);
+            if (!btn) return;
+            btn.addEventListener('click', () => {
+                const isActive = btn.getAttribute('aria-pressed') === 'true';
+                const next = isActive ? null : level;
+                setVeteransImpactFilter(next);
+                if (callbacks.onVeteransImpactFilter) callbacks.onVeteransImpactFilter(next);
+            });
         });
     }
 
@@ -455,8 +491,12 @@ const CivicWatchHome = (() => {
         if (filters.search) {
             pills.push({ key: 'search', label: `Search: "${filters.search}"`, value: filters.search });
         }
-        if (filters.veterans) {
-            pills.push({ key: 'veterans', label: 'Military / Veterans', value: 'true' });
+        if (filters.veteransImpact) {
+            pills.push({
+                key: 'veterans',
+                label: VETERANS_IMPACT_FILTER_LABELS[filters.veteransImpact] || 'Military / Veterans',
+                value: filters.veteransImpact,
+            });
         }
 
         if (pills.length === 0) {
@@ -623,6 +663,15 @@ const CivicWatchHome = (() => {
         return parts.filter(Boolean).join(' ');
     }
 
+    function itemMatchesVeteransImpactFilter(item, level) {
+        if (!level) return true;
+        const impact = resolveVeteranImpact(item);
+        if (level === 'red' || level === 'yellow' || level === 'green') {
+            return Boolean(impact && impact.level === level);
+        }
+        return itemMatchesVeteransFilter(item);
+    }
+
     function itemMatchesVeteransFilter(item) {
         if (resolveVeteranImpact(item)) return true;
         if (Array.isArray(item.ai_topics)) {
@@ -696,7 +745,7 @@ const CivicWatchHome = (() => {
     }
 
     function renderFeedDay(date, items, options) {
-        const { searchQuery, veteransFilterActive } = options;
+        const { searchQuery, veteransImpactFilter } = options;
         const section = document.createElement('section');
         section.className = 'feed-day mb-6';
         section.setAttribute('aria-label', `Updates for ${date}`);
@@ -716,7 +765,7 @@ const CivicWatchHome = (() => {
 
         if (legislative.length === 0 && meta.length === 0) return null;
 
-        const veteransCallout = veteransFilterActive ? null : renderVeteransCallout(legislative);
+        const veteransCallout = veteransImpactFilter ? null : renderVeteransCallout(legislative);
         if (veteransCallout) card.appendChild(veteransCallout);
 
         const byState = {};
@@ -819,6 +868,7 @@ const CivicWatchHome = (() => {
         init,
         setSelectedState,
         setVeteransFilterActive,
+        setVeteransImpactFilter,
         setVeteranImpactLookup,
         updateActiveFilterPills,
         renderFeedDay,
@@ -828,6 +878,7 @@ const CivicWatchHome = (() => {
         inferItemState,
         isMetaItem,
         itemMatchesVeteransFilter,
+        itemMatchesVeteransImpactFilter,
         resolveVeteranImpact,
         fetchWeeklyCounts,
         formatDate,
