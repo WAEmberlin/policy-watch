@@ -531,11 +531,16 @@ mark {
   border-bottom-color: var(--cw-blue);
 }
 [data-theme="high-contrast"] #site-nav .site-nav-link {
-  color: var(--cw-text);
+  color: var(--cw-gold);
   border-bottom-width: 2px;
+}
+[data-theme="high-contrast"] #site-nav .site-nav-link:hover {
+  color: #f5c96a;
+  background: var(--cw-surface);
 }
 [data-theme="high-contrast"] #site-nav .site-nav-link--active,
 [data-theme="high-contrast"] #site-nav .site-nav-link[aria-current="page"] {
+  color: var(--cw-text);
   font-weight: 700;
   border-bottom-color: var(--cw-gold);
 }
