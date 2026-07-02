@@ -483,7 +483,13 @@ const CivicWatchHome = (() => {
         const impact = resolveVeteranImpact(item);
         const card = document.createElement('article');
         const impactClasses = impact ? veteranImpactCardClasses(impact.level) : '';
-        card.className = `bill-card p-4 rounded-lg border transition-all ${impactClasses || 'bg-white border-slate-200 hover:border-civic-blue/40 hover:shadow-sm'}`;
+        card.className = `bill-card p-4 rounded-lg border transition-all ${impact ? `veteran-impact-card veteran-impact-card--${impact.level} ` : ''}${impactClasses || 'bg-white border-slate-200 hover:border-civic-blue/40 hover:shadow-sm'}`;
+        const titleClass = impact
+            ? 'veteran-impact-title block text-base font-semibold transition-colors'
+            : 'block text-base font-semibold text-civic-navy hover:text-civic-blue transition-colors';
+        const metaLinkClass = impact
+            ? 'veteran-impact-link'
+            : 'text-civic-blue';
 
         const state = inferItemState(item);
         const displayTitle = item.short_title || item.title || '(no title)';
@@ -504,14 +510,14 @@ const CivicWatchHome = (() => {
 
         if (item.bill_number) {
             const billNum = document.createElement('span');
-            billNum.className = 'text-xs font-semibold text-civic-blue';
+            billNum.className = `text-xs font-semibold ${impact ? metaLinkClass : 'text-civic-blue'}`;
             billNum.textContent = item.bill_number;
             header.appendChild(billNum);
         }
 
         if (impact) {
             const impactBadge = document.createElement('span');
-            impactBadge.className = `inline-block px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide border ${VETERAN_IMPACT_BADGE[impact.level] || 'bg-slate-100 text-slate-700 border-slate-200'}`;
+            impactBadge.className = `veteran-impact-badge inline-block px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide border ${VETERAN_IMPACT_BADGE[impact.level] || 'bg-slate-100 text-slate-700 border-slate-200'}`;
             impactBadge.textContent = impact.level;
             impactBadge.title = veteranImpactLabel(impact.level);
             header.appendChild(impactBadge);
@@ -525,7 +531,7 @@ const CivicWatchHome = (() => {
         if (hasVoteRecords) {
             const titleBtn = document.createElement('button');
             titleBtn.type = 'button';
-            titleBtn.className = 'block text-left w-full text-base font-semibold text-civic-navy hover:text-civic-blue transition-colors';
+            titleBtn.className = `text-left w-full ${titleClass}`;
             if (searchQuery) {
                 const regex = new RegExp(`(${escapeRegex(searchQuery)})`, 'gi');
                 titleBtn.innerHTML = highlightSafe(displayTitle, regex);
@@ -539,7 +545,7 @@ const CivicWatchHome = (() => {
             titleLink.href = officialUrl || url;
             titleLink.target = '_blank';
             titleLink.rel = 'noopener noreferrer';
-            titleLink.className = 'block text-base font-semibold text-civic-navy hover:text-civic-blue transition-colors';
+            titleLink.className = titleClass;
             if (searchQuery) {
                 const regex = new RegExp(`(${escapeRegex(searchQuery)})`, 'gi');
                 titleLink.innerHTML = highlightSafe(displayTitle, regex);
@@ -553,7 +559,9 @@ const CivicWatchHome = (() => {
         const showSummary = summaryText.trim() && summaryText !== displayTitle;
         if (showSummary) {
             const summary = document.createElement('p');
-            summary.className = 'text-sm text-slate-600 mt-2 line-clamp-2 leading-relaxed';
+            summary.className = impact
+                ? 'veteran-impact-summary text-sm mt-2 line-clamp-2 leading-relaxed'
+                : 'text-sm text-slate-600 mt-2 line-clamp-2 leading-relaxed';
             if (searchQuery) {
                 const regex = new RegExp(`(${escapeRegex(searchQuery)})`, 'gi');
                 summary.innerHTML = highlightSafe(summaryText, regex);
@@ -570,7 +578,7 @@ const CivicWatchHome = (() => {
             officialLink.href = officialUrl;
             officialLink.target = '_blank';
             officialLink.rel = 'noopener noreferrer';
-            officialLink.className = 'text-xs text-civic-blue hover:underline inline-flex items-center gap-1';
+            officialLink.className = `text-xs hover:underline inline-flex items-center gap-1 ${impact ? metaLinkClass : 'text-civic-blue'}`;
             officialLink.innerHTML = `
                 Official source
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
