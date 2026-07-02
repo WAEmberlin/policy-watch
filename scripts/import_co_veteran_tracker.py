@@ -1,16 +1,12 @@
 #!/usr/bin/env python3
 """
-Import Colorado Legislative Tracker CSVs into veteran impact data.
+Legacy import utility for Colorado Legislative Tracker CSVs (archival only).
 
-Reads:
-  - CO Legislative Tracker - Bills.csv
-  - CO Legislative Tracker - Status Log.csv (latest status per bill)
-  - CO Legislative Tracker - Dashboard.csv (metadata only)
+This script is no longer used by the CivicWatch data pipeline. Colorado bills
+are classified with the same keyword rules as every other state via Open States
+data in `src/processing/veteran_impact.py`.
 
-Writes:
-  - data/veterans/co_bills.json
-
-Colorado CSV is the source of truth for CO veteran impact tiers when present.
+Writes `data/veterans/co_bills.json` for reference only.
 """
 
 from __future__ import annotations
@@ -127,6 +123,7 @@ def import_co_tracker(
 
         veteran_related = _parse_bool(row.get("Veteran Related", ""))
         impact_level = _parse_impact(row.get("Impact Level", ""))
+        csv_impact_level = impact_level
         if not veteran_related and not impact_level:
             continue
 
@@ -144,15 +141,12 @@ def import_co_tracker(
         notes = _clean(row.get("Notes", ""))
         text = " ".join(filter(None, [title, committee, notes, _clean(row.get("Last Action", ""))]))
 
-        if impact_level:
-            classified = classify_veteran_impact(text, csv_level=impact_level)
+        classified = classify_veteran_impact(text)
+        if classified:
+            impact_level = classified["level"]
             stats[f"impact_{impact_level}"] += 1
-        elif veteran_related:
-            classified = classify_veteran_impact(text)
-            stats["impact_classified_fallback"] += 1
-            if classified:
-                impact_level = classified["level"]
-                stats[f"impact_{impact_level}"] += 1
+        elif impact_level:
+            stats[f"impact_{impact_level}"] += 1
         else:
             classified = None
 
@@ -166,8 +160,9 @@ def import_co_tracker(
             "bill_number_norm": matched.get("bill_number") if matched else bill_norm,
             "title": title,
             "veteran_related": veteran_related,
-            "impact_level": impact_level,
-            "impact_source": classified.get("source") if classified else ("csv" if impact_level else ""),
+            "impact_level": impact_level or csv_impact_level,
+            "impact_level_csv": csv_impact_level,
+            "impact_source": classified.get("source") if classified else "",
             "scoring_factors": classified.get("factors", []) if classified else [],
             "endorsement": _clean(row.get("Endorsement", "")),
             "chamber": _clean(row.get("Chamber", "")),

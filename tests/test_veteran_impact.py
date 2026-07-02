@@ -43,35 +43,29 @@ def test_classify_green_from_memorial():
     assert result["level"] == "green"
 
 
-def test_csv_level_overrides_rules():
-    result = classify_veteran_impact("Generic elections bill", csv_level="Red")
-    assert result is not None
-    assert result["level"] == "red"
-    assert result["source"] == "csv"
-
-
-def test_build_lookup_from_co_data():
-    co_data = {
-        "bills": {
-            "HB26-1002": {
-                "bill_number_csv": "HB26-1002",
-                "bill_number_norm": "HB 1002",
-                "title": "Honoring Post-9/11 Veterans",
-                "veteran_related": True,
-                "impact_level": "green",
-                "status": "Became Law",
-            }
-        }
-    }
-    lookup = build_veteran_impact_lookup(co_data=co_data, normalized_bills=[])
-    assert lookup["CO|HB26-1002"]["level"] == "green"
+def test_build_lookup_co_bill_rules():
+    lookup = build_veteran_impact_lookup(
+        normalized_bills=[{
+            "state": "CO",
+            "bill_number": "HB 1002",
+            "title": "Honoring Post-9/11 Veterans",
+            "summary": "A resolution honoring military veterans",
+            "latest_action": "Signed by Governor",
+        }],
+    )
     assert lookup[build_bill_lookup_key("CO", "HB 1002")]["level"] == "green"
+    assert lookup[build_bill_lookup_key("CO", "HB 1002")]["source"] == "rules"
 
 
 def test_resolve_veteran_impact_for_feed_item():
-    lookup = {
-        "CO|HB26-1002": {"level": "green", "factors": [], "source": "csv", "veteran_related": True},
-    }
+    lookup = build_veteran_impact_lookup(
+        normalized_bills=[{
+            "state": "CO",
+            "bill_number": "HB 1002",
+            "title": "Honoring Post-9/11 Veterans",
+            "summary": "A resolution honoring military veterans",
+        }],
+    )
     item = {
         "title": "HB 1002: Honoring Post-9/11 Veterans",
         "bill_number": "HB 1002",
@@ -97,7 +91,6 @@ def test_classify_armed_forces_resolution_green():
 
 def test_build_lookup_ks_bill():
     lookup = build_veteran_impact_lookup(
-        co_data={"bills": {}},
         normalized_bills=[{
             "state": "KS",
             "bill_number": "HB 2273",
@@ -113,7 +106,6 @@ def test_build_lookup_ks_bill():
 
 def test_build_lookup_federal_bill():
     lookup = build_veteran_impact_lookup(
-        co_data={"bills": {}},
         normalized_bills=[{
             "level": "federal",
             "bill_number": "HR 1041",
@@ -139,7 +131,6 @@ def test_build_lookup_from_feed_item():
         legislation_items=[],
     )
     lookup = build_veteran_impact_lookup(
-        co_data={"bills": {}},
         normalized_bills=[],
         feed_items=feed_items,
     )
@@ -149,7 +140,6 @@ def test_build_lookup_from_feed_item():
 
 def test_resolve_federal_feed_item():
     lookup = build_veteran_impact_lookup(
-        co_data={"bills": {}},
         normalized_bills=[{
             "level": "federal",
             "bill_number": "S 3311",

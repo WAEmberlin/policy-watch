@@ -12,7 +12,6 @@ from processing.hearing_stream_utils import enrich_hearing_stream  # noqa: E402
 from processing.veteran_impact import (  # noqa: E402
     build_veteran_impact_lookup,
     collect_feed_bills_for_veteran_lookup,
-    load_co_bills,
 )
 
 # Handle timezone on Windows (fallback if zoneinfo not available)
@@ -817,21 +816,15 @@ if normalized_bills:
     print(f"Loaded {len(normalized_bills)} normalized bills from expansion layer")
 
 # -------------------------
-# Veteran impact lookup (CO CSV + rule-based fallback)
+# Veteran impact lookup (rule-based for all states + federal)
 # -------------------------
-co_veteran_data = load_co_bills()
 feed_bills_for_veteran = collect_feed_bills_for_veteran_lookup(history, legislation)
 veteran_impact_lookup = build_veteran_impact_lookup(
-    co_data=co_veteran_data,
     normalized_bills=normalized_bills,
     feed_items=feed_bills_for_veteran,
 )
-co_meta = co_veteran_data.get("_meta") or {}
 if veteran_impact_lookup:
-    print(
-        f"Built veteran impact lookup with {len(veteran_impact_lookup)} entries "
-        f"({co_meta.get('matched_openstates', 0)} CO CSV bills matched Open States)"
-    )
+    print(f"Built veteran impact lookup with {len(veteran_impact_lookup)} entries")
 
 output = {
     "last_updated": now.isoformat(),
@@ -859,10 +852,6 @@ output = {
     "livestreams": livestreams_meta,
     "veteran_impact": {
         "lookup": veteran_impact_lookup,
-        "co_stats": co_meta.get("stats", {}),
-        "co_matched": co_meta.get("matched_openstates", 0),
-        "co_tracked": co_meta.get("total_tracked", 0),
-        "co_gaps": co_meta.get("gaps", []),
     },
 }
 

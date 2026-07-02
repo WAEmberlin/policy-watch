@@ -68,8 +68,7 @@ policy-watch/
 
 ### Veteran impact classification
 
-- **Colorado:** Curated CSV import (`scripts/import_co_veteran_tracker.py`) when available.
-- **All states + federal:** Keyword rules in `src/processing/veteran_impact.py` (benefits → Red, employment/courts → Yellow, memorials → Green).
+All tracked states (including Colorado) and federal bills use keyword rules in `src/processing/veteran_impact.py` (benefits → Red, employment/courts → Yellow, memorials → Green), applied to Open States and feed bill text.
 
 ---
 
@@ -93,13 +92,6 @@ pip install -r requirements.txt
 ```bash
 python src/processing/fetch_feeds.py
 python src/processing/normalize_data.py --skip-ai
-python src/processing/summarize.py
-```
-
-### Import Colorado veterans tracker (optional)
-
-```bash
-python scripts/import_co_veteran_tracker.py
 python src/processing/summarize.py
 ```
 
