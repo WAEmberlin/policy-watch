@@ -1,4 +1,4 @@
-"""Veteran bill impact classification via keyword rules for all jurisdictions."""
+"""Veteran bill impact classification — CSV overrides plus keyword rules."""
 
 from __future__ import annotations
 
@@ -192,12 +192,26 @@ def detect_scoring_factors(text: str) -> List[str]:
     return matched
 
 
-def classify_veteran_impact(text: str) -> Optional[Dict[str, Any]]:
+def classify_veteran_impact(
+    text: str,
+    csv_level: Optional[str] = None,
+) -> Optional[Dict[str, Any]]:
     """
     Classify veteran impact level from bill text.
 
     Returns None when the bill does not appear veteran-related.
     """
+    if csv_level:
+        level = csv_level.strip().lower()
+        if level in IMPACT_LEVELS:
+            factors = detect_scoring_factors(text)
+            return {
+                "level": level,
+                "factors": factors,
+                "source": "csv",
+                "veteran_related": True,
+            }
+
     text_lower = (text or "").lower()
     if not text_lower.strip():
         return None
@@ -258,11 +272,14 @@ def _store_lookup_entry(
             lookup[key] = entry
 
 
-def _classify_bill_record(record: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+def _classify_bill_record(
+    record: Dict[str, Any],
+    csv_level: Optional[str] = None,
+) -> Optional[Dict[str, Any]]:
     text = _bill_text_from_record(record)
     if not _might_be_veteran_related(text, record):
         return None
-    classified = classify_veteran_impact(text)
+    classified = classify_veteran_impact(text, csv_level=csv_level)
     if not classified and _item_has_veteran_tagging(record):
         classified = classify_veteran_impact(text)
     return classified
@@ -307,20 +324,48 @@ def collect_feed_bills_for_veteran_lookup(
 
 
 def build_veteran_impact_lookup(
+    co_data: Optional[Dict[str, Any]] = None,
     normalized_bills: Optional[List[Dict[str, Any]]] = None,
     feed_items: Optional[List[Dict[str, Any]]] = None,
 ) -> Dict[str, Dict[str, Any]]:
     """
     Build frontend lookup map keyed by state|bill_number.
 
-    All states (including Colorado) and federal bills use the same keyword rules.
+    CO bills use CSV as source of truth; other states and federal use keyword rules.
     """
     lookup: Dict[str, Dict[str, Any]] = {}
+
+    co_payload = co_data if co_data is not None else load_co_bills()
+    for slug, record in (co_payload.get("bills") or {}).items():
+        if not isinstance(record, dict):
+            continue
+        level = (record.get("impact_level") or "").strip().lower()
+        if level not in IMPACT_LEVELS and not record.get("veteran_related"):
+            continue
+        classified = _classify_bill_record(record, csv_level=level or None)
+        if not classified:
+            continue
+
+        entry = {
+            **classified,
+            "title": record.get("title", ""),
+            "status": record.get("status", ""),
+            "endorsement": record.get("endorsement", ""),
+            "openstates_id": record.get("openstates_id", ""),
+            "bill_number_csv": record.get("bill_number_csv", slug),
+            "bill_number_norm": record.get("bill_number_norm", ""),
+        }
+        lookup[f"CO|{slug.upper()}"] = entry
+        norm = record.get("bill_number_norm") or ""
+        if norm:
+            _store_lookup_entry(lookup, "CO", norm, entry)
 
     for bill in (normalized_bills or []) + (feed_items or []):
         state = infer_item_state(bill)
         bill_number = _extract_bill_number(bill)
         if not bill_number:
+            continue
+        if state == "CO":
             continue
 
         is_federal = (

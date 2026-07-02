@@ -7,7 +7,7 @@ let searchResults = [];
 let selectedSource = "";
 let selectedCategory = "";
 let selectedState = "";
-let veteransImpactFilter = null;
+let veteransFilterActive = false;
 const DAYS_PER_CHUNK = 7;  // Show 7 days per "page"
 
 function a11yAnnounce(message) {
@@ -43,27 +43,20 @@ function itemMatchesStateFilter(item) {
 }
 
 function itemMatchesVeteransFilter(item) {
-    if (!veteransImpactFilter) return true;
-    if (typeof CivicWatchHome !== "undefined" && CivicWatchHome.itemMatchesVeteransImpactFilter) {
-        return CivicWatchHome.itemMatchesVeteransImpactFilter(item, veteransImpactFilter);
+    if (!veteransFilterActive) return true;
+    if (typeof CivicWatchHome !== "undefined" && CivicWatchHome.itemMatchesVeteransFilter) {
+        return CivicWatchHome.itemMatchesVeteransFilter(item);
     }
     return true;
 }
 
 function feedEmptyMessage(dateRange) {
     const rangeLabel = `${formatDate(dateRange.start)} – ${formatDate(dateRange.end)}`;
-    if (veteransImpactFilter) {
-        const filterLabels = {
-            all: "military or veterans-related",
-            red: "high-impact veterans-related",
-            yellow: "moderate-impact veterans-related",
-            green: "ceremonial or general veterans-related",
-        };
-        const topicLabel = filterLabels[veteransImpactFilter] || "military or veterans-related";
+    if (veteransFilterActive) {
         const stateLabel = selectedState
             ? (STATE_NAMES[selectedState] || selectedState)
             : "any state";
-        return `No ${topicLabel} activity for ${stateLabel} during ${rangeLabel}. Try another filter, state, or time period.`;
+        return `No military or veterans-related activity for ${stateLabel} during ${rangeLabel}. Try another state or time period.`;
     }
     if (selectedState) {
         const stateLabel = STATE_NAMES[selectedState] || selectedState;
@@ -88,7 +81,7 @@ function updateFilterPills() {
         source: selectedSource,
         category: selectedCategory,
         search: searchMode ? searchQuery : "",
-        veteransImpact: veteransImpactFilter,
+        veterans: veteransFilterActive,
     });
 }
 
@@ -138,7 +131,7 @@ async function loadData() {
             CivicWatchHome.renderStateSnapshots(allData, weeklyCounts);
         });
         CivicWatchHome.setSelectedState(selectedState);
-        if (veteransImpactFilter) CivicWatchHome.setVeteransImpactFilter(veteransImpactFilter);
+        if (veteransFilterActive) CivicWatchHome.setVeteransFilterActive(true);
     }
     updateFilterPills();
     
@@ -378,7 +371,7 @@ function applyFeedFilters(allItems) {
     if (selectedState) {
         filtered = filtered.filter(item => itemMatchesStateFilter(item));
     }
-    if (veteransImpactFilter) {
+    if (veteransFilterActive) {
         filtered = filtered.filter(item => itemMatchesVeteransFilter(item));
     }
     return filtered;
@@ -551,7 +544,7 @@ function displayUnifiedView(year, chunkIndex) {
         const daySection = typeof CivicWatchHome !== "undefined"
             ? CivicWatchHome.renderFeedDay(date, dayItems, {
                 searchQuery: "",
-                veteransImpactFilter,
+                veteransFilterActive,
             })
             : null;
 
@@ -671,7 +664,7 @@ function performSearch(query) {
     if (selectedState) {
         searchResults = searchResults.filter(item => itemMatchesStateFilter(item));
     }
-    if (veteransImpactFilter) {
+    if (veteransFilterActive) {
         searchResults = searchResults.filter(item => itemMatchesVeteransFilter(item));
     }
 
@@ -730,7 +723,7 @@ function displaySearchResults() {
         const daySection = typeof CivicWatchHome !== "undefined"
             ? CivicWatchHome.renderFeedDay(date, itemsByDate[date], {
                 searchQuery: searchQuery,
-                veteransImpactFilter,
+                veteransFilterActive,
             })
             : null;
         if (daySection) container.appendChild(daySection);
@@ -846,7 +839,7 @@ function setupSearch() {
             selectedState = "";
             selectedSource = "";
             selectedCategory = "";
-            veteransImpactFilter = null;
+            veteransFilterActive = false;
             const sourceFilter = document.getElementById("source-filter");
             const categoryFilter = document.getElementById("category-filter");
             const stateFilter = document.getElementById("state-filter");
@@ -855,7 +848,7 @@ function setupSearch() {
             if (stateFilter) stateFilter.value = "";
             if (typeof CivicWatchHome !== "undefined") {
                 CivicWatchHome.setSelectedState("");
-                CivicWatchHome.setVeteransImpactFilter(null);
+                CivicWatchHome.setVeteransFilterActive(false);
             }
             searchMode = false;
             searchQuery = "";
@@ -1101,17 +1094,11 @@ window.onload = () => {
                 refreshView();
                 a11yAnnounce("State filter applied.");
             },
-            onVeteransImpactFilter: (level) => {
-                veteransImpactFilter = level;
+            onVeteransFilter: (active) => {
+                veteransFilterActive = active;
                 currentPage = 0;
                 refreshView();
-                const announcements = {
-                    all: "Military and veterans filter applied.",
-                    red: "Red high-impact veterans filter applied.",
-                    yellow: "Yellow moderate-impact veterans filter applied.",
-                    green: "Green ceremonial veterans filter applied.",
-                };
-                a11yAnnounce(level ? (announcements[level] || "Veterans filter applied.") : "Military and veterans filter cleared.");
+                a11yAnnounce(active ? "Military and veterans filter applied." : "Military and veterans filter cleared.");
             },
             onClearFilter: (key) => {
                 if (key === "state") {
@@ -1120,8 +1107,8 @@ window.onload = () => {
                     const stateFilter = document.getElementById("state-filter");
                     if (stateFilter) stateFilter.value = "";
                 } else if (key === "veterans") {
-                    veteransImpactFilter = null;
-                    if (typeof CivicWatchHome !== "undefined") CivicWatchHome.setVeteransImpactFilter(null);
+                    veteransFilterActive = false;
+                    if (typeof CivicWatchHome !== "undefined") CivicWatchHome.setVeteransFilterActive(false);
                 } else if (key === "source") {
                     selectedSource = "";
                     const sourceFilter = document.getElementById("source-filter");
