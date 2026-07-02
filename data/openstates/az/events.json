@@ -7011,5 +7011,51 @@
     },
     "links": [],
     "media": []
+  },
+  {
+    "id": "ocd-event/0bfe9b86-277d-433a-8f9b-4cd242b3b5df",
+    "name": "Legislative Council (2R) *",
+    "jurisdiction": {
+      "id": "ocd-jurisdiction/country:us/state:az/government",
+      "name": "Arizona",
+      "classification": "state"
+    },
+    "description": "",
+    "classification": "event",
+    "start_date": "2026-07-08T17:00:00+00:00",
+    "end_date": "2026-07-08T18:00:00+00:00",
+    "all_day": false,
+    "status": "confirmed",
+    "upstream_id": "",
+    "deleted": false,
+    "location": {
+      "name": "1700 W. Washington St., Phoenix, Arizona, 85007",
+      "url": ""
+    },
+    "links": [],
+    "media": []
+  },
+  {
+    "id": "ocd-event/02678ff1-fa20-46b0-be80-8c13825c2a1b",
+    "name": "Save the Salt River Horses",
+    "jurisdiction": {
+      "id": "ocd-jurisdiction/country:us/state:az/government",
+      "name": "Arizona",
+      "classification": "state"
+    },
+    "description": "",
+    "classification": "event",
+    "start_date": "2026-07-22T15:30:00+00:00",
+    "end_date": "2026-07-22T16:00:00+00:00",
+    "all_day": false,
+    "status": "confirmed",
+    "upstream_id": "",
+    "deleted": false,
+    "location": {
+      "name": "Senate Lawn",
+      "url": ""
+    },
+    "links": [],
+    "media": []
   }
 ]

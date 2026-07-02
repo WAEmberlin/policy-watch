@@ -14820,7 +14820,18 @@
       "url": ""
     },
     "links": [],
-    "media": []
+    "media": [
+      {
+        "note": "Media",
+        "date": "",
+        "classification": "",
+        "links": [
+          {
+            "url": "https://le.utah.gov/av/committeeArchive.jsp?mtgID=20727"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "ocd-event/7533328e-03bf-4351-993e-04d6dfb88f03",
@@ -16818,6 +16829,29 @@
     "deleted": false,
     "location": {
       "name": "445 State Capitol, 350 State St, Salt Lake City, UT 84103",
+      "url": ""
+    },
+    "links": [],
+    "media": []
+  },
+  {
+    "id": "ocd-event/48e9694c-8b3b-4af8-b004-20b7aa0961c4",
+    "name": "Senate Judicial Confirmation Committee",
+    "jurisdiction": {
+      "id": "ocd-jurisdiction/country:us/state:ut/government",
+      "name": "Utah",
+      "classification": "state"
+    },
+    "description": "",
+    "classification": "committee-meeting",
+    "start_date": "2026-07-20T16:00:00+00:00",
+    "end_date": "",
+    "all_day": false,
+    "status": "tentative",
+    "upstream_id": "",
+    "deleted": false,
+    "location": {
+      "name": "110 Senate Building, Utah State Capitol, 350 State St, Salt Lake City, UT 84103",
       "url": ""
     },
     "links": [],
