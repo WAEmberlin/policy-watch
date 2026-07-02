@@ -1,0 +1,96 @@
+# Supplemental state data sources (outside Open States)
+
+arizona_cactus:
+  base_url: https://api.cactus.watch
+  bills_path: /api/bills
+  sync_path: /api/bills/sync
+  # First run sync window when no prior fetch exists
+  initial_sync_days: 30
+  page_limit: 200
+  request_delay_seconds: 0.5
+
+utah_committee_rss:
+  setup_url: https://le.utah.gov/asp/billtrack/ComRSS.asp
+  feed_path: https://le.utah.gov/asp/billtrack/comrssfeed.asp
+  # All standing + interim committees (pipe-delimited for comrssfeed.asp)
+  committee_ids:
+    - INTBUS
+    - SPECWL
+    - APPCRI
+    - APPECD
+    - INTEDW
+    - INTEDU
+    - SPEEJC
+    - APPEXE
+    - SPEFFO
+    - SPEFED
+    - APPGEN
+    - SPEADM
+    - INTGOC
+    - INTHHS
+    - APPHED
+    - HSTBUS
+    - HSTEDW
+    - HSTEDU
+    - HSTETH
+    - HSTGOC
+    - HSTHHS
+    - HSTJUD
+    - HSTLAW
+    - SPEHEO
+    - HSTNAE
+    - HSTPOL
+    - HSTPUT
+    - HSTREV
+    - HSTRUL
+    - HSTTRA
+    - INTJUD
+    - INTLAW
+    - SPEAUD
+    - SPEMAN
+    - SPELPC
+    - SPELRD
+    - SPESWD
+    - SPEMCG
+    - SPENAL
+    - INTNAE
+    - APPNAE
+    - SPEOLY
+    - INTPOL
+    - APPPED
+    - INTPUT
+    - INTRIE
+    - INTREV
+    - SPERZC
+    - SSTBUS
+    - SPEBUS
+    - SSTEDW
+    - SPEEDW
+    - SSTEDU
+    - SPEEDU
+    - SSTETH
+    - SSTGOP
+    - SPEGOV
+    - SSTHHS
+    - SPEHHS
+    - SPESJC
+    - SPEJUD
+    - SSTJLC
+    - SPELEC
+    - SPESEO
+    - SSTNAE
+    - SPENAT
+    - SPEPOL
+    - SPERET
+    - SSTREV
+    - SPEREV
+    - SSTRUL
+    - SSTTPT
+    - SPETRA
+    - APPSOC
+    - SUBOVE
+    - APPTIF
+    - INTTRA
+    - TSKBHL
+    - SPEUSL
+    - SPEVMA

@@ -26,6 +26,7 @@ states:
     level: state
     sources:
       - openstates
+      - arizona_cactus
     openstates_jurisdiction: ocd-jurisdiction/country:us/state:az/government
     enrichment: openstates_detail
     enabled: true
@@ -35,6 +36,7 @@ states:
     level: state
     sources:
       - openstates
+      - utah_committee_rss
     openstates_jurisdiction: ocd-jurisdiction/country:us/state:ut/government
     enrichment: openstates_detail
     enabled: true

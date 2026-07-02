@@ -662,6 +662,35 @@ if os.path.exists(_ks_enrichments_path):
     except (json.JSONDecodeError, IOError) as e:
         print(f"Warning: Could not load Kansas enrichments for hearings: {e}")
 
+# Utah committee RSS hearing schedules
+_ut_hearings_path = os.path.join(DATA_DIR, "utah", "committee_hearings.json")
+if os.path.exists(_ut_hearings_path):
+    try:
+        with open(_ut_hearings_path, "r", encoding="utf-8") as f:
+            _ut_hearings_data = json.load(f)
+        _ut_items = _ut_hearings_data.get("items") if isinstance(_ut_hearings_data, dict) else _ut_hearings_data
+        if not isinstance(_ut_items, list):
+            _ut_items = []
+        ut_count = 0
+        for hearing in _ut_items:
+            if not isinstance(hearing, dict):
+                continue
+            hearing = dict(hearing)
+            if not hearing.get("source"):
+                hearing["source"] = STATE_HEARING_LABELS["UT"]
+            if not hearing.get("state"):
+                hearing["state"] = "UT"
+            bucket = _classify_hearing_by_date(hearing, today_start)
+            if bucket == "upcoming":
+                _extra_upcoming.append(hearing)
+            else:
+                _extra_historical.append(hearing)
+            ut_count += 1
+        if ut_count:
+            print(f"Merged {ut_count} Utah committee RSS hearings")
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"Warning: Could not load Utah committee hearings: {e}")
+
 all_upcoming_hearings = _merge_hearing_lists(all_upcoming_hearings, _extra_upcoming)
 all_historical_hearings = _merge_hearing_lists(all_historical_hearings, _extra_historical)
 all_upcoming_hearings.sort(key=lambda x: x.get("scheduled_date", ""))

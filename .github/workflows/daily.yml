@@ -31,6 +31,12 @@ jobs:
       - name: Fetch Kansas Legislature RSS feeds
         run: python src/processing/fetch_kansas_rss.py
 
+      - name: Fetch Arizona bills (Cactus Watch API)
+        run: python src/processing/fetch_arizona_cactus.py
+
+      - name: Fetch Utah committee RSS hearings
+        run: python src/processing/fetch_utah_committee_rss.py
+
       - name: Fetch Kansas Legislature calendars
         run: python src/processing/fetch_kansas_calendar.py
 
@@ -142,7 +148,7 @@ jobs:
           git fetch origin main
           # Only commit pipeline outputs — never `git add docs/` wholesale.
           # A stale checkout can otherwise revert merged HTML/JS on main.
-          GENERATED="docs/site_data.json docs/weekly src/output data/kansas data/normalized"
+          GENERATED="docs/site_data.json docs/weekly src/output data/kansas data/arizona data/utah data/normalized"
           git add $GENERATED
           if git diff --cached --quiet; then
             echo "No changes to commit"
