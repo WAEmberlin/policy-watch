@@ -9,7 +9,11 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
 from processing.hearing_stream_utils import enrich_hearing_stream  # noqa: E402
-from processing.veteran_impact import build_veteran_impact_lookup, load_co_bills  # noqa: E402
+from processing.veteran_impact import (  # noqa: E402
+    build_veteran_impact_lookup,
+    collect_feed_bills_for_veteran_lookup,
+    load_co_bills,
+)
 
 # Handle timezone on Windows (fallback if zoneinfo not available)
 try:
@@ -816,9 +820,11 @@ if normalized_bills:
 # Veteran impact lookup (CO CSV + rule-based fallback)
 # -------------------------
 co_veteran_data = load_co_bills()
+feed_bills_for_veteran = collect_feed_bills_for_veteran_lookup(history, legislation)
 veteran_impact_lookup = build_veteran_impact_lookup(
     co_data=co_veteran_data,
     normalized_bills=normalized_bills,
+    feed_items=feed_bills_for_veteran,
 )
 co_meta = co_veteran_data.get("_meta") or {}
 if veteran_impact_lookup:

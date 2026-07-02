@@ -293,9 +293,63 @@ const CivicWatchHome = (() => {
         return generic ? `${st}|${generic[1]} ${generic[2]}` : `${st}|${num}`;
     }
 
+    const VETERAN_IMPACT_RED_SIGNALS = [
+        'gi bill', 'survivor benefit', 'burial benefit', 'va benefit', 'veterans benefit',
+        'compensation', 'pension', 'dependency indemnity', 'title 38',
+        'va health', 'veterans health', 'veterans affairs', 'ptsd', 'tbi',
+        'mental health', 'suicide prevention', 'post-traumatic',
+        'veteran housing', 'homeless veteran', 'housing voucher', 'shelter veteran',
+        'disability rating', 'service-connected', 'service connected', 'rating schedule',
+        'survivor', 'burial',
+    ];
+    const VETERAN_IMPACT_YELLOW_SIGNALS = [
+        'veteran preference', 'hiring preference', 'employment preference',
+        'military spouse', 'licensing', 'certification', 'apprenticeship',
+        'veterans court', 'veteran court', 'diversion', 'treatment court',
+        'veterans justice', 'justice outreach',
+    ];
+    const VETERAN_IMPACT_GREEN_SIGNALS = [
+        'recognition', 'memorial', 'honor', 'honoring', 'ceremonial', 'commemorative',
+        'designate', 'memorial highway', 'memorial day', 'purple heart day',
+        'resolution honoring', 'honor resolution',
+    ];
+
+    function itemHasVeteranTagging(item) {
+        const tags = []
+            .concat(item.ai_topics || [])
+            .concat(item.classification || [])
+            .concat(item.topics || []);
+        return tags.some((tag) => VETERANS_TOPIC_PATTERN.test(String(tag)));
+    }
+
+    function classifyVeteranImpactFromText(text) {
+        const hay = String(text || '').toLowerCase();
+        if (!hay.trim()) return null;
+
+        const markers = VETERANS_STRONG_KEYWORDS.concat(['title 38', 'gi bill', 'servicemember', 'service member']);
+        const hasMarker = markers.some((m) => hay.includes(m));
+        const hasSignal = VETERAN_IMPACT_RED_SIGNALS.some((kw) => hay.includes(kw))
+            || VETERAN_IMPACT_YELLOW_SIGNALS.some((kw) => hay.includes(kw))
+            || VETERAN_IMPACT_GREEN_SIGNALS.some((kw) => hay.includes(kw));
+        if (!hasMarker && !hasSignal) return null;
+
+        let level = 'green';
+        if (VETERAN_IMPACT_RED_SIGNALS.some((kw) => hay.includes(kw))) level = 'red';
+        else if (VETERAN_IMPACT_YELLOW_SIGNALS.some((kw) => hay.includes(kw))) level = 'yellow';
+        else if (VETERAN_IMPACT_GREEN_SIGNALS.some((kw) => hay.includes(kw))) level = 'green';
+        else if (!hasMarker) return null;
+
+        return { level, source: 'rules', veteran_related: true, factors: [] };
+    }
+
     function resolveVeteranImpact(item) {
         if (item.veteran_impact) return item.veteran_impact;
-        if (!veteranImpactLookup || Object.keys(veteranImpactLookup).length === 0) return null;
+        if (!veteranImpactLookup || Object.keys(veteranImpactLookup).length === 0) {
+            if (itemHasVeteranTagging(item)) {
+                return classifyVeteranImpactFromText(itemVeteransText(item)) || { level: 'green', source: 'rules', veteran_related: true, factors: [] };
+            }
+            return classifyVeteranImpactFromText(itemVeteransText(item));
+        }
 
         const state = inferItemState(item);
         let billNumber = item.bill_number || '';
@@ -303,17 +357,25 @@ const CivicWatchHome = (() => {
             const titleMatch = String(item.title || '').match(/^([A-Za-z]+\s*\d+[A-Za-z]?)\s*:/);
             if (titleMatch) billNumber = titleMatch[1];
         }
-        if (!billNumber) return null;
 
-        const keys = [buildVeteranImpactKey(state, billNumber)];
-        if (state === 'CO') {
-            const slug = normalizeCoBillSlug(billNumber);
-            if (slug) keys.push(`CO|${slug}`);
+        if (billNumber) {
+            const keys = [buildVeteranImpactKey(state, billNumber)];
+            if (state === 'CO') {
+                const slug = normalizeCoBillSlug(billNumber);
+                if (slug) keys.push(`CO|${slug}`);
+            }
+            for (const key of keys) {
+                if (key && veteranImpactLookup[key]) return veteranImpactLookup[key];
+            }
         }
-        for (const key of keys) {
-            if (key && veteranImpactLookup[key]) return veteranImpactLookup[key];
+
+        if (itemHasVeteranTagging(item)) {
+            const tagged = classifyVeteranImpactFromText(itemVeteransText(item));
+            if (tagged) return tagged;
+            return { level: 'green', source: 'rules', veteran_related: true, factors: [] };
         }
-        return null;
+
+        return classifyVeteranImpactFromText(itemVeteransText(item));
     }
 
     function veteranImpactCardClasses(level) {

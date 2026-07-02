@@ -70,10 +70,75 @@ VETERAN_MARKERS = [
     "servicemember", "service member", "title 38", "gi bill",
 ]
 
+VETERAN_TAG_PATTERN = re.compile(
+    r"veteran|veterans|military|armed forces|national guard|servicemember|service member",
+    re.IGNORECASE,
+)
 
-def _might_be_veteran_related(text: str) -> bool:
+BILL_TEXT_FIELDS = (
+    "title", "summary", "latest_action", "short_title", "official_title",
+    "notes", "committee", "last_action",
+)
+
+
+def _item_has_veteran_tagging(item: Optional[Dict[str, Any]]) -> bool:
+    if not item:
+        return False
+    if item.get("veteran_related") is True:
+        return True
+    for field in ("ai_topics", "classification", "topics"):
+        for tag in item.get(field) or []:
+            if VETERAN_TAG_PATTERN.search(str(tag)):
+                return True
+    return False
+
+
+def _bill_text_from_record(record: Dict[str, Any]) -> str:
+    return " ".join(str(record.get(field, "") or "") for field in BILL_TEXT_FIELDS)
+
+
+def _might_be_veteran_related(text: str, item: Optional[Dict[str, Any]] = None) -> bool:
+    if _item_has_veteran_tagging(item):
+        return True
     text_lower = (text or "").lower()
-    return any(marker in text_lower for marker in VETERAN_MARKERS)
+    if any(marker in text_lower for marker in VETERAN_MARKERS):
+        return True
+    return any(kw in text_lower for kw in RED_SIGNALS + YELLOW_SIGNALS + GREEN_SIGNALS)
+
+
+def infer_item_state(item: Dict[str, Any]) -> str:
+    """Infer state code or 'Federal' from a feed or bill record."""
+    if item.get("level") == "federal":
+        return "Federal"
+    if item.get("state"):
+        return str(item["state"]).upper()
+    src = (item.get("source") or "").lower()
+    if any(token in src for token in ("congress", "federal", "u.s.")):
+        return "Federal"
+    for code, name in (
+        ("KS", "kansas"), ("CO", "colorado"), ("AZ", "arizona"),
+        ("UT", "utah"), ("ME", "maine"),
+    ):
+        if name in src:
+            return code
+    return ""
+
+
+def _extract_bill_number(record: Dict[str, Any]) -> str:
+    bill_number = (record.get("bill_number") or "").strip()
+    if bill_number and re.search(r"\d", bill_number):
+        return bill_number
+    bill_type = (record.get("bill_type") or "").strip()
+    bill_num = str(record.get("number") or bill_number or "").strip()
+    if bill_type and bill_num:
+        combined = f"{bill_type} {bill_num}".strip()
+        if re.search(r"\d", combined):
+            return combined
+    title = record.get("title") or ""
+    match = re.match(r"^([A-Za-z]+\s*\d+[A-Za-z]?)\s*:", title)
+    if match:
+        return match.group(1).strip()
+    return bill_num
 
 
 def normalize_co_csv_bill_number(bill_number: str) -> Tuple[str, str]:
@@ -151,11 +216,7 @@ def classify_veteran_impact(
     if not text_lower.strip():
         return None
 
-    veteran_markers = [
-        "veteran", "veterans", "military", "armed forces", "national guard",
-        "servicemember", "service member", "title 38", "gi bill",
-    ]
-    if not any(marker in text_lower for marker in veteran_markers):
+    if not any(marker in text_lower for marker in VETERAN_MARKERS):
         if not any(kw in text_lower for kw in RED_SIGNALS + YELLOW_SIGNALS):
             return None
 
@@ -166,7 +227,7 @@ def classify_veteran_impact(
         level = "yellow"
     elif any(kw in text_lower for kw in GREEN_SIGNALS):
         level = "green"
-    elif "veteran" in text_lower or "military" in text_lower:
+    elif any(marker in text_lower for marker in VETERAN_MARKERS):
         level = "green"
     else:
         return None
@@ -191,14 +252,86 @@ def load_co_bills(path: Optional[Path] = None) -> Dict[str, Any]:
     return data
 
 
+def _store_lookup_entry(
+    lookup: Dict[str, Dict[str, Any]],
+    state: Optional[str],
+    bill_number: str,
+    entry: Dict[str, Any],
+) -> None:
+    """Store lookup entry under normalized and alias keys."""
+    if not bill_number:
+        return
+    st = str(state or "Federal").upper()
+    lookup_state = None if st == "FEDERAL" else st
+    keys = [build_bill_lookup_key(lookup_state, bill_number)]
+    if st == "CO":
+        slug, _ = normalize_co_csv_bill_number(bill_number)
+        keys.append(f"CO|{slug.upper()}")
+    for key in keys:
+        if key and key not in lookup:
+            lookup[key] = entry
+
+
+def _classify_bill_record(
+    record: Dict[str, Any],
+    csv_level: Optional[str] = None,
+) -> Optional[Dict[str, Any]]:
+    text = _bill_text_from_record(record)
+    if not _might_be_veteran_related(text, record):
+        return None
+    classified = classify_veteran_impact(text, csv_level=csv_level)
+    if not classified and _item_has_veteran_tagging(record):
+        classified = classify_veteran_impact(text)
+    return classified
+
+
+def collect_feed_bills_for_veteran_lookup(
+    history_items: Optional[List[Dict[str, Any]]] = None,
+    legislation_items: Optional[List[Dict[str, Any]]] = None,
+) -> List[Dict[str, Any]]:
+    """Collect bill-like feed records for veteran impact classification."""
+    seen: set = set()
+    feed_bills: List[Dict[str, Any]] = []
+
+    def add_item(item: Dict[str, Any]) -> None:
+        bill_number = _extract_bill_number(item)
+        if not bill_number:
+            return
+        dedup_key = (
+            (item.get("state") or item.get("source") or ""),
+            bill_number.upper(),
+            item.get("link") or item.get("url") or "",
+        )
+        if dedup_key in seen:
+            return
+        seen.add(dedup_key)
+        feed_bills.append(item)
+
+    for item in history_items or []:
+        if item.get("feed") == "conference_committees":
+            continue
+        add_item(item)
+
+    for bill in legislation_items or []:
+        add_item({
+            **bill,
+            "bill_number": f"{bill.get('bill_type', '')} {bill.get('bill_number', '')}".strip(),
+            "source": "Congress.gov API",
+            "level": "federal",
+        })
+
+    return feed_bills
+
+
 def build_veteran_impact_lookup(
     co_data: Optional[Dict[str, Any]] = None,
     normalized_bills: Optional[List[Dict[str, Any]]] = None,
+    feed_items: Optional[List[Dict[str, Any]]] = None,
 ) -> Dict[str, Dict[str, Any]]:
     """
     Build frontend lookup map keyed by state|bill_number.
 
-    CO bills use CSV as source of truth; other states use keyword rules.
+    CO bills use CSV as source of truth; other states and federal use keyword rules.
     """
     lookup: Dict[str, Dict[str, Any]] = {}
 
@@ -209,13 +342,7 @@ def build_veteran_impact_lookup(
         level = (record.get("impact_level") or "").strip().lower()
         if level not in IMPACT_LEVELS and not record.get("veteran_related"):
             continue
-        text = " ".join(
-            str(record.get(field, "") or "")
-            for field in ("title", "notes", "committee", "last_action")
-        )
-        classified = classify_veteran_impact(text, csv_level=level or None)
-        if not classified and record.get("veteran_related"):
-            classified = classify_veteran_impact(text)
+        classified = _classify_bill_record(record, csv_level=level or None)
         if not classified:
             continue
 
@@ -231,54 +358,35 @@ def build_veteran_impact_lookup(
         lookup[f"CO|{slug.upper()}"] = entry
         norm = record.get("bill_number_norm") or ""
         if norm:
-            lookup[build_bill_lookup_key("CO", norm)] = entry
+            _store_lookup_entry(lookup, "CO", norm, entry)
 
-    if not normalized_bills:
-        return lookup
-
-    for bill in normalized_bills:
-        state = bill.get("state")
-        if not state or str(state).upper() == "CO":
+    for bill in (normalized_bills or []) + (feed_items or []):
+        state = infer_item_state(bill)
+        bill_number = _extract_bill_number(bill)
+        if not bill_number:
             continue
-        text = " ".join(
-            str(bill.get(field, "") or "")
-            for field in ("title", "summary", "latest_action")
+        if state == "CO":
+            continue
+
+        is_federal = (
+            bill.get("level") == "federal"
+            or state == "Federal"
+            or (not bill.get("state") and state == "Federal")
         )
-        if not _might_be_veteran_related(text):
+        if not is_federal and not state:
             continue
-        classified = classify_veteran_impact(text)
+
+        classified = _classify_bill_record(bill)
         if not classified:
             continue
-        key = build_bill_lookup_key(state, bill.get("bill_number", ""))
-        if key in lookup:
-            continue
-        lookup[key] = {
-            **classified,
-            "title": bill.get("title", ""),
-            "bill_number_norm": bill.get("bill_number", ""),
-        }
 
-    # Federal bills from normalized data
-    for bill in normalized_bills:
-        if bill.get("level") != "federal" and bill.get("state"):
-            continue
-        text = " ".join(
-            str(bill.get(field, "") or "")
-            for field in ("title", "summary", "latest_action")
-        )
-        if not _might_be_veteran_related(text):
-            continue
-        classified = classify_veteran_impact(text)
-        if not classified:
-            continue
-        key = build_bill_lookup_key(None, bill.get("bill_number", ""))
-        if key in lookup:
-            continue
-        lookup[key] = {
+        entry = {
             **classified,
-            "title": bill.get("title", ""),
-            "bill_number_norm": bill.get("bill_number", ""),
+            "title": bill.get("title", "") or bill.get("short_title", ""),
+            "bill_number_norm": bill_number,
         }
+        lookup_state = None if is_federal else state
+        _store_lookup_entry(lookup, lookup_state, bill_number, entry)
 
     return lookup
 
@@ -291,33 +399,14 @@ def resolve_veteran_impact_for_item(
     if item.get("veteran_impact"):
         return item["veteran_impact"]
 
-    state = item.get("state") or ""
-    if not state:
-        src = (item.get("source") or "").lower()
-        if "congress" in src or "federal" in src:
-            state = "Federal"
-        elif "colorado" in src:
-            state = "CO"
-        elif "kansas" in src:
-            state = "KS"
-
-    bill_number = item.get("bill_number") or ""
-    if not bill_number:
-        title = item.get("title") or ""
-        match = re.match(r"^([A-Za-z]+\s*\d+[A-Za-z]?)\s*:", title)
-        if match:
-            bill_number = match.group(1)
-
+    state = infer_item_state(item)
+    bill_number = _extract_bill_number(item)
     if not bill_number:
         return None
 
-    st = "Federal" if str(state).lower() in ("federal", "us", "") and (
-        "congress" in (item.get("source") or "").lower()
-        or item.get("level") == "federal"
-    ) else str(state).upper()
-
-    keys = [build_bill_lookup_key(st if st != "FEDERAL" else None, bill_number)]
-    if st == "CO":
+    is_federal = state == "Federal" or item.get("level") == "federal"
+    keys = [build_bill_lookup_key(None if is_federal else state, bill_number)]
+    if state == "CO":
         slug, _ = normalize_co_csv_bill_number(bill_number)
         keys.append(f"CO|{slug.upper()}")
 
@@ -326,8 +415,9 @@ def resolve_veteran_impact_for_item(
         if hit:
             return hit
 
-    text = " ".join(
-        str(item.get(field, "") or "")
-        for field in ("title", "summary", "latest_action", "short_title")
-    )
-    return classify_veteran_impact(text)
+    if _item_has_veteran_tagging(item):
+        classified = classify_veteran_impact(_bill_text_from_record(item))
+        if classified:
+            return classified
+
+    return classify_veteran_impact(_bill_text_from_record(item))
