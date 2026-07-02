@@ -189,9 +189,28 @@ let allUpcomingHearings = [];
 let allHistoricalHearings = [];
 let kansasCalendarsByDate = {}; // { "2025-01-13": [ { chamber, title, link }, ... ] }
 
+const HEARING_DATE_KEY_LABELS = {
+    "on-call": "On Call — No Scheduled Date",
+    unknown: "Date To Be Determined",
+};
+
+function hearingDateKey(hearing) {
+    const scheduled = (hearing.scheduled_date || "").trim();
+    if (!scheduled) {
+        return hearing.interim_placeholder ? "on-call" : "unknown";
+    }
+    return scheduled.split("T")[0];
+}
+
 function formatDate(dateStr) {
+    if (!dateStr || HEARING_DATE_KEY_LABELS[dateStr]) {
+        return HEARING_DATE_KEY_LABELS[dateStr] || "Date To Be Determined";
+    }
     try {
         const date = new Date(dateStr + "T00:00:00");
+        if (isNaN(date.getTime())) {
+            return dateStr;
+        }
         return date.toLocaleDateString("en-US", {
             weekday: "long",
             year: "numeric",
@@ -206,8 +225,10 @@ function formatDate(dateStr) {
 
 function getYearFromDate(dateStr) {
     try {
-        if (!dateStr) return "";
-        const date = new Date(dateStr + "T00:00:00");
+        if (!dateStr || HEARING_DATE_KEY_LABELS[dateStr]) return "";
+        const dateKey = dateStr.split("T")[0];
+        const date = new Date(dateKey + "T00:00:00");
+        if (isNaN(date.getTime())) return "";
         return date.getFullYear().toString();
     } catch {
         return "";
@@ -247,7 +268,7 @@ function filterHearings(hearings, stateFilter, yearFilter, committeeFilter) {
         
         // Filter by year
         if (yearFilter) {
-            const year = getYearFromDate(hearing.scheduled_date);
+            const year = getYearFromDate(hearingDateKey(hearing));
             if (year !== yearFilter) {
                 return false;
             }
@@ -273,7 +294,7 @@ function populateYearFilters(hearings, filterId) {
     const years = new Set();
     
     hearings.forEach(hearing => {
-        const year = getYearFromDate(hearing.scheduled_date);
+        const year = getYearFromDate(hearingDateKey(hearing));
         if (year) {
             years.add(year);
         }
@@ -347,7 +368,7 @@ function renderHearings(hearings, container, emptyMessage, stateFilter = "", yea
     // Group hearings by date
     const groupedByDate = {};
     filtered.forEach(hearing => {
-        const dateKey = hearing.scheduled_date ? hearing.scheduled_date.split("T")[0] : "unknown";
+        const dateKey = hearingDateKey(hearing);
         if (!groupedByDate[dateKey]) {
             groupedByDate[dateKey] = [];
         }
