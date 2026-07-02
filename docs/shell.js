@@ -12,6 +12,7 @@
     { id: 'dashboard', label: 'Dashboards', shortLabel: 'Dash', href: 'dashboard.html' },
     { id: 'legislators', label: 'Legislators', shortLabel: 'Legislators', href: 'legislators.html' },
     { id: 'map', label: 'District Map', shortLabel: 'Map', href: 'district-map.html' },
+    { id: 'veterans', label: 'Veterans Impact', shortLabel: 'Veterans', href: 'veterans-impact.html' },
   ];
 
   var FOOTER_TEXT =

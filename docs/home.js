@@ -47,6 +47,36 @@ const CivicWatchHome = (() => {
         green: 'bg-green-100 text-green-900 border-green-200',
     };
 
+    const VETERANS_IMPACT_FILTER_BUTTONS = {
+        all: {
+            id: 'veterans-filter-btn',
+            active: ['border-amber-500', 'bg-amber-500', 'text-white'],
+            inactive: ['border-slate-200', 'bg-white', 'text-slate-700'],
+        },
+        red: {
+            id: 'veterans-filter-red-btn',
+            active: ['border-red-600', 'bg-red-600', 'text-white'],
+            inactive: ['border-red-200', 'bg-red-50', 'text-red-900'],
+        },
+        yellow: {
+            id: 'veterans-filter-yellow-btn',
+            active: ['border-amber-500', 'bg-amber-500', 'text-white'],
+            inactive: ['border-amber-200', 'bg-amber-50', 'text-amber-900'],
+        },
+        green: {
+            id: 'veterans-filter-green-btn',
+            active: ['border-green-600', 'bg-green-600', 'text-white'],
+            inactive: ['border-green-200', 'bg-green-50', 'text-green-900'],
+        },
+    };
+
+    const VETERANS_IMPACT_FILTER_LABELS = {
+        all: 'Military / Veterans',
+        red: 'Red — High impact',
+        yellow: 'Yellow — Moderate impact',
+        green: 'Green — Ceremonial / general',
+    };
+
     let callbacks = {};
     let veteranImpactLookup = {};
 
@@ -389,26 +419,32 @@ const CivicWatchHome = (() => {
         return '';
     }
 
+    function setVeteransImpactFilter(level) {
+        const activeLevel = level || null;
+        Object.entries(VETERANS_IMPACT_FILTER_BUTTONS).forEach(([key, config]) => {
+            const btn = document.getElementById(config.id);
+            if (!btn) return;
+            const isActive = activeLevel === key;
+            btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            config.active.forEach((cls) => btn.classList.toggle(cls, isActive));
+            config.inactive.forEach((cls) => btn.classList.toggle(cls, !isActive));
+        });
+    }
+
     function setVeteransFilterActive(active) {
-        const btn = document.getElementById('veterans-filter-btn');
-        if (!btn) return;
-        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
-        btn.classList.toggle('border-amber-500', active);
-        btn.classList.toggle('bg-amber-500', active);
-        btn.classList.toggle('text-white', active);
-        btn.classList.toggle('border-slate-200', !active);
-        btn.classList.toggle('bg-white', !active);
-        btn.classList.toggle('text-slate-700', !active);
+        setVeteransImpactFilter(active ? 'all' : null);
     }
 
     function initVeteransFilter() {
-        const btn = document.getElementById('veterans-filter-btn');
-        if (!btn) return;
-
-        btn.addEventListener('click', () => {
-            const next = btn.getAttribute('aria-pressed') !== 'true';
-            setVeteransFilterActive(next);
-            if (callbacks.onVeteransFilter) callbacks.onVeteransFilter(next);
+        Object.entries(VETERANS_IMPACT_FILTER_BUTTONS).forEach(([level, config]) => {
+            const btn = document.getElementById(config.id);
+            if (!btn) return;
+            btn.addEventListener('click', () => {
+                const isActive = btn.getAttribute('aria-pressed') === 'true';
+                const next = isActive ? null : level;
+                setVeteransImpactFilter(next);
+                if (callbacks.onVeteransImpactFilter) callbacks.onVeteransImpactFilter(next);
+            });
         });
     }
 
@@ -455,8 +491,12 @@ const CivicWatchHome = (() => {
         if (filters.search) {
             pills.push({ key: 'search', label: `Search: "${filters.search}"`, value: filters.search });
         }
-        if (filters.veterans) {
-            pills.push({ key: 'veterans', label: 'Military / Veterans', value: 'true' });
+        if (filters.veteransImpact) {
+            pills.push({
+                key: 'veterans',
+                label: VETERANS_IMPACT_FILTER_LABELS[filters.veteransImpact] || 'Military / Veterans',
+                value: filters.veteransImpact,
+            });
         }
 
         if (pills.length === 0) {
@@ -483,7 +523,13 @@ const CivicWatchHome = (() => {
         const impact = resolveVeteranImpact(item);
         const card = document.createElement('article');
         const impactClasses = impact ? veteranImpactCardClasses(impact.level) : '';
-        card.className = `bill-card p-4 rounded-lg border transition-all ${impactClasses || 'bg-white border-slate-200 hover:border-civic-blue/40 hover:shadow-sm'}`;
+        card.className = `bill-card p-4 rounded-lg border transition-all ${impact ? `veteran-impact-card veteran-impact-card--${impact.level} ` : ''}${impactClasses || 'bg-white border-slate-200 hover:border-civic-blue/40 hover:shadow-sm'}`;
+        const titleClass = impact
+            ? 'veteran-impact-title block text-base font-semibold transition-colors'
+            : 'block text-base font-semibold text-civic-navy hover:text-civic-blue transition-colors';
+        const metaLinkClass = impact
+            ? 'veteran-impact-link'
+            : 'text-civic-blue';
 
         const state = inferItemState(item);
         const displayTitle = item.short_title || item.title || '(no title)';
@@ -504,14 +550,14 @@ const CivicWatchHome = (() => {
 
         if (item.bill_number) {
             const billNum = document.createElement('span');
-            billNum.className = 'text-xs font-semibold text-civic-blue';
+            billNum.className = `text-xs font-semibold ${impact ? metaLinkClass : 'text-civic-blue'}`;
             billNum.textContent = item.bill_number;
             header.appendChild(billNum);
         }
 
         if (impact) {
             const impactBadge = document.createElement('span');
-            impactBadge.className = `inline-block px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide border ${VETERAN_IMPACT_BADGE[impact.level] || 'bg-slate-100 text-slate-700 border-slate-200'}`;
+            impactBadge.className = `veteran-impact-badge inline-block px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide border ${VETERAN_IMPACT_BADGE[impact.level] || 'bg-slate-100 text-slate-700 border-slate-200'}`;
             impactBadge.textContent = impact.level;
             impactBadge.title = veteranImpactLabel(impact.level);
             header.appendChild(impactBadge);
@@ -525,7 +571,7 @@ const CivicWatchHome = (() => {
         if (hasVoteRecords) {
             const titleBtn = document.createElement('button');
             titleBtn.type = 'button';
-            titleBtn.className = 'block text-left w-full text-base font-semibold text-civic-navy hover:text-civic-blue transition-colors';
+            titleBtn.className = `text-left w-full ${titleClass}`;
             if (searchQuery) {
                 const regex = new RegExp(`(${escapeRegex(searchQuery)})`, 'gi');
                 titleBtn.innerHTML = highlightSafe(displayTitle, regex);
@@ -539,7 +585,7 @@ const CivicWatchHome = (() => {
             titleLink.href = officialUrl || url;
             titleLink.target = '_blank';
             titleLink.rel = 'noopener noreferrer';
-            titleLink.className = 'block text-base font-semibold text-civic-navy hover:text-civic-blue transition-colors';
+            titleLink.className = titleClass;
             if (searchQuery) {
                 const regex = new RegExp(`(${escapeRegex(searchQuery)})`, 'gi');
                 titleLink.innerHTML = highlightSafe(displayTitle, regex);
@@ -553,7 +599,9 @@ const CivicWatchHome = (() => {
         const showSummary = summaryText.trim() && summaryText !== displayTitle;
         if (showSummary) {
             const summary = document.createElement('p');
-            summary.className = 'text-sm text-slate-600 mt-2 line-clamp-2 leading-relaxed';
+            summary.className = impact
+                ? 'veteran-impact-summary text-sm mt-2 line-clamp-2 leading-relaxed'
+                : 'text-sm text-slate-600 mt-2 line-clamp-2 leading-relaxed';
             if (searchQuery) {
                 const regex = new RegExp(`(${escapeRegex(searchQuery)})`, 'gi');
                 summary.innerHTML = highlightSafe(summaryText, regex);
@@ -570,7 +618,7 @@ const CivicWatchHome = (() => {
             officialLink.href = officialUrl;
             officialLink.target = '_blank';
             officialLink.rel = 'noopener noreferrer';
-            officialLink.className = 'text-xs text-civic-blue hover:underline inline-flex items-center gap-1';
+            officialLink.className = `text-xs hover:underline inline-flex items-center gap-1 ${impact ? metaLinkClass : 'text-civic-blue'}`;
             officialLink.innerHTML = `
                 Official source
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -613,6 +661,15 @@ const CivicWatchHome = (() => {
         if (Array.isArray(item.classification)) parts.push(item.classification.join(' '));
         if (Array.isArray(item.ai_topics)) parts.push(item.ai_topics.join(' '));
         return parts.filter(Boolean).join(' ');
+    }
+
+    function itemMatchesVeteransImpactFilter(item, level) {
+        if (!level) return true;
+        const impact = resolveVeteranImpact(item);
+        if (level === 'red' || level === 'yellow' || level === 'green') {
+            return Boolean(impact && impact.level === level);
+        }
+        return itemMatchesVeteransFilter(item);
     }
 
     function itemMatchesVeteransFilter(item) {
@@ -688,7 +745,7 @@ const CivicWatchHome = (() => {
     }
 
     function renderFeedDay(date, items, options) {
-        const { searchQuery, veteransFilterActive } = options;
+        const { searchQuery, veteransImpactFilter } = options;
         const section = document.createElement('section');
         section.className = 'feed-day mb-6';
         section.setAttribute('aria-label', `Updates for ${date}`);
@@ -708,7 +765,7 @@ const CivicWatchHome = (() => {
 
         if (legislative.length === 0 && meta.length === 0) return null;
 
-        const veteransCallout = veteransFilterActive ? null : renderVeteransCallout(legislative);
+        const veteransCallout = veteransImpactFilter ? null : renderVeteransCallout(legislative);
         if (veteransCallout) card.appendChild(veteransCallout);
 
         const byState = {};
@@ -811,6 +868,7 @@ const CivicWatchHome = (() => {
         init,
         setSelectedState,
         setVeteransFilterActive,
+        setVeteransImpactFilter,
         setVeteranImpactLookup,
         updateActiveFilterPills,
         renderFeedDay,
@@ -820,6 +878,7 @@ const CivicWatchHome = (() => {
         inferItemState,
         isMetaItem,
         itemMatchesVeteransFilter,
+        itemMatchesVeteransImpactFilter,
         resolveVeteranImpact,
         fetchWeeklyCounts,
         formatDate,

@@ -155,6 +155,7 @@ jobs:
             exit 0
           fi
           git reset --soft origin/main
+          git checkout origin/main -- docs/
           git checkout origin/main -- data/openstates
           git add $GENERATED
           git commit -m "Automated CivicWatch update"
@@ -164,6 +165,8 @@ jobs:
             fi
             git fetch origin main
             git reset --soft origin/main
+            git checkout origin/main -- docs/
+            git checkout origin/main -- data/openstates
             git add $GENERATED
             git commit -m "Automated CivicWatch update"
             sleep $((attempt * 15))

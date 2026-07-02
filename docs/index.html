@@ -138,10 +138,22 @@ tailwind.config = {
                 <div id="state-chips" class="flex gap-2 overflow-x-auto pb-3 mb-4" role="group" aria-label="Filter by state"></div>
 
                 <!-- Topic filters -->
-                <div class="flex flex-wrap gap-2 mb-4" role="group" aria-label="Topic filters">
-                    <button type="button" id="veterans-filter-btn" class="px-4 py-2 rounded-full text-sm font-medium border-2 border-slate-200 bg-white text-slate-700 hover:border-amber-500 transition-colors whitespace-nowrap" aria-pressed="false">
-                        Military / Veterans
-                    </button>
+                <div class="flex flex-wrap items-center gap-2 mb-4">
+                    <div role="group" aria-label="Military and veterans impact filters" class="flex flex-wrap gap-2">
+                        <button type="button" id="veterans-filter-btn" class="px-4 py-2 rounded-full text-sm font-medium border-2 border-slate-200 bg-white text-slate-700 hover:border-amber-500 transition-colors whitespace-nowrap" aria-pressed="false">
+                            Military / Veterans
+                        </button>
+                        <button type="button" id="veterans-filter-red-btn" class="px-4 py-2 rounded-full text-sm font-medium border-2 border-red-200 bg-red-50 text-red-900 hover:border-red-400 transition-colors whitespace-nowrap" aria-pressed="false" title="High impact — benefits, healthcare, housing, disability">
+                            Red
+                        </button>
+                        <button type="button" id="veterans-filter-yellow-btn" class="px-4 py-2 rounded-full text-sm font-medium border-2 border-amber-200 bg-amber-50 text-amber-900 hover:border-amber-400 transition-colors whitespace-nowrap" aria-pressed="false" title="Moderate impact — employment, licensing, courts, mental health">
+                            Yellow
+                        </button>
+                        <button type="button" id="veterans-filter-green-btn" class="px-4 py-2 rounded-full text-sm font-medium border-2 border-green-200 bg-green-50 text-green-900 hover:border-green-400 transition-colors whitespace-nowrap" aria-pressed="false" title="Ceremonial / general — recognition, memorials, honor resolutions">
+                            Green
+                        </button>
+                    </div>
+                    <a href="veterans-impact.html" class="text-xs text-civic-blue hover:underline whitespace-nowrap">What do Red / Yellow / Green mean?</a>
                 </div>
 
                 <!-- Search Bar -->
