@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Veterans Impact Guide — CivicWatch</title>
+<title>About — CivicWatch</title>
 <link rel="stylesheet" href="theme.css" />
 <link rel="stylesheet" href="sr-only.css" />
 <script src="theme.js"></script>
@@ -37,7 +37,7 @@ tailwind.config = {
 }
 </script>
 </head>
-<body class="cw-page-bg min-h-screen" data-cw-page="veterans">
+<body class="cw-page-bg min-h-screen" data-cw-page="about">
 <div id="cw-page-wrapper" class="max-w-6xl mx-auto px-4 py-4">
 <main id="cw-main-content">
     <div class="cw-card shadow-xl">
@@ -49,7 +49,7 @@ tailwind.config = {
                         <h1 class="text-3xl font-bold">
                             <span class="text-white">Civic</span><span class="text-civic-gold">Watch</span>
                         </h1>
-                        <p class="cw-text-on-header-muted text-sm mt-1">Veterans &amp; Military Impact Guide</p>
+                        <p class="cw-text-on-header-muted text-sm mt-1">About CivicWatch</p>
                     </div>
                 </div>
                 <div data-cw-theme-toggle></div>
@@ -57,6 +57,51 @@ tailwind.config = {
         </div>
 
         <div class="p-6 md:p-8 space-y-8">
+            <section>
+                <h2 class="text-2xl font-bold text-civic-navy mb-3">About CivicWatch</h2>
+                <p class="text-slate-600 leading-relaxed">
+                    CivicWatch is a civic-legislation tracker that brings together bill activity, committee hearings,
+                    and live legislative streams from Kansas, Colorado, Arizona, Utah, Maine, and the U.S. Congress in
+                    one place. Instead of checking a dozen separate state and federal sites, you can follow what
+                    lawmakers are doing from a single homepage feed.
+                </p>
+                <p class="text-slate-600 leading-relaxed mt-3">
+                    The site pulls from official sources — Open States, Congress.gov, state RSS feeds, and public
+                    hearing calendars — and refreshes on a regular schedule so you can see recent actions, search across
+                    jurisdictions, and filter by state or topic. Hearings, dashboards, legislator lookup, and a district
+                    map round out the tools for staying oriented during a legislative session.
+                </p>
+                <p class="text-slate-600 leading-relaxed mt-3">
+                    CivicWatch also highlights military- and veteran-related bills with a simple
+                    <strong>Red</strong>, <strong>Yellow</strong>, and <strong>Green</strong> impact system so you can
+                    quickly tell which measures may materially affect benefits and services versus ceremonial or general
+                    mentions. That classification guide is explained in the sections below.
+                </p>
+                <p class="text-slate-600 leading-relaxed mt-3">
+                    CivicWatch is a volunteer project built for transparency and ease of use. Impact labels and summaries
+                    are automated triage signals — not legal advice. Always review the full bill text and official analysis
+                    before drawing conclusions.
+                </p>
+            </section>
+
+            <section class="rounded-xl border p-5 bg-slate-50" style="border-color: var(--cw-border); background: var(--cw-surface-muted);">
+                <h2 class="text-xl font-bold text-civic-navy mb-4">Contributors</h2>
+                <ul class="space-y-4">
+                    <li>
+                        <p class="font-semibold text-slate-800">Austin Emberlin</p>
+                        <p class="text-sm text-slate-500 mt-0.5">Lead Developer</p>
+                        <p class="text-slate-600 text-sm leading-relaxed mt-1">
+                            Built and maintains CivicWatch — the data pipelines, website, and multi-state feed that
+                            power the project.
+                        </p>
+                    </li>
+                    <li>
+                        <p class="font-semibold text-slate-800">Adam Gillard</p>
+                        <p class="text-sm text-slate-500 mt-0.5">Content Contributor (Red/Yellow/Green framework)</p>
+                    </li>
+                </ul>
+            </section>
+
             <section>
                 <h2 class="text-2xl font-bold text-civic-navy mb-3">How CivicWatch classifies veteran-related bills</h2>
                 <p class="text-slate-600 leading-relaxed">
@@ -167,6 +212,6 @@ tailwind.config = {
 </main>
 </div>
 <script src="shell.js"></script>
-<script>CivicWatchShell.init({ page: 'veterans' });</script>
+<script>CivicWatchShell.init({ page: 'about' });</script>
 </body>
 </html>
