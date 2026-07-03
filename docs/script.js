@@ -1,5 +1,6 @@
 let currentYear = null;
-let currentPage = 0;  // Now represents 7-day chunk index (0 = most recent 7 days)
+let currentPage = 0;  // Time-chunk index (0 = most recent period)
+let currentItemPage = 0;  // Item page within a time chunk (veterans filters only)
 let allData = null;
 let searchQuery = "";
 let searchMode = false;
@@ -8,7 +9,8 @@ let selectedSource = "";
 let selectedCategory = "";
 let selectedState = "";
 let veteransImpactFilter = null;
-const DAYS_PER_CHUNK = 7;  // Show 7 days per "page"
+const DAYS_PER_CHUNK = 14;  // Show 2 weeks per "page"
+const VETERANS_FEED_ITEM_LIMIT = 100;
 
 function a11yAnnounce(message) {
     if (window.CivicWatchA11y && typeof CivicWatchA11y.announce === "function" && message) {
@@ -187,6 +189,7 @@ async function loadData() {
             document.getElementById("search-input").value = "";
             currentYear = year;
             currentPage = 0;
+            currentItemPage = 0;
             displayUnifiedView(year, 0);
         };
         yearTabs.appendChild(btn);
@@ -253,6 +256,7 @@ function setupFilters() {
             selectedState = stateFilter.value;
             if (typeof CivicWatchHome !== "undefined") CivicWatchHome.setSelectedState(selectedState);
             currentPage = 0;
+            currentItemPage = 0;
             refreshView();
             a11yAnnounce("State filter applied.");
         });
@@ -284,6 +288,7 @@ function setupFilters() {
     sourceFilter.addEventListener("change", () => {
         selectedSource = sourceFilter.value;
         currentPage = 0;
+        currentItemPage = 0;
         refreshView();
         a11yAnnounce("Source filter applied.");
     });
@@ -291,6 +296,7 @@ function setupFilters() {
     categoryFilter.addEventListener("change", () => {
         selectedCategory = categoryFilter.value;
         currentPage = 0;
+        currentItemPage = 0;
         refreshView();
         a11yAnnounce("Category filter applied.");
     });
@@ -303,16 +309,38 @@ function setupFilters() {
             selectedSource = "";
             selectedCategory = "";
             currentPage = 0;
+            currentItemPage = 0;
             refreshView();
         };
     }
 }
 
+function getFeedItemLimit() {
+    return veteransImpactFilter ? VETERANS_FEED_ITEM_LIMIT : null;
+}
+
+function paginateFeedItems(items) {
+    const limit = getFeedItemLimit();
+    if (!limit || items.length <= limit) {
+        return { items, totalItems: items.length, totalItemPages: 1, startIndex: 0 };
+    }
+    const totalItemPages = Math.ceil(items.length / limit);
+    const effectiveItemPage = Math.min(currentItemPage, totalItemPages - 1);
+    if (effectiveItemPage !== currentItemPage) currentItemPage = effectiveItemPage;
+    const startIndex = effectiveItemPage * limit;
+    return {
+        items: items.slice(startIndex, startIndex + limit),
+        totalItems: items.length,
+        totalItemPages,
+        startIndex,
+    };
+}
+
 function getDateRangeForChunk(chunkIndex) {
     /**
-     * Calculate the date range for a 7-day chunk.
-     * chunkIndex 0 = most recent 7 days
-     * chunkIndex 1 = previous 7 days (days 8-14)
+     * Calculate the date range for a 14-day chunk.
+     * chunkIndex 0 = most recent 2 weeks
+     * chunkIndex 1 = previous 2 weeks
      * etc.
      */
     const now = new Date();
@@ -478,7 +506,7 @@ function recentWeekHasNoActivity(year) {
 
 function feedFallbackNotice(dateRange) {
     const rangeLabel = `${formatDate(dateRange.start)} – ${formatDate(dateRange.end)}`;
-    return `No activity in the last 7 days — showing ${rangeLabel}`;
+    return `No activity in the last 2 weeks — showing ${rangeLabel}`;
 }
 
 function displayUnifiedView(year, chunkIndex) {
@@ -509,20 +537,24 @@ function displayUnifiedView(year, chunkIndex) {
     let dateRange = getDateRangeForChunk(effectiveChunkIndex);
     let allItems = getFeedItemsForDateRange(yearData, dateRange);
 
-    // When the current week is empty, fall back to the most recent 7-day window with data
+    // When the current period is empty, fall back to the most recent 2-week window with data
     if (chunkIndex === 0 && allItems.length === 0) {
         const fallbackChunk = findFirstNonEmptyChunkIndex(year, totalChunks);
         if (fallbackChunk > 0) {
             effectiveChunkIndex = fallbackChunk;
             currentPage = fallbackChunk;
+            currentItemPage = 0;
             dateRange = getDateRangeForChunk(effectiveChunkIndex);
             allItems = getFeedItemsForDateRange(yearData, dateRange);
         }
     }
 
+    const pagination = paginateFeedItems(allItems);
+    const pageItems = pagination.items;
+
     // Group by date (flat list per day)
     const itemsByDate = {};
-    allItems.forEach(item => {
+    pageItems.forEach(item => {
         const date = item.date || (item.published ? item.published.split("T")[0] : "");
         if (!date) return;
         if (!itemsByDate[date]) itemsByDate[date] = [];
@@ -534,13 +566,23 @@ function displayUnifiedView(year, chunkIndex) {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    const showFallbackNote = recentWeekHasNoActivity(year) && allItems.length > 0;
+    const showFallbackNote = recentWeekHasNoActivity(year) && pageItems.length > 0;
     if (showFallbackNote) {
         const notice = document.createElement("p");
         notice.className = "text-sm text-slate-500 text-center mb-4 italic";
         notice.setAttribute("role", "status");
         notice.textContent = feedFallbackNotice(dateRange);
         container.appendChild(notice);
+    }
+
+    if (pagination.totalItemPages > 1) {
+        const startNum = pagination.startIndex + 1;
+        const endNum = pagination.startIndex + pageItems.length;
+        const itemNotice = document.createElement("p");
+        itemNotice.className = "text-sm text-slate-500 text-center mb-4";
+        itemNotice.setAttribute("role", "status");
+        itemNotice.textContent = `Showing ${startNum}–${endNum} of ${pagination.totalItems} results`;
+        container.appendChild(itemNotice);
     }
 
     let renderedDays = 0;
@@ -568,7 +610,7 @@ function displayUnifiedView(year, chunkIndex) {
     setContentBusy(false);
     updateFilterPills();
 
-    renderPagination(year, effectiveChunkIndex, totalChunks, dateRange);
+    renderPagination(year, effectiveChunkIndex, totalChunks, dateRange, pagination);
 }
 
 function performSearch(query) {
@@ -754,56 +796,96 @@ function formatDate(dateStr) {
     }
 }
 
-function renderPagination(year, current, total, dateRange) {
+function renderPagination(year, current, total, dateRange, itemPagination) {
     const container = document.getElementById("pagination");
     container.innerHTML = "";
 
-    if (total <= 1) return;
+    const itemPages = itemPagination?.totalItemPages || 1;
+    const showPeriodNav = total > 1;
+    const showItemNav = itemPages > 1;
+    if (!showPeriodNav && !showItemNav) return;
 
     // Format date range for display
     const startFormatted = formatDate(dateRange.start);
     const endFormatted = formatDate(dateRange.end);
-    
-    const paginationInfo = document.createElement("div");
-    paginationInfo.className = "text-center text-slate-600 mb-4 text-sm";
-    paginationInfo.textContent = `Showing ${startFormatted} - ${endFormatted} (${current + 1} of ${total} periods)`;
-    container.appendChild(paginationInfo);
+
+    if (showPeriodNav) {
+        const paginationInfo = document.createElement("div");
+        paginationInfo.className = "text-center text-slate-600 mb-4 text-sm";
+        paginationInfo.textContent = `Showing ${startFormatted} - ${endFormatted} (${current + 1} of ${total} periods)`;
+        container.appendChild(paginationInfo);
+    }
 
     const btnContainer = document.createElement("div");
     btnContainer.className = "flex justify-center flex-wrap gap-2";
 
-    // Previous 7 days button
-    if (current > 0) {
+    if (showItemNav) {
+        if (currentItemPage > 0) {
+            const prevItemsBtn = document.createElement("button");
+            prevItemsBtn.textContent = "Previous results";
+            prevItemsBtn.className = "px-4 py-2 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-lg text-sm font-medium transition-colors";
+            prevItemsBtn.setAttribute("aria-label", "Show previous page of results");
+            prevItemsBtn.onclick = () => {
+                currentItemPage -= 1;
+                displayUnifiedView(year, current);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            };
+            btnContainer.appendChild(prevItemsBtn);
+        }
+
+        const itemPageInfo = document.createElement("span");
+        itemPageInfo.className = "px-3 py-2 text-sm text-slate-600 self-center";
+        itemPageInfo.textContent = `Results page ${currentItemPage + 1} of ${itemPages}`;
+        btnContainer.appendChild(itemPageInfo);
+
+        if (currentItemPage < itemPages - 1) {
+            const nextItemsBtn = document.createElement("button");
+            nextItemsBtn.textContent = "Next results";
+            nextItemsBtn.className = "px-4 py-2 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-lg text-sm font-medium transition-colors";
+            nextItemsBtn.setAttribute("aria-label", "Show next page of results");
+            nextItemsBtn.onclick = () => {
+                currentItemPage += 1;
+                displayUnifiedView(year, current);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            };
+            btnContainer.appendChild(nextItemsBtn);
+        }
+    }
+
+    // Previous 2 weeks button
+    if (showPeriodNav && current > 0) {
         const prevBtn = document.createElement("button");
         prevBtn.innerHTML = `
             <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
             </svg>
-            Previous 7 Days
+            Previous 2 Weeks
         `;
         prevBtn.className = "px-4 py-2 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-lg text-sm font-medium transition-colors";
-        prevBtn.setAttribute("aria-label", "Show previous 7 days");
+        prevBtn.setAttribute("aria-label", "Show previous 2 weeks");
         prevBtn.onclick = () => {
             currentPage = current - 1;
+            currentItemPage = 0;
             displayUnifiedView(year, current - 1);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
         btnContainer.appendChild(prevBtn);
     }
 
-    // Next 7 days button
-    if (current < total - 1) {
+    // Next 2 weeks button
+    if (showPeriodNav && current < total - 1) {
         const nextBtn = document.createElement("button");
         nextBtn.innerHTML = `
-            Next 7 Days
+            Next 2 Weeks
             <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
             </svg>
         `;
         nextBtn.className = "px-4 py-2 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-lg text-sm font-medium transition-colors";
-        nextBtn.setAttribute("aria-label", "Show next 7 days");
+        nextBtn.setAttribute("aria-label", "Show next 2 weeks");
         nextBtn.onclick = () => {
             currentPage = current + 1;
+            currentItemPage = 0;
             displayUnifiedView(year, current + 1);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
@@ -860,6 +942,7 @@ function setupSearch() {
             searchMode = false;
             searchQuery = "";
             currentPage = 0;
+            currentItemPage = 0;
             if (currentYear) displayUnifiedView(currentYear, 0);
             updateFilterPills();
         });
@@ -1098,12 +1181,14 @@ window.onload = () => {
             onStateFilter: (state) => {
                 selectedState = state;
                 currentPage = 0;
+                currentItemPage = 0;
                 refreshView();
                 a11yAnnounce("State filter applied.");
             },
             onVeteransImpactFilter: (level) => {
                 veteransImpactFilter = level;
                 currentPage = 0;
+                currentItemPage = 0;
                 refreshView();
                 const announcements = {
                     all: "Military and veterans filter applied.",
@@ -1137,6 +1222,7 @@ window.onload = () => {
                     searchQuery = "";
                 }
                 currentPage = 0;
+                currentItemPage = 0;
                 refreshView();
             },
         });
