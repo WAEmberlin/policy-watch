@@ -1,11 +1,11 @@
 {
   "federal": {
     "label": "Federal Weekly Digest",
-    "generated_at": "2026-07-02T04:49:25.732956+00:00",
+    "generated_at": "2026-07-03T04:34:04.068260+00:00",
     "period_days": 7,
     "summary": {
-      "total_bills": 15,
-      "total_events": 28,
+      "total_bills": 14,
+      "total_events": 29,
       "total_votes": 11193
     },
     "important_bills": [
@@ -1453,6 +1453,58 @@
         "updated_at": "2026-07-15"
       },
       {
+        "id": "338621",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "title": "Hearings to examine the nominations of Jules Hurst III, of Virginia, to be Under Secretary (Comptroller), Richard O'Malley, of Wisconsin, to be a Deputy Under Secretary, Roger Mason, of Virginia, to be Director of the National Reconnaissance Office, and Erich Hernandez-Baquero, of Florida, to be an Assistant Secretary of the Air Force, all of the Department of Defense.",
+        "description": "Congressional meeting in the Senate.",
+        "scheduled_date": "2026-07-14",
+        "scheduled_time": "13:30",
+        "location": "Room G50, Dirksen Senate Office Building",
+        "chamber": "Senate",
+        "committees": [],
+        "url": "https://www.congress.gov/event/119th-congress/senate-event/338621",
+        "stream_url": "",
+        "updated_at": "2026-07-14"
+      },
+      {
+        "id": "119438",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "title": "H.R. 9496, H.R. 9500, H.R. 9498, H.R. 9501, H.R. 9499, H.R. 7972, H.R. 9504",
+        "description": "Congressional meeting before the House Ways and Means.",
+        "scheduled_date": "2026-07-01",
+        "scheduled_time": "14:30",
+        "location": "Room 1100, Longworth House Office Building",
+        "chamber": "House",
+        "committees": [
+          "House Ways and Means"
+        ],
+        "url": "https://www.congress.gov/event/119th-congress/house-event/119438",
+        "stream_url": "",
+        "updated_at": "2026-07-01"
+      },
+      {
+        "id": "119428",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "title": "Weathering the Solar Storm: Advancing America’s Space Weather Capabilities",
+        "description": "Congressional meeting before the House Science, Space, and Technology.",
+        "scheduled_date": "2026-07-01",
+        "scheduled_time": "14:00",
+        "location": "Room 2318, Rayburn House Office Building",
+        "chamber": "House",
+        "committees": [
+          "House Science, Space, and Technology"
+        ],
+        "url": "https://www.congress.gov/event/119th-congress/house-event/119428",
+        "stream_url": "",
+        "updated_at": "2026-07-01"
+      },
+      {
         "id": "119429",
         "source": "congress",
         "level": "federal",
@@ -1505,65 +1557,13 @@
         "url": "https://www.congress.gov/event/119th-congress/house-event/119427",
         "stream_url": "",
         "updated_at": "2026-07-01"
-      },
-      {
-        "id": "119407",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "title": "updated Subcommittee rosters due to changes on the Majority side; General Services Administration Capital Investment and Leasing Program Resolutions' an ANS to H.R. ____, the \"Water Resources Development Act of 2026\"; and other matters cleared for consideration",
-        "description": "Congressional meeting in the House.",
-        "scheduled_date": "2026-07-01",
-        "scheduled_time": "14:00",
-        "location": "Room 2167, Rayburn House Office Building",
-        "chamber": "House",
-        "committees": [],
-        "url": "https://www.congress.gov/event/119th-congress/house-event/119407",
-        "stream_url": "",
-        "updated_at": "2026-07-01"
-      },
-      {
-        "id": "119437",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "title": "[POSTPONED] Nine Pieces of Legislation",
-        "description": "Postponed congressional meeting before the House Energy and Commerce.",
-        "scheduled_date": "2026-07-01",
-        "scheduled_time": "15:00",
-        "location": "Room 2123, Rayburn House Office Building",
-        "chamber": "House",
-        "committees": [
-          "House Energy and Commerce"
-        ],
-        "url": "https://www.congress.gov/event/119th-congress/house-event/119437",
-        "stream_url": "",
-        "updated_at": "2026-07-01"
-      },
-      {
-        "id": "119436",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "title": "[POSTPONED] H.R. 9098, the Congressional Records Protection Act; H.R. 7651, the Chloe Cole Act of 2026; H. Res. 1394, Condemning prosecution policies that give preferential treatment to foreign nationals over United States citizens; H.R. 9191, the National Fossil Act; and H.R. 3100, To amend the National Child Protection Act of 1993 to ensure that businesses and organizations that work with vulnerable populations are able to request background checks for their contractors who work with those populations, as well as for individuals that the businesses or organizations license or certify to provide care for those populations",
-        "description": "Postponed congressional meeting before the House Judiciary.",
-        "scheduled_date": "2026-07-01",
-        "scheduled_time": "14:00",
-        "location": "Room 2141, Rayburn House Office Building",
-        "chamber": "House",
-        "committees": [
-          "House Judiciary"
-        ],
-        "url": "https://www.congress.gov/event/119th-congress/house-event/119436",
-        "stream_url": "",
-        "updated_at": "2026-07-01"
       }
     ],
     "ai_analysis": "Impact analysis pending — insufficient classification data.\nThis federal-level federal bill relates to Public Safety. Status: Presented to President..\nThis federal-level federal bill relates to Veterans, Healthcare. Status: Subcommittee Hearings Held.\nThis federal-level federal bill relates to Veterans. Status: Subcommittee Hearings Held.\nImpact analysis pending — insufficient classification data."
   },
   "ks": {
     "label": "Kansas Weekly Digest",
-    "generated_at": "2026-07-02T04:49:25.745662+00:00",
+    "generated_at": "2026-07-03T04:34:04.081818+00:00",
     "period_days": 7,
     "summary": {
       "total_bills": 0,
@@ -2877,11 +2877,11 @@
   },
   "co": {
     "label": "Colorado Weekly Digest",
-    "generated_at": "2026-07-02T04:49:25.751403+00:00",
+    "generated_at": "2026-07-03T04:34:04.088062+00:00",
     "period_days": 7,
     "summary": {
       "total_bills": 25,
-      "total_events": 5,
+      "total_events": 4,
       "total_votes": 1343
     },
     "important_bills": [
@@ -3232,22 +3232,6 @@
     ],
     "committee_activity": [
       {
-        "id": "ocd-event/b1b749f7-d7d2-4104-acd2-885928e57f6d",
-        "source": "openstates",
-        "level": "state",
-        "state": "CO",
-        "title": "Water Resources and Agriculture Review Committee",
-        "description": "",
-        "scheduled_date": "2026-06-25T15:00:00+00:00",
-        "scheduled_time": "",
-        "location": "HCR 0112, 200 E Colfax Ave, Denver, CO 80203",
-        "chamber": "",
-        "committees": [],
-        "url": "",
-        "stream_url": "",
-        "updated_at": "2026-06-25T15:00:00+00:00"
-      },
-      {
         "id": "ocd-event/732eca15-99dc-4caf-a8b6-18707d8c56fa",
         "source": "openstates",
         "level": "state",
@@ -3316,20 +3300,55 @@
   },
   "az": {
     "label": "Arizona Weekly Digest",
-    "generated_at": "2026-07-02T04:49:25.772879+00:00",
+    "generated_at": "2026-07-03T04:34:04.109926+00:00",
     "period_days": 7,
     "summary": {
-      "total_bills": 82,
+      "total_bills": 112,
       "total_events": 13,
       "total_votes": 3771
     },
     "important_bills": [
+      {
+        "bill_number": "SB 1497",
+        "title": "classical learning; tests; examinations",
+        "latest_action": "Signed by Governor",
+        "url": "https://www.azleg.gov/legtext/57leg/2r/bills/sb1497p.pdf",
+        "ai_summary": "Bill SB 1497 classical learning; tests; examinations Latest action: Signed by Governor Sponsors: Carine Werner, Hildy Angius"
+      },
+      {
+        "bill_number": "SB 1336",
+        "title": "state land department; continuation; oversight",
+        "latest_action": "Signed by Governor",
+        "url": "https://www.azleg.gov/legtext/57leg/2r/bills/sb1336p.pdf",
+        "ai_summary": "Bill SB 1336 state land department; continuation; oversight Latest action: Signed by Governor Sponsors: Tim Dunn"
+      },
       {
         "bill_number": "SB 1160",
         "title": "drones; entertainment districts; prohibition",
         "latest_action": "Signed by Governor",
         "url": "https://www.azleg.gov/legtext/57leg/2r/bills/sb1160p.pdf",
         "ai_summary": "Bill SB 1160 drones; entertainment districts; prohibition Latest action: Signed by Governor Sponsors: Tim Dunn"
+      },
+      {
+        "bill_number": "SB 1552",
+        "title": "ADOT; revisions.",
+        "latest_action": "Signed by Governor",
+        "url": "https://www.azleg.gov/legtext/57leg/2r/bills/sb1552p.pdf",
+        "ai_summary": "Bill SB 1552 ADOT; revisions. Latest action: Signed by Governor Sponsors: Dave Farnsworth"
+      },
+      {
+        "bill_number": "SB 1428",
+        "title": "board of supervisors; membership",
+        "latest_action": "Signed by Governor",
+        "url": "https://www.azleg.gov/legtext/57leg/2r/bills/sb1428p.pdf",
+        "ai_summary": "Bill SB 1428 board of supervisors; membership Latest action: Signed by Governor Sponsors: J.D. Mesnard"
+      },
+      {
+        "bill_number": "SB 1399",
+        "title": "prepaid capitated contractors; cost reports",
+        "latest_action": "Signed by Governor",
+        "url": "https://www.azleg.gov/legtext/57leg/2r/bills/sb1399p.pdf",
+        "ai_summary": "Bill SB 1399 prepaid capitated contractors; cost reports Latest action: Signed by Governor Sponsors: Janae Shamp"
       },
       {
         "bill_number": "SB 1113",
@@ -3339,60 +3358,25 @@
         "ai_summary": "Bill SB 1113 service of process; evaluation agencies Latest action: Signed by Governor Sponsors: Carine Werner, Hildy Angius, T.J. Shope"
       },
       {
-        "bill_number": "SB 1198",
-        "title": "Arizona beef council; continuation",
+        "bill_number": "SB 1423",
+        "title": "WICHE; continuation",
         "latest_action": "Signed by Governor",
-        "url": "https://www.azleg.gov/legtext/57leg/2r/bills/sb1198p.pdf",
-        "ai_summary": "Bill SB 1198 Arizona beef council; continuation Latest action: Signed by Governor Sponsors: Tim Dunn"
+        "url": "https://www.azleg.gov/legtext/57leg/2r/bills/sb1423p.pdf",
+        "ai_summary": "Bill SB 1423 WICHE; continuation Latest action: Signed by Governor Sponsors: Hildy Angius"
       },
       {
-        "bill_number": "SB 1215",
-        "title": "firefighters; occupational disease; cancers",
+        "bill_number": "SB 1335",
+        "title": "water banking; annual report; posting",
         "latest_action": "Signed by Governor",
-        "url": "https://www.azleg.gov/legtext/57leg/2r/bills/sb1215p.pdf",
-        "ai_summary": "Bill SB 1215 firefighters; occupational disease; cancers Latest action: Signed by Governor Sponsors: Kevin Payne"
+        "url": "https://www.azleg.gov/legtext/57leg/2r/bills/sb1335p.pdf",
+        "ai_summary": "Bill SB 1335 water banking; annual report; posting Latest action: Signed by Governor Sponsors: Tim Dunn"
       },
       {
-        "bill_number": "SB 1275",
-        "title": "mandatory prison sentences; judicial discretion",
+        "bill_number": "SB 1452",
+        "title": "cargo theft task force",
         "latest_action": "Signed by Governor",
-        "url": "https://www.azleg.gov/legtext/57leg/2r/bills/sb1275p.pdf",
-        "ai_summary": "Bill SB 1275 mandatory prison sentences; judicial discretion Latest action: Signed by Governor Sponsors: David Gowan"
-      },
-      {
-        "bill_number": "SB 1188",
-        "title": "approved medications; scheduling; prescription authority",
-        "latest_action": "Signed by Governor",
-        "url": "https://www.azleg.gov/legtext/57leg/2r/bills/sb1188p.pdf",
-        "ai_summary": "Bill SB 1188 approved medications; scheduling; prescription authority Latest action: Signed by Governor Sponsors: T.J. Shope"
-      },
-      {
-        "bill_number": "SB 1189",
-        "title": "campaign spending; personal security",
-        "latest_action": "Signed by Governor",
-        "url": "https://www.azleg.gov/legtext/57leg/2r/bills/sb1189p.pdf",
-        "ai_summary": "Bill SB 1189 campaign spending; personal security Latest action: Signed by Governor Sponsors: T.J. Shope"
-      },
-      {
-        "bill_number": "SB 1274",
-        "title": "special plate; police foundation",
-        "latest_action": "Signed by Governor",
-        "url": "https://www.azleg.gov/legtext/57leg/2r/bills/sb1274p.pdf",
-        "ai_summary": "Bill SB 1274 special plate; police foundation Latest action: Signed by Governor Sponsors: David Gowan"
-      },
-      {
-        "bill_number": "HB 2771",
-        "title": "community supervision; rehabilitation; costs",
-        "latest_action": "Vetoed by Governor",
-        "url": "https://www.azleg.gov/legtext/57leg/2r/bills/hb2771p.pdf",
-        "ai_summary": "Bill HB 2771 community supervision; rehabilitation; costs Latest action: Vetoed by Governor Sponsors: Khyl Powell"
-      },
-      {
-        "bill_number": "HB 2481",
-        "title": "school districts; records; noncompliance; penalties",
-        "latest_action": "Vetoed by Governor",
-        "url": "https://www.azleg.gov/legtext/57leg/2r/bills/hb2481p.pdf",
-        "ai_summary": "Bill HB 2481 school districts; records; noncompliance; penalties Latest action: Vetoed by Governor Sponsors: Matt Gress"
+        "url": "https://www.azleg.gov/legtext/57leg/2r/bills/sb1452p.pdf",
+        "ai_summary": "Bill SB 1452 cargo theft task force Latest action: Signed by Governor Sponsors: Kevin Payne"
       }
     ],
     "major_votes": [
@@ -3629,15 +3613,15 @@
         "updated_at": "2026-08-19T17:00:00+00:00"
       }
     ],
-    "ai_analysis": "Impact analysis pending — insufficient classification data.\nImpact analysis pending — insufficient classification data.\nImpact analysis pending — insufficient classification data.\nThis state-level AZ bill relates to Public Safety. Status: Signed by Governor.\nImpact analysis pending — insufficient classification data."
+    "ai_analysis": "Impact analysis pending — insufficient classification data.\nImpact analysis pending — insufficient classification data.\nImpact analysis pending — insufficient classification data.\nImpact analysis pending — insufficient classification data.\nImpact analysis pending — insufficient classification data."
   },
   "ut": {
     "label": "Utah Weekly Digest",
-    "generated_at": "2026-07-02T04:49:25.778623+00:00",
+    "generated_at": "2026-07-03T04:34:04.117782+00:00",
     "period_days": 7,
     "summary": {
       "total_bills": 0,
-      "total_events": 90,
+      "total_events": 89,
       "total_votes": 1538
     },
     "important_bills": [],
@@ -3714,22 +3698,6 @@
       }
     ],
     "committee_activity": [
-      {
-        "id": "ocd-event/3c212891-8407-4e02-85df-3c61ac5e4ebd",
-        "source": "openstates",
-        "level": "state",
-        "state": "UT",
-        "title": "Federalism Commission",
-        "description": "",
-        "scheduled_date": "2026-06-25T15:00:00+00:00",
-        "scheduled_time": "",
-        "location": "110 Senate Building, Utah State Capitol, 350 State St, Salt Lake City, UT 84103",
-        "chamber": "",
-        "committees": [],
-        "url": "",
-        "stream_url": "",
-        "updated_at": "2026-06-25T15:00:00+00:00"
-      },
       {
         "id": "ocd-event/316db95b-11e4-4f38-83e3-948313b44973",
         "source": "openstates",
@@ -3873,13 +3841,29 @@
         "url": "",
         "stream_url": "",
         "updated_at": "2026-08-18T19:15:00+00:00"
+      },
+      {
+        "id": "ocd-event/c4ae452a-304e-4c8e-9ca8-39228aa6d022",
+        "source": "openstates",
+        "level": "state",
+        "state": "UT",
+        "title": "Economic and Community Development Appropriations Subcommittee",
+        "description": "",
+        "scheduled_date": "2026-08-18T19:15:00+00:00",
+        "scheduled_time": "",
+        "location": "120 Senate Building, Utah State Capitol, 350 State St, Salt Lake City, UT 84103",
+        "chamber": "",
+        "committees": [],
+        "url": "",
+        "stream_url": "",
+        "updated_at": "2026-08-18T19:15:00+00:00"
       }
     ],
     "ai_analysis": "No significant activity this week."
   },
   "me": {
     "label": "Maine Weekly Digest",
-    "generated_at": "2026-07-02T04:49:25.789250+00:00",
+    "generated_at": "2026-07-03T04:34:04.130072+00:00",
     "period_days": 7,
     "summary": {
       "total_bills": 1,
