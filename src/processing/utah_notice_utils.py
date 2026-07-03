@@ -75,7 +75,7 @@ def fetch_notice_details(
     *,
     committee_code: str = "",
     session_year: str = "",
-    timeout: int = 20,
+    timeout: int = 10,
 ) -> Dict[str, str]:
     """Fetch and parse a Utah interim notice page. Returns empty fields on failure."""
     fallback = build_committee_stream_url(committee_code, session_year)

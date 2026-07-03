@@ -18,10 +18,11 @@ from __future__ import annotations
 import json
 import re
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from hashlib import md5
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
+from urllib.parse import urlparse, urlunparse
 
 import feedparser
 import yaml
@@ -40,6 +41,16 @@ from processing.utah_notice_utils import (  # noqa: E402
 
 CONFIG_PATH = ROOT / "config" / "state_feeds.yaml"
 OUTPUT_FILE = ROOT / "data" / "utah" / "committee_hearings.json"
+
+NOTICE_ENRICHMENT_FIELDS = (
+    "notice_date",
+    "notice_time",
+    "notice_place",
+    "livestream_url",
+    "stream_url",
+)
+NOTICE_CACHE_FIELDS = NOTICE_ENRICHMENT_FIELDS + ("notice_enriched_at",)
+NOTICE_FETCH_RETRY_HOURS = 24
 
 SESSION_BLOCK_RE = re.compile(
     r"^(?P<date>\d{1,2}/\d{1,2}/\d{4})\s+(?P<time>\d{1,2}:\d{2}:\d{2}\s*[AP]M)\s*-\s*(?P<location>.+)$",
@@ -94,6 +105,77 @@ def parse_session_block(header_text: str) -> Optional[Tuple[str, str, str]]:
     return scheduled_iso, location, date_part
 
 
+def normalize_notice_url(url: str) -> str:
+    """Normalize notice URLs so http/https variants share one cache entry."""
+    if not url:
+        return ""
+    parsed = urlparse(url.strip())
+    scheme = "https" if parsed.scheme in ("http", "https") else parsed.scheme
+    netloc = parsed.netloc.lower()
+    path = parsed.path or ""
+    return urlunparse((scheme, netloc, path, "", parsed.query, ""))
+
+
+def extract_notice_enrichment(item: Dict[str, Any]) -> Dict[str, str]:
+    livestream = item.get("livestream_url") or item.get("stream_url") or ""
+    return {
+        "notice_date": item.get("notice_date", ""),
+        "notice_time": item.get("notice_time", ""),
+        "notice_place": item.get("notice_place", ""),
+        "livestream_url": livestream,
+        "stream_url": item.get("stream_url") or livestream,
+        "notice_enriched_at": item.get("notice_enriched_at", ""),
+    }
+
+
+def has_notice_enrichment(details: Dict[str, str]) -> bool:
+    return any(details.get(field) for field in NOTICE_ENRICHMENT_FIELDS)
+
+
+def parse_iso_datetime(value: str) -> Optional[datetime]:
+    if not value:
+        return None
+    try:
+        return datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+
+
+def is_upcoming_hearing(hearing: Dict[str, Any], *, now: Optional[datetime] = None) -> bool:
+    scheduled = hearing.get("scheduled_date") or ""
+    scheduled_dt = parse_iso_datetime(scheduled)
+    if scheduled_dt is None:
+        return True
+    current = now or datetime.now(timezone.utc)
+    if scheduled_dt.tzinfo is None:
+        scheduled_dt = scheduled_dt.replace(tzinfo=timezone.utc)
+    return scheduled_dt.date() >= current.date()
+
+
+def notice_cache_is_fresh(
+    cached: Dict[str, str],
+    *,
+    now: Optional[datetime] = None,
+    retry_hours: int = NOTICE_FETCH_RETRY_HOURS,
+) -> bool:
+    if has_notice_enrichment(cached):
+        return True
+    enriched_at = parse_iso_datetime(cached.get("notice_enriched_at", ""))
+    if enriched_at is None:
+        return False
+    current = now or datetime.now(timezone.utc)
+    return current - enriched_at < timedelta(hours=retry_hours)
+
+
+def apply_notice_enrichment(hearing: Dict[str, Any], details: Dict[str, str]) -> None:
+    for field in NOTICE_CACHE_FIELDS:
+        if details.get(field):
+            hearing[field] = details[field]
+    stream_url = details.get("livestream_url") or details.get("stream_url") or ""
+    if stream_url:
+        hearing["stream_url"] = stream_url
+
+
 def load_notice_cache() -> Dict[str, Dict[str, str]]:
     if not OUTPUT_FILE.exists():
         return {}
@@ -101,15 +183,15 @@ def load_notice_cache() -> Dict[str, Dict[str, str]]:
         payload = json.load(f)
     cache: Dict[str, Dict[str, str]] = {}
     for item in payload.get("items", []):
-        notice_url = item.get("link") or item.get("url") or ""
-        if not notice_url or not item.get("notice_date"):
+        notice_url = normalize_notice_url(item.get("link") or item.get("url") or "")
+        if not notice_url:
             continue
-        cache[notice_url] = {
-            "notice_date": item.get("notice_date", ""),
-            "notice_time": item.get("notice_time", ""),
-            "notice_place": item.get("notice_place", ""),
-            "livestream_url": item.get("livestream_url") or item.get("stream_url", ""),
-        }
+        details = extract_notice_enrichment(item)
+        if not has_notice_enrichment(details) and not details.get("notice_enriched_at"):
+            continue
+        existing = cache.get(notice_url, {})
+        if has_notice_enrichment(details) or not existing:
+            cache[notice_url] = details
     return cache
 
 
@@ -118,29 +200,42 @@ def enrich_hearing_from_notice(
     notice_cache: Dict[str, Dict[str, str]],
     *,
     fetch_missing: bool = True,
-) -> None:
-    notice_url = hearing.get("link") or hearing.get("url") or ""
-    committee_code = hearing.get("committee_code", "")
-    session_year = session_year_from_urls(notice_url, hearing.get("committee_link", ""))
+    now: Optional[datetime] = None,
+) -> bool:
+    """Apply cached notice details or fetch interim pages for new upcoming hearings."""
+    notice_url = normalize_notice_url(hearing.get("link") or hearing.get("url") or "")
+    if not notice_url:
+        return False
 
+    current = now or datetime.now(timezone.utc)
     cached = notice_cache.get(notice_url, {})
-    if cached.get("notice_date"):
-        hearing.update(cached)
-        hearing["stream_url"] = cached.get("livestream_url", "")
-        return
+    if notice_cache_is_fresh(cached, now=current):
+        apply_notice_enrichment(hearing, cached)
+        return False
 
     if not fetch_missing or not is_interim_notice_url(notice_url):
-        return
+        if cached:
+            apply_notice_enrichment(hearing, cached)
+        return False
 
-    details = fetch_notice_details(
-        notice_url,
-        committee_code=committee_code,
-        session_year=session_year,
+    if not is_upcoming_hearing(hearing, now=current):
+        if cached:
+            apply_notice_enrichment(hearing, cached)
+        return False
+
+    committee_code = hearing.get("committee_code", "")
+    session_year = session_year_from_urls(notice_url, hearing.get("committee_link", ""))
+    details = extract_notice_enrichment(
+        fetch_notice_details(
+            notice_url,
+            committee_code=committee_code,
+            session_year=session_year,
+        )
     )
-    if any(details.values()):
-        hearing.update(details)
-        hearing["stream_url"] = details.get("livestream_url", "")
-        notice_cache[notice_url] = details
+    details["notice_enriched_at"] = current.isoformat()
+    apply_notice_enrichment(hearing, details)
+    notice_cache[notice_url] = details
+    return True
 
 
 def apply_hearing_fields_to_history(hearing: Dict[str, Any], history_item: Dict[str, Any]) -> None:
@@ -249,9 +344,12 @@ def main() -> None:
         raise RuntimeError(f"Utah RSS parse error: {feed.bozo_exception}")
 
     notice_cache = load_notice_cache()
+    cached_notice_urls = set(notice_cache)
     all_hearings: List[Dict[str, Any]] = []
     all_history: List[Dict[str, Any]] = []
     fetched_notices = 0
+    reused_notices = 0
+    now = datetime.now(timezone.utc)
 
     for entry in feed.entries:
         entry_dict = {
@@ -261,10 +359,15 @@ def main() -> None:
         }
         hearings, history_items = parse_committee_entry(entry_dict)
         for hearing, history_item in zip(hearings, history_items):
-            before = notice_cache.get(hearing.get("link", ""), {}).get("notice_date", "")
-            enrich_hearing_from_notice(hearing, notice_cache)
-            if not before and hearing.get("notice_date"):
+            notice_url = normalize_notice_url(hearing.get("link") or hearing.get("url") or "")
+            was_cached = notice_url in cached_notice_urls and notice_cache_is_fresh(
+                notice_cache.get(notice_url, {}),
+                now=now,
+            )
+            if enrich_hearing_from_notice(hearing, notice_cache, now=now):
                 fetched_notices += 1
+            elif was_cached:
+                reused_notices += 1
             apply_hearing_fields_to_history(hearing, history_item)
         all_hearings.extend(hearings)
         all_history.extend(history_items)
@@ -284,8 +387,11 @@ def main() -> None:
     print(
         f"Parsed {len(all_hearings)} Utah committee hearing blocks from {len(feed.entries)} RSS entries"
     )
-    if fetched_notices:
-        print(f"Fetched notice details for {fetched_notices} interim pages")
+    if reused_notices or fetched_notices:
+        print(
+            f"Notice enrichment: {reused_notices} reused from cache, "
+            f"{fetched_notices} newly fetched"
+        )
 
     if all_history:
         combined = merge_with_history(all_history)

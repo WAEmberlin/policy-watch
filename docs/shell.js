@@ -9,7 +9,7 @@
     { id: 'home', label: 'Home', href: 'index.html' },
     { id: 'hearings', label: 'Hearings', href: 'hearings.html' },
     { id: 'live', label: 'Live', href: 'livestreams.html' },
-    { id: 'dashboard', label: 'Dashboards', shortLabel: 'Dash', href: 'dashboard.html' },
+    { id: 'dashboard', label: 'Elections', href: 'dashboard.html' },
     { id: 'legislators', label: 'Legislators', shortLabel: 'Legislators', href: 'legislators.html' },
     { id: 'map', label: 'District Map', shortLabel: 'Map', href: 'district-map.html' },
     { id: 'about', label: 'About', href: 'veterans-impact.html' },
