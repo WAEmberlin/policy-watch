@@ -154,8 +154,17 @@ jobs:
             echo "No changes to commit"
             exit 0
           fi
+          restore_static_docs() {
+            git ls-tree -r --name-only origin/main docs/ | while IFS= read -r f; do
+              case "$f" in
+                docs/site_data.json) continue ;;
+              esac
+              [[ "$f" == docs/weekly/* ]] && continue
+              git checkout origin/main -- "$f"
+            done
+          }
           git reset --soft origin/main
-          git checkout origin/main -- docs/
+          restore_static_docs
           git checkout origin/main -- data/openstates
           git add $GENERATED
           git commit -m "Automated CivicWatch update"
@@ -165,7 +174,7 @@ jobs:
             fi
             git fetch origin main
             git reset --soft origin/main
-            git checkout origin/main -- docs/
+            restore_static_docs
             git checkout origin/main -- data/openstates
             git add $GENERATED
             git commit -m "Automated CivicWatch update"

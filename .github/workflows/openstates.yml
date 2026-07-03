@@ -118,8 +118,17 @@ jobs:
             exit 0
           fi
           # Recommit on latest main to avoid rebase conflicts with hourly CivicWatch updates
+          restore_static_docs() {
+            git ls-tree -r --name-only origin/main docs/ | while IFS= read -r f; do
+              case "$f" in
+                docs/site_data.json|docs/live_status.json|docs/live-streams-config.json) continue ;;
+              esac
+              [[ "$f" == docs/weekly/* ]] && continue
+              git checkout origin/main -- "$f"
+            done
+          }
           git reset --soft origin/main
-          git checkout origin/main -- docs/
+          restore_static_docs
           git add $GENERATED
           git commit -m "Open States sync and normalized data update"
           for attempt in 1 2 3 4 5; do
@@ -130,7 +139,7 @@ jobs:
             echo "Push rejected, refreshing from main and retrying ($attempt/5)..."
             git fetch origin main
             git reset --soft origin/main
-            git checkout origin/main -- docs/
+            restore_static_docs
             git add $GENERATED
             git commit -m "Open States sync and normalized data update"
             sleep $((attempt * 15))
