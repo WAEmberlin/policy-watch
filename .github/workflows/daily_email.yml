@@ -2,8 +2,10 @@ name: Email Updates
 
 on:
   schedule:
-    # Run every 6 hours
-    - cron: "0 */6 * * *"  # Every 6 hours at :00 (00:00, 06:00, 12:00, 18:00 UTC)
+    # 7:00 AM and 7:00 PM Central (CDT, UTC-5): 12:00 UTC and 00:00 UTC
+    # During CST (UTC-6) these run at 6:00 AM and 6:00 PM Central.
+    - cron: "0 12 * * *"
+    - cron: "0 0 * * *"
   workflow_dispatch:  # Allow manual trigger
 
 permissions:

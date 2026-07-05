@@ -1,0 +1,137 @@
+name: Ensure Pages Deploy
+
+on:
+  workflow_run:
+    workflows:
+      - CivicWatch Update
+      - Open States Sync
+      - Daily Legislative Summary
+    types:
+      - completed
+    branches:
+      - main
+  schedule:
+    # Hourly safety net — catches missed deploys between data pushes
+    - cron: "20 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+
+concurrency:
+  group: ensure-pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  ensure:
+    if: >-
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for automatic Pages workflow
+        if: github.event_name == 'workflow_run'
+        run: sleep 90
+
+      - name: Ensure latest main is live on GitHub Pages
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const pollSeconds = 30;
+            const maxTriggerCycles = 5;
+
+            const sleep = (seconds) =>
+              new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+
+            async function getMainHead() {
+              const { data: ref } = await github.rest.git.getRef({
+                owner,
+                repo,
+                ref: "heads/main",
+              });
+              return ref.object.sha;
+            }
+
+            async function getLatestBuild() {
+              const { data } = await github.request(
+                "GET /repos/{owner}/{repo}/pages/builds",
+                {
+                  owner,
+                  repo,
+                  headers: { Accept: "application/vnd.github+json" },
+                  per_page: 5,
+                }
+              );
+              return data[0] || null;
+            }
+
+            async function triggerBuild() {
+              core.info("Triggering GitHub Pages rebuild...");
+              await github.request("POST /repos/{owner}/{repo}/pages/builds", {
+                owner,
+                repo,
+                headers: { Accept: "application/vnd.github+json" },
+              });
+            }
+
+            async function waitForBuilt(headSha, maxPolls = 16) {
+              for (let poll = 1; poll <= maxPolls; poll++) {
+                const build = await getLatestBuild();
+                if (build) {
+                  core.info(
+                    `Poll ${poll}/${maxPolls}: status=${build.status}, commit=${(build.commit || "").slice(0, 7)}`
+                  );
+                  if (build.commit === headSha && build.status === "built") {
+                    return true;
+                  }
+                  if (build.commit === headSha && build.status === "errored") {
+                    const message = build.error?.message || "Page build failed.";
+                    core.warning(`Pages build errored for ${headSha.slice(0, 7)}: ${message}`);
+                    return false;
+                  }
+                } else {
+                  core.info(`Poll ${poll}/${maxPolls}: no Pages builds found yet`);
+                }
+                await sleep(pollSeconds);
+              }
+              return false;
+            }
+
+            const headSha = await getMainHead();
+            core.info(`main HEAD: ${headSha}`);
+
+            let build = await getLatestBuild();
+            if (build?.commit === headSha && build.status === "built") {
+              core.info("Pages already serving latest main commit.");
+              return;
+            }
+
+            for (let cycle = 1; cycle <= maxTriggerCycles; cycle++) {
+              core.info(`Deploy cycle ${cycle}/${maxTriggerCycles}`);
+
+              build = await getLatestBuild();
+              if (build?.commit === headSha && build.status === "building") {
+                core.info("Automatic Pages build already in progress for latest commit.");
+              } else if (build?.commit === headSha && build.status === "built") {
+                core.info("Pages already serving latest main commit.");
+                return;
+              } else {
+                await triggerBuild();
+                await sleep(60);
+              }
+
+              if (await waitForBuilt(headSha)) {
+                core.info("Pages deploy succeeded.");
+                return;
+              }
+
+              core.warning(`Cycle ${cycle} did not reach built state for ${headSha.slice(0, 7)}`);
+              await sleep(60);
+            }
+
+            core.setFailed(
+              `Pages deploy did not reach built state for ${headSha.slice(0, 7)} after ${maxTriggerCycles} attempts`
+            );

@@ -412,7 +412,7 @@ def build_digest_html(
 
         if total == 0:
             subject = f"{prefix} — No new updates"
-            html += "<p>No new legislative updates in the last 6 hours. Monitoring is active.</p>"
+            html += f"<p>No new legislative updates in the last {window} hours. Monitoring is active.</p>"
         else:
             subject = f"{prefix} — All States — {total} update{'s' if total != 1 else ''}"
         return html, subject, total
@@ -450,7 +450,7 @@ def build_digest_html(
 
     if total == 0:
         subject = f"{prefix} — No new updates"
-        html += "<p>No new updates in the last 6 hours. Monitoring is active.</p>"
+        html += f"<p>No new updates in the last {window} hours. Monitoring is active.</p>"
     else:
         state_count = len(state_items) + len(state_hearings)
         subject = f"{prefix} — {state_count} state + {len(federal_items) + len(federal_hearings)} federal update{'s' if total != 1 else ''}"

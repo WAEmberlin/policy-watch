@@ -3,7 +3,7 @@
 # Assign recipients via GitHub secret EMAIL_DIGEST_RECIPIENTS (JSON).
 # See EMAIL_DIGEST_SETUP.md for setup instructions.
 
-window_hours: 6
+window_hours: 12
 
 digests:
   - id: ks
