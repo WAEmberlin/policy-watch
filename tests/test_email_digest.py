@@ -1,7 +1,7 @@
 """Tests for email digest building."""
 
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -9,6 +9,7 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from processing.email_digest import (
     build_digest_html,
+    hearing_scheduled_date,
     infer_item_state,
     is_within_window,
     item_recency_ts,
@@ -41,6 +42,14 @@ def test_enrichment_timestamp_does_not_qualify_stale_bill():
         "updated_at": now.isoformat(),
     }
     assert not is_within_window(item, now, window_hours=6)
+
+
+def test_hearing_scheduled_date_prefers_notice_date_over_published():
+    scheduled = hearing_scheduled_date({
+        "published": "2026-01-01",
+        "notice_date": "Tuesday, July 14, 2026",
+    })
+    assert scheduled == datetime(2026, 7, 14).date()
 
 
 def test_midnight_action_date_counts_through_central_end_of_day():
@@ -103,16 +112,18 @@ def test_federal_only_digest():
 
 
 def test_utah_hearing_updates_separate_section():
+    hearing_day = datetime.now(timezone.utc).date() + timedelta(days=7)
+    notice_date = hearing_day.strftime("%A, %B %d, %Y")
     items = {
         "UT": [
             {"title": "HB 100", "link": "http://bill", "published": "2026-01-01", "state": "UT"},
             {
-                "title": "Legislative Audit Subcommittee — 12/8/2026",
+                "title": f"Legislative Audit Subcommittee — {hearing_day.month}/{hearing_day.day}/{hearing_day.year}",
                 "link": "http://le.utah.gov/Interim/2026/html/00002131.htm",
                 "published": "2026-01-01",
                 "state": "UT",
                 "feed": "utah_committee_rss",
-                "notice_date": "Tuesday, December 8, 2026",
+                "notice_date": notice_date,
                 "notice_time": "4:00 p.m.",
                 "notice_place": "Room 445 State Capitol",
                 "livestream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=SPEAUD",

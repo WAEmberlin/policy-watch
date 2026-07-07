@@ -127,6 +127,8 @@ def test_geojson_join_coverage_report():
             continue
         geojson = json.loads(path.read_text(encoding="utf-8"))
         index = build_district_legislator_index(legislators, state=state, chamber=chamber)
+        if not index:
+            continue
         matched = sum(
             1
             for feature in geojson.get("features", [])

@@ -135,6 +135,14 @@ def is_within_window(item: Dict[str, Any], now: datetime, window_hours: int) -> 
 
 
 def hearing_scheduled_date(item: Dict[str, Any]) -> Optional[datetime.date]:
+    notice_date = str(item.get("notice_date") or "").strip()
+    if notice_date:
+        for fmt in ("%A, %B %d, %Y", "%B %d, %Y", "%Y-%m-%d"):
+            try:
+                return datetime.strptime(notice_date, fmt).date()
+            except ValueError:
+                continue
+
     for field in ("scheduled_date", "published"):
         raw = str(item.get(field) or "").strip()
         if not raw:
@@ -145,13 +153,6 @@ def hearing_scheduled_date(item: Dict[str, Any]) -> Optional[datetime.date]:
             return datetime.fromisoformat(raw + "T00:00:00+00:00").date()
         except ValueError:
             continue
-    notice_date = str(item.get("notice_date") or "").strip()
-    if notice_date:
-        for fmt in ("%A, %B %d, %Y", "%B %d, %Y", "%Y-%m-%d"):
-            try:
-                return datetime.strptime(notice_date, fmt).date()
-            except ValueError:
-                continue
     return None
 
 
