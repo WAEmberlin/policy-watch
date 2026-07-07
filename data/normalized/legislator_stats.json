@@ -84,6 +84,29 @@
       "average_age": 63.7,
       "race_available": false
     },
+    "MD": {
+      "total": 188,
+      "party": {
+        "Democratic": 136,
+        "Republican": 52
+      },
+      "gender": {
+        "Male": 112,
+        "Female": 76
+      },
+      "chamber": {
+        "House": 141,
+        "Senate": 47
+      },
+      "age_buckets": {
+        "under_40": 16,
+        "40_59": 80,
+        "60_plus": 67,
+        "unknown": 25
+      },
+      "average_age": 55.5,
+      "race_available": false
+    },
     "ME": {
       "total": 189,
       "party": {
@@ -110,6 +133,27 @@
         "unknown": 159
       },
       "average_age": 60.1,
+      "race_available": false
+    },
+    "NE": {
+      "total": 49,
+      "party": {
+        "Nonpartisan": 49
+      },
+      "gender": {
+        "Female": 14,
+        "Male": 35
+      },
+      "chamber": {
+        "legislature": 49
+      },
+      "age_buckets": {
+        "under_40": 7,
+        "40_59": 13,
+        "60_plus": 27,
+        "unknown": 2
+      },
+      "average_age": 58.9,
       "race_available": false
     },
     "UT": {

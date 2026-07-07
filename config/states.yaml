@@ -50,6 +50,24 @@ states:
     enrichment: openstates_detail
     enabled: true
 
+  - code: ne
+    name: Nebraska
+    level: state
+    sources:
+      - openstates
+    openstates_jurisdiction: ocd-jurisdiction/country:us/state:ne/government
+    enrichment: openstates_detail
+    enabled: true
+
+  - code: md
+    name: Maryland
+    level: state
+    sources:
+      - openstates
+    openstates_jurisdiction: ocd-jurisdiction/country:us/state:md/government
+    enrichment: openstates_detail
+    enabled: true
+
 federal:
   sources:
     - congress
@@ -80,7 +98,7 @@ enrichment:
   # Kansas: official REST API (RSS stays primary ingest)
   kansas_api: ks
   # CO/AZ/UT/ME: Open States detail re-fetch for sponsors/votes
-  openstates_detail: [co, az, ut, me]
+  openstates_detail: [co, az, ut, me, ne, md]
 
 topic_dashboards:
   - id: veterans

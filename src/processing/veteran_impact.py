@@ -117,7 +117,7 @@ def infer_item_state(item: Dict[str, Any]) -> str:
         return "Federal"
     for code, name in (
         ("KS", "kansas"), ("CO", "colorado"), ("AZ", "arizona"),
-        ("UT", "utah"), ("ME", "maine"),
+        ("UT", "utah"), ("ME", "maine"), ("NE", "nebraska"), ("MD", "maryland"),
     ):
         if name in src:
             return code

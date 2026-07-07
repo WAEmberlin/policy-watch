@@ -23,7 +23,7 @@ function setContentBusy(isBusy) {
     if (content) content.setAttribute("aria-busy", isBusy ? "true" : "false");
 }
 
-const STATE_NAMES = { KS: "Kansas", CO: "Colorado", AZ: "Arizona", UT: "Utah", ME: "Maine", Federal: "U.S. Congress" };
+const STATE_NAMES = { KS: "Kansas", CO: "Colorado", AZ: "Arizona", UT: "Utah", ME: "Maine", NE: "Nebraska", MD: "Maryland", Federal: "U.S. Congress" };
 
 function inferItemState(item) {
     if (typeof CivicWatchHome !== "undefined") return CivicWatchHome.inferItemState(item);
@@ -36,6 +36,8 @@ function inferItemState(item) {
     if (src.includes("arizona")) return "AZ";
     if (src.includes("utah")) return "UT";
     if (src.includes("maine")) return "ME";
+    if (src.includes("nebraska")) return "NE";
+    if (src.includes("maryland")) return "MD";
     return "";
 }
 

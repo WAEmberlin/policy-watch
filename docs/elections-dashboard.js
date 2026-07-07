@@ -89,6 +89,32 @@ const CivicWatchElections = (() => {
                 { date: '2026-11-03', label: 'General Election' },
             ],
         },
+        {
+            id: 'ne',
+            name: 'Nebraska',
+            badgeClass: 'bg-amber-100 text-amber-800',
+            calendarUrl: 'https://sos.nebraska.gov/elections/upcoming-elections',
+            calendarLabel: 'Upcoming elections (Nebraska SOS)',
+            resultsUrl: 'https://electionresults.sos.ne.gov/',
+            resultsLabel: 'Nebraska election results',
+            dates: [
+                { date: '2026-05-12', label: 'Primary Election' },
+                { date: '2026-11-03', label: 'General Election' },
+            ],
+        },
+        {
+            id: 'md',
+            name: 'Maryland',
+            badgeClass: 'bg-teal-100 text-teal-800',
+            calendarUrl: 'https://elections.maryland.gov/elections/upcoming/index.html',
+            calendarLabel: 'Upcoming elections (Maryland SBE)',
+            resultsUrl: 'https://elections.maryland.gov/elections/results/index.html',
+            resultsLabel: 'Maryland election results',
+            dates: [
+                { date: '2026-06-23', label: 'Primary Election' },
+                { date: '2026-11-03', label: 'General Election' },
+            ],
+        },
     ];
 
     function parseLocalDate(dateStr) {

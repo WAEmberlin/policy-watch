@@ -1,0 +1,22 @@
+{
+  "state": "MD",
+  "source": "bulk_import",
+  "fetched_at": "2026-07-07T01:28:41.661660+00:00",
+  "last_successful_fetch_at": "2026-07-07T01:28:41.661681+00:00",
+  "updated_since": null,
+  "import_mode": "full",
+  "backfill_complete": true,
+  "bulk_files": [
+    "MD_2023_json_2lvCKE7w7YWzZUMMSYi9mH/MD/2023/MD_2023_bills.json",
+    "MD_2024_json_2jme1VzW2NomUjfe7dXHWQ/MD/2024/MD_2024_bills.json",
+    "MD_2025_json_6Ugwt35azE9dq2f2xViPRk/MD/2025/MD_2025_bills.json",
+    "MD_2026_json_6udD0ujodZ7ZFUWpTdMXme/MD/2026/MD_2026_bills.json"
+  ],
+  "counts": {
+    "bills": 10300,
+    "events": 0,
+    "committees": 0,
+    "legislators": 188,
+    "votes": 7639
+  }
+}

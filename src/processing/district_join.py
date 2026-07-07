@@ -7,7 +7,9 @@ from typing import Any, Dict, List, Optional
 HOUSE_CHAMBERS = frozenset(
     {"representative", "lower", "house", "state representative", "state rep", "rep"}
 )
-SENATE_CHAMBERS = frozenset({"senator", "upper", "senate", "state senator", "sen"})
+SENATE_CHAMBERS = frozenset(
+    {"senator", "upper", "senate", "state senator", "sen", "legislature"}
+)
 US_HOUSE_CHAMBERS = frozenset(
     {"u.s. representative", "us representative", "u.s. house", "us house"}
 )

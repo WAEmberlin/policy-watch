@@ -71,6 +71,12 @@
             <button class="nav-link" id="tab-maine" data-bs-toggle="tab" data-bs-target="#pane-maine" type="button" role="tab">Maine</button>
           </li>
           <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-nebraska" data-bs-toggle="tab" data-bs-target="#pane-nebraska" type="button" role="tab">Nebraska</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-maryland" data-bs-toggle="tab" data-bs-target="#pane-maryland" type="button" role="tab">Maryland</button>
+          </li>
+          <li class="nav-item" role="presentation">
             <button class="nav-link" id="tab-house" data-bs-toggle="tab" data-bs-target="#pane-house" type="button" role="tab">US House</button>
           </li>
           <li class="nav-item" role="presentation">
@@ -315,6 +321,84 @@
                 <div class="embed-wrapper" data-stream-id="maine-floor" style="min-height: 280px;">
                   <iframe loading="lazy" title="Maine Legislature" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                   <div class="embed-placeholder">Click Play here to watch on CivicWatch</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---------- Nebraska ---------- -->
+          <div class="tab-pane fade" id="pane-nebraska" role="tabpanel">
+            <div id="nebraska-floor">
+              <h2 class="h5 fw-bold mb-2">Nebraska Legislature</h2>
+              <p class="text-body-secondary mb-2">Unicameral floor sessions and committee hearings via the official Nebraska Legislature video portal (Nebraska Public Media). YouTube live alerts are not available for this state.</p>
+              <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                <a href="https://video.legislature.ne.gov/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">Legislature Video Library</a>
+                <a href="https://nebraskalegislature.gov/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">nebraskalegislature.gov</a>
+                <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="nebraska-floor" aria-label="Play Nebraska Legislature stream here"><span aria-hidden="true">▶</span> Play here</button>
+              </div>
+              <div class="rounded border bg-light">
+                <div class="embed-wrapper" data-stream-id="nebraska-floor" style="min-height: 280px;">
+                  <iframe loading="lazy" title="Nebraska Legislature" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="embed-placeholder">Click Play here to watch on CivicWatch</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---------- Maryland ---------- -->
+          <div class="tab-pane fade" id="pane-maryland" role="tabpanel">
+            <ul class="nav nav-tabs mb-3" id="marylandSubTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#maryland-senate-pane" type="button" role="tab">Senate Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#maryland-house-pane" type="button" role="tab">House Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#maryland-committees-pane" type="button" role="tab">Committees</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="marylandSubTabContent">
+              <div class="tab-pane fade show active" id="maryland-senate-pane" role="tabpanel">
+                <div id="md-senate-floor">
+                  <h2 class="h5 fw-bold mb-2">Maryland Senate Floor</h2>
+                  <p class="text-body-secondary mb-2">Maryland Senate floor proceedings on YouTube when the General Assembly is in session.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://www.youtube.com/channel/UC965i3n0wndwj90muUZlyFQ" target="_blank" rel="noopener noreferrer" class="btn btn-danger btn-sm">Watch on YouTube – Senate Floor</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="md-senate-floor" aria-label="Play Maryland Senate floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light">
+                    <div class="embed-wrapper" data-stream-id="md-senate-floor" style="min-height: 280px;">
+                      <iframe loading="lazy" title="Maryland Senate Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="embed-placeholder">Click Play here to watch on CivicWatch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="maryland-house-pane" role="tabpanel">
+                <div id="md-house-floor">
+                  <h2 class="h5 fw-bold mb-2">Maryland House Floor</h2>
+                  <p class="text-body-secondary mb-2">Maryland House of Delegates floor proceedings on YouTube when the General Assembly is in session.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://www.youtube.com/channel/UCqELNxEkj2ZNATl4eXWouRw" target="_blank" rel="noopener noreferrer" class="btn btn-danger btn-sm">Watch on YouTube – House Floor</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="md-house-floor" aria-label="Play Maryland House floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light">
+                    <div class="embed-wrapper" data-stream-id="md-house-floor" style="min-height: 280px;">
+                      <iframe loading="lazy" title="Maryland House Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="embed-placeholder">Click Play here to watch on CivicWatch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="maryland-committees-pane" role="tabpanel">
+                <div id="md-committees">
+                  <h2 class="h5 fw-bold mb-2">Maryland Committee Hearings</h2>
+                  <p class="text-body-secondary mb-2">Committee hearings are streamed on chamber-specific YouTube channels. Browse the official media archive for recorded and live committee meetings.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://mgaleg.maryland.gov/mgawebsite/Search/Media" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">MGA Media Archive</a>
+                    <a href="https://mgaleg.maryland.gov/mgawebsite/Information/YouTubeChannelInfo" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">YouTube Channel Index</a>
+                  </div>
                 </div>
               </div>
             </div>

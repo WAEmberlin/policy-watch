@@ -74,6 +74,11 @@ class NormalizedLegislator:
     cosponsored_bills: List[str] = field(default_factory=list)
     voting_history: List[Dict[str, Any]] = field(default_factory=list)
     url: str = ""
+    email: str = ""
+    phones: List[str] = field(default_factory=list)
+    given_name: str = ""
+    family_name: str = ""
+    openstates_url: str = ""
     gender: str = ""
     birth_date: str = ""
     image: str = ""
