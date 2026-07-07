@@ -1963,6 +1963,24 @@
       "updated_at": "2026-07-08T17:00:00+00:00"
     },
     {
+      "id": "119443",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "title": "PACT Act Implementation: Modernizing VA Disability Claims Through Effective Technology",
+      "description": "Congressional meeting before the House Veterans' Affairs Subcommittee on Technology Modernization.",
+      "scheduled_date": "2026-07-13",
+      "scheduled_time": "19:00",
+      "location": "Room 360, Cannon House Office Building",
+      "chamber": "House",
+      "committees": [
+        "House Veterans' Affairs Subcommittee on Technology Modernization"
+      ],
+      "url": "https://www.congress.gov/event/119th-congress/house-event/119443",
+      "stream_url": "",
+      "updated_at": "2026-07-13"
+    },
+    {
       "id": "338621",
       "source": "congress",
       "level": "federal",
@@ -2730,22 +2748,6 @@
       "scheduled_date": "2026-09-16T14:30:00+00:00",
       "scheduled_time": "",
       "location": "110 Senate Building, Utah State Capitol, 350 State St, Salt Lake City, UT 84103",
-      "chamber": "",
-      "committees": [],
-      "url": "",
-      "stream_url": "",
-      "updated_at": "2026-09-16T14:30:00+00:00"
-    },
-    {
-      "id": "ocd-event/83f7b09e-cb3d-4b24-bd6d-29387060cb37",
-      "source": "openstates",
-      "level": "state",
-      "state": "UT",
-      "title": "Revenue and Taxation Interim Committee",
-      "description": "",
-      "scheduled_date": "2026-09-16T14:30:00+00:00",
-      "scheduled_time": "",
-      "location": "445 State Capitol, 350 State St, Salt Lake City, UT 84103",
       "chamber": "",
       "committees": [],
       "url": "",
@@ -6889,8 +6891,8 @@
         "committees": [],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hr_6047/hr6047_enrolled.pdf",
-          "https://www.congress.gov/bill/119th-congress/house-bill/6047"
+          "https://www.congress.gov/bill/119th-congress/house-bill/6047",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hr_6047/hr6047_enrolled.pdf"
         ],
         "updated_at": "2026-06-02T00:00:00",
         "url": "https://www.congress.gov/bill/119th-congress/house-bill/6047",
@@ -8675,11 +8677,11 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2312_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2312/hb2312_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2312/hb2312_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2312_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2312_01_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2312/"
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2312/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2312/hb2312_01_0000.pdf"
         ],
         "updated_at": "2026-05-05T15:57:12+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2312/",
@@ -8867,7 +8869,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-05T14:59:04.914977+00:00"
+        "enriched_at": "2026-07-06T17:58:54.842504+00:00"
       },
       {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/3788d99be01ec0d464ae1a5bf0d9fefb",
@@ -8898,9 +8900,9 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb152_00_0000/fisc_note_sb152_00_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/SB152/",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_152/sb152_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/SB152/"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb152_00_0000/fisc_note_sb152_00_0000.pdf"
         ],
         "updated_at": "2026-04-29T16:17:38+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB152/",
@@ -8990,11 +8992,11 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2083/hb2083_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2083_00_0000/fisc_note_hb2083_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2083_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2083/hb2083_01_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2083/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2083_01_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2083_00_0000/fisc_note_hb2083_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2083/hb2083_00_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2083/"
         ],
         "updated_at": "2026-04-27T14:18:10+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2083/",
@@ -9119,7 +9121,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-05T14:58:19.326831+00:00"
+        "enriched_at": "2026-07-06T17:58:06.584205+00:00"
       },
       {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/efcf107584479480b9fe1877cd858fd1",
@@ -9210,13 +9212,13 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2044_00_0000/fisc_note_hb2044_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2044_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_enrolled.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2044/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2044_00_0000/fisc_note_hb2044_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2044_00_0000.pdf"
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2044/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2044_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_enrolled.pdf"
         ],
         "updated_at": "2026-03-27T23:25:55+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2044/",
@@ -9523,7 +9525,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-05T14:58:09.672634+00:00"
+        "enriched_at": "2026-07-06T17:57:56.509379+00:00"
       },
       {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/e77af4c66c39862fdbd9722c49b9413b",
@@ -9614,14 +9616,14 @@
         ],
         "events": [],
         "document_urls": [
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_enrolled.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2043_02_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2043_00_0000/fisc_note_hb2043_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2043_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2043_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_enrolled.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2043/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2043_01_0000.pdf"
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2043/"
         ],
         "updated_at": "2026-03-27T23:24:09+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2043/",
@@ -9979,7 +9981,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-05T14:58:08.718573+00:00"
+        "enriched_at": "2026-07-06T17:57:55.481884+00:00"
       },
       {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/9c8275eb7adb0920921d877ef2db32e2",
@@ -10070,15 +10072,15 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_03_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2192/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_03_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_01_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2192/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_02_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_03_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_enrolled.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_02_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_enrolled.pdf"
         ],
         "updated_at": "2026-03-26T18:47:22+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2192/",
@@ -10354,7 +10356,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-05T14:58:43.658882+00:00"
+        "enriched_at": "2026-07-06T17:58:32.461773+00:00"
       },
       {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/b3eb3581d158c1916f1e49c5e4230eb6",
@@ -10527,16 +10529,16 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_03_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_03_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_04_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_04_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_03_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_04_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_03_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_02_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/SCR1603/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_01_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_04_0000.pdf"
         ],
         "updated_at": "2026-03-19T15:09:26+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1603/",
@@ -10945,9 +10947,9 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_534/sb534_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb534_00_0000/fisc_note_sb534_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/SB534/"
+          "https://www.kslegislature.gov/li/b2025_26/measures/SB534/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_534/sb534_00_0000.pdf"
         ],
         "updated_at": "2026-03-10T22:45:23+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB534/",
@@ -11027,8 +11029,8 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1625/scr1625_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/SCR1625/"
+          "https://www.kslegislature.gov/li/b2025_26/measures/SCR1625/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1625/scr1625_00_0000.pdf"
         ],
         "updated_at": "2026-03-09T21:17:02+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1625/",
@@ -11150,7 +11152,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-05T12:50:51.866582+00:00"
+        "enriched_at": "2026-07-06T23:40:05.963294+00:00"
       },
       {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/81109cee8b944c5dccc95f3bc3b801a3",
@@ -11297,7 +11299,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-05T12:50:15.113589+00:00"
+        "enriched_at": "2026-07-06T23:39:30.878815+00:00"
       },
       {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/6b4805020684d3eecbbca2e097c855a6",
@@ -11544,8 +11546,8 @@
         ],
         "events": [],
         "document_urls": [
-          "https://www.kslegislature.gov/li/b2025_26/measures/HCR5034/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hcr_5034/hcr5034_00_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hcr_5034/hcr5034_00_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HCR5034/"
         ],
         "updated_at": "2026-03-04T18:20:42+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5034/",
@@ -11594,7 +11596,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-05T12:50:50.618913+00:00"
+        "enriched_at": "2026-07-06T23:40:04.804977+00:00"
       },
       {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/f98c70876606715f687119090654cf35",
@@ -11671,13 +11673,13 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_sb33_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb33_00_0000/fisc_note_sb33_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_01_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/SB33/",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_sb33_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb33_00_0000/fisc_note_sb33_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_02_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/SB33/"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_sb33_02_0000.pdf"
         ],
         "updated_at": "2026-03-04T17:49:14+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB33/",
@@ -11893,7 +11895,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-04T23:33:46.767307+00:00"
+        "enriched_at": "2026-07-06T01:16:46.694884+00:00"
       },
       {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/5cd93c40410a854b93d27d06219e0d71",
@@ -11942,11 +11944,11 @@
         ],
         "events": [],
         "document_urls": [
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2377_00_0000/fisc_note_hb2377_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2377/hb2377_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2377/hb2377_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2377_01_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/HB2377/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2377_00_0000/fisc_note_hb2377_00_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2377_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2377/hb2377_00_0000.pdf"
         ],
         "updated_at": "2026-02-18T19:22:56+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2377/",
@@ -12079,7 +12081,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-04T18:34:02.247215+00:00"
+        "enriched_at": "2026-07-06T20:26:30.667665+00:00"
       },
       {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/e75d0ab1dcd19b089012a5a9b9f2f944",
@@ -12110,9 +12112,9 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2782/hb2782_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2782_00_0000/fisc_note_hb2782_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2782/"
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2782/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2782/hb2782_00_0000.pdf"
         ],
         "updated_at": "2026-02-18T19:02:22+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2782/",
@@ -12169,7 +12171,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-05T12:50:04.108246+00:00"
+        "enriched_at": "2026-07-06T23:39:20.291175+00:00"
       },
       {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/d65e7e507bef5d0601cd44b1318fc9b0",
@@ -12218,10 +12220,10 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2408/hb2408_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2408/hb2408_00_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/HB2408/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2408_01_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2408/hb2408_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2408_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2408/hb2408_01_0000.pdf"
         ],
         "updated_at": "2026-02-12T00:20:12+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2408/",
@@ -12346,7 +12348,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-04T18:34:11.232554+00:00"
+        "enriched_at": "2026-07-06T20:26:40.891513+00:00"
       },
       {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/a9e9e2a71d5ef36e62376e1cede4a644",
@@ -12437,17 +12439,17 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2745_04_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2745/hb2745_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2745/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2745/hb2745_03_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2745/hb2745_enrolled.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2745_03_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2745_00_0000/fisc_note_hb2745_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2745/hb2745_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2745_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2745_04_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2745_03_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2745/hb2745_03_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2745_02_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2745/hb2745_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2745_02_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2745/hb2745_enrolled.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2745/hb2745_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2745_01_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2745/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2745/hb2745_02_0000.pdf"
         ],
         "updated_at": "2026-02-06T19:45:43+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2745/",
@@ -12761,7 +12763,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-05T10:40:01.656238+00:00"
+        "enriched_at": "2026-07-06T14:43:55.557812+00:00"
       }
     ],
     "ai_technology": [
