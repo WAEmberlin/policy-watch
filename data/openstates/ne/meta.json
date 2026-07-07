@@ -1,0 +1,25 @@
+{
+  "state": "NE",
+  "source": "bulk_import",
+  "fetched_at": "2026-07-07T02:19:18.798200+00:00",
+  "last_successful_fetch_at": "2026-07-07T02:19:18.798215+00:00",
+  "updated_since": null,
+  "import_mode": "full",
+  "backfill_complete": true,
+  "bulk_files": [
+    "NE_105_json_6KTOpobuXVPRFNTRMOYp8H/NE/105/NE_105_bills.json",
+    "NE_106_json_2wgeTzDbld1CCxIuH6Jggs/NE/106/NE_106_bills.json",
+    "NE_107_json_5zumGgEDnmFq9HPow3koCi/NE/107/NE_107_bills.json",
+    "NE_107S1_json_71AS9eGfoI1AIF1QdqMo85/NE/107S1/NE_107S1_bills.json",
+    "NE_108_json_3ep7si0tGRpT2lCKMJ2DFK/NE/108/NE_108_bills.json",
+    "NE_108S1_json_4YTYTaYXm6d148tvKSizBw/NE/108S1/NE_108S1_bills.json",
+    "NE_109_json_3eHeZJMaTLardABkVbfc8I/NE/109/NE_109_bills.json"
+  ],
+  "counts": {
+    "bills": 9271,
+    "events": 0,
+    "committees": 0,
+    "legislators": 49,
+    "votes": 7591
+  }
+}

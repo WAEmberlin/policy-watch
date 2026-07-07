@@ -12,10 +12,12 @@ const CivicWatchHome = (() => {
         { value: 'AZ', label: 'AZ' },
         { value: 'UT', label: 'UT' },
         { value: 'ME', label: 'ME' },
+        { value: 'NE', label: 'NE' },
+        { value: 'MD', label: 'MD' },
     ];
 
     const STATE_NAMES = {
-        KS: 'Kansas', CO: 'Colorado', AZ: 'Arizona', UT: 'Utah', ME: 'Maine', Federal: 'U.S. Congress',
+        KS: 'Kansas', CO: 'Colorado', AZ: 'Arizona', UT: 'Utah', ME: 'Maine', NE: 'Nebraska', MD: 'Maryland', Federal: 'U.S. Congress',
     };
 
     const META_SOURCE_PATTERNS = [/congress\.gov api/i, /openstates/i, /data sync/i, /api feed/i];
@@ -101,6 +103,8 @@ const CivicWatchHome = (() => {
         if (src.includes('arizona')) return 'AZ';
         if (src.includes('utah')) return 'UT';
         if (src.includes('maine')) return 'ME';
+        if (src.includes('nebraska')) return 'NE';
+        if (src.includes('maryland')) return 'MD';
         return '';
     }
 
@@ -112,12 +116,14 @@ const CivicWatchHome = (() => {
             AZ: 'bg-orange-100 text-orange-800',
             UT: 'bg-violet-100 text-violet-800',
             ME: 'bg-rose-100 text-rose-800',
+            NE: 'bg-amber-100 text-amber-800',
+            MD: 'bg-teal-100 text-teal-800',
         };
         return map[state] || 'bg-slate-100 text-slate-700';
     }
 
     function countBillsByState(siteData) {
-        const counts = { Federal: 0, KS: 0, CO: 0, AZ: 0, UT: 0, ME: 0 };
+        const counts = { Federal: 0, KS: 0, CO: 0, AZ: 0, UT: 0, ME: 0, NE: 0, MD: 0 };
         (siteData.search_index?.bills || []).forEach((bill) => {
             if (bill.level === 'federal' || !bill.state) {
                 counts.Federal++;
@@ -216,6 +222,8 @@ const CivicWatchHome = (() => {
             AZ: weeklyCounts.az || 0,
             UT: weeklyCounts.ut || 0,
             ME: weeklyCounts.me || 0,
+            NE: weeklyCounts.ne || 0,
+            MD: weeklyCounts.md || 0,
         };
 
         const cards = [
@@ -225,6 +233,8 @@ const CivicWatchHome = (() => {
             { value: 'AZ', label: 'Arizona', sub: 'State Legislature' },
             { value: 'UT', label: 'Utah', sub: 'State Legislature' },
             { value: 'ME', label: 'Maine', sub: 'State Legislature' },
+            { value: 'NE', label: 'Nebraska', sub: 'Unicameral Legislature' },
+            { value: 'MD', label: 'Maryland', sub: 'General Assembly' },
         ];
 
         row.innerHTML = '';
@@ -776,7 +786,7 @@ const CivicWatchHome = (() => {
         });
 
         const stateKeys = Object.keys(byState).sort((a, b) => {
-            const order = ['Federal', 'KS', 'CO', 'AZ', 'UT', 'ME', 'Other'];
+            const order = ['Federal', 'KS', 'CO', 'AZ', 'UT', 'ME', 'NE', 'MD', 'Other'];
             return order.indexOf(a) - order.indexOf(b);
         });
 

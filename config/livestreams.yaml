@@ -228,6 +228,49 @@ streams:
     youtube_channel_id: UCJVLbCO6mq1wb12kTyljD8w
     youtube_url: https://www.youtube.com/channel/UCJVLbCO6mq1wb12kTyljD8w
 
+  # ——— Nebraska ———
+  - id: nebraska-floor
+    title: Nebraska Legislature
+    state: NE
+    jurisdiction: nebraska
+    type: floor
+    target_id: nebraska-floor
+    tab_pane: pane-nebraska
+    embed_url: https://video.legislature.ne.gov/
+    external_url: https://nebraskalegislature.gov/
+    youtube_url: https://video.legislature.ne.gov/
+
+  # ——— Maryland ———
+  - id: md-senate-floor
+    title: Maryland Senate Floor
+    state: MD
+    jurisdiction: maryland
+    type: floor
+    target_id: md-senate-floor
+    tab_pane: pane-maryland
+    youtube_channel_id: UC965i3n0wndwj90muUZlyFQ
+    youtube_url: https://www.youtube.com/channel/UC965i3n0wndwj90muUZlyFQ
+
+  - id: md-house-floor
+    title: Maryland House Floor
+    state: MD
+    jurisdiction: maryland
+    type: floor
+    target_id: md-house-floor
+    tab_pane: pane-maryland
+    youtube_channel_id: UCqELNxEkj2ZNATl4eXWouRw
+    youtube_url: https://www.youtube.com/channel/UCqELNxEkj2ZNATl4eXWouRw
+
+  - id: md-committees
+    title: Maryland General Assembly Committees
+    state: MD
+    jurisdiction: maryland
+    type: committee
+    target_id: md-committees
+    tab_pane: pane-maryland
+    external_url: https://mgaleg.maryland.gov/mgawebsite/Search/Media
+    youtube_url: https://mgaleg.maryland.gov/mgawebsite/Search/Media
+
   # ——— U.S. House ———
   - id: us-house-floor
     title: US House Floor
@@ -331,4 +374,6 @@ state_floor_stream:
   AZ: arizona-floor
   UT: utah-floor
   ME: maine-floor
+  NE: nebraska-floor
+  MD: md-senate-floor
   Federal: us-house-floor

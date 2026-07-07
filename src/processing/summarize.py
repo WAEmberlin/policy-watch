@@ -487,6 +487,8 @@ STATE_HEARING_LABELS = {
     "AZ": "State (Arizona)",
     "UT": "State (Utah)",
     "ME": "State (Maine)",
+    "NE": "State (Nebraska)",
+    "MD": "State (Maryland)",
 }
 
 
@@ -797,6 +799,7 @@ normalized_legislators = _load_expansion_json(os.path.join(DATA_DIR, "normalized
 normalized_dashboards = _load_expansion_json(os.path.join(DATA_DIR, "normalized", "dashboards.json"), {})
 normalized_search_index = _load_expansion_json(os.path.join(DATA_DIR, "normalized", "search_index.json"), {})
 normalized_legislator_stats = _load_expansion_json(os.path.join(DATA_DIR, "normalized", "legislator_stats.json"), {})
+normalized_legislator_votes = _load_expansion_json(os.path.join(DATA_DIR, "normalized", "legislator_votes.json"), {})
 weekly_digests = _load_expansion_json(os.path.join(DATA_DIR, "digests", "weekly.json"), {})
 federal_delegation = _load_expansion_json(os.path.join(DATA_DIR, "federal", "delegation.json"), [])
 
@@ -884,6 +887,7 @@ output = {
     "dashboards": normalized_dashboards,
     "search_index": normalized_search_index,
     "legislator_stats": normalized_legislator_stats,
+    "legislator_votes": normalized_legislator_votes,
     "weekly_digests": weekly_digests,
     "livestreams": livestreams_meta,
     "veteran_impact": {

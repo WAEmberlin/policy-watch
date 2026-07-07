@@ -55,6 +55,10 @@ def infer_item_state(item: Dict[str, Any]) -> Optional[str]:
         return "UT"
     if "maine" in src:
         return "ME"
+    if "nebraska" in src:
+        return "NE"
+    if "maryland" in src:
+        return "MD"
     if item.get("type") == "state_legislation" and item.get("state"):
         return str(item["state"]).upper()
     return None
@@ -78,6 +82,10 @@ def infer_hearing_state(hearing: Dict[str, Any]) -> Optional[str]:
         return "UT"
     if "maine" in src:
         return "ME"
+    if "nebraska" in src:
+        return "NE"
+    if "maryland" in src:
+        return "MD"
     return None
 
 
@@ -119,10 +127,43 @@ def is_within_window(item: Dict[str, Any], now: datetime, window_hours: int) -> 
     ts = item_recency_ts(item)
     if not ts:
         return False
-    return (now - ts).total_seconds() <= window_hours * 3600
+    delta = (now - ts).total_seconds()
+    if delta < 0:
+        # Future hearing dates fall out here; allow small forward skew from midnight→EOD adjustment.
+        return -delta <= window_hours * 3600
+    return delta <= window_hours * 3600
 
 
-def load_recent_items(window_hours: int = 6) -> List[Dict[str, Any]]:
+def hearing_scheduled_date(item: Dict[str, Any]) -> Optional[datetime.date]:
+    for field in ("scheduled_date", "published"):
+        raw = str(item.get(field) or "").strip()
+        if not raw:
+            continue
+        try:
+            if "T" in raw:
+                return datetime.fromisoformat(raw.replace("Z", "+00:00")).date()
+            return datetime.fromisoformat(raw + "T00:00:00+00:00").date()
+        except ValueError:
+            continue
+    notice_date = str(item.get("notice_date") or "").strip()
+    if notice_date:
+        for fmt in ("%A, %B %d, %Y", "%B %d, %Y", "%Y-%m-%d"):
+            try:
+                return datetime.strptime(notice_date, fmt).date()
+            except ValueError:
+                continue
+    return None
+
+
+def is_hearing_within_lookahead(item: Dict[str, Any], days: int = 14) -> bool:
+    hdate = hearing_scheduled_date(item)
+    if not hdate:
+        return False
+    today = datetime.now(timezone.utc).date()
+    return today <= hdate <= today + timedelta(days=days)
+
+
+def load_recent_items(window_hours: int = 6, hearing_lookahead_days: int = 14) -> List[Dict[str, Any]]:
     now = datetime.now(timezone.utc)
     recent: List[Dict[str, Any]] = []
     seen_links: set = set()
@@ -132,7 +173,10 @@ def load_recent_items(window_hours: int = 6) -> List[Dict[str, Any]]:
             history = json.load(f)
         if isinstance(history, list):
             for item in history:
-                if not is_within_window(item, now, window_hours):
+                if is_utah_hearing_feed_item(item):
+                    if not is_hearing_within_lookahead(item, hearing_lookahead_days):
+                        continue
+                elif not is_within_window(item, now, window_hours):
                     continue
                 entry = dict(item)
                 ts = item_recency_ts(item)
@@ -247,9 +291,17 @@ def is_utah_hearing_feed_item(item: Dict[str, Any]) -> bool:
     return item.get("type") == "state_hearing" and infer_item_state(item) == "UT"
 
 
-def split_state_items(items: List[Dict[str, Any]]) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
+def split_state_items(
+    items: List[Dict[str, Any]],
+    *,
+    hearing_lookahead_days: int = 14,
+) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
     updates = [item for item in items if not is_utah_hearing_feed_item(item)]
-    hearing_updates = [item for item in items if is_utah_hearing_feed_item(item)]
+    hearing_updates = [
+        item for item in items
+        if is_utah_hearing_feed_item(item)
+        and is_hearing_within_lookahead(item, hearing_lookahead_days)
+    ]
     return updates, hearing_updates
 
 
@@ -350,7 +402,9 @@ def _render_hearing_updates_section(title: str, items: List[Dict[str, Any]]) -> 
 
 
 def _render_state_sections(name: str, state_items: List[Dict[str, Any]]) -> str:
-    updates, hearing_updates = split_state_items(state_items)
+    cfg = load_digest_config()
+    lookahead = int(cfg.get("hearing_lookahead_days", 14))
+    updates, hearing_updates = split_state_items(state_items, hearing_lookahead_days=lookahead)
     html = _render_items_section(f"{name} — Updates", updates)
     html += _render_hearing_updates_section(f"{name} — Hearing Updates", hearing_updates)
     return html

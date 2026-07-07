@@ -20,7 +20,11 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
 CONFIG_PATH = ROOT / "config" / "states.yaml"
-HISTORIC_DIR = ROOT / "data" / "historic"
+DEFAULT_BULK_DIRS = [
+    ROOT / "data" / "historic",
+    ROOT / "data" / "nebraska",
+    ROOT / "data" / "maryland",
+]
 OUTPUT_DIR = ROOT / "data" / "openstates"
 SKIP_STATE_CODES = {"US"}
 
@@ -165,13 +169,22 @@ def parse_state_from_bills_path(path: Path) -> Optional[str]:
     return None
 
 
-def discover_bill_files(historic_dir: Path) -> List[Tuple[str, Path]]:
-    discovered: List[Tuple[str, Path]] = []
-    for path in sorted(historic_dir.rglob("*_bills.json")):
-        state_code = parse_state_from_bills_path(path)
-        if not state_code or state_code.upper() in SKIP_STATE_CODES:
+def discover_bill_files(bulk_dirs: Iterable[Path]) -> List[Tuple[str, Path, Path]]:
+    """Return (state_code, bill_file_path, bulk_root) for each bulk export."""
+    discovered: List[Tuple[str, Path, Path]] = []
+    seen_paths: Set[str] = set()
+    for bulk_dir in bulk_dirs:
+        if not bulk_dir.exists():
             continue
-        discovered.append((state_code, path))
+        for path in sorted(bulk_dir.rglob("*_bills.json")):
+            key = str(path.resolve())
+            if key in seen_paths:
+                continue
+            state_code = parse_state_from_bills_path(path)
+            if not state_code or state_code.upper() in SKIP_STATE_CODES:
+                continue
+            seen_paths.add(key)
+            discovered.append((state_code, path, bulk_dir))
     return discovered
 
 
@@ -209,14 +222,14 @@ def fetch_legislators_csv(state_code: str) -> List[Dict[str, Any]]:
 
 def import_state(
     state_code: str,
-    bill_files: List[Path],
+    bill_files: List[Tuple[Path, Path]],
     since: str,
     include_all: bool,
     fetch_legislators: bool,
 ) -> Dict[str, int]:
     converted: List[Dict[str, Any]] = []
     raw_count = 0
-    for path in bill_files:
+    for path, _bulk_root in bill_files:
         raw_bills = load_json(path, [])
         if not isinstance(raw_bills, list):
             print(f"WARNING: skipping {path} (expected list of bills)")
@@ -252,7 +265,10 @@ def import_state(
         "updated_since": since if not include_all else None,
         "import_mode": "full" if include_all else "since_filter",
         "backfill_complete": True,
-        "bulk_files": [str(path.relative_to(HISTORIC_DIR)).replace("\\", "/") for path in bill_files],
+        "bulk_files": [
+            str(path.relative_to(bulk_root)).replace("\\", "/")
+            for path, bulk_root in bill_files
+        ],
         "counts": {
             "bills": len(bills),
             "events": len(load_json(state_dir / "events.json", [])),
@@ -274,7 +290,13 @@ def import_state(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Import Open States bulk JSON into data/openstates/")
-    parser.add_argument("--historic-dir", type=Path, default=HISTORIC_DIR, help="Directory containing extracted bulk JSON folders")
+    parser.add_argument(
+        "--bulk-dir",
+        action="append",
+        dest="bulk_dirs",
+        type=Path,
+        help="Directory containing extracted Open States bulk JSON folders (repeatable; default: data/historic, data/nebraska, data/maryland)",
+    )
     parser.add_argument(
         "--since",
         type=str,
@@ -299,19 +321,22 @@ def main() -> None:
     else:
         target_states = configured_states
 
-    historic_dir = args.historic_dir
-    if not historic_dir.exists():
-        print(f"Historic directory not found: {historic_dir}")
+    bulk_dirs = args.bulk_dirs or DEFAULT_BULK_DIRS
+    existing_dirs = [path for path in bulk_dirs if path.exists()]
+    if not existing_dirs:
+        searched = ", ".join(str(path) for path in bulk_dirs)
+        print(f"No bulk directories found (looked in: {searched})")
         sys.exit(1)
 
-    discovered = discover_bill_files(historic_dir)
+    discovered = discover_bill_files(existing_dirs)
     if not discovered:
-        print(f"No *_bills.json files found under {historic_dir}")
+        searched = ", ".join(str(path) for path in existing_dirs)
+        print(f"No *_bills.json files found under: {searched}")
         sys.exit(1)
 
-    by_state: Dict[str, List[Path]] = {}
-    for state_code, path in discovered:
-        by_state.setdefault(state_code, []).append(path)
+    by_state: Dict[str, List[Tuple[Path, Path]]] = {}
+    for state_code, path, bulk_root in discovered:
+        by_state.setdefault(state_code, []).append((path, bulk_root))
 
     imported: Set[str] = set()
     for state_code in sorted(by_state):

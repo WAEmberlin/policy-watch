@@ -20,6 +20,7 @@
     senate: true,
     'state senator': true,
     sen: true,
+    legislature: true,
   };
 
   var US_HOUSE_CHAMBERS = {
@@ -100,6 +101,27 @@
         senate: { file: 'me-sld-upper.geojson', chamber: 'senate', label: 'Maine Senate', note: '35 districts' },
         us_house: { file: 'me-cd119.geojson', chamber: 'us_house', label: 'U.S. House', note: '2 districts' },
         us_senate: { file: 'me-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
+      },
+    },
+    NE: {
+      name: 'Nebraska',
+      center: [41.5, -99.8],
+      zoom: 7,
+      chambers: {
+        senate: { file: 'ne-sld-upper.geojson', chamber: 'senate', label: 'Nebraska Legislature', note: '49 districts (unicameral)' },
+        us_house: { file: 'ne-cd119.geojson', chamber: 'us_house', label: 'U.S. House', note: '3 districts' },
+        us_senate: { file: 'ne-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
+      },
+    },
+    MD: {
+      name: 'Maryland',
+      center: [39.0, -76.7],
+      zoom: 8,
+      chambers: {
+        house: { file: 'md-sld-lower.geojson', chamber: 'house', label: 'Maryland House', note: '71 legislative districts (141 delegates)' },
+        senate: { file: 'md-sld-upper.geojson', chamber: 'senate', label: 'Maryland Senate', note: '47 districts' },
+        us_house: { file: 'md-cd119.geojson', chamber: 'us_house', label: 'U.S. House', note: '8 districts' },
+        us_senate: { file: 'md-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
       },
     },
   };
@@ -510,6 +532,16 @@
         });
     }
 
+    function defaultChamberForState(stateCode) {
+      var chambers = (getStateConfig(stateCode).chambers || {});
+      var preferred = ['house', 'senate', 'us_house', 'us_senate'];
+      for (var i = 0; i < preferred.length; i++) {
+        if (chambers[preferred[i]]) return preferred[i];
+      }
+      var keys = Object.keys(chambers);
+      return keys.length ? keys[0] : 'house';
+    }
+
     if (stateSelect) {
       Object.keys(STATE_CONFIG).forEach(function (code) {
         var option = document.createElement('option');
@@ -519,7 +551,7 @@
         stateSelect.appendChild(option);
       });
       stateSelect.addEventListener('change', function () {
-        loadChamber(stateSelect.value, 'house');
+        loadChamber(stateSelect.value, defaultChamberForState(stateSelect.value));
       });
     }
 

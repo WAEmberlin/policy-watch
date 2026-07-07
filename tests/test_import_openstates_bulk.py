@@ -53,6 +53,16 @@ def test_discover_bill_files_skips_us(tmp_path):
     me_dir.mkdir(parents=True)
     (me_dir / "ME_132_bills.json").write_text("[]", encoding="utf-8")
 
-    found = discover_bill_files(tmp_path)
+    found = discover_bill_files([tmp_path])
     assert len(found) == 1
     assert found[0][0] == "me"
+
+
+def test_parse_state_from_nebraska_bills_path():
+    path = Path("data/nebraska/NE_109_json_hash/NE/109/NE_109_bills.json")
+    assert parse_state_from_bills_path(path) == "ne"
+
+
+def test_parse_state_from_maryland_bills_path():
+    path = Path("data/maryland/MD_2025_json_hash/MD/2025/MD_2025_bills.json")
+    assert parse_state_from_bills_path(path) == "md"

@@ -25,6 +25,8 @@ _STATE_PROFILE_DOMAINS = {
     "UT": ("le.utah.gov", "utah.gov"),
     "AZ": ("azleg.gov",),
     "ME": ("legislature.maine.gov",),
+    "NE": ("nebraskalegislature.gov", "ne.gov"),
+    "MD": ("mgaleg.maryland.gov", "maryland.gov"),
     "FEDERAL": ("congress.gov", "house.gov", "senate.gov"),
 }
 

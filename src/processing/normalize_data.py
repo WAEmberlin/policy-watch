@@ -23,6 +23,7 @@ from processing.unified_search import build_search_index, build_dashboards  # no
 from processing.enrichment_utils import apply_enrichments_to_bills  # noqa: E402
 from processing.import_openstates_bulk import fetch_legislators_csv  # noqa: E402
 from processing.legislator_stats import build_legislator_stats  # noqa: E402
+from processing.legislator_votes import build_legislator_vote_index  # noqa: E402
 
 CONFIG_PATH = ROOT / "config" / "states.yaml"
 DATA_DIR = ROOT / "data"
@@ -41,8 +42,13 @@ def load_json(path: Path, default: Any) -> Any:
 
 def save_json(path: Path, data: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
+    tmp_path = path.with_suffix(path.suffix + ".tmp")
+    payload = json.dumps(data, indent=2, ensure_ascii=False)
+    with open(tmp_path, "w", encoding="utf-8") as f:
+        f.write(payload)
+        f.flush()
+        os.fsync(f.fileno())
+    tmp_path.replace(path)
 
 
 def dedupe_bills(bills: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
@@ -172,10 +178,12 @@ def normalize_all(skip_ai: bool = False) -> Dict[str, Any]:
     search_index = build_search_index(all_bills, all_events, all_legislators)
     dashboards = build_dashboards(all_bills, all_events, all_votes, config)
     legislator_stats = build_legislator_stats(all_legislators)
+    legislator_votes = build_legislator_vote_index(all_legislators, all_votes)
 
     save_json(NORMALIZED_DIR / "search_index.json", search_index)
     save_json(NORMALIZED_DIR / "dashboards.json", dashboards)
     save_json(NORMALIZED_DIR / "legislator_stats.json", legislator_stats)
+    save_json(NORMALIZED_DIR / "legislator_votes.json", legislator_votes)
 
     meta = {
         "normalized_at": datetime.now(timezone.utc).isoformat(),

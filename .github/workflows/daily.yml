@@ -74,6 +74,9 @@ jobs:
             echo "CONGRESS_API_KEY not set, skipping hearings fetch"
           fi
 
+      - name: Import Open States bulk historical data
+        run: python src/processing/import_openstates_bulk.py || echo "No bulk exports found, skipping"
+
       - name: Normalize and merge enrichments
         run: python src/processing/normalize_data.py --skip-ai
 

@@ -12,6 +12,8 @@ SOURCE_STATE_HINTS = {
     "arizona": "AZ",
     "utah": "UT",
     "maine": "ME",
+    "nebraska": "NE",
+    "maryland": "MD",
 }
 
 _STREAM_NOTE_HINTS = ("stream", "video", "live", "watch", "broadcast", "webcast")

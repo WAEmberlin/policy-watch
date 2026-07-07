@@ -22,6 +22,7 @@ def test_normalize_chamber_variants():
     assert normalize_chamber("Representative") == "house"
     assert normalize_chamber("lower") == "house"
     assert normalize_chamber("Senator") == "senate"
+    assert normalize_chamber("legislature") == "senate"
     assert normalize_chamber("upper") == "senate"
     assert normalize_chamber("U.S. Representative") == "us_house"
     assert normalize_chamber("U.S. Senator") == "us_senate"
@@ -81,6 +82,16 @@ def test_is_house_legislator():
     assert is_house_legislator({"state": "KS", "chamber": "Representative"})
     assert not is_house_legislator({"state": "KS", "chamber": "Senator"})
     assert not is_house_legislator({"state": "CO", "chamber": "Representative"})
+
+
+def test_nebraska_legislature_chamber_join():
+    legislators = [
+        {"state": "NE", "chamber": "legislature", "district": "13", "name": "Ashlei Spivey"},
+        {"state": "NE", "chamber": "legislature", "district": "40", "name": "Barry DeKay"},
+    ]
+    index = build_district_legislator_index(legislators, state="NE", chamber="senate")
+    assert index["13"][0]["name"] == "Ashlei Spivey"
+    assert index["40"][0]["name"] == "Barry DeKay"
 
 
 def test_geojson_join_coverage_report():

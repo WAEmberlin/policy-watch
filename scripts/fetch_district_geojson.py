@@ -30,6 +30,8 @@ STATES: Dict[str, Dict[str, str]] = {
     "az": {"fips": "04", "name": "Arizona"},
     "ut": {"fips": "49", "name": "Utah"},
     "me": {"fips": "23", "name": "Maine"},
+    "ne": {"fips": "31", "name": "Nebraska"},
+    "md": {"fips": "24", "name": "Maryland"},
 }
 
 LAYERS: Dict[str, Dict[str, object]] = {
@@ -186,6 +188,10 @@ def main(argv: Iterable[str] | None = None) -> int:
             errors += 1
             continue
         for layer_key in layer_keys:
+            # Nebraska is unicameral — Census has upper (SLDU) districts only.
+            if state_code == "ne" and layer_key == "sld-lower":
+                print(f"Skipping {state_code.upper()} {layer_key} (unicameral legislature)")
+                continue
             try:
                 fetch_layer(state_code, layer_key)
             except (urllib.error.URLError, TimeoutError, RuntimeError, ValueError) as exc:

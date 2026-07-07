@@ -206,6 +206,12 @@ class OpenStatesSource(LegislativeSource):
             current_role = (person.get("current_role") or {})
             committees = [m.get("organization", {}).get("name", "") for m in (person.get("memberships") or [])]
             profile_url = resolve_legislator_profile_url({**person, "state": self.state_code})
+            extras = person.get("extras") or {}
+            phones: List[str] = []
+            for key in ("cell phone", "home phone", "work phone", "phone"):
+                value = extras.get(key)
+                if value:
+                    phones.append(str(value).strip())
 
             normalized.append(
                 NormalizedLegislator(
@@ -219,6 +225,11 @@ class OpenStatesSource(LegislativeSource):
                     chamber=current_role.get("title", "") or current_role.get("chamber", ""),
                     committees=[c for c in committees if c],
                     url=profile_url,
+                    email=(person.get("email") or "").strip(),
+                    phones=phones,
+                    given_name=(person.get("given_name") or "").strip(),
+                    family_name=(person.get("family_name") or "").strip(),
+                    openstates_url=(person.get("openstates_url") or "").strip(),
                     gender=person.get("gender", ""),
                     birth_date=person.get("birth_date", ""),
                     image=person.get("image", ""),

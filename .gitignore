@@ -4,3 +4,7 @@ __pycache__/
 .env
 .venv/
 data/historic/
+data/nebraska/*
+!data/nebraska/README.md
+data/maryland/*
+!data/maryland/README.md

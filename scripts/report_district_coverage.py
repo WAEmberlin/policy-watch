@@ -37,6 +37,13 @@ LAYERS = [
     ("me", "sld-upper", "ME", "senate"),
     ("me", "cd119", "ME", "us_house"),
     ("me", "state", "ME", "us_senate"),
+    ("ne", "sld-upper", "NE", "senate"),
+    ("ne", "cd119", "NE", "us_house"),
+    ("ne", "state", "NE", "us_senate"),
+    ("md", "sld-lower", "MD", "house"),
+    ("md", "sld-upper", "MD", "senate"),
+    ("md", "cd119", "MD", "us_house"),
+    ("md", "state", "MD", "us_senate"),
 ]
 
 
