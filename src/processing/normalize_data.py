@@ -23,8 +23,12 @@ from processing.unified_search import build_search_index, build_dashboards  # no
 from processing.enrichment_utils import apply_enrichments_to_bills  # noqa: E402
 from processing.import_openstates_bulk import fetch_legislators_csv  # noqa: E402
 from processing.legislator_stats import build_legislator_stats  # noqa: E402
-from processing.legislator_votes import build_legislator_vote_index  # noqa: E402
 from processing.openstates_bills import load_state_bills  # noqa: E402
+
+try:
+    from processing.legislator_votes import build_legislator_vote_index  # noqa: E402
+except ImportError:
+    build_legislator_vote_index = None  # type: ignore[misc, assignment]
 
 CONFIG_PATH = ROOT / "config" / "states.yaml"
 DATA_DIR = ROOT / "data"
@@ -179,7 +183,10 @@ def normalize_all(skip_ai: bool = False) -> Dict[str, Any]:
     search_index = build_search_index(all_bills, all_events, all_legislators)
     dashboards = build_dashboards(all_bills, all_events, all_votes, config)
     legislator_stats = build_legislator_stats(all_legislators)
-    legislator_votes = build_legislator_vote_index(all_legislators, all_votes)
+    if build_legislator_vote_index:
+        legislator_votes = build_legislator_vote_index(all_legislators, all_votes)
+    else:
+        legislator_votes = {}
 
     save_json(NORMALIZED_DIR / "search_index.json", search_index)
     save_json(NORMALIZED_DIR / "dashboards.json", dashboards)
