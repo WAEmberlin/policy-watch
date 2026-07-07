@@ -241,7 +241,7 @@ const CivicWatchHome = (() => {
         cards.forEach((card) => {
             const el = document.createElement('button');
             el.type = 'button';
-            el.className = 'state-snapshot-card flex-shrink-0 min-w-[140px] p-4 rounded-xl border-2 border-slate-200 bg-white hover:border-civic-blue hover:shadow-md transition-all text-left';
+            el.className = 'state-snapshot-card w-full p-4 rounded-xl border-2 border-slate-200 bg-white hover:border-civic-blue hover:shadow-md transition-all text-left';
             el.setAttribute('data-state', card.value);
             el.setAttribute('aria-label', `Filter feed to ${card.label}`);
 
