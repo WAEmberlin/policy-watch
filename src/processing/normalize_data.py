@@ -24,6 +24,7 @@ from processing.enrichment_utils import apply_enrichments_to_bills  # noqa: E402
 from processing.import_openstates_bulk import fetch_legislators_csv  # noqa: E402
 from processing.legislator_stats import build_legislator_stats  # noqa: E402
 from processing.legislator_votes import build_legislator_vote_index  # noqa: E402
+from processing.openstates_bills import load_state_bills  # noqa: E402
 
 CONFIG_PATH = ROOT / "config" / "states.yaml"
 DATA_DIR = ROOT / "data"
@@ -143,7 +144,7 @@ def normalize_all(skip_ai: bool = False) -> Dict[str, Any]:
             code,
         )
         os_source.set_data(
-            bills=load_json(state_dir / "bills.json", []),
+            bills=load_state_bills(state_dir),
             events=load_json(state_dir / "events.json", []),
             committees=load_json(state_dir / "committees.json", []),
             legislators=legislators_raw,

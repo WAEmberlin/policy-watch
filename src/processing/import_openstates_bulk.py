@@ -19,6 +19,8 @@ import yaml
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
+from processing.openstates_bills import load_state_bills, save_state_bills  # noqa: E402
+
 CONFIG_PATH = ROOT / "config" / "states.yaml"
 DEFAULT_BULK_DIRS = [
     ROOT / "data" / "historic",
@@ -243,15 +245,15 @@ def import_state(
             converted.append(convert_bulk_bill(bill, state_code))
 
     state_dir = OUTPUT_DIR / state_code
-    existing_bills = load_json(state_dir / "bills.json", [])
-    bills = merge_by_id(existing_bills if isinstance(existing_bills, list) else [], converted)
+    existing_bills = load_state_bills(state_dir)
+    bills = merge_by_id(existing_bills, converted)
     votes = merge_by_id(load_json(state_dir / "votes.json", []), extract_votes(bills, state_code))
 
     legislators = load_json(state_dir / "legislators.json", [])
     if fetch_legislators or not legislators:
         legislators = fetch_legislators_csv(state_code)
 
-    save_json(state_dir / "bills.json", bills)
+    bill_files_saved = save_state_bills(state_dir, bills)
     save_json(state_dir / "events.json", load_json(state_dir / "events.json", []))
     save_json(state_dir / "committees.json", load_json(state_dir / "committees.json", []))
     save_json(state_dir / "legislators.json", legislators)
@@ -269,6 +271,7 @@ def import_state(
             str(path.relative_to(bulk_root)).replace("\\", "/")
             for path, bulk_root in bill_files
         ],
+        "bill_files": bill_files_saved,
         "counts": {
             "bills": len(bills),
             "events": len(load_json(state_dir / "events.json", [])),

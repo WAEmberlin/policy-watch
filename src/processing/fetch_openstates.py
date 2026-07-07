@@ -17,6 +17,11 @@ import yaml
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
+from processing.openstates_bills import (  # noqa: E402
+    load_state_bills,
+    save_state_bills,
+    state_bill_count as count_bills_in_dir,
+)
 from processing.openstates_client import OpenStatesClient  # noqa: E402
 
 CONFIG_PATH = ROOT / "config" / "states.yaml"
@@ -76,8 +81,7 @@ def state_bill_count(code: str) -> int:
     counts = meta.get("counts") or {}
     if isinstance(counts.get("bills"), int):
         return counts["bills"]
-    bills = load_json(DATA_DIR / code / "bills.json", [])
-    return len(bills) if isinstance(bills, list) else 0
+    return count_bills_in_dir(DATA_DIR / code)
 
 
 def state_priority(code: str, os_cfg: Dict[str, Any]) -> Tuple[int, int, str]:
@@ -213,7 +217,7 @@ def fetch_state(
     print(f"  updated_since={since}")
     include = ["sponsorships", "actions", "versions"]
     jurisdiction_query = code.upper()
-    existing_bills = load_json(state_dir / "bills.json", [])
+    existing_bills = load_state_bills(state_dir)
     existing_events = load_json(state_dir / "events.json", [])
     existing_committees = load_json(state_dir / "committees.json", [])
     existing_legislators = load_json(state_dir / "legislators.json", [])
@@ -271,7 +275,8 @@ def fetch_state(
     committees = merge_by_id(existing_committees, committees)
     legislators = merge_by_id(existing_legislators, legislators)
 
-    save_json(state_dir / "bills.json", bills)
+    bill_files = save_state_bills(state_dir, bills)
+    print(f"  Saved bills: {', '.join(bill_files)} ({len(bills)} total)")
     save_json(state_dir / "events.json", events)
     save_json(state_dir / "committees.json", committees)
     save_json(state_dir / "legislators.json", legislators)

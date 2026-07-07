@@ -22,7 +22,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from processing.openstates_client import OpenStatesClient  # noqa: E402
+from processing.openstates_bills import load_state_bills, save_state_bills  # noqa: E402
 
 CONFIG_PATH = ROOT / "config" / "states.yaml"
 OPENSTATES_DIR = ROOT / "data" / "openstates"
@@ -77,8 +77,7 @@ def fetch_bill_detail(client: OpenStatesClient, bill: Dict[str, Any]) -> Dict[st
 
 
 def enrich_state(client: OpenStatesClient, state_code: str, max_bills: int, days_back: int) -> int:
-    bills_path = OPENSTATES_DIR / state_code / "bills.json"
-    bills = load_json(bills_path, [])
+    bills = load_state_bills(OPENSTATES_DIR / state_code)
     if not bills:
         print(f"No Open States bills for {state_code.upper()}, skipping detail enrichment")
         return 0
@@ -123,7 +122,7 @@ def enrich_state(client: OpenStatesClient, state_code: str, max_bills: int, days
                     break
             enriched += 1
 
-    save_json(bills_path, bills)
+    save_state_bills(OPENSTATES_DIR / state_code, bills)
     enrichments["_meta"] = {
         "state": state_code.upper(),
         "updated_at": datetime.now(timezone.utc).isoformat(),

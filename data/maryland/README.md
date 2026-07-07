@@ -16,4 +16,6 @@ python src/processing/summarize.py
 
 Raw export folders in this directory are gitignored (like `data/historic/`). Commit the processed cache under `data/openstates/md/` so CI and the site can use the historical data without re-importing source JSON.
 
+Large states are stored as per-session files (`bills_2023.json`, `bills_2024.json`, …) when a single `bills.json` would exceed GitHub size limits.
+
 Maryland has no official bill-tracking REST API. The Department of Legislative Services publishes RSS feeds for dashboards and publications only — CivicWatch uses **Open States API v3** for live updates, merged on top of this bulk cache.
