@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import sys
 from datetime import datetime, timezone
 from collections import defaultdict
@@ -923,6 +924,20 @@ print(
     f"{legislator_vote_count} total votes to {legislator_votes_file}"
 )
 print(f"Wrote {len(legislator_vote_counts)} legislator vote counts to {legislator_vote_counts_file}")
+
+bill_title_lookup = {}
+for bill in normalized_bills:
+    state = (bill.get("state") or "").upper()
+    if not state:
+        continue
+    bill_number = re.sub(r"\s+", "", bill.get("bill_number") or "").upper()
+    title = (bill.get("title") or bill.get("short_title") or "").strip()
+    if bill_number and title:
+        bill_title_lookup[f"{state}:{bill_number}"] = title
+bill_title_lookup_file = os.path.join(DOCS_DIR, "bill_title_lookup.json")
+with open(bill_title_lookup_file, "w", encoding="utf-8") as f:
+    json.dump(bill_title_lookup, f)
+print(f"Wrote {len(bill_title_lookup)} bill titles to {bill_title_lookup_file}")
 
 print("Site data generated successfully.")
 print(f"Years available: {', '.join(site_years.keys())}")
