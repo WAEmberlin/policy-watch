@@ -8,6 +8,7 @@ const CivicWatchLegislatorVotes = (() => {
     let voteCounts = {};
     let voteIndex = null;
     let billTitleLookup = null;
+    let billUrlLookup = null;
     let countsPromise = null;
     let loadPromise = null;
     let titleLookupPromise = null;
@@ -73,21 +74,16 @@ const CivicWatchLegislatorVotes = (() => {
     }
 
     async function ensureTitleLookupLoaded() {
-        if (billTitleLookup) return billTitleLookup;
+        if (billTitleLookup && billUrlLookup) return billTitleLookup;
         if (!titleLookupPromise) {
-            titleLookupPromise = fetch('bill_title_lookup.json')
-                .then((res) => {
-                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                    return res.json();
-                })
-                .then((data) => {
-                    billTitleLookup = data || {};
-                    return billTitleLookup;
-                })
-                .catch(() => {
-                    billTitleLookup = {};
-                    return billTitleLookup;
-                });
+            titleLookupPromise = Promise.all([
+                fetch('bill_title_lookup.json').then((res) => res.ok ? res.json() : {}).catch(() => ({})),
+                fetch('bill_url_lookup.json').then((res) => res.ok ? res.json() : {}).catch(() => ({})),
+            ]).then(([titles, urls]) => {
+                billTitleLookup = titles || {};
+                billUrlLookup = urls || {};
+                return billTitleLookup;
+            });
         }
         return titleLookupPromise;
     }
@@ -117,6 +113,13 @@ const CivicWatchLegislatorVotes = (() => {
         if (!billTitleLookup) return '';
         const key = `${String(state || '').toUpperCase()}:${normalizeBillNo(vote?.bill_number)}`;
         return billTitleLookup[key] || '';
+    }
+
+    function getBillUrl(vote, state) {
+        if (vote?.bill_url) return vote.bill_url;
+        if (!billUrlLookup) return '';
+        const key = `${String(state || '').toUpperCase()}:${normalizeBillNo(vote?.bill_number)}`;
+        return billUrlLookup[key] || '';
     }
 
     function getVotesForLegislator() {
@@ -214,9 +217,14 @@ const CivicWatchLegislatorVotes = (() => {
         const state = currentLegislator?.state || '';
         const rows = votes.map((vote) => {
             const title = getBillTitle(vote, state);
+            const billUrl = getBillUrl(vote, state);
+            const billNo = escapeHtml(vote.bill_number || '—');
+            const billCell = billUrl
+                ? `<a href="${escapeHtml(billUrl)}" target="_blank" rel="noopener noreferrer" class="text-civic-blue hover:underline">${billNo}</a>`
+                : billNo;
             return `
             <tr class="border-b border-slate-100 hover:bg-slate-50">
-                <td class="py-2 pr-3 text-sm font-medium text-civic-navy whitespace-nowrap align-top">${escapeHtml(vote.bill_number || '—')}</td>
+                <td class="py-2 pr-3 text-sm font-medium whitespace-nowrap align-top">${billCell}</td>
                 <td class="py-2 pr-3 text-sm text-slate-700 align-top">${title ? escapeHtml(title) : '<span class="text-slate-400 italic">—</span>'}</td>
                 <td class="py-2 pr-3 text-sm text-slate-600 whitespace-nowrap align-top">${formatDate(vote.date)}</td>
                 <td class="py-2 pr-3 text-sm text-slate-700 align-top">${escapeHtml(vote.motion || '—')}</td>
