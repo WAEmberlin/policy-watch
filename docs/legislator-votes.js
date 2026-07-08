@@ -7,12 +7,27 @@ const CivicWatchLegislatorVotes = (() => {
     const PAGE_SIZE = 50;
     let voteCounts = {};
     let voteIndex = null;
+    let billTitleLookup = null;
     let countsPromise = null;
     let loadPromise = null;
+    let titleLookupPromise = null;
     let modalEl = null;
     let backdropEl = null;
     let currentLegislator = null;
     let currentPage = 0;
+    let searchQuery = '';
+
+    function escapeHtml(value) {
+        return String(value || '')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;');
+    }
+
+    function normalizeBillNo(value) {
+        return String(value || '').replace(/\s+/g, '').toUpperCase();
+    }
 
     function formatDate(value) {
         if (!value) return '—';
@@ -57,15 +72,35 @@ const CivicWatchLegislatorVotes = (() => {
         return countsPromise;
     }
 
-    async function ensureLoaded() {
-        if (voteIndex) return voteIndex;
-        if (!loadPromise) {
-            loadPromise = fetch('legislator_votes.json')
+    async function ensureTitleLookupLoaded() {
+        if (billTitleLookup) return billTitleLookup;
+        if (!titleLookupPromise) {
+            titleLookupPromise = fetch('bill_title_lookup.json')
                 .then((res) => {
                     if (!res.ok) throw new Error(`HTTP ${res.status}`);
                     return res.json();
                 })
                 .then((data) => {
+                    billTitleLookup = data || {};
+                    return billTitleLookup;
+                })
+                .catch(() => {
+                    billTitleLookup = {};
+                    return billTitleLookup;
+                });
+        }
+        return titleLookupPromise;
+    }
+
+    async function ensureLoaded() {
+        if (voteIndex) return voteIndex;
+        if (!loadPromise) {
+            loadPromise = Promise.all([ensureTitleLookupLoaded(), fetch('legislator_votes.json')
+                .then((res) => {
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    return res.json();
+                })])
+                .then(([, data]) => {
                     voteIndex = data || {};
                     return voteIndex;
                 })
@@ -77,6 +112,35 @@ const CivicWatchLegislatorVotes = (() => {
         return loadPromise;
     }
 
+    function getBillTitle(vote, state) {
+        if (vote?.bill_title) return vote.bill_title;
+        if (!billTitleLookup) return '';
+        const key = `${String(state || '').toUpperCase()}:${normalizeBillNo(vote?.bill_number)}`;
+        return billTitleLookup[key] || '';
+    }
+
+    function getVotesForLegislator() {
+        if (!currentLegislator?.id || !voteIndex) return [];
+        return voteIndex[currentLegislator.id] || [];
+    }
+
+    function filterVotes(votes) {
+        const q = searchQuery.trim().toLowerCase();
+        if (!q) return votes;
+        const state = currentLegislator?.state || '';
+        return votes.filter((vote) => {
+            const title = getBillTitle(vote, state).toLowerCase();
+            const haystack = [
+                vote.bill_number,
+                title,
+                vote.motion,
+                vote.option,
+                vote.chamber,
+            ].join(' ').toLowerCase();
+            return haystack.includes(q);
+        });
+    }
+
     function ensureModal() {
         if (modalEl) return;
         backdropEl = document.createElement('div');
@@ -86,7 +150,7 @@ const CivicWatchLegislatorVotes = (() => {
 
         modalEl = document.createElement('div');
         modalEl.id = 'cw-leg-vote-modal';
-        modalEl.className = 'fixed inset-x-4 top-[6vh] md:inset-x-auto md:left-1/2 md:-translate-x-1/2 md:w-full md:max-w-4xl max-h-[88vh] overflow-hidden bg-white rounded-xl shadow-2xl z-[1001] hidden flex flex-col border border-slate-200';
+        modalEl.className = 'fixed inset-x-4 top-[6vh] md:inset-x-auto md:left-1/2 md:-translate-x-1/2 md:w-full md:max-w-5xl max-h-[88vh] overflow-hidden bg-white rounded-xl shadow-2xl z-[1001] hidden flex flex-col border border-slate-200';
         modalEl.setAttribute('role', 'dialog');
         modalEl.setAttribute('aria-modal', 'true');
         modalEl.innerHTML = `
@@ -97,12 +161,26 @@ const CivicWatchLegislatorVotes = (() => {
                 </div>
                 <button type="button" id="cw-leg-vote-modal-close" class="text-slate-500 hover:text-slate-800 text-2xl leading-none" aria-label="Close">&times;</button>
             </div>
+            <div class="px-4 py-3 border-b border-slate-100 shrink-0">
+                <label for="cw-leg-vote-search" class="sr-only">Search votes</label>
+                <input
+                    type="search"
+                    id="cw-leg-vote-search"
+                    placeholder="Search by bill number, title, motion, or vote..."
+                    class="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-civic-blue"
+                />
+            </div>
             <div id="cw-leg-vote-modal-body" class="p-4 overflow-y-auto flex-1"></div>
             <div id="cw-leg-vote-modal-footer" class="p-4 border-t border-slate-200 shrink-0 flex items-center justify-between gap-3"></div>`;
 
         document.body.appendChild(backdropEl);
         document.body.appendChild(modalEl);
         modalEl.querySelector('#cw-leg-vote-modal-close').addEventListener('click', close);
+        modalEl.querySelector('#cw-leg-vote-search').addEventListener('input', (e) => {
+            searchQuery = e.target.value || '';
+            currentPage = 0;
+            renderModalContent();
+        });
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') close();
         });
@@ -115,6 +193,9 @@ const CivicWatchLegislatorVotes = (() => {
         document.body.style.overflow = '';
         currentLegislator = null;
         currentPage = 0;
+        searchQuery = '';
+        const searchEl = modalEl.querySelector('#cw-leg-vote-search');
+        if (searchEl) searchEl.value = '';
     }
 
     function showLoading(message) {
@@ -125,22 +206,31 @@ const CivicWatchLegislatorVotes = (() => {
 
     function renderTable(votes) {
         if (!votes.length) {
-            return '<p class="text-sm text-slate-500 italic">No vote records found for this legislator.</p>';
+            const message = searchQuery.trim()
+                ? 'No votes match your search.'
+                : 'No vote records found for this legislator.';
+            return `<p class="text-sm text-slate-500 italic">${message}</p>`;
         }
-        const rows = votes.map((vote) => `
+        const state = currentLegislator?.state || '';
+        const rows = votes.map((vote) => {
+            const title = getBillTitle(vote, state);
+            return `
             <tr class="border-b border-slate-100 hover:bg-slate-50">
-                <td class="py-2 pr-3 text-sm font-medium text-civic-navy whitespace-nowrap">${vote.bill_number || '—'}</td>
-                <td class="py-2 pr-3 text-sm text-slate-600 whitespace-nowrap">${formatDate(vote.date)}</td>
-                <td class="py-2 pr-3 text-sm text-slate-700">${vote.motion || '—'}</td>
-                <td class="py-2 pr-3 text-sm ${optionClass(vote.option)}">${vote.option || '—'}</td>
-                <td class="py-2 text-sm text-slate-600 whitespace-nowrap">${chamberLabel(vote.chamber)}</td>
-            </tr>`).join('');
+                <td class="py-2 pr-3 text-sm font-medium text-civic-navy whitespace-nowrap align-top">${escapeHtml(vote.bill_number || '—')}</td>
+                <td class="py-2 pr-3 text-sm text-slate-700 align-top">${title ? escapeHtml(title) : '<span class="text-slate-400 italic">—</span>'}</td>
+                <td class="py-2 pr-3 text-sm text-slate-600 whitespace-nowrap align-top">${formatDate(vote.date)}</td>
+                <td class="py-2 pr-3 text-sm text-slate-700 align-top">${escapeHtml(vote.motion || '—')}</td>
+                <td class="py-2 pr-3 text-sm ${optionClass(vote.option)} whitespace-nowrap align-top">${escapeHtml(vote.option || '—')}</td>
+                <td class="py-2 text-sm text-slate-600 whitespace-nowrap align-top">${chamberLabel(vote.chamber)}</td>
+            </tr>`;
+        }).join('');
         return `
             <div class="overflow-x-auto">
                 <table class="w-full text-left">
                     <thead>
                         <tr class="border-b border-slate-200 text-xs uppercase tracking-wide text-slate-500">
                             <th class="py-2 pr-3 font-semibold">Bill</th>
+                            <th class="py-2 pr-3 font-semibold">Title</th>
                             <th class="py-2 pr-3 font-semibold">Date</th>
                             <th class="py-2 pr-3 font-semibold">Motion / Result</th>
                             <th class="py-2 pr-3 font-semibold">Vote</th>
@@ -152,16 +242,19 @@ const CivicWatchLegislatorVotes = (() => {
             </div>`;
     }
 
-    function renderPagination(totalVotes) {
+    function renderPagination(totalVotes, totalUnfiltered) {
         const totalPages = Math.max(1, Math.ceil(totalVotes / PAGE_SIZE));
         const page = Math.min(currentPage, totalPages - 1);
-        const start = page * PAGE_SIZE + 1;
+        const start = totalVotes ? page * PAGE_SIZE + 1 : 0;
         const end = Math.min((page + 1) * PAGE_SIZE, totalVotes);
         const prevDisabled = page <= 0;
         const nextDisabled = page >= totalPages - 1;
+        const filteredNote = searchQuery.trim() && totalUnfiltered !== totalVotes
+            ? ` (${totalVotes} of ${totalUnfiltered} match search)`
+            : '';
 
         return `
-            <p class="text-sm text-slate-500">Showing ${start}–${end} of ${totalVotes}</p>
+            <p class="text-sm text-slate-500">Showing ${start}–${end} of ${totalVotes}${filteredNote}</p>
             <div class="flex gap-2">
                 <button type="button" id="cw-leg-vote-prev" class="px-3 py-1.5 text-sm rounded-lg border border-slate-200 ${prevDisabled ? 'opacity-40 cursor-not-allowed' : 'hover:bg-slate-50'}" ${prevDisabled ? 'disabled' : ''}>Previous</button>
                 <span class="px-2 py-1.5 text-sm text-slate-600">Page ${page + 1} of ${totalPages}</span>
@@ -169,17 +262,35 @@ const CivicWatchLegislatorVotes = (() => {
             </div>`;
     }
 
+    function updateSubtitle(totalVotes) {
+        if (!currentLegislator) return;
+        const chamberLabelText = chamberLabel(currentLegislator.chamber);
+        const meta = [currentLegislator.party, currentLegislator.state, chamberLabelText, currentLegislator.district ? `District ${currentLegislator.district}` : '']
+            .filter(Boolean)
+            .join(' · ');
+        const allVotes = getVotesForLegislator();
+        const filtered = filterVotes(allVotes);
+        const countLabel = searchQuery.trim() && filtered.length !== allVotes.length
+            ? `${filtered.length} of ${allVotes.length} votes`
+            : `${allVotes.length} vote${allVotes.length === 1 ? '' : 's'}`;
+        modalEl.querySelector('#cw-leg-vote-modal-subtitle').textContent = `${meta} — ${countLabel}`;
+    }
+
     function renderModalContent() {
         if (!currentLegislator) return;
-        const allVotes = (voteIndex && voteIndex[currentLegislator.id]) || [];
-        const totalPages = Math.max(1, Math.ceil(allVotes.length / PAGE_SIZE));
+        const allVotes = getVotesForLegislator();
+        const filteredVotes = filterVotes(allVotes);
+        const totalPages = Math.max(1, Math.ceil(filteredVotes.length / PAGE_SIZE));
         if (currentPage >= totalPages) currentPage = totalPages - 1;
         if (currentPage < 0) currentPage = 0;
-        const pageVotes = allVotes.slice(currentPage * PAGE_SIZE, (currentPage + 1) * PAGE_SIZE);
+        const pageVotes = filteredVotes.slice(currentPage * PAGE_SIZE, (currentPage + 1) * PAGE_SIZE);
 
+        updateSubtitle(filteredVotes.length);
         modalEl.querySelector('#cw-leg-vote-modal-body').innerHTML = renderTable(pageVotes);
         const footer = modalEl.querySelector('#cw-leg-vote-modal-footer');
-        footer.innerHTML = allVotes.length ? renderPagination(allVotes.length) : '';
+        footer.innerHTML = filteredVotes.length || searchQuery.trim()
+            ? renderPagination(filteredVotes.length, allVotes.length)
+            : '';
 
         const prevBtn = footer.querySelector('#cw-leg-vote-prev');
         const nextBtn = footer.querySelector('#cw-leg-vote-next');
@@ -190,9 +301,10 @@ const CivicWatchLegislatorVotes = (() => {
             }
         });
         nextBtn?.addEventListener('click', () => {
-            if (currentPage >= totalPages - 1) return;
-            currentPage += 1;
-            renderModalContent();
+            if (currentPage < totalPages - 1) {
+                currentPage += 1;
+                renderModalContent();
+            }
         });
     }
 
@@ -202,6 +314,9 @@ const CivicWatchLegislatorVotes = (() => {
         ensureModal();
         currentLegislator = legislator;
         currentPage = 0;
+        searchQuery = '';
+        const searchEl = modalEl.querySelector('#cw-leg-vote-search');
+        if (searchEl) searchEl.value = '';
 
         const chamberLabelText = chamberLabel(legislator.chamber);
         const meta = [legislator.party, legislator.state, chamberLabelText, legislator.district ? `District ${legislator.district}` : '']
