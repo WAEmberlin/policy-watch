@@ -18,6 +18,24 @@
     "updated_at": "2026-07-16"
   },
   {
+    "id": "119455",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "“Emerging Fraud Threats and the Evolving Fraud Landscape”",
+    "description": "Congressional meeting before the House Oversight and Government Reform Subcommittee on Government Operations.",
+    "scheduled_date": "2026-07-15",
+    "scheduled_time": "18:00",
+    "location": "Room 2154, Rayburn House Office Building",
+    "chamber": "House",
+    "committees": [
+      "House Oversight and Government Reform Subcommittee on Government Operations"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119455",
+    "stream_url": "",
+    "updated_at": "2026-07-15"
+  },
+  {
     "id": "119454",
     "source": "congress",
     "level": "federal",
@@ -196,24 +214,6 @@
     "updated_at": "2026-07-14"
   },
   {
-    "id": "338640",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "To receive a closed briefing on certain intelligence matters.",
-    "description": "Congressional meeting before the Senate Intelligence (Select).",
-    "scheduled_date": "2026-07-14",
-    "scheduled_time": "19:00",
-    "location": "Room 219, Hart Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Intelligence (Select)"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338640",
-    "stream_url": "",
-    "updated_at": "2026-07-14"
-  },
-  {
     "id": "338642",
     "source": "congress",
     "level": "federal",
@@ -228,6 +228,24 @@
       "Senate Appropriations Subcommittee on Financial Services and General Government"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338642",
+    "stream_url": "",
+    "updated_at": "2026-07-14"
+  },
+  {
+    "id": "338640",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "To receive a closed briefing on certain intelligence matters.",
+    "description": "Congressional meeting before the Senate Intelligence (Select).",
+    "scheduled_date": "2026-07-14",
+    "scheduled_time": "19:00",
+    "location": "Room 219, Hart Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Intelligence (Select)"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338640",
     "stream_url": "",
     "updated_at": "2026-07-14"
   },
@@ -1324,24 +1342,6 @@
     "updated_at": "2026-06-24"
   },
   {
-    "id": "119390",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Safeguarding Federal Research Funds: The False Claims Act's Role in Combating Grant Fraud",
-    "description": "Congressional meeting before the House Science, Space, and Technology Subcommittee on Investigations and Oversight.",
-    "scheduled_date": "2026-06-24",
-    "scheduled_time": "14:00",
-    "location": "Room 2318, Rayburn House Office Building",
-    "chamber": "House",
-    "committees": [
-      "House Science, Space, and Technology Subcommittee on Investigations and Oversight"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/119390",
-    "stream_url": "",
-    "updated_at": "2026-06-24"
-  },
-  {
     "id": "119388",
     "source": "congress",
     "level": "federal",
@@ -1486,20 +1486,20 @@
     "updated_at": "2026-06-24"
   },
   {
-    "id": "338610",
+    "id": "338602",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "Hearings to examine protecting patients and taxpayers, focusing on combating healthcare fraud and leakage to strengthen program integrity.",
-    "description": "Congressional meeting before the Joint Economic Committee.",
+    "title": "Hearings to examine the future of social security.",
+    "description": "Congressional meeting before the Senate Finance Subcommittee on Social Security, Pensions, and Family Policy.",
     "scheduled_date": "2026-06-24",
-    "scheduled_time": "18:00",
-    "location": "Room G50, Dirksen Senate Office Building",
-    "chamber": "Nochamber",
+    "scheduled_time": "19:00",
+    "location": "Room 215, Dirksen Senate Office Building",
+    "chamber": "Senate",
     "committees": [
-      "Joint Economic Committee"
+      "Senate Finance Subcommittee on Social Security, Pensions, and Family Policy"
     ],
-    "url": "https://www.congress.gov/event/119th-congress/nochamber-event/338610",
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338602",
     "stream_url": "",
     "updated_at": "2026-06-24"
   },
@@ -1540,20 +1540,20 @@
     "updated_at": "2026-06-24"
   },
   {
-    "id": "338602",
+    "id": "338610",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "Hearings to examine the future of social security.",
-    "description": "Congressional meeting before the Senate Finance Subcommittee on Social Security, Pensions, and Family Policy.",
+    "title": "Hearings to examine protecting patients and taxpayers, focusing on combating healthcare fraud and leakage to strengthen program integrity.",
+    "description": "Congressional meeting before the Joint Economic Committee.",
     "scheduled_date": "2026-06-24",
-    "scheduled_time": "19:00",
-    "location": "Room 215, Dirksen Senate Office Building",
-    "chamber": "Senate",
+    "scheduled_time": "18:00",
+    "location": "Room G50, Dirksen Senate Office Building",
+    "chamber": "Nochamber",
     "committees": [
-      "Senate Finance Subcommittee on Social Security, Pensions, and Family Policy"
+      "Joint Economic Committee"
     ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338602",
+    "url": "https://www.congress.gov/event/119th-congress/nochamber-event/338610",
     "stream_url": "",
     "updated_at": "2026-06-24"
   },
@@ -1720,24 +1720,6 @@
     "updated_at": "2026-06-23"
   },
   {
-    "id": "338578",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine improving safety across the National Airspace System.",
-    "description": "Congressional meeting before the Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation.",
-    "scheduled_date": "2026-06-23",
-    "scheduled_time": "14:00",
-    "location": "Room 253, Russell Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338578",
-    "stream_url": "",
-    "updated_at": "2026-06-23"
-  },
-  {
     "id": "338577",
     "source": "congress",
     "level": "federal",
@@ -1770,6 +1752,24 @@
       "Senate Banking, Housing, and Urban Affairs"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338580",
+    "stream_url": "",
+    "updated_at": "2026-06-23"
+  },
+  {
+    "id": "338578",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine improving safety across the National Airspace System.",
+    "description": "Congressional meeting before the Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation.",
+    "scheduled_date": "2026-06-23",
+    "scheduled_time": "14:00",
+    "location": "Room 253, Russell Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338578",
     "stream_url": "",
     "updated_at": "2026-06-23"
   },
@@ -2922,6 +2922,24 @@
     "updated_at": "2026-04-28"
   },
   {
+    "id": "https://www.congress.gov/event/119th-congress/house-event/63818",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "EXAMINING VA BENEFITS: PENSION AND FIDUCIARY, AND VA LIFE INSURANCE OPTIONS",
+    "description": "Congressional hearing before the House Veterans' Affairs Committee.",
+    "scheduled_date": "2026-04-21",
+    "scheduled_time": "",
+    "location": "",
+    "chamber": "House",
+    "committees": [
+      "House Veterans' Affairs Committee"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/63818",
+    "stream_url": "",
+    "updated_at": "2026-04-21"
+  },
+  {
     "id": "https://www.congress.gov/event/119th-congress/house-event/63529",
     "source": "congress",
     "level": "federal",
@@ -3138,6 +3156,24 @@
     "updated_at": "2026-02-26"
   },
   {
+    "id": "https://www.congress.gov/event/119th-congress/house-event/63779",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "BEFORE THE WHISTLE: ASSESSING INFORMATION SHARING AND SECURITY COLLABORATION AHEAD OF MAJOR EVENTS",
+    "description": "Congressional hearing before the House Homeland Security (Select) Committee.",
+    "scheduled_date": "2026-02-24",
+    "scheduled_time": "",
+    "location": "",
+    "chamber": "House",
+    "committees": [
+      "House Homeland Security (Select) Committee"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/63779",
+    "stream_url": "",
+    "updated_at": "2026-02-24"
+  },
+  {
     "id": "https://www.congress.gov/event/119th-congress/senate-event/62986",
     "source": "congress",
     "level": "federal",
@@ -3300,24 +3336,6 @@
     "updated_at": "2025-12-10"
   },
   {
-    "id": "https://www.congress.gov/event/119th-congress/senate-event/1",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "PROTECTING OUR CHILDREN ONLINE AGAINST THE EVOLVING OFFENDER",
-    "description": "Congressional hearing before the Senate Judiciary Committee.",
-    "scheduled_date": "2025-12-09",
-    "scheduled_time": "",
-    "location": "",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Judiciary Committee"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/1",
-    "stream_url": "",
-    "updated_at": "2025-12-09"
-  },
-  {
     "id": "https://www.congress.gov/event/119th-congress/senate-event/62972",
     "source": "congress",
     "level": "federal",
@@ -3332,6 +3350,24 @@
       "Senate Judiciary Committee"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/62972",
+    "stream_url": "",
+    "updated_at": "2025-12-09"
+  },
+  {
+    "id": "https://www.congress.gov/event/119th-congress/senate-event/1",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "PROTECTING OUR CHILDREN ONLINE AGAINST THE EVOLVING OFFENDER",
+    "description": "Congressional hearing before the Senate Judiciary Committee.",
+    "scheduled_date": "2025-12-09",
+    "scheduled_time": "",
+    "location": "",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Judiciary Committee"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/1",
     "stream_url": "",
     "updated_at": "2025-12-09"
   },
@@ -3354,24 +3390,6 @@
     "updated_at": "2025-12-03"
   },
   {
-    "id": "https://www.congress.gov/event/119th-congress/house-event/62173",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "BALANCING THE FEDERAL BUDGET: EXAMINING PROPOSALS FOR A BALANCED BUDGET AMENDMENT",
-    "description": "Congressional hearing before the House Judiciary Committee.",
-    "scheduled_date": "2025-12-03",
-    "scheduled_time": "",
-    "location": "",
-    "chamber": "House",
-    "committees": [
-      "House Judiciary Committee"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/62173",
-    "stream_url": "",
-    "updated_at": "2025-12-03"
-  },
-  {
     "id": "https://www.congress.gov/event/119th-congress/senate-event/62250",
     "source": "congress",
     "level": "federal",
@@ -3388,24 +3406,6 @@
     "url": "https://www.congress.gov/event/119th-congress/senate-event/62250",
     "stream_url": "",
     "updated_at": "2025-12-02"
-  },
-  {
-    "id": "https://www.congress.gov/event/119th-congress/house-event/61971",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "MEMBER DAY",
-    "description": "Congressional hearing before the House Judiciary Committee.",
-    "scheduled_date": "2025-11-20",
-    "scheduled_time": "",
-    "location": "",
-    "chamber": "House",
-    "committees": [
-      "House Judiciary Committee"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/61971",
-    "stream_url": "",
-    "updated_at": "2025-11-20"
   },
   {
     "id": "https://www.congress.gov/event/119th-congress/senate-event/63118",
@@ -3638,24 +3638,6 @@
       "House Judiciary Committee"
     ],
     "url": "https://www.congress.gov/event/119th-congress/house-event/61655",
-    "stream_url": "",
-    "updated_at": "2025-09-17"
-  },
-  {
-    "id": "https://www.congress.gov/event/119th-congress/house-event/61899",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "STREAMING SUCCESS: SMALL BUSINESSES IN THE AGE OF DIGITAL INFLUENCE",
-    "description": "Congressional hearing before the House Small Business (Select) Committee.",
-    "scheduled_date": "2025-09-17",
-    "scheduled_time": "",
-    "location": "",
-    "chamber": "House",
-    "committees": [
-      "House Small Business (Select) Committee"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/61899",
     "stream_url": "",
     "updated_at": "2025-09-17"
   },
@@ -4050,24 +4032,6 @@
     "updated_at": "2025-06-12"
   },
   {
-    "id": "https://www.congress.gov/event/119th-congress/house-event/60988",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "EVALUATING THE DEFENSE PRODUCTION ACT",
-    "description": "Congressional hearing before the House Banking, Currency, and Housing Committee.",
-    "scheduled_date": "2025-06-12",
-    "scheduled_time": "",
-    "location": "",
-    "chamber": "House",
-    "committees": [
-      "House Banking, Currency, and Housing Committee"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/60988",
-    "stream_url": "",
-    "updated_at": "2025-06-12"
-  },
-  {
     "id": "https://www.congress.gov/event/119th-congress/house-event/60985",
     "source": "congress",
     "level": "federal",
@@ -4082,6 +4046,24 @@
       "House Banking, Currency, and Housing Committee"
     ],
     "url": "https://www.congress.gov/event/119th-congress/house-event/60985",
+    "stream_url": "",
+    "updated_at": "2025-06-12"
+  },
+  {
+    "id": "https://www.congress.gov/event/119th-congress/house-event/60988",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "EVALUATING THE DEFENSE PRODUCTION ACT",
+    "description": "Congressional hearing before the House Banking, Currency, and Housing Committee.",
+    "scheduled_date": "2025-06-12",
+    "scheduled_time": "",
+    "location": "",
+    "chamber": "House",
+    "committees": [
+      "House Banking, Currency, and Housing Committee"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/60988",
     "stream_url": "",
     "updated_at": "2025-06-12"
   },
@@ -4194,24 +4176,6 @@
     "updated_at": "2025-05-21"
   },
   {
-    "id": "https://www.congress.gov/event/119th-congress/senate-event/60602",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "THE STATE OF HIGHER EDUCATION",
-    "description": "Congressional hearing before the Senate Health, Education, Labor, and Pensions Committee.",
-    "scheduled_date": "2025-05-21",
-    "scheduled_time": "",
-    "location": "",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Health, Education, Labor, and Pensions Committee"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/60602",
-    "stream_url": "",
-    "updated_at": "2025-05-21"
-  },
-  {
     "id": "https://www.congress.gov/event/119th-congress/senate-event/60258",
     "source": "congress",
     "level": "federal",
@@ -4226,6 +4190,24 @@
       "Senate Appropriations Committee"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/60258",
+    "stream_url": "",
+    "updated_at": "2025-05-21"
+  },
+  {
+    "id": "https://www.congress.gov/event/119th-congress/senate-event/60602",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "THE STATE OF HIGHER EDUCATION",
+    "description": "Congressional hearing before the Senate Health, Education, Labor, and Pensions Committee.",
+    "scheduled_date": "2025-05-21",
+    "scheduled_time": "",
+    "location": "",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Health, Education, Labor, and Pensions Committee"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/60602",
     "stream_url": "",
     "updated_at": "2025-05-21"
   },
@@ -4246,6 +4228,24 @@
     "url": "https://www.congress.gov/event/119th-congress/house-event/62497",
     "stream_url": "",
     "updated_at": "2025-05-21"
+  },
+  {
+    "id": "https://www.congress.gov/event/119th-congress/house-event/60606",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "LEGISLATIVE HEARING ON: H.R. 513, OFFSHORE LANDS AUTHORITIES ACT OF 2025; H.R. 931, TO ALLOW CERTAIN FEDERAL MINERALS TO BE MINED CONSISTENT WITH THE BULL MOUNTAINS MINING PLAN MODIFICATION, AND FOR OTHER PURPOSES; H.R. 2250, NATIONAL LANDSLIDE PREPAREDNESS ACT REAUTHORIZATION ACT OF 2025; H.R. 2556, COMPREHENSIVE OFFSHORE RESOURCE EVALUATION ACT OF 2025, OR THE CORE ACT OF 2025; H.R. 3168, NATIONAL EARTHQUAKE HAZARDS REDUCTION PROGRAM REAUTHORIZATION ACT OF 2025; AND H.R. 3176, TO AMEND THE JOHN D. DINGELL, JR. CONSERVATION, MANAGEMENT, AND RECREATION ACT TO REAUTHORIZE THE NATIONAL VOLCANO EARLY WARNING AND MONITORING SYSTEM",
+    "description": "Congressional hearing before the House Public Lands Committee.",
+    "scheduled_date": "2025-05-20",
+    "scheduled_time": "",
+    "location": "",
+    "chamber": "House",
+    "committees": [
+      "House Public Lands Committee"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/60606",
+    "stream_url": "",
+    "updated_at": "2025-05-20"
   },
   {
     "id": "https://www.congress.gov/event/119th-congress/senate-event/62951",
@@ -4300,24 +4300,6 @@
     "url": "https://www.congress.gov/event/119th-congress/senate-event/60599",
     "stream_url": "",
     "updated_at": "2025-05-08"
-  },
-  {
-    "id": "https://www.congress.gov/event/119th-congress/house-event/60863",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "AMERICA BUILDS: IMPROVING THE EFFICIENCY AND EFFECTIVENESS OF FEDERAL RAIL ASSISTANCE",
-    "description": "Congressional hearing before the House Public Works Committee.",
-    "scheduled_date": "2025-05-06",
-    "scheduled_time": "",
-    "location": "",
-    "chamber": "House",
-    "committees": [
-      "House Public Works Committee"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/60863",
-    "stream_url": "",
-    "updated_at": "2025-05-06"
   },
   {
     "id": "https://www.congress.gov/event/119th-congress/house-event/60590",
@@ -4516,6 +4498,24 @@
     "url": "https://www.congress.gov/event/119th-congress/house-event/59817",
     "stream_url": "",
     "updated_at": "2025-03-05"
+  },
+  {
+    "id": "https://www.congress.gov/event/119th-congress/house-event/63873",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "THE ROLE OF SPECIAL OPERATIONS IN GREAT POWER COMPETITION",
+    "description": "Congressional hearing before the House National Security Committee.",
+    "scheduled_date": "2025-02-26",
+    "scheduled_time": "",
+    "location": "",
+    "chamber": "House",
+    "committees": [
+      "House National Security Committee"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/63873",
+    "stream_url": "",
+    "updated_at": "2025-02-26"
   },
   {
     "id": "https://www.congress.gov/event/119th-congress/house-event/58905",
