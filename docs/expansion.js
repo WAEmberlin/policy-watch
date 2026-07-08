@@ -241,6 +241,9 @@ const CivicWatchExpansion = (() => {
 
     async function initLegislators() {
         const data = await loadSiteData();
+        if (window.CivicWatchLegislatorVotes) {
+            await CivicWatchLegislatorVotes.init();
+        }
         const legislators = (data.search_index || {}).legislators || [];
         const statsData = data.legislator_stats || {};
         populateStateFilter('leg-state-filter', data.states);
@@ -279,15 +282,48 @@ const CivicWatchExpansion = (() => {
             const chamberLabel = formatChamber(l.chamber);
             const district = l.district ? `District ${l.district}` : '';
             const meta = [l.party, l.state, chamberLabel, district].filter(Boolean).join(' · ');
-            const inner = `
+            const voteCount = window.CivicWatchLegislatorVotes
+                ? CivicWatchLegislatorVotes.getVoteCount(l)
+                : 0;
+            const voteHint = voteCount
+                ? `<p class="text-xs text-slate-400 mt-2">Click card for vote history (${voteCount} vote${voteCount === 1 ? '' : 's'})</p>`
+                : '';
+            const profileLink = l.url
+                ? `<a href="${l.url}" target="_blank" rel="noopener noreferrer" class="cw-leg-profile-link text-civic-blue text-sm mt-2 inline-block hover:underline" onclick="event.stopPropagation()">Official profile →</a>`
+                : '';
+            const interactive = voteCount > 0;
+            const cardClass = interactive
+                ? 'cw-leg-card cursor-pointer p-4 border border-slate-200 rounded-lg hover:shadow-md hover:border-civic-blue transition-all focus:outline-none focus:ring-2 focus:ring-civic-blue focus:ring-offset-2'
+                : 'cw-leg-card p-4 border border-slate-200 rounded-lg';
+            const roleAttrs = interactive
+                ? ` role="button" tabindex="0" data-legislator-id="${l.id || ''}"`
+                : '';
+            return `<div class="${cardClass}"${roleAttrs}>
                 <h3 class="font-semibold text-civic-navy">${l.name}</h3>
                 <p class="text-sm text-slate-500">${meta}</p>
-                ${l.url ? '<span class="text-civic-blue text-sm mt-2 inline-block">Official profile →</span>' : ''}`;
-            if (l.url) {
-                return `<a href="${l.url}" target="_blank" rel="noopener noreferrer" class="block p-4 border border-slate-200 rounded-lg hover:shadow-md hover:border-civic-blue transition-all">${inner}</a>`;
-            }
-            return `<div class="p-4 border border-slate-200 rounded-lg">${inner}</div>`;
+                ${profileLink}
+                ${voteHint}
+            </div>`;
         }
+
+        function openLegislatorVotes(legId) {
+            if (!legId || !window.CivicWatchLegislatorVotes) return;
+            const legislator = legislators.find((leg) => leg.id === legId);
+            if (legislator) CivicWatchLegislatorVotes.open(legislator);
+        }
+
+        listEl?.addEventListener('click', (e) => {
+            const card = e.target.closest('.cw-leg-card[data-legislator-id]');
+            if (!card || e.target.closest('.cw-leg-profile-link')) return;
+            openLegislatorVotes(card.getAttribute('data-legislator-id'));
+        });
+        listEl?.addEventListener('keydown', (e) => {
+            if (e.key !== 'Enter' && e.key !== ' ') return;
+            const card = e.target.closest('.cw-leg-card[data-legislator-id]');
+            if (!card) return;
+            e.preventDefault();
+            openLegislatorVotes(card.getAttribute('data-legislator-id'));
+        });
 
         function renderStatBars(title, counts) {
             const entries = Object.entries(counts || {}).sort((a, b) => b[1] - a[1]);
