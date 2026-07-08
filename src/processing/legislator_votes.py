@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import re
+import unicodedata
 from collections import defaultdict
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
@@ -54,14 +55,47 @@ def _append_vote(index: Dict[str, List[Dict[str, Any]]], leg_id: str, entry: Dic
     index[leg_id].append(entry)
 
 
+def normalize_person_name(value: str) -> str:
+    text = (value or "").strip().lower()
+    text = unicodedata.normalize("NFKD", text)
+    text = "".join(ch for ch in text if not unicodedata.combining(ch))
+    text = re.sub(r"[^\w\s.,'-]", " ", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def legislator_surname(leg: Dict[str, Any]) -> str:
+    family = normalize_person_name(leg.get("family_name") or "")
+    if family:
+        return family
+    full = normalize_person_name(leg.get("name") or "")
+    parts = full.split()
+    return parts[-1] if parts else ""
+
+
+def voter_match_keys(voter_name: str, state: str) -> List[str]:
+    raw = normalize_person_name(voter_name)
+    if not raw:
+        return []
+    keys = [raw]
+    lowered = (voter_name or "").lower()
+    if state == "ME" and " of " in lowered:
+        keys.append(normalize_person_name(voter_name.split(" of ")[0]))
+    parts = raw.split()
+    if parts:
+        keys.append(parts[-1])
+    if "," in raw:
+        keys.append(raw.split(",", 1)[0].strip())
+    return list(dict.fromkeys(key for key in keys if key))
+
+
 def _match_voter_name(
     voter_name: str,
     state: str,
     organization: str,
     legislators: List[Dict[str, Any]],
 ) -> Optional[str]:
-    needle = (voter_name or "").strip().lower()
-    if not needle:
+    keys = voter_match_keys(voter_name, state)
+    if not keys:
         return None
     target_chamber = chamber_key(organization=organization)
     matches: List[str] = []
@@ -71,20 +105,18 @@ def _match_voter_name(
         leg_chamber = chamber_key(leg.get("chamber", ""))
         if target_chamber and leg_chamber and leg_chamber != target_chamber:
             continue
-        family = (leg.get("family_name") or "").strip().lower()
-        full = (leg.get("name") or "").strip().lower()
-        parts = full.split()
-        if needle == family or needle == full:
-            matches.append(leg["id"])
-            continue
-        if family and needle == family:
-            matches.append(leg["id"])
-            continue
-        if parts and needle == parts[-1]:
-            matches.append(leg["id"])
-            continue
-        if full.startswith(f"{needle} ") or f" {needle}" in f" {full}":
-            matches.append(leg["id"])
+        full = normalize_person_name(leg.get("name") or "")
+        surname = legislator_surname(leg)
+        for key in keys:
+            if key == full or (surname and key == surname):
+                matches.append(leg["id"])
+                break
+            if surname and key.endswith(f" {surname}"):
+                matches.append(leg["id"])
+                break
+            if full and (key == full or full.startswith(f"{key} ") or f" {key}" in f" {full}"):
+                matches.append(leg["id"])
+                break
     unique = list(dict.fromkeys(matches))
     if len(unique) == 1:
         return unique[0]

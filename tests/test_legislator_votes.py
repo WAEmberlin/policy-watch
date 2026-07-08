@@ -98,6 +98,46 @@ def test_build_legislator_vote_index_trims_at_max():
     assert len(index["ocd-person/trim"]) == 1000
 
 
+def test_build_legislator_vote_index_matches_maine_surname_format():
+    legislators = [{
+        "id": "ocd-person/me",
+        "state": "ME",
+        "name": "Donna Bailey",
+        "family_name": "Bailey",
+        "chamber": "Senator",
+    }]
+    votes = [{
+        "state": "ME",
+        "organization": "upper",
+        "bill_number": "LD 2182",
+        "date": "2026-02-12",
+        "motion_text": "Final vote",
+        "votes": [{"voter_name": "BAILEY of York", "option": "yes"}],
+    }]
+    index = build_legislator_vote_index(legislators, votes, {})
+    assert len(index["ocd-person/me"]) == 1
+
+
+def test_build_legislator_vote_index_matches_colorado_full_name():
+    legislators = [{
+        "id": "ocd-person/co",
+        "state": "CO",
+        "name": "Andy Boesenecker",
+        "family_name": "Boesenecker",
+        "chamber": "Representative",
+    }]
+    votes = [{
+        "state": "CO",
+        "organization": "lower",
+        "bill_number": "HB 24-1001",
+        "date": "2024-02-01",
+        "motion_text": "Third Reading",
+        "votes": [{"voter_name": "Andrew Boesenecker", "option": "yes"}],
+    }]
+    index = build_legislator_vote_index(legislators, votes, {})
+    assert len(index["ocd-person/co"]) == 1
+
+
 def test_build_legislator_vote_index_matches_openstates_name():
     legislators = [{
         "id": "ocd-person/co",
