@@ -18,6 +18,24 @@
     "updated_at": "2026-07-16"
   },
   {
+    "id": "119451",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Ending Supply Chain Dependency: Aligning Tools, Capital, and Partnerships",
+    "description": "Congressional meeting before the House Foreign Affairs.",
+    "scheduled_date": "2026-07-15",
+    "scheduled_time": "14:00",
+    "location": "Room 2172, Rayburn House Office Building",
+    "chamber": "House",
+    "committees": [
+      "House Foreign Affairs"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119451",
+    "stream_url": "",
+    "updated_at": "2026-07-15"
+  },
+  {
     "id": "338641",
     "source": "congress",
     "level": "federal",
@@ -106,20 +124,20 @@
     "updated_at": "2026-07-15"
   },
   {
-    "id": "338642",
+    "id": "119441",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "Hearings to examine proposed budget estimates and justification for fiscal year 2027 for the Supreme Court of the United States.",
-    "description": "Congressional meeting before the Senate Appropriations Subcommittee on Financial Services and General Government.",
+    "title": "Budget Hearing - Supreme Court of the United States",
+    "description": "Congressional meeting before the House Appropriations Subcommittee on Financial Services and General Government.",
     "scheduled_date": "2026-07-14",
-    "scheduled_time": "18:00",
-    "location": "Room 124, Dirksen Senate Office Building",
-    "chamber": "Senate",
+    "scheduled_time": "14:00",
+    "location": "Room 2359, Rayburn House Office Building",
+    "chamber": "House",
     "committees": [
-      "Senate Appropriations Subcommittee on Financial Services and General Government"
+      "House Appropriations Subcommittee on Financial Services and General Government"
     ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338642",
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119441",
     "stream_url": "",
     "updated_at": "2026-07-14"
   },
@@ -138,6 +156,24 @@
       "Senate Intelligence (Select)"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338640",
+    "stream_url": "",
+    "updated_at": "2026-07-14"
+  },
+  {
+    "id": "338642",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine proposed budget estimates and justification for fiscal year 2027 for the Supreme Court of the United States.",
+    "description": "Congressional meeting before the Senate Appropriations Subcommittee on Financial Services and General Government.",
+    "scheduled_date": "2026-07-14",
+    "scheduled_time": "18:00",
+    "location": "Room 124, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Appropriations Subcommittee on Financial Services and General Government"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338642",
     "stream_url": "",
     "updated_at": "2026-07-14"
   },
@@ -264,24 +300,6 @@
       "House Appropriations Subcommittee on Financial Services and General Government"
     ],
     "url": "https://www.congress.gov/event/119th-congress/house-event/119442",
-    "stream_url": "",
-    "updated_at": "2026-07-14"
-  },
-  {
-    "id": "119441",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Budget Hearing - Supreme Court of the United States",
-    "description": "Congressional meeting before the House Appropriations Subcommittee on Financial Services and General Government.",
-    "scheduled_date": "2026-07-14",
-    "scheduled_time": "14:00",
-    "location": "Room 2359, Rayburn House Office Building",
-    "chamber": "House",
-    "committees": [
-      "House Appropriations Subcommittee on Financial Services and General Government"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/119441",
     "stream_url": "",
     "updated_at": "2026-07-14"
   },
@@ -1414,24 +1432,6 @@
     "updated_at": "2026-06-24"
   },
   {
-    "id": "338610",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine protecting patients and taxpayers, focusing on combating healthcare fraud and leakage to strengthen program integrity.",
-    "description": "Congressional meeting before the Joint Economic Committee.",
-    "scheduled_date": "2026-06-24",
-    "scheduled_time": "18:00",
-    "location": "Room G50, Dirksen Senate Office Building",
-    "chamber": "Nochamber",
-    "committees": [
-      "Joint Economic Committee"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/nochamber-event/338610",
-    "stream_url": "",
-    "updated_at": "2026-06-24"
-  },
-  {
     "id": "338584",
     "source": "congress",
     "level": "federal",
@@ -1446,6 +1446,24 @@
       "Senate Indian Affairs"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338584",
+    "stream_url": "",
+    "updated_at": "2026-06-24"
+  },
+  {
+    "id": "338610",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine protecting patients and taxpayers, focusing on combating healthcare fraud and leakage to strengthen program integrity.",
+    "description": "Congressional meeting before the Joint Economic Committee.",
+    "scheduled_date": "2026-06-24",
+    "scheduled_time": "18:00",
+    "location": "Room G50, Dirksen Senate Office Building",
+    "chamber": "Nochamber",
+    "committees": [
+      "Joint Economic Committee"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/nochamber-event/338610",
     "stream_url": "",
     "updated_at": "2026-06-24"
   },
@@ -1648,6 +1666,24 @@
     "updated_at": "2026-06-23"
   },
   {
+    "id": "338578",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine improving safety across the National Airspace System.",
+    "description": "Congressional meeting before the Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation.",
+    "scheduled_date": "2026-06-23",
+    "scheduled_time": "14:00",
+    "location": "Room 253, Russell Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338578",
+    "stream_url": "",
+    "updated_at": "2026-06-23"
+  },
+  {
     "id": "338577",
     "source": "congress",
     "level": "federal",
@@ -1680,24 +1716,6 @@
       "Senate Banking, Housing, and Urban Affairs"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338580",
-    "stream_url": "",
-    "updated_at": "2026-06-23"
-  },
-  {
-    "id": "338578",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine improving safety across the National Airspace System.",
-    "description": "Congressional meeting before the Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation.",
-    "scheduled_date": "2026-06-23",
-    "scheduled_time": "14:00",
-    "location": "Room 253, Russell Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338578",
     "stream_url": "",
     "updated_at": "2026-06-23"
   },
