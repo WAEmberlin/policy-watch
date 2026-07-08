@@ -240,10 +240,10 @@ const CivicWatchExpansion = (() => {
     }
 
     async function initLegislators() {
-        const data = await loadSiteData();
-        if (window.CivicWatchLegislatorVotes) {
-            await CivicWatchLegislatorVotes.init();
-        }
+        const [data] = await Promise.all([
+            loadSiteData(),
+            window.CivicWatchLegislatorVotes ? CivicWatchLegislatorVotes.init() : Promise.resolve(),
+        ]);
         const legislators = (data.search_index || {}).legislators || [];
         const statsData = data.legislator_stats || {};
         populateStateFilter('leg-state-filter', data.states);
