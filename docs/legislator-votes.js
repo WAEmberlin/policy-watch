@@ -5,7 +5,9 @@ const CivicWatchLegislatorVotes = (() => {
     'use strict';
 
     const PAGE_SIZE = 50;
+    let voteCounts = {};
     let voteIndex = null;
+    let countsPromise = null;
     let loadPromise = null;
     let modalEl = null;
     let backdropEl = null;
@@ -33,6 +35,26 @@ const CivicWatchLegislatorVotes = (() => {
         if (key === 'yes') return 'text-emerald-700 font-medium';
         if (key === 'no') return 'text-red-700 font-medium';
         return 'text-slate-600';
+    }
+
+    async function ensureCountsLoaded() {
+        if (Object.keys(voteCounts).length) return voteCounts;
+        if (!countsPromise) {
+            countsPromise = fetch('legislator_vote_counts.json')
+                .then((res) => {
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    return res.json();
+                })
+                .then((data) => {
+                    voteCounts = data || {};
+                    return voteCounts;
+                })
+                .catch(() => {
+                    voteCounts = {};
+                    return voteCounts;
+                });
+        }
+        return countsPromise;
     }
 
     async function ensureLoaded() {
@@ -95,6 +117,12 @@ const CivicWatchLegislatorVotes = (() => {
         currentPage = 0;
     }
 
+    function showLoading(message) {
+        modalEl.querySelector('#cw-leg-vote-modal-body').innerHTML =
+            `<p class="text-sm text-slate-500 italic py-8 text-center">${message}</p>`;
+        modalEl.querySelector('#cw-leg-vote-modal-footer').innerHTML = '';
+    }
+
     function renderTable(votes) {
         if (!votes.length) {
             return '<p class="text-sm text-slate-500 italic">No vote records found for this legislator.</p>';
@@ -143,7 +171,7 @@ const CivicWatchLegislatorVotes = (() => {
 
     function renderModalContent() {
         if (!currentLegislator) return;
-        const allVotes = voteIndex[currentLegislator.id] || [];
+        const allVotes = (voteIndex && voteIndex[currentLegislator.id]) || [];
         const totalPages = Math.max(1, Math.ceil(allVotes.length / PAGE_SIZE));
         if (currentPage >= totalPages) currentPage = totalPages - 1;
         if (currentPage < 0) currentPage = 0;
@@ -162,15 +190,13 @@ const CivicWatchLegislatorVotes = (() => {
             }
         });
         nextBtn?.addEventListener('click', () => {
-            if (currentPage < totalPages - 1) {
-                currentPage += 1;
-                renderModalContent();
-            }
+            if (currentPage >= totalPages - 1) return;
+            currentPage += 1;
+            renderModalContent();
         });
     }
 
     async function open(legislator) {
-        await ensureLoaded();
         if (!legislator?.id || !hasVotes(legislator)) return;
 
         ensureModal();
@@ -181,33 +207,39 @@ const CivicWatchLegislatorVotes = (() => {
         const meta = [legislator.party, legislator.state, chamberLabelText, legislator.district ? `District ${legislator.district}` : '']
             .filter(Boolean)
             .join(' · ');
-        const voteCount = (voteIndex[legislator.id] || []).length;
+        const voteCount = getVoteCount(legislator);
 
         modalEl.querySelector('#cw-leg-vote-modal-title').textContent = legislator.name || 'Legislator';
         modalEl.querySelector('#cw-leg-vote-modal-subtitle').textContent = `${meta} — ${voteCount} vote${voteCount === 1 ? '' : 's'}`;
-
-        renderModalContent();
+        showLoading('Loading vote history…');
 
         modalEl.classList.remove('hidden');
         backdropEl.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
         modalEl.querySelector('#cw-leg-vote-modal-close').focus();
+
+        await ensureLoaded();
+        if (!currentLegislator || currentLegislator.id !== legislator.id) return;
+        if (!hasVotes(legislator)) {
+            showLoading('No vote records found for this legislator.');
+            return;
+        }
+        renderModalContent();
     }
 
     function hasVotes(legislator) {
-        if (!legislator?.id || !voteIndex) return false;
-        const votes = voteIndex[legislator.id];
-        return Array.isArray(votes) && votes.length > 0;
+        if (!legislator?.id) return false;
+        return getVoteCount(legislator) > 0;
     }
 
     function getVoteCount(legislator) {
-        if (!legislator?.id || !voteIndex) return 0;
-        return (voteIndex[legislator.id] || []).length;
+        if (!legislator?.id) return 0;
+        return voteCounts[legislator.id] || 0;
     }
 
     async function init() {
-        await ensureLoaded();
+        await ensureCountsLoaded();
     }
 
-    return { init, open, close, hasVotes, getVoteCount, ensureLoaded };
+    return { init, open, close, hasVotes, getVoteCount, ensureLoaded, ensureCountsLoaded };
 })();

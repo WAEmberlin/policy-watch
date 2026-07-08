@@ -887,7 +887,7 @@ output = {
     "dashboards": normalized_dashboards,
     "search_index": normalized_search_index,
     "legislator_stats": normalized_legislator_stats,
-    "legislator_votes": normalized_legislator_votes,
+    "legislator_votes": {},
     "weekly_digests": weekly_digests,
     "livestreams": livestreams_meta,
     "veteran_impact": {
@@ -905,6 +905,24 @@ if "legislation" not in output:
 
 with open(SITE_DATA_FILE, "w", encoding="utf-8") as f:
     json.dump(output, f, indent=2)
+
+legislator_votes_file = os.path.join(DOCS_DIR, "legislator_votes.json")
+with open(legislator_votes_file, "w", encoding="utf-8") as f:
+    json.dump(normalized_legislator_votes, f, indent=2)
+legislator_vote_counts = {
+    leg_id: len(votes)
+    for leg_id, votes in (normalized_legislator_votes or {}).items()
+    if votes
+}
+legislator_vote_counts_file = os.path.join(DOCS_DIR, "legislator_vote_counts.json")
+with open(legislator_vote_counts_file, "w", encoding="utf-8") as f:
+    json.dump(legislator_vote_counts, f, indent=2)
+legislator_vote_count = sum(len(v) for v in (normalized_legislator_votes or {}).values())
+print(
+    f"Wrote {len(normalized_legislator_votes or {})} legislators with "
+    f"{legislator_vote_count} total votes to {legislator_votes_file}"
+)
+print(f"Wrote {len(legislator_vote_counts)} legislator vote counts to {legislator_vote_counts_file}")
 
 print("Site data generated successfully.")
 print(f"Years available: {', '.join(site_years.keys())}")
