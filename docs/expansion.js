@@ -242,7 +242,7 @@ const CivicWatchExpansion = (() => {
     async function initLegislators() {
         const [data] = await Promise.all([
             loadSiteData(),
-            window.CivicWatchLegislatorVotes ? CivicWatchLegislatorVotes.init() : Promise.resolve(),
+            typeof CivicWatchLegislatorVotes !== 'undefined' ? CivicWatchLegislatorVotes.init() : Promise.resolve(),
         ]);
         const legislators = (data.search_index || {}).legislators || [];
         const statsData = data.legislator_stats || {};
@@ -282,7 +282,7 @@ const CivicWatchExpansion = (() => {
             const chamberLabel = formatChamber(l.chamber);
             const district = l.district ? `District ${l.district}` : '';
             const meta = [l.party, l.state, chamberLabel, district].filter(Boolean).join(' · ');
-            const voteCount = window.CivicWatchLegislatorVotes
+            const voteCount = typeof CivicWatchLegislatorVotes !== 'undefined'
                 ? CivicWatchLegislatorVotes.getVoteCount(l)
                 : 0;
             const voteHint = voteCount
@@ -307,7 +307,7 @@ const CivicWatchExpansion = (() => {
         }
 
         function openLegislatorVotes(legId) {
-            if (!legId || !window.CivicWatchLegislatorVotes) return;
+            if (!legId || typeof CivicWatchLegislatorVotes === 'undefined') return;
             const legislator = legislators.find((leg) => leg.id === legId);
             if (legislator) CivicWatchLegislatorVotes.open(legislator);
         }
