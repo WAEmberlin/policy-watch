@@ -1,5 +1,41 @@
 [
   {
+    "id": "338643",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine the nomination of the following named officer for appointment as Chief of Space Operations and appointment in the United States Space Force to the grade indicated while assigned to a position of importance and responsibility under title 10, U.S.C., section 601 and 9082: Lt. Gen. Douglas A. Schiess, to be General.",
+    "description": "Congressional meeting before the Senate Armed Services.",
+    "scheduled_date": "2026-07-16",
+    "scheduled_time": "13:30",
+    "location": "Room G50, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Armed Services"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338643",
+    "stream_url": "",
+    "updated_at": "2026-07-16"
+  },
+  {
+    "id": "338641",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine the nomination of Walter Clayton, of New York, to be Director of National Intelligence.",
+    "description": "Congressional meeting before the Senate Intelligence (Select).",
+    "scheduled_date": "2026-07-15",
+    "scheduled_time": "13:30",
+    "location": "Room 106, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Intelligence (Select)"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338641",
+    "stream_url": "",
+    "updated_at": "2026-07-15"
+  },
+  {
     "id": "338620",
     "source": "congress",
     "level": "federal",
@@ -68,6 +104,60 @@
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338612",
     "stream_url": "",
     "updated_at": "2026-07-15"
+  },
+  {
+    "id": "338642",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine proposed budget estimates and justification for fiscal year 2027 for the Supreme Court of the United States.",
+    "description": "Congressional meeting before the Senate Appropriations Subcommittee on Financial Services and General Government.",
+    "scheduled_date": "2026-07-14",
+    "scheduled_time": "18:00",
+    "location": "Room 124, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Appropriations Subcommittee on Financial Services and General Government"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338642",
+    "stream_url": "",
+    "updated_at": "2026-07-14"
+  },
+  {
+    "id": "338640",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "To receive a closed briefing on certain intelligence matters.",
+    "description": "Congressional meeting before the Senate Intelligence (Select).",
+    "scheduled_date": "2026-07-14",
+    "scheduled_time": "19:00",
+    "location": "Room 219, Hart Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Intelligence (Select)"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338640",
+    "stream_url": "",
+    "updated_at": "2026-07-14"
+  },
+  {
+    "id": "338644",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine genes to machines, focusing on the patent eligibility debate.",
+    "description": "Congressional meeting before the Senate Judiciary.",
+    "scheduled_date": "2026-07-14",
+    "scheduled_time": "14:15",
+    "location": "Room 216, Hart Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Judiciary"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338644",
+    "stream_url": "",
+    "updated_at": "2026-07-14"
   },
   {
     "id": "119449",
@@ -1324,20 +1414,20 @@
     "updated_at": "2026-06-24"
   },
   {
-    "id": "338587",
+    "id": "338610",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "Hearings to examine the nomination of Kevin Lilly, of Texas, to be Assistant Secretary for Fish and Wildlife.",
-    "description": "Congressional meeting before the Senate Environment and Public Works.",
+    "title": "Hearings to examine protecting patients and taxpayers, focusing on combating healthcare fraud and leakage to strengthen program integrity.",
+    "description": "Congressional meeting before the Joint Economic Committee.",
     "scheduled_date": "2026-06-24",
-    "scheduled_time": "14:00",
-    "location": "Room 406, Dirksen Senate Office Building",
-    "chamber": "Senate",
+    "scheduled_time": "18:00",
+    "location": "Room G50, Dirksen Senate Office Building",
+    "chamber": "Nochamber",
     "committees": [
-      "Senate Environment and Public Works"
+      "Joint Economic Committee"
     ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338587",
+    "url": "https://www.congress.gov/event/119th-congress/nochamber-event/338610",
     "stream_url": "",
     "updated_at": "2026-06-24"
   },
@@ -1360,24 +1450,6 @@
     "updated_at": "2026-06-24"
   },
   {
-    "id": "338610",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine protecting patients and taxpayers, focusing on combating healthcare fraud and leakage to strengthen program integrity.",
-    "description": "Congressional meeting before the Joint Economic Committee.",
-    "scheduled_date": "2026-06-24",
-    "scheduled_time": "18:00",
-    "location": "Room G50, Dirksen Senate Office Building",
-    "chamber": "Nochamber",
-    "committees": [
-      "Joint Economic Committee"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/nochamber-event/338610",
-    "stream_url": "",
-    "updated_at": "2026-06-24"
-  },
-  {
     "id": "338582",
     "source": "congress",
     "level": "federal",
@@ -1392,6 +1464,24 @@
       "Senate Homeland Security and Governmental Affairs"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338582",
+    "stream_url": "",
+    "updated_at": "2026-06-24"
+  },
+  {
+    "id": "338587",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine the nomination of Kevin Lilly, of Texas, to be Assistant Secretary for Fish and Wildlife.",
+    "description": "Congressional meeting before the Senate Environment and Public Works.",
+    "scheduled_date": "2026-06-24",
+    "scheduled_time": "14:00",
+    "location": "Room 406, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Environment and Public Works"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338587",
     "stream_url": "",
     "updated_at": "2026-06-24"
   },
@@ -3138,6 +3228,22 @@
     "updated_at": "2025-12-10"
   },
   {
+    "id": "https://www.congress.gov/event/119th-congress/senate-event/62972",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "PROTECTING OUR CHILDREN ONLINE AGAINST THE EVOLVING OFFENDER",
+    "description": "Congressional hearing.",
+    "scheduled_date": "2025-12-09",
+    "scheduled_time": "",
+    "location": "",
+    "chamber": "Senate",
+    "committees": [],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/62972",
+    "stream_url": "",
+    "updated_at": "2025-12-09"
+  },
+  {
     "id": "https://www.congress.gov/event/119th-congress/senate-event/1",
     "source": "congress",
     "level": "federal",
@@ -3152,22 +3258,6 @@
       "Senate Judiciary Committee"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/1",
-    "stream_url": "",
-    "updated_at": "2025-12-09"
-  },
-  {
-    "id": "https://www.congress.gov/event/119th-congress/senate-event/62972",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "PROTECTING OUR CHILDREN ONLINE AGAINST THE EVOLVING OFFENDER",
-    "description": "Congressional hearing.",
-    "scheduled_date": "2025-12-09",
-    "scheduled_time": "",
-    "location": "",
-    "chamber": "Senate",
-    "committees": [],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/62972",
     "stream_url": "",
     "updated_at": "2025-12-09"
   },

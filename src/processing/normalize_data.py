@@ -184,7 +184,7 @@ def normalize_all(skip_ai: bool = False) -> Dict[str, Any]:
     dashboards = build_dashboards(all_bills, all_events, all_votes, config)
     legislator_stats = build_legislator_stats(all_legislators)
     if build_legislator_vote_index:
-        legislator_votes = build_legislator_vote_index(all_legislators, all_votes, max_per_legislator=1000)
+        legislator_votes = build_legislator_vote_index(all_legislators, all_votes)
     else:
         legislator_votes = {}
 
