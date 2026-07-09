@@ -9,6 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
+from processing.bill_urls import pick_best_bill_url, build_ks_bill_url  # noqa: E402
 from processing.hearing_stream_utils import enrich_hearing_stream  # noqa: E402
 from processing.veteran_impact import (  # noqa: E402
     build_veteran_impact_lookup,
@@ -927,6 +928,7 @@ print(f"Wrote {len(legislator_vote_counts)} legislator vote counts to {legislato
 
 bill_title_lookup = {}
 bill_url_lookup = {}
+bill_url_candidates = {}
 for bill in normalized_bills:
     state = (bill.get("state") or "").upper()
     if not state:
@@ -940,7 +942,17 @@ for bill in normalized_bills:
     if title:
         bill_title_lookup[key] = title
     if url:
-        bill_url_lookup[key] = url
+        bill_url_candidates.setdefault(key, []).append(url)
+
+for key, candidates in bill_url_candidates.items():
+    state, bill_number = key.split(":", 1)
+    best = pick_best_bill_url(candidates, state, bill_number)
+    if best:
+        bill_url_lookup[key] = best
+    elif state == "KS":
+        built = build_ks_bill_url(bill_number)
+        if built:
+            bill_url_lookup[key] = built
 bill_title_lookup_file = os.path.join(DOCS_DIR, "bill_title_lookup.json")
 with open(bill_title_lookup_file, "w", encoding="utf-8") as f:
     json.dump(bill_title_lookup, f)

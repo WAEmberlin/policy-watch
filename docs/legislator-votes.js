@@ -115,11 +115,39 @@ const CivicWatchLegislatorVotes = (() => {
         return billTitleLookup[key] || '';
     }
 
+    function buildKsBillUrl(billNumber) {
+        const normalized = normalizeBillNo(billNumber);
+        if (!normalized) return '';
+        const resolutionPrefixes = ['HCR', 'SCR', 'HR', 'SR'];
+        const isResolution = resolutionPrefixes.some((p) => normalized.startsWith(p));
+        if (isResolution) {
+            return `https://www.kslegislature.gov/b2025_26/resolutions/${normalized}/`;
+        }
+        return `https://www.kslegislature.gov/b2025_26/bills/${normalized}`;
+    }
+
+    function fixBillUrl(url, state, billNumber) {
+        const st = String(state || '').toUpperCase();
+        if (st === 'KS') {
+            const lower = String(url || '').toLowerCase();
+            if (!url || lower.includes('b2023_24') || lower.includes('kslegislature.org') || lower.includes('/measures/')) {
+                return buildKsBillUrl(billNumber);
+            }
+        }
+        return url || '';
+    }
+
     function getBillUrl(vote, state) {
-        if (vote?.bill_url) return vote.bill_url;
-        if (!billUrlLookup) return '';
-        const key = `${String(state || '').toUpperCase()}:${normalizeBillNo(vote?.bill_number)}`;
-        return billUrlLookup[key] || '';
+        if (vote?.bill_url) return fixBillUrl(vote.bill_url, state, vote?.bill_number);
+        const normalized = normalizeBillNo(vote?.bill_number);
+        const st = String(state || '').toUpperCase();
+        if (billUrlLookup) {
+            const key = `${st}:${normalized}`;
+            const fromLookup = billUrlLookup[key] || '';
+            if (fromLookup) return fixBillUrl(fromLookup, st, vote?.bill_number);
+        }
+        if (st === 'KS' && normalized) return buildKsBillUrl(vote?.bill_number);
+        return '';
     }
 
     function getVotesForLegislator() {

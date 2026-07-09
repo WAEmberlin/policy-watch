@@ -17,6 +17,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
+from processing.import_openstates_bulk import extract_votes  # noqa: E402
 from processing.openstates_bills import (  # noqa: E402
     load_state_bills,
     save_state_bills,
@@ -215,7 +216,7 @@ def fetch_state(
 
     since = updated_since
     print(f"  updated_since={since}")
-    include = ["sponsorships", "actions", "versions"]
+    include = ["sponsorships", "actions", "versions", "votes"]
     jurisdiction_query = code.upper()
     existing_bills = load_state_bills(state_dir)
     existing_events = load_json(state_dir / "events.json", [])
@@ -281,18 +282,7 @@ def fetch_state(
     save_json(state_dir / "committees.json", committees)
     save_json(state_dir / "legislators.json", legislators)
 
-    votes: List[Dict[str, Any]] = []
-    for bill in bills:
-        for action in bill.get("actions") or []:
-            if action.get("classification") and "passage" in str(action.get("classification")).lower():
-                votes.append({
-                    "bill_id": bill.get("id"),
-                    "bill_number": bill.get("identifier"),
-                    "action": action.get("description"),
-                    "date": action.get("date"),
-                    "state": code.upper(),
-                })
-    votes = merge_by_id(load_json(state_dir / "votes.json", []), votes, id_field="bill_id")
+    votes = merge_by_id(load_json(state_dir / "votes.json", []), extract_votes(bills, code))
     save_json(state_dir / "votes.json", votes)
 
     backfill_since = os_cfg.get("initial_backfill_since", "2026-03-01")
