@@ -14,6 +14,31 @@ from processing.fetch_openstates import (
     sort_states_for_fetch,
     state_priority,
 )
+from processing.import_openstates_bulk import extract_votes
+
+
+def test_extract_votes_includes_member_roll_calls():
+    bills = [
+        {
+            "id": "ocd-bill/test",
+            "identifier": "HB 1",
+            "votes": [
+                {
+                    "id": "ocd-vote/test",
+                    "motion_text": "Passed",
+                    "result": "pass",
+                    "start_date": "2026-03-01",
+                    "organization__classification": "lower",
+                    "counts": [{"option": "yes", "value": 50}],
+                    "votes": [{"voter_name": "Jane Doe", "option": "yes"}],
+                }
+            ],
+        }
+    ]
+    votes = extract_votes(bills, "ut")
+    assert len(votes) == 1
+    assert votes[0]["bill_number"] == "HB 1"
+    assert votes[0]["votes"][0]["voter_name"] == "Jane Doe"
 
 
 def test_full_refresh_uses_initial_backfill_since():
