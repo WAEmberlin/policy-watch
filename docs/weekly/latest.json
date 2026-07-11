@@ -1,11 +1,11 @@
 {
-  "week_start": "2026-07-02T04:26:26.754954-05:00",
-  "week_end": "2026-07-09T04:26:26.754954-05:00",
+  "week_start": "2026-07-04T00:08:53.331199-05:00",
+  "week_end": "2026-07-11T00:08:53.331199-05:00",
   "item_counts": {
-    "federal": 1,
+    "federal": 2,
     "ks": 0,
     "co": 0,
-    "az": 2,
+    "az": 1,
     "ut": 0,
     "me": 0,
     "ne": 0,
@@ -17,10 +17,12 @@
       "label": "Congress / Federal",
       "recap_lines": [
         "Congress / Federal:",
+        "HR 6238: NIH IMPROVE Act",
+        "   Placed on the Union Calendar, Calendar No. 638.",
         "HJRES 1: Proposing an amendment to the Constitution of the United States to require that the Supreme Court of the United States be composed of nine justices.",
         "   Placed on the House Calendar, Calendar No. 84."
       ],
-      "item_count": 1
+      "item_count": 2
     },
     {
       "id": "ks",
@@ -43,9 +45,9 @@
       "label": "Arizona",
       "recap_lines": [
         "Arizona:",
-        "   2 hearings."
+        "   1 hearings."
       ],
-      "item_count": 2
+      "item_count": 1
     },
     {
       "id": "ut",
@@ -80,8 +82,8 @@
       "item_count": 0
     }
   ],
-  "script": "CivicWatch weekly overview for July 02 through July 09, 2026.\n\nCongress / Federal:\nHJRES 1: Proposing an amendment to the Constitution of the United States to require that the Supreme Court of the United States be composed of nine justices.\n   Placed on the House Calendar, Calendar No. 84.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona:\n   2 hearings.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nExplore full details at CivicWatch.",
-  "generated_at": "2026-07-09T04:26:26.754954-05:00",
+  "script": "CivicWatch weekly overview for July 04 through July 11, 2026.\n\nCongress / Federal:\nHR 6238: NIH IMPROVE Act\n   Placed on the Union Calendar, Calendar No. 638.\nHJRES 1: Proposing an amendment to the Constitution of the United States to require that the Supreme Court of the United States be composed of nine justices.\n   Placed on the House Calendar, Calendar No. 84.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona:\n   1 hearings.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nExplore full details at CivicWatch.",
+  "generated_at": "2026-07-11T00:08:53.331199-05:00",
   "audio_available": false,
   "audio_file": null
 }
