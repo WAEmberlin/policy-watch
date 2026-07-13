@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-13T05:08:39.513739+00:00",
-  "count": 238,
+  "generated_at": "2026-07-13T08:38:20.359578+00:00",
+  "count": 239,
   "items": [
     {
       "title": "\u201cBuilding an AI-Ready America: How AI Is Creating Opportunities Across America's Workforce\u201d",
@@ -623,24 +623,24 @@
       "event_id": "338612"
     },
     {
-      "title": "Business meeting to consider the nomination of Hal Duncan, of Texas, to be Deputy Director of the Office of Management and Budget.",
-      "summary": "Congressional meeting before the Senate Budget.",
+      "title": "U.S. Economic Security and Investment Abroad: Assessing Economic Security Zones",
+      "summary": "Congressional meeting before the House Foreign Affairs Oversight and Intelligence Subcommittee.",
       "source": "Federal (US Congress)",
       "category": "hearing",
-      "chamber": "Senate",
-      "committee": "Senate Budget",
-      "committees": "Senate Budget",
+      "chamber": "House",
+      "committee": "House Foreign Affairs Oversight and Intelligence Subcommittee",
+      "committees": "House Foreign Affairs Oversight and Intelligence Subcommittee",
       "published": "2026-07-14T18:00:00+00:00",
       "scheduled_date": "2026-07-14",
       "scheduled_time": "18:00",
-      "url": "https://www.congress.gov/event/119th-congress/senate-event/338660",
-      "link": "https://www.congress.gov/event/119th-congress/senate-event/338660",
+      "url": "https://www.congress.gov/event/119th-congress/house-event/119449",
+      "link": "https://www.congress.gov/event/119th-congress/house-event/119449",
       "congress": 119,
       "meeting_type": "Meeting",
       "meeting_status": "Scheduled",
-      "location": "Room 216, Capitol (Senate side)",
+      "location": "Room 2200, Rayburn House Office Building",
       "bill": "",
-      "event_id": "338660"
+      "event_id": "119449"
     },
     {
       "title": "Business meeting to consider the nominations of Brett Doyle, of Connecticut, David Foley, Jr., of Virginia, Samuel Negatu, of the District of Columbia, Peter-Anthony Pappas, of New Jersey, and Bartholomew Thanhauser, of New York, all to be a Member of the United States International Trade Commission.",
@@ -663,24 +663,24 @@
       "event_id": "338658"
     },
     {
-      "title": "U.S. Economic Security and Investment Abroad: Assessing Economic Security Zones",
-      "summary": "Congressional meeting before the House Foreign Affairs Oversight and Intelligence Subcommittee.",
+      "title": "Business meeting to consider the nomination of Hal Duncan, of Texas, to be Deputy Director of the Office of Management and Budget.",
+      "summary": "Congressional meeting before the Senate Budget.",
       "source": "Federal (US Congress)",
       "category": "hearing",
-      "chamber": "House",
-      "committee": "House Foreign Affairs Oversight and Intelligence Subcommittee",
-      "committees": "House Foreign Affairs Oversight and Intelligence Subcommittee",
+      "chamber": "Senate",
+      "committee": "Senate Budget",
+      "committees": "Senate Budget",
       "published": "2026-07-14T18:00:00+00:00",
       "scheduled_date": "2026-07-14",
       "scheduled_time": "18:00",
-      "url": "https://www.congress.gov/event/119th-congress/house-event/119449",
-      "link": "https://www.congress.gov/event/119th-congress/house-event/119449",
+      "url": "https://www.congress.gov/event/119th-congress/senate-event/338660",
+      "link": "https://www.congress.gov/event/119th-congress/senate-event/338660",
       "congress": 119,
       "meeting_type": "Meeting",
       "meeting_status": "Scheduled",
-      "location": "Room 2200, Rayburn House Office Building",
+      "location": "Room 216, Capitol (Senate side)",
       "bill": "",
-      "event_id": "119449"
+      "event_id": "338660"
     },
     {
       "title": "Subcommittee Markup of Seven Peices of Legislation",
@@ -1601,6 +1601,26 @@
       "location": "Room 2123, Rayburn House Office Building",
       "bill": "",
       "event_id": "119405"
+    },
+    {
+      "title": "Full Committee",
+      "summary": "Congressional meeting before the House Science, Space, and Technology.",
+      "source": "Federal (US Congress)",
+      "category": "hearing",
+      "chamber": "House",
+      "committee": "House Science, Space, and Technology",
+      "committees": "House Science, Space, and Technology",
+      "published": "2026-06-25T14:00:00+00:00",
+      "scheduled_date": "2026-06-25",
+      "scheduled_time": "14:00",
+      "url": "https://www.congress.gov/event/119th-congress/house-event/119391",
+      "link": "https://www.congress.gov/event/119th-congress/house-event/119391",
+      "congress": 119,
+      "meeting_type": "Meeting",
+      "meeting_status": "Scheduled",
+      "location": "Room 2318, Rayburn House Office Building",
+      "bill": "HR 9363, HR 9333, HR 9334, HR 2385, HR 5351, HR 6461, HR 9372, HR 8893, HR 9341, HR 5584, HR 9362",
+      "event_id": "119391"
     },
     {
       "title": "\u201cFrom Startup to Scale: The Role of the SBA Office of Investment and Innovation in Powering America\u2019s Small Businesses.\u201d",

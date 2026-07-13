@@ -556,20 +556,20 @@
     "updated_at": "2026-07-15"
   },
   {
-    "id": "338660",
+    "id": "119449",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "Business meeting to consider the nomination of Hal Duncan, of Texas, to be Deputy Director of the Office of Management and Budget.",
-    "description": "Congressional meeting before the Senate Budget.",
+    "title": "U.S. Economic Security and Investment Abroad: Assessing Economic Security Zones",
+    "description": "Congressional meeting before the House Foreign Affairs Oversight and Intelligence Subcommittee.",
     "scheduled_date": "2026-07-14",
     "scheduled_time": "18:00",
-    "location": "Room 216, Capitol (Senate side)",
-    "chamber": "Senate",
+    "location": "Room 2200, Rayburn House Office Building",
+    "chamber": "House",
     "committees": [
-      "Senate Budget"
+      "House Foreign Affairs Oversight and Intelligence Subcommittee"
     ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338660",
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119449",
     "stream_url": "",
     "updated_at": "2026-07-14"
   },
@@ -592,20 +592,20 @@
     "updated_at": "2026-07-14"
   },
   {
-    "id": "119449",
+    "id": "338660",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "U.S. Economic Security and Investment Abroad: Assessing Economic Security Zones",
-    "description": "Congressional meeting before the House Foreign Affairs Oversight and Intelligence Subcommittee.",
+    "title": "Business meeting to consider the nomination of Hal Duncan, of Texas, to be Deputy Director of the Office of Management and Budget.",
+    "description": "Congressional meeting before the Senate Budget.",
     "scheduled_date": "2026-07-14",
     "scheduled_time": "18:00",
-    "location": "Room 2200, Rayburn House Office Building",
-    "chamber": "House",
+    "location": "Room 216, Capitol (Senate side)",
+    "chamber": "Senate",
     "committees": [
-      "House Foreign Affairs Oversight and Intelligence Subcommittee"
+      "Senate Budget"
     ],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/119449",
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338660",
     "stream_url": "",
     "updated_at": "2026-07-14"
   },
@@ -1428,6 +1428,24 @@
       "House Energy and Commerce Subcommittee on Oversight and Investigations"
     ],
     "url": "https://www.congress.gov/event/119th-congress/house-event/119405",
+    "stream_url": "",
+    "updated_at": "2026-06-25"
+  },
+  {
+    "id": "119391",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Full Committee",
+    "description": "Congressional meeting before the House Science, Space, and Technology.",
+    "scheduled_date": "2026-06-25",
+    "scheduled_time": "14:00",
+    "location": "Room 2318, Rayburn House Office Building",
+    "chamber": "House",
+    "committees": [
+      "House Science, Space, and Technology"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119391",
     "stream_url": "",
     "updated_at": "2026-06-25"
   },
