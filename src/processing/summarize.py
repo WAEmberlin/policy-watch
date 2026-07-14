@@ -9,6 +9,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
+from processing.bill_action_utils import (  # noqa: E402
+    ACTION_BADGES,
+    build_vote_feed_events,
+    enrich_bill_feed_item,
+    inject_vote_events_into_grouped,
+    is_bill_feed_item,
+)
 from processing.bill_urls import pick_best_bill_url, build_ks_bill_url  # noqa: E402
 from processing.hearing_stream_utils import enrich_hearing_stream  # noqa: E402
 from processing.veteran_impact import (  # noqa: E402
@@ -116,6 +123,8 @@ for item in history:
         if item.get("type") == "state_legislation" and item.get("category"):
             source = f"{source} - {item.get('category')}"
         
+        if is_bill_feed_item(item):
+            enrich_bill_feed_item(item)
         grouped[year][date_str][source].append(item)
         processed_count += 1
     except Exception as e:
@@ -199,7 +208,8 @@ for bill in legislation:
             "short_title": bill.get("short_title", ""),
             "official_title": bill.get("official_title", "")
         }
-        
+        enrich_bill_feed_item(item)
+
         grouped[year][date_str_formatted][source].append(item)
         if bill_url:
             existing_urls.add(bill_url)  # Track this URL to prevent future duplicates
@@ -211,6 +221,18 @@ for bill in legislation:
 print(f"Processed {legislation_count} bills into grouped structure.")
 if duplicate_count > 0:
     print(f"Skipped {duplicate_count} duplicate bills (already in history.json from RSS feed)")
+
+# Enrich any bill rows not tagged during initial history pass
+for year in grouped:
+    for date_str in grouped[year]:
+        for source in grouped[year][date_str]:
+            for idx, item in enumerate(grouped[year][date_str][source]):
+                if is_bill_feed_item(item) and not item.get("item_type"):
+                    grouped[year][date_str][source][idx] = enrich_bill_feed_item(item)
+
+vote_feed_events = build_vote_feed_events(ROOT)
+vote_events_added = inject_vote_events_into_grouped(grouped, vote_feed_events)
+print(f"Injected {vote_events_added} vote feed events from {len(vote_feed_events)} records.")
 
 # Sort items within each date/source by published time (newest first)
 for year in grouped:
@@ -249,6 +271,18 @@ for year in sorted(grouped.keys(), reverse=True):
                     flat_item["bill_number"] = item.get("bill_number")
                 if item.get("bill_url"):
                     flat_item["bill_url"] = item.get("bill_url")
+                if item.get("item_type"):
+                    flat_item["item_type"] = item.get("item_type")
+                if item.get("action_type"):
+                    flat_item["action_type"] = item.get("action_type")
+                if item.get("vote_tally"):
+                    flat_item["vote_tally"] = item.get("vote_tally")
+                if item.get("motion"):
+                    flat_item["motion"] = item.get("motion")
+                if item.get("state"):
+                    flat_item["state"] = item.get("state")
+                if item.get("level"):
+                    flat_item["level"] = item.get("level")
                 flat_items.append(flat_item)
 
     # Pagination
@@ -899,6 +933,7 @@ output = {
         "co_tracked": co_meta.get("total_tracked", 0),
         "co_gaps": co_meta.get("gaps", []),
     },
+    "action_badges": ACTION_BADGES,
 }
 
 # Ensure legislation key is always present

@@ -10,16 +10,18 @@ This script:
 """
 import os
 import json
+import re
 import time
 import requests
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 
 OUTPUT_DIR = Path("src/output")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 LEGISLATION_FILE = OUTPUT_DIR / "legislation.json"
+VOTES_FILE = OUTPUT_DIR / "congress_votes.json"
 
 # Congress.gov API configuration
 API_BASE_URL = "https://api.congress.gov/v3"
@@ -29,6 +31,17 @@ ITEMS_PER_PAGE = 250  # Max allowed by API
 # Rate limiting: API allows 1000 requests per hour
 # We'll be conservative and add small delays
 REQUEST_DELAY = 0.1  # 100ms between requests
+
+# Senate roll-call votes are not available via house-vote API endpoints yet.
+# We parse yeas/nays from action text when recordedVotes reference the Senate.
+SENATE_VOTE_TEXT_RE = re.compile(
+    r"(?:Yeas and Nays|Yea-Nay Vote)[:\s]*(?:\([^)]*\)\s*)?(?:Agreed to|Passed|Failed|Rejected)?[^0-9]*"
+    r"(\d+)\s*[-–—]\s*(\d+)",
+    re.IGNORECASE,
+)
+SENATE_ROLL_NUMBER_RE = re.compile(r"Roll no\.?\s*(\d+)|Record Vote Number:\s*(\d+)", re.IGNORECASE)
+
+_house_vote_detail_cache: Dict[str, Dict] = {}
 
 
 def get_api_key() -> str:
@@ -218,6 +231,520 @@ def enrich_bills_with_titles(api_key: str, bills: List[Dict], max_enrich: int = 
     return bills
 
 
+def _congress_api_get(api_key: str, path: str, params: Optional[Dict] = None, timeout: int = 30) -> Optional[Dict]:
+    """GET a Congress.gov API path with rate limiting."""
+    url = f"{API_BASE_URL}/{path.lstrip('/')}"
+    query = {"api_key": api_key, "format": "json"}
+    if params:
+        query.update(params)
+    try:
+        response = requests.get(url, params=query, timeout=timeout)
+        response.raise_for_status()
+        time.sleep(REQUEST_DELAY)
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching {path}: {e}")
+        return None
+
+
+def _parse_iso_date(value: str) -> str:
+    """Normalize API date/datetime strings to YYYY-MM-DD."""
+    if not value:
+        return ""
+    try:
+        dt = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        return dt.date().isoformat()
+    except (ValueError, AttributeError):
+        return value[:10] if len(value) >= 10 else value
+
+
+def _bill_type_url_segment(bill_type: str) -> str:
+    """Map bill type code to Congress.gov URL segment."""
+    bill_type_lower = bill_type.lower()
+    mapping = {
+        "hr": "house-bill",
+        "s": "senate-bill",
+        "hjres": "house-joint-resolution",
+        "sjres": "senate-joint-resolution",
+        "hconres": "house-concurrent-resolution",
+        "sconres": "senate-concurrent-resolution",
+        "hres": "house-resolution",
+        "sres": "senate-resolution",
+    }
+    return mapping.get(bill_type_lower, f"{bill_type_lower}-bill")
+
+
+def build_bill_public_url(congress: int, bill_type: str, bill_number: str) -> str:
+    """Build public Congress.gov bill URL."""
+    congress_url = f"{congress}th-congress"
+    segment = _bill_type_url_segment(bill_type)
+    return f"https://www.congress.gov/bill/{congress_url}/{segment}/{bill_number}"
+
+
+def build_house_vote_public_url(congress: int, session: int, roll_number: int) -> str:
+    """Build public Congress.gov House roll call vote URL."""
+    session_suffix = "1st" if session == 1 else "2nd"
+    return (
+        f"https://www.congress.gov/roll-call-vote/{congress}th-congress/"
+        f"{session_suffix}-session/house/{roll_number}"
+    )
+
+
+def _sum_house_vote_totals(vote_party_total: List[Dict]) -> Tuple[int, int]:
+    yeas = sum(int(party.get("yeaTotal") or 0) for party in vote_party_total)
+    nays = sum(int(party.get("nayTotal") or 0) for party in vote_party_total)
+    return yeas, nays
+
+
+def _build_tally_text(result: str, yeas: Optional[int], nays: Optional[int]) -> str:
+    if yeas is not None and nays is not None:
+        return f"{result} {yeas}–{nays}"
+    return result or ""
+
+
+def _normalize_action(action: Dict) -> Dict:
+    """Normalize a bill action from the actions endpoint."""
+    normalized = {
+        "text": (action.get("text") or "").strip(),
+        "actionDate": action.get("actionDate", ""),
+        "type": action.get("type", ""),
+    }
+    if action.get("actionTime"):
+        normalized["actionTime"] = action["actionTime"]
+    if action.get("actionCode"):
+        normalized["actionCode"] = action["actionCode"]
+    recorded = action.get("recordedVotes") or []
+    if recorded:
+        normalized["recordedVotes"] = recorded
+    return normalized
+
+
+def _parse_senate_tally_from_text(text: str) -> Tuple[Optional[int], Optional[int], Optional[int]]:
+    """Parse Senate yeas, nays, and roll number from action text."""
+    yeas = nays = roll_number = None
+    match = SENATE_VOTE_TEXT_RE.search(text or "")
+    if match:
+        yeas = int(match.group(1))
+        nays = int(match.group(2))
+    roll_match = SENATE_ROLL_NUMBER_RE.search(text or "")
+    if roll_match:
+        roll_number = int(roll_match.group(1) or roll_match.group(2))
+    return yeas, nays, roll_number
+
+
+def _vote_dedup_key(vote: Dict) -> str:
+    return (
+        f"{vote.get('congress')}-{vote.get('chamber')}-"
+        f"{vote.get('session', vote.get('sessionNumber', ''))}-"
+        f"{vote.get('roll_number', vote.get('rollNumber', ''))}-"
+        f"{vote.get('bill_type', '')}-{vote.get('bill_number', '')}"
+    )
+
+
+def fetch_bill_actions(
+    api_key: str,
+    congress: int,
+    bill_type: str,
+    bill_number: str,
+) -> List[Dict]:
+    """
+    Fetch all actions for a bill from /bill/{congress}/{type}/{number}/actions.
+
+    Handles pagination and returns normalized action dicts.
+    """
+    actions: List[Dict] = []
+    offset = 0
+    limit = 250
+
+    while True:
+        data = _congress_api_get(
+            api_key,
+            f"bill/{congress}/{bill_type.lower()}/{bill_number}/actions",
+            {"limit": limit, "offset": offset},
+        )
+        if not data:
+            break
+
+        page_actions = data.get("actions") or []
+        if not page_actions:
+            break
+
+        for action in page_actions:
+            if isinstance(action, dict):
+                actions.append(_normalize_action(action))
+
+        pagination = data.get("pagination") or {}
+        total_count = pagination.get("count", 0)
+        offset += len(page_actions)
+        if total_count:
+            if offset >= total_count:
+                break
+        elif len(page_actions) < limit:
+            break
+
+    return actions
+
+
+def fetch_house_vote_detail(
+    api_key: str,
+    congress: int,
+    session: int,
+    roll_number: int,
+) -> Optional[Dict]:
+    """Fetch item-level House roll call vote with party totals."""
+    cache_key = f"{congress}-{session}-{roll_number}"
+    if cache_key in _house_vote_detail_cache:
+        return _house_vote_detail_cache[cache_key]
+
+    data = _congress_api_get(
+        api_key,
+        f"house-vote/{congress}/{session}/{roll_number}",
+    )
+    if not data:
+        return None
+
+    vote = data.get("houseRollCallVote")
+    if vote:
+        _house_vote_detail_cache[cache_key] = vote
+    return vote
+
+
+def fetch_recent_house_votes(api_key: str, congress: int, limit: int = 100) -> List[Dict]:
+    """
+    Fetch recent House roll call votes for a congress with pagination.
+
+    Returns normalized vote dicts including yeas/nays from the item-level endpoint.
+    Senate roll calls are not available from this API (118th/119th House only).
+    """
+    votes: List[Dict] = []
+    offset = 0
+    page_limit = min(limit, 250)
+
+    while len(votes) < limit:
+        data = _congress_api_get(
+            api_key,
+            f"house-vote/{congress}",
+            {"limit": min(page_limit, limit - len(votes)), "offset": offset},
+        )
+        if not data:
+            break
+
+        page_votes = data.get("houseRollCallVotes") or []
+        if not page_votes:
+            break
+
+        for vote_data in page_votes:
+            if not isinstance(vote_data, dict):
+                continue
+
+            session = int(vote_data.get("sessionNumber") or 1)
+            roll_number = int(vote_data.get("rollCallNumber") or 0)
+            if not roll_number:
+                continue
+
+            detail = fetch_house_vote_detail(api_key, congress, session, roll_number) or vote_data
+            party_totals = detail.get("votePartyTotal") or []
+            yeas, nays = _sum_house_vote_totals(party_totals) if party_totals else (None, None)
+
+            bill_type = (detail.get("legislationType") or vote_data.get("legislationType") or "").upper()
+            bill_number = str(detail.get("legislationNumber") or vote_data.get("legislationNumber") or "")
+            result = detail.get("result") or vote_data.get("result") or ""
+            date = _parse_iso_date(detail.get("startDate") or vote_data.get("startDate") or "")
+
+            votes.append({
+                "bill_type": bill_type,
+                "bill_number": bill_number,
+                "congress": congress,
+                "date": date,
+                "chamber": "House",
+                "result": result,
+                "yeas": yeas,
+                "nays": nays,
+                "tally_text": _build_tally_text(result, yeas, nays),
+                "motion": detail.get("voteQuestion") or "",
+                "roll_number": roll_number,
+                "session": session,
+                "url": build_house_vote_public_url(congress, session, roll_number),
+            })
+
+            if len(votes) >= limit:
+                break
+
+        pagination = data.get("pagination") or {}
+        total_count = pagination.get("count", 0)
+        offset += len(page_votes)
+        if offset >= total_count or len(page_votes) < page_limit:
+            break
+
+    return votes
+
+
+def _normalize_bill_vote_record(
+    *,
+    bill: Dict,
+    chamber: str,
+    result: str,
+    date: str,
+    yeas: Optional[int],
+    nays: Optional[int],
+    motion: str,
+    roll_number: Optional[int],
+    session: Optional[int],
+    url: str,
+) -> Dict:
+    bill_type = bill.get("bill_type", "")
+    bill_number = str(bill.get("bill_number", ""))
+    congress = bill.get("congress", CONGRESS_NUMBER)
+    record = {
+        "bill_type": bill_type,
+        "bill_number": bill_number,
+        "congress": congress,
+        "date": date,
+        "chamber": chamber,
+        "result": result,
+        "yeas": yeas,
+        "nays": nays,
+        "tally_text": _build_tally_text(result, yeas, nays),
+        "motion": motion,
+        "url": url or build_bill_public_url(congress, bill_type, bill_number),
+    }
+    if roll_number is not None:
+        record["roll_number"] = roll_number
+    if session is not None:
+        record["session"] = session
+    return record
+
+
+def _extract_votes_from_actions(
+    api_key: str,
+    bill: Dict,
+    actions: List[Dict],
+) -> Tuple[List[Dict], List[Dict]]:
+    """
+    Parse roll-call references from bill actions.
+
+    Returns (bill_votes embedded on bill, feed-friendly vote records).
+    Senate votes use action text tallies — no Senate vote API yet.
+    """
+    bill_votes: List[Dict] = []
+    feed_votes: List[Dict] = []
+    seen_keys = set()
+
+    for action in actions:
+        text = action.get("text", "")
+        action_date = _parse_iso_date(action.get("actionDate", ""))
+        recorded_votes = action.get("recordedVotes") or []
+
+        if recorded_votes:
+            for rv in recorded_votes:
+                if not isinstance(rv, dict):
+                    continue
+                chamber = rv.get("chamber", "")
+                roll_number = rv.get("rollNumber")
+                session = rv.get("sessionNumber")
+                congress = rv.get("congress") or bill.get("congress", CONGRESS_NUMBER)
+                vote_date = _parse_iso_date(rv.get("date") or action_date)
+
+                if chamber == "House" and roll_number and session:
+                    detail = fetch_house_vote_detail(
+                        api_key, int(congress), int(session), int(roll_number)
+                    )
+                    party_totals = (detail or {}).get("votePartyTotal") or []
+                    yeas, nays = _sum_house_vote_totals(party_totals) if party_totals else (None, None)
+                    result = (detail or {}).get("result") or ""
+                    motion = (detail or {}).get("voteQuestion") or text
+                    url = build_house_vote_public_url(int(congress), int(session), int(roll_number))
+                elif chamber == "Senate":
+                    yeas, nays, senate_roll = _parse_senate_tally_from_text(text)
+                    roll_number = roll_number or senate_roll
+                    result = ""
+                    if "agreed to" in text.lower() or "passed" in text.lower():
+                        result = "Passed"
+                    elif "failed" in text.lower() or "rejected" in text.lower():
+                        result = "Failed"
+                    motion = text
+                    url = build_bill_public_url(
+                        int(congress),
+                        bill.get("bill_type", ""),
+                        str(bill.get("bill_number", "")),
+                    )
+                else:
+                    continue
+
+                vote_key = _vote_dedup_key({
+                    "congress": congress,
+                    "chamber": chamber,
+                    "session": session,
+                    "roll_number": roll_number,
+                    "bill_type": bill.get("bill_type"),
+                    "bill_number": bill.get("bill_number"),
+                })
+                if vote_key in seen_keys:
+                    continue
+                seen_keys.add(vote_key)
+
+                embedded = {
+                    "rollNumber": roll_number,
+                    "chamber": chamber,
+                    "date": vote_date,
+                    "result": result,
+                    "yeas": yeas,
+                    "nays": nays,
+                    "motion": motion,
+                    "tally_text": _build_tally_text(result, yeas, nays),
+                }
+                bill_votes.append(embedded)
+
+                feed_votes.append(_normalize_bill_vote_record(
+                    bill=bill,
+                    chamber=chamber,
+                    result=result,
+                    date=vote_date,
+                    yeas=yeas,
+                    nays=nays,
+                    motion=motion,
+                    roll_number=int(roll_number) if roll_number else None,
+                    session=int(session) if session else None,
+                    url=url,
+                ))
+        elif "Record Vote Number" in text or "Roll no." in text:
+            yeas, nays, senate_roll = _parse_senate_tally_from_text(text)
+            if yeas is None and nays is None:
+                continue
+            result = "Passed" if "passed" in text.lower() or "agreed to" in text.lower() else ""
+            if "failed" in text.lower() or "rejected" in text.lower():
+                result = "Failed"
+            vote_key = _vote_dedup_key({
+                "congress": bill.get("congress", CONGRESS_NUMBER),
+                "chamber": "Senate",
+                "session": "",
+                "roll_number": senate_roll or "",
+                "bill_type": bill.get("bill_type"),
+                "bill_number": bill.get("bill_number"),
+            })
+            if vote_key in seen_keys:
+                continue
+            seen_keys.add(vote_key)
+
+            embedded = {
+                "rollNumber": senate_roll,
+                "chamber": "Senate",
+                "date": action_date,
+                "result": result,
+                "yeas": yeas,
+                "nays": nays,
+                "motion": text,
+                "tally_text": _build_tally_text(result, yeas, nays),
+            }
+            bill_votes.append(embedded)
+            feed_votes.append(_normalize_bill_vote_record(
+                bill=bill,
+                chamber="Senate",
+                result=result,
+                date=action_date,
+                yeas=yeas,
+                nays=nays,
+                motion=text,
+                roll_number=senate_roll,
+                session=None,
+                url=build_bill_public_url(
+                    bill.get("congress", CONGRESS_NUMBER),
+                    bill.get("bill_type", ""),
+                    str(bill.get("bill_number", "")),
+                ),
+            ))
+
+    return bill_votes, feed_votes
+
+
+def _bill_updated_within_days(bill: Dict, days: int = 30) -> bool:
+    cutoff = datetime.now(timezone.utc) - timedelta(days=days)
+    date_str = bill.get("latest_action_date") or bill.get("published", "")
+    if not date_str:
+        return False
+    try:
+        dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt >= cutoff
+    except (ValueError, AttributeError):
+        return False
+
+
+def enrich_bills_with_votes_and_actions(
+    api_key: str,
+    bills: List[Dict],
+    max_enrich: int = 100,
+) -> Tuple[List[Dict], List[Dict]]:
+    """
+    Enrich recent bills with actions and roll-call votes.
+
+    For bills updated in the last 30 days (up to max_enrich):
+    - Fetches /actions and stores on bill.actions[]
+    - Parses recordedVotes; fetches house-vote detail for House roll calls
+    - Senate roll calls use action text (no Senate vote API yet)
+
+    Returns:
+        (updated bills list, feed-friendly congress vote records)
+    """
+    enriched_count = 0
+    all_feed_votes: List[Dict] = []
+    feed_keys = set()
+
+    for bill in bills:
+        if not _bill_updated_within_days(bill, days=30):
+            continue
+        if enriched_count >= max_enrich:
+            break
+
+        congress = bill.get("congress", CONGRESS_NUMBER)
+        bill_type = bill.get("bill_type", "")
+        bill_number = bill.get("bill_number", "")
+        if not bill_type or not bill_number:
+            continue
+
+        actions = fetch_bill_actions(api_key, congress, bill_type, bill_number)
+        if actions:
+            bill["actions"] = actions
+
+        bill_votes, feed_votes = _extract_votes_from_actions(api_key, bill, actions)
+        if bill_votes:
+            existing = {v.get("rollNumber"): v for v in bill.get("votes") or []}
+            for vote in bill_votes:
+                key = vote.get("rollNumber")
+                if key and key in existing:
+                    existing[key].update({k: v for k, v in vote.items() if v is not None})
+                elif key:
+                    existing[key] = vote
+                else:
+                    existing[f"_{len(existing)}"] = vote
+            bill["votes"] = list(existing.values())
+
+        for vote in feed_votes:
+            key = _vote_dedup_key(vote)
+            if key not in feed_keys:
+                feed_keys.add(key)
+                all_feed_votes.append(vote)
+
+        enriched_count += 1
+
+    if enriched_count > 0:
+        print(f"Enriched {enriched_count} bills with actions and votes")
+        print(f"  Extracted {len(all_feed_votes)} roll-call vote record(s)")
+
+    return bills, all_feed_votes
+
+
+def merge_congress_vote_feeds(*feeds: List[Dict]) -> List[Dict]:
+    """Deduplicate and sort congress vote feed records newest first."""
+    merged: Dict[str, Dict] = {}
+    for feed in feeds:
+        for vote in feed:
+            key = _vote_dedup_key(vote)
+            merged[key] = vote
+    return sorted(merged.values(), key=lambda v: v.get("date", ""), reverse=True)
+
+
 def normalize_bill(bill_data: Dict, congress: int) -> Optional[Dict]:
     """
     Normalize a bill from the API response into our standard format.
@@ -371,7 +898,7 @@ def normalize_bill(bill_data: Dict, congress: int) -> Optional[Dict]:
             if isinstance(action, dict):
                 status = action.get("text", "").strip()
         
-        # Extract votes information
+        # Extract votes information (list endpoint does not include votes; filled by enrichment)
         votes = []
         if "votes" in bill_data and bill_data["votes"]:
             votes_list = bill_data["votes"]
@@ -562,6 +1089,25 @@ def load_existing_legislation() -> List[Dict]:
         return []
 
 
+def load_existing_congress_votes() -> List[Dict]:
+    """Load existing congress_votes.json feed records."""
+    if not VOTES_FILE.exists():
+        return []
+    try:
+        with open(VOTES_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            if isinstance(data, list):
+                return data
+            if isinstance(data, dict):
+                items = data.get("items") or data.get("votes") or []
+                return items if isinstance(items, list) else []
+            print("Warning: congress_votes.json has unexpected format.")
+            return []
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"Warning: Could not load existing congress votes: {e}")
+        return []
+
+
 def deduplicate_bills(new_bills: List[Dict], existing_bills: List[Dict]) -> List[Dict]:
     """
     Merge new bills with existing bills, updating existing bills if they have newer actions.
@@ -601,9 +1147,13 @@ def deduplicate_bills(new_bills: List[Dict], existing_bills: List[Dict]) -> List
             if new_action_date and new_action_date > existing_action_date:
                 # Update the existing bill with new data, but preserve enriched fields
                 preserved_fields = ["official_title", "short_title"]
+                preserve_if_empty = ["votes", "actions"]
                 for key, value in new_bill.items():
-                    if key not in preserved_fields or not existing_bill.get(key):
-                        existing_bill[key] = value
+                    if key in preserved_fields and existing_bill.get(key):
+                        continue
+                    if key in preserve_if_empty and not value and existing_bill.get(key):
+                        continue
+                    existing_bill[key] = value
                 existing_bill["last_synced_at"] = sync_ts
                 updated_count += 1
             else:
@@ -643,16 +1193,28 @@ def main():
     DAYS_BACK = 30  # Only fetch bills updated in last 30 days
     new_bills = fetch_all_bills(api_key, CONGRESS_NUMBER, days_back=DAYS_BACK)
     
-    if not new_bills:
-        print("No bills fetched. Exiting.")
+    if new_bills:
+        all_bills = deduplicate_bills(new_bills, existing_bills)
+    elif existing_bills:
+        print("No new bills fetched from API; continuing with existing legislation.")
+        all_bills = existing_bills
+    else:
+        print("No bills fetched and no existing legislation. Exiting.")
         return
-    
-    # Deduplicate and combine
-    all_bills = deduplicate_bills(new_bills, existing_bills)
     
     # Enrich bills with official titles (limit per run to avoid long execution)
     print("\nEnriching bills with official titles...")
     all_bills = enrich_bills_with_titles(api_key, all_bills, max_enrich=500)
+
+    # Enrich recent bills with actions and roll-call votes
+    print("\nEnriching bills with actions and roll-call votes...")
+    all_bills, bill_vote_feed = enrich_bills_with_votes_and_actions(api_key, all_bills, max_enrich=100)
+
+    # Supplement with recent House roll calls (Senate not in API yet)
+    print("\nFetching recent House roll call votes...")
+    recent_house_votes = fetch_recent_house_votes(api_key, CONGRESS_NUMBER, limit=100)
+    existing_votes = load_existing_congress_votes()
+    congress_votes = merge_congress_vote_feeds(existing_votes, bill_vote_feed, recent_house_votes)
     
     # Sort by latest action date (newest first)
     all_bills.sort(key=lambda x: x.get("latest_action_date", x.get("published", "")), reverse=True)
@@ -664,6 +1226,14 @@ def main():
         print(f"\nSuccessfully saved {len(all_bills)} bills to {LEGISLATION_FILE}")
     except Exception as e:
         print(f"\nError saving legislation: {e}")
+        raise
+
+    try:
+        with open(VOTES_FILE, "w", encoding="utf-8") as f:
+            json.dump(congress_votes, f, indent=2)
+        print(f"Successfully saved {len(congress_votes)} roll-call votes to {VOTES_FILE}")
+    except Exception as e:
+        print(f"\nError saving congress votes: {e}")
         raise
     
     # Fetch and save federal hearings

@@ -46,6 +46,44 @@ function itemMatchesStateFilter(item) {
     return inferItemState(item) === selectedState;
 }
 
+function isVoteFeedItem(item) {
+    if (typeof CivicWatchHome !== "undefined" && CivicWatchHome.isVoteEvent) {
+        return CivicWatchHome.isVoteEvent(item);
+    }
+    return item.item_type === "vote_event" || Boolean(item.vote_tally);
+}
+
+function classifyActionType(text) {
+    if (typeof CivicWatchHome !== "undefined" && CivicWatchHome.classifyActionType) {
+        return CivicWatchHome.classifyActionType(text);
+    }
+    const hay = String(text || "").toLowerCase();
+    if (!hay.trim()) return null;
+    if (/signed|became (a )?law|enacted|chaptered/.test(hay)) return "enacted";
+    if (/veto/.test(hay)) return "vetoed";
+    if (/died|dead|pocket veto|failed to pass|defeated/.test(hay)) return "died";
+    if (/\bfailed\b/.test(hay)) return "failed";
+    if (/referr?ed/.test(hay)) return "referred";
+    if (/passed|adopted|approved|agreed to|concurred/.test(hay)) return "passed";
+    if (/vote|roll.?call|\byea\b|\bnay\b/.test(hay)) return "vote";
+    return null;
+}
+
+function buildFeedSearchText(item) {
+    const parts = [
+        item.title,
+        item.short_title,
+        item.summary,
+        item.bill_number,
+        item.motion,
+        item.vote_tally,
+        item.latest_action,
+        item.official_title,
+        item.sponsor_name,
+    ];
+    return parts.filter(Boolean).join(" ").toLowerCase();
+}
+
 function itemMatchesVeteransFilter(item) {
     if (!veteransImpactFilter) return true;
     if (typeof CivicWatchHome !== "undefined" && CivicWatchHome.itemMatchesVeteransImpactFilter) {
@@ -387,7 +425,11 @@ function collectGroupedItems(yearData) {
             allItems = allItems.concat(items.map(item => ({
                 ...item,
                 date: date,
-                source: source
+                source: source,
+                item_type: item.item_type,
+                action_type: item.action_type,
+                vote_tally: item.vote_tally,
+                motion: item.motion,
             })));
         });
     });
@@ -397,10 +439,11 @@ function collectGroupedItems(yearData) {
 function applyFeedFilters(allItems) {
     let filtered = allItems;
     if (selectedSource) {
-        filtered = filtered.filter(item => item.source === selectedSource);
+        filtered = filtered.filter(item => item.source === selectedSource || isVoteFeedItem(item));
     }
     if (selectedCategory) {
         filtered = filtered.filter(item => {
+            if (isVoteFeedItem(item)) return true;
             const source = item.source || "";
             return source.includes(selectedCategory);
         });
@@ -416,19 +459,24 @@ function applyFeedFilters(allItems) {
 
 function enrichMultiStateBill(bill, date) {
     const impactLookup = (allData?.veteran_impact || {}).lookup || {};
+    const latestAction = bill.latest_action || "";
     const enriched = {
         title: `${bill.bill_number}: ${bill.title}`,
         link: (typeof CivicWatchBillUtils !== "undefined" ? CivicWatchBillUtils.resolveBillUrl(bill) : bill.url),
-        summary: bill.summary || bill.latest_action || "",
+        summary: bill.summary || latestAction || "",
         source: `State (${STATE_NAMES[bill.state] || bill.state})`,
         state: bill.state,
         level: "state",
         published: bill.latest_action_date,
-        latest_action: bill.latest_action,
+        latest_action: latestAction,
         bill_number: bill.bill_number,
         date: date,
         classification: bill.classification,
         ai_topics: bill.ai_topics,
+        item_type: bill.item_type || "bill_update",
+        action_type: bill.action_type || classifyActionType(latestAction),
+        vote_tally: bill.vote_tally,
+        motion: bill.motion,
     };
     if (typeof CivicWatchHome !== "undefined" && CivicWatchHome.resolveVeteranImpact) {
         enriched.veteran_impact = CivicWatchHome.resolveVeteranImpact(enriched);
@@ -642,16 +690,15 @@ function performSearch(query) {
             Object.keys(dateData).forEach(source => {
                 const items = dateData[source];
                 items.forEach(item => {
-                    const title = (item.title || "").toLowerCase();
-                    const shortTitle = (item.short_title || "").toLowerCase();
-                    const summary = (item.summary || "").toLowerCase();
-                    const searchText = title + " " + shortTitle + " " + summary;
-                    
-                    if (searchText.includes(searchQuery)) {
+                    if (buildFeedSearchText(item).includes(searchQuery)) {
                         searchResults.push({
                             ...item,
                             date: date,
-                            source: source
+                            source: source,
+                            item_type: item.item_type,
+                            action_type: item.action_type,
+                            vote_tally: item.vote_tally,
+                            motion: item.motion,
                         });
                     }
                 });
@@ -671,19 +718,27 @@ function performSearch(query) {
     }
     
     legislationItems.forEach(bill => {
-        const title = (bill.title || "").toLowerCase();
-        const shortTitle = (bill.short_title || "").toLowerCase();
-        const officialTitle = (bill.official_title || "").toLowerCase();
-        const summary = (bill.summary || "").toLowerCase();
-        const sponsor = (bill.sponsor_name || "").toLowerCase();
-        const searchText = title + " " + shortTitle + " " + officialTitle + " " + summary + " " + sponsor;
-        
+        const searchText = buildFeedSearchText({
+            title: bill.title,
+            short_title: bill.short_title,
+            summary: bill.summary,
+            bill_number: `${bill.bill_type || ""} ${bill.bill_number || ""}`.trim(),
+            latest_action: bill.latest_action,
+            motion: bill.motion,
+            vote_tally: bill.vote_tally,
+        });
+
         if (searchText.includes(searchQuery)) {
+            const billNumber = `${bill.bill_type || ""} ${bill.bill_number || ""}`.trim();
             searchResults.push({
                 ...bill,
                 date: bill.latest_action_date ? bill.latest_action_date.split("T")[0] : bill.published ? bill.published.split("T")[0] : "",
                 source: bill.source || "Congress.gov API",
-                bill_number: `${bill.bill_type || ""} ${bill.bill_number || ""}`.trim()
+                bill_number: billNumber,
+                item_type: bill.item_type || "bill_update",
+                action_type: bill.action_type || classifyActionType(bill.latest_action),
+                vote_tally: bill.vote_tally,
+                motion: bill.motion,
             });
         }
     });
@@ -691,10 +746,14 @@ function performSearch(query) {
     // Also search multi-state index
     const indexBills = (allData.search_index || {}).bills || [];
     indexBills.forEach(bill => {
-        const title = (bill.title || "").toLowerCase();
-        const summary = (bill.summary || "").toLowerCase();
-        const action = (bill.latest_action || "").toLowerCase();
-        const searchText = `${title} ${summary} ${action} ${(bill.bill_number || "").toLowerCase()}`;
+        const searchText = buildFeedSearchText({
+            title: bill.title,
+            summary: bill.summary,
+            bill_number: bill.bill_number,
+            latest_action: bill.latest_action,
+            motion: bill.motion,
+            vote_tally: bill.vote_tally,
+        });
         if (searchText.includes(searchQuery)) {
             searchResults.push({
                 title: `${bill.bill_number}: ${bill.title}`,
@@ -707,6 +766,10 @@ function performSearch(query) {
                 date: bill.latest_action_date ? bill.latest_action_date.split("T")[0] : "",
                 bill_number: bill.bill_number,
                 latest_action: bill.latest_action,
+                item_type: bill.item_type || "bill_update",
+                action_type: bill.action_type || classifyActionType(bill.latest_action),
+                vote_tally: bill.vote_tally,
+                motion: bill.motion,
             });
         }
     });
