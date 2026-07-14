@@ -49,6 +49,27 @@ const CivicWatchHome = (() => {
         green: 'bg-green-100 text-green-900 border-green-200',
     };
 
+    const ACTION_BADGE_STYLES = {
+        passed: 'bg-green-100 text-green-800 border-green-200',
+        enacted: 'bg-green-100 text-green-800 border-green-200',
+        vetoed: 'bg-orange-100 text-orange-800 border-orange-200',
+        died: 'bg-slate-100 text-slate-600 border-slate-200',
+        failed: 'bg-slate-100 text-slate-600 border-slate-200',
+        vote: 'bg-blue-100 text-blue-800 border-blue-200',
+        referred: 'bg-slate-100 text-slate-700 border-slate-300',
+    };
+
+    const ACTION_BADGE_LABELS = {
+        passed: 'Passed',
+        enacted: 'Enacted',
+        vetoed: 'Vetoed',
+        died: 'Died',
+        failed: 'Failed',
+        vote: 'Vote',
+        referred: 'Referred',
+        withdrawn: 'Withdrawn',
+    };
+
     const VETERANS_IMPACT_FILTER_BUTTONS = {
         all: {
             id: 'veterans-filter-btn',
@@ -120,6 +141,56 @@ const CivicWatchHome = (() => {
             MD: 'bg-teal-100 text-teal-800',
         };
         return map[state] || 'bg-slate-100 text-slate-700';
+    }
+
+    function classifyActionType(text) {
+        const hay = String(text || '').toLowerCase();
+        if (!hay.trim()) return null;
+        if (/signed|became (a )?law|enacted|chaptered/.test(hay)) return 'enacted';
+        if (/veto/.test(hay)) return 'vetoed';
+        if (/died|dead|pocket veto|failed to pass|defeated/.test(hay)) return 'died';
+        if (/\bfailed\b/.test(hay)) return 'failed';
+        if (/referr?ed/.test(hay)) return 'referred';
+        if (/passed|adopted|approved|agreed to|concurred/.test(hay)) return 'passed';
+        if (/vote|roll.?call|\byea\b|\bnay\b/.test(hay)) return 'vote';
+        return null;
+    }
+
+    function actionBadgeLabel(actionType) {
+        return ACTION_BADGE_LABELS[actionType] || actionType;
+    }
+
+    function renderActionBadge(actionType) {
+        if (!actionType) return null;
+        const badge = document.createElement('span');
+        badge.className = `inline-block px-2 py-0.5 rounded text-xs font-semibold border ${ACTION_BADGE_STYLES[actionType] || 'bg-slate-100 text-slate-700 border-slate-200'}`;
+        badge.textContent = actionBadgeLabel(actionType);
+        return badge;
+    }
+
+    function isVoteEvent(item) {
+        return item.item_type === 'vote_event' || Boolean(item.vote_tally);
+    }
+
+    function voteEventTitle(item) {
+        const billNo = item.bill_number || '';
+        const motion = item.motion || '';
+        if (billNo && motion) return `${billNo} — ${motion}`;
+        if (billNo) return billNo;
+        return item.short_title || item.title || '(no title)';
+    }
+
+    function formatActionDate(item) {
+        const raw = item.published || item.date || '';
+        if (!raw) return '';
+        try {
+            const d = new Date(raw.includes('T') ? raw : `${raw}T00:00:00`);
+            return d.toLocaleDateString('en-US', {
+                month: 'short', day: 'numeric', year: 'numeric', timeZone: 'America/Chicago',
+            });
+        } catch {
+            return String(raw).slice(0, 10);
+        }
     }
 
     function countBillsByState(siteData) {
@@ -531,9 +602,11 @@ const CivicWatchHome = (() => {
 
     function renderBillCard(item, searchQuery) {
         const impact = resolveVeteranImpact(item);
+        const voteEvent = isVoteEvent(item);
         const card = document.createElement('article');
         const impactClasses = impact ? veteranImpactCardClasses(impact.level) : '';
-        card.className = `bill-card p-4 rounded-lg border transition-all ${impact ? `veteran-impact-card veteran-impact-card--${impact.level} ` : ''}${impactClasses || 'bg-white border-slate-200 hover:border-civic-blue/40 hover:shadow-sm'}`;
+        const voteBorder = voteEvent ? 'border-l-4 border-l-blue-400 ' : '';
+        card.className = `bill-card p-4 rounded-lg border transition-all ${voteBorder}${impact ? `veteran-impact-card veteran-impact-card--${impact.level} ` : ''}${impactClasses || 'bg-white border-slate-200 hover:border-civic-blue/40 hover:shadow-sm'}`;
         const titleClass = impact
             ? 'veteran-impact-title block text-base font-semibold transition-colors'
             : 'block text-base font-semibold text-civic-navy hover:text-civic-blue transition-colors';
@@ -542,7 +615,9 @@ const CivicWatchHome = (() => {
             : 'text-civic-blue';
 
         const state = inferItemState(item);
-        const displayTitle = item.short_title || item.title || '(no title)';
+        const displayTitle = voteEvent
+            ? voteEventTitle(item)
+            : (item.short_title || item.title || '(no title)');
         const url = item.link || item.url || '#';
         const officialUrl = (typeof CivicWatchBillUtils !== 'undefined')
             ? CivicWatchBillUtils.resolveBillUrl(item)
@@ -558,7 +633,13 @@ const CivicWatchHome = (() => {
             header.appendChild(badge);
         }
 
-        if (item.bill_number) {
+        const actionType = item.action_type || (voteEvent ? 'vote' : null);
+        if (actionType) {
+            const actionBadge = renderActionBadge(actionType);
+            if (actionBadge) header.appendChild(actionBadge);
+        }
+
+        if (item.bill_number && !voteEvent) {
             const billNum = document.createElement('span');
             billNum.className = `text-xs font-semibold ${impact ? metaLinkClass : 'text-civic-blue'}`;
             billNum.textContent = item.bill_number;
@@ -605,8 +686,48 @@ const CivicWatchHome = (() => {
             card.appendChild(titleLink);
         }
 
-        const summaryText = item.summary || item.latest_action || '';
-        const showSummary = summaryText.trim() && summaryText !== displayTitle;
+        if (voteEvent && item.vote_tally) {
+            const tallyRow = document.createElement('div');
+            tallyRow.className = 'flex items-center gap-2 mt-2 text-sm font-semibold text-blue-900';
+            const iconWrap = document.createElement('span');
+            iconWrap.className = 'text-blue-600 flex-shrink-0';
+            iconWrap.setAttribute('aria-hidden', 'true');
+            iconWrap.innerHTML = `
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                </svg>`;
+            tallyRow.appendChild(iconWrap);
+            const tallyText = document.createElement('span');
+            if (searchQuery) {
+                const regex = new RegExp(`(${escapeRegex(searchQuery)})`, 'gi');
+                tallyText.innerHTML = highlightSafe(item.vote_tally, regex);
+            } else {
+                tallyText.textContent = item.vote_tally;
+            }
+            tallyRow.appendChild(tallyText);
+            card.appendChild(tallyRow);
+        }
+
+        if (!voteEvent && item.latest_action) {
+            const actionRow = document.createElement('p');
+            actionRow.className = 'text-sm text-slate-600 mt-2';
+            const dateStr = formatActionDate(item);
+            const actionText = dateStr
+                ? `Action: ${item.latest_action} · ${dateStr}`
+                : `Action: ${item.latest_action}`;
+            if (searchQuery) {
+                const regex = new RegExp(`(${escapeRegex(searchQuery)})`, 'gi');
+                actionRow.innerHTML = highlightSafe(actionText, regex);
+            } else {
+                actionRow.textContent = actionText;
+            }
+            card.appendChild(actionRow);
+        }
+
+        const summaryText = item.summary || '';
+        const showSummary = summaryText.trim()
+            && summaryText !== displayTitle
+            && !(voteEvent && summaryText === item.vote_tally);
         if (showSummary) {
             const summary = document.createElement('p');
             summary.className = impact
@@ -887,6 +1008,10 @@ const CivicWatchHome = (() => {
         loadLiveNowStrip,
         inferItemState,
         isMetaItem,
+        isVoteEvent,
+        classifyActionType,
+        renderActionBadge,
+        actionBadgeLabel,
         itemMatchesVeteransFilter,
         itemMatchesVeteransImpactFilter,
         resolveVeteranImpact,
