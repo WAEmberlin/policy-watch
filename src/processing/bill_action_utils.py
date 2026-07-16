@@ -202,7 +202,8 @@ def _resolve_vote_link(state: str, bill_number: str, url: str = "", bill_url_loo
     if url:
         return url
     lookup = bill_url_lookup or {}
-    key = f"{state.upper()}:{re.sub(r'\s+', '', bill_number).upper()}"
+    normalized_number = re.sub(r"\s+", "", bill_number).upper()
+    key = f"{state.upper()}:{normalized_number}"
     if key in lookup:
         return lookup[key]
     if state.upper() == "KS":
