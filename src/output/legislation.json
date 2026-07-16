@@ -27,6 +27,11 @@
         "actionCode": "H14000"
       },
       {
+        "text": "Message on Senate action sent to the House.",
+        "actionDate": "2026-07-15",
+        "type": "Floor"
+      },
+      {
         "text": "Passed Senate without amendment by Unanimous Consent.",
         "actionDate": "2026-07-14",
         "type": "Floor"
@@ -777,206 +782,15 @@
     "short_title": "To name the Department of Veterans Affairs community-based outpatient clinic in San Jose, California, as the \"Corporal Patrick D. Tillman VA Clinic\"."
   },
   {
-    "bill_number": "3106",
-    "bill_type": "HR",
-    "title": "Weatherizing Infrastructure in the North and Terrorism Emergency Readiness Act of 2025",
-    "summary": "",
-    "sponsor_name": "",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
-    "latest_action_date": "2026-07-14T00:00:00",
-    "actions": [
-      {
-        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
-        "actionDate": "2026-07-14",
-        "type": "IntroReferral"
-      },
-      {
-        "text": "Motion to reconsider laid on the table Agreed to without objection.",
-        "actionDate": "2026-07-13",
-        "type": "Floor",
-        "actionTime": "18:56:45",
-        "actionCode": "H38310"
-      },
-      {
-        "text": "On motion to suspend the rules and pass the bill Agreed to by the Yeas and Nays: (2/3 required): 400 - 7 (Roll no. 234). (text: CR H4394-4395)",
-        "actionDate": "2026-07-13",
-        "type": "Floor",
-        "actionTime": "18:56:44",
-        "actionCode": "H37300",
-        "recordedVotes": [
-          {
-            "chamber": "House",
-            "congress": 119,
-            "date": "2026-07-13T22:56:44Z",
-            "rollNumber": 234,
-            "sessionNumber": 2,
-            "url": "https://clerk.house.gov/evs/2026/roll234.xml"
-          }
-        ]
-      },
-      {
-        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by the Yeas and Nays: (2/3 required): 400 - 7 (Roll no. 234). (text: CR H4394-4395)",
-        "actionDate": "2026-07-13",
-        "type": "Floor",
-        "actionTime": "18:56:44",
-        "actionCode": "8000",
-        "recordedVotes": [
-          {
-            "chamber": "House",
-            "congress": 119,
-            "date": "2026-07-13T22:56:44Z",
-            "rollNumber": 234,
-            "sessionNumber": 2,
-            "url": "https://clerk.house.gov/evs/2026/roll234.xml"
-          }
-        ]
-      },
-      {
-        "text": "Considered as unfinished business. (consideration: CR H4403)",
-        "actionDate": "2026-07-13",
-        "type": "Floor",
-        "actionTime": "18:30:49",
-        "actionCode": "H30000"
-      },
-      {
-        "text": "At the conclusion of debate, the Yeas and Nays were demanded and ordered. Pursuant to the provisions of clause 8, rule XX, the Chair announced that further proceedings on the motion would be postponed.",
-        "actionDate": "2026-07-13",
-        "type": "Floor",
-        "actionTime": "16:39:11",
-        "actionCode": "H37220"
-      },
-      {
-        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 3106.",
-        "actionDate": "2026-07-13",
-        "type": "Floor",
-        "actionTime": "16:33:08",
-        "actionCode": "H8D000"
-      },
-      {
-        "text": "Considered under suspension of the rules. (consideration: CR H4394-4395)",
-        "actionDate": "2026-07-13",
-        "type": "Floor",
-        "actionTime": "16:33:06",
-        "actionCode": "H30000"
-      },
-      {
-        "text": "Mr. Garbarino moved to suspend the rules and pass the bill.",
-        "actionDate": "2026-07-13",
-        "type": "Floor",
-        "actionTime": "16:32:58",
-        "actionCode": "H30300"
-      },
-      {
-        "text": "Placed on the Union Calendar, Calendar No. 648.",
-        "actionDate": "2026-07-13",
-        "type": "Calendars",
-        "actionCode": "H12410"
-      },
-      {
-        "text": "Reported by the Committee on Homeland Security. H. Rept. 119-744.",
-        "actionDate": "2026-07-13",
-        "type": "Committee",
-        "actionCode": "H12200"
-      },
-      {
-        "text": "Reported by the Committee on Homeland Security. H. Rept. 119-744.",
-        "actionDate": "2026-07-13",
-        "type": "Committee",
-        "actionCode": "5000"
-      },
-      {
-        "text": "Ordered to be Reported by the Yeas and Nays: 30 - 0.",
-        "actionDate": "2026-06-24",
-        "type": "Committee",
-        "actionCode": "H19000"
-      },
-      {
-        "text": "Committee Consideration and Mark-up Session Held",
-        "actionDate": "2026-06-24",
-        "type": "Committee",
-        "actionCode": "H15001"
-      },
-      {
-        "text": "Subcommittee on Counterterrorism and Intelligence Discharged",
-        "actionDate": "2026-06-24",
-        "type": "Committee",
-        "actionCode": "H25000"
-      },
-      {
-        "text": "Subcommittee on Emergency Management and Technology Discharged",
-        "actionDate": "2026-06-24",
-        "type": "Committee",
-        "actionCode": "H25000"
-      },
-      {
-        "text": "Referred to the Subcommittee on Emergency Management and Technology.",
-        "actionDate": "2025-05-01",
-        "type": "Committee",
-        "actionCode": "H11000"
-      },
-      {
-        "text": "Referred to the Subcommittee on Counterterrorism and Intelligence.",
-        "actionDate": "2025-05-01",
-        "type": "Committee",
-        "actionCode": "H11000"
-      },
-      {
-        "text": "Referred to the House Committee on Homeland Security.",
-        "actionDate": "2025-04-30",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2025-04-30",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2025-04-30",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
-    "votes": [
-      {
-        "rollNumber": 234,
-        "chamber": "House",
-        "date": "2026-07-13",
-        "result": "Passed",
-        "yeas": 400,
-        "nays": 7,
-        "motion": "On Motion to Suspend the Rules and Pass",
-        "tally_text": "Passed 400\u20137"
-      }
-    ],
-    "introduced_date": "",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/3106",
-    "published": "2026-07-14T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "official_title": "To require the Secretary of Homeland Security to conduct a collective response to a terrorism exercise that includes the management of cascading effects on critical infrastructure during times of extreme cold weather, and for other purposes.",
-    "short_title": "Weatherizing Infrastructure in the North and Terrorism Emergency Readiness Act of 2025",
-    "last_synced_at": "2026-07-16T00:11:09.275054+00:00"
-  },
-  {
     "bill_number": "1181",
     "bill_type": "HR",
     "title": "Protecting Privacy in Purchases Act",
     "summary": "",
     "sponsor_name": "",
-    "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
-    "latest_action_date": "2026-07-14T00:00:00",
+    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
+    "latest_action_date": "2026-07-15T00:00:00",
     "url": "https://www.congress.gov/bill/119th-congress/house-bill/1181",
-    "published": "2026-07-14T00:00:00",
+    "published": "2026-07-15T00:00:00",
     "source": "Congress.gov API",
     "congress": 119,
     "official_title": "To prohibit payment card networks and covered entities from requiring the use of or assigning merchant category codes that distinguish a firearms retailer from general-merchandise retailer or sporting-goods retailer, and for other purposes.",
@@ -986,6 +800,11 @@
     "sponsor_district": "",
     "cosponsors": [],
     "actions": [
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
+        "actionDate": "2026-07-15",
+        "type": "IntroReferral"
+      },
       {
         "text": "Motion to reconsider laid on the table Agreed to without objection.",
         "actionDate": "2026-07-14",
@@ -1178,7 +997,7 @@
     ],
     "committees": [],
     "policy_areas": [],
-    "status": "Motion to reconsider laid on the table Agreed to without objection.",
+    "status": "Received in the Senate and Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
     "votes": [
       {
         "rollNumber": 240,
@@ -1202,6 +1021,753 @@
       }
     ],
     "introduced_date": "",
+    "last_synced_at": "2026-07-16T12:06:19.095199+00:00"
+  },
+  {
+    "bill_number": "6556",
+    "bill_type": "HR",
+    "title": "Failing Bank Acquisition Fairness Act",
+    "summary": "",
+    "sponsor_name": "",
+    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
+    "latest_action_date": "2026-07-15T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/6556",
+    "published": "2026-07-15T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "official_title": "To prohibit the use of certain concentration limit exceptions with respect to mergers involving a failed bank unless the applicable agency determines such use is necessary to prevent significant economic disruption or significant adverse effects on financial stability, and for other purposes.",
+    "short_title": "Failing Bank Acquisition Fairness Act",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "actions": [
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
+        "actionDate": "2026-07-15",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-07-14",
+        "type": "Floor",
+        "actionTime": "15:16:22",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote.",
+        "actionDate": "2026-07-14",
+        "type": "Floor",
+        "actionTime": "15:16:20",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote.",
+        "actionDate": "2026-07-14",
+        "type": "Floor",
+        "actionTime": "15:16:20",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 6556.",
+        "actionDate": "2026-07-14",
+        "type": "Floor",
+        "actionTime": "15:03:11",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules.",
+        "actionDate": "2026-07-14",
+        "type": "Floor",
+        "actionTime": "15:03:09",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Hill (AR) moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2026-07-14",
+        "type": "Floor",
+        "actionTime": "15:03:05",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 406.",
+        "actionDate": "2026-02-02",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Financial Services. H. Rept. 119-475.",
+        "actionDate": "2026-02-02",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Financial Services. H. Rept. 119-475.",
+        "actionDate": "2026-02-02",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported (Amended) by the Yeas and Nays: 51 - 0.",
+        "actionDate": "2025-12-17",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-12-17",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-12-16",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Financial Services.",
+        "actionDate": "2025-12-10",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-12-10",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-12-10",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Received in the Senate and Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
+    "votes": [],
+    "introduced_date": "",
+    "last_synced_at": "2026-07-16T12:06:19.095199+00:00"
+  },
+  {
+    "bill_number": "3074",
+    "bill_type": "HR",
+    "title": "Common Cents Act",
+    "summary": "",
+    "sponsor_name": "",
+    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
+    "latest_action_date": "2026-07-15T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/3074",
+    "published": "2026-07-15T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "official_title": "To direct the Secretary of the Treasury to stop minting the penny, to require cash transactions to be rounded up or down to the nearest five cents, and for other purposes.",
+    "short_title": "Common Cents Act",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "actions": [
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
+        "actionDate": "2026-07-15",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "The title of the measure was amended. Agreed to without objection.",
+        "actionDate": "2026-07-14",
+        "type": "Floor",
+        "actionTime": "15:02:54",
+        "actionCode": "H38800"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-07-14",
+        "type": "Floor",
+        "actionTime": "15:02:51",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote.",
+        "actionDate": "2026-07-14",
+        "type": "Floor",
+        "actionTime": "15:02:50",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote.",
+        "actionDate": "2026-07-14",
+        "type": "Floor",
+        "actionTime": "15:02:50",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 3074.",
+        "actionDate": "2026-07-14",
+        "type": "Floor",
+        "actionTime": "14:46:42",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules.",
+        "actionDate": "2026-07-14",
+        "type": "Floor",
+        "actionTime": "14:46:33",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Hill (AR) moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2026-07-14",
+        "type": "Floor",
+        "actionTime": "14:46:12",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 192.",
+        "actionDate": "2025-09-04",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Financial Services. H. Rept. 119-235.",
+        "actionDate": "2025-09-04",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Financial Services. H. Rept. 119-235.",
+        "actionDate": "2025-09-04",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 35 - 13.",
+        "actionDate": "2025-07-23",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-07-23",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-07-22",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Financial Services.",
+        "actionDate": "2025-04-29",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-04-29",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-04-29",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Received in the Senate and Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
+    "votes": [],
+    "introduced_date": "",
+    "last_synced_at": "2026-07-16T12:06:19.095199+00:00"
+  },
+  {
+    "bill_number": "139",
+    "bill_type": "HR",
+    "title": "Sunshine Protection Act of 2025",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+    "latest_action_date": "2026-07-15T00:00:00",
+    "actions": [
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+        "actionDate": "2026-07-15",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-07-14",
+        "type": "Floor",
+        "actionTime": "17:18:52",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On passage Passed by the Yeas and Nays: 308 - 117 (Roll no. 238).",
+        "actionDate": "2026-07-14",
+        "type": "Floor",
+        "actionTime": "17:18:51",
+        "actionCode": "H37100",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2026-07-14T21:18:51Z",
+            "rollNumber": 238,
+            "sessionNumber": 2,
+            "url": "https://clerk.house.gov/evs/2026/roll238.xml"
+          }
+        ]
+      },
+      {
+        "text": "Passed/agreed to in House: On passage Passed by the Yeas and Nays: 308 - 117 (Roll no. 238).",
+        "actionDate": "2026-07-14",
+        "type": "Floor",
+        "actionTime": "17:18:51",
+        "actionCode": "8000",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2026-07-14T21:18:51Z",
+            "rollNumber": 238,
+            "sessionNumber": 2,
+            "url": "https://clerk.house.gov/evs/2026/roll238.xml"
+          }
+        ]
+      },
+      {
+        "text": "The previous question was ordered pursuant to the rule.",
+        "actionDate": "2026-07-14",
+        "type": "Floor",
+        "actionTime": "16:38:54",
+        "actionCode": "H35000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with one hour of debate on H.R. 139.",
+        "actionDate": "2026-07-14",
+        "type": "Floor",
+        "actionTime": "15:59:13",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Rule provides for consideration of H.R. 139, H.R. 8595, H.R. 9237 and H.R. 1181. The resolution provides for consideration of H.R. 139, H.R. 9237, and H.R. 1181 under a closed rule, and H.R. 8595 under a structured rule with one hour of debate and one motion to reconsider on each bill.",
+        "actionDate": "2026-07-14",
+        "type": "Floor",
+        "actionTime": "15:58:35",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under the provisions of rule H. Res. 1423.",
+        "actionDate": "2026-07-14",
+        "type": "Floor",
+        "actionTime": "15:58:30",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Rules Committee Resolution H. Res. 1423 Reported to House. Rule provides for consideration of H.R. 139, H.R. 8595, H.R. 9237 and H.R. 1181. The resolution provides for consideration of H.R. 139, H.R. 9237, and H.R. 1181 under a closed rule, and H.R. 8595 under a structured rule with one hour of debate and one motion to reconsider on each bill.",
+        "actionDate": "2026-07-13",
+        "type": "Floor",
+        "actionTime": "17:59:05",
+        "actionCode": "H1L210"
+      },
+      {
+        "text": "Referred to the House Committee on Energy and Commerce.",
+        "actionDate": "2025-01-03",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-01-03",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-01-03",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+    "votes": [
+      {
+        "rollNumber": 238,
+        "chamber": "House",
+        "date": "2026-07-14",
+        "result": "Passed",
+        "yeas": 308,
+        "nays": 117,
+        "motion": "On Passage",
+        "tally_text": "Passed 308\u2013117"
+      }
+    ],
+    "introduced_date": "",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/139",
+    "published": "2026-07-15T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-16T12:06:19.095199+00:00",
+    "official_title": "To make daylight savings time permanent, and for other purposes.",
+    "short_title": "Sunshine Protection Act of 2025"
+  },
+  {
+    "bill_number": "1687",
+    "bill_type": "HR",
+    "title": "CLEAN Act",
+    "summary": "",
+    "sponsor_name": "",
+    "latest_action": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+    "latest_action_date": "2026-07-15T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/1687",
+    "published": "2026-07-15T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "official_title": "To amend the Geothermal Steam Act of 1970 to increase the frequency of lease sales, to require replacement sales, and for other purposes.",
+    "short_title": "CLEAN Act",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+    "votes": [],
+    "introduced_date": "",
+    "last_synced_at": "2026-07-16T12:06:19.095199+00:00"
+  },
+  {
+    "bill_number": "5631",
+    "bill_type": "HR",
+    "title": "Geothermal Energy Advancement Act",
+    "summary": "",
+    "sponsor_name": "",
+    "latest_action": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+    "latest_action_date": "2026-07-15T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/5631",
+    "published": "2026-07-15T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "official_title": "To appoint a Geothermal Ombudsman and establish a Geothermal Permitting Task Force from within the Bureau of Land Management, and for other purposes.",
+    "short_title": "Geothermal Ombudsman for National Deployment and Optimal Reviews Act",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+    "votes": [],
+    "introduced_date": "",
+    "last_synced_at": "2026-07-16T12:06:19.095199+00:00"
+  },
+  {
+    "bill_number": "5587",
+    "bill_type": "HR",
+    "title": "HEATS Act",
+    "summary": "",
+    "sponsor_name": "",
+    "latest_action": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+    "latest_action_date": "2026-07-15T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/5587",
+    "published": "2026-07-15T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "official_title": "To amend the Geothermal Steam Act of 1970 to waive the requirement for a Federal drilling permit for certain activities, to exempt certain activities from the requirements of the National Environmental Policy Act of 1969, and for other purposes.",
+    "short_title": "HEATS Act",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+    "votes": [],
+    "introduced_date": "",
+    "last_synced_at": "2026-07-16T12:06:19.095199+00:00"
+  },
+  {
+    "bill_number": "4090",
+    "bill_type": "HR",
+    "title": "Critical Mineral Dominance Act",
+    "summary": "",
+    "sponsor_name": "",
+    "latest_action": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+    "latest_action_date": "2026-07-15T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/4090",
+    "published": "2026-07-15T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "official_title": "To codify certain provisions of certain Executive Orders relating to domestic mining and hardrock mineral resources, and for other purposes.",
+    "short_title": "Critical Mineral Dominance Act",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+    "votes": [],
+    "introduced_date": "",
+    "last_synced_at": "2026-07-16T12:06:19.095199+00:00"
+  },
+  {
+    "bill_number": "655",
+    "bill_type": "HR",
+    "title": "Dalles Watershed Development Act",
+    "summary": "",
+    "sponsor_name": "",
+    "latest_action": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+    "latest_action_date": "2026-07-15T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/655",
+    "published": "2026-07-15T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "official_title": "To direct the Secretary of Agriculture to convey certain Federal land to the City of The Dalles, Oregon.",
+    "short_title": "Dalles Watershed Development Act",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+    "votes": [],
+    "introduced_date": "",
+    "last_synced_at": "2026-07-16T12:06:19.095199+00:00"
+  },
+  {
+    "bill_number": "1791",
+    "bill_type": "S",
+    "title": "Gunnison Outdoor Resources Protection Act of 2025",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+    "latest_action_date": "2026-07-15T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+    "votes": [],
+    "introduced_date": "",
+    "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1791",
+    "published": "2026-07-15T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-16T12:06:19.095199+00:00",
+    "official_title": "A bill to designate certain special management areas, wildlife conservation areas, protection areas, recreation areas, wilderness areas, and a scientific research and education area in the State of Colorado, and for other purposes.",
+    "short_title": "Gunnison Outdoor Resources Protection Act of 2025"
+  },
+  {
+    "bill_number": "3106",
+    "bill_type": "HR",
+    "title": "Weatherizing Infrastructure in the North and Terrorism Emergency Readiness Act of 2025",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+    "latest_action_date": "2026-07-14T00:00:00",
+    "actions": [
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2026-07-14",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-07-13",
+        "type": "Floor",
+        "actionTime": "18:56:45",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by the Yeas and Nays: (2/3 required): 400 - 7 (Roll no. 234). (text: CR H4394-4395)",
+        "actionDate": "2026-07-13",
+        "type": "Floor",
+        "actionTime": "18:56:44",
+        "actionCode": "H37300",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2026-07-13T22:56:44Z",
+            "rollNumber": 234,
+            "sessionNumber": 2,
+            "url": "https://clerk.house.gov/evs/2026/roll234.xml"
+          }
+        ]
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by the Yeas and Nays: (2/3 required): 400 - 7 (Roll no. 234). (text: CR H4394-4395)",
+        "actionDate": "2026-07-13",
+        "type": "Floor",
+        "actionTime": "18:56:44",
+        "actionCode": "8000",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2026-07-13T22:56:44Z",
+            "rollNumber": 234,
+            "sessionNumber": 2,
+            "url": "https://clerk.house.gov/evs/2026/roll234.xml"
+          }
+        ]
+      },
+      {
+        "text": "Considered as unfinished business. (consideration: CR H4403)",
+        "actionDate": "2026-07-13",
+        "type": "Floor",
+        "actionTime": "18:30:49",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "At the conclusion of debate, the Yeas and Nays were demanded and ordered. Pursuant to the provisions of clause 8, rule XX, the Chair announced that further proceedings on the motion would be postponed.",
+        "actionDate": "2026-07-13",
+        "type": "Floor",
+        "actionTime": "16:39:11",
+        "actionCode": "H37220"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 3106.",
+        "actionDate": "2026-07-13",
+        "type": "Floor",
+        "actionTime": "16:33:08",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H4394-4395)",
+        "actionDate": "2026-07-13",
+        "type": "Floor",
+        "actionTime": "16:33:06",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Garbarino moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-07-13",
+        "type": "Floor",
+        "actionTime": "16:32:58",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 648.",
+        "actionDate": "2026-07-13",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported by the Committee on Homeland Security. H. Rept. 119-744.",
+        "actionDate": "2026-07-13",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported by the Committee on Homeland Security. H. Rept. 119-744.",
+        "actionDate": "2026-07-13",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported by the Yeas and Nays: 30 - 0.",
+        "actionDate": "2026-06-24",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2026-06-24",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Subcommittee on Counterterrorism and Intelligence Discharged",
+        "actionDate": "2026-06-24",
+        "type": "Committee",
+        "actionCode": "H25000"
+      },
+      {
+        "text": "Subcommittee on Emergency Management and Technology Discharged",
+        "actionDate": "2026-06-24",
+        "type": "Committee",
+        "actionCode": "H25000"
+      },
+      {
+        "text": "Referred to the Subcommittee on Emergency Management and Technology.",
+        "actionDate": "2025-05-01",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
+        "text": "Referred to the Subcommittee on Counterterrorism and Intelligence.",
+        "actionDate": "2025-05-01",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
+        "text": "Referred to the House Committee on Homeland Security.",
+        "actionDate": "2025-04-30",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-04-30",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-04-30",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+    "votes": [
+      {
+        "rollNumber": 234,
+        "chamber": "House",
+        "date": "2026-07-13",
+        "result": "Passed",
+        "yeas": 400,
+        "nays": 7,
+        "motion": "On Motion to Suspend the Rules and Pass",
+        "tally_text": "Passed 400\u20137"
+      }
+    ],
+    "introduced_date": "",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/3106",
+    "published": "2026-07-14T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "official_title": "To require the Secretary of Homeland Security to conduct a collective response to a terrorism exercise that includes the management of cascading effects on critical infrastructure during times of extreme cold weather, and for other purposes.",
+    "short_title": "Weatherizing Infrastructure in the North and Terrorism Emergency Readiness Act of 2025",
     "last_synced_at": "2026-07-16T00:11:09.275054+00:00"
   },
   {
@@ -1591,129 +2157,6 @@
     "last_synced_at": "2026-07-16T00:11:09.275054+00:00"
   },
   {
-    "bill_number": "6556",
-    "bill_type": "HR",
-    "title": "Failing Bank Acquisition Fairness Act",
-    "summary": "",
-    "sponsor_name": "",
-    "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
-    "latest_action_date": "2026-07-14T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/6556",
-    "published": "2026-07-14T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "official_title": "To prohibit the use of certain concentration limit exceptions with respect to mergers involving a failed bank unless the applicable agency determines such use is necessary to prevent significant economic disruption or significant adverse effects on financial stability, and for other purposes.",
-    "short_title": "Failing Bank Acquisition Fairness Act",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "actions": [
-      {
-        "text": "Motion to reconsider laid on the table Agreed to without objection.",
-        "actionDate": "2026-07-14",
-        "type": "Floor",
-        "actionTime": "15:16:22",
-        "actionCode": "H38310"
-      },
-      {
-        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote.",
-        "actionDate": "2026-07-14",
-        "type": "Floor",
-        "actionTime": "15:16:20",
-        "actionCode": "H37300"
-      },
-      {
-        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote.",
-        "actionDate": "2026-07-14",
-        "type": "Floor",
-        "actionTime": "15:16:20",
-        "actionCode": "8000"
-      },
-      {
-        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 6556.",
-        "actionDate": "2026-07-14",
-        "type": "Floor",
-        "actionTime": "15:03:11",
-        "actionCode": "H8D000"
-      },
-      {
-        "text": "Considered under suspension of the rules.",
-        "actionDate": "2026-07-14",
-        "type": "Floor",
-        "actionTime": "15:03:09",
-        "actionCode": "H30000"
-      },
-      {
-        "text": "Mr. Hill (AR) moved to suspend the rules and pass the bill, as amended.",
-        "actionDate": "2026-07-14",
-        "type": "Floor",
-        "actionTime": "15:03:05",
-        "actionCode": "H30300"
-      },
-      {
-        "text": "Placed on the Union Calendar, Calendar No. 406.",
-        "actionDate": "2026-02-02",
-        "type": "Calendars",
-        "actionCode": "H12410"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Financial Services. H. Rept. 119-475.",
-        "actionDate": "2026-02-02",
-        "type": "Committee",
-        "actionCode": "H12200"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Financial Services. H. Rept. 119-475.",
-        "actionDate": "2026-02-02",
-        "type": "Committee",
-        "actionCode": "5000"
-      },
-      {
-        "text": "Ordered to be Reported (Amended) by the Yeas and Nays: 51 - 0.",
-        "actionDate": "2025-12-17",
-        "type": "Committee",
-        "actionCode": "H19000"
-      },
-      {
-        "text": "Committee Consideration and Mark-up Session Held",
-        "actionDate": "2025-12-17",
-        "type": "Committee",
-        "actionCode": "H15001"
-      },
-      {
-        "text": "Committee Consideration and Mark-up Session Held",
-        "actionDate": "2025-12-16",
-        "type": "Committee",
-        "actionCode": "H15001"
-      },
-      {
-        "text": "Referred to the House Committee on Financial Services.",
-        "actionDate": "2025-12-10",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2025-12-10",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2025-12-10",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Motion to reconsider laid on the table Agreed to without objection.",
-    "votes": [],
-    "introduced_date": "",
-    "last_synced_at": "2026-07-16T00:11:09.275054+00:00"
-  },
-  {
     "bill_number": "6332",
     "bill_type": "HR",
     "title": "To designate the facility of the United States Postal Service located at 10660 Page Avenue in Fairfax, Virginia, as the \"Congressman Gerald E. Connolly Post Office Building\".",
@@ -1816,268 +2259,6 @@
     "votes": [],
     "introduced_date": "",
     "last_synced_at": "2026-07-16T00:11:09.275054+00:00"
-  },
-  {
-    "bill_number": "3074",
-    "bill_type": "HR",
-    "title": "Common Cents Act",
-    "summary": "",
-    "sponsor_name": "",
-    "latest_action": "The title of the measure was amended. Agreed to without objection.",
-    "latest_action_date": "2026-07-14T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/3074",
-    "published": "2026-07-14T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "official_title": "To direct the Secretary of the Treasury to stop minting the penny, to require cash transactions to be rounded up or down to the nearest five cents, and for other purposes.",
-    "short_title": "Common Cents Act",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "actions": [
-      {
-        "text": "The title of the measure was amended. Agreed to without objection.",
-        "actionDate": "2026-07-14",
-        "type": "Floor",
-        "actionTime": "15:02:54",
-        "actionCode": "H38800"
-      },
-      {
-        "text": "Motion to reconsider laid on the table Agreed to without objection.",
-        "actionDate": "2026-07-14",
-        "type": "Floor",
-        "actionTime": "15:02:51",
-        "actionCode": "H38310"
-      },
-      {
-        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote.",
-        "actionDate": "2026-07-14",
-        "type": "Floor",
-        "actionTime": "15:02:50",
-        "actionCode": "H37300"
-      },
-      {
-        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote.",
-        "actionDate": "2026-07-14",
-        "type": "Floor",
-        "actionTime": "15:02:50",
-        "actionCode": "8000"
-      },
-      {
-        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 3074.",
-        "actionDate": "2026-07-14",
-        "type": "Floor",
-        "actionTime": "14:46:42",
-        "actionCode": "H8D000"
-      },
-      {
-        "text": "Considered under suspension of the rules.",
-        "actionDate": "2026-07-14",
-        "type": "Floor",
-        "actionTime": "14:46:33",
-        "actionCode": "H30000"
-      },
-      {
-        "text": "Mr. Hill (AR) moved to suspend the rules and pass the bill, as amended.",
-        "actionDate": "2026-07-14",
-        "type": "Floor",
-        "actionTime": "14:46:12",
-        "actionCode": "H30300"
-      },
-      {
-        "text": "Placed on the Union Calendar, Calendar No. 192.",
-        "actionDate": "2025-09-04",
-        "type": "Calendars",
-        "actionCode": "H12410"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Financial Services. H. Rept. 119-235.",
-        "actionDate": "2025-09-04",
-        "type": "Committee",
-        "actionCode": "H12200"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Financial Services. H. Rept. 119-235.",
-        "actionDate": "2025-09-04",
-        "type": "Committee",
-        "actionCode": "5000"
-      },
-      {
-        "text": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 35 - 13.",
-        "actionDate": "2025-07-23",
-        "type": "Committee",
-        "actionCode": "H19000"
-      },
-      {
-        "text": "Committee Consideration and Mark-up Session Held",
-        "actionDate": "2025-07-23",
-        "type": "Committee",
-        "actionCode": "H15001"
-      },
-      {
-        "text": "Committee Consideration and Mark-up Session Held",
-        "actionDate": "2025-07-22",
-        "type": "Committee",
-        "actionCode": "H15001"
-      },
-      {
-        "text": "Referred to the House Committee on Financial Services.",
-        "actionDate": "2025-04-29",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2025-04-29",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2025-04-29",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "The title of the measure was amended. Agreed to without objection.",
-    "votes": [],
-    "introduced_date": "",
-    "last_synced_at": "2026-07-16T00:11:09.275054+00:00"
-  },
-  {
-    "bill_number": "139",
-    "bill_type": "HR",
-    "title": "Sunshine Protection Act of 2025",
-    "summary": "",
-    "sponsor_name": "",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
-    "latest_action_date": "2026-07-14T00:00:00",
-    "actions": [
-      {
-        "text": "Motion to reconsider laid on the table Agreed to without objection.",
-        "actionDate": "2026-07-14",
-        "type": "Floor",
-        "actionTime": "17:18:52",
-        "actionCode": "H38310"
-      },
-      {
-        "text": "On passage Passed by the Yeas and Nays: 308 - 117 (Roll no. 238).",
-        "actionDate": "2026-07-14",
-        "type": "Floor",
-        "actionTime": "17:18:51",
-        "actionCode": "H37100",
-        "recordedVotes": [
-          {
-            "chamber": "House",
-            "congress": 119,
-            "date": "2026-07-14T21:18:51Z",
-            "rollNumber": 238,
-            "sessionNumber": 2,
-            "url": "https://clerk.house.gov/evs/2026/roll238.xml"
-          }
-        ]
-      },
-      {
-        "text": "Passed/agreed to in House: On passage Passed by the Yeas and Nays: 308 - 117 (Roll no. 238).",
-        "actionDate": "2026-07-14",
-        "type": "Floor",
-        "actionTime": "17:18:51",
-        "actionCode": "8000",
-        "recordedVotes": [
-          {
-            "chamber": "House",
-            "congress": 119,
-            "date": "2026-07-14T21:18:51Z",
-            "rollNumber": 238,
-            "sessionNumber": 2,
-            "url": "https://clerk.house.gov/evs/2026/roll238.xml"
-          }
-        ]
-      },
-      {
-        "text": "The previous question was ordered pursuant to the rule.",
-        "actionDate": "2026-07-14",
-        "type": "Floor",
-        "actionTime": "16:38:54",
-        "actionCode": "H35000"
-      },
-      {
-        "text": "DEBATE - The House proceeded with one hour of debate on H.R. 139.",
-        "actionDate": "2026-07-14",
-        "type": "Floor",
-        "actionTime": "15:59:13",
-        "actionCode": "H8D000"
-      },
-      {
-        "text": "Rule provides for consideration of H.R. 139, H.R. 8595, H.R. 9237 and H.R. 1181. The resolution provides for consideration of H.R. 139, H.R. 9237, and H.R. 1181 under a closed rule, and H.R. 8595 under a structured rule with one hour of debate and one motion to reconsider on each bill.",
-        "actionDate": "2026-07-14",
-        "type": "Floor",
-        "actionTime": "15:58:35",
-        "actionCode": "H8D000"
-      },
-      {
-        "text": "Considered under the provisions of rule H. Res. 1423.",
-        "actionDate": "2026-07-14",
-        "type": "Floor",
-        "actionTime": "15:58:30",
-        "actionCode": "H30000"
-      },
-      {
-        "text": "Rules Committee Resolution H. Res. 1423 Reported to House. Rule provides for consideration of H.R. 139, H.R. 8595, H.R. 9237 and H.R. 1181. The resolution provides for consideration of H.R. 139, H.R. 9237, and H.R. 1181 under a closed rule, and H.R. 8595 under a structured rule with one hour of debate and one motion to reconsider on each bill.",
-        "actionDate": "2026-07-13",
-        "type": "Floor",
-        "actionTime": "17:59:05",
-        "actionCode": "H1L210"
-      },
-      {
-        "text": "Referred to the House Committee on Energy and Commerce.",
-        "actionDate": "2025-01-03",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2025-01-03",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2025-01-03",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Motion to reconsider laid on the table Agreed to without objection.",
-    "votes": [
-      {
-        "rollNumber": 238,
-        "chamber": "House",
-        "date": "2026-07-14",
-        "result": "Passed",
-        "yeas": 308,
-        "nays": 117,
-        "motion": "On Passage",
-        "tally_text": "Passed 308\u2013117"
-      }
-    ],
-    "introduced_date": "",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/139",
-    "published": "2026-07-14T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-16T00:11:09.275054+00:00",
-    "official_title": "To make daylight savings time permanent, and for other purposes.",
-    "short_title": "Sunshine Protection Act of 2025"
   },
   {
     "bill_number": "5347",
@@ -11013,31 +11194,6 @@
     "short_title": "Protecting American Industry and Labor from International Trade Crimes Act of 2025"
   },
   {
-    "bill_number": "1687",
-    "bill_type": "HR",
-    "title": "CLEAN Act",
-    "summary": "",
-    "sponsor_name": "",
-    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
-    "latest_action_date": "2026-06-03T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/1687",
-    "published": "2026-06-03T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "official_title": "To amend the Geothermal Steam Act of 1970 to increase the frequency of lease sales, to require replacement sales, and for other purposes.",
-    "short_title": "CLEAN Act",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "actions": [],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
-    "votes": [],
-    "introduced_date": ""
-  },
-  {
     "bill_number": "6162",
     "bill_type": "HR",
     "title": "Albuquerque Indian School Act of 2025",
@@ -11076,31 +11232,6 @@
     "congress": 119,
     "official_title": "To direct the Secretary of Agriculture to convey to the City of Ouray, Colorado, certain land managed by the Forest Service, together with a reservoir.",
     "short_title": "Crystal Reservoir Conveyance Act",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "actions": [],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
-    "votes": [],
-    "introduced_date": ""
-  },
-  {
-    "bill_number": "5631",
-    "bill_type": "HR",
-    "title": "Geothermal Energy Advancement Act",
-    "summary": "",
-    "sponsor_name": "",
-    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
-    "latest_action_date": "2026-06-03T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/5631",
-    "published": "2026-06-03T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "official_title": "To appoint a Geothermal Ombudsman and establish a Geothermal Permitting Task Force from within the Bureau of Land Management, and for other purposes.",
-    "short_title": "Geothermal Ombudsman for National Deployment and Optimal Reviews Act",
     "sponsor_party": "",
     "sponsor_state": "",
     "sponsor_district": "",
@@ -15309,31 +15440,6 @@
     "committees": [],
     "policy_areas": [],
     "status": "Received in the Senate and Read twice and referred to the Committee on Finance.",
-    "votes": [],
-    "introduced_date": ""
-  },
-  {
-    "bill_number": "5587",
-    "bill_type": "HR",
-    "title": "HEATS Act",
-    "summary": "",
-    "sponsor_name": "",
-    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
-    "latest_action_date": "2026-04-28T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/5587",
-    "published": "2026-04-28T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "official_title": "To amend the Geothermal Steam Act of 1970 to waive the requirement for a Federal drilling permit for certain activities, to exempt certain activities from the requirements of the National Environmental Policy Act of 1969, and for other purposes.",
-    "short_title": "HEATS Act",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "actions": [],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
     "votes": [],
     "introduced_date": ""
   },
@@ -24636,31 +24742,6 @@
     "congress": 119,
     "official_title": "To amend title 41, United States Code, and title 10, United States Code, to provide best value through the multiple award schedule program, and for other purposes.",
     "short_title": "Value Over Cost Act of 2025"
-  },
-  {
-    "bill_number": "4090",
-    "bill_type": "HR",
-    "title": "Critical Mineral Dominance Act",
-    "summary": "",
-    "sponsor_name": "",
-    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
-    "latest_action_date": "2026-02-05T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/4090",
-    "published": "2026-02-05T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "official_title": "To codify certain provisions of certain Executive Orders relating to domestic mining and hardrock mineral resources, and for other purposes.",
-    "short_title": "Critical Mineral Dominance Act",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "actions": [],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
-    "votes": [],
-    "introduced_date": ""
   },
   {
     "bill_number": "2999",
@@ -41695,21 +41776,6 @@
     "congress": 119,
     "official_title": "To designate the facility of the United States Postal Service located at 298 Route 292 in Holmes, New York, as the Sheriff Adrian Butch Anderson Post Office Building.",
     "short_title": "To designate the facility of the United States Postal Service located at 298 Route 292 in Holmes, New York, as the \"Sheriff Adrian 'Butch' Anderson Post Office Building\"."
-  },
-  {
-    "bill_number": "655",
-    "bill_type": "HR",
-    "title": "Dalles Watershed Development Act",
-    "summary": "",
-    "sponsor_name": "",
-    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
-    "latest_action_date": "2025-12-10T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/655",
-    "published": "2025-12-10T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "official_title": "To direct the Secretary of Agriculture to convey certain Federal land to the City of The Dalles, Oregon.",
-    "short_title": "Dalles Watershed Development Act"
   },
   {
     "bill_number": "573",
