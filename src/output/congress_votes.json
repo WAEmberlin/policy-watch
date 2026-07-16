@@ -181,6 +181,21 @@
   },
   {
     "bill_type": "HR",
+    "bill_number": "5587",
+    "congress": 119,
+    "date": "2026-04-23",
+    "chamber": "House",
+    "result": "Passed",
+    "yeas": 231,
+    "nays": 186,
+    "tally_text": "Passed 231\u2013186",
+    "motion": "On Passage",
+    "url": "https://www.congress.gov/roll-call-vote/119th-congress/2nd-session/house/137",
+    "roll_number": 137,
+    "session": 2
+  },
+  {
+    "bill_type": "HR",
     "bill_number": "6644",
     "congress": 119,
     "date": "2026-03-12",
@@ -372,6 +387,36 @@
     "motion": "On Motion to Suspend the Rules and Pass, as Amended",
     "url": "https://www.congress.gov/roll-call-vote/119th-congress/2nd-session/house/57",
     "roll_number": 57,
+    "session": 2
+  },
+  {
+    "bill_type": "HR",
+    "bill_number": "4090",
+    "congress": 119,
+    "date": "2026-02-04",
+    "chamber": "House",
+    "result": "Passed",
+    "yeas": 224,
+    "nays": 195,
+    "tally_text": "Passed 224\u2013195",
+    "motion": "On Passage",
+    "url": "https://www.congress.gov/roll-call-vote/119th-congress/2nd-session/house/55",
+    "roll_number": 55,
+    "session": 2
+  },
+  {
+    "bill_type": "HR",
+    "bill_number": "4090",
+    "congress": 119,
+    "date": "2026-02-04",
+    "chamber": "House",
+    "result": "Failed",
+    "yeas": 209,
+    "nays": 212,
+    "tally_text": "Failed 209\u2013212",
+    "motion": "On Motion to Recommit",
+    "url": "https://www.congress.gov/roll-call-vote/119th-congress/2nd-session/house/54",
+    "roll_number": 54,
     "session": 2
   },
   {
