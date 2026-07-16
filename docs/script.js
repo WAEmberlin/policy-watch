@@ -11,6 +11,8 @@ let selectedState = "";
 let veteransImpactFilter = null;
 const DAYS_PER_CHUNK = 14;  // Show 2 weeks per "page"
 const VETERANS_FEED_ITEM_LIMIT = 100;
+const SEARCH_MIN_CHARS = 3;
+const SEARCH_MAX_RESULTS = 200;
 
 function a11yAnnounce(message) {
     if (window.CivicWatchA11y && typeof CivicWatchA11y.announce === "function" && message) {
@@ -663,6 +665,22 @@ function displayUnifiedView(year, chunkIndex) {
     renderPagination(year, effectiveChunkIndex, totalChunks, dateRange, pagination);
 }
 
+function searchResultKey(item) {
+    const bill = (item.bill_number || "").trim().toLowerCase();
+    const date = (item.date || item.published || "").split("T")[0];
+    const title = (item.title || item.short_title || "").trim().toLowerCase().slice(0, 80);
+    const motion = (item.motion || "").trim().toLowerCase();
+    return `${bill}|${date}|${title}|${motion}`;
+}
+
+function addSearchResult(item, seen, results) {
+    const key = searchResultKey(item);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    results.push(item);
+    return results.length >= SEARCH_MAX_RESULTS;
+}
+
 function performSearch(query) {
     if (!query || query.trim().length === 0) {
         searchMode = false;
@@ -673,25 +691,42 @@ function performSearch(query) {
         return;
     }
 
+    const trimmed = query.trim();
+    if (trimmed.length < SEARCH_MIN_CHARS) {
+        searchMode = true;
+        searchQuery = trimmed.toLowerCase();
+        searchResults = [];
+        displaySearchPrompt(`Type at least ${SEARCH_MIN_CHARS} characters to search.`);
+        updateFilterPills();
+        return;
+    }
+
     setContentBusy(true);
     searchMode = true;
-    searchQuery = query.toLowerCase().trim();
+    searchQuery = trimmed.toLowerCase();
     searchResults = [];
+    const seen = new Set();
+    let capped = false;
+
+    const tryAdd = (item) => {
+        if (addSearchResult(item, seen, searchResults)) capped = true;
+        return capped;
+    };
 
     // Search through all items in all years
     const years = Object.keys(allData.years || {});
     
-    years.forEach(year => {
+    outer: for (const year of years) {
         const yearData = allData.years[year];
         const grouped = yearData.grouped || {};
         
-        Object.keys(grouped).forEach(date => {
+        for (const date of Object.keys(grouped)) {
             const dateData = grouped[date];
-            Object.keys(dateData).forEach(source => {
+            for (const source of Object.keys(dateData)) {
                 const items = dateData[source];
-                items.forEach(item => {
+                for (const item of items) {
                     if (buildFeedSearchText(item).includes(searchQuery)) {
-                        searchResults.push({
+                        if (tryAdd({
                             ...item,
                             date: date,
                             source: source,
@@ -699,80 +734,84 @@ function performSearch(query) {
                             action_type: item.action_type,
                             vote_tally: item.vote_tally,
                             motion: item.motion,
-                        });
+                        })) break outer;
                     }
-                });
-            });
-        });
-    });
-
-    // Also search legislation
-    const legislation = allData.legislation || {};
-    let legislationItems = [];
-    if (legislation.pages) {
-        legislation.pages.forEach(page => {
-            legislationItems = legislationItems.concat(page);
-        });
-    } else if (Array.isArray(legislation)) {
-        legislationItems = legislation;
-    }
-    
-    legislationItems.forEach(bill => {
-        const searchText = buildFeedSearchText({
-            title: bill.title,
-            short_title: bill.short_title,
-            summary: bill.summary,
-            bill_number: `${bill.bill_type || ""} ${bill.bill_number || ""}`.trim(),
-            latest_action: bill.latest_action,
-            motion: bill.motion,
-            vote_tally: bill.vote_tally,
-        });
-
-        if (searchText.includes(searchQuery)) {
-            const billNumber = `${bill.bill_type || ""} ${bill.bill_number || ""}`.trim();
-            searchResults.push({
-                ...bill,
-                date: bill.latest_action_date ? bill.latest_action_date.split("T")[0] : bill.published ? bill.published.split("T")[0] : "",
-                source: bill.source || "Congress.gov API",
-                bill_number: billNumber,
-                item_type: bill.item_type || "bill_update",
-                action_type: bill.action_type || classifyActionType(bill.latest_action),
-                vote_tally: bill.vote_tally,
-                motion: bill.motion,
-            });
+                }
+            }
         }
-    });
+    }
 
-    // Also search multi-state index
-    const indexBills = (allData.search_index || {}).bills || [];
-    indexBills.forEach(bill => {
-        const searchText = buildFeedSearchText({
-            title: bill.title,
-            summary: bill.summary,
-            bill_number: bill.bill_number,
-            latest_action: bill.latest_action,
-            motion: bill.motion,
-            vote_tally: bill.vote_tally,
-        });
-        if (searchText.includes(searchQuery)) {
-            searchResults.push({
-                title: `${bill.bill_number}: ${bill.title}`,
-                link: (typeof CivicWatchBillUtils !== "undefined" ? CivicWatchBillUtils.resolveBillUrl(bill) : bill.url),
-                summary: bill.summary || bill.latest_action || "",
-                source: bill.level === "federal" ? "Federal (U.S. Congress)" : `State (${STATE_NAMES[bill.state] || bill.state})`,
-                state: bill.state,
-                level: bill.level,
-                published: bill.latest_action_date,
-                date: bill.latest_action_date ? bill.latest_action_date.split("T")[0] : "",
+    if (!capped) {
+        // Also search legislation
+        const legislation = allData.legislation || {};
+        let legislationItems = [];
+        if (legislation.pages) {
+            legislation.pages.forEach(page => {
+                legislationItems = legislationItems.concat(page);
+            });
+        } else if (Array.isArray(legislation)) {
+            legislationItems = legislation;
+        }
+        
+        legLoop: for (const bill of legislationItems) {
+            const searchText = buildFeedSearchText({
+                title: bill.title,
+                short_title: bill.short_title,
+                summary: bill.summary,
+                bill_number: `${bill.bill_type || ""} ${bill.bill_number || ""}`.trim(),
+                latest_action: bill.latest_action,
+                motion: bill.motion,
+                vote_tally: bill.vote_tally,
+            });
+
+            if (searchText.includes(searchQuery)) {
+                const billNumber = `${bill.bill_type || ""} ${bill.bill_number || ""}`.trim();
+                if (tryAdd({
+                    ...bill,
+                    date: bill.latest_action_date ? bill.latest_action_date.split("T")[0] : bill.published ? bill.published.split("T")[0] : "",
+                    source: bill.source || "Congress.gov API",
+                    bill_number: billNumber,
+                    item_type: bill.item_type || "bill_update",
+                    action_type: bill.action_type || classifyActionType(bill.latest_action),
+                    vote_tally: bill.vote_tally,
+                    motion: bill.motion,
+                })) break legLoop;
+            }
+        }
+    }
+
+    if (!capped) {
+        // Also search multi-state index
+        const indexBills = (allData.search_index || {}).bills || [];
+        indexLoop: for (const bill of indexBills) {
+            const searchText = buildFeedSearchText({
+                title: bill.title,
+                summary: bill.summary,
                 bill_number: bill.bill_number,
                 latest_action: bill.latest_action,
-                item_type: bill.item_type || "bill_update",
-                action_type: bill.action_type || classifyActionType(bill.latest_action),
-                vote_tally: bill.vote_tally,
                 motion: bill.motion,
+                vote_tally: bill.vote_tally,
             });
+            if (searchText.includes(searchQuery)) {
+                if (tryAdd({
+                    title: `${bill.bill_number}: ${bill.title}`,
+                    link: (typeof CivicWatchBillUtils !== "undefined" ? CivicWatchBillUtils.resolveBillUrl(bill) : bill.url),
+                    summary: bill.summary || bill.latest_action || "",
+                    source: bill.level === "federal" ? "Federal (U.S. Congress)" : `State (${STATE_NAMES[bill.state] || bill.state})`,
+                    state: bill.state,
+                    level: bill.level,
+                    published: bill.latest_action_date,
+                    date: bill.latest_action_date ? bill.latest_action_date.split("T")[0] : "",
+                    bill_number: bill.bill_number,
+                    latest_action: bill.latest_action,
+                    item_type: bill.item_type || "bill_update",
+                    action_type: bill.action_type || classifyActionType(bill.latest_action),
+                    vote_tally: bill.vote_tally,
+                    motion: bill.motion,
+                })) break indexLoop;
+            }
         }
-    });
+    }
 
     // Apply state filter to search results
     if (selectedState) {
@@ -789,11 +828,25 @@ function performSearch(query) {
         return dateB.localeCompare(dateA);
     });
 
-    displaySearchResults();
+    displaySearchResults({ capped });
     updateFilterPills();
 }
 
-function displaySearchResults() {
+function displaySearchPrompt(message) {
+    const container = document.getElementById("content");
+    container.innerHTML = "";
+    document.querySelectorAll(".year-tab").forEach(btn => {
+        btn.classList.remove("bg-civic-blue", "text-white", "border-civic-blue");
+        btn.classList.add("bg-slate-100", "text-slate-700", "border-transparent");
+        btn.setAttribute("aria-selected", "false");
+    });
+    document.getElementById("pagination").innerHTML = "";
+    container.innerHTML = `<p class='text-slate-500 italic text-center py-8'>${escapeHtmlText(message)}</p>`;
+    setContentBusy(false);
+}
+
+function displaySearchResults(options = {}) {
+    const { capped = false } = options;
     const container = document.getElementById("content");
     container.innerHTML = "";
 
@@ -819,8 +872,9 @@ function displaySearchResults() {
     const resultsHeader = document.createElement("div");
     resultsHeader.className = "mb-6 p-5 bg-blue-50 rounded-xl border-l-4 border-civic-blue";
     resultsHeader.innerHTML = `
-        <h2 class="text-xl font-bold text-civic-blue mb-1">Search Results (${searchResults.length} found)</h2>
-        <p class="text-slate-600">Searching for: "<strong>${searchQuery}</strong>"</p>
+        <h2 class="text-xl font-bold text-civic-blue mb-1">Search Results (${searchResults.length} found${capped ? "+" : ""})</h2>
+        <p class="text-slate-600">Searching for: "<strong>${escapeHtmlText(searchQuery)}</strong>"</p>
+        ${capped ? `<p class="text-sm text-slate-500 mt-2">Showing the first ${SEARCH_MAX_RESULTS} matches. Add more characters to narrow results.</p>` : ""}
     `;
     container.appendChild(resultsHeader);
 
@@ -980,7 +1034,7 @@ function setupSearch() {
     let searchDebounce = null;
     searchInput.addEventListener("input", () => {
         clearTimeout(searchDebounce);
-        searchDebounce = setTimeout(handleSearch, 300);
+        searchDebounce = setTimeout(handleSearch, 400);
     });
 
     if (searchButton) {
