@@ -1,6 +1,21 @@
 [
   {
     "bill_type": "HR",
+    "bill_number": "5362",
+    "congress": 119,
+    "date": "2026-07-16",
+    "chamber": "House",
+    "result": "Passed",
+    "yeas": 418,
+    "nays": 0,
+    "tally_text": "Passed 418\u20130",
+    "motion": "On Motion to Suspend the Rules and Pass",
+    "url": "https://www.congress.gov/roll-call-vote/119th-congress/2nd-session/house/248",
+    "roll_number": 248,
+    "session": 2
+  },
+  {
+    "bill_type": "HR",
     "bill_number": "1181",
     "congress": 119,
     "date": "2026-07-14",
@@ -162,6 +177,21 @@
     "motion": "Motion to proceed to consideration of the House message to accompany H.R. 6644 agreed to in Senate by Yea-Nay Vote. 87 - 8. Record Vote Number: 175.",
     "url": "https://www.congress.gov/bill/119th-congress/house-bill/6644",
     "roll_number": 175,
+    "session": 2
+  },
+  {
+    "bill_type": "HR",
+    "bill_number": "2913",
+    "congress": 119,
+    "date": "2026-06-05",
+    "chamber": "House",
+    "result": "Passed",
+    "yeas": 226,
+    "nays": 195,
+    "tally_text": "Passed 226\u2013195",
+    "motion": "On Passage",
+    "url": "https://www.congress.gov/roll-call-vote/119th-congress/2nd-session/house/207",
+    "roll_number": 207,
     "session": 2
   },
   {
