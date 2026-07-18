@@ -31,6 +31,19 @@ def test_classify_red_from_gi_bill():
     assert "Benefits & Compensation" in result["factors"]
 
 
+def test_classify_red_from_va_appropriations_title():
+    result = classify_veteran_impact("Take Care of America's Veterans Act")
+    assert result is not None
+    assert result["level"] == "red"
+    assert "Appropriations & Funding" in result["factors"]
+
+
+def test_classify_red_from_hr_9237_full_title():
+    result = classify_veteran_impact("H.R. 9237 – Take Care of America's Veterans Act")
+    assert result is not None
+    assert result["level"] == "red"
+
+
 def test_classify_yellow_from_employment_preference():
     result = classify_veteran_impact("Veterans employment preference in state hiring")
     assert result is not None

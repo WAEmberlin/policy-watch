@@ -18,6 +18,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+import time
 from datetime import datetime, timedelta, timezone
 from hashlib import md5
 from pathlib import Path
@@ -25,6 +26,7 @@ from typing import Any, Dict, List, Optional, Tuple
 from urllib.parse import urlparse, urlunparse
 
 import feedparser
+import requests
 import yaml
 from bs4 import BeautifulSoup
 
@@ -51,6 +53,9 @@ NOTICE_ENRICHMENT_FIELDS = (
 )
 NOTICE_CACHE_FIELDS = NOTICE_ENRICHMENT_FIELDS + ("notice_enriched_at",)
 NOTICE_FETCH_RETRY_HOURS = 24
+RSS_FETCH_RETRIES = 3
+RSS_FETCH_TIMEOUT = 60
+USER_AGENT = "CivicWatch/1.0 (+https://github.com/WAEmberlin/policy-watch)"
 
 SESSION_BLOCK_RE = re.compile(
     r"^(?P<date>\d{1,2}/\d{1,2}/\d{4})\s+(?P<time>\d{1,2}:\d{2}:\d{2}\s*[AP]M)\s*-\s*(?P<location>.+)$",
@@ -63,6 +68,45 @@ SESSION_YEAR_RE = re.compile(r"/Interim/(\d{4})/", re.IGNORECASE)
 def load_config() -> Dict[str, Any]:
     with open(CONFIG_PATH, encoding="utf-8") as f:
         return yaml.safe_load(f).get("utah_committee_rss", {})
+
+
+def fetch_committee_rss(feed_url: str, retries: int = RSS_FETCH_RETRIES):
+    """Fetch Utah committee RSS with retries. Raises RuntimeError when all attempts fail."""
+    last_error: Any = None
+    for attempt in range(1, retries + 1):
+        try:
+            response = requests.get(
+                feed_url,
+                timeout=RSS_FETCH_TIMEOUT,
+                headers={"User-Agent": USER_AGENT},
+            )
+            response.raise_for_status()
+            feed = feedparser.parse(response.content)
+            if feed.entries or not feed.bozo:
+                return feed
+            last_error = feed.bozo_exception
+        except requests.RequestException as exc:
+            last_error = exc
+        if attempt < retries:
+            print(
+                f"Utah RSS fetch attempt {attempt}/{retries} failed ({last_error}); retrying..."
+            )
+            time.sleep(attempt * 5)
+    raise RuntimeError(f"Utah RSS fetch failed after {retries} attempts: {last_error}")
+
+
+def use_cached_hearings_on_failure(reason: str) -> bool:
+    """Keep existing Utah hearings when the live RSS feed is temporarily unavailable."""
+    if not OUTPUT_FILE.exists():
+        return False
+    with open(OUTPUT_FILE, encoding="utf-8") as f:
+        payload = json.load(f)
+    hearing_count = payload.get("hearing_count") or len(payload.get("items") or [])
+    print(
+        f"Warning: {reason}; keeping {hearing_count} cached Utah committee hearings "
+        f"(last_fetched={payload.get('last_fetched', 'unknown')})"
+    )
+    return True
 
 
 def build_feed_url(cfg: Dict[str, Any]) -> str:
@@ -339,9 +383,18 @@ def main() -> None:
     feed_url = build_feed_url(cfg)
     print(f"Fetching Utah committee RSS ({len(cfg.get('committee_ids') or [])} committees)...")
 
-    feed = feedparser.parse(feed_url)
+    try:
+        feed = fetch_committee_rss(feed_url)
+    except RuntimeError as exc:
+        if use_cached_hearings_on_failure(str(exc)):
+            return
+        raise
+
     if feed.bozo and not feed.entries:
-        raise RuntimeError(f"Utah RSS parse error: {feed.bozo_exception}")
+        reason = f"Utah RSS parse error: {feed.bozo_exception}"
+        if use_cached_hearings_on_failure(reason):
+            return
+        raise RuntimeError(reason)
 
     notice_cache = load_notice_cache()
     cached_notice_urls = set(notice_cache)

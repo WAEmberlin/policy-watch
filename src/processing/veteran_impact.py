@@ -37,6 +37,16 @@ SCORING_FACTORS: Dict[str, List[str]] = {
         "veterans court", "veteran court", "diversion", "treatment court",
         "veterans justice", "justice outreach",
     ],
+    "appropriations_funding": [
+        "take care of america",
+        "military construction, veterans affairs",
+        "military construction and veterans affairs",
+        "veterans affairs appropriations",
+        "va appropriations",
+        "milcon-va",
+        "appropriations for the department of veterans affairs",
+        "appropriations for veterans affairs",
+    ],
 }
 
 RED_SIGNALS = [
@@ -44,6 +54,7 @@ RED_SIGNALS = [
     *SCORING_FACTORS["healthcare_mental_health"][:4],
     *SCORING_FACTORS["housing_homelessness"],
     *SCORING_FACTORS["disability_ratings"],
+    *SCORING_FACTORS["appropriations_funding"],
     "gi bill",
     "survivor",
     "burial",
@@ -184,6 +195,7 @@ def detect_scoring_factors(text: str) -> List[str]:
         "disability_ratings": "Disability Ratings",
         "employment_education": "Employment & Education",
         "criminal_justice_courts": "Criminal Justice / Courts",
+        "appropriations_funding": "Appropriations & Funding",
     }
     matched: List[str] = []
     for key, keywords in SCORING_FACTORS.items():

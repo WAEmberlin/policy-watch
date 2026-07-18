@@ -1,5 +1,6 @@
 """Tests for Arizona Cactus Watch and Utah committee RSS parsers."""
 
+import json
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -19,6 +20,7 @@ from processing.fetch_utah_committee_rss import (  # noqa: E402
     notice_cache_is_fresh,
     parse_committee_entry,
     parse_session_block,
+    use_cached_hearings_on_failure,
 )
 from processing.utah_notice_utils import (  # noqa: E402
     filter_agenda_items,
@@ -179,3 +181,24 @@ def test_enrich_hearing_skips_fetch_for_past_uncached_notice(monkeypatch):
 def test_is_upcoming_hearing():
     assert is_upcoming_hearing({"scheduled_date": "2099-01-01T12:00:00+00:00"})
     assert not is_upcoming_hearing({"scheduled_date": "2020-01-01T12:00:00+00:00"})
+
+
+def test_use_cached_hearings_on_failure(tmp_path, monkeypatch):
+    cache_file = tmp_path / "committee_hearings.json"
+    cache_file.write_text(
+        json.dumps(
+            {
+                "last_fetched": "2026-07-18T12:00:00+00:00",
+                "hearing_count": 3,
+                "items": [{}, {}, {}],
+            }
+        ),
+        encoding="utf-8",
+    )
+    missing_file = tmp_path / "missing.json"
+    monkeypatch.setattr("processing.fetch_utah_committee_rss.OUTPUT_FILE", cache_file)
+
+    assert use_cached_hearings_on_failure("Utah RSS fetch failed") is True
+
+    monkeypatch.setattr("processing.fetch_utah_committee_rss.OUTPUT_FILE", missing_file)
+    assert use_cached_hearings_on_failure("Utah RSS fetch failed") is False

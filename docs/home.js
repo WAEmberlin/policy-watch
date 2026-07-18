@@ -412,6 +412,14 @@ const CivicWatchHome = (() => {
         'veteran housing', 'homeless veteran', 'housing voucher', 'shelter veteran',
         'disability rating', 'service-connected', 'service connected', 'rating schedule',
         'survivor', 'burial',
+        'take care of america',
+        'military construction, veterans affairs',
+        'military construction and veterans affairs',
+        'veterans affairs appropriations',
+        'va appropriations',
+        'milcon-va',
+        'appropriations for the department of veterans affairs',
+        'appropriations for veterans affairs',
     ];
     const VETERAN_IMPACT_YELLOW_SIGNALS = [
         'veteran preference', 'hiring preference', 'employment preference',
