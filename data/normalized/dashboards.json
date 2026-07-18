@@ -200,7 +200,18 @@
       "latest_action_date": "2026-07-16T00:00:00",
       "status": "POSTPONED PROCEEDINGS - Pursuant to clause 1(c) of rule XIX, the Chair announced further proceedings on H.R. 9237 is postponed.",
       "chamber": "House",
-      "votes": [],
+      "votes": [
+        {
+          "rollNumber": 249,
+          "chamber": "House",
+          "date": "2026-07-16",
+          "result": "Failed",
+          "yeas": 210,
+          "nays": 211,
+          "motion": "On Motion to Recommit",
+          "tally_text": "Failed 210–211"
+        }
+      ],
       "committees": [],
       "events": [],
       "document_urls": [
@@ -1746,7 +1757,18 @@
       "latest_action_date": "2026-07-16T00:00:00",
       "status": "POSTPONED PROCEEDINGS - Pursuant to clause 1(c) of rule XIX, the Chair announced further proceedings on H.R. 9237 is postponed.",
       "chamber": "House",
-      "votes": [],
+      "votes": [
+        {
+          "rollNumber": 249,
+          "chamber": "House",
+          "date": "2026-07-16",
+          "result": "Failed",
+          "yeas": 210,
+          "nays": 211,
+          "motion": "On Motion to Recommit",
+          "tally_text": "Failed 210–211"
+        }
+      ],
       "committees": [],
       "events": [],
       "document_urls": [
@@ -6264,7 +6286,18 @@
         "latest_action_date": "2026-07-16T00:00:00",
         "status": "POSTPONED PROCEEDINGS - Pursuant to clause 1(c) of rule XIX, the Chair announced further proceedings on H.R. 9237 is postponed.",
         "chamber": "House",
-        "votes": [],
+        "votes": [
+          {
+            "rollNumber": 249,
+            "chamber": "House",
+            "date": "2026-07-16",
+            "result": "Failed",
+            "yeas": 210,
+            "nays": 211,
+            "motion": "On Motion to Recommit",
+            "tally_text": "Failed 210–211"
+          }
+        ],
         "committees": [],
         "events": [],
         "document_urls": [
@@ -7458,7 +7491,18 @@
         "latest_action_date": "2026-07-16T00:00:00",
         "status": "POSTPONED PROCEEDINGS - Pursuant to clause 1(c) of rule XIX, the Chair announced further proceedings on H.R. 9237 is postponed.",
         "chamber": "House",
-        "votes": [],
+        "votes": [
+          {
+            "rollNumber": 249,
+            "chamber": "House",
+            "date": "2026-07-16",
+            "result": "Failed",
+            "yeas": 210,
+            "nays": 211,
+            "motion": "On Motion to Recommit",
+            "tally_text": "Failed 210–211"
+          }
+        ],
         "committees": [],
         "events": [],
         "document_urls": [
@@ -7626,6 +7670,117 @@
         ],
         "updated_at": "2026-07-18T04:31:32.617998+00:00",
         "url": "https://www.congress.gov/bill/119th-congress/house-bill/8876",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
+        "id": "119-HR-8770",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 8770",
+        "title": "Spending Aviation Fees for Equipment, Guaranteeing Upgraded and Advanced Risk Detection and Safety Act of 2026",
+        "summary": "",
+        "classification": [
+          "Transportation and Public Works"
+        ],
+        "sponsors": [
+          {
+            "name": "Rep. Strong, Dale W. [R-AL-5]",
+            "party": "R",
+            "state": "AL",
+            "role": "primary"
+          }
+        ],
+        "latest_action": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+        "latest_action_date": "2026-07-14T00:00:00",
+        "status": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+        "chamber": "House",
+        "votes": [],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/8770"
+        ],
+        "updated_at": "2026-07-18T10:06:31.188588+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/8770",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
+        "id": "119-HR-8874",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 8874",
+        "title": "Homeland Security Capabilities Preservation Reporting Act of 2026",
+        "summary": "",
+        "classification": [
+          "Emergency Management"
+        ],
+        "sponsors": [
+          {
+            "name": "Rep. Carter, Troy A. [D-LA-2]",
+            "party": "D",
+            "state": "LA",
+            "role": "primary"
+          }
+        ],
+        "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "latest_action_date": "2026-07-14T00:00:00",
+        "status": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "chamber": "House",
+        "votes": [],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/8874"
+        ],
+        "updated_at": "2026-07-18T10:06:31.631274+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/8874",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
+        "id": "119-HR-9328",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 9328",
+        "title": "Improving Travel for Military Members Act",
+        "summary": "",
+        "classification": [
+          "Armed Forces and National Security"
+        ],
+        "sponsors": [
+          {
+            "name": "Rep. Biggs, Sheri [R-SC-3]",
+            "party": "R",
+            "state": "SC",
+            "role": "primary"
+          }
+        ],
+        "latest_action": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+        "latest_action_date": "2026-07-14T00:00:00",
+        "status": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+        "chamber": "House",
+        "votes": [],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/9328"
+        ],
+        "updated_at": "2026-07-18T10:06:33.464085+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/9328",
         "ai_summary_short": "",
         "ai_summary_detailed": "",
         "ai_impact_analysis": "",
@@ -7895,6 +8050,80 @@
         "ai_tags": []
       },
       {
+        "id": "119-HR-9395",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 9395",
+        "title": "Transparency in Medicare Advantage Steering Act",
+        "summary": "",
+        "classification": [
+          "Health"
+        ],
+        "sponsors": [
+          {
+            "name": "Rep. Ocasio-Cortez, Alexandria [D-NY-14]",
+            "party": "D",
+            "state": "NY",
+            "role": "primary"
+          }
+        ],
+        "latest_action": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
+        "latest_action_date": "2026-06-25T00:00:00",
+        "status": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
+        "chamber": "House",
+        "votes": [],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/9395"
+        ],
+        "updated_at": "2026-07-18T10:06:17.555746+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/9395",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
+        "id": "119-HR-9363",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 9363",
+        "title": "AI Security and Innovation Act",
+        "summary": "",
+        "classification": [
+          "Science, Technology, Communications"
+        ],
+        "sponsors": [
+          {
+            "name": "Rep. Obernolte, Jay [R-CA-23]",
+            "party": "R",
+            "state": "CA",
+            "role": "primary"
+          }
+        ],
+        "latest_action": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 29 - 0.",
+        "latest_action_date": "2026-06-25T00:00:00",
+        "status": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 29 - 0.",
+        "chamber": "House",
+        "votes": [],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/9363"
+        ],
+        "updated_at": "2026-07-18T10:06:18.000017+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/9363",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
         "id": "119-HR-4801",
         "source": "congress",
         "level": "federal",
@@ -8034,6 +8263,43 @@
         "ai_tags": []
       },
       {
+        "id": "119-HR-9362",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 9362",
+        "title": "District of Columbia Courts Judicial Vacancy Reduction Act",
+        "summary": "",
+        "classification": [
+          "Law"
+        ],
+        "sponsors": [
+          {
+            "name": "Del. Norton, Eleanor Holmes [D-DC-At Large]",
+            "party": "D",
+            "state": "DC",
+            "role": "primary"
+          }
+        ],
+        "latest_action": "Referred to the Committee on Oversight and Government Reform, and in addition to the Committee on Rules, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "latest_action_date": "2026-06-18T00:00:00",
+        "status": "Referred to the Committee on Oversight and Government Reform, and in addition to the Committee on Rules, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "chamber": "House",
+        "votes": [],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/9362"
+        ],
+        "updated_at": "2026-07-18T10:06:23.094052+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/9362",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
         "id": "119-S-736",
         "source": "congress",
         "level": "federal",
@@ -8083,228 +8349,6 @@
         ],
         "updated_at": "2026-06-15T00:00:00",
         "url": "https://www.congress.gov/bill/119th-congress/house-bill/1468",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
-      },
-      {
-        "id": "119-HR-9316",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "HR 9316",
-        "title": "Travel Assistance for Veterans in Medical Deserts Act",
-        "summary": "",
-        "classification": [
-          "Armed Forces and National Security"
-        ],
-        "sponsors": [
-          {
-            "name": "Del. King-Hinds, Kimberlyn [R-MP-At Large]",
-            "party": "R",
-            "state": "MP",
-            "role": "primary"
-          }
-        ],
-        "latest_action": "Referred to the House Committee on Veterans' Affairs.",
-        "latest_action_date": "2026-06-15T00:00:00",
-        "status": "Referred to the House Committee on Veterans' Affairs.",
-        "chamber": "House",
-        "votes": [],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/house-bill/9316"
-        ],
-        "updated_at": "2026-07-18T08:31:01.728989+00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/house-bill/9316",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
-      },
-      {
-        "id": "119-S-2393",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "S 2393",
-        "title": "Fiscal Year 2025 Veterans Affairs Major Medical Facility Authorization Act",
-        "summary": "",
-        "classification": [],
-        "sponsors": [],
-        "latest_action": "Signed by President.",
-        "latest_action_date": "2026-06-09T00:00:00",
-        "status": "Signed by President.",
-        "chamber": "Senate",
-        "votes": [],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/senate-bill/2393"
-        ],
-        "updated_at": "2026-06-09T00:00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/senate-bill/2393",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
-      },
-      {
-        "id": "119-HR-2860",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "HR 2860",
-        "title": "Northwest Straits Marine Conservation Initiative Reauthorization Act of 2025",
-        "summary": "",
-        "classification": [],
-        "sponsors": [],
-        "latest_action": "Received in the Senate. Read twice. Placed on Senate Legislative Calendar under General Orders. Calendar No. 427.",
-        "latest_action_date": "2026-06-04T00:00:00",
-        "status": "Received in the Senate. Read twice. Placed on Senate Legislative Calendar under General Orders. Calendar No. 427.",
-        "chamber": "House",
-        "votes": [],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/house-bill/2860"
-        ],
-        "updated_at": "2026-06-04T00:00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/house-bill/2860",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
-      },
-      {
-        "id": "119-HR-6047",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "HR 6047",
-        "title": "Sharri Briley and Eric Edmundson Veterans Benefits Expansion Act of 2025",
-        "summary": "recognizing and honoring Thomas Day.",
-        "classification": [],
-        "sponsors": [
-          {
-            "name": "Representative Hawkins",
-            "role": "primary"
-          }
-        ],
-        "latest_action": "Enrolled on Monday, April 13, 2026",
-        "latest_action_date": "2026-04-13T10:36:11",
-        "status": "Approved by Governor",
-        "chamber": "House",
-        "votes": [],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/house-bill/6047",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hr_6047/hr6047_enrolled.pdf"
-        ],
-        "updated_at": "2026-06-02T00:00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/house-bill/6047",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": [],
-        "short_title": "recognizing and honoring Thomas Day.",
-        "official_title": "A RESOLUTION recognizing and honoring Thomas Day for his distinguished service to the Kansas Legislature and the State of Kansas.",
-        "action_history": [
-          {
-            "action_code": "ee_enrb_226",
-            "chamber": "House",
-            "journal_page_number": "3402",
-            "occurred_datetime": "2026-04-13T10:36:11",
-            "session_date": "2026-04-10",
-            "status": "Enrolled on Monday, April 13, 2026"
-          },
-          {
-            "action_code": "intro_ires_251",
-            "chamber": "House",
-            "journal_page_number": "3154",
-            "occurred_datetime": "2026-04-09T10:14:12",
-            "session_date": "2026-04-09",
-            "status": "Adopted without roll call"
-          },
-          {
-            "action_code": "intro_ires_681",
-            "chamber": "House",
-            "journal_page_number": "3154",
-            "occurred_datetime": "2026-04-09T10:07:01",
-            "session_date": "2026-04-09",
-            "status": "Introduced"
-          }
-        ],
-        "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-17T17:39:56.125487+00:00"
-      },
-      {
-        "id": "119-HR-1041",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "HR 1041",
-        "title": "Veterans 2nd Amendment Protection Act",
-        "summary": "",
-        "classification": [],
-        "sponsors": [],
-        "latest_action": "Received in the Senate and Read twice and referred to the Committee on Veterans' Affairs.",
-        "latest_action_date": "2026-06-02T00:00:00",
-        "status": "Received in the Senate and Read twice and referred to the Committee on Veterans' Affairs.",
-        "chamber": "House",
-        "votes": [],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/house-bill/1041"
-        ],
-        "updated_at": "2026-06-02T00:00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/house-bill/1041",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
-      },
-      {
-        "id": "119-HR-9026",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "HR 9026",
-        "title": "To designate the facility of the United States Postal Service located at 80 Atlantic Avenue in Oceanside, New York, as the \"Detective Luis G. Alvarez Post Office\".",
-        "summary": "",
-        "classification": [
-          "Government Operations and Politics"
-        ],
-        "sponsors": [
-          {
-            "name": "Rep. Gillen, Laura [D-NY-4]",
-            "party": "D",
-            "state": "NY",
-            "role": "primary"
-          }
-        ],
-        "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
-        "latest_action_date": "2026-05-26T00:00:00",
-        "status": "Referred to the House Committee on Oversight and Government Reform.",
-        "chamber": "House",
-        "votes": [],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/house-bill/9026"
-        ],
-        "updated_at": "2026-07-18T02:20:27.169817+00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/house-bill/9026",
         "ai_summary_short": "",
         "ai_summary_detailed": "",
         "ai_impact_analysis": "",
@@ -9307,6 +9351,43 @@
     ],
     "property_tax": [
       {
+        "id": "119-HR-8168",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 8168",
+        "title": "Major Non-NATO Ally Terror Threat Assessment Act",
+        "summary": "",
+        "classification": [
+          "International Affairs"
+        ],
+        "sponsors": [
+          {
+            "name": "Rep. Van Epps, Matt [R-TN-7]",
+            "party": "R",
+            "state": "TN",
+            "role": "primary"
+          }
+        ],
+        "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "latest_action_date": "2026-07-14T00:00:00",
+        "status": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "chamber": "House",
+        "votes": [],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/8168"
+        ],
+        "updated_at": "2026-07-18T10:06:30.276584+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/8168",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
         "id": "119-HR-6833",
         "source": "congress",
         "level": "federal",
@@ -9643,43 +9724,6 @@
         "ai_tags": []
       },
       {
-        "id": "119-HR-8168",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "HR 8168",
-        "title": "Major Non-NATO Ally Terror Threat Assessment Act",
-        "summary": "",
-        "classification": [
-          "International Affairs"
-        ],
-        "sponsors": [
-          {
-            "name": "Rep. Van Epps, Matt [R-TN-7]",
-            "party": "R",
-            "state": "TN",
-            "role": "primary"
-          }
-        ],
-        "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
-        "latest_action_date": "2026-07-14T00:00:00",
-        "status": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
-        "chamber": "House",
-        "votes": [],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/house-bill/8168"
-        ],
-        "updated_at": "2026-07-18T10:06:30.276584+00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/house-bill/8168",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
-      },
-      {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/176ac62acd77497507ec138ac1803858",
         "source": "kansas_rss",
         "level": "state",
@@ -9740,11 +9784,11 @@
         ],
         "events": [],
         "document_urls": [
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2312/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2312/hb2312_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2312/hb2312_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2312_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2312_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2312_01_0000.pdf"
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2312/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2312/hb2312_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2312/hb2312_01_0000.pdf"
         ],
         "updated_at": "2026-05-05T15:57:12+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2312/",
@@ -9963,8 +10007,8 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_152/sb152_00_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/SB152/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_152/sb152_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb152_00_0000/fisc_note_sb152_00_0000.pdf"
         ],
         "updated_at": "2026-04-29T16:17:38+00:00",
@@ -10055,11 +10099,11 @@
         ],
         "events": [],
         "document_urls": [
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2083/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2083/hb2083_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2083_00_0000/fisc_note_hb2083_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2083_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2083/hb2083_01_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2083/hb2083_00_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2083/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2083/hb2083_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2083_00_0000/fisc_note_hb2083_00_0000.pdf"
         ],
         "updated_at": "2026-04-27T14:18:10+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2083/",
@@ -10275,13 +10319,13 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2044_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2044_00_0000/fisc_note_hb2044_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2044_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_enrolled.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/HB2044/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2044_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_00_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2044_00_0000/fisc_note_hb2044_00_0000.pdf"
         ],
         "updated_at": "2026-03-27T23:25:55+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2044/",
@@ -10679,14 +10723,14 @@
         ],
         "events": [],
         "document_urls": [
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2043/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2043_02_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2043_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2043_00_0000/fisc_note_hb2043_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_enrolled.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_02_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2043_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2043_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_00_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2043/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2043_00_0000/fisc_note_hb2043_00_0000.pdf"
         ],
         "updated_at": "2026-03-27T23:24:09+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2043/",
@@ -11135,15 +11179,15 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2192/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_03_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_03_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_03_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_enrolled.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_01_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_01_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2192/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_02_0000.pdf"
         ],
         "updated_at": "2026-03-26T18:47:22+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2192/",
@@ -11592,16 +11636,16 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_03_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/SCR1603/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_03_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_04_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_04_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_01_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_04_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_03_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_03_0000.pdf"
         ],
         "updated_at": "2026-03-19T15:09:26+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1603/",
@@ -12092,8 +12136,8 @@
         ],
         "events": [],
         "document_urls": [
-          "https://www.kslegislature.gov/li/b2025_26/measures/SCR1625/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1625/scr1625_00_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1625/scr1625_00_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/SCR1625/"
         ],
         "updated_at": "2026-03-09T21:17:02+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1625/",
@@ -12173,8 +12217,8 @@
         ],
         "events": [],
         "document_urls": [
-          "https://www.kslegislature.gov/li/b2025_26/measures/HCR5035/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hcr_5035/hcr5035_00_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hcr_5035/hcr5035_00_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HCR5035/"
         ],
         "updated_at": "2026-03-09T17:05:48+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5035/",
@@ -12319,9 +12363,9 @@
         ],
         "events": [],
         "document_urls": [
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2791/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2791_00_0000/fisc_note_hb2791_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2791/hb2791_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2791_00_0000/fisc_note_hb2791_00_0000.pdf"
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2791/"
         ],
         "updated_at": "2026-03-04T18:21:13+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2791/",
@@ -12609,8 +12653,8 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hcr_5034/hcr5034_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HCR5034/"
+          "https://www.kslegislature.gov/li/b2025_26/measures/HCR5034/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hcr_5034/hcr5034_00_0000.pdf"
         ],
         "updated_at": "2026-03-04T18:20:42+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5034/",
@@ -12736,13 +12780,13 @@
         ],
         "events": [],
         "document_urls": [
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb33_00_0000/fisc_note_sb33_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_sb33_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb33_02_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb33_00_0000/fisc_note_sb33_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_sb33_01_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/SB33/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_01_0000.pdf"
+          "https://www.kslegislature.gov/li/b2025_26/measures/SB33/"
         ],
         "updated_at": "2026-03-04T17:49:14+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB33/",
@@ -13008,9 +13052,9 @@
         "events": [],
         "document_urls": [
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2377/hb2377_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2377_00_0000/fisc_note_hb2377_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2377/hb2377_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2377_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2377_00_0000/fisc_note_hb2377_00_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/HB2377/"
         ],
         "updated_at": "2026-02-18T19:22:56+00:00",
@@ -13175,9 +13219,9 @@
         ],
         "events": [],
         "document_urls": [
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2782/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2782_00_0000/fisc_note_hb2782_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2782/hb2782_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2782_00_0000/fisc_note_hb2782_00_0000.pdf"
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2782/"
         ],
         "updated_at": "2026-02-18T19:02:22+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2782/",
@@ -13283,10 +13327,10 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2408/hb2408_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2408_01_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/HB2408/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2408/hb2408_00_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2408/hb2408_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2408/hb2408_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2408_01_0000.pdf"
         ],
         "updated_at": "2026-02-12T00:20:12+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2408/",
@@ -13628,7 +13672,18 @@
         "latest_action_date": "2026-07-16T00:00:00",
         "status": "POSTPONED PROCEEDINGS - Pursuant to clause 1(c) of rule XIX, the Chair announced further proceedings on H.R. 9237 is postponed.",
         "chamber": "House",
-        "votes": [],
+        "votes": [
+          {
+            "rollNumber": 249,
+            "chamber": "House",
+            "date": "2026-07-16",
+            "result": "Failed",
+            "yeas": 210,
+            "nays": 211,
+            "motion": "On Motion to Recommit",
+            "tally_text": "Failed 210–211"
+          }
+        ],
         "committees": [],
         "events": [],
         "document_urls": [
@@ -13881,7 +13936,28 @@
         "latest_action_date": "2026-07-15T00:00:00",
         "status": "Motion to reconsider laid on the table Agreed to without objection.",
         "chamber": "House",
-        "votes": [],
+        "votes": [
+          {
+            "rollNumber": 247,
+            "chamber": "House",
+            "date": "2026-07-15",
+            "result": "Passed",
+            "yeas": 217,
+            "nays": 209,
+            "motion": "On Passage",
+            "tally_text": "Passed 217–209"
+          },
+          {
+            "rollNumber": 246,
+            "chamber": "House",
+            "date": "2026-07-15",
+            "result": "Failed",
+            "yeas": 209,
+            "nays": 216,
+            "motion": "On Motion to Recommit",
+            "tally_text": "Failed 209–216"
+          }
+        ],
         "committees": [],
         "events": [],
         "document_urls": [
@@ -14000,6 +14076,154 @@
         "ai_tags": []
       },
       {
+        "id": "119-HR-7574",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 7574",
+        "title": "ELO Realignment and Strategic Engagement Reform Act of 2026",
+        "summary": "",
+        "classification": [
+          "Armed Forces and National Security"
+        ],
+        "sponsors": [
+          {
+            "name": "Rep. Evans, Gabe [R-CO-8]",
+            "party": "R",
+            "state": "CO",
+            "role": "primary"
+          }
+        ],
+        "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "latest_action_date": "2026-07-14T00:00:00",
+        "status": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "chamber": "House",
+        "votes": [],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/7574"
+        ],
+        "updated_at": "2026-07-18T10:06:29.834361+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/7574",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
+        "id": "119-HR-8168",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 8168",
+        "title": "Major Non-NATO Ally Terror Threat Assessment Act",
+        "summary": "",
+        "classification": [
+          "International Affairs"
+        ],
+        "sponsors": [
+          {
+            "name": "Rep. Van Epps, Matt [R-TN-7]",
+            "party": "R",
+            "state": "TN",
+            "role": "primary"
+          }
+        ],
+        "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "latest_action_date": "2026-07-14T00:00:00",
+        "status": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "chamber": "House",
+        "votes": [],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/8168"
+        ],
+        "updated_at": "2026-07-18T10:06:30.276584+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/8168",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
+        "id": "119-HR-8535",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 8535",
+        "title": "Measuring Illicit Fentanyl Trafficking Act",
+        "summary": "",
+        "classification": [
+          "Crime and Law Enforcement"
+        ],
+        "sponsors": [
+          {
+            "name": "Rep. Walkinshaw, James R. [D-VA-11]",
+            "party": "D",
+            "state": "VA",
+            "role": "primary"
+          }
+        ],
+        "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "latest_action_date": "2026-07-14T00:00:00",
+        "status": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "chamber": "House",
+        "votes": [],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/8535"
+        ],
+        "updated_at": "2026-07-18T10:06:30.717950+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/8535",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
+        "id": "119-HR-8874",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 8874",
+        "title": "Homeland Security Capabilities Preservation Reporting Act of 2026",
+        "summary": "",
+        "classification": [
+          "Emergency Management"
+        ],
+        "sponsors": [
+          {
+            "name": "Rep. Carter, Troy A. [D-LA-2]",
+            "party": "D",
+            "state": "LA",
+            "role": "primary"
+          }
+        ],
+        "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "latest_action_date": "2026-07-14T00:00:00",
+        "status": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "chamber": "House",
+        "votes": [],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/8874"
+        ],
+        "updated_at": "2026-07-18T10:06:31.631274+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/8874",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
         "id": "119-HR-3350",
         "source": "congress",
         "level": "federal",
@@ -14088,6 +14312,43 @@
         ],
         "updated_at": "2026-07-16T00:11:09.275054+00:00",
         "url": "https://www.congress.gov/bill/119th-congress/house-bill/2478",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
+        "id": "119-HR-8893",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 8893",
+        "title": "Protecting Consumers from Deceptive AI Act",
+        "summary": "",
+        "classification": [
+          "Science, Technology, Communications"
+        ],
+        "sponsors": [
+          {
+            "name": "Rep. Foushee, Valerie P. [D-NC-4]",
+            "party": "D",
+            "state": "NC",
+            "role": "primary"
+          }
+        ],
+        "latest_action": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 35 - 0.",
+        "latest_action_date": "2026-07-07T00:00:00",
+        "status": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 35 - 0.",
+        "chamber": "House",
+        "votes": [],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/8893"
+        ],
+        "updated_at": "2026-07-18T10:06:21.411916+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/8893",
         "ai_summary_short": "",
         "ai_summary_detailed": "",
         "ai_impact_analysis": "",
@@ -14255,173 +14516,6 @@
         ],
         "updated_at": "2026-07-18T08:30:56.636361+00:00",
         "url": "https://www.congress.gov/bill/119th-congress/house-bill/9501",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
-      },
-      {
-        "id": "119-HR-6835",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "HR 6835",
-        "title": "To amend title 38, United States Code, to direct the Secretary of Veterans Affairs to offer annual preventative health evaluations to veterans with a spinal cord injury or disorder and increase access to assistive technologies, and for other purposes.",
-        "summary": "",
-        "classification": [],
-        "sponsors": [],
-        "latest_action": "Subcommittee Hearings Held",
-        "latest_action_date": "2026-06-30T00:00:00",
-        "status": "Subcommittee Hearings Held",
-        "chamber": "House",
-        "votes": [],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/house-bill/6835"
-        ],
-        "updated_at": "2026-07-01T10:56:07.692087+00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/house-bill/6835",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
-      },
-      {
-        "id": "119-HR-8141",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "HR 8141",
-        "title": "Fair Credit Reporting Reseller Accuracy Act",
-        "summary": "",
-        "classification": [
-          "Finance and Financial Sector"
-        ],
-        "sponsors": [
-          {
-            "name": "Rep. Lawler, Michael [R-NY-17]",
-            "party": "R",
-            "state": "NY",
-            "role": "primary"
-          }
-        ],
-        "latest_action": "Ordered to be Reported (Amended) by Voice Vote.",
-        "latest_action_date": "2026-06-30T00:00:00",
-        "status": "Ordered to be Reported (Amended) by Voice Vote.",
-        "chamber": "House",
-        "votes": [],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/house-bill/8141"
-        ],
-        "updated_at": "2026-07-18T08:30:58.879278+00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/house-bill/8141",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
-      },
-      {
-        "id": "119-HR-9006",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "HR 9006",
-        "title": "Locating Our Unclaimed Veterans Act",
-        "summary": "",
-        "classification": [
-          "Armed Forces and National Security"
-        ],
-        "sponsors": [
-          {
-            "name": "Rep. Valadao, David G. [R-CA-22]",
-            "party": "R",
-            "state": "CA",
-            "role": "primary"
-          }
-        ],
-        "latest_action": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
-        "latest_action_date": "2026-06-30T00:00:00",
-        "status": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
-        "chamber": "House",
-        "votes": [],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/house-bill/9006"
-        ],
-        "updated_at": "2026-07-18T08:31:01.154122+00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/house-bill/9006",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
-      },
-      {
-        "id": "119-HRES-1383",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "HRES 1383",
-        "title": "Commemorating the one-year anniversary of the enactment of the Working Families Tax Cuts.",
-        "summary": "",
-        "classification": [
-          "Taxation"
-        ],
-        "sponsors": [
-          {
-            "name": "Rep. Van Duyne, Beth [R-TX-24]",
-            "party": "R",
-            "state": "TX",
-            "role": "primary"
-          }
-        ],
-        "latest_action": "Rule H. Res. 1398 failed passage of House.",
-        "latest_action_date": "2026-06-30T00:00:00",
-        "status": "Rule H. Res. 1398 failed passage of House.",
-        "chamber": "House",
-        "votes": [],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/house-resolution/1383"
-        ],
-        "updated_at": "2026-07-18T08:31:02.299362+00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/house-resolution/1383",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
-      },
-      {
-        "id": "119-HR-6921",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "HR 6921",
-        "title": "To require the Secretary of Veterans Affairs to establish a new national cemetery in the State of Hawai'i, and for other purposes.",
-        "summary": "",
-        "classification": [],
-        "sponsors": [],
-        "latest_action": "Subcommittee Hearings Held",
-        "latest_action_date": "2026-06-25T00:00:00",
-        "status": "Subcommittee Hearings Held",
-        "chamber": "House",
-        "votes": [],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/house-bill/6921"
-        ],
-        "updated_at": "2026-06-25T00:00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/house-bill/6921",
         "ai_summary_short": "",
         "ai_summary_detailed": "",
         "ai_impact_analysis": "",

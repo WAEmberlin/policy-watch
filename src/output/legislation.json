@@ -1449,13 +1449,143 @@
     "cosponsors": [],
     "latest_action": "POSTPONED PROCEEDINGS - Pursuant to clause 1(c) of rule XIX, the Chair announced further proceedings on H.R. 9237 is postponed.",
     "latest_action_date": "2026-07-16T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "POSTPONED PROCEEDINGS - Pursuant to clause 1(c) of rule XIX, the Chair announced further proceedings on H.R. 9237 is postponed.",
+        "actionDate": "2026-07-16",
+        "type": "Floor",
+        "actionTime": "11:16:45",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "On motion to recommit Failed by the Yeas and Nays: 210 - 211 (Roll no. 249).",
+        "actionDate": "2026-07-16",
+        "type": "Floor",
+        "actionTime": "11:16:29",
+        "actionCode": "H36210",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2026-07-16T15:16:29Z",
+            "rollNumber": 249,
+            "sessionNumber": 2,
+            "url": "https://clerk.house.gov/evs/2026/roll249.xml"
+          }
+        ]
+      },
+      {
+        "text": "Considered as unfinished business. (consideration: CR H4614-4615)",
+        "actionDate": "2026-07-16",
+        "type": "Floor",
+        "actionTime": "10:51:22",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "POSTPONED PROCEEDINGS - At the conclusion of debate on H.R. 9237, the Chair put the question on motion to recommit and by voice vote, announced the noes had prevailed. Mr. Deluzio demanded the yeas and nays and the Chair postponed further proceedings until a time to be announced.",
+        "actionDate": "2026-07-16",
+        "type": "Floor",
+        "actionTime": "10:16:38",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "The previous question on the motion to recommit was ordered pursuant to clause 2(b) of rule XIX.",
+        "actionDate": "2026-07-16",
+        "type": "Floor",
+        "actionTime": "10:16:14",
+        "actionCode": "H8A000"
+      },
+      {
+        "text": "Mr. Deluzio moved to recommit to the Committee on Veterans' Affairs. (CR H4613)",
+        "actionDate": "2026-07-16",
+        "type": "Floor",
+        "actionTime": "10:16:01",
+        "actionCode": "H36200"
+      },
+      {
+        "text": "The previous question was ordered pursuant to the rule.",
+        "actionDate": "2026-07-16",
+        "type": "Floor",
+        "actionTime": "10:15:28",
+        "actionCode": "H35000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with one hour of debate on H.R. 9237.",
+        "actionDate": "2026-07-16",
+        "type": "Floor",
+        "actionTime": "09:12:36",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Rule provides for consideration of H.R. 139, H.R. 8595, H.R. 9237 and H.R. 1181. The resolution provides for consideration of H.R. 139, H.R. 9237, and H.R. 1181 under a closed rule, and H.R. 8595 under a structured rule with one hour of debate and one motion to reconsider on each bill.",
+        "actionDate": "2026-07-16",
+        "type": "Floor",
+        "actionTime": "09:11:48",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under the provisions of rule H. Res. 1423. (consideration: CR H4548-4613; text: CR H4548-4613)",
+        "actionDate": "2026-07-16",
+        "type": "Floor",
+        "actionTime": "09:11:43",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Rules Committee Resolution H. Res. 1423 Reported to House. Rule provides for consideration of H.R. 139, H.R. 8595, H.R. 9237 and H.R. 1181. The resolution provides for consideration of H.R. 139, H.R. 9237, and H.R. 1181 under a closed rule, and H.R. 8595 under a structured rule with one hour of debate and one motion to reconsider on each bill.",
+        "actionDate": "2026-07-13",
+        "type": "Floor",
+        "actionTime": "17:59:05",
+        "actionCode": "H1L210"
+      },
+      {
+        "text": "Rules Committee Resolution H. Res. 1377 Reported to House. Rule provides for consideration of H.R. 1181, H.R. 9022, H.R. 8595 and H.R. 9237. The resolution provides for consideration of H.R. 1181 and H.R. 9237 under a closed rule and H.R. 9022 and H.R. 8595 under a structured rule. The resolution provides for one hour of general debate and one motion to recommit on each bill.",
+        "actionDate": "2026-06-23",
+        "type": "Floor",
+        "actionTime": "19:18:06",
+        "actionCode": "H1L210"
+      },
+      {
+        "text": "Referred to the Committee on Veterans' Affairs, and in addition to the Committee on Armed Services, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-06-10",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Committee on Veterans' Affairs, and in addition to the Committee on Armed Services, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-06-10",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-06-10",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-06-10",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [
       "Armed Forces and National Security"
     ],
     "status": "POSTPONED PROCEEDINGS - Pursuant to clause 1(c) of rule XIX, the Chair announced further proceedings on H.R. 9237 is postponed.",
-    "votes": [],
+    "votes": [
+      {
+        "rollNumber": 249,
+        "chamber": "House",
+        "date": "2026-07-16",
+        "result": "Failed",
+        "yeas": 210,
+        "nays": 211,
+        "motion": "On Motion to Recommit",
+        "tally_text": "Failed 210\u2013211"
+      }
+    ],
     "introduced_date": "2026-06-10T00:00:00",
     "url": "https://www.congress.gov/bill/119th-congress/house-bill/9237",
     "published": "2026-06-10T00:00:00",
@@ -5251,7 +5381,40 @@
     "cosponsors": [],
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 457.",
     "latest_action_date": "2026-07-15T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 457.",
+        "actionDate": "2026-07-15",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Environment and Public Works. Reported by Senator Capito with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-07-15",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Environment and Public Works. Reported by Senator Capito with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-07-15",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Environment and Public Works. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-07-15",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Environment and Public Works.",
+        "actionDate": "2026-07-13",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2026-07-13",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [
       "Water Resources Development"
@@ -5279,13 +5442,341 @@
     "cosponsors": [],
     "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
     "latest_action_date": "2026-07-15T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "17:12:53",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On passage Passed by the Yeas and Nays: 217 - 209 (Roll no. 247).",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "17:12:51",
+        "actionCode": "H37100",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2026-07-15T21:12:51Z",
+            "rollNumber": 247,
+            "sessionNumber": 2,
+            "url": "https://clerk.house.gov/evs/2026/roll247.xml"
+          }
+        ]
+      },
+      {
+        "text": "Passed/agreed to in House: On passage Passed by the Yeas and Nays: 217 - 209 (Roll no. 247).",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "17:12:51",
+        "actionCode": "8000",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2026-07-15T21:12:51Z",
+            "rollNumber": 247,
+            "sessionNumber": 2,
+            "url": "https://clerk.house.gov/evs/2026/roll247.xml"
+          }
+        ]
+      },
+      {
+        "text": "On motion to recommit Failed by the Yeas and Nays: 209 - 216 (Roll no. 246).",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "17:00:00",
+        "actionCode": "H36210",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2026-07-15T21:00:00Z",
+            "rollNumber": 246,
+            "sessionNumber": 2,
+            "url": "https://clerk.house.gov/evs/2026/roll246.xml"
+          }
+        ]
+      },
+      {
+        "text": "The previous question on the motion to recommit was ordered pursuant to clause 2(b) of rule XIX.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "16:53:30",
+        "actionCode": "H8A000"
+      },
+      {
+        "text": "Mr. Amo moved to recommit to the Committee on Appropriations.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "16:53:14",
+        "actionCode": "H36200"
+      },
+      {
+        "text": "The House adopted the amendments en gros as agreed to by the Committee of the Whole House on the state of the Union.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "16:52:20",
+        "actionCode": "H34400"
+      },
+      {
+        "text": "The previous question was ordered pursuant to the rule.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "16:52:09",
+        "actionCode": "H35000"
+      },
+      {
+        "text": "The House rose from the Committee of the Whole House on the state of the Union to report H.R. 8595.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "16:51:22",
+        "actionCode": "H32600"
+      },
+      {
+        "text": "The House resolved into Committee of the Whole House on the state of the Union for further consideration.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "16:00:40",
+        "actionCode": "H32050"
+      },
+      {
+        "text": "Considered as unfinished business.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "16:00:27",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Committee of the Whole House on the state of the Union rises leaving H.R. 8595 as unfinished business.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "14:26:18",
+        "actionCode": "H32700"
+      },
+      {
+        "text": "On motion that the committee rise Agreed to by voice vote.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "14:25:59",
+        "actionCode": "H32341"
+      },
+      {
+        "text": "Mr. Diaz-Balart moved that the committee rise.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "14:25:46",
+        "actionCode": "H32340"
+      },
+      {
+        "text": "DEBATE - Pursuant to the provisions of H.Res. 1423, the Committee of the Whole proceeded with 10 minutes of debate on the Tenney amendment No. 28.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "14:19:30",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "DEBATE - Pursuant to the provisions of H.Res. 1423, the Committee of the Whole proceeded with 10 minutes of debate on the Steube amendment No. 27.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "14:11:27",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "POSTPONED PROCEEDINGS - At the conclusion of debate on the Roy amendment No. 20, the Chair put the question on agreeing to the amendment and by voice vote, announced that the ayes had prevailed. Ms. Lois Frankel (FL) demanded a recorded vote and the Chair postponed further proceedings until a time to be announced.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "14:10:27",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "DEBATE - Pursuant to the provisions of H.Res. 1423, the Committee of the Whole proceeded with 10 minutes of debate on the Roy amendment No. 20.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "14:01:02",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "POSTPONED PROCEEDINGS - At the conclusion of debate on the Massie amendment No. 9, the Chair put the question on agreeing to the amendment and by voice vote, announced that the noes had prevailed. Mr. Massie demanded a recorded vote and the Chair postponed further proceedings until a time to be announced.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "13:59:55",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "DEBATE - Pursuant to the provisions of H.Res. 1423, the Committee of the Whole proceeded with 10 minutes of debate on the Massie amendment No. 9.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "13:53:18",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "POSTPONED PROCEEDINGS - At the conclusion of debate on the Massie amendment No. 8, the Chair put the question on agreeing to the amendment and by voice vote, announced that the noes had prevailed. Mr. Massie demanded a recorded vote and the Chair postponed further proceedings until a time to be announced.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "13:46:56",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "DEBATE - Pursuant to the provisions of H.Res. 1423, the Committee of the Whole proceeded with 10 minutes of debate on the Massie amendment No. 8.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "13:35:22",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "POSTPONED PROCEEDINGS - At the conclusion of debate on the Fine amendment No. 6, the Chair put the question on agreeing to the amendment and by voice vote, announced that the ayes had prevailed. Ms. Lois Frankel (FL) demanded a recorded vote and the Chair postponed further proceedings until a time to be announced.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "13:34:15",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "DEBATE - Pursuant to the provisions of H.Res. 1423, the Committee of the Whole proceeded with 10 minutes of debate on the Fine amendment No. 6.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "13:26:39",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "DEBATE - Pursuant to the provisions of H.Res. 1423, the Committee of the Whole proceeded with 10 minutes of debate on the Crane amendment No. 4.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "13:17:16",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "POSTPONED PROCEEDINGS - At the conclusion of debate on the Boebert amendment No. 1, the Chair put the question on agreeing to the amendment and by voice vote, announced that the noes had prevailed. Ms. Boebert demanded a recorded vote and the Chair postponed further proceedings until a time to be announced.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "13:16:27",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "DEBATE - Pursuant to the provisions of H.Res. 1423, the Committee of the Whole proceeded with 10 minutes of debate on the Boebert amendment No. 1.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "13:09:49",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "DEBATE - Pursuant to the provisions of H.Res. 1423, the Committee of the Whole proceeded with 20 minutes of debate on the Diaz-Balart amendment en bloc.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "13:06:12",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "GENERAL DEBATE - The Committee of the Whole proceeded with one hour of general debate on H.R. 8595.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "12:10:21",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "The Speaker designated the Honorable Jimmy Patronis to act as Chairman of the Committee.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "12:10:04",
+        "actionCode": "H32400"
+      },
+      {
+        "text": "House resolved itself into the Committee of the Whole House on the state of the Union pursuant to H. Res. 1423 and Rule XVIII.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "12:10:03",
+        "actionCode": "H32020"
+      },
+      {
+        "text": "Rule provides for consideration of H.R. 139, H.R. 8595, H.R. 9237 and H.R. 1181. The resolution provides for consideration of H.R. 139, H.R. 9237, and H.R. 1181 under a closed rule, and H.R. 8595 under a structured rule with one hour of debate and one motion to reconsider on each bill.",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "12:09:34",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under the provisions of rule H. Res. 1423. (consideration: CR H4480-4528)",
+        "actionDate": "2026-07-15",
+        "type": "Floor",
+        "actionTime": "12:09:29",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Rules Committee Resolution H. Res. 1423 Reported to House. Rule provides for consideration of H.R. 139, H.R. 8595, H.R. 9237 and H.R. 1181. The resolution provides for consideration of H.R. 139, H.R. 9237, and H.R. 1181 under a closed rule, and H.R. 8595 under a structured rule with one hour of debate and one motion to reconsider on each bill.",
+        "actionDate": "2026-07-13",
+        "type": "Floor",
+        "actionTime": "17:59:05",
+        "actionCode": "H1L210"
+      },
+      {
+        "text": "Rules Committee Resolution H. Res. 1398 Reported to House. Rule provides for consideration of H.R. 8800, H.R. 8595, H.R. 8884 and H. Res. 1383. The resolution provides for consideration of H.R. 8800 and H.R. 8595 under a structured rule, and H.R. 8884 and H. Res. 1383 under a closed rule. The resolution provides for one hour of general debate on each measure and one motion to recommit on H.R. 8800, H.R. 8595, and H.R. 8884.",
+        "actionDate": "2026-06-30",
+        "type": "Floor",
+        "actionTime": "09:16:41",
+        "actionCode": "H1L210"
+      },
+      {
+        "text": "Rules Committee Resolution H. Res. 1377 Reported to House. Rule provides for consideration of H.R. 1181, H.R. 9022, H.R. 8595 and H.R. 9237. The resolution provides for consideration of H.R. 1181 and H.R. 9237 under a closed rule and H.R. 9022 and H.R. 8595 under a structured rule. The resolution provides for one hour of general debate and one motion to recommit on each bill.",
+        "actionDate": "2026-06-23",
+        "type": "Floor",
+        "actionTime": "19:18:06",
+        "actionCode": "H1L210"
+      },
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 547.",
+        "actionDate": "2026-04-30",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "The House Committee on Appropriations reported an original measure, H. Rept. 119-631, by Mr. Diaz-Balart.",
+        "actionDate": "2026-04-30",
+        "type": "Committee",
+        "actionCode": "H12100"
+      },
+      {
+        "text": "The House Committee on Appropriations reported an original measure, H. Rept. 119-631, by Mr. Diaz-Balart.",
+        "actionDate": "2026-04-30",
+        "type": "Committee",
+        "actionCode": "1010"
+      },
+      {
+        "text": "The House Committee on Appropriations reported an original measure, H. Rept. 119-631, by Mr. Diaz-Balart.",
+        "actionDate": "2026-04-30",
+        "type": "Committee",
+        "actionCode": "1010"
+      }
+    ],
     "committees": [],
     "policy_areas": [
       "International Affairs"
     ],
     "status": "Motion to reconsider laid on the table Agreed to without objection.",
-    "votes": [],
+    "votes": [
+      {
+        "rollNumber": 247,
+        "chamber": "House",
+        "date": "2026-07-15",
+        "result": "Passed",
+        "yeas": 217,
+        "nays": 209,
+        "motion": "On Passage",
+        "tally_text": "Passed 217\u2013209"
+      },
+      {
+        "rollNumber": 246,
+        "chamber": "House",
+        "date": "2026-07-15",
+        "result": "Failed",
+        "yeas": 209,
+        "nays": 216,
+        "motion": "On Motion to Recommit",
+        "tally_text": "Failed 209\u2013216"
+      }
+    ],
     "introduced_date": "2026-04-30T00:00:00",
     "url": "https://www.congress.gov/bill/119th-congress/house-bill/8595",
     "published": "2026-04-30T00:00:00",
@@ -6812,7 +7303,44 @@
     "cosponsors": [],
     "latest_action": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
     "latest_action_date": "2026-07-14T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
+        "actionDate": "2026-07-14",
+        "type": "Committee",
+        "actionCode": "H23000"
+      },
+      {
+        "text": "Subcommittee Consideration and Mark-up Session Held",
+        "actionDate": "2026-07-14",
+        "type": "Committee",
+        "actionCode": "H22000"
+      },
+      {
+        "text": "Referred to the Subcommittee on Environment.",
+        "actionDate": "2026-06-15",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
+        "text": "Referred to the House Committee on Energy and Commerce.",
+        "actionDate": "2026-06-15",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-06-15",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-06-15",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [
       "Environmental Protection"
@@ -6840,7 +7368,44 @@
     "cosponsors": [],
     "latest_action": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
     "latest_action_date": "2026-07-14T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
+        "actionDate": "2026-07-14",
+        "type": "Committee",
+        "actionCode": "H23000"
+      },
+      {
+        "text": "Subcommittee Consideration and Mark-up Session Held",
+        "actionDate": "2026-07-14",
+        "type": "Committee",
+        "actionCode": "H22000"
+      },
+      {
+        "text": "Referred to the House Committee on Energy and Commerce.",
+        "actionDate": "2026-07-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Subcommittee on Environment.",
+        "actionDate": "2026-07-09",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-07-09",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-07-09",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [
       "Environmental Protection"
@@ -6868,7 +7433,44 @@
     "cosponsors": [],
     "latest_action": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
     "latest_action_date": "2026-07-14T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
+        "actionDate": "2026-07-14",
+        "type": "Committee",
+        "actionCode": "H23000"
+      },
+      {
+        "text": "Subcommittee Consideration and Mark-up Session Held",
+        "actionDate": "2026-07-14",
+        "type": "Committee",
+        "actionCode": "H22000"
+      },
+      {
+        "text": "Referred to the House Committee on Energy and Commerce.",
+        "actionDate": "2026-07-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Subcommittee on Environment.",
+        "actionDate": "2026-07-09",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-07-09",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-07-09",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [
       "Energy"
@@ -6896,7 +7498,44 @@
     "cosponsors": [],
     "latest_action": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
     "latest_action_date": "2026-07-14T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
+        "actionDate": "2026-07-14",
+        "type": "Committee",
+        "actionCode": "H23000"
+      },
+      {
+        "text": "Subcommittee Consideration and Mark-up Session Held",
+        "actionDate": "2026-07-14",
+        "type": "Committee",
+        "actionCode": "H22000"
+      },
+      {
+        "text": "Referred to the House Committee on Energy and Commerce.",
+        "actionDate": "2026-07-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Subcommittee on Energy.",
+        "actionDate": "2026-07-09",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-07-09",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-07-09",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [
       "Energy"
@@ -6924,7 +7563,44 @@
     "cosponsors": [],
     "latest_action": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
     "latest_action_date": "2026-07-14T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
+        "actionDate": "2026-07-14",
+        "type": "Committee",
+        "actionCode": "H23000"
+      },
+      {
+        "text": "Subcommittee Consideration and Mark-up Session Held",
+        "actionDate": "2026-07-14",
+        "type": "Committee",
+        "actionCode": "H22000"
+      },
+      {
+        "text": "Referred to the Subcommittee on Energy.",
+        "actionDate": "2026-06-02",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
+        "text": "Referred to the House Committee on Energy and Commerce.",
+        "actionDate": "2026-06-02",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-06-02",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-06-02",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [
       "Energy"
@@ -6952,7 +7628,44 @@
     "cosponsors": [],
     "latest_action": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
     "latest_action_date": "2026-07-14T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
+        "actionDate": "2026-07-14",
+        "type": "Committee",
+        "actionCode": "H23000"
+      },
+      {
+        "text": "Subcommittee Consideration and Mark-up Session Held",
+        "actionDate": "2026-07-14",
+        "type": "Committee",
+        "actionCode": "H22000"
+      },
+      {
+        "text": "Referred to the House Committee on Energy and Commerce.",
+        "actionDate": "2026-07-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Subcommittee on Energy.",
+        "actionDate": "2026-07-09",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-07-09",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-07-09",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [
       "Government Operations and Politics"
@@ -6980,7 +7693,44 @@
     "cosponsors": [],
     "latest_action": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
     "latest_action_date": "2026-07-14T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
+        "actionDate": "2026-07-14",
+        "type": "Committee",
+        "actionCode": "H23000"
+      },
+      {
+        "text": "Subcommittee Consideration and Mark-up Session Held",
+        "actionDate": "2026-07-14",
+        "type": "Committee",
+        "actionCode": "H22000"
+      },
+      {
+        "text": "Referred to the House Committee on Energy and Commerce.",
+        "actionDate": "2026-07-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Subcommittee on Energy.",
+        "actionDate": "2026-07-09",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-07-09",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-07-09",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [
       "Energy"
@@ -7008,7 +7758,50 @@
     "cosponsors": [],
     "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 66 - 0.",
     "latest_action_date": "2026-07-14T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Ordered to be Reported (Amended) by the Yeas and Nays: 66 - 0.",
+        "actionDate": "2026-07-14",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2026-07-14",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Subcommittee on Water Resources and Environment Discharged",
+        "actionDate": "2026-07-14",
+        "type": "Committee",
+        "actionCode": "H25000"
+      },
+      {
+        "text": "Referred to the Subcommittee on Water Resources and Environment.",
+        "actionDate": "2026-06-30",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
+        "text": "Referred to the House Committee on Transportation and Infrastructure.",
+        "actionDate": "2026-06-29",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-06-29",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-06-29",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [
       "Water Resources Development"
@@ -7023,6 +7816,258 @@
     "last_synced_at": "2026-07-18T08:30:53.779543+00:00",
     "official_title": "To provide for improvements to the rivers and harbors of the United States, to provide for the conservation and development of water and related resources, and for other purposes.",
     "short_title": "Water Resources Development Act of 2026"
+  },
+  {
+    "bill_number": "7574",
+    "bill_type": "HR",
+    "title": "ELO Realignment and Strategic Engagement Reform Act of 2026",
+    "summary": "",
+    "sponsor_name": "Rep. Evans, Gabe [R-CO-8]",
+    "sponsor_party": "R",
+    "sponsor_state": "CO",
+    "sponsor_district": 8,
+    "cosponsors": [],
+    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+    "latest_action_date": "2026-07-14T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Armed Forces and National Security"
+    ],
+    "status": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+    "votes": [],
+    "introduced_date": "2026-02-13T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/7574",
+    "published": "2026-02-13T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:29.834361+00:00",
+    "official_title": "To provide for the reorganization and realignment of the Engagement, Liaison, and Outreach Office of the Department of Homeland Security, and for other purposes.",
+    "short_title": "ELO Realignment and Strategic Engagement Reform Act of 2026"
+  },
+  {
+    "bill_number": "8168",
+    "bill_type": "HR",
+    "title": "Major Non-NATO Ally Terror Threat Assessment Act",
+    "summary": "",
+    "sponsor_name": "Rep. Van Epps, Matt [R-TN-7]",
+    "sponsor_party": "R",
+    "sponsor_state": "TN",
+    "sponsor_district": 7,
+    "cosponsors": [],
+    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+    "latest_action_date": "2026-07-14T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "International Affairs"
+    ],
+    "status": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+    "votes": [],
+    "introduced_date": "2026-03-30T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8168",
+    "published": "2026-03-30T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:30.276584+00:00",
+    "official_title": "To require an assessment of terrorism threats to the United States posed by foreign terrorist organizations and Specially Designated Global Terrorists present in countries that are major non-NATO allies, and for other purposes.",
+    "short_title": "Major Non-NATO Ally Terror Threat Assessment Act"
+  },
+  {
+    "bill_number": "8535",
+    "bill_type": "HR",
+    "title": "Measuring Illicit Fentanyl Trafficking Act",
+    "summary": "",
+    "sponsor_name": "Rep. Walkinshaw, James R. [D-VA-11]",
+    "sponsor_party": "D",
+    "sponsor_state": "VA",
+    "sponsor_district": 11,
+    "cosponsors": [],
+    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+    "latest_action_date": "2026-07-14T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Crime and Law Enforcement"
+    ],
+    "status": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+    "votes": [],
+    "introduced_date": "2026-04-27T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8535",
+    "published": "2026-04-27T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:30.717950+00:00",
+    "official_title": "To direct the Secretary of Homeland Security to develop performance metrics relating to the detection, deterrence, and seizure of fentanyl.",
+    "short_title": "Measuring Illicit Fentanyl Trafficking Act"
+  },
+  {
+    "bill_number": "8770",
+    "bill_type": "HR",
+    "title": "SAFEGUARDS Act of 2026",
+    "summary": "",
+    "sponsor_name": "Rep. Strong, Dale W. [R-AL-5]",
+    "sponsor_party": "R",
+    "sponsor_state": "AL",
+    "sponsor_district": 5,
+    "cosponsors": [],
+    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+    "latest_action_date": "2026-07-14T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Transportation and Public Works"
+    ],
+    "status": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+    "votes": [],
+    "introduced_date": "2026-05-12T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8770",
+    "published": "2026-05-12T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:31.188588+00:00",
+    "official_title": "To amend title 49, United States Code, to establish funds for investments in aviation security, and for other purposes.",
+    "short_title": "Spending Aviation Fees for Equipment, Guaranteeing Upgraded and Advanced Risk Detection and Safety Act of 2026"
+  },
+  {
+    "bill_number": "8874",
+    "bill_type": "HR",
+    "title": "Homeland Security Capabilities Preservation Reporting Act of 2026",
+    "summary": "",
+    "sponsor_name": "Rep. Carter, Troy A. [D-LA-2]",
+    "sponsor_party": "D",
+    "sponsor_state": "LA",
+    "sponsor_district": 2,
+    "cosponsors": [],
+    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+    "latest_action_date": "2026-07-14T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Emergency Management"
+    ],
+    "status": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+    "votes": [],
+    "introduced_date": "2026-05-19T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8874",
+    "published": "2026-05-19T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:31.631274+00:00",
+    "official_title": "To amend the James M. Inhofe National Defense Authorization Act for Fiscal Year 2023 to require recurring reports on the transition of jurisdictions no longer eligible for Urban Area Security Initiative funding, and for other purposes.",
+    "short_title": "Homeland Security Capabilities Preservation Reporting Act of 2026"
+  },
+  {
+    "bill_number": "8897",
+    "bill_type": "HR",
+    "title": "Improving Travel for American Families Act",
+    "summary": "",
+    "sponsor_name": "Rep. Mackenzie, Ryan [R-PA-7]",
+    "sponsor_party": "R",
+    "sponsor_state": "PA",
+    "sponsor_district": 7,
+    "cosponsors": [],
+    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+    "latest_action_date": "2026-07-14T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Transportation and Public Works"
+    ],
+    "status": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+    "votes": [],
+    "introduced_date": "2026-05-19T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8897",
+    "published": "2026-05-19T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:32.084432+00:00",
+    "official_title": "To improve travel for American families, and for other purposes.",
+    "short_title": "Improving Travel for American Families Act"
+  },
+  {
+    "bill_number": "9328",
+    "bill_type": "HR",
+    "title": "Improving Travel for Military Members Act",
+    "summary": "",
+    "sponsor_name": "Rep. Biggs, Sheri [R-SC-3]",
+    "sponsor_party": "R",
+    "sponsor_state": "SC",
+    "sponsor_district": 3,
+    "cosponsors": [],
+    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+    "latest_action_date": "2026-07-14T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Armed Forces and National Security"
+    ],
+    "status": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+    "votes": [],
+    "introduced_date": "2026-06-18T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9328",
+    "published": "2026-06-18T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:33.464085+00:00",
+    "official_title": "To improve travel for active-duty military personnel and accompanying family, and for other purposes.",
+    "short_title": "Improving Travel for Military Members Act"
+  },
+  {
+    "bill_number": "9388",
+    "bill_type": "HR",
+    "title": "One-Stop Pilot Program Extension Act",
+    "summary": "",
+    "sponsor_name": "Rep. Gimenez, Carlos A. [R-FL-28]",
+    "sponsor_party": "R",
+    "sponsor_state": "FL",
+    "sponsor_district": 28,
+    "cosponsors": [],
+    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+    "latest_action_date": "2026-07-14T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Transportation and Public Works"
+    ],
+    "status": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+    "votes": [],
+    "introduced_date": "2026-06-23T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9388",
+    "published": "2026-06-23T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:34.350184+00:00",
+    "official_title": "To amend title 49, United States Code, to authorize an extension of a program to permit screened passengers and their property arriving on direct flights or flight segments originating at certain foreign last point of departure airports to continue on additional flights or flight segments originating in the United States without additional screening, and for other purposes.",
+    "short_title": "One-Stop Pilot Program Extension Act"
+  },
+  {
+    "bill_number": "9391",
+    "bill_type": "HR",
+    "title": "Reimbursable Screening Services Program Extension Act of 2026",
+    "summary": "",
+    "sponsor_name": "Rep. Garbarino, Andrew R. [R-NY-2]",
+    "sponsor_party": "R",
+    "sponsor_state": "NY",
+    "sponsor_district": 2,
+    "cosponsors": [],
+    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+    "latest_action_date": "2026-07-14T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Transportation and Public Works"
+    ],
+    "status": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+    "votes": [],
+    "introduced_date": "2026-06-23T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9391",
+    "published": "2026-06-23T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:34.794430+00:00",
+    "official_title": "To authorize an extension and expansion of the reimbursable screening services program of the Transportation Security Administration, and for other purposes.",
+    "short_title": "Reimbursable Screening Services Program Extension Act of 2026"
   },
   {
     "bill_number": "5347",
@@ -9009,6 +10054,34 @@
     "last_synced_at": "2026-07-18T04:31:42.548805+00:00",
     "official_title": "To authorize appropriations for fiscal year 2027 for intelligence and intelligence-related activities of the United States Government, the Intelligence Community Management Account, and the Central Intelligence Agency Retirement and Disability System, and for other purposes.",
     "short_title": "Intelligence Authorization Act for Fiscal Year 2027"
+  },
+  {
+    "bill_number": "8893",
+    "bill_type": "HR",
+    "title": "Protecting Consumers from Deceptive AI Act",
+    "summary": "",
+    "sponsor_name": "Rep. Foushee, Valerie P. [D-NC-4]",
+    "sponsor_party": "D",
+    "sponsor_state": "NC",
+    "sponsor_district": 4,
+    "cosponsors": [],
+    "latest_action": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 35 - 0.",
+    "latest_action_date": "2026-07-07T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Science, Technology, Communications"
+    ],
+    "status": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 35 - 0.",
+    "votes": [],
+    "introduced_date": "2026-05-19T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8893",
+    "published": "2026-05-19T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:21.411916+00:00",
+    "official_title": "To require the National Institute of Standards and Technology to establish task forces to facilitate and inform the development of technical standards and guidelines relating to the identification of content created by generative artificial intelligence, and for other purposes.",
+    "short_title": "Protecting Consumers from Deceptive AI Act"
   },
   {
     "bill_number": "1",
@@ -12589,6 +13662,286 @@
     "short_title": "Federal Workers\u2019 Compensation Integrity and Care Act"
   },
   {
+    "bill_number": "8823",
+    "bill_type": "HR",
+    "title": "Putting Patients First by Strengthening Provider Accountability in FECA Act",
+    "summary": "",
+    "sponsor_name": "Rep. Mackenzie, Ryan [R-PA-7]",
+    "sponsor_party": "R",
+    "sponsor_state": "PA",
+    "sponsor_district": 7,
+    "cosponsors": [],
+    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 33 - 0.",
+    "latest_action_date": "2026-06-25T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Government Operations and Politics"
+    ],
+    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 33 - 0.",
+    "votes": [],
+    "introduced_date": "2026-05-14T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8823",
+    "published": "2026-05-14T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:16.213847+00:00",
+    "official_title": "To amend the Federal Employees' Compensation Act to allow the Secretary of Labor to suspend payments to medical providers who have been convicted of fraud.",
+    "short_title": "Putting Patients First by Strengthening Provider Accountability in FECA Act"
+  },
+  {
+    "bill_number": "9381",
+    "bill_type": "HR",
+    "title": "AWARE Act",
+    "summary": "",
+    "sponsor_name": "Rep. Walberg, Tim [R-MI-5]",
+    "sponsor_party": "R",
+    "sponsor_state": "MI",
+    "sponsor_district": 5,
+    "cosponsors": [],
+    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 19 - 14.",
+    "latest_action_date": "2026-06-25T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Labor and Employment"
+    ],
+    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 19 - 14.",
+    "votes": [],
+    "introduced_date": "2026-06-22T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9381",
+    "published": "2026-06-22T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:16.668226+00:00",
+    "official_title": "To direct the Bureau of Labor Statistics to report on the usage of artificial intelligence in the workplace.",
+    "short_title": "AWARE Act"
+  },
+  {
+    "bill_number": "9228",
+    "bill_type": "HR",
+    "title": "Health Data Access, Transparency, and Affordability Act of 2026",
+    "summary": "",
+    "sponsor_name": "Rep. Onder, Robert F. [R-MO-3]",
+    "sponsor_party": "R",
+    "sponsor_state": "MO",
+    "sponsor_district": 3,
+    "cosponsors": [],
+    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
+    "latest_action_date": "2026-06-25T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Health"
+    ],
+    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
+    "votes": [],
+    "introduced_date": "2026-06-09T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9228",
+    "published": "2026-06-09T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:17.111888+00:00",
+    "official_title": "To amend the Employee Retirement Income Security Act of 1974 to ensure plan fiduciaries have access to de-identified information relating to health claims, and for other purposes.",
+    "short_title": "Health Data Access, Transparency, and Affordability Act of 2026"
+  },
+  {
+    "bill_number": "9395",
+    "bill_type": "HR",
+    "title": "Transparency in Medicare Advantage Steering Act",
+    "summary": "",
+    "sponsor_name": "Rep. Ocasio-Cortez, Alexandria [D-NY-14]",
+    "sponsor_party": "D",
+    "sponsor_state": "NY",
+    "sponsor_district": 14,
+    "cosponsors": [],
+    "latest_action": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
+    "latest_action_date": "2026-06-25T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Health"
+    ],
+    "status": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
+    "votes": [],
+    "introduced_date": "2026-06-23T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9395",
+    "published": "2026-06-23T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:17.555746+00:00",
+    "official_title": "To amend title XVIII of the Social Security Act to require certain reporting with respect to agents and brokers of Medicare Advantage organizations.",
+    "short_title": "Transparency in Medicare Advantage Steering Act"
+  },
+  {
+    "bill_number": "9363",
+    "bill_type": "HR",
+    "title": "AI Security and Innovation Act",
+    "summary": "",
+    "sponsor_name": "Rep. Obernolte, Jay [R-CA-23]",
+    "sponsor_party": "R",
+    "sponsor_state": "CA",
+    "sponsor_district": 23,
+    "cosponsors": [],
+    "latest_action": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 29 - 0.",
+    "latest_action_date": "2026-06-25T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Science, Technology, Communications"
+    ],
+    "status": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 29 - 0.",
+    "votes": [],
+    "introduced_date": "2026-06-18T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9363",
+    "published": "2026-06-18T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:18.000017+00:00",
+    "official_title": "To amend the National Artificial Intelligence Initiative Act of 2020 to establish a center on artificial intelligence to ensure continued United States leadership in research, development, and evaluation of artificial intelligence systems, and for other purposes.",
+    "short_title": "AI Security and Innovation Act"
+  },
+  {
+    "bill_number": "9333",
+    "bill_type": "HR",
+    "title": "AI Flaw Reporting and Security Enhancement Act",
+    "summary": "",
+    "sponsor_name": "Rep. Ross, Deborah K. [D-NC-2]",
+    "sponsor_party": "D",
+    "sponsor_state": "NC",
+    "sponsor_district": 2,
+    "cosponsors": [],
+    "latest_action": "Ordered to be Reported in the Nature of a Substitute by the Yeas and Nays: 35 - 0.",
+    "latest_action_date": "2026-06-25T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Science, Technology, Communications"
+    ],
+    "status": "Ordered to be Reported in the Nature of a Substitute by the Yeas and Nays: 35 - 0.",
+    "votes": [],
+    "introduced_date": "2026-06-18T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9333",
+    "published": "2026-06-18T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:19.207994+00:00",
+    "official_title": "To direct the Director of the National Institute of Standards and Technology to develop a program for the voluntary reporting of artificial intelligence flaws and the acceleration of detection and monitoring of such flaws, and for other purposes.",
+    "short_title": "AI Flaw Reporting and Security Enhancement Act"
+  },
+  {
+    "bill_number": "9334",
+    "bill_type": "HR",
+    "title": "Workforce for AI Trust Act",
+    "summary": "",
+    "sponsor_name": "Rep. Lofgren, Zoe [D-CA-18]",
+    "sponsor_party": "D",
+    "sponsor_state": "CA",
+    "sponsor_district": 18,
+    "cosponsors": [],
+    "latest_action": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 35 - 0.",
+    "latest_action_date": "2026-06-25T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Science, Technology, Communications"
+    ],
+    "status": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 35 - 0.",
+    "votes": [],
+    "introduced_date": "2026-06-18T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9334",
+    "published": "2026-06-18T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:19.662907+00:00",
+    "official_title": "To amend the National Artificial Intelligence Initiative Act of 2020 to facilitate the growth of multidisciplinary teams that can advance the development and training of safe and trustworthy artificial intelligence systems, and for other purposes.",
+    "short_title": "Workforce for AI Trust Act"
+  },
+  {
+    "bill_number": "9372",
+    "bill_type": "HR",
+    "title": "Data Infrastructure Energy Measurement and Standards Act",
+    "summary": "",
+    "sponsor_name": "Rep. Subramanyam, Suhas [D-VA-10]",
+    "sponsor_party": "D",
+    "sponsor_state": "VA",
+    "sponsor_district": 10,
+    "cosponsors": [],
+    "latest_action": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 34 - 1.",
+    "latest_action_date": "2026-06-25T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Science, Technology, Communications"
+    ],
+    "status": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 34 - 1.",
+    "votes": [],
+    "introduced_date": "2026-06-18T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9372",
+    "published": "2026-06-18T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:20.966570+00:00",
+    "official_title": "To direct the Director of the National Institute of Standards and Technology to develop best practices for measuring data center energy use, study data availability for the purpose of improving energy demand forecasting capabilities, and for other purposes.",
+    "short_title": "Data Infrastructure Energy Measurement and Standards Act"
+  },
+  {
+    "bill_number": "9341",
+    "bill_type": "HR",
+    "title": "AI-Ready Federal Data Guidelines Act",
+    "summary": "",
+    "sponsor_name": "Rep. Babin, Brian [R-TX-36]",
+    "sponsor_party": "R",
+    "sponsor_state": "TX",
+    "sponsor_district": 36,
+    "cosponsors": [],
+    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 29 - 0.",
+    "latest_action_date": "2026-06-25T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Government Operations and Politics"
+    ],
+    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 29 - 0.",
+    "votes": [],
+    "introduced_date": "2026-06-18T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9341",
+    "published": "2026-06-18T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:21.854939+00:00",
+    "official_title": "To require the Director of the National Institute of Standards and Technology to develop guidelines to assist agencies with preparing open Government data assets to be used to train artificial intelligence models, and for other purposes.",
+    "short_title": "AI-Ready Federal Data Guidelines Act"
+  },
+  {
+    "bill_number": "8767",
+    "bill_type": "HR",
+    "title": "Compensation Fund Recrediting Act",
+    "summary": "",
+    "sponsor_name": "Rep. Self, Keith [R-TX-3]",
+    "sponsor_party": "R",
+    "sponsor_state": "TX",
+    "sponsor_district": 3,
+    "cosponsors": [],
+    "latest_action": "Subcommittee Hearings Held",
+    "latest_action_date": "2026-06-25T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Armed Forces and National Security"
+    ],
+    "status": "Subcommittee Hearings Held",
+    "votes": [],
+    "introduced_date": "2026-05-12T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8767",
+    "published": "2026-05-12T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:23.535417+00:00",
+    "official_title": "To amend the American Recovery and Reinvestment Act of 2009 to wind down the Filipino Veterans Equity Compensation Fund.",
+    "short_title": "Compensation Fund Recrediting Act"
+  },
+  {
     "bill_number": "5109",
     "bill_type": "HR",
     "title": "To require the Administrator of the Transportation Security Administration of the United States to develop guidelines to improve returning citizens' access to the Transportation Worker Identification Credential program, to assist individuals in custody of Federal, State, and local prisons in pre-applying or preparing applications for Transportation Worker Identification Credential cards, and to assist individuals requesting an appeal or waiver of preliminary determination of ineligibility, and for other purposes.",
@@ -13709,6 +15062,314 @@
     "short_title": "To amend the Consolidated Appropriations Act, 2023 to extend the time period for which certain regulations concerning the North Atlantic right whale are effective."
   },
   {
+    "bill_number": "7427",
+    "bill_type": "HR",
+    "title": "SAFE VISITS Act",
+    "summary": "",
+    "sponsor_name": "Rep. Goldman, Daniel S. [D-NY-10]",
+    "sponsor_party": "D",
+    "sponsor_state": "NY",
+    "sponsor_district": 10,
+    "cosponsors": [],
+    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 28 - 2.",
+    "latest_action_date": "2026-06-24T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Armed Forces and National Security"
+    ],
+    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 28 - 2.",
+    "votes": [],
+    "introduced_date": "2026-02-09T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/7427",
+    "published": "2026-02-09T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:28.057561+00:00",
+    "official_title": "To amend the Homeland Security Act of 2002 to provide threat analyses, including relating to terrorism threats, and guidance to State, local, Tribal, or territorial government officials or employees regarding visiting foreign nationals who seek access to State, local, Tribal, or territorial officials or employees, information, facilities, programs, or systems, and for other purposes.",
+    "short_title": "SAFE VISITS Act"
+  },
+  {
+    "bill_number": "7436",
+    "bill_type": "HR",
+    "title": "Department of Homeland Security Intelligence and Analysis Training Act",
+    "summary": "",
+    "sponsor_name": "Rep. Magaziner, Seth [D-RI-2]",
+    "sponsor_party": "D",
+    "sponsor_state": "RI",
+    "sponsor_district": 2,
+    "cosponsors": [],
+    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 30 - 0.",
+    "latest_action_date": "2026-06-24T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Armed Forces and National Security"
+    ],
+    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 30 - 0.",
+    "votes": [],
+    "introduced_date": "2026-02-09T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/7436",
+    "published": "2026-02-09T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:28.501651+00:00",
+    "official_title": "To amend the Homeland Security Act of 2002 to direct the Secretary of Homeland Security to implement a standardized training program for employees of the Office of Intelligence and Analysis of the Department of Homeland Security, and for other purposes.",
+    "short_title": "Department of Homeland Security Intelligence and Analysis Training Act"
+  },
+  {
+    "bill_number": "7443",
+    "bill_type": "HR",
+    "title": "I&A Mission Reorientation Act of 2026",
+    "summary": "",
+    "sponsor_name": "Rep. Pfluger, August [R-TX-11]",
+    "sponsor_party": "R",
+    "sponsor_state": "TX",
+    "sponsor_district": 11,
+    "cosponsors": [],
+    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 30 - 0.",
+    "latest_action_date": "2026-06-24T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Armed Forces and National Security"
+    ],
+    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 30 - 0.",
+    "votes": [],
+    "introduced_date": "2026-02-09T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/7443",
+    "published": "2026-02-09T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:28.946177+00:00",
+    "official_title": "To amend the Homeland Security Act of 2002 to realign the mission of the Office of Intelligence and Analysis of the Department of Homeland Security, and for other purposes.",
+    "short_title": "I&A Mission Reorientation Act of 2026"
+  },
+  {
+    "bill_number": "7448",
+    "bill_type": "HR",
+    "title": "Modernizing and Improving the National Terrorism Advisory System Act of 2026",
+    "summary": "",
+    "sponsor_name": "Rep. Pou, Nellie [D-NJ-9]",
+    "sponsor_party": "D",
+    "sponsor_state": "NJ",
+    "sponsor_district": 9,
+    "cosponsors": [],
+    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 30 - 0.",
+    "latest_action_date": "2026-06-24T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Crime and Law Enforcement"
+    ],
+    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 30 - 0.",
+    "votes": [],
+    "introduced_date": "2026-02-09T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/7448",
+    "published": "2026-02-09T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:29.390326+00:00",
+    "official_title": "To direct the Secretary of Homeland Security to develop a strategy to modernize the National Terrorism Advisory System, and for other purposes.",
+    "short_title": "Modernizing and Improving the National Terrorism Advisory System Act of 2026"
+  },
+  {
+    "bill_number": "9327",
+    "bill_type": "HR",
+    "title": "PEARL Act",
+    "summary": "",
+    "sponsor_name": "Rep. Joyce, David P. [R-OH-14]",
+    "sponsor_party": "R",
+    "sponsor_state": "OH",
+    "sponsor_district": 14,
+    "cosponsors": [],
+    "latest_action": "Ordered to be Reported by the Yeas and Nays: 30 - 0.",
+    "latest_action_date": "2026-06-24T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Immigration"
+    ],
+    "status": "Ordered to be Reported by the Yeas and Nays: 30 - 0.",
+    "votes": [],
+    "introduced_date": "2026-06-18T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9327",
+    "published": "2026-06-18T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:33.011000+00:00",
+    "official_title": "To establish in U.S. Customs and Border Protection a pilot program to adopt dogs from local animal shelters to be trained as support dogs, and for other purposes.",
+    "short_title": "PEARL Act"
+  },
+  {
+    "bill_number": "9382",
+    "bill_type": "HR",
+    "title": "To require the Commissioner of U.S. Customs and Border Protection to link together applications of family members throughout the NEXUS application process, and for other purposes.",
+    "summary": "",
+    "sponsor_name": "Rep. Kennedy, Timothy M. [D-NY-26]",
+    "sponsor_party": "D",
+    "sponsor_state": "NY",
+    "sponsor_district": 26,
+    "cosponsors": [],
+    "latest_action": "Ordered to be Reported by the Yeas and Nays: 30 - 0.",
+    "latest_action_date": "2026-06-24T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Immigration"
+    ],
+    "status": "Ordered to be Reported by the Yeas and Nays: 30 - 0.",
+    "votes": [],
+    "introduced_date": "2026-06-22T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9382",
+    "published": "2026-06-22T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:33.906241+00:00",
+    "official_title": "To require the Commissioner of U.S. Customs and Border Protection to link together applications of family members throughout the NEXUS application process, and for other purposes.",
+    "short_title": "To require the Commissioner of U.S. Customs and Border Protection to link together applications of family members throughout the NEXUS application process, and for other purposes."
+  },
+  {
+    "bill_number": "9394",
+    "bill_type": "HR",
+    "title": "Civil Preparedness for Agroterrorism Exercise Act of 2026",
+    "summary": "",
+    "sponsor_name": "Rep. Strong, Dale W. [R-AL-5]",
+    "sponsor_party": "R",
+    "sponsor_state": "AL",
+    "sponsor_district": 5,
+    "cosponsors": [],
+    "latest_action": "Ordered to be Reported by the Yeas and Nays: 30 - 0.",
+    "latest_action_date": "2026-06-24T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Emergency Management"
+    ],
+    "status": "Ordered to be Reported by the Yeas and Nays: 30 - 0.",
+    "votes": [],
+    "introduced_date": "2026-06-23T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9394",
+    "published": "2026-06-23T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:35.248351+00:00",
+    "official_title": "To require the Department of Homeland Security to conduct an exercise related to agroterrorism, and for other purposes.",
+    "short_title": "Civil Preparedness for Agroterrorism Exercise Act of 2026"
+  },
+  {
+    "bill_number": "9342",
+    "bill_type": "HR",
+    "title": "GPO Modernization Act of 2026",
+    "summary": "",
+    "sponsor_name": "Rep. Bice, Stephanie I. [R-OK-5]",
+    "sponsor_party": "R",
+    "sponsor_state": "OK",
+    "sponsor_district": 5,
+    "cosponsors": [],
+    "latest_action": "Ordered to be Reported (Amended) by Voice Vote.",
+    "latest_action_date": "2026-06-24T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Congress"
+    ],
+    "status": "Ordered to be Reported (Amended) by Voice Vote.",
+    "votes": [],
+    "introduced_date": "2026-06-18T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9342",
+    "published": "2026-06-18T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:35.692519+00:00",
+    "official_title": "To revise certain authorities of the Government Publishing Office, and for other purposes.",
+    "short_title": "GPO Modernization Act of 2026"
+  },
+  {
+    "bill_number": "9360",
+    "bill_type": "HR",
+    "title": "Advisory Committee on the Records of Congress Sunset Act",
+    "summary": "",
+    "sponsor_name": "Rep. Miller, Mary E. [R-IL-15]",
+    "sponsor_party": "R",
+    "sponsor_state": "IL",
+    "sponsor_district": 15,
+    "cosponsors": [],
+    "latest_action": "Ordered to be Reported (Amended) by Voice Vote.",
+    "latest_action_date": "2026-06-24T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Government Operations and Politics"
+    ],
+    "status": "Ordered to be Reported (Amended) by Voice Vote.",
+    "votes": [],
+    "introduced_date": "2026-06-18T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9360",
+    "published": "2026-06-18T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:36.134929+00:00",
+    "official_title": "To sunset the Advisory Committee on the Records of Congress, and for other purposes.",
+    "short_title": "Advisory Committee on the Records of Congress Sunset Act"
+  },
+  {
+    "bill_number": "9367",
+    "bill_type": "HR",
+    "title": "Stop Lawmakers From Predicting Act",
+    "summary": "",
+    "sponsor_name": "Rep. Steil, Bryan [R-WI-1]",
+    "sponsor_party": "R",
+    "sponsor_state": "WI",
+    "sponsor_district": 1,
+    "cosponsors": [],
+    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 5 - 4.",
+    "latest_action_date": "2026-06-24T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Government Operations and Politics"
+    ],
+    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 5 - 4.",
+    "votes": [],
+    "introduced_date": "2026-06-18T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9367",
+    "published": "2026-06-18T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:36.576783+00:00",
+    "official_title": "To amend chapter 131 of title 5, United States Code, to restrict Members of Congress and their spouses and dependents from profiting off prediction markets, and for other purposes.",
+    "short_title": "Stop Lawmakers From Predicting Act"
+  },
+  {
+    "bill_number": "9250",
+    "bill_type": "HR",
+    "title": "Great American Outdoors Act 250",
+    "summary": "",
+    "sponsor_name": "Rep. Westerman, Bruce [R-AR-4]",
+    "sponsor_party": "R",
+    "sponsor_state": "AR",
+    "sponsor_district": 4,
+    "cosponsors": [],
+    "latest_action": "Ordered to be Reported in the Nature of a Substitute (Amended) by Voice Vote.",
+    "latest_action_date": "2026-06-24T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Public Lands and Natural Resources"
+    ],
+    "status": "Ordered to be Reported in the Nature of a Substitute (Amended) by Voice Vote.",
+    "votes": [],
+    "introduced_date": "2026-06-10T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9250",
+    "published": "2026-06-10T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:38.047287+00:00",
+    "official_title": "To modernize and maintain the National Park Service, the United States Fish and Wildlife Service, the Bureau of Land Management, the Forest Service, and the Bureau of Indian Education in celebration of America's 250th anniversary.",
+    "short_title": "Great American Outdoors Act 250"
+  },
+  {
     "bill_number": "675",
     "bill_type": "S",
     "title": "Theodore Roosevelt Presidential Library Act",
@@ -14045,6 +15706,34 @@
     "congress": 119,
     "official_title": "A bill to provide for media coverage of Federal court proceedings.",
     "short_title": "Sunshine in the Courtroom Act of 2025"
+  },
+  {
+    "bill_number": "9022",
+    "bill_type": "HR",
+    "title": "Energy and Water Development and Related Agencies Appropriations Act, 2027",
+    "summary": "",
+    "sponsor_name": "Rep. Fleischmann, Charles J. \"Chuck\" [R-TN-3]",
+    "sponsor_party": "R",
+    "sponsor_state": "TN",
+    "sponsor_district": 3,
+    "cosponsors": [],
+    "latest_action": "Rules Committee Resolution H. Res. 1377 Reported to House. Rule provides for consideration of H.R. 1181, H.R. 9022, H.R. 8595 and H.R. 9237. The resolution provides for consideration of H.R. 1181 and H.R. 9237 under a closed rule and H.R. 9022 and H.R. 8595 under a structured rule. The resolution provides for one hour of general debate and one motion to recommit on each bill.",
+    "latest_action_date": "2026-06-23T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Economics and Public Finance"
+    ],
+    "status": "Rules Committee Resolution H. Res. 1377 Reported to House. Rule provides for consideration of H.R. 1181, H.R. 9022, H.R. 8595 and H.R. 9237. The resolution provides for consideration of H.R. 1181 and H.R. 9237 under a closed rule and H.R. 9022 and H.R. 8595 under a structured rule. The resolution provides for one hour of general debate and one motion to recommit on each bill.",
+    "votes": [],
+    "introduced_date": "2026-05-22T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9022",
+    "published": "2026-05-22T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:39.134216+00:00",
+    "official_title": "Making appropriations for energy and water development and related agencies for the fiscal year ending September 30, 2027, and for other purposes.",
+    "short_title": "Energy and Water Development and Related Agencies Appropriations Act, 2027"
   },
   {
     "bill_number": "1782",
@@ -14549,6 +16238,34 @@
     "last_synced_at": "2026-07-18T08:31:01.441966+00:00",
     "official_title": "To amend title 38, United States Code, to codify the National Veteran Suicide Prevention Annual Report and to direct the Secretary of Veterans Affairs to study the effects of the Chaplain Service of the Department on the risk of suicide among veterans.",
     "short_title": "TOURS Act"
+  },
+  {
+    "bill_number": "9362",
+    "bill_type": "HR",
+    "title": "District of Columbia Courts Judicial Vacancy Reduction Act",
+    "summary": "",
+    "sponsor_name": "Del. Norton, Eleanor Holmes [D-DC-At Large]",
+    "sponsor_party": "D",
+    "sponsor_state": "DC",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the Committee on Oversight and Government Reform, and in addition to the Committee on Rules, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+    "latest_action_date": "2026-06-18T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Law"
+    ],
+    "status": "Referred to the Committee on Oversight and Government Reform, and in addition to the Committee on Rules, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+    "votes": [],
+    "introduced_date": "2026-06-18T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9362",
+    "published": "2026-06-18T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:23.094052+00:00",
+    "official_title": "To amend the District of Columbia Home Rule Act to provide for the automatic appointment of judges to the District of Columbia courts without the advice and consent of the Senate, and for other purposes.",
+    "short_title": "District of Columbia Courts Judicial Vacancy Reduction Act"
   },
   {
     "bill_number": "2658",
@@ -20634,6 +22351,34 @@
     "short_title": "Washington\u2019s Trail\u20141753 National Historic Trail Feasibility Study Act of 2026"
   },
   {
+    "bill_number": "8810",
+    "bill_type": "HR",
+    "title": "No Wasted Space Act",
+    "summary": "",
+    "sponsor_name": "Rep. Carey, Mike [R-OH-15]",
+    "sponsor_party": "R",
+    "sponsor_state": "OH",
+    "sponsor_district": 15,
+    "cosponsors": [],
+    "latest_action": "Referred to the Committee on House Administration, and in addition to the Committees on Transportation and Infrastructure, and Natural Resources, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+    "latest_action_date": "2026-05-14T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Government Operations and Politics"
+    ],
+    "status": "Referred to the Committee on House Administration, and in addition to the Committees on Transportation and Infrastructure, and Natural Resources, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+    "votes": [],
+    "introduced_date": "2026-05-14T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8810",
+    "published": "2026-05-14T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:37.600537+00:00",
+    "official_title": "To establish a commission to study potential uses of the Arts and Industries Building on the National Mall, and for other purposes.",
+    "short_title": "No Wasted Space Act"
+  },
+  {
     "bill_number": "4437",
     "bill_type": "HR",
     "title": "SMART Act of 2025",
@@ -22328,6 +24073,34 @@
     "last_synced_at": "2026-07-18T04:31:29.561271+00:00",
     "official_title": "A bill to provide for certain conveyances under the Alaska Native Claims Settlement Act, and for other purposes.",
     "short_title": "Geese House Site Conveyance Act"
+  },
+  {
+    "bill_number": "8532",
+    "bill_type": "HR",
+    "title": "VA Home Loan Affordability Act",
+    "summary": "",
+    "sponsor_name": "Rep. Van Orden, Derrick [R-WI-3]",
+    "sponsor_party": "R",
+    "sponsor_state": "WI",
+    "sponsor_district": 3,
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on Veterans' Affairs.",
+    "latest_action_date": "2026-04-27T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Armed Forces and National Security"
+    ],
+    "status": "Referred to the House Committee on Veterans' Affairs.",
+    "votes": [],
+    "introduced_date": "2026-04-27T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8532",
+    "published": "2026-04-27T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:24.434242+00:00",
+    "official_title": "To amend title 38, United States Code, to align elements of the housing loan program of the Department of Veterans Affairs with requirements of the Federal Housing Administration, and for other purposes.",
+    "short_title": "VA Home Loan Affordability Act"
   },
   {
     "bill_number": "2132",
@@ -30723,6 +32496,34 @@
     "last_synced_at": "2026-07-18T02:20:31.630767+00:00",
     "official_title": "A bill to provide for updates to the Federal Aviation Administration type certification process to support development of new and novel technologies, and for other purposes.",
     "short_title": "Aviation Innovation and Global Competitiveness Act"
+  },
+  {
+    "bill_number": "7523",
+    "bill_type": "HR",
+    "title": "Spent Petroleum Catalyst Recycling and Critical Minerals and Metals Recovery Exemption Act",
+    "summary": "",
+    "sponsor_name": "Rep. Balderson, Troy [R-OH-12]",
+    "sponsor_party": "R",
+    "sponsor_state": "OH",
+    "sponsor_district": 12,
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on Energy and Commerce.",
+    "latest_action_date": "2026-02-12T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Energy"
+    ],
+    "status": "Referred to the House Committee on Energy and Commerce.",
+    "votes": [],
+    "introduced_date": "2026-02-12T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/7523",
+    "published": "2026-02-12T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:25.340863+00:00",
+    "official_title": "To ensure domestic sources of the critical mineral vanadium necessary for the steel, infrastructure, energy, and defense needs of the United States, and for other purposes.",
+    "short_title": "Spent Petroleum Catalyst Recycling and Critical Minerals and Metals Recovery Exemption Act"
   },
   {
     "bill_number": "3495",
@@ -93791,6 +95592,34 @@
     "short_title": "Bolts Ditch Act"
   },
   {
+    "bill_number": "4370",
+    "bill_type": "HR",
+    "title": "SAMS Act of 2025",
+    "summary": "",
+    "sponsor_name": "Rep. Palmer, Gary J. [R-AL-6]",
+    "sponsor_party": "R",
+    "sponsor_state": "AL",
+    "sponsor_district": 6,
+    "cosponsors": [],
+    "latest_action": "Referred to the Committee on Natural Resources, and in addition to the Committees on Science, Space, and Technology, Foreign Affairs, Transportation and Infrastructure, Armed Services, Energy and Commerce, Agriculture, Ways and Means, Financial Services, Oversight and Government Reform, and Small Business, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+    "latest_action_date": "2025-07-14T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Energy"
+    ],
+    "status": "Referred to the Committee on Natural Resources, and in addition to the Committees on Science, Space, and Technology, Foreign Affairs, Transportation and Infrastructure, Armed Services, Energy and Commerce, Agriculture, Ways and Means, Financial Services, Oversight and Government Reform, and Small Business, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+    "votes": [],
+    "introduced_date": "2025-07-14T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/4370",
+    "published": "2025-07-14T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:27.612749+00:00",
+    "official_title": "To codify certain Executive Orders relating to critical minerals.",
+    "short_title": "SAMS Act of 2025"
+  },
+  {
     "bill_number": "4283",
     "bill_type": "HR",
     "title": "To designate the facility of the United States Postal Service located at 1157 West Mission Avenue in Escondido, California, as the \"Captain E. Royce Williams Post Office Building\".",
@@ -93817,6 +95646,34 @@
     "last_synced_at": "2026-07-18T02:20:26.291130+00:00",
     "official_title": "To designate the facility of the United States Postal Service located at 1157 West Mission Avenue in Escondido, California, as the \"Captain E. Royce Williams Post Office Building\".",
     "short_title": "To designate the facility of the United States Postal Service located at 1157 West Mission Avenue in Escondido, California, as the \"Captain E. Royce Williams Post Office Building\"."
+  },
+  {
+    "bill_number": "3713",
+    "bill_type": "HR",
+    "title": "Legacy Mine Cleanup Act of 2025",
+    "summary": "",
+    "sponsor_name": "Rep. Crane, Elijah [R-AZ-2]",
+    "sponsor_party": "R",
+    "sponsor_state": "AZ",
+    "sponsor_district": 2,
+    "cosponsors": [],
+    "latest_action": "Referred to the Subcommittee on Water Resources and Environment.",
+    "latest_action_date": "2025-06-05T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Environmental Protection"
+    ],
+    "status": "Referred to the Subcommittee on Water Resources and Environment.",
+    "votes": [],
+    "introduced_date": "2025-06-04T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/3713",
+    "published": "2025-06-04T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:26.633262+00:00",
+    "official_title": "To establish within the Environmental Protection Agency the Office of Mountains, Deserts, and Plains, and for other purposes.",
+    "short_title": "Legacy Mine Cleanup Act of 2025"
   },
   {
     "bill_number": "1874",
@@ -93901,6 +95758,62 @@
     "last_synced_at": "2026-07-18T02:20:35.609726+00:00",
     "official_title": "A bill to modify the boundary of the Mammoth Cave National Park in the State of Kentucky, and for other purposes.",
     "short_title": "Mammoth Cave National Park Boundary Adjustment Act of 2025"
+  },
+  {
+    "bill_number": "3248",
+    "bill_type": "HR",
+    "title": "American Ownership and Resilience Act",
+    "summary": "",
+    "sponsor_name": "Rep. Moore, Blake D. [R-UT-1]",
+    "sponsor_party": "R",
+    "sponsor_state": "UT",
+    "sponsor_district": 1,
+    "cosponsors": [],
+    "latest_action": "Referred to the Committee on Financial Services, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+    "latest_action_date": "2025-05-07T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Finance and Financial Sector"
+    ],
+    "status": "Referred to the Committee on Financial Services, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+    "votes": [],
+    "introduced_date": "2025-05-07T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/3248",
+    "published": "2025-05-07T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:23.989258+00:00",
+    "official_title": "To establish a domestic ownership succession investment facility, and for other purposes.",
+    "short_title": "American Ownership and Resilience Act"
+  },
+  {
+    "bill_number": "3059",
+    "bill_type": "HR",
+    "title": "Streamlining Critical Mineral Permitting Act",
+    "summary": "",
+    "sponsor_name": "Rep. Carter, Earl L. \"Buddy\" [R-GA-1]",
+    "sponsor_party": "R",
+    "sponsor_state": "GA",
+    "sponsor_district": 1,
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on Energy and Commerce.",
+    "latest_action_date": "2025-04-29T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Energy"
+    ],
+    "status": "Referred to the House Committee on Energy and Commerce.",
+    "votes": [],
+    "introduced_date": "2025-04-29T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/3059",
+    "published": "2025-04-29T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T10:06:24.899008+00:00",
+    "official_title": "To amend the Solid Waste Disposal Act to provide the owner or operator of a critical energy resource facility an interim permit under subtitle C that is subject to final approval by the Administrator of the Environmental Protection Agency, and for other purposes.",
+    "short_title": "Streamlining Critical Mineral Permitting Act"
   },
   {
     "bill_number": "1414",
@@ -94264,1043 +96177,133 @@
     "short_title": "Reserved for the Speaker."
   },
   {
-    "bill_number": "8823",
-    "bill_type": "HR",
-    "title": "Putting Patients First by Strengthening Provider Accountability in FECA Act",
+    "bill_number": "4668",
+    "bill_type": "S",
+    "title": "Protect College Sports Act of 2026",
     "summary": "",
-    "sponsor_name": "Rep. Mackenzie, Ryan [R-PA-7]",
-    "sponsor_party": "R",
-    "sponsor_state": "PA",
-    "sponsor_district": 7,
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 33 - 0.",
-    "latest_action_date": "2026-06-25T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Government Operations and Politics"
-    ],
-    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 33 - 0.",
-    "votes": [],
-    "introduced_date": "2026-05-14T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8823",
-    "published": "2026-05-14T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:16.213847+00:00"
-  },
-  {
-    "bill_number": "9381",
-    "bill_type": "HR",
-    "title": "AWARE Act",
-    "summary": "",
-    "sponsor_name": "Rep. Walberg, Tim [R-MI-5]",
-    "sponsor_party": "R",
-    "sponsor_state": "MI",
-    "sponsor_district": 5,
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 19 - 14.",
-    "latest_action_date": "2026-06-25T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Labor and Employment"
-    ],
-    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 19 - 14.",
-    "votes": [],
-    "introduced_date": "2026-06-22T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9381",
-    "published": "2026-06-22T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:16.668226+00:00"
-  },
-  {
-    "bill_number": "9228",
-    "bill_type": "HR",
-    "title": "Health Data Access, Transparency, and Affordability Act of 2026",
-    "summary": "",
-    "sponsor_name": "Rep. Onder, Robert F. [R-MO-3]",
-    "sponsor_party": "R",
-    "sponsor_state": "MO",
-    "sponsor_district": 3,
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
-    "latest_action_date": "2026-06-25T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Health"
-    ],
-    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
-    "votes": [],
-    "introduced_date": "2026-06-09T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9228",
-    "published": "2026-06-09T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:17.111888+00:00"
-  },
-  {
-    "bill_number": "9395",
-    "bill_type": "HR",
-    "title": "Transparency in Medicare Advantage Steering Act",
-    "summary": "",
-    "sponsor_name": "Rep. Ocasio-Cortez, Alexandria [D-NY-14]",
-    "sponsor_party": "D",
-    "sponsor_state": "NY",
-    "sponsor_district": 14,
-    "cosponsors": [],
-    "latest_action": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
-    "latest_action_date": "2026-06-25T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Health"
-    ],
-    "status": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
-    "votes": [],
-    "introduced_date": "2026-06-23T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9395",
-    "published": "2026-06-23T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:17.555746+00:00"
-  },
-  {
-    "bill_number": "9363",
-    "bill_type": "HR",
-    "title": "AI Security and Innovation Act",
-    "summary": "",
-    "sponsor_name": "Rep. Obernolte, Jay [R-CA-23]",
-    "sponsor_party": "R",
-    "sponsor_state": "CA",
-    "sponsor_district": 23,
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 29 - 0.",
-    "latest_action_date": "2026-06-25T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Science, Technology, Communications"
-    ],
-    "status": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 29 - 0.",
-    "votes": [],
-    "introduced_date": "2026-06-18T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9363",
-    "published": "2026-06-18T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:18.000017+00:00"
-  },
-  {
-    "bill_number": "9333",
-    "bill_type": "HR",
-    "title": "AI Flaw Reporting and Security Enhancement Act",
-    "summary": "",
-    "sponsor_name": "Rep. Ross, Deborah K. [D-NC-2]",
-    "sponsor_party": "D",
-    "sponsor_state": "NC",
-    "sponsor_district": 2,
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported in the Nature of a Substitute by the Yeas and Nays: 35 - 0.",
-    "latest_action_date": "2026-06-25T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Science, Technology, Communications"
-    ],
-    "status": "Ordered to be Reported in the Nature of a Substitute by the Yeas and Nays: 35 - 0.",
-    "votes": [],
-    "introduced_date": "2026-06-18T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9333",
-    "published": "2026-06-18T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:19.207994+00:00"
-  },
-  {
-    "bill_number": "9334",
-    "bill_type": "HR",
-    "title": "Workforce for AI Trust Act",
-    "summary": "",
-    "sponsor_name": "Rep. Lofgren, Zoe [D-CA-18]",
-    "sponsor_party": "D",
-    "sponsor_state": "CA",
-    "sponsor_district": 18,
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 35 - 0.",
-    "latest_action_date": "2026-06-25T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Science, Technology, Communications"
-    ],
-    "status": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 35 - 0.",
-    "votes": [],
-    "introduced_date": "2026-06-18T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9334",
-    "published": "2026-06-18T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:19.662907+00:00"
-  },
-  {
-    "bill_number": "9372",
-    "bill_type": "HR",
-    "title": "Data Infrastructure Energy Measurement and Standards Act",
-    "summary": "",
-    "sponsor_name": "Rep. Subramanyam, Suhas [D-VA-10]",
-    "sponsor_party": "D",
-    "sponsor_state": "VA",
-    "sponsor_district": 10,
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 34 - 1.",
-    "latest_action_date": "2026-06-25T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Science, Technology, Communications"
-    ],
-    "status": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 34 - 1.",
-    "votes": [],
-    "introduced_date": "2026-06-18T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9372",
-    "published": "2026-06-18T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:20.966570+00:00"
-  },
-  {
-    "bill_number": "8893",
-    "bill_type": "HR",
-    "title": "Protecting Consumers from Deceptive AI Act",
-    "summary": "",
-    "sponsor_name": "Rep. Foushee, Valerie P. [D-NC-4]",
-    "sponsor_party": "D",
-    "sponsor_state": "NC",
-    "sponsor_district": 4,
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 35 - 0.",
-    "latest_action_date": "2026-07-07T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Science, Technology, Communications"
-    ],
-    "status": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 35 - 0.",
-    "votes": [],
-    "introduced_date": "2026-05-19T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8893",
-    "published": "2026-05-19T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:21.411916+00:00"
-  },
-  {
-    "bill_number": "9341",
-    "bill_type": "HR",
-    "title": "AI-Ready Federal Data Guidelines Act",
-    "summary": "",
-    "sponsor_name": "Rep. Babin, Brian [R-TX-36]",
+    "sponsor_name": "Sen. Cruz, Ted [R-TX]",
     "sponsor_party": "R",
     "sponsor_state": "TX",
-    "sponsor_district": 36,
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 29 - 0.",
-    "latest_action_date": "2026-06-25T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Government Operations and Politics"
-    ],
-    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 29 - 0.",
-    "votes": [],
-    "introduced_date": "2026-06-18T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9341",
-    "published": "2026-06-18T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:21.854939+00:00"
-  },
-  {
-    "bill_number": "9362",
-    "bill_type": "HR",
-    "title": "District of Columbia Courts Judicial Vacancy Reduction Act",
-    "summary": "",
-    "sponsor_name": "Del. Norton, Eleanor Holmes [D-DC-At Large]",
-    "sponsor_party": "D",
-    "sponsor_state": "DC",
     "sponsor_district": "",
     "cosponsors": [],
-    "latest_action": "Referred to the Committee on Oversight and Government Reform, and in addition to the Committee on Rules, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-    "latest_action_date": "2026-06-18T00:00:00",
+    "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 449.",
+    "latest_action_date": "2026-06-24T00:00:00",
     "actions": [],
     "committees": [],
     "policy_areas": [
-      "Law"
+      "Sports and Recreation"
     ],
-    "status": "Referred to the Committee on Oversight and Government Reform, and in addition to the Committee on Rules, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+    "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 449.",
     "votes": [],
-    "introduced_date": "2026-06-18T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9362",
-    "published": "2026-06-18T00:00:00",
+    "introduced_date": "2026-06-02T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/senate-bill/4668",
+    "published": "2026-06-02T00:00:00",
     "source": "Congress.gov API",
     "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:23.094052+00:00"
+    "last_synced_at": "2026-07-18T11:39:48.306317+00:00"
   },
   {
-    "bill_number": "8767",
-    "bill_type": "HR",
-    "title": "Compensation Fund Recrediting Act",
+    "bill_number": "4591",
+    "bill_type": "S",
+    "title": "NO FAKES Act of 2026",
     "summary": "",
-    "sponsor_name": "Rep. Self, Keith [R-TX-3]",
+    "sponsor_name": "Sen. Coons, Christopher A. [D-DE]",
+    "sponsor_party": "D",
+    "sponsor_state": "DE",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 446.",
+    "latest_action_date": "2026-06-24T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Commerce"
+    ],
+    "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 446.",
+    "votes": [],
+    "introduced_date": "2026-05-20T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/senate-bill/4591",
+    "published": "2026-05-20T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-18T11:39:49.006194+00:00"
+  },
+  {
+    "bill_number": "513",
+    "bill_type": "HR",
+    "title": "Offshore Lands Authorities Act of 2025",
+    "summary": "",
+    "sponsor_name": "Rep. Higgins, Clay [R-LA-3]",
     "sponsor_party": "R",
-    "sponsor_state": "TX",
+    "sponsor_state": "LA",
     "sponsor_district": 3,
     "cosponsors": [],
     "latest_action": "Subcommittee Hearings Held",
-    "latest_action_date": "2026-06-25T00:00:00",
+    "latest_action_date": "2025-05-20T00:00:00",
     "actions": [],
     "committees": [],
     "policy_areas": [
-      "Armed Forces and National Security"
+      "Energy"
     ],
     "status": "Subcommittee Hearings Held",
     "votes": [],
-    "introduced_date": "2026-05-12T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8767",
-    "published": "2026-05-12T00:00:00",
+    "introduced_date": "2025-01-16T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/513",
+    "published": "2025-01-16T00:00:00",
     "source": "Congress.gov API",
     "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:23.535417+00:00"
+    "last_synced_at": "2026-07-18T11:39:49.750314+00:00"
   },
   {
-    "bill_number": "3248",
+    "bill_number": "931",
     "bill_type": "HR",
-    "title": "American Ownership and Resilience Act",
+    "title": "To allow certain Federal minerals to be mined consistent with the Bull Mountains Mining Plan Modification, and for other purposes.",
     "summary": "",
-    "sponsor_name": "Rep. Moore, Blake D. [R-UT-1]",
+    "sponsor_name": "Rep. Downing, Troy [R-MT-2]",
     "sponsor_party": "R",
-    "sponsor_state": "UT",
-    "sponsor_district": 1,
-    "cosponsors": [],
-    "latest_action": "Referred to the Committee on Financial Services, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-    "latest_action_date": "2025-05-07T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Finance and Financial Sector"
-    ],
-    "status": "Referred to the Committee on Financial Services, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-    "votes": [],
-    "introduced_date": "2025-05-07T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/3248",
-    "published": "2025-05-07T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:23.989258+00:00"
-  },
-  {
-    "bill_number": "8532",
-    "bill_type": "HR",
-    "title": "VA Home Loan Affordability Act",
-    "summary": "",
-    "sponsor_name": "Rep. Van Orden, Derrick [R-WI-3]",
-    "sponsor_party": "R",
-    "sponsor_state": "WI",
-    "sponsor_district": 3,
-    "cosponsors": [],
-    "latest_action": "Referred to the House Committee on Veterans' Affairs.",
-    "latest_action_date": "2026-04-27T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Armed Forces and National Security"
-    ],
-    "status": "Referred to the House Committee on Veterans' Affairs.",
-    "votes": [],
-    "introduced_date": "2026-04-27T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8532",
-    "published": "2026-04-27T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:24.434242+00:00"
-  },
-  {
-    "bill_number": "3059",
-    "bill_type": "HR",
-    "title": "Streamlining Critical Mineral Permitting Act",
-    "summary": "",
-    "sponsor_name": "Rep. Carter, Earl L. \"Buddy\" [R-GA-1]",
-    "sponsor_party": "R",
-    "sponsor_state": "GA",
-    "sponsor_district": 1,
-    "cosponsors": [],
-    "latest_action": "Referred to the House Committee on Energy and Commerce.",
-    "latest_action_date": "2025-04-29T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Energy"
-    ],
-    "status": "Referred to the House Committee on Energy and Commerce.",
-    "votes": [],
-    "introduced_date": "2025-04-29T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/3059",
-    "published": "2025-04-29T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:24.899008+00:00"
-  },
-  {
-    "bill_number": "7523",
-    "bill_type": "HR",
-    "title": "Spent Petroleum Catalyst Recycling and Critical Minerals and Metals Recovery Exemption Act",
-    "summary": "",
-    "sponsor_name": "Rep. Balderson, Troy [R-OH-12]",
-    "sponsor_party": "R",
-    "sponsor_state": "OH",
-    "sponsor_district": 12,
-    "cosponsors": [],
-    "latest_action": "Referred to the House Committee on Energy and Commerce.",
-    "latest_action_date": "2026-02-12T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Energy"
-    ],
-    "status": "Referred to the House Committee on Energy and Commerce.",
-    "votes": [],
-    "introduced_date": "2026-02-12T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/7523",
-    "published": "2026-02-12T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:25.340863+00:00"
-  },
-  {
-    "bill_number": "3713",
-    "bill_type": "HR",
-    "title": "Legacy Mine Cleanup Act of 2025",
-    "summary": "",
-    "sponsor_name": "Rep. Crane, Elijah [R-AZ-2]",
-    "sponsor_party": "R",
-    "sponsor_state": "AZ",
+    "sponsor_state": "MT",
     "sponsor_district": 2,
     "cosponsors": [],
-    "latest_action": "Referred to the Subcommittee on Water Resources and Environment.",
-    "latest_action_date": "2025-06-05T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Environmental Protection"
-    ],
-    "status": "Referred to the Subcommittee on Water Resources and Environment.",
-    "votes": [],
-    "introduced_date": "2025-06-04T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/3713",
-    "published": "2025-06-04T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:26.633262+00:00"
-  },
-  {
-    "bill_number": "4370",
-    "bill_type": "HR",
-    "title": "SAMS Act of 2025",
-    "summary": "",
-    "sponsor_name": "Rep. Palmer, Gary J. [R-AL-6]",
-    "sponsor_party": "R",
-    "sponsor_state": "AL",
-    "sponsor_district": 6,
-    "cosponsors": [],
-    "latest_action": "Referred to the Committee on Natural Resources, and in addition to the Committees on Science, Space, and Technology, Foreign Affairs, Transportation and Infrastructure, Armed Services, Energy and Commerce, Agriculture, Ways and Means, Financial Services, Oversight and Government Reform, and Small Business, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-    "latest_action_date": "2025-07-14T00:00:00",
+    "latest_action": "Subcommittee Hearings Held",
+    "latest_action_date": "2025-05-20T00:00:00",
     "actions": [],
     "committees": [],
     "policy_areas": [
       "Energy"
     ],
-    "status": "Referred to the Committee on Natural Resources, and in addition to the Committees on Science, Space, and Technology, Foreign Affairs, Transportation and Infrastructure, Armed Services, Energy and Commerce, Agriculture, Ways and Means, Financial Services, Oversight and Government Reform, and Small Business, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+    "status": "Subcommittee Hearings Held",
     "votes": [],
-    "introduced_date": "2025-07-14T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/4370",
-    "published": "2025-07-14T00:00:00",
+    "introduced_date": "2025-02-04T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/931",
+    "published": "2025-02-04T00:00:00",
     "source": "Congress.gov API",
     "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:27.612749+00:00"
+    "last_synced_at": "2026-07-18T11:39:50.196730+00:00"
   },
   {
-    "bill_number": "7427",
+    "bill_number": "2556",
     "bill_type": "HR",
-    "title": "SAFE VISITS Act",
+    "title": "CORE Act of 2025",
     "summary": "",
-    "sponsor_name": "Rep. Goldman, Daniel S. [D-NY-10]",
-    "sponsor_party": "D",
-    "sponsor_state": "NY",
-    "sponsor_district": 10,
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 28 - 2.",
-    "latest_action_date": "2026-06-24T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Armed Forces and National Security"
-    ],
-    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 28 - 2.",
-    "votes": [],
-    "introduced_date": "2026-02-09T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/7427",
-    "published": "2026-02-09T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:28.057561+00:00"
-  },
-  {
-    "bill_number": "7436",
-    "bill_type": "HR",
-    "title": "Department of Homeland Security Intelligence and Analysis Training Act",
-    "summary": "",
-    "sponsor_name": "Rep. Magaziner, Seth [D-RI-2]",
-    "sponsor_party": "D",
-    "sponsor_state": "RI",
-    "sponsor_district": 2,
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 30 - 0.",
-    "latest_action_date": "2026-06-24T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Armed Forces and National Security"
-    ],
-    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 30 - 0.",
-    "votes": [],
-    "introduced_date": "2026-02-09T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/7436",
-    "published": "2026-02-09T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:28.501651+00:00"
-  },
-  {
-    "bill_number": "7443",
-    "bill_type": "HR",
-    "title": "I&A Mission Reorientation Act of 2026",
-    "summary": "",
-    "sponsor_name": "Rep. Pfluger, August [R-TX-11]",
+    "sponsor_name": "Rep. Hunt, Wesley [R-TX-38]",
     "sponsor_party": "R",
     "sponsor_state": "TX",
-    "sponsor_district": 11,
+    "sponsor_district": 38,
     "cosponsors": [],
-    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 30 - 0.",
-    "latest_action_date": "2026-06-24T00:00:00",
+    "latest_action": "Ordered to be Reported in the Nature of a Substitute by the Yeas and Nays: 25 - 18.",
+    "latest_action_date": "2025-06-25T00:00:00",
     "actions": [],
     "committees": [],
     "policy_areas": [
-      "Armed Forces and National Security"
+      "Energy"
     ],
-    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 30 - 0.",
+    "status": "Ordered to be Reported in the Nature of a Substitute by the Yeas and Nays: 25 - 18.",
     "votes": [],
-    "introduced_date": "2026-02-09T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/7443",
-    "published": "2026-02-09T00:00:00",
+    "introduced_date": "2025-04-01T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/2556",
+    "published": "2025-04-01T00:00:00",
     "source": "Congress.gov API",
     "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:28.946177+00:00"
-  },
-  {
-    "bill_number": "7448",
-    "bill_type": "HR",
-    "title": "Modernizing and Improving the National Terrorism Advisory System Act of 2026",
-    "summary": "",
-    "sponsor_name": "Rep. Pou, Nellie [D-NJ-9]",
-    "sponsor_party": "D",
-    "sponsor_state": "NJ",
-    "sponsor_district": 9,
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 30 - 0.",
-    "latest_action_date": "2026-06-24T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Crime and Law Enforcement"
-    ],
-    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 30 - 0.",
-    "votes": [],
-    "introduced_date": "2026-02-09T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/7448",
-    "published": "2026-02-09T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:29.390326+00:00"
-  },
-  {
-    "bill_number": "7574",
-    "bill_type": "HR",
-    "title": "ELO Realignment and Strategic Engagement Reform Act of 2026",
-    "summary": "",
-    "sponsor_name": "Rep. Evans, Gabe [R-CO-8]",
-    "sponsor_party": "R",
-    "sponsor_state": "CO",
-    "sponsor_district": 8,
-    "cosponsors": [],
-    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
-    "latest_action_date": "2026-07-14T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Armed Forces and National Security"
-    ],
-    "status": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
-    "votes": [],
-    "introduced_date": "2026-02-13T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/7574",
-    "published": "2026-02-13T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:29.834361+00:00"
-  },
-  {
-    "bill_number": "8168",
-    "bill_type": "HR",
-    "title": "Major Non-NATO Ally Terror Threat Assessment Act",
-    "summary": "",
-    "sponsor_name": "Rep. Van Epps, Matt [R-TN-7]",
-    "sponsor_party": "R",
-    "sponsor_state": "TN",
-    "sponsor_district": 7,
-    "cosponsors": [],
-    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
-    "latest_action_date": "2026-07-14T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "International Affairs"
-    ],
-    "status": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
-    "votes": [],
-    "introduced_date": "2026-03-30T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8168",
-    "published": "2026-03-30T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:30.276584+00:00"
-  },
-  {
-    "bill_number": "8535",
-    "bill_type": "HR",
-    "title": "Measuring Illicit Fentanyl Trafficking Act",
-    "summary": "",
-    "sponsor_name": "Rep. Walkinshaw, James R. [D-VA-11]",
-    "sponsor_party": "D",
-    "sponsor_state": "VA",
-    "sponsor_district": 11,
-    "cosponsors": [],
-    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
-    "latest_action_date": "2026-07-14T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Crime and Law Enforcement"
-    ],
-    "status": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
-    "votes": [],
-    "introduced_date": "2026-04-27T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8535",
-    "published": "2026-04-27T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:30.717950+00:00"
-  },
-  {
-    "bill_number": "8770",
-    "bill_type": "HR",
-    "title": "SAFEGUARDS Act of 2026",
-    "summary": "",
-    "sponsor_name": "Rep. Strong, Dale W. [R-AL-5]",
-    "sponsor_party": "R",
-    "sponsor_state": "AL",
-    "sponsor_district": 5,
-    "cosponsors": [],
-    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
-    "latest_action_date": "2026-07-14T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Transportation and Public Works"
-    ],
-    "status": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
-    "votes": [],
-    "introduced_date": "2026-05-12T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8770",
-    "published": "2026-05-12T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:31.188588+00:00"
-  },
-  {
-    "bill_number": "8874",
-    "bill_type": "HR",
-    "title": "Homeland Security Capabilities Preservation Reporting Act of 2026",
-    "summary": "",
-    "sponsor_name": "Rep. Carter, Troy A. [D-LA-2]",
-    "sponsor_party": "D",
-    "sponsor_state": "LA",
-    "sponsor_district": 2,
-    "cosponsors": [],
-    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
-    "latest_action_date": "2026-07-14T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Emergency Management"
-    ],
-    "status": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
-    "votes": [],
-    "introduced_date": "2026-05-19T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8874",
-    "published": "2026-05-19T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:31.631274+00:00"
-  },
-  {
-    "bill_number": "8897",
-    "bill_type": "HR",
-    "title": "Improving Travel for American Families Act",
-    "summary": "",
-    "sponsor_name": "Rep. Mackenzie, Ryan [R-PA-7]",
-    "sponsor_party": "R",
-    "sponsor_state": "PA",
-    "sponsor_district": 7,
-    "cosponsors": [],
-    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
-    "latest_action_date": "2026-07-14T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Transportation and Public Works"
-    ],
-    "status": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
-    "votes": [],
-    "introduced_date": "2026-05-19T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8897",
-    "published": "2026-05-19T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:32.084432+00:00"
-  },
-  {
-    "bill_number": "9327",
-    "bill_type": "HR",
-    "title": "PEARL Act",
-    "summary": "",
-    "sponsor_name": "Rep. Joyce, David P. [R-OH-14]",
-    "sponsor_party": "R",
-    "sponsor_state": "OH",
-    "sponsor_district": 14,
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported by the Yeas and Nays: 30 - 0.",
-    "latest_action_date": "2026-06-24T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Immigration"
-    ],
-    "status": "Ordered to be Reported by the Yeas and Nays: 30 - 0.",
-    "votes": [],
-    "introduced_date": "2026-06-18T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9327",
-    "published": "2026-06-18T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:33.011000+00:00"
-  },
-  {
-    "bill_number": "9328",
-    "bill_type": "HR",
-    "title": "Improving Travel for Military Members Act",
-    "summary": "",
-    "sponsor_name": "Rep. Biggs, Sheri [R-SC-3]",
-    "sponsor_party": "R",
-    "sponsor_state": "SC",
-    "sponsor_district": 3,
-    "cosponsors": [],
-    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
-    "latest_action_date": "2026-07-14T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Armed Forces and National Security"
-    ],
-    "status": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
-    "votes": [],
-    "introduced_date": "2026-06-18T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9328",
-    "published": "2026-06-18T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:33.464085+00:00"
-  },
-  {
-    "bill_number": "9382",
-    "bill_type": "HR",
-    "title": "To require the Commissioner of U.S. Customs and Border Protection to link together applications of family members throughout the NEXUS application process, and for other purposes.",
-    "summary": "",
-    "sponsor_name": "Rep. Kennedy, Timothy M. [D-NY-26]",
-    "sponsor_party": "D",
-    "sponsor_state": "NY",
-    "sponsor_district": 26,
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported by the Yeas and Nays: 30 - 0.",
-    "latest_action_date": "2026-06-24T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Immigration"
-    ],
-    "status": "Ordered to be Reported by the Yeas and Nays: 30 - 0.",
-    "votes": [],
-    "introduced_date": "2026-06-22T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9382",
-    "published": "2026-06-22T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:33.906241+00:00"
-  },
-  {
-    "bill_number": "9388",
-    "bill_type": "HR",
-    "title": "One-Stop Pilot Program Extension Act",
-    "summary": "",
-    "sponsor_name": "Rep. Gimenez, Carlos A. [R-FL-28]",
-    "sponsor_party": "R",
-    "sponsor_state": "FL",
-    "sponsor_district": 28,
-    "cosponsors": [],
-    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
-    "latest_action_date": "2026-07-14T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Transportation and Public Works"
-    ],
-    "status": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
-    "votes": [],
-    "introduced_date": "2026-06-23T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9388",
-    "published": "2026-06-23T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:34.350184+00:00"
-  },
-  {
-    "bill_number": "9391",
-    "bill_type": "HR",
-    "title": "Reimbursable Screening Services Program Extension Act of 2026",
-    "summary": "",
-    "sponsor_name": "Rep. Garbarino, Andrew R. [R-NY-2]",
-    "sponsor_party": "R",
-    "sponsor_state": "NY",
-    "sponsor_district": 2,
-    "cosponsors": [],
-    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
-    "latest_action_date": "2026-07-14T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Transportation and Public Works"
-    ],
-    "status": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
-    "votes": [],
-    "introduced_date": "2026-06-23T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9391",
-    "published": "2026-06-23T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:34.794430+00:00"
-  },
-  {
-    "bill_number": "9394",
-    "bill_type": "HR",
-    "title": "Civil Preparedness for Agroterrorism Exercise Act of 2026",
-    "summary": "",
-    "sponsor_name": "Rep. Strong, Dale W. [R-AL-5]",
-    "sponsor_party": "R",
-    "sponsor_state": "AL",
-    "sponsor_district": 5,
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported by the Yeas and Nays: 30 - 0.",
-    "latest_action_date": "2026-06-24T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Emergency Management"
-    ],
-    "status": "Ordered to be Reported by the Yeas and Nays: 30 - 0.",
-    "votes": [],
-    "introduced_date": "2026-06-23T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9394",
-    "published": "2026-06-23T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:35.248351+00:00"
-  },
-  {
-    "bill_number": "9342",
-    "bill_type": "HR",
-    "title": "GPO Modernization Act of 2026",
-    "summary": "",
-    "sponsor_name": "Rep. Bice, Stephanie I. [R-OK-5]",
-    "sponsor_party": "R",
-    "sponsor_state": "OK",
-    "sponsor_district": 5,
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported (Amended) by Voice Vote.",
-    "latest_action_date": "2026-06-24T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Congress"
-    ],
-    "status": "Ordered to be Reported (Amended) by Voice Vote.",
-    "votes": [],
-    "introduced_date": "2026-06-18T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9342",
-    "published": "2026-06-18T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:35.692519+00:00"
-  },
-  {
-    "bill_number": "9360",
-    "bill_type": "HR",
-    "title": "Advisory Committee on the Records of Congress Sunset Act",
-    "summary": "",
-    "sponsor_name": "Rep. Miller, Mary E. [R-IL-15]",
-    "sponsor_party": "R",
-    "sponsor_state": "IL",
-    "sponsor_district": 15,
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported (Amended) by Voice Vote.",
-    "latest_action_date": "2026-06-24T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Government Operations and Politics"
-    ],
-    "status": "Ordered to be Reported (Amended) by Voice Vote.",
-    "votes": [],
-    "introduced_date": "2026-06-18T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9360",
-    "published": "2026-06-18T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:36.134929+00:00"
-  },
-  {
-    "bill_number": "9367",
-    "bill_type": "HR",
-    "title": "Stop Lawmakers From Predicting Act",
-    "summary": "",
-    "sponsor_name": "Rep. Steil, Bryan [R-WI-1]",
-    "sponsor_party": "R",
-    "sponsor_state": "WI",
-    "sponsor_district": 1,
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 5 - 4.",
-    "latest_action_date": "2026-06-24T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Government Operations and Politics"
-    ],
-    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 5 - 4.",
-    "votes": [],
-    "introduced_date": "2026-06-18T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9367",
-    "published": "2026-06-18T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:36.576783+00:00"
-  },
-  {
-    "bill_number": "8810",
-    "bill_type": "HR",
-    "title": "No Wasted Space Act",
-    "summary": "",
-    "sponsor_name": "Rep. Carey, Mike [R-OH-15]",
-    "sponsor_party": "R",
-    "sponsor_state": "OH",
-    "sponsor_district": 15,
-    "cosponsors": [],
-    "latest_action": "Referred to the Committee on House Administration, and in addition to the Committees on Transportation and Infrastructure, and Natural Resources, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-    "latest_action_date": "2026-05-14T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Government Operations and Politics"
-    ],
-    "status": "Referred to the Committee on House Administration, and in addition to the Committees on Transportation and Infrastructure, and Natural Resources, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-    "votes": [],
-    "introduced_date": "2026-05-14T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8810",
-    "published": "2026-05-14T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:37.600537+00:00"
-  },
-  {
-    "bill_number": "9250",
-    "bill_type": "HR",
-    "title": "Great American Outdoors Act 250",
-    "summary": "",
-    "sponsor_name": "Rep. Westerman, Bruce [R-AR-4]",
-    "sponsor_party": "R",
-    "sponsor_state": "AR",
-    "sponsor_district": 4,
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported in the Nature of a Substitute (Amended) by Voice Vote.",
-    "latest_action_date": "2026-06-24T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Public Lands and Natural Resources"
-    ],
-    "status": "Ordered to be Reported in the Nature of a Substitute (Amended) by Voice Vote.",
-    "votes": [],
-    "introduced_date": "2026-06-10T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9250",
-    "published": "2026-06-10T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:38.047287+00:00"
-  },
-  {
-    "bill_number": "9022",
-    "bill_type": "HR",
-    "title": "Energy and Water Development and Related Agencies Appropriations Act, 2027",
-    "summary": "",
-    "sponsor_name": "Rep. Fleischmann, Charles J. \"Chuck\" [R-TN-3]",
-    "sponsor_party": "R",
-    "sponsor_state": "TN",
-    "sponsor_district": 3,
-    "cosponsors": [],
-    "latest_action": "Rules Committee Resolution H. Res. 1377 Reported to House. Rule provides for consideration of H.R. 1181, H.R. 9022, H.R. 8595 and H.R. 9237. The resolution provides for consideration of H.R. 1181 and H.R. 9237 under a closed rule and H.R. 9022 and H.R. 8595 under a structured rule. The resolution provides for one hour of general debate and one motion to recommit on each bill.",
-    "latest_action_date": "2026-06-23T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Economics and Public Finance"
-    ],
-    "status": "Rules Committee Resolution H. Res. 1377 Reported to House. Rule provides for consideration of H.R. 1181, H.R. 9022, H.R. 8595 and H.R. 9237. The resolution provides for consideration of H.R. 1181 and H.R. 9237 under a closed rule and H.R. 9022 and H.R. 8595 under a structured rule. The resolution provides for one hour of general debate and one motion to recommit on each bill.",
-    "votes": [],
-    "introduced_date": "2026-05-22T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9022",
-    "published": "2026-05-22T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T10:06:39.134216+00:00"
+    "last_synced_at": "2026-07-18T11:39:50.642772+00:00"
   }
 ]
