@@ -247,3 +247,25 @@ def test_load_existing_congress_votes(tmp_path, monkeypatch):
     loaded = mod.load_existing_congress_votes()
     assert len(loaded) == 1
     assert loaded[0]["bill_number"] == "1"
+
+
+def test_parse_bill_refs_from_hearing_title():
+    from processing.fetch_congress_api import parse_bill_refs_from_hearing
+
+    refs = parse_bill_refs_from_hearing({
+        "title": "H.R. 9237 – Take Care of America's Veterans Act; H.R. 1181 – Privacy Act",
+        "bill": "",
+    })
+    numbers = {num for _type, num in refs}
+    assert "9237" in numbers
+    assert "1181" in numbers
+
+
+def test_parse_bill_refs_from_hearing_bill_field():
+    from processing.fetch_congress_api import parse_bill_refs_from_hearing
+
+    refs = parse_bill_refs_from_hearing({
+        "title": "",
+        "bill": "HR 9022, HR 8595, HR 1181, HR 9237",
+    })
+    assert ("HR", "9237") in refs

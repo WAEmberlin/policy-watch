@@ -247,6 +247,142 @@ def _congress_api_get(api_key: str, path: str, params: Optional[Dict] = None, ti
         return None
 
 
+HEARINGS_FILE = OUTPUT_DIR / "hearings.json"
+
+_BILL_REF_PATTERNS: List[Tuple[re.Pattern[str], str]] = [
+    (re.compile(r"H\.?\s*R\.?\s*(\d+)", re.I), "HR"),
+    (re.compile(r"S\.?\s*J\.?\s*RES\.?\s*(\d+)", re.I), "SJRES"),
+    (re.compile(r"H\.?\s*J\.?\s*RES\.?\s*(\d+)", re.I), "HJRES"),
+    (re.compile(r"H\.?\s*CON\.?\s*RES\.?\s*(\d+)", re.I), "HCONRES"),
+    (re.compile(r"S\.?\s*CON\.?\s*RES\.?\s*(\d+)", re.I), "SCONRES"),
+    (re.compile(r"H\.?\s*RES\.?\s*(\d+)", re.I), "HRES"),
+    (re.compile(r"S\.?\s*RES\.?\s*(\d+)", re.I), "SRES"),
+    (re.compile(r"\bS\.?\s+(\d+)\b", re.I), "S"),
+]
+_SIMPLE_BILL_FIELD_RE = re.compile(
+    r"^(HR|S|HJRES|SJRES|HCONRES|SCONRES|HRES|SRES)\s*(\d+)$",
+    re.I,
+)
+
+
+def parse_bill_refs_from_text(text: str) -> List[Tuple[str, str]]:
+    """Extract (bill_type, number) pairs from hearing titles or markup."""
+    if not text:
+        return []
+    seen: set[Tuple[str, str]] = set()
+    refs: List[Tuple[str, str]] = []
+    for pattern, bill_type in _BILL_REF_PATTERNS:
+        for match in pattern.finditer(text):
+            number = match.group(1)
+            key = (bill_type.upper(), number)
+            if key not in seen:
+                seen.add(key)
+                refs.append(key)
+    return refs
+
+
+def parse_bill_refs_from_hearing(hearing: Dict) -> List[Tuple[str, str]]:
+    """Collect bill references from a hearing record."""
+    seen: set[Tuple[str, str]] = set()
+    refs: List[Tuple[str, str]] = []
+
+    def add_ref(bill_type: str, number: str) -> None:
+        key = (bill_type.upper(), str(number))
+        if key not in seen:
+            seen.add(key)
+            refs.append(key)
+
+    for bill_type, number in parse_bill_refs_from_text(hearing.get("title", "")):
+        add_ref(bill_type, number)
+
+    bill_field = hearing.get("bill") or ""
+    for part in re.split(r"[,;]+", bill_field):
+        token = part.strip()
+        if not token:
+            continue
+        match = _SIMPLE_BILL_FIELD_RE.match(token.replace(".", ""))
+        if match:
+            add_ref(match.group(1), match.group(2))
+    return refs
+
+
+def fetch_bill_detail(
+    api_key: str,
+    congress: int,
+    bill_type: str,
+    bill_number: str,
+) -> Optional[Dict]:
+    """Fetch a single bill by type/number from Congress.gov."""
+    bill_type_lower = bill_type.lower()
+    data = _congress_api_get(api_key, f"bill/{congress}/{bill_type_lower}/{bill_number}")
+    if not data:
+        return None
+    bill_data = data.get("bill")
+    if isinstance(bill_data, dict):
+        return normalize_bill(bill_data, congress)
+    return None
+
+
+def enrich_legislation_from_hearings(
+    api_key: str,
+    bills: List[Dict],
+    hearings_path: Path = HEARINGS_FILE,
+    congress: int = CONGRESS_NUMBER,
+    max_fetch: int = 40,
+) -> Tuple[List[Dict], int]:
+    """
+    Fetch federal bills referenced in committee hearings but missing from legislation.json.
+    Covers bills like HR 9237 that appear in hearing titles but not the 30-day list API window.
+    """
+    if not hearings_path.exists():
+        return bills, 0
+
+    try:
+        with open(hearings_path, encoding="utf-8") as f:
+            payload = json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return bills, 0
+
+    items = payload.get("items", []) if isinstance(payload, dict) else payload
+    if not isinstance(items, list):
+        return bills, 0
+
+    existing_ids = {
+        f"{b.get('bill_type', '')}-{b.get('bill_number', '')}"
+        for b in bills
+        if b.get("bill_type") and b.get("bill_number")
+    }
+    queued: set[Tuple[str, str]] = set()
+    refs_to_fetch: List[Tuple[str, str]] = []
+
+    for hearing in items:
+        if not isinstance(hearing, dict):
+            continue
+        for bill_type, number in parse_bill_refs_from_hearing(hearing):
+            bill_id = f"{bill_type}-{number}"
+            key = (bill_type, number)
+            if bill_id in existing_ids or key in queued:
+                continue
+            queued.add(key)
+            refs_to_fetch.append(key)
+
+    fetched = 0
+    for bill_type, number in refs_to_fetch[:max_fetch]:
+        detail = fetch_bill_detail(api_key, congress, bill_type, number)
+        if not detail:
+            continue
+        bills = deduplicate_bills([detail], bills)
+        existing_ids.add(f"{bill_type}-{number}")
+        fetched += 1
+
+    if fetched:
+        print(f"Enriched legislation from hearings: fetched {fetched} missing bill(s)")
+    elif refs_to_fetch:
+        print(f"Hearing bill refs found ({len(refs_to_fetch)}), none newly fetched this run")
+
+    return bills, fetched
+
+
 def _parse_iso_date(value: str) -> str:
     """Normalize API date/datetime strings to YYYY-MM-DD."""
     if not value:
