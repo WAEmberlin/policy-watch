@@ -14,6 +14,7 @@ from processing.veteran_impact import (  # noqa: E402
     classify_veteran_impact,
     collect_feed_bills_for_veteran_lookup,
     infer_item_state,
+    is_va_facility_naming,
     normalize_co_csv_bill_number,
     resolve_veteran_impact_for_item,
 )
@@ -54,6 +55,34 @@ def test_classify_green_from_memorial():
     result = classify_veteran_impact("Honoring Post-9/11 Veterans memorial resolution")
     assert result is not None
     assert result["level"] == "green"
+
+
+def test_classify_green_from_va_clinic_naming():
+    title = (
+        'To designate the community-based outpatient clinic of the Department of '
+        'Veterans Affairs in Lafayette, Louisiana, as the "Rodney C. Hamilton Sr. VA Clinic".'
+    )
+    assert is_va_facility_naming(title)
+    result = classify_veteran_impact(title)
+    assert result is not None
+    assert result["level"] == "green"
+    assert "Facility Naming" in result["factors"]
+
+
+def test_classify_green_from_va_outpatient_rename():
+    title = (
+        "To name the Department of Veterans Affairs community-based outpatient clinic "
+        'in Newton, New Jersey, as the "Anthony \'Tony\' J. Gallopo VA Clinic".'
+    )
+    result = classify_veteran_impact(title)
+    assert result is not None
+    assert result["level"] == "green"
+
+
+def test_va_appropriations_stays_red_after_clinic_naming_rules():
+    result = classify_veteran_impact("Take Care of America's Veterans Act")
+    assert result is not None
+    assert result["level"] == "red"
 
 
 def test_csv_level_overrides_rules():

@@ -73,6 +73,25 @@ GREEN_SIGNALS = [
     "resolution honoring", "honor resolution",
 ]
 
+VA_FACILITY_TYPES = (
+    "community-based outpatient clinic",
+    "outpatient clinic",
+    "va clinic",
+    "veterans affairs clinic",
+    "va medical center",
+    "veterans affairs medical center",
+)
+VA_FACILITY_NAMING_RES = (
+    re.compile(
+        rf"\b(to\s+)?(designate|name|rename|redesignate)\b.{{0,160}}\b({'|'.join(map(re.escape, VA_FACILITY_TYPES))})\b",
+        re.IGNORECASE | re.DOTALL,
+    ),
+    re.compile(
+        r"\bcommunity-based outpatient clinic\b.{0,120}\bas the\b",
+        re.IGNORECASE | re.DOTALL,
+    ),
+)
+
 CO_BILL_RE = re.compile(r"^([A-Z]+)26-(\d+)$", re.IGNORECASE)
 GENERIC_BILL_RE = re.compile(r"^([A-Z]+)\s*(\d+)$", re.IGNORECASE)
 
@@ -185,6 +204,14 @@ def build_bill_lookup_key(state: Optional[str], bill_number: str) -> str:
     return f"{st}|{num}"
 
 
+def is_va_facility_naming(text: str) -> bool:
+    """True when the bill only names or renames a VA clinic/outpatient center."""
+    hay = (text or "").lower()
+    if not hay.strip():
+        return False
+    return any(pattern.search(hay) for pattern in VA_FACILITY_NAMING_RES)
+
+
 def detect_scoring_factors(text: str) -> List[str]:
     """Return human-readable scoring factor labels matched in text."""
     text_lower = text.lower()
@@ -231,6 +258,14 @@ def classify_veteran_impact(
     if not any(marker in text_lower for marker in VETERAN_MARKERS):
         if not any(kw in text_lower for kw in RED_SIGNALS + YELLOW_SIGNALS):
             return None
+
+    if is_va_facility_naming(text_lower):
+        return {
+            "level": "green",
+            "factors": ["Facility Naming"],
+            "source": "rules",
+            "veteran_related": True,
+        }
 
     factors = detect_scoring_factors(text)
     if any(kw in text_lower for kw in RED_SIGNALS):

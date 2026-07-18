@@ -432,6 +432,15 @@ const CivicWatchHome = (() => {
         'designate', 'memorial highway', 'memorial day', 'purple heart day',
         'resolution honoring', 'honor resolution',
     ];
+    const VA_FACILITY_NAMING_PATTERNS = [
+        /\b(to\s+)?(designate|name|rename|redesignate)\b.{0,160}\b(community-based outpatient clinic|outpatient clinic|va clinic|veterans affairs clinic|va medical center|veterans affairs medical center)\b/i,
+        /\bcommunity-based outpatient clinic\b.{0,120}\bas the\b/i,
+    ];
+
+    function isVaFacilityNaming(text) {
+        const hay = String(text || '');
+        return VA_FACILITY_NAMING_PATTERNS.some((pattern) => pattern.test(hay));
+    }
 
     function itemHasVeteranTagging(item) {
         const tags = []
@@ -451,6 +460,10 @@ const CivicWatchHome = (() => {
             || VETERAN_IMPACT_YELLOW_SIGNALS.some((kw) => hay.includes(kw))
             || VETERAN_IMPACT_GREEN_SIGNALS.some((kw) => hay.includes(kw));
         if (!hasMarker && !hasSignal) return null;
+
+        if (isVaFacilityNaming(hay)) {
+            return { level: 'green', source: 'rules', veteran_related: true, factors: ['Facility Naming'] };
+        }
 
         let level = 'green';
         if (VETERAN_IMPACT_RED_SIGNALS.some((kw) => hay.includes(kw))) level = 'red';
