@@ -156,7 +156,7 @@ def hearing_scheduled_date(item: Dict[str, Any]) -> Optional[datetime.date]:
     return None
 
 
-def is_hearing_within_lookahead(item: Dict[str, Any], days: int = 14) -> bool:
+def is_hearing_within_lookahead(item: Dict[str, Any], days: int = 1) -> bool:
     hdate = hearing_scheduled_date(item)
     if not hdate:
         return False
@@ -164,7 +164,7 @@ def is_hearing_within_lookahead(item: Dict[str, Any], days: int = 14) -> bool:
     return today <= hdate <= today + timedelta(days=days)
 
 
-def load_recent_items(window_hours: int = 6, hearing_lookahead_days: int = 14) -> List[Dict[str, Any]]:
+def load_recent_items(window_hours: int = 24, hearing_lookahead_days: int = 1) -> List[Dict[str, Any]]:
     now = datetime.now(timezone.utc)
     recent: List[Dict[str, Any]] = []
     seen_links: set = set()
@@ -239,9 +239,11 @@ def load_recent_items(window_hours: int = 6, hearing_lookahead_days: int = 14) -
     return recent
 
 
-def load_tomorrow_hearings() -> List[Dict[str, Any]]:
+def load_upcoming_hearings(max_days_ahead: int = 1) -> List[Dict[str, Any]]:
+    """Hearings scheduled today through max_days_ahead (default: today + tomorrow)."""
     now = datetime.now(timezone.utc)
-    tomorrow = (now + timedelta(days=1)).date()
+    today = now.date()
+    end = today + timedelta(days=max_days_ahead)
     hearings: List[Dict[str, Any]] = []
 
     if not HEARINGS_FILE.exists():
@@ -262,11 +264,16 @@ def load_tomorrow_hearings() -> List[Dict[str, Any]]:
                 hdate = datetime.fromisoformat(scheduled.replace("Z", "+00:00")).date()
             else:
                 hdate = datetime.fromisoformat(scheduled + "T00:00:00+00:00").date()
-            if hdate == tomorrow:
+            if today <= hdate <= end:
                 hearings.append(dict(hearing))
         except (ValueError, AttributeError):
             continue
     return hearings
+
+
+def load_tomorrow_hearings() -> List[Dict[str, Any]]:
+    """Backward-compatible alias — now returns today and tomorrow."""
+    return load_upcoming_hearings(max_days_ahead=1)
 
 
 def partition_by_state(items: List[Dict[str, Any]]) -> Dict[str, List[Dict[str, Any]]]:
@@ -295,7 +302,7 @@ def is_utah_hearing_feed_item(item: Dict[str, Any]) -> bool:
 def split_state_items(
     items: List[Dict[str, Any]],
     *,
-    hearing_lookahead_days: int = 14,
+    hearing_lookahead_days: int = 1,
 ) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
     updates = [item for item in items if not is_utah_hearing_feed_item(item)]
     hearing_updates = [
@@ -404,7 +411,7 @@ def _render_hearing_updates_section(title: str, items: List[Dict[str, Any]]) -> 
 
 def _render_state_sections(name: str, state_items: List[Dict[str, Any]]) -> str:
     cfg = load_digest_config()
-    lookahead = int(cfg.get("hearing_lookahead_days", 14))
+    lookahead = int(cfg.get("hearing_lookahead_days", 1))
     updates, hearing_updates = split_state_items(state_items, hearing_lookahead_days=lookahead)
     html = _render_items_section(f"{name} — Updates", updates)
     html += _render_hearing_updates_section(f"{name} — Hearing Updates", hearing_updates)
@@ -458,12 +465,12 @@ def build_digest_html(
             total += len(state_items) + len(state_hearings)
             html += f"<h2>{name}</h2>"
             html += _render_state_sections(name, state_items)
-            html += _render_hearings_section(f"{name} — Hearings Tomorrow", state_hearings)
+            html += _render_hearings_section(f"{name} — Hearings Today & Tomorrow", state_hearings)
 
         total += len(federal_items) + len(federal_hearings)
         html += "<h2>Federal (U.S. Congress)</h2>"
         html += _render_items_section("Federal — Updates", federal_items)
-        html += _render_hearings_section("Federal — Hearings Tomorrow", federal_hearings)
+        html += _render_hearings_section("Federal — Hearings Today & Tomorrow", federal_hearings)
 
         if total == 0:
             subject = f"{prefix} — No new updates"
@@ -478,7 +485,7 @@ def build_digest_html(
         html += f"<p>U.S. Congress updates from the last {window} hours.</p>"
         total = len(federal_items) + len(federal_hearings)
         html += _render_items_section("Federal Legislation &amp; Congress Updates", federal_items)
-        html += _render_hearings_section("Congressional Hearings Tomorrow", federal_hearings)
+        html += _render_hearings_section("Congressional Hearings Today & Tomorrow", federal_hearings)
         if total == 0:
             subject = f"{prefix} — No new updates"
         else:
@@ -497,11 +504,11 @@ def build_digest_html(
 
     html += f"<h2>{name}</h2>"
     html += _render_state_sections(name, state_items)
-    html += _render_hearings_section(f"{name} — Hearings Tomorrow", state_hearings)
+    html += _render_hearings_section(f"{name} — Hearings Today & Tomorrow", state_hearings)
 
     html += "<h2>Federal (U.S. Congress)</h2>"
     html += _render_items_section("Federal — Updates", federal_items)
-    html += _render_hearings_section("Federal — Hearings Tomorrow", federal_hearings)
+    html += _render_hearings_section("Federal — Hearings Today & Tomorrow", federal_hearings)
 
     if total == 0:
         subject = f"{prefix} — No new updates"

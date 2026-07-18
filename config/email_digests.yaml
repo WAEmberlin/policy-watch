@@ -3,8 +3,8 @@
 # Assign recipients via GitHub secret EMAIL_DIGEST_RECIPIENTS (JSON).
 # See EMAIL_DIGEST_SETUP.md for setup instructions.
 
-window_hours: 12
-hearing_lookahead_days: 14
+window_hours: 24
+hearing_lookahead_days: 1
 
 digests:
   - id: ks

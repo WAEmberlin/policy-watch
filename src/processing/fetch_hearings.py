@@ -12,11 +12,15 @@ This module:
 import os
 import re
 import json
+import sys
 import time
 import requests
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Dict, List, Optional
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "src"))
 
 OUTPUT_DIR = Path("src/output")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -769,6 +773,22 @@ def main():
             json.dump(output, f, indent=2)
         
         print(f"\nSaved {len(cleaned)} items to {HEARINGS_FILE}")
+
+        try:
+            from processing.fetch_congress_api import (
+                enrich_legislation_from_hearings,
+                load_existing_legislation,
+                LEGISLATION_FILE,
+            )
+
+            existing = load_existing_legislation()
+            enriched, count = enrich_legislation_from_hearings(api_key, existing, HEARINGS_FILE)
+            if count:
+                with open(LEGISLATION_FILE, "w", encoding="utf-8") as f:
+                    json.dump(enriched, f, indent=2)
+                print(f"Updated {LEGISLATION_FILE} with {count} hearing-referenced bill(s)")
+        except Exception as exc:
+            print(f"Warning: could not enrich legislation from hearings: {exc}")
     else:
         print("No hearings/meetings found.")
 

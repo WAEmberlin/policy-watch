@@ -11,6 +11,7 @@ from processing.email_digest import (
     build_digest_html,
     hearing_scheduled_date,
     infer_item_state,
+    is_hearing_within_lookahead,
     is_within_window,
     item_recency_ts,
     partition_by_state,
@@ -18,6 +19,14 @@ from processing.email_digest import (
     render_utah_hearing_update,
     split_state_items,
 )
+
+
+def test_hearing_lookahead_excludes_beyond_tomorrow():
+    today = datetime.now(timezone.utc).date()
+    far = today + timedelta(days=10)
+    assert is_hearing_within_lookahead({"notice_date": far.strftime("%A, %B %d, %Y")}, days=1) is False
+    tomorrow = today + timedelta(days=1)
+    assert is_hearing_within_lookahead({"notice_date": tomorrow.strftime("%A, %B %d, %Y")}, days=1) is True
 
 
 def test_item_recency_uses_latest_action_date():
@@ -112,7 +121,7 @@ def test_federal_only_digest():
 
 
 def test_utah_hearing_updates_separate_section():
-    hearing_day = datetime.now(timezone.utc).date() + timedelta(days=7)
+    hearing_day = datetime.now(timezone.utc).date() + timedelta(days=1)
     notice_date = hearing_day.strftime("%A, %B %d, %Y")
     items = {
         "UT": [
