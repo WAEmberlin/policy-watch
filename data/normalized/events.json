@@ -450,24 +450,6 @@
     "updated_at": "2026-07-22"
   },
   {
-    "id": "338676",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Closed business meeting to consider pending intelligence matters.",
-    "description": "Congressional meeting before the Senate Intelligence (Select).",
-    "scheduled_date": "2026-07-21",
-    "scheduled_time": "04:00",
-    "location": "",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Intelligence (Select)"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338676",
-    "stream_url": "",
-    "updated_at": "2026-07-21"
-  },
-  {
     "id": "119472",
     "source": "congress",
     "level": "federal",
@@ -482,6 +464,24 @@
       "House Intelligence (Permanent Select)"
     ],
     "url": "https://www.congress.gov/event/119th-congress/house-event/119472",
+    "stream_url": "",
+    "updated_at": "2026-07-21"
+  },
+  {
+    "id": "338676",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Closed business meeting to consider pending intelligence matters.",
+    "description": "Congressional meeting before the Senate Intelligence (Select).",
+    "scheduled_date": "2026-07-21",
+    "scheduled_time": "04:00",
+    "location": "",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Intelligence (Select)"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338676",
     "stream_url": "",
     "updated_at": "2026-07-21"
   },
