@@ -76,10 +76,12 @@ GREEN_SIGNALS = [
 VA_FACILITY_TYPES = (
     "community-based outpatient clinic",
     "outpatient clinic",
+    "multispecialty clinic",
     "va clinic",
     "veterans affairs clinic",
     "va medical center",
     "veterans affairs medical center",
+    "veterans affairs multispecialty clinic",
 )
 VA_FACILITY_NAMING_RES = (
     re.compile(
@@ -88,6 +90,10 @@ VA_FACILITY_NAMING_RES = (
     ),
     re.compile(
         r"\bcommunity-based outpatient clinic\b.{0,120}\bas the\b",
+        re.IGNORECASE | re.DOTALL,
+    ),
+    re.compile(
+        r"\bdepartment of veterans affairs\b.{0,160}\bclinic\b.{0,120}\bas the\b",
         re.IGNORECASE | re.DOTALL,
     ),
 )

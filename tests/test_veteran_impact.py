@@ -79,6 +79,19 @@ def test_classify_green_from_va_outpatient_rename():
     assert result["level"] == "green"
 
 
+def test_classify_green_from_va_multispecialty_clinic_naming():
+    title = (
+        "To name the Department of Veterans Affairs multispecialty clinic in Marietta, "
+        'Georgia, as the "Colonel Michael H. Boyce Department of Veterans Affairs '
+        'Multispecialty Clinic".'
+    )
+    assert is_va_facility_naming(title)
+    result = classify_veteran_impact(title)
+    assert result is not None
+    assert result["level"] == "green"
+    assert "Facility Naming" in result["factors"]
+
+
 def test_va_appropriations_stays_red_after_clinic_naming_rules():
     result = classify_veteran_impact("Take Care of America's Veterans Act")
     assert result is not None
