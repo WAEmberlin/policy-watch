@@ -18,7 +18,6 @@ from processing.bill_action_utils import (  # noqa: E402
 )
 from processing.bill_urls import pick_best_bill_url, build_ks_bill_url  # noqa: E402
 from processing.hearing_stream_utils import enrich_hearing_stream  # noqa: E402
-from processing.hearing_time_utils import federal_datetime_fields, parse_datetime  # noqa: E402
 from processing.veteran_impact import (  # noqa: E402
     build_veteran_impact_lookup,
     collect_feed_bills_for_veteran_lookup,
@@ -449,24 +448,11 @@ def _fix_hearing_url(hearing):
         hearing["url"] = hearing["link"] = new_url
 
 
-def _normalize_federal_hearing_time(hearing: dict) -> None:
-    """Store congressional hearing times in Eastern for display."""
-    dt = parse_datetime(hearing.get("published") or hearing.get("scheduled_date") or "")
-    if not dt:
-        return
-    if dt.time() != datetime.min.time():
-        scheduled_date, scheduled_time, published = federal_datetime_fields(dt)
-        hearing["scheduled_date"] = scheduled_date
-        hearing["scheduled_time"] = scheduled_time
-        hearing["published"] = published
-
-
 # Separate federal hearings into upcoming and historical
 federal_upcoming = []
 federal_historical = []
 
 for hearing in federal_hearings:
-    _normalize_federal_hearing_time(hearing)
     # Ensure hearing has required fields for frontend
     if not hearing.get("url") and hearing.get("link"):
         hearing["url"] = hearing["link"]

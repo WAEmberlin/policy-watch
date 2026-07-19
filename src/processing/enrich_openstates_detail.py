@@ -23,7 +23,6 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
 from processing.openstates_bills import load_state_bills, save_state_bills  # noqa: E402
-from processing.openstates_client import OpenStatesClient  # noqa: E402
 
 CONFIG_PATH = ROOT / "config" / "states.yaml"
 OPENSTATES_DIR = ROOT / "data" / "openstates"
