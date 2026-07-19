@@ -22,6 +22,8 @@ from typing import Dict, List, Optional
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
+from processing.hearing_time_utils import federal_datetime_fields  # noqa: E402
+
 OUTPUT_DIR = Path("src/output")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -290,11 +292,9 @@ def fetch_meeting_detail_with_date_filter(
                 meeting_dt = datetime.fromisoformat(meeting_date_str.replace("Z", "+00:00"))
             else:
                 meeting_dt = datetime.fromisoformat(meeting_date_str + "T00:00:00+00:00")
-            
-            meeting_date = meeting_dt.date()
-            scheduled_date = meeting_date.isoformat()
-            scheduled_time = meeting_dt.strftime("%H:%M") if meeting_dt.time() != datetime.min.time() else ""
-            published = meeting_dt.isoformat()
+
+            scheduled_date, scheduled_time, published = federal_datetime_fields(meeting_dt)
+            meeting_date = datetime.fromisoformat(scheduled_date).date()
         except (ValueError, AttributeError):
             return None
         
@@ -527,10 +527,8 @@ def fetch_hearing_detail(api_key: str, detail_url: str, congress: int) -> Option
                 dt = datetime.fromisoformat(hearing_date.replace("Z", "+00:00"))
             else:
                 dt = datetime.fromisoformat(hearing_date + "T00:00:00+00:00")
-            scheduled_date = dt.date().isoformat()
-            scheduled_time = dt.strftime("%H:%M") if dt.time() != datetime.min.time() else ""
-            published = dt.isoformat()
-        except:
+            scheduled_date, scheduled_time, published = federal_datetime_fields(dt)
+        except ValueError:
             return None
         
         # Extract chamber and committee

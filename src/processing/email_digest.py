@@ -11,6 +11,8 @@ from zoneinfo import ZoneInfo
 
 import yaml
 
+from processing.hearing_time_utils import format_federal_hearing_time  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[2]
 CONFIG_PATH = ROOT / "config" / "email_digests.yaml"
 STATES_PATH = ROOT / "config" / "states.yaml"
@@ -369,10 +371,10 @@ def render_hearing(hearing: Dict[str, Any]) -> str:
     title = hearing.get("title", "(no title)")
     committee = hearing.get("committee") or hearing.get("committees", "")
     chamber = hearing.get("chamber", "")
-    time_str = hearing.get("scheduled_time", "")
+    is_federal = infer_hearing_state(hearing) == FEDERAL_CODE
+    time_str = format_federal_hearing_time(hearing) if is_federal else hearing.get("scheduled_time", "")
     location = hearing.get("location", "")
     url = hearing.get("url") or hearing.get("link", "")
-    is_federal = infer_hearing_state(hearing) == FEDERAL_CODE
 
     info = f"<strong>{title}</strong>"
     if committee:
