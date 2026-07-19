@@ -8,3 +8,8 @@ data/nebraska/*
 !data/nebraska/README.md
 data/maryland/*
 !data/maryland/README.md
+
+# Local Open States session splits when bills.json is still the tracked cache (AZ/ME/NE)
+data/openstates/az/bills_*.json
+data/openstates/me/bills_*.json
+data/openstates/ne/bills_*.json
