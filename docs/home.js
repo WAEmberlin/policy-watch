@@ -433,8 +433,9 @@ const CivicWatchHome = (() => {
         'resolution honoring', 'honor resolution',
     ];
     const VA_FACILITY_NAMING_PATTERNS = [
-        /\b(to\s+)?(designate|name|rename|redesignate)\b.{0,160}\b(community-based outpatient clinic|outpatient clinic|va clinic|veterans affairs clinic|va medical center|veterans affairs medical center)\b/i,
+        /\b(to\s+)?(designate|name|rename|redesignate)\b.{0,160}\b(community-based outpatient clinic|outpatient clinic|multispecialty clinic|va clinic|veterans affairs clinic|va medical center|veterans affairs medical center|veterans affairs multispecialty clinic)\b/i,
         /\bcommunity-based outpatient clinic\b.{0,120}\bas the\b/i,
+        /\bdepartment of veterans affairs\b.{0,160}\bclinic\b.{0,120}\bas the\b/i,
     ];
 
     function isVaFacilityNaming(text) {
