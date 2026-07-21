@@ -218,7 +218,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Ways and Means.",
     "latest_action_date": "2026-07-18T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Ways and Means.",
+        "actionDate": "2026-07-18",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-07-18",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-07-18",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Ways and Means.",
@@ -244,7 +263,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Ways and Means.",
     "latest_action_date": "2026-07-18T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Ways and Means.",
+        "actionDate": "2026-07-18",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-07-18",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-07-18",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Ways and Means.",
@@ -1866,7 +1904,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Ways and Means.",
     "latest_action_date": "2026-07-16T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Ways and Means.",
+        "actionDate": "2026-07-16",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-07-16",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-07-16",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Ways and Means.",
@@ -1892,7 +1949,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Ways and Means.",
     "latest_action_date": "2026-07-16T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Ways and Means.",
+        "actionDate": "2026-07-16",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-07-16",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-07-16",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Ways and Means.",
@@ -1918,7 +1994,19 @@
     "cosponsors": [],
     "latest_action": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
     "latest_action_date": "2026-07-16T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
+        "actionDate": "2026-07-16",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2026-07-16",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
@@ -20081,6 +20169,34 @@
     "last_synced_at": "2026-07-18T02:20:32.502145+00:00",
     "official_title": "A bill to support improved awareness and coordination of Federal communications resources during disasters and emergencies, and for other purposes.",
     "short_title": "Disaster Communications Coordination and Preparedness Act"
+  },
+  {
+    "bill_number": "7618",
+    "bill_type": "HR",
+    "title": "American Battlefield Protection Program Amendments Act of 2026",
+    "summary": "",
+    "sponsor_name": "Rep. Kiggans, Jennifer A. [R-VA-2]",
+    "sponsor_party": "R",
+    "sponsor_state": "VA",
+    "sponsor_district": 2,
+    "cosponsors": [],
+    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
+    "latest_action_date": "2026-06-04T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [
+      "Public Lands and Natural Resources"
+    ],
+    "status": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
+    "votes": [],
+    "introduced_date": "2026-02-20T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/7618",
+    "published": "2026-02-20T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-07-21T01:12:07.495157+00:00",
+    "official_title": "To amend title 54, United States Code, to modify certain cost-sharing requirements for grant programs under the American Battlefield Protection Program, and for other purposes.",
+    "short_title": "American Battlefield Protection Program Amendments Act of 2026"
   },
   {
     "bill_number": "5437",
@@ -97313,29 +97429,29 @@
     "short_title": "Reserved for the Speaker."
   },
   {
-    "bill_number": "7618",
-    "bill_type": "HR",
-    "title": "American Battlefield Protection Program Amendments Act of 2026",
+    "bill_number": "2026",
+    "bill_type": "S",
+    "title": "Court Legal Access and Student Support Act of 2025",
     "summary": "",
-    "sponsor_name": "Rep. Kiggans, Jennifer A. [R-VA-2]",
-    "sponsor_party": "R",
-    "sponsor_state": "VA",
-    "sponsor_district": 2,
+    "sponsor_name": "Sen. Durbin, Richard J. [D-IL]",
+    "sponsor_party": "D",
+    "sponsor_state": "IL",
+    "sponsor_district": "",
     "cosponsors": [],
-    "latest_action": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
-    "latest_action_date": "2026-06-04T00:00:00",
+    "latest_action": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions. (text: CR S3348)",
+    "latest_action_date": "2025-06-11T00:00:00",
     "actions": [],
     "committees": [],
     "policy_areas": [
-      "Public Lands and Natural Resources"
+      "Education"
     ],
-    "status": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
+    "status": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions. (text: CR S3348)",
     "votes": [],
-    "introduced_date": "2026-02-20T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/7618",
-    "published": "2026-02-20T00:00:00",
+    "introduced_date": "2025-06-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/senate-bill/2026",
+    "published": "2025-06-11T00:00:00",
     "source": "Congress.gov API",
     "congress": 119,
-    "last_synced_at": "2026-07-21T01:12:07.495157+00:00"
+    "last_synced_at": "2026-07-21T04:56:10.739991+00:00"
   }
 ]
