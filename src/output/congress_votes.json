@@ -1,6 +1,21 @@
 [
   {
     "bill_type": "HR",
+    "bill_number": "4541",
+    "congress": 119,
+    "date": "2026-07-20",
+    "chamber": "House",
+    "result": "Passed",
+    "yeas": 394,
+    "nays": 6,
+    "tally_text": "Passed 394\u20136",
+    "motion": "On Motion to Suspend the Rules and Pass, as Amended",
+    "url": "https://www.congress.gov/roll-call-vote/119th-congress/2nd-session/house/250",
+    "roll_number": 250,
+    "session": 2
+  },
+  {
+    "bill_type": "HR",
     "bill_number": "5362",
     "congress": 119,
     "date": "2026-07-16",

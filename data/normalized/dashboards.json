@@ -70,7 +70,18 @@
       "latest_action_date": "2026-07-20T00:00:00",
       "status": "Motion to reconsider laid on the table Agreed to without objection.",
       "chamber": "House",
-      "votes": [],
+      "votes": [
+        {
+          "rollNumber": 250,
+          "chamber": "House",
+          "date": "2026-07-20",
+          "result": "Passed",
+          "yeas": 394,
+          "nays": 6,
+          "motion": "On Motion to Suspend the Rules and Pass, as Amended",
+          "tally_text": "Passed 394–6"
+        }
+      ],
       "committees": [],
       "events": [],
       "document_urls": [
@@ -526,6 +537,80 @@
       ],
       "updated_at": "2026-07-21T10:41:16.068224+00:00",
       "url": "https://www.congress.gov/bill/119th-congress/house-bill/6330",
+      "ai_summary_short": "",
+      "ai_summary_detailed": "",
+      "ai_impact_analysis": "",
+      "ai_topics": [],
+      "ai_tags": []
+    },
+    {
+      "id": "119-HR-2913",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "bill_number": "HR 2913",
+      "title": "Ukraine Support Act",
+      "summary": "",
+      "classification": [],
+      "sponsors": [],
+      "latest_action": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 462.",
+      "latest_action_date": "2026-07-20T00:00:00",
+      "status": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 462.",
+      "chamber": "House",
+      "votes": [
+        {
+          "rollNumber": 207,
+          "chamber": "House",
+          "date": "2026-06-05",
+          "result": "Passed",
+          "yeas": 226,
+          "nays": 195,
+          "motion": "On Passage",
+          "tally_text": "Passed 226–195"
+        }
+      ],
+      "committees": [],
+      "events": [],
+      "document_urls": [
+        "https://www.congress.gov/bill/119th-congress/house-bill/2913"
+      ],
+      "updated_at": "2026-07-21T12:59:43.659466+00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/2913",
+      "ai_summary_short": "",
+      "ai_summary_detailed": "",
+      "ai_impact_analysis": "",
+      "ai_topics": [],
+      "ai_tags": []
+    },
+    {
+      "id": "119-HR-9773",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "bill_number": "HR 9773",
+      "title": "To secure the borders of the United States, and for other purposes.",
+      "summary": "",
+      "classification": [],
+      "sponsors": [
+        {
+          "name": "Rep. Roy, Chip [R-TX-21]",
+          "party": "R",
+          "state": "TX",
+          "role": "primary"
+        }
+      ],
+      "latest_action": "Referred to the Committee on the Judiciary, and in addition to the Committee on Foreign Affairs, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+      "latest_action_date": "2026-07-20T00:00:00",
+      "status": "Referred to the Committee on the Judiciary, and in addition to the Committee on Foreign Affairs, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+      "chamber": "House",
+      "votes": [],
+      "committees": [],
+      "events": [],
+      "document_urls": [
+        "https://www.congress.gov/bill/119th-congress/house-bill/9773"
+      ],
+      "updated_at": "2026-07-21T10:48:13.140361+00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/9773",
       "ai_summary_short": "",
       "ai_summary_detailed": "",
       "ai_impact_analysis": "",
@@ -801,41 +886,6 @@
       "ai_impact_analysis": "",
       "ai_topics": [],
       "ai_tags": []
-    },
-    {
-      "id": "119-HR-9773",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 9773",
-      "title": "To secure the borders of the United States, and for other purposes.",
-      "summary": "",
-      "classification": [],
-      "sponsors": [
-        {
-          "name": "Rep. Roy, Chip [R-TX-21]",
-          "party": "R",
-          "state": "TX",
-          "role": "primary"
-        }
-      ],
-      "latest_action": "Referred to the Committee on the Judiciary, and in addition to the Committee on Foreign Affairs, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-      "latest_action_date": "2026-07-20T00:00:00",
-      "status": "Referred to the Committee on the Judiciary, and in addition to the Committee on Foreign Affairs, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/9773"
-      ],
-      "updated_at": "2026-07-21T10:48:13.140361+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/9773",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
     }
   ],
   "recent_bills": [
@@ -909,7 +959,18 @@
       "latest_action_date": "2026-07-20T00:00:00",
       "status": "Motion to reconsider laid on the table Agreed to without objection.",
       "chamber": "House",
-      "votes": [],
+      "votes": [
+        {
+          "rollNumber": 250,
+          "chamber": "House",
+          "date": "2026-07-20",
+          "result": "Passed",
+          "yeas": 394,
+          "nays": 6,
+          "motion": "On Motion to Suspend the Rules and Pass, as Amended",
+          "tally_text": "Passed 394–6"
+        }
+      ],
       "committees": [],
       "events": [],
       "document_urls": [
@@ -1365,6 +1426,45 @@
       ],
       "updated_at": "2026-07-21T10:41:16.068224+00:00",
       "url": "https://www.congress.gov/bill/119th-congress/house-bill/6330",
+      "ai_summary_short": "",
+      "ai_summary_detailed": "",
+      "ai_impact_analysis": "",
+      "ai_topics": [],
+      "ai_tags": []
+    },
+    {
+      "id": "119-HR-2913",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "bill_number": "HR 2913",
+      "title": "Ukraine Support Act",
+      "summary": "",
+      "classification": [],
+      "sponsors": [],
+      "latest_action": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 462.",
+      "latest_action_date": "2026-07-20T00:00:00",
+      "status": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 462.",
+      "chamber": "House",
+      "votes": [
+        {
+          "rollNumber": 207,
+          "chamber": "House",
+          "date": "2026-06-05",
+          "result": "Passed",
+          "yeas": 226,
+          "nays": 195,
+          "motion": "On Passage",
+          "tally_text": "Passed 226–195"
+        }
+      ],
+      "committees": [],
+      "events": [],
+      "document_urls": [
+        "https://www.congress.gov/bill/119th-congress/house-bill/2913"
+      ],
+      "updated_at": "2026-07-21T12:59:43.659466+00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/2913",
       "ai_summary_short": "",
       "ai_summary_detailed": "",
       "ai_impact_analysis": "",
@@ -1719,45 +1819,6 @@
       ],
       "updated_at": "2026-07-17T14:15:13.451494+00:00",
       "url": "https://www.congress.gov/bill/119th-congress/senate-bill/2339",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-2913",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 2913",
-      "title": "Ukraine Support Act",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Read the first time. Placed on Senate Legislative Calendar under Read the First Time.",
-      "latest_action_date": "2026-07-16T00:00:00",
-      "status": "Read the first time. Placed on Senate Legislative Calendar under Read the First Time.",
-      "chamber": "House",
-      "votes": [
-        {
-          "rollNumber": 207,
-          "chamber": "House",
-          "date": "2026-06-05",
-          "result": "Passed",
-          "yeas": 226,
-          "nays": 195,
-          "motion": "On Passage",
-          "tally_text": "Passed 226–195"
-        }
-      ],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/2913"
-      ],
-      "updated_at": "2026-07-17T14:15:13.451494+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/2913",
       "ai_summary_short": "",
       "ai_summary_detailed": "",
       "ai_impact_analysis": "",
@@ -5274,7 +5335,18 @@
         "latest_action_date": "2026-07-20T00:00:00",
         "status": "Motion to reconsider laid on the table Agreed to without objection.",
         "chamber": "House",
-        "votes": [],
+        "votes": [
+          {
+            "rollNumber": 250,
+            "chamber": "House",
+            "date": "2026-07-20",
+            "result": "Passed",
+            "yeas": 394,
+            "nays": 6,
+            "motion": "On Motion to Suspend the Rules and Pass, as Amended",
+            "tally_text": "Passed 394–6"
+          }
+        ],
         "committees": [],
         "events": [],
         "document_urls": [
@@ -5737,6 +5809,45 @@
         "ai_tags": []
       },
       {
+        "id": "119-HR-2913",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 2913",
+        "title": "Ukraine Support Act",
+        "summary": "",
+        "classification": [],
+        "sponsors": [],
+        "latest_action": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 462.",
+        "latest_action_date": "2026-07-20T00:00:00",
+        "status": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 462.",
+        "chamber": "House",
+        "votes": [
+          {
+            "rollNumber": 207,
+            "chamber": "House",
+            "date": "2026-06-05",
+            "result": "Passed",
+            "yeas": 226,
+            "nays": 195,
+            "motion": "On Passage",
+            "tally_text": "Passed 226–195"
+          }
+        ],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/2913"
+        ],
+        "updated_at": "2026-07-21T12:59:43.659466+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/2913",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
         "id": "119-HR-9773",
         "source": "congress",
         "level": "federal",
@@ -6084,45 +6195,6 @@
         ],
         "updated_at": "2026-07-17T14:15:13.451494+00:00",
         "url": "https://www.congress.gov/bill/119th-congress/senate-bill/2339",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
-      },
-      {
-        "id": "119-HR-2913",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "HR 2913",
-        "title": "Ukraine Support Act",
-        "summary": "",
-        "classification": [],
-        "sponsors": [],
-        "latest_action": "Read the first time. Placed on Senate Legislative Calendar under Read the First Time.",
-        "latest_action_date": "2026-07-16T00:00:00",
-        "status": "Read the first time. Placed on Senate Legislative Calendar under Read the First Time.",
-        "chamber": "House",
-        "votes": [
-          {
-            "rollNumber": 207,
-            "chamber": "House",
-            "date": "2026-06-05",
-            "result": "Passed",
-            "yeas": 226,
-            "nays": 195,
-            "motion": "On Passage",
-            "tally_text": "Passed 226–195"
-          }
-        ],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/house-bill/2913"
-        ],
-        "updated_at": "2026-07-17T14:15:13.451494+00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/house-bill/2913",
         "ai_summary_short": "",
         "ai_summary_detailed": "",
         "ai_impact_analysis": "",
@@ -9215,10 +9287,10 @@
         ],
         "events": [],
         "document_urls": [
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2312/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2312/hb2312_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2312_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2312/hb2312_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2312/hb2312_00_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2312/",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2312_00_0000.pdf"
         ],
         "updated_at": "2026-05-05T15:57:12+00:00",
@@ -9438,9 +9510,9 @@
         ],
         "events": [],
         "document_urls": [
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_152/sb152_00_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/SB152/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb152_00_0000/fisc_note_sb152_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_152/sb152_00_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb152_00_0000/fisc_note_sb152_00_0000.pdf"
         ],
         "updated_at": "2026-04-29T16:17:38+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB152/",
@@ -9530,11 +9602,11 @@
         ],
         "events": [],
         "document_urls": [
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2083/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2083_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2083_00_0000/fisc_note_hb2083_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2083/hb2083_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2083_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2083/hb2083_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2083/"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2083/hb2083_00_0000.pdf"
         ],
         "updated_at": "2026-04-27T14:18:10+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2083/",
@@ -9750,13 +9822,13 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2044_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2044_00_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2044/",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_enrolled.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2044_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2044_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2044_00_0000/fisc_note_hb2044_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2044/"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_enrolled.pdf"
         ],
         "updated_at": "2026-03-27T23:25:55+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2044/",
@@ -10154,14 +10226,14 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2043_02_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_enrolled.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2043_00_0000/fisc_note_hb2043_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2043_01_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2043/",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_01_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2043_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_enrolled.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2043_02_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2043/"
         ],
         "updated_at": "2026-03-27T23:24:09+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2043/",
@@ -10610,14 +10682,14 @@
         ],
         "events": [],
         "document_urls": [
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_03_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_03_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_02_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/HB2192/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_03_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_03_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_enrolled.pdf"
         ],
         "updated_at": "2026-03-26T18:47:22+00:00",
@@ -11067,16 +11139,16 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_03_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_00_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/SCR1603/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_03_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_04_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_03_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_04_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_02_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_04_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_02_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_03_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_04_0000.pdf"
         ],
         "updated_at": "2026-03-19T15:09:26+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1603/",
@@ -11485,9 +11557,9 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_534/sb534_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb534_00_0000/fisc_note_sb534_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/SB534/"
+          "https://www.kslegislature.gov/li/b2025_26/measures/SB534/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_534/sb534_00_0000.pdf"
         ],
         "updated_at": "2026-03-10T22:45:23+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB534/",
@@ -11721,8 +11793,8 @@
         ],
         "events": [],
         "document_urls": [
-          "https://www.kslegislature.gov/li/b2025_26/measures/SCR1624/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1624/scr1624_00_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1624/scr1624_00_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/SCR1624/"
         ],
         "updated_at": "2026-03-04T22:16:15+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1624/",
@@ -12211,13 +12283,13 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb33_00_0000/fisc_note_sb33_00_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/SB33/",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_sb33_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_sb33_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb33_02_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_sb33_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb33_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb33_00_0000/fisc_note_sb33_00_0000.pdf"
         ],
         "updated_at": "2026-03-04T17:49:14+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB33/",
@@ -12482,11 +12554,11 @@
         ],
         "events": [],
         "document_urls": [
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2377/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2377/hb2377_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2377/hb2377_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2377_00_0000/fisc_note_hb2377_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2377_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2377/hb2377_00_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2377_00_0000/fisc_note_hb2377_00_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2377/"
         ],
         "updated_at": "2026-02-18T19:22:56+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2377/",
@@ -12619,7 +12691,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-20T11:23:50.488681+00:00"
+        "enriched_at": "2026-07-21T12:56:11.169332+00:00"
       },
       {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/e75d0ab1dcd19b089012a5a9b9f2f944",
@@ -12650,9 +12722,9 @@
         ],
         "events": [],
         "document_urls": [
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2782/hb2782_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2782_00_0000/fisc_note_hb2782_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2782/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2782/hb2782_00_0000.pdf"
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2782/"
         ],
         "updated_at": "2026-02-18T19:02:22+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2782/",
@@ -12758,10 +12830,10 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2408_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2408/hb2408_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2408/hb2408_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2408/"
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2408/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2408_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2408/hb2408_01_0000.pdf"
         ],
         "updated_at": "2026-02-12T00:20:12+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2408/",
@@ -12886,7 +12958,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-20T11:23:59.203999+00:00"
+        "enriched_at": "2026-07-21T12:56:21.078050+00:00"
       }
     ],
     "ai_technology": [
@@ -12960,7 +13032,18 @@
         "latest_action_date": "2026-07-20T00:00:00",
         "status": "Motion to reconsider laid on the table Agreed to without objection.",
         "chamber": "House",
-        "votes": [],
+        "votes": [
+          {
+            "rollNumber": 250,
+            "chamber": "House",
+            "date": "2026-07-20",
+            "result": "Passed",
+            "yeas": 394,
+            "nays": 6,
+            "motion": "On Motion to Suspend the Rules and Pass, as Amended",
+            "tally_text": "Passed 394–6"
+          }
+        ],
         "committees": [],
         "events": [],
         "document_urls": [
@@ -13423,6 +13506,80 @@
         "ai_tags": []
       },
       {
+        "id": "119-HR-2913",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 2913",
+        "title": "Ukraine Support Act",
+        "summary": "",
+        "classification": [],
+        "sponsors": [],
+        "latest_action": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 462.",
+        "latest_action_date": "2026-07-20T00:00:00",
+        "status": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 462.",
+        "chamber": "House",
+        "votes": [
+          {
+            "rollNumber": 207,
+            "chamber": "House",
+            "date": "2026-06-05",
+            "result": "Passed",
+            "yeas": 226,
+            "nays": 195,
+            "motion": "On Passage",
+            "tally_text": "Passed 226–195"
+          }
+        ],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/2913"
+        ],
+        "updated_at": "2026-07-21T12:59:43.659466+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/2913",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
+        "id": "119-HR-9773",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 9773",
+        "title": "To secure the borders of the United States, and for other purposes.",
+        "summary": "",
+        "classification": [],
+        "sponsors": [
+          {
+            "name": "Rep. Roy, Chip [R-TX-21]",
+            "party": "R",
+            "state": "TX",
+            "role": "primary"
+          }
+        ],
+        "latest_action": "Referred to the Committee on the Judiciary, and in addition to the Committee on Foreign Affairs, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "latest_action_date": "2026-07-20T00:00:00",
+        "status": "Referred to the Committee on the Judiciary, and in addition to the Committee on Foreign Affairs, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "chamber": "House",
+        "votes": [],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/9773"
+        ],
+        "updated_at": "2026-07-21T10:48:13.140361+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/9773",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
         "id": "119-HR-6963",
         "source": "congress",
         "level": "federal",
@@ -13567,45 +13724,6 @@
         ],
         "updated_at": "2026-07-17T14:15:13.451494+00:00",
         "url": "https://www.congress.gov/bill/119th-congress/house-bill/4288",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
-      },
-      {
-        "id": "119-HR-2913",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "HR 2913",
-        "title": "Ukraine Support Act",
-        "summary": "",
-        "classification": [],
-        "sponsors": [],
-        "latest_action": "Read the first time. Placed on Senate Legislative Calendar under Read the First Time.",
-        "latest_action_date": "2026-07-16T00:00:00",
-        "status": "Read the first time. Placed on Senate Legislative Calendar under Read the First Time.",
-        "chamber": "House",
-        "votes": [
-          {
-            "rollNumber": 207,
-            "chamber": "House",
-            "date": "2026-06-05",
-            "result": "Passed",
-            "yeas": 226,
-            "nays": 195,
-            "motion": "On Passage",
-            "tally_text": "Passed 226–195"
-          }
-        ],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/house-bill/2913"
-        ],
-        "updated_at": "2026-07-17T14:15:13.451494+00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/house-bill/2913",
         "ai_summary_short": "",
         "ai_summary_detailed": "",
         "ai_impact_analysis": "",
@@ -13773,34 +13891,6 @@
         ],
         "updated_at": "2026-07-16T12:06:19.095199+00:00",
         "url": "https://www.congress.gov/bill/119th-congress/house-bill/1181",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
-      },
-      {
-        "id": "119-HR-6556",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "HR 6556",
-        "title": "Failing Bank Acquisition Fairness Act",
-        "summary": "",
-        "classification": [],
-        "sponsors": [],
-        "latest_action": "Received in the Senate and Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
-        "latest_action_date": "2026-07-15T00:00:00",
-        "status": "Received in the Senate and Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
-        "chamber": "House",
-        "votes": [],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/house-bill/6556"
-        ],
-        "updated_at": "2026-07-16T12:06:19.095199+00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/house-bill/6556",
         "ai_summary_short": "",
         "ai_summary_detailed": "",
         "ai_impact_analysis": "",
