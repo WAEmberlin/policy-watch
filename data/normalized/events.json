@@ -18,24 +18,6 @@
     "updated_at": "2026-07-24"
   },
   {
-    "id": "338680",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Business meeting to consider the nominations of Christopher Phelan, of Minnesota, to be Chairman of the Council of Economic Advisers, John Crews, of Virginia, to be a Member of the National Credit Union Administration Board, and Jeffrey Ledbetter, of Virginia, to be Inspector General, Department of Housing and Urban Development; to be immediately followed by an opening hearing to examine the nominations of Brian Johnson, of Ohio, to be Director, Bureau of Consumer Financial Protection, Abby Warren, of Virginia, to be an Assistant Secretary of Commerce, and Irving Dennis, of Ohio, to be Chief Financial Officer, Department of Housing and Urban Development.",
-    "description": "Congressional meeting before the Senate Banking, Housing, and Urban Affairs.",
-    "scheduled_date": "2026-07-23",
-    "scheduled_time": "14:00",
-    "location": "Room 538, Dirksen Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Banking, Housing, and Urban Affairs"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338680",
-    "stream_url": "",
-    "updated_at": "2026-07-23"
-  },
-  {
     "id": "338678",
     "source": "congress",
     "level": "federal",
@@ -70,6 +52,24 @@
     "updated_at": "2026-07-23"
   },
   {
+    "id": "338680",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Business meeting to consider the nominations of Christopher Phelan, of Minnesota, to be Chairman of the Council of Economic Advisers, John Crews, of Virginia, to be a Member of the National Credit Union Administration Board, and Jeffrey Ledbetter, of Virginia, to be Inspector General, Department of Housing and Urban Development; to be immediately followed by an opening hearing to examine the nominations of Brian Johnson, of Ohio, to be Director, Bureau of Consumer Financial Protection, Abby Warren, of Virginia, to be an Assistant Secretary of Commerce, and Irving Dennis, of Ohio, to be Chief Financial Officer, Department of Housing and Urban Development.",
+    "description": "Congressional meeting before the Senate Banking, Housing, and Urban Affairs.",
+    "scheduled_date": "2026-07-23",
+    "scheduled_time": "14:00",
+    "location": "Room 538, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Banking, Housing, and Urban Affairs"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338680",
+    "stream_url": "",
+    "updated_at": "2026-07-23"
+  },
+  {
     "id": "338671",
     "source": "congress",
     "level": "federal",
@@ -88,20 +88,20 @@
     "updated_at": "2026-07-23"
   },
   {
-    "id": "119494",
+    "id": "338669",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "H.R. 9772, H.R. 9771, H.R. 9721, and H.R. 9722",
-    "description": "Congressional meeting before the House Ways and Means.",
+    "title": "Business meeting to consider the nominations of Mark Cruz, of Oregon, to be Director of the Indian Health Service, Department of Health and Human Services; to be immediately followed by a hearing to examine S.4276, to reauthorize the Native American Housing Assistance and Self-Determination Act of 1996.",
+    "description": "Congressional meeting before the Senate Indian Affairs.",
     "scheduled_date": "2026-07-22",
-    "scheduled_time": "14:00",
-    "location": "Room 1100, Longworth House Office Building",
-    "chamber": "House",
+    "scheduled_time": "18:00",
+    "location": "Room 628, Dirksen Senate Office Building",
+    "chamber": "Senate",
     "committees": [
-      "House Ways and Means"
+      "Senate Indian Affairs"
     ],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/119494",
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338669",
     "stream_url": "",
     "updated_at": "2026-07-22"
   },
@@ -124,20 +124,20 @@
     "updated_at": "2026-07-22"
   },
   {
-    "id": "338669",
+    "id": "119494",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "Business meeting to consider the nominations of Mark Cruz, of Oregon, to be Director of the Indian Health Service, Department of Health and Human Services; to be immediately followed by an open hearing on S.4276, to reauthorize the Native American Housing Assistance and Self-Determination Act of 1996.",
-    "description": "Congressional meeting before the Senate Indian Affairs.",
+    "title": "H.R. 9772, H.R. 9771, H.R. 9721, and H.R. 9722",
+    "description": "Congressional meeting before the House Ways and Means.",
     "scheduled_date": "2026-07-22",
-    "scheduled_time": "18:30",
-    "location": "Room 628, Dirksen Senate Office Building",
-    "chamber": "Senate",
+    "scheduled_time": "14:00",
+    "location": "Room 1100, Longworth House Office Building",
+    "chamber": "House",
     "committees": [
-      "Senate Indian Affairs"
+      "House Ways and Means"
     ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338669",
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119494",
     "stream_url": "",
     "updated_at": "2026-07-22"
   },
@@ -538,29 +538,11 @@
     "updated_at": "2026-07-21"
   },
   {
-    "id": "338663",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine a review of the President's supplemental funding request of June 24, 2026.",
-    "description": "Congressional meeting before the Senate Appropriations.",
-    "scheduled_date": "2026-07-21",
-    "scheduled_time": "18:30",
-    "location": "Room 106, Dirksen Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Appropriations"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338663",
-    "stream_url": "",
-    "updated_at": "2026-07-21"
-  },
-  {
     "id": "338675",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "Hearings to examine S.1674, to modify the boundary of the Mammoth Cave National Park in the State of Kentucky, S.2498, to authorize the Secretary of the Interior to extend certain leases within units of the National Park System without opening the lease to bidding, S.2767 and H.R.5254, bills to authorize the Secretary of the Interior to enter into an agreement with the Gateway Arch Park Foundation to host private events in Gateway Arch National Park buildings, S.2801, to authorize the Secretary of the Interior to conduct a study to assess the suitability and feasibility of designating the Canterbury Shaker Village National Heritage Area, S.2887, to amend the National Trails System Act to designate the Route 66 National Historic Trail, S.2933, to redesignate a playground in the New River Gorge National Park and Preserve in the State of West Virginia as the \"Hearts of Gold Playground: In Honor of West Virginia Children and Families Impacted by Childhood Cancer\", S.2969, to amend title 54, United States Code, to provide that State law shall apply to the use of motor vehicles on roads within a System unit, S.3131, to provide for the inclusion on the Vietnam Veterans Memorial Wall of the names of the lost crew members of the USS Frank E. Evans killed on June 3, 1969, S.3194, to authorize the Secretary of the Interior to conduct a study to assess the suitability and feasibility of designating certain land in California as the Monterey Bay National Heritage Area, S.3313 and H.R.6365, bills to require the Secretary of the Interior to issue a right-of-way for an emergency exit on certain National Park Service land in the State of Virginia, S.3371, to designate the Museum of the Blind People's Movement in Baltimore, Maryland, as the \"National Museum of the Blind People's Movement\", S.3501, to amend the John D. Dingell, Jr. Conservation, Management, and Recreation Act to designate as a component of the National Heritage Area System the Calumet National Heritage Area in the States of Indiana and Illinois, S.3524, to amend title 54, United States Code, to modify certain cost-sharing requirements for grant programs under the American Battlefield Protection Program, S.3720, to amend the National Trails System Act to direct the Secretary of the Interior to conduct a study on the feasibility of designating the Bay Area Ridge as a national scenic trail, S.3785, to authorize direct emergency acquisition flexibilities for the National Park Service and Forest Service for the purpose of retaining, vetting, approving, and expediting contractor approval for the clearing, rebuilding, maintenance, and improvement of areas of the Grand Canyon National Park and Kaibab National Forest damaged by certain wildfires, S.3925, to establish the Julius Rosenwald and Rosenwald Schools National Historical Park, S.4238, to amend the John D. Dingell, Jr. Conservation, Management, and Recreation Act to designate as a component of the National Heritage Area System the Endless Mountains National Heritage Area in the State of Pennsylvania, S.4399, to provide for certain conveyances under the Alaska Native Claims Settlement Act, S.4538, to amend the National Trails System Act to direct the Secretary of the Interior to conduct a study on the feasibility of designating Washington's Trail-1753 as a national historic trail, S.4595, to amend the Wild and Scenic Rivers Act to designate the Mullica River watershed in New Jersey for study for potential designation as a wild and scenic river, S.4767, to extend the authorization of the African American Civil Rights Network, H.R.183, to amend the Federal Lands Recreation Enhancement Act to provide for a lifetime National Recreational Pass for law enforcement officers, H.R.2306, to reauthorize the Adams Memorial Commission, H.R.5729, to authorize direct emergency acquisition flexibilities for the National Park Service for the purpose of retaining, vetting, approving, and expediting contractor approval for the clearing, rebuilding, maintenance, and improvement of the Grand Canyon grounds that have been impacted by the Dragon Bravo Fire, and S.3542, to amend the Wild and Scenic Rivers Act to designate the Upper Raritan River Watershed in the State of New Jersey for study for potential addition to the National Wild and Scenic Rivers System.",
+    "title": "Hearings to examine S.1674, to modify the boundary of the Mammoth Cave National Park in the State of Kentucky, S.2498, to authorize the Secretary of the Interior to extend certain leases within units of the National Park System without opening the lease to bidding, S.2767 and H.R.5254, bills to authorize the Secretary of the Interior to enter into an agreement with the Gateway Arch Park Foundation to host private events in Gateway Arch National Park buildings, S.2801, to authorize the Secretary of the Interior to conduct a study to assess the suitability and feasibility of designating the Canterbury Shaker Village National Heritage Area, S.2887, to amend the National Trails System Act to designate the Route 66 National Historic Trail, S.2933, to redesignate a playground in the New River Gorge National Park and Preserve in the State of West Virginia as the \"Hearts of Gold Playground: In Honor of West Virginia Children and Families Impacted by Childhood Cancer\", S.2969, to amend title 54, United States Code, to provide that State law shall apply to the use of motor vehicles on roads within a System unit, S.3131, to provide for the inclusion on the Vietnam Veterans Memorial Wall of the names of the lost crew members of the USS Frank E. Evans killed on June 3, 1969, S.3194, to authorize the Secretary of the Interior to conduct a study to assess the suitability and feasibility of designating certain land in California as the Monterey Bay National Heritage Area, S.3313 and H.R.6365, bills to require the Secretary of the Interior to issue a right-of-way for an emergency exit on certain National Park Service land in the State of Virginia, S.3371, to designate the Museum of the Blind People's Movement in Baltimore, Maryland, as the \"National Museum of the Blind People's Movement\", S.3456 and H.R.183, bills to amend the Federal Lands Recreation Enhancement Act to provide for a free annual National Parks and Federal Recreational Lands Pass for law enforcement officers and firefighters, S.3501, to amend the John D. Dingell, Jr. Conservation, Management, and Recreation Act to designate as a component of the National Heritage Area System the Calumet National Heritage Area in the States of Indiana and Illinois, S.3524, to amend title 54, United States Code, to modify certain cost-sharing requirements for grant programs under the American Battlefield Protection Program, S.3542, to amend the Wild and Scenic Rivers Act to designate the Upper Raritan River Watershed in the State of New Jersey for study for potential addition to the National Wild and Scenic Rivers System, S.3720, to amend the National Trails System Act to direct the Secretary of the Interior to conduct a study on the feasibility of designating the Bay Area Ridge as a national scenic trail, S.3785, to authorize direct emergency acquisition flexibilities for the National Park Service and Forest Service for the purpose of retaining, vetting, approving, and expediting contractor approval for the clearing, rebuilding, maintenance, and improvement of areas of the Grand Canyon National Park and Kaibab National Forest damaged by certain wildfires, S.3925, to establish the Julius Rosenwald and Rosenwald Schools National Historical Park, S.4238, to amend the John D. Dingell, Jr. Conservation, Management, and Recreation Act to designate as a component of the National Heritage Area System the Endless Mountains National Heritage Area in the State of Pennsylvania, S.4399, to provide for certain conveyances under the Alaska Native Claims Settlement Act, S.4538, to amend the National Trails System Act to direct the Secretary of the Interior to conduct a study on the feasibility of designating Washington's Trail-1753 as a national historic trail, S.4595, to amend the Wild and Scenic Rivers Act to designate the Mullica River watershed in New Jersey for study for potential designation as a wild and scenic river, S.4767, to extend the authorization of the African American Civil Rights Network, H.R.2306, to reauthorize the Adams Memorial Commission, H.R.5729, to authorize direct emergency acquisition flexibilities for the National Park Service for the purpose of retaining, vetting, approving, and expediting contractor approval for the clearing, rebuilding, maintenance, and improvement of the Grand Canyon grounds that have been impacted by the Dragon Bravo Fire, and H.R.7618, to amend title 54, United States Code, to modify certain cost-sharing requirements for grant programs under the American Battlefield Protection Program.",
     "description": "Congressional meeting before the Senate Energy and Natural Resources Subcommittee on National Parks.",
     "scheduled_date": "2026-07-21",
     "scheduled_time": "20:30",
@@ -588,6 +570,24 @@
       "Senate Commerce, Science, and Transportation Subcommittee on Science, Manufacturing, and Competitiveness"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338665",
+    "stream_url": "",
+    "updated_at": "2026-07-21"
+  },
+  {
+    "id": "338663",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine a review of the President's supplemental funding request of June 24, 2026.",
+    "description": "Congressional meeting before the Senate Appropriations.",
+    "scheduled_date": "2026-07-21",
+    "scheduled_time": "18:30",
+    "location": "Room 106, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Appropriations"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338663",
     "stream_url": "",
     "updated_at": "2026-07-21"
   },
@@ -844,24 +844,6 @@
     "updated_at": "2026-07-21"
   },
   {
-    "id": "119490",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Full Committee Markup of Twenty Nine Pieces of Legislation",
-    "description": "Congressional meeting before the House Energy and Commerce.",
-    "scheduled_date": "2026-07-20",
-    "scheduled_time": "21:00",
-    "location": "Room 2123, Rayburn House Office Building",
-    "chamber": "House",
-    "committees": [
-      "House Energy and Commerce"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/119490",
-    "stream_url": "",
-    "updated_at": "2026-07-20"
-  },
-  {
     "id": "118855",
     "source": "congress",
     "level": "federal",
@@ -876,6 +858,24 @@
       "House Rules"
     ],
     "url": "https://www.congress.gov/event/119th-congress/house-event/118855",
+    "stream_url": "",
+    "updated_at": "2026-07-20"
+  },
+  {
+    "id": "119490",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Full Committee Markup of Twenty Nine Pieces of Legislation",
+    "description": "Congressional meeting before the House Energy and Commerce.",
+    "scheduled_date": "2026-07-20",
+    "scheduled_time": "21:00",
+    "location": "Room 2123, Rayburn House Office Building",
+    "chamber": "House",
+    "committees": [
+      "House Energy and Commerce"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119490",
     "stream_url": "",
     "updated_at": "2026-07-20"
   },
@@ -970,24 +970,6 @@
     "updated_at": "2026-07-16"
   },
   {
-    "id": "338659",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine the nominations of Donald Blome, of Illinois, to be an Assistant Secretary of State (Near Eastern Affairs), Christopher Anderson, of Wisconsin, to be Ambassador to the Kingdom of Cambodia, Douglas Mastriano, of Pennsylvania, to be Ambassador to the Slovak Republic, Daniel Perez, of Florida, to be Ambassador to the Federative Republic of Brazil, and Laurence Socha, of Illinois, to be Ambassador to the Republic of The Gambia, all of the Department of State.",
-    "description": "Congressional meeting before the Senate Foreign Relations.",
-    "scheduled_date": "2026-07-16",
-    "scheduled_time": "15:00",
-    "location": "Room 419, Dirksen Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Foreign Relations"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338659",
-    "stream_url": "",
-    "updated_at": "2026-07-16"
-  },
-  {
     "id": "338654",
     "source": "congress",
     "level": "federal",
@@ -1002,6 +984,24 @@
       "Senate Finance"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338654",
+    "stream_url": "",
+    "updated_at": "2026-07-16"
+  },
+  {
+    "id": "338659",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine the nominations of Donald Blome, of Illinois, to be an Assistant Secretary of State (Near Eastern Affairs), Christopher Anderson, of Wisconsin, to be Ambassador to the Kingdom of Cambodia, Douglas Mastriano, of Pennsylvania, to be Ambassador to the Slovak Republic, Daniel Perez, of Florida, to be Ambassador to the Federative Republic of Brazil, and Laurence Socha, of Illinois, to be Ambassador to the Republic of The Gambia, all of the Department of State.",
+    "description": "Congressional meeting before the Senate Foreign Relations.",
+    "scheduled_date": "2026-07-16",
+    "scheduled_time": "15:00",
+    "location": "Room 419, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Foreign Relations"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338659",
     "stream_url": "",
     "updated_at": "2026-07-16"
   },
@@ -1024,24 +1024,6 @@
     "updated_at": "2026-07-16"
   },
   {
-    "id": "338653",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine the nomination of David Cummins, of Virginia, to be Administrator of the Transportation Security Administration.",
-    "description": "Congressional meeting before the Senate Commerce, Science, and Transportation.",
-    "scheduled_date": "2026-07-16",
-    "scheduled_time": "14:00",
-    "location": "Room 253, Russell Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Commerce, Science, and Transportation"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338653",
-    "stream_url": "",
-    "updated_at": "2026-07-16"
-  },
-  {
     "id": "338657",
     "source": "congress",
     "level": "federal",
@@ -1060,20 +1042,20 @@
     "updated_at": "2026-07-16"
   },
   {
-    "id": "338662",
+    "id": "338653",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "Business meeting to consider S.365 and H.R.1729, bills to amend the John D. Dingell, Jr. Conservation, Management, and Recreation Act to allow for additional entities to be eligible to complete the maintenance work on Bolts Ditch and the Bolts Ditch Headgate within the Holy Cross Wilderness, Colorado, S.764, to provide for the designation of certain wilderness areas, recreation management areas, and conservation areas in the State of Colorado, S.791, to establish the Justice Thurgood Marshall National Historic Site in the State of Maryland as an affiliated area of the National Park System, S.888, to designate certain land administered by the Bureau of Land Management and the Forest Service in the State of Oregon as wilderness and national recreation areas, to withdraw certain land located in Curry County and Josephine County, Oregon, from all forms of entry, appropriation, or disposal under the public land laws, location, entry, and patent under the mining laws, and operation under the mineral leasing and geothermal leasing laws, S.945, to amend the Smith River National Recreation Area Act to include certain additions to the Smith River National Recreation Area, to amend the Wild and Scenic Rivers Act to designate certain wild rivers in the State of Oregon, S.1088, to provide that the memorial to commemorate the sacrifice and service of the women who worked on the home front to support the efforts of the United States military during World War II may be located on the National Mall, S.1175, to amend section 6903 of title 31, United States Code, to provide for additional population tiers, S.1341, to amend the Colorado Wilderness Act of 1993 to add certain land to the Sarvis Creek Wilderness, S.1349, to withdraw the National Forest System land in the Ruby Mountains subdistrict of the Humboldt-Toiyabe National Forest and the National Wildlife Refuge System land in Ruby Lake National Wildlife Refuge, Elko and White Pine Counties, Nevada, from operation under the mineral leasing laws, S.1413, to authorize additional funding for the San Joaquin River Restoration Settlement Act, S.1476, to amend the Wild and Scenic Rivers Act to designate certain segments of the Gila River system in the State of New Mexico as components of the National Wild and Scenic Rivers System, to provide for the transfer of administrative jurisdiction over certain Federal land in the State of New Mexico, S.1737, to designate and expand wilderness areas in Olympic National Forest in the State of Washington, and to designate certain rivers in Olympic National Forest and Olympic National Park as wild and scenic rivers, S.1870, to adjust the boundary of the Santa Monica Mountains National Recreation Area to include the Rim of the Valley Corridor, S.2554, to provide for the recognition of certain Alaska Native communities and the settlement of certain claims under the Alaska Native Claims Settlement Act, S.2754 and H.R.5911, to direct the Secretary of Agriculture to convey to the City of Ouray, Colorado, certain land managed by the Forest Service, together with a reservoir, S.3526, to provide for the protection of and investment in certain Federal land in the State of California, S.3725, to require the Secretary of the Interior to conduct a study to determine the feasibility of constructing a project to supply municipal, rural, and industrial water to expand the capacity and reach of the Lewis and Clark Rural Water System, Inc. (doing business as \"Lewis &#38;amp; Clark Regional Water System\"), in the States of Iowa, Minnesota, and South Dakota, S.3732, to amend the Water Infrastructure Improvements for the Nation Act to authorize assistance under the storage program, H.R.249, to redesignate certain facilities at Paterson Great Falls National Historical Park in honor of Congressman Bill Pascrell, Jr, and the nominations of William Hague, of Washington, to be an Assistant Secretary, Kevin Lilly, of Texas, to be Assistant Secretary for Fish and Wildlife, both of the Department of the Interior, and Kaveh Farzad, of Maryland, to be an Assistant Secretary of Energy (International Affairs).",
-    "description": "Congressional meeting before the Senate Energy and Natural Resources.",
+    "title": "Hearings to examine the nomination of David Cummins, of Virginia, to be Administrator of the Transportation Security Administration.",
+    "description": "Congressional meeting before the Senate Commerce, Science, and Transportation.",
     "scheduled_date": "2026-07-16",
-    "scheduled_time": "13:30",
-    "location": "Room 366, Dirksen Senate Office Building",
+    "scheduled_time": "14:00",
+    "location": "Room 253, Russell Senate Office Building",
     "chamber": "Senate",
     "committees": [
-      "Senate Energy and Natural Resources"
+      "Senate Commerce, Science, and Transportation"
     ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338662",
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338653",
     "stream_url": "",
     "updated_at": "2026-07-16"
   },
@@ -1092,6 +1074,24 @@
       "Senate Armed Services"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338643",
+    "stream_url": "",
+    "updated_at": "2026-07-16"
+  },
+  {
+    "id": "338662",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Business meeting to consider S.365 and H.R.1729, bills to amend the John D. Dingell, Jr. Conservation, Management, and Recreation Act to allow for additional entities to be eligible to complete the maintenance work on Bolts Ditch and the Bolts Ditch Headgate within the Holy Cross Wilderness, Colorado, S.764, to provide for the designation of certain wilderness areas, recreation management areas, and conservation areas in the State of Colorado, S.791, to establish the Justice Thurgood Marshall National Historic Site in the State of Maryland as an affiliated area of the National Park System, S.888, to designate certain land administered by the Bureau of Land Management and the Forest Service in the State of Oregon as wilderness and national recreation areas, to withdraw certain land located in Curry County and Josephine County, Oregon, from all forms of entry, appropriation, or disposal under the public land laws, location, entry, and patent under the mining laws, and operation under the mineral leasing and geothermal leasing laws, S.945, to amend the Smith River National Recreation Area Act to include certain additions to the Smith River National Recreation Area, to amend the Wild and Scenic Rivers Act to designate certain wild rivers in the State of Oregon, S.1088, to provide that the memorial to commemorate the sacrifice and service of the women who worked on the home front to support the efforts of the United States military during World War II may be located on the National Mall, S.1175, to amend section 6903 of title 31, United States Code, to provide for additional population tiers, S.1341, to amend the Colorado Wilderness Act of 1993 to add certain land to the Sarvis Creek Wilderness, S.1349, to withdraw the National Forest System land in the Ruby Mountains subdistrict of the Humboldt-Toiyabe National Forest and the National Wildlife Refuge System land in Ruby Lake National Wildlife Refuge, Elko and White Pine Counties, Nevada, from operation under the mineral leasing laws, S.1413, to authorize additional funding for the San Joaquin River Restoration Settlement Act, S.1476, to amend the Wild and Scenic Rivers Act to designate certain segments of the Gila River system in the State of New Mexico as components of the National Wild and Scenic Rivers System, to provide for the transfer of administrative jurisdiction over certain Federal land in the State of New Mexico, S.1737, to designate and expand wilderness areas in Olympic National Forest in the State of Washington, and to designate certain rivers in Olympic National Forest and Olympic National Park as wild and scenic rivers, S.1870, to adjust the boundary of the Santa Monica Mountains National Recreation Area to include the Rim of the Valley Corridor, S.2554, to provide for the recognition of certain Alaska Native communities and the settlement of certain claims under the Alaska Native Claims Settlement Act, S.2754 and H.R.5911, to direct the Secretary of Agriculture to convey to the City of Ouray, Colorado, certain land managed by the Forest Service, together with a reservoir, S.3526, to provide for the protection of and investment in certain Federal land in the State of California, S.3725, to require the Secretary of the Interior to conduct a study to determine the feasibility of constructing a project to supply municipal, rural, and industrial water to expand the capacity and reach of the Lewis and Clark Rural Water System, Inc. (doing business as \"Lewis &#38;amp; Clark Regional Water System\"), in the States of Iowa, Minnesota, and South Dakota, S.3732, to amend the Water Infrastructure Improvements for the Nation Act to authorize assistance under the storage program, H.R.249, to redesignate certain facilities at Paterson Great Falls National Historical Park in honor of Congressman Bill Pascrell, Jr, and the nominations of William Hague, of Washington, to be an Assistant Secretary, Kevin Lilly, of Texas, to be Assistant Secretary for Fish and Wildlife, both of the Department of the Interior, and Kaveh Farzad, of Maryland, to be an Assistant Secretary of Energy (International Affairs).",
+    "description": "Congressional meeting before the Senate Energy and Natural Resources.",
+    "scheduled_date": "2026-07-16",
+    "scheduled_time": "13:30",
+    "location": "Room 366, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Energy and Natural Resources"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338662",
     "stream_url": "",
     "updated_at": "2026-07-16"
   },
@@ -1362,24 +1362,6 @@
     "updated_at": "2026-07-15"
   },
   {
-    "id": "338612",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine the TRICARE pharmacy program.",
-    "description": "Congressional meeting before the Senate Armed Services Subcommittee on Personnel.",
-    "scheduled_date": "2026-07-15",
-    "scheduled_time": "18:30",
-    "location": "Room 222, Russell Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Armed Services Subcommittee on Personnel"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338612",
-    "stream_url": "",
-    "updated_at": "2026-07-15"
-  },
-  {
     "id": "338648",
     "source": "congress",
     "level": "federal",
@@ -1398,20 +1380,20 @@
     "updated_at": "2026-07-15"
   },
   {
-    "id": "338650",
+    "id": "338612",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "Hearings to examine the Semiannual Monetary Policy Report to the Congress.",
-    "description": "Congressional meeting before the Senate Banking, Housing, and Urban Affairs.",
+    "title": "Hearings to examine the TRICARE pharmacy program.",
+    "description": "Congressional meeting before the Senate Armed Services Subcommittee on Personnel.",
     "scheduled_date": "2026-07-15",
-    "scheduled_time": "14:00",
-    "location": "Room 538, Dirksen Senate Office Building",
+    "scheduled_time": "18:30",
+    "location": "Room 222, Russell Senate Office Building",
     "chamber": "Senate",
     "committees": [
-      "Senate Banking, Housing, and Urban Affairs"
+      "Senate Armed Services Subcommittee on Personnel"
     ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338650",
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338612",
     "stream_url": "",
     "updated_at": "2026-07-15"
   },
@@ -1430,24 +1412,6 @@
       "Senate Health, Education, Labor, and Pensions"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338613",
-    "stream_url": "",
-    "updated_at": "2026-07-15"
-  },
-  {
-    "id": "338661",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Business meeting to consider S.4949, to provide for improvements to the rivers and harbors of the United States, to provide for the conservation and development of water and related resources, and the nomination of Kevin Lilly, of Texas, to be Assistant Secretary for Fish and Wildlife.",
-    "description": "Congressional meeting before the Senate Environment and Public Works.",
-    "scheduled_date": "2026-07-15",
-    "scheduled_time": "14:00",
-    "location": "Room 406, Dirksen Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Environment and Public Works"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338661",
     "stream_url": "",
     "updated_at": "2026-07-15"
   },
@@ -1502,6 +1466,42 @@
       "Senate Judiciary"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338649",
+    "stream_url": "",
+    "updated_at": "2026-07-15"
+  },
+  {
+    "id": "338650",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine the Semiannual Monetary Policy Report to the Congress.",
+    "description": "Congressional meeting before the Senate Banking, Housing, and Urban Affairs.",
+    "scheduled_date": "2026-07-15",
+    "scheduled_time": "14:00",
+    "location": "Room 538, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Banking, Housing, and Urban Affairs"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338650",
+    "stream_url": "",
+    "updated_at": "2026-07-15"
+  },
+  {
+    "id": "338661",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Business meeting to consider S.4949, to provide for improvements to the rivers and harbors of the United States, to provide for the conservation and development of water and related resources, and the nomination of Kevin Lilly, of Texas, to be Assistant Secretary for Fish and Wildlife.",
+    "description": "Congressional meeting before the Senate Environment and Public Works.",
+    "scheduled_date": "2026-07-15",
+    "scheduled_time": "14:00",
+    "location": "Room 406, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Environment and Public Works"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338661",
     "stream_url": "",
     "updated_at": "2026-07-15"
   },
@@ -1774,24 +1774,6 @@
     "updated_at": "2026-07-14"
   },
   {
-    "id": "338645",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine the national security strategy and the western hemisphere.",
-    "description": "Congressional meeting before the Senate Foreign Relations Subcommittee on Western Hemisphere, Transnational Crime, Civilian Security, Democracy, Human Rights, and Global Women's Issues.",
-    "scheduled_date": "2026-07-14",
-    "scheduled_time": "18:30",
-    "location": "Room 419, Dirksen Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Foreign Relations Subcommittee on Western Hemisphere, Transnational Crime, Civilian Security, Democracy, Human Rights, and Global Women's Issues"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338645",
-    "stream_url": "",
-    "updated_at": "2026-07-14"
-  },
-  {
     "id": "338642",
     "source": "congress",
     "level": "federal",
@@ -1806,6 +1788,24 @@
       "Senate Appropriations Subcommittee on Financial Services and General Government"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338642",
+    "stream_url": "",
+    "updated_at": "2026-07-14"
+  },
+  {
+    "id": "338645",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine the national security strategy and the western hemisphere.",
+    "description": "Congressional meeting before the Senate Foreign Relations Subcommittee on Western Hemisphere, Transnational Crime, Civilian Security, Democracy, Human Rights, and Global Women's Issues.",
+    "scheduled_date": "2026-07-14",
+    "scheduled_time": "18:30",
+    "location": "Room 419, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Foreign Relations Subcommittee on Western Hemisphere, Transnational Crime, Civilian Security, Democracy, Human Rights, and Global Women's Issues"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338645",
     "stream_url": "",
     "updated_at": "2026-07-14"
   },
@@ -1828,24 +1828,6 @@
     "updated_at": "2026-07-14"
   },
   {
-    "id": "338658",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Business meeting to consider the nominations of Brett Doyle, of Connecticut, David Foley, Jr., of Virginia, Samuel Negatu, of the District of Columbia, Peter-Anthony Pappas, of New Jersey, and Bartholomew Thanhauser, of New York, all to be a Member of the United States International Trade Commission.",
-    "description": "Congressional meeting before the Senate Finance.",
-    "scheduled_date": "2026-07-14",
-    "scheduled_time": "15:30",
-    "location": "Room 215, Dirksen Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Finance"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338658",
-    "stream_url": "",
-    "updated_at": "2026-07-14"
-  },
-  {
     "id": "338644",
     "source": "congress",
     "level": "federal",
@@ -1860,6 +1842,24 @@
       "Senate Judiciary"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338644",
+    "stream_url": "",
+    "updated_at": "2026-07-14"
+  },
+  {
+    "id": "338658",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Business meeting to consider the nominations of Brett Doyle, of Connecticut, David Foley, Jr., of Virginia, Samuel Negatu, of the District of Columbia, Peter-Anthony Pappas, of New Jersey, and Bartholomew Thanhauser, of New York, all to be a Member of the United States International Trade Commission.",
+    "description": "Congressional meeting before the Senate Finance.",
+    "scheduled_date": "2026-07-14",
+    "scheduled_time": "15:30",
+    "location": "Room 215, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Finance"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338658",
     "stream_url": "",
     "updated_at": "2026-07-14"
   },
@@ -2956,60 +2956,6 @@
     "updated_at": "2026-06-24"
   },
   {
-    "id": "338610",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine protecting patients and taxpayers, focusing on combating healthcare fraud and leakage to strengthen program integrity.",
-    "description": "Congressional meeting before the Joint Economic Committee.",
-    "scheduled_date": "2026-06-24",
-    "scheduled_time": "18:00",
-    "location": "Room G50, Dirksen Senate Office Building",
-    "chamber": "Nochamber",
-    "committees": [
-      "Joint Economic Committee"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/nochamber-event/338610",
-    "stream_url": "",
-    "updated_at": "2026-06-24"
-  },
-  {
-    "id": "338579",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine the global reach of Mexican drug cartels and risks to U.S. national security.",
-    "description": "Congressional meeting before the Senate Caucus on International Narcotics Control.",
-    "scheduled_date": "2026-06-24",
-    "scheduled_time": "18:00",
-    "location": "Room 419, Dirksen Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Caucus on International Narcotics Control"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338579",
-    "stream_url": "",
-    "updated_at": "2026-06-24"
-  },
-  {
-    "id": "338585",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine the nominations of Thomas B. Chapman, of Maryland, to be a Member of the National Transportation Safety Board, Edward Eppler, of Connecticut, to be Chief Financial Officer, Department of Transportation, Karen Jean Hedlund, of New York, to be a Member of the Surface Transportation Board, and Brien Lorenze, of Virginia, and Karen Sessions, of Texas, each to be a Commissioner of the Consumer Product Safety Commission.",
-    "description": "Congressional meeting before the Senate Commerce, Science, and Transportation.",
-    "scheduled_date": "2026-06-24",
-    "scheduled_time": "14:00",
-    "location": "Room 253, Russell Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Commerce, Science, and Transportation"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338585",
-    "stream_url": "",
-    "updated_at": "2026-06-24"
-  },
-  {
     "id": "338584",
     "source": "congress",
     "level": "federal",
@@ -3042,6 +2988,60 @@
       "Senate Homeland Security and Governmental Affairs"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338582",
+    "stream_url": "",
+    "updated_at": "2026-06-24"
+  },
+  {
+    "id": "338579",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine the global reach of Mexican drug cartels and risks to U.S. national security.",
+    "description": "Congressional meeting before the Senate Caucus on International Narcotics Control.",
+    "scheduled_date": "2026-06-24",
+    "scheduled_time": "18:00",
+    "location": "Room 419, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Caucus on International Narcotics Control"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338579",
+    "stream_url": "",
+    "updated_at": "2026-06-24"
+  },
+  {
+    "id": "338610",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine protecting patients and taxpayers, focusing on combating healthcare fraud and leakage to strengthen program integrity.",
+    "description": "Congressional meeting before the Joint Economic Committee.",
+    "scheduled_date": "2026-06-24",
+    "scheduled_time": "18:00",
+    "location": "Room G50, Dirksen Senate Office Building",
+    "chamber": "Nochamber",
+    "committees": [
+      "Joint Economic Committee"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/nochamber-event/338610",
+    "stream_url": "",
+    "updated_at": "2026-06-24"
+  },
+  {
+    "id": "338585",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine the nominations of Thomas B. Chapman, of Maryland, to be a Member of the National Transportation Safety Board, Edward Eppler, of Connecticut, to be Chief Financial Officer, Department of Transportation, Karen Jean Hedlund, of New York, to be a Member of the Surface Transportation Board, and Brien Lorenze, of Virginia, and Karen Sessions, of Texas, each to be a Commissioner of the Consumer Product Safety Commission.",
+    "description": "Congressional meeting before the Senate Commerce, Science, and Transportation.",
+    "scheduled_date": "2026-06-24",
+    "scheduled_time": "14:00",
+    "location": "Room 253, Russell Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Commerce, Science, and Transportation"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338585",
     "stream_url": "",
     "updated_at": "2026-06-24"
   },
@@ -3154,6 +3154,24 @@
     "updated_at": "2026-06-23"
   },
   {
+    "id": "338578",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine improving safety across the National Airspace System.",
+    "description": "Congressional meeting before the Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation.",
+    "scheduled_date": "2026-06-23",
+    "scheduled_time": "14:00",
+    "location": "Room 253, Russell Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338578",
+    "stream_url": "",
+    "updated_at": "2026-06-23"
+  },
+  {
     "id": "338577",
     "source": "congress",
     "level": "federal",
@@ -3168,24 +3186,6 @@
       "Senate Homeland Security and Governmental Affairs"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338577",
-    "stream_url": "",
-    "updated_at": "2026-06-23"
-  },
-  {
-    "id": "338581",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine the nominations of William Hague, of Washington, to be an Assistant Secretary, Kevin Lilly, of Texas, to be Assistant Secretary for Fish and Wildlife, both of the Department of the Interior, and Kaveh Farzad, of Maryland, to be an Assistant Secretary of Energy (International Affairs).",
-    "description": "Congressional meeting before the Senate Energy and Natural Resources.",
-    "scheduled_date": "2026-06-23",
-    "scheduled_time": "13:30",
-    "location": "Room 366, Dirksen Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Energy and Natural Resources"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338581",
     "stream_url": "",
     "updated_at": "2026-06-23"
   },
@@ -3208,20 +3208,20 @@
     "updated_at": "2026-06-23"
   },
   {
-    "id": "338578",
+    "id": "338581",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "Hearings to examine improving safety across the National Airspace System.",
-    "description": "Congressional meeting before the Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation.",
+    "title": "Hearings to examine the nominations of William Hague, of Washington, to be an Assistant Secretary, Kevin Lilly, of Texas, to be Assistant Secretary for Fish and Wildlife, both of the Department of the Interior, and Kaveh Farzad, of Maryland, to be an Assistant Secretary of Energy (International Affairs).",
+    "description": "Congressional meeting before the Senate Energy and Natural Resources.",
     "scheduled_date": "2026-06-23",
-    "scheduled_time": "14:00",
-    "location": "Room 253, Russell Senate Office Building",
+    "scheduled_time": "13:30",
+    "location": "Room 366, Dirksen Senate Office Building",
     "chamber": "Senate",
     "committees": [
-      "Senate Commerce, Science, and Transportation Subcommittee on Aviation, Space, and Innovation"
+      "Senate Energy and Natural Resources"
     ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338578",
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338581",
     "stream_url": "",
     "updated_at": "2026-06-23"
   },
