@@ -1,6 +1,463 @@
 {
-  "whats_new_today": [],
+  "whats_new_today": [
+    {
+      "id": "119-HR-6955",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "bill_number": "HR 6955",
+      "title": "Main Street Capital Access Act",
+      "summary": "",
+      "classification": [],
+      "sponsors": [],
+      "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
+      "latest_action_date": "2026-07-21T00:00:00",
+      "status": "Motion to reconsider laid on the table Agreed to without objection.",
+      "chamber": "House",
+      "votes": [
+        {
+          "rollNumber": 271,
+          "chamber": "House",
+          "date": "2026-07-22",
+          "result": "Passed",
+          "yeas": 270,
+          "nays": 155,
+          "motion": "On Passage",
+          "tally_text": "Passed 270–155"
+        },
+        {
+          "rollNumber": 270,
+          "chamber": "House",
+          "date": "2026-07-22",
+          "result": "Failed",
+          "yeas": 210,
+          "nays": 216,
+          "motion": "On Motion to Recommit",
+          "tally_text": "Failed 210–216"
+        }
+      ],
+      "committees": [],
+      "events": [],
+      "document_urls": [
+        "https://www.congress.gov/bill/119th-congress/house-bill/6955"
+      ],
+      "updated_at": "2026-07-22T10:02:51.364092+00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/6955",
+      "ai_summary_short": "",
+      "ai_summary_detailed": "",
+      "ai_impact_analysis": "",
+      "ai_topics": [],
+      "ai_tags": []
+    },
+    {
+      "id": "119-HR-1118",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "bill_number": "HR 1118",
+      "title": "Value Over Cost Act of 2025",
+      "summary": "",
+      "classification": [],
+      "sponsors": [],
+      "latest_action": "The title of the measure was amended. Agreed to without objection.",
+      "latest_action_date": "2026-07-21T00:00:00",
+      "status": "The title of the measure was amended. Agreed to without objection.",
+      "chamber": "House",
+      "votes": [
+        {
+          "rollNumber": 252,
+          "chamber": "House",
+          "date": "2026-07-21",
+          "result": "Passed",
+          "yeas": 421,
+          "nays": 1,
+          "motion": "On Motion to Suspend the Rules and Pass, as Amended",
+          "tally_text": "Passed 421–1"
+        }
+      ],
+      "committees": [],
+      "events": [],
+      "document_urls": [
+        "https://www.congress.gov/bill/119th-congress/house-bill/1118"
+      ],
+      "updated_at": "2026-07-22T10:02:51.364092+00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/1118",
+      "ai_summary_short": "",
+      "ai_summary_detailed": "",
+      "ai_impact_analysis": "",
+      "ai_topics": [],
+      "ai_tags": []
+    },
+    {
+      "id": "119-HR-3168",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "bill_number": "HR 3168",
+      "title": "National Earthquake Hazards Reduction Program Reauthorization Act of 2025",
+      "summary": "",
+      "classification": [],
+      "sponsors": [],
+      "latest_action": "Ordered to be Reported in the Nature of a Substitute (Amended) by Voice Vote.",
+      "latest_action_date": "2026-07-21T00:00:00",
+      "status": "Ordered to be Reported in the Nature of a Substitute (Amended) by Voice Vote.",
+      "chamber": "House",
+      "votes": [],
+      "committees": [],
+      "events": [],
+      "document_urls": [
+        "https://www.congress.gov/bill/119th-congress/house-bill/3168"
+      ],
+      "updated_at": "2026-07-22T10:02:51.364092+00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/3168",
+      "ai_summary_short": "",
+      "ai_summary_detailed": "",
+      "ai_impact_analysis": "",
+      "ai_topics": [],
+      "ai_tags": []
+    },
+    {
+      "id": "119-HR-6213",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "bill_number": "HR 6213",
+      "title": "Heat Workforce Standards Act of 2025",
+      "summary": "",
+      "classification": [],
+      "sponsors": [],
+      "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
+      "latest_action_date": "2026-07-21T00:00:00",
+      "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
+      "chamber": "House",
+      "votes": [],
+      "committees": [],
+      "events": [],
+      "document_urls": [
+        "https://www.congress.gov/bill/119th-congress/house-bill/6213"
+      ],
+      "updated_at": "2026-07-22T10:02:51.364092+00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/6213",
+      "ai_summary_short": "",
+      "ai_summary_detailed": "",
+      "ai_impact_analysis": "",
+      "ai_topics": [],
+      "ai_tags": []
+    },
+    {
+      "id": "119-HR-5267",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "bill_number": "HR 5267",
+      "title": "American Franchise Act",
+      "summary": "",
+      "classification": [],
+      "sponsors": [],
+      "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
+      "latest_action_date": "2026-07-21T00:00:00",
+      "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
+      "chamber": "House",
+      "votes": [],
+      "committees": [],
+      "events": [],
+      "document_urls": [
+        "https://www.congress.gov/bill/119th-congress/house-bill/5267"
+      ],
+      "updated_at": "2026-07-22T10:02:51.364092+00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/5267",
+      "ai_summary_short": "",
+      "ai_summary_detailed": "",
+      "ai_impact_analysis": "",
+      "ai_topics": [],
+      "ai_tags": []
+    },
+    {
+      "id": "119-HR-4986",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "bill_number": "HR 4986",
+      "title": "Parents Opt-in Protection Act",
+      "summary": "",
+      "classification": [],
+      "sponsors": [],
+      "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
+      "latest_action_date": "2026-07-21T00:00:00",
+      "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
+      "chamber": "House",
+      "votes": [],
+      "committees": [],
+      "events": [],
+      "document_urls": [
+        "https://www.congress.gov/bill/119th-congress/house-bill/4986"
+      ],
+      "updated_at": "2026-07-22T10:02:51.364092+00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/4986",
+      "ai_summary_short": "",
+      "ai_summary_detailed": "",
+      "ai_impact_analysis": "",
+      "ai_topics": [],
+      "ai_tags": []
+    },
+    {
+      "id": "119-S-1041",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "bill_number": "S 1041",
+      "title": "Affordable Prescriptions for Patients Act",
+      "summary": "",
+      "classification": [],
+      "sponsors": [],
+      "latest_action": "Held at the desk.",
+      "latest_action_date": "2026-07-21T00:00:00",
+      "status": "Held at the desk.",
+      "chamber": "Senate",
+      "votes": [],
+      "committees": [],
+      "events": [],
+      "document_urls": [
+        "https://www.congress.gov/bill/119th-congress/senate-bill/1041"
+      ],
+      "updated_at": "2026-07-22T10:02:51.364092+00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1041",
+      "ai_summary_short": "",
+      "ai_summary_detailed": "",
+      "ai_impact_analysis": "",
+      "ai_topics": [],
+      "ai_tags": []
+    }
+  ],
   "recent_bills": [
+    {
+      "id": "119-HR-6955",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "bill_number": "HR 6955",
+      "title": "Main Street Capital Access Act",
+      "summary": "",
+      "classification": [],
+      "sponsors": [],
+      "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
+      "latest_action_date": "2026-07-21T00:00:00",
+      "status": "Motion to reconsider laid on the table Agreed to without objection.",
+      "chamber": "House",
+      "votes": [
+        {
+          "rollNumber": 271,
+          "chamber": "House",
+          "date": "2026-07-22",
+          "result": "Passed",
+          "yeas": 270,
+          "nays": 155,
+          "motion": "On Passage",
+          "tally_text": "Passed 270–155"
+        },
+        {
+          "rollNumber": 270,
+          "chamber": "House",
+          "date": "2026-07-22",
+          "result": "Failed",
+          "yeas": 210,
+          "nays": 216,
+          "motion": "On Motion to Recommit",
+          "tally_text": "Failed 210–216"
+        }
+      ],
+      "committees": [],
+      "events": [],
+      "document_urls": [
+        "https://www.congress.gov/bill/119th-congress/house-bill/6955"
+      ],
+      "updated_at": "2026-07-22T10:02:51.364092+00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/6955",
+      "ai_summary_short": "",
+      "ai_summary_detailed": "",
+      "ai_impact_analysis": "",
+      "ai_topics": [],
+      "ai_tags": []
+    },
+    {
+      "id": "119-HR-1118",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "bill_number": "HR 1118",
+      "title": "Value Over Cost Act of 2025",
+      "summary": "",
+      "classification": [],
+      "sponsors": [],
+      "latest_action": "The title of the measure was amended. Agreed to without objection.",
+      "latest_action_date": "2026-07-21T00:00:00",
+      "status": "The title of the measure was amended. Agreed to without objection.",
+      "chamber": "House",
+      "votes": [
+        {
+          "rollNumber": 252,
+          "chamber": "House",
+          "date": "2026-07-21",
+          "result": "Passed",
+          "yeas": 421,
+          "nays": 1,
+          "motion": "On Motion to Suspend the Rules and Pass, as Amended",
+          "tally_text": "Passed 421–1"
+        }
+      ],
+      "committees": [],
+      "events": [],
+      "document_urls": [
+        "https://www.congress.gov/bill/119th-congress/house-bill/1118"
+      ],
+      "updated_at": "2026-07-22T10:02:51.364092+00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/1118",
+      "ai_summary_short": "",
+      "ai_summary_detailed": "",
+      "ai_impact_analysis": "",
+      "ai_topics": [],
+      "ai_tags": []
+    },
+    {
+      "id": "119-HR-3168",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "bill_number": "HR 3168",
+      "title": "National Earthquake Hazards Reduction Program Reauthorization Act of 2025",
+      "summary": "",
+      "classification": [],
+      "sponsors": [],
+      "latest_action": "Ordered to be Reported in the Nature of a Substitute (Amended) by Voice Vote.",
+      "latest_action_date": "2026-07-21T00:00:00",
+      "status": "Ordered to be Reported in the Nature of a Substitute (Amended) by Voice Vote.",
+      "chamber": "House",
+      "votes": [],
+      "committees": [],
+      "events": [],
+      "document_urls": [
+        "https://www.congress.gov/bill/119th-congress/house-bill/3168"
+      ],
+      "updated_at": "2026-07-22T10:02:51.364092+00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/3168",
+      "ai_summary_short": "",
+      "ai_summary_detailed": "",
+      "ai_impact_analysis": "",
+      "ai_topics": [],
+      "ai_tags": []
+    },
+    {
+      "id": "119-HR-6213",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "bill_number": "HR 6213",
+      "title": "Heat Workforce Standards Act of 2025",
+      "summary": "",
+      "classification": [],
+      "sponsors": [],
+      "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
+      "latest_action_date": "2026-07-21T00:00:00",
+      "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
+      "chamber": "House",
+      "votes": [],
+      "committees": [],
+      "events": [],
+      "document_urls": [
+        "https://www.congress.gov/bill/119th-congress/house-bill/6213"
+      ],
+      "updated_at": "2026-07-22T10:02:51.364092+00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/6213",
+      "ai_summary_short": "",
+      "ai_summary_detailed": "",
+      "ai_impact_analysis": "",
+      "ai_topics": [],
+      "ai_tags": []
+    },
+    {
+      "id": "119-HR-5267",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "bill_number": "HR 5267",
+      "title": "American Franchise Act",
+      "summary": "",
+      "classification": [],
+      "sponsors": [],
+      "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
+      "latest_action_date": "2026-07-21T00:00:00",
+      "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
+      "chamber": "House",
+      "votes": [],
+      "committees": [],
+      "events": [],
+      "document_urls": [
+        "https://www.congress.gov/bill/119th-congress/house-bill/5267"
+      ],
+      "updated_at": "2026-07-22T10:02:51.364092+00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/5267",
+      "ai_summary_short": "",
+      "ai_summary_detailed": "",
+      "ai_impact_analysis": "",
+      "ai_topics": [],
+      "ai_tags": []
+    },
+    {
+      "id": "119-HR-4986",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "bill_number": "HR 4986",
+      "title": "Parents Opt-in Protection Act",
+      "summary": "",
+      "classification": [],
+      "sponsors": [],
+      "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
+      "latest_action_date": "2026-07-21T00:00:00",
+      "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
+      "chamber": "House",
+      "votes": [],
+      "committees": [],
+      "events": [],
+      "document_urls": [
+        "https://www.congress.gov/bill/119th-congress/house-bill/4986"
+      ],
+      "updated_at": "2026-07-22T10:02:51.364092+00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/4986",
+      "ai_summary_short": "",
+      "ai_summary_detailed": "",
+      "ai_impact_analysis": "",
+      "ai_topics": [],
+      "ai_tags": []
+    },
+    {
+      "id": "119-S-1041",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "bill_number": "S 1041",
+      "title": "Affordable Prescriptions for Patients Act",
+      "summary": "",
+      "classification": [],
+      "sponsors": [],
+      "latest_action": "Held at the desk.",
+      "latest_action_date": "2026-07-21T00:00:00",
+      "status": "Held at the desk.",
+      "chamber": "Senate",
+      "votes": [],
+      "committees": [],
+      "events": [],
+      "document_urls": [
+        "https://www.congress.gov/bill/119th-congress/senate-bill/1041"
+      ],
+      "updated_at": "2026-07-22T10:02:51.364092+00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1041",
+      "ai_summary_short": "",
+      "ai_summary_detailed": "",
+      "ai_impact_analysis": "",
+      "ai_topics": [],
+      "ai_tags": []
+    },
     {
       "id": "119-HR-1703",
       "source": "congress",
@@ -349,34 +806,6 @@
       "ai_tags": []
     },
     {
-      "id": "119-HR-6955",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 6955",
-      "title": "Main Street Capital Access Act",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Rules Committee Resolution H. Res. 1438 Reported to House. Rule provides for consideration of H.R. 8800, H.R. 8884, H. Con. Res. 113, H.R. 7008, H.R. 6955 and H.R. 9770. The resolution provides for consideration of H.R. 8800 under a structured rule and for consideration of H.R. 8884, H. Con. Res. 113, H.R. 7008, H.R. 6955, and H.R. 9770 under a closed rule, with one hour of debate on each measure and one motion to recommit H.R. 8800, H.R. 8844, H.R. 7008, H.R. 6955, and H.R. 9770.",
-      "latest_action_date": "2026-07-20T00:00:00",
-      "status": "Rules Committee Resolution H. Res. 1438 Reported to House. Rule provides for consideration of H.R. 8800, H.R. 8884, H. Con. Res. 113, H.R. 7008, H.R. 6955 and H.R. 9770. The resolution provides for consideration of H.R. 8800 under a structured rule and for consideration of H.R. 8884, H. Con. Res. 113, H.R. 7008, H.R. 6955, and H.R. 9770 under a closed rule, with one hour of debate on each measure and one motion to recommit H.R. 8800, H.R. 8844, H.R. 7008, H.R. 6955, and H.R. 9770.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/6955"
-      ],
-      "updated_at": "2026-07-21T10:41:16.068224+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/6955",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
       "id": "119-HR-1722",
       "source": "congress",
       "level": "federal",
@@ -426,34 +855,6 @@
       ],
       "updated_at": "2026-07-21T10:41:16.068224+00:00",
       "url": "https://www.congress.gov/bill/119th-congress/house-bill/2069",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-1118",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 1118",
-      "title": "Value Over Cost Act of 2025",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "At the conclusion of debate, the Yeas and Nays were demanded and ordered. Pursuant to the provisions of clause 8, rule XX, the Chair announced that further proceedings on the motion would be postponed.",
-      "latest_action_date": "2026-07-20T00:00:00",
-      "status": "At the conclusion of debate, the Yeas and Nays were demanded and ordered. Pursuant to the provisions of clause 8, rule XX, the Chair announced that further proceedings on the motion would be postponed.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/1118"
-      ],
-      "updated_at": "2026-07-21T10:41:16.068224+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/1118",
       "ai_summary_short": "",
       "ai_summary_detailed": "",
       "ai_impact_analysis": "",
@@ -639,7 +1040,18 @@
       "latest_action_date": "2026-07-18T00:00:00",
       "status": "Referred to the Committee on Appropriations, and in addition to the Committee on the Budget, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "chamber": "House",
-      "votes": [],
+      "votes": [
+        {
+          "rollNumber": 272,
+          "chamber": "House",
+          "date": "2026-07-22",
+          "result": "Passed",
+          "yeas": 220,
+          "nays": 205,
+          "motion": "On Passage",
+          "tally_text": "Passed 220–205"
+        }
+      ],
       "committees": [],
       "events": [],
       "document_urls": [
@@ -1387,160 +1799,6 @@
       ],
       "updated_at": "2026-07-20T22:37:40.316054+00:00",
       "url": "https://www.congress.gov/bill/119th-congress/house-bill/9721",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-9722",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 9722",
-      "title": "Fair Treatment of Religious Organizations Act of 2026",
-      "summary": "",
-      "classification": [],
-      "sponsors": [
-        {
-          "name": "Rep. Moore, Blake D. [R-UT-1]",
-          "party": "R",
-          "state": "UT",
-          "role": "primary"
-        }
-      ],
-      "latest_action": "Referred to the House Committee on Ways and Means.",
-      "latest_action_date": "2026-07-16T00:00:00",
-      "status": "Referred to the House Committee on Ways and Means.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/9722"
-      ],
-      "updated_at": "2026-07-20T22:37:40.541750+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/9722",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-S-5026",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "S 5026",
-      "title": "A bill to require warning labels on sugar-sweetened foods and beverages, foods and beverages containing high-intensity sweeteners, ultra-processed foods, and foods high in nutrients of concern, such as added sugar, saturated fat, or sodium, to restrict junk food advertising to children.",
-      "summary": "",
-      "classification": [],
-      "sponsors": [
-        {
-          "name": "Sen. Sanders, Bernard [I-VT]",
-          "party": "I",
-          "state": "VT",
-          "role": "primary"
-        }
-      ],
-      "latest_action": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-      "latest_action_date": "2026-07-16T00:00:00",
-      "status": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-      "chamber": "Senate",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/senate-bill/5026"
-      ],
-      "updated_at": "2026-07-20T22:37:40.990863+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/senate-bill/5026",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-S-2120",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "S 2120",
-      "title": "Older Americans Act Reauthorization Act of 2025",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Held at the desk.",
-      "latest_action_date": "2026-07-15T00:00:00",
-      "status": "Held at the desk.",
-      "chamber": "Senate",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/senate-bill/2120"
-      ],
-      "updated_at": "2026-07-16T10:30:44.095846+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/senate-bill/2120",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-3514",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 3514",
-      "title": "Improving Seniors’ Timely Access to Care Act of 2025",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Ordered to be Reported in the Nature of a Substitute by the Yeas and Nays: 42 - 0.",
-      "latest_action_date": "2026-07-15T00:00:00",
-      "status": "Ordered to be Reported in the Nature of a Substitute by the Yeas and Nays: 42 - 0.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/3514"
-      ],
-      "updated_at": "2026-07-16T10:30:44.095846+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/3514",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-625",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 625",
-      "title": "LACA",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 23 - 0.",
-      "latest_action_date": "2026-07-15T00:00:00",
-      "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 23 - 0.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/625"
-      ],
-      "updated_at": "2026-07-16T10:30:44.095846+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/625",
       "ai_summary_short": "",
       "ai_summary_detailed": "",
       "ai_impact_analysis": "",
@@ -4328,6 +4586,234 @@
   "by_state": {
     "Federal": [
       {
+        "id": "119-HR-6955",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 6955",
+        "title": "Main Street Capital Access Act",
+        "summary": "",
+        "classification": [],
+        "sponsors": [],
+        "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
+        "latest_action_date": "2026-07-21T00:00:00",
+        "status": "Motion to reconsider laid on the table Agreed to without objection.",
+        "chamber": "House",
+        "votes": [
+          {
+            "rollNumber": 271,
+            "chamber": "House",
+            "date": "2026-07-22",
+            "result": "Passed",
+            "yeas": 270,
+            "nays": 155,
+            "motion": "On Passage",
+            "tally_text": "Passed 270–155"
+          },
+          {
+            "rollNumber": 270,
+            "chamber": "House",
+            "date": "2026-07-22",
+            "result": "Failed",
+            "yeas": 210,
+            "nays": 216,
+            "motion": "On Motion to Recommit",
+            "tally_text": "Failed 210–216"
+          }
+        ],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/6955"
+        ],
+        "updated_at": "2026-07-22T10:02:51.364092+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/6955",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
+        "id": "119-HR-1118",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 1118",
+        "title": "Value Over Cost Act of 2025",
+        "summary": "",
+        "classification": [],
+        "sponsors": [],
+        "latest_action": "The title of the measure was amended. Agreed to without objection.",
+        "latest_action_date": "2026-07-21T00:00:00",
+        "status": "The title of the measure was amended. Agreed to without objection.",
+        "chamber": "House",
+        "votes": [
+          {
+            "rollNumber": 252,
+            "chamber": "House",
+            "date": "2026-07-21",
+            "result": "Passed",
+            "yeas": 421,
+            "nays": 1,
+            "motion": "On Motion to Suspend the Rules and Pass, as Amended",
+            "tally_text": "Passed 421–1"
+          }
+        ],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/1118"
+        ],
+        "updated_at": "2026-07-22T10:02:51.364092+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/1118",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
+        "id": "119-HR-3168",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 3168",
+        "title": "National Earthquake Hazards Reduction Program Reauthorization Act of 2025",
+        "summary": "",
+        "classification": [],
+        "sponsors": [],
+        "latest_action": "Ordered to be Reported in the Nature of a Substitute (Amended) by Voice Vote.",
+        "latest_action_date": "2026-07-21T00:00:00",
+        "status": "Ordered to be Reported in the Nature of a Substitute (Amended) by Voice Vote.",
+        "chamber": "House",
+        "votes": [],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/3168"
+        ],
+        "updated_at": "2026-07-22T10:02:51.364092+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/3168",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
+        "id": "119-HR-6213",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 6213",
+        "title": "Heat Workforce Standards Act of 2025",
+        "summary": "",
+        "classification": [],
+        "sponsors": [],
+        "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
+        "latest_action_date": "2026-07-21T00:00:00",
+        "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
+        "chamber": "House",
+        "votes": [],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/6213"
+        ],
+        "updated_at": "2026-07-22T10:02:51.364092+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/6213",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
+        "id": "119-HR-5267",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 5267",
+        "title": "American Franchise Act",
+        "summary": "",
+        "classification": [],
+        "sponsors": [],
+        "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
+        "latest_action_date": "2026-07-21T00:00:00",
+        "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
+        "chamber": "House",
+        "votes": [],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/5267"
+        ],
+        "updated_at": "2026-07-22T10:02:51.364092+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/5267",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
+        "id": "119-HR-4986",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 4986",
+        "title": "Parents Opt-in Protection Act",
+        "summary": "",
+        "classification": [],
+        "sponsors": [],
+        "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
+        "latest_action_date": "2026-07-21T00:00:00",
+        "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
+        "chamber": "House",
+        "votes": [],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/4986"
+        ],
+        "updated_at": "2026-07-22T10:02:51.364092+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/4986",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
+        "id": "119-S-1041",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "S 1041",
+        "title": "Affordable Prescriptions for Patients Act",
+        "summary": "",
+        "classification": [],
+        "sponsors": [],
+        "latest_action": "Held at the desk.",
+        "latest_action_date": "2026-07-21T00:00:00",
+        "status": "Held at the desk.",
+        "chamber": "Senate",
+        "votes": [],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/senate-bill/1041"
+        ],
+        "updated_at": "2026-07-22T10:02:51.364092+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1041",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
         "id": "119-HR-1703",
         "source": "congress",
         "level": "federal",
@@ -4675,34 +5161,6 @@
         "ai_tags": []
       },
       {
-        "id": "119-HR-6955",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "HR 6955",
-        "title": "Main Street Capital Access Act",
-        "summary": "",
-        "classification": [],
-        "sponsors": [],
-        "latest_action": "Rules Committee Resolution H. Res. 1438 Reported to House. Rule provides for consideration of H.R. 8800, H.R. 8884, H. Con. Res. 113, H.R. 7008, H.R. 6955 and H.R. 9770. The resolution provides for consideration of H.R. 8800 under a structured rule and for consideration of H.R. 8884, H. Con. Res. 113, H.R. 7008, H.R. 6955, and H.R. 9770 under a closed rule, with one hour of debate on each measure and one motion to recommit H.R. 8800, H.R. 8844, H.R. 7008, H.R. 6955, and H.R. 9770.",
-        "latest_action_date": "2026-07-20T00:00:00",
-        "status": "Rules Committee Resolution H. Res. 1438 Reported to House. Rule provides for consideration of H.R. 8800, H.R. 8884, H. Con. Res. 113, H.R. 7008, H.R. 6955 and H.R. 9770. The resolution provides for consideration of H.R. 8800 under a structured rule and for consideration of H.R. 8884, H. Con. Res. 113, H.R. 7008, H.R. 6955, and H.R. 9770 under a closed rule, with one hour of debate on each measure and one motion to recommit H.R. 8800, H.R. 8844, H.R. 7008, H.R. 6955, and H.R. 9770.",
-        "chamber": "House",
-        "votes": [],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/house-bill/6955"
-        ],
-        "updated_at": "2026-07-21T10:41:16.068224+00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/house-bill/6955",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
-      },
-      {
         "id": "119-HR-1722",
         "source": "congress",
         "level": "federal",
@@ -4752,34 +5210,6 @@
         ],
         "updated_at": "2026-07-21T10:41:16.068224+00:00",
         "url": "https://www.congress.gov/bill/119th-congress/house-bill/2069",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
-      },
-      {
-        "id": "119-HR-1118",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "HR 1118",
-        "title": "Value Over Cost Act of 2025",
-        "summary": "",
-        "classification": [],
-        "sponsors": [],
-        "latest_action": "At the conclusion of debate, the Yeas and Nays were demanded and ordered. Pursuant to the provisions of clause 8, rule XX, the Chair announced that further proceedings on the motion would be postponed.",
-        "latest_action_date": "2026-07-20T00:00:00",
-        "status": "At the conclusion of debate, the Yeas and Nays were demanded and ordered. Pursuant to the provisions of clause 8, rule XX, the Chair announced that further proceedings on the motion would be postponed.",
-        "chamber": "House",
-        "votes": [],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/house-bill/1118"
-        ],
-        "updated_at": "2026-07-21T10:41:16.068224+00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/house-bill/1118",
         "ai_summary_short": "",
         "ai_summary_detailed": "",
         "ai_impact_analysis": "",
@@ -4965,7 +5395,18 @@
         "latest_action_date": "2026-07-18T00:00:00",
         "status": "Referred to the Committee on Appropriations, and in addition to the Committee on the Budget, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
         "chamber": "House",
-        "votes": [],
+        "votes": [
+          {
+            "rollNumber": 272,
+            "chamber": "House",
+            "date": "2026-07-22",
+            "result": "Passed",
+            "yeas": 220,
+            "nays": 205,
+            "motion": "On Passage",
+            "tally_text": "Passed 220–205"
+          }
+        ],
         "committees": [],
         "events": [],
         "document_urls": [
@@ -5718,160 +6159,6 @@
         "ai_impact_analysis": "",
         "ai_topics": [],
         "ai_tags": []
-      },
-      {
-        "id": "119-HR-9722",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "HR 9722",
-        "title": "Fair Treatment of Religious Organizations Act of 2026",
-        "summary": "",
-        "classification": [],
-        "sponsors": [
-          {
-            "name": "Rep. Moore, Blake D. [R-UT-1]",
-            "party": "R",
-            "state": "UT",
-            "role": "primary"
-          }
-        ],
-        "latest_action": "Referred to the House Committee on Ways and Means.",
-        "latest_action_date": "2026-07-16T00:00:00",
-        "status": "Referred to the House Committee on Ways and Means.",
-        "chamber": "House",
-        "votes": [],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/house-bill/9722"
-        ],
-        "updated_at": "2026-07-20T22:37:40.541750+00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/house-bill/9722",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
-      },
-      {
-        "id": "119-S-5026",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "S 5026",
-        "title": "A bill to require warning labels on sugar-sweetened foods and beverages, foods and beverages containing high-intensity sweeteners, ultra-processed foods, and foods high in nutrients of concern, such as added sugar, saturated fat, or sodium, to restrict junk food advertising to children.",
-        "summary": "",
-        "classification": [],
-        "sponsors": [
-          {
-            "name": "Sen. Sanders, Bernard [I-VT]",
-            "party": "I",
-            "state": "VT",
-            "role": "primary"
-          }
-        ],
-        "latest_action": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-        "latest_action_date": "2026-07-16T00:00:00",
-        "status": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-        "chamber": "Senate",
-        "votes": [],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/senate-bill/5026"
-        ],
-        "updated_at": "2026-07-20T22:37:40.990863+00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/senate-bill/5026",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
-      },
-      {
-        "id": "119-S-2120",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "S 2120",
-        "title": "Older Americans Act Reauthorization Act of 2025",
-        "summary": "",
-        "classification": [],
-        "sponsors": [],
-        "latest_action": "Held at the desk.",
-        "latest_action_date": "2026-07-15T00:00:00",
-        "status": "Held at the desk.",
-        "chamber": "Senate",
-        "votes": [],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/senate-bill/2120"
-        ],
-        "updated_at": "2026-07-16T10:30:44.095846+00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/senate-bill/2120",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
-      },
-      {
-        "id": "119-HR-3514",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "HR 3514",
-        "title": "Improving Seniors’ Timely Access to Care Act of 2025",
-        "summary": "",
-        "classification": [],
-        "sponsors": [],
-        "latest_action": "Ordered to be Reported in the Nature of a Substitute by the Yeas and Nays: 42 - 0.",
-        "latest_action_date": "2026-07-15T00:00:00",
-        "status": "Ordered to be Reported in the Nature of a Substitute by the Yeas and Nays: 42 - 0.",
-        "chamber": "House",
-        "votes": [],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/house-bill/3514"
-        ],
-        "updated_at": "2026-07-16T10:30:44.095846+00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/house-bill/3514",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
-      },
-      {
-        "id": "119-HR-625",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "HR 625",
-        "title": "LACA",
-        "summary": "",
-        "classification": [],
-        "sponsors": [],
-        "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 23 - 0.",
-        "latest_action_date": "2026-07-15T00:00:00",
-        "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 23 - 0.",
-        "chamber": "House",
-        "votes": [],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/house-bill/625"
-        ],
-        "updated_at": "2026-07-16T10:30:44.095846+00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/house-bill/625",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
       }
     ]
   },
@@ -5887,17 +6174,28 @@
         "summary": "",
         "classification": [],
         "sponsors": [],
-        "latest_action": "At the conclusion of debate, the Yeas and Nays were demanded and ordered. Pursuant to the provisions of clause 8, rule XX, the Chair announced that further proceedings on the motion would be postponed.",
-        "latest_action_date": "2026-07-20T00:00:00",
-        "status": "At the conclusion of debate, the Yeas and Nays were demanded and ordered. Pursuant to the provisions of clause 8, rule XX, the Chair announced that further proceedings on the motion would be postponed.",
+        "latest_action": "The title of the measure was amended. Agreed to without objection.",
+        "latest_action_date": "2026-07-21T00:00:00",
+        "status": "The title of the measure was amended. Agreed to without objection.",
         "chamber": "House",
-        "votes": [],
+        "votes": [
+          {
+            "rollNumber": 252,
+            "chamber": "House",
+            "date": "2026-07-21",
+            "result": "Passed",
+            "yeas": 421,
+            "nays": 1,
+            "motion": "On Motion to Suspend the Rules and Pass, as Amended",
+            "tally_text": "Passed 421–1"
+          }
+        ],
         "committees": [],
         "events": [],
         "document_urls": [
           "https://www.congress.gov/bill/119th-congress/house-bill/1118"
         ],
-        "updated_at": "2026-07-21T10:41:16.068224+00:00",
+        "updated_at": "2026-07-22T10:02:51.364092+00:00",
         "url": "https://www.congress.gov/bill/119th-congress/house-bill/1118",
         "ai_summary_short": "",
         "ai_summary_detailed": "",
@@ -8349,11 +8647,11 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2312/hb2312_01_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2312/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2312/hb2312_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2312_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2312_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2312/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2312/hb2312_00_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2312/hb2312_01_0000.pdf"
         ],
         "updated_at": "2026-05-05T15:57:12+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2312/",
@@ -8541,7 +8839,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-21T07:57:09.886207+00:00"
+        "enriched_at": "2026-07-22T10:02:04.975898+00:00"
       },
       {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/3788d99be01ec0d464ae1a5bf0d9fefb",
@@ -8573,8 +8871,8 @@
         "events": [],
         "document_urls": [
           "https://www.kslegislature.gov/li/b2025_26/measures/SB152/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_152/sb152_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb152_00_0000/fisc_note_sb152_00_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb152_00_0000/fisc_note_sb152_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_152/sb152_00_0000.pdf"
         ],
         "updated_at": "2026-04-29T16:17:38+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB152/",
@@ -8664,10 +8962,10 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2083/hb2083_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2083/hb2083_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2083_00_0000/fisc_note_hb2083_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2083_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2083/hb2083_00_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/HB2083/"
         ],
         "updated_at": "2026-04-27T14:18:10+00:00",
@@ -8793,7 +9091,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-21T07:56:18.447509+00:00"
+        "enriched_at": "2026-07-22T10:01:13.348883+00:00"
       },
       {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/efcf107584479480b9fe1877cd858fd1",
@@ -8884,13 +9182,13 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_enrolled.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2044_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2044/",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_enrolled.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2044_00_0000/fisc_note_hb2044_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2044_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2044_00_0000/fisc_note_hb2044_00_0000.pdf"
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2044/"
         ],
         "updated_at": "2026-03-27T23:25:55+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2044/",
@@ -9197,7 +9495,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-21T07:56:07.679543+00:00"
+        "enriched_at": "2026-07-22T10:01:02.372747+00:00"
       },
       {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/e77af4c66c39862fdbd9722c49b9413b",
@@ -9288,14 +9586,14 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2043_02_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_enrolled.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_02_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2043/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2043_00_0000/fisc_note_hb2043_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2043_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2043_00_0000/fisc_note_hb2043_00_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_01_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2043/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2043_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_00_0000.pdf"
         ],
         "updated_at": "2026-03-27T23:24:09+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2043/",
@@ -9653,7 +9951,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-21T07:56:06.565993+00:00"
+        "enriched_at": "2026-07-22T10:01:01.213826+00:00"
       },
       {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/9c8275eb7adb0920921d877ef2db32e2",
@@ -9744,14 +10042,14 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_03_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_03_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_enrolled.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_02_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_01_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/HB2192/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_03_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_02_0000.pdf"
         ],
         "updated_at": "2026-03-26T18:47:22+00:00",
@@ -10028,7 +10326,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-21T07:56:45.672385+00:00"
+        "enriched_at": "2026-07-22T10:01:41.118656+00:00"
       },
       {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/b3eb3581d158c1916f1e49c5e4230eb6",
@@ -10201,16 +10499,16 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_03_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_03_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_04_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_04_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_02_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_04_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_01_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/SCR1603/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_01_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_03_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_03_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_01_0000.pdf"
         ],
         "updated_at": "2026-03-19T15:09:26+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1603/",
@@ -10701,8 +10999,8 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1625/scr1625_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/SCR1625/"
+          "https://www.kslegislature.gov/li/b2025_26/measures/SCR1625/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1625/scr1625_00_0000.pdf"
         ],
         "updated_at": "2026-03-09T21:17:02+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SCR1625/",
@@ -10782,8 +11080,8 @@
         ],
         "events": [],
         "document_urls": [
-          "https://www.kslegislature.gov/li/b2025_26/measures/HCR5035/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hcr_5035/hcr5035_00_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hcr_5035/hcr5035_00_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HCR5035/"
         ],
         "updated_at": "2026-03-09T17:05:48+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5035/",
@@ -10928,9 +11226,9 @@
         ],
         "events": [],
         "document_urls": [
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2791/",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2791_00_0000/fisc_note_hb2791_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2791/hb2791_00_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2791/hb2791_00_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2791/"
         ],
         "updated_at": "2026-03-04T18:21:13+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2791/",
@@ -11218,8 +11516,8 @@
         ],
         "events": [],
         "document_urls": [
-          "https://www.kslegislature.gov/li/b2025_26/measures/HCR5034/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hcr_5034/hcr5034_00_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hcr_5034/hcr5034_00_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HCR5034/"
         ],
         "updated_at": "2026-03-04T18:20:42+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5034/",
@@ -11345,13 +11643,13 @@
         ],
         "events": [],
         "document_urls": [
-          "https://www.kslegislature.gov/li/b2025_26/measures/SB33/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_sb33_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_sb33_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb33_02_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb33_00_0000/fisc_note_sb33_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_sb33_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_sb33_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_00_0000.pdf"
+          "https://www.kslegislature.gov/li/b2025_26/measures/SB33/"
         ],
         "updated_at": "2026-03-04T17:49:14+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB33/",
@@ -11618,8 +11916,8 @@
         "document_urls": [
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2377_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2377/hb2377_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2377_00_0000/fisc_note_hb2377_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2377/hb2377_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2377_00_0000/fisc_note_hb2377_00_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/HB2377/"
         ],
         "updated_at": "2026-02-18T19:22:56+00:00",
@@ -11892,10 +12190,10 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2408_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2408/hb2408_01_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2408/",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2408/hb2408_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2408/"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2408/hb2408_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2408_01_0000.pdf"
         ],
         "updated_at": "2026-02-12T00:20:12+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2408/",
@@ -12024,6 +12322,55 @@
       }
     ],
     "ai_technology": [
+      {
+        "id": "119-HR-6955",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 6955",
+        "title": "Main Street Capital Access Act",
+        "summary": "",
+        "classification": [],
+        "sponsors": [],
+        "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
+        "latest_action_date": "2026-07-21T00:00:00",
+        "status": "Motion to reconsider laid on the table Agreed to without objection.",
+        "chamber": "House",
+        "votes": [
+          {
+            "rollNumber": 271,
+            "chamber": "House",
+            "date": "2026-07-22",
+            "result": "Passed",
+            "yeas": 270,
+            "nays": 155,
+            "motion": "On Passage",
+            "tally_text": "Passed 270–155"
+          },
+          {
+            "rollNumber": 270,
+            "chamber": "House",
+            "date": "2026-07-22",
+            "result": "Failed",
+            "yeas": 210,
+            "nays": 216,
+            "motion": "On Motion to Recommit",
+            "tally_text": "Failed 210–216"
+          }
+        ],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/6955"
+        ],
+        "updated_at": "2026-07-22T10:02:51.364092+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/6955",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
       {
         "id": "119-HR-1703",
         "source": "congress",
@@ -12372,34 +12719,6 @@
         "ai_tags": []
       },
       {
-        "id": "119-HR-6955",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "HR 6955",
-        "title": "Main Street Capital Access Act",
-        "summary": "",
-        "classification": [],
-        "sponsors": [],
-        "latest_action": "Rules Committee Resolution H. Res. 1438 Reported to House. Rule provides for consideration of H.R. 8800, H.R. 8884, H. Con. Res. 113, H.R. 7008, H.R. 6955 and H.R. 9770. The resolution provides for consideration of H.R. 8800 under a structured rule and for consideration of H.R. 8884, H. Con. Res. 113, H.R. 7008, H.R. 6955, and H.R. 9770 under a closed rule, with one hour of debate on each measure and one motion to recommit H.R. 8800, H.R. 8844, H.R. 7008, H.R. 6955, and H.R. 9770.",
-        "latest_action_date": "2026-07-20T00:00:00",
-        "status": "Rules Committee Resolution H. Res. 1438 Reported to House. Rule provides for consideration of H.R. 8800, H.R. 8884, H. Con. Res. 113, H.R. 7008, H.R. 6955 and H.R. 9770. The resolution provides for consideration of H.R. 8800 under a structured rule and for consideration of H.R. 8884, H. Con. Res. 113, H.R. 7008, H.R. 6955, and H.R. 9770 under a closed rule, with one hour of debate on each measure and one motion to recommit H.R. 8800, H.R. 8844, H.R. 7008, H.R. 6955, and H.R. 9770.",
-        "chamber": "House",
-        "votes": [],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/house-bill/6955"
-        ],
-        "updated_at": "2026-07-21T10:41:16.068224+00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/house-bill/6955",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
-      },
-      {
         "id": "119-HR-1722",
         "source": "congress",
         "level": "federal",
@@ -12449,34 +12768,6 @@
         ],
         "updated_at": "2026-07-21T10:41:16.068224+00:00",
         "url": "https://www.congress.gov/bill/119th-congress/house-bill/2069",
-        "ai_summary_short": "",
-        "ai_summary_detailed": "",
-        "ai_impact_analysis": "",
-        "ai_topics": [],
-        "ai_tags": []
-      },
-      {
-        "id": "119-HR-1118",
-        "source": "congress",
-        "level": "federal",
-        "state": null,
-        "bill_number": "HR 1118",
-        "title": "Value Over Cost Act of 2025",
-        "summary": "",
-        "classification": [],
-        "sponsors": [],
-        "latest_action": "At the conclusion of debate, the Yeas and Nays were demanded and ordered. Pursuant to the provisions of clause 8, rule XX, the Chair announced that further proceedings on the motion would be postponed.",
-        "latest_action_date": "2026-07-20T00:00:00",
-        "status": "At the conclusion of debate, the Yeas and Nays were demanded and ordered. Pursuant to the provisions of clause 8, rule XX, the Chair announced that further proceedings on the motion would be postponed.",
-        "chamber": "House",
-        "votes": [],
-        "committees": [],
-        "events": [],
-        "document_urls": [
-          "https://www.congress.gov/bill/119th-congress/house-bill/1118"
-        ],
-        "updated_at": "2026-07-21T10:41:16.068224+00:00",
-        "url": "https://www.congress.gov/bill/119th-congress/house-bill/1118",
         "ai_summary_short": "",
         "ai_summary_detailed": "",
         "ai_impact_analysis": "",
@@ -12953,6 +13244,34 @@
         ],
         "updated_at": "2026-07-16T12:06:19.095199+00:00",
         "url": "https://www.congress.gov/bill/119th-congress/house-bill/1181",
+        "ai_summary_short": "",
+        "ai_summary_detailed": "",
+        "ai_impact_analysis": "",
+        "ai_topics": [],
+        "ai_tags": []
+      },
+      {
+        "id": "119-HR-6556",
+        "source": "congress",
+        "level": "federal",
+        "state": null,
+        "bill_number": "HR 6556",
+        "title": "Failing Bank Acquisition Fairness Act",
+        "summary": "",
+        "classification": [],
+        "sponsors": [],
+        "latest_action": "Received in the Senate and Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
+        "latest_action_date": "2026-07-15T00:00:00",
+        "status": "Received in the Senate and Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
+        "chamber": "House",
+        "votes": [],
+        "committees": [],
+        "events": [],
+        "document_urls": [
+          "https://www.congress.gov/bill/119th-congress/house-bill/6556"
+        ],
+        "updated_at": "2026-07-16T12:06:19.095199+00:00",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/6556",
         "ai_summary_short": "",
         "ai_summary_detailed": "",
         "ai_impact_analysis": "",
