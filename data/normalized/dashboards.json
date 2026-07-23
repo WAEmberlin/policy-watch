@@ -1,227 +1,36 @@
 {
   "whats_new_today": [
     {
-      "id": "119-HR-6955",
+      "id": "119-S-3617",
       "source": "congress",
       "level": "federal",
       "state": null,
-      "bill_number": "HR 6955",
-      "title": "Main Street Capital Access Act",
+      "bill_number": "S 3617",
+      "title": "Yavapai-Apache Nation Water Rights Settlement Act of 2026",
       "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Motion to reconsider laid on the table Agreed to without objection.",
-      "chamber": "House",
-      "votes": [
+      "classification": [
+        "Native Americans"
+      ],
+      "sponsors": [
         {
-          "rollNumber": 271,
-          "chamber": "House",
-          "date": "2026-07-22",
-          "result": "Passed",
-          "yeas": 270,
-          "nays": 155,
-          "motion": "On Passage",
-          "tally_text": "Passed 270–155"
-        },
-        {
-          "rollNumber": 270,
-          "chamber": "House",
-          "date": "2026-07-22",
-          "result": "Failed",
-          "yeas": 210,
-          "nays": 216,
-          "motion": "On Motion to Recommit",
-          "tally_text": "Failed 210–216"
+          "name": "Sen. Kelly, Mark [D-AZ]",
+          "party": "D",
+          "state": "AZ",
+          "role": "primary"
         }
       ],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/6955"
-      ],
-      "updated_at": "2026-07-22T10:02:51.364092+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/6955",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-1118",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 1118",
-      "title": "Value Over Cost Act of 2025",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "The title of the measure was amended. Agreed to without objection.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "The title of the measure was amended. Agreed to without objection.",
-      "chamber": "House",
-      "votes": [
-        {
-          "rollNumber": 252,
-          "chamber": "House",
-          "date": "2026-07-21",
-          "result": "Passed",
-          "yeas": 421,
-          "nays": 1,
-          "motion": "On Motion to Suspend the Rules and Pass, as Amended",
-          "tally_text": "Passed 421–1"
-        }
-      ],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/1118"
-      ],
-      "updated_at": "2026-07-22T10:02:51.364092+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/1118",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-3168",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 3168",
-      "title": "National Earthquake Hazards Reduction Program Reauthorization Act of 2025",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Ordered to be Reported in the Nature of a Substitute (Amended) by Voice Vote.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Ordered to be Reported in the Nature of a Substitute (Amended) by Voice Vote.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/3168"
-      ],
-      "updated_at": "2026-07-22T10:02:51.364092+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/3168",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-6213",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 6213",
-      "title": "Heat Workforce Standards Act of 2025",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/6213"
-      ],
-      "updated_at": "2026-07-22T10:02:51.364092+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/6213",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-5267",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 5267",
-      "title": "American Franchise Act",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/5267"
-      ],
-      "updated_at": "2026-07-22T10:02:51.364092+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/5267",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-4986",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 4986",
-      "title": "Parents Opt-in Protection Act",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 18 - 15.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/4986"
-      ],
-      "updated_at": "2026-07-22T10:02:51.364092+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/4986",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-S-1041",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "S 1041",
-      "title": "Affordable Prescriptions for Patients Act",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Held at the desk.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Held at the desk.",
+      "latest_action": "Read twice and referred to the Committee on Indian Affairs.",
+      "latest_action_date": "2026-01-13T00:00:00",
+      "status": "Read twice and referred to the Committee on Indian Affairs.",
       "chamber": "Senate",
       "votes": [],
       "committees": [],
       "events": [],
       "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/senate-bill/1041"
+        "https://www.congress.gov/bill/119th-congress/senate-bill/3617"
       ],
-      "updated_at": "2026-07-22T10:02:51.364092+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1041",
+      "updated_at": "2026-07-23T01:11:16.442347+00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/senate-bill/3617",
       "ai_summary_short": "",
       "ai_summary_detailed": "",
       "ai_impact_analysis": "",
@@ -229,637 +38,36 @@
       "ai_tags": []
     },
     {
-      "id": "119-HR-1703",
+      "id": "119-S-4368",
       "source": "congress",
       "level": "federal",
       "state": null,
-      "bill_number": "HR 1703",
-      "title": "Choices for Increased Mobility Act of 2025",
+      "bill_number": "S 4368",
+      "title": "Agua Caliente Band of Cahuilla Indians Water Rights Settlement Act",
       "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Received in the Senate and Read twice and referred to the Committee on Finance.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Received in the Senate and Read twice and referred to the Committee on Finance.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/1703"
+      "classification": [
+        "Native Americans"
       ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/1703",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-3029",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 3029",
-      "title": "Nucleic Acid Standards for Biosecurity Act",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/3029"
-      ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/3029",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-4541",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 4541",
-      "title": "EARLY Act Reauthorization of 2025",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Received in the Senate.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Received in the Senate.",
-      "chamber": "House",
-      "votes": [
+      "sponsors": [
         {
-          "rollNumber": 250,
-          "chamber": "House",
-          "date": "2026-07-20",
-          "result": "Passed",
-          "yeas": 394,
-          "nays": 6,
-          "motion": "On Motion to Suspend the Rules and Pass, as Amended",
-          "tally_text": "Passed 394–6"
+          "name": "Sen. Padilla, Alex [D-CA]",
+          "party": "D",
+          "state": "CA",
+          "role": "primary"
         }
       ],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/4541"
-      ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/4541",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-6238",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 6238",
-      "title": "NIH IMPROVE Act",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Received in the Senate and Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Received in the Senate and Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/6238"
-      ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/6238",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-5160",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 5160",
-      "title": "Stem Cell Therapeutic and Research Reauthorization Act of 2025",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Received in the Senate. Read twice. Placed on Senate Legislative Calendar under General Orders. Calendar No. 464.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Received in the Senate. Read twice. Placed on Senate Legislative Calendar under General Orders. Calendar No. 464.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/5160"
-      ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/5160",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-3747",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 3747",
-      "title": "AADAPT Act",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Received in the Senate and Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Received in the Senate and Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/3747"
-      ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/3747",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-4348",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 4348",
-      "title": "To reauthorize the Kay Hagan Tick Act, and for other purposes.",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Received in the Senate. Read twice. Placed on Senate Legislative Calendar under General Orders. Calendar No. 463.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Received in the Senate. Read twice. Placed on Senate Legislative Calendar under General Orders. Calendar No. 463.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/4348"
-      ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/4348",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-1493",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 1493",
-      "title": "To reauthorize and make improvements to Federal programs relating to the prevention, detection, and treatment of traumatic brain injuries, and for other purposes.",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Received in the Senate and Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Received in the Senate and Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/1493"
-      ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/1493",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-2001",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 2001",
-      "title": "To amend the Public Health Service Act to reauthorize a grant program for addressing dental workforce needs.",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Received in the Senate and Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Received in the Senate and Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/2001"
-      ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/2001",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-3491",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 3491",
-      "title": "DeOndra Dixon INCLUDE Project Act of 2025",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Received in the Senate and Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Received in the Senate and Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/3491"
-      ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/3491",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-2715",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 2715",
-      "title": "Destruction of Hazardous Imports Act",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Received in the Senate and Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Received in the Senate and Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/2715"
-      ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/2715",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-2821",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 2821",
-      "title": "FDA Modernization Act 3.0",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Received in the Senate.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Received in the Senate.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/2821"
-      ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/2821",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-2069",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 2069",
-      "title": "Stop Secret Spending Act of 2025",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Received in the Senate.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Received in the Senate.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/2069"
-      ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/2069",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-4123",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 4123",
-      "title": "FIT Procurement Act",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/4123"
-      ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/4123",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-5578",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 5578",
-      "title": "Expanding Whistleblower Protections for Contractors Act of 2025",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Received in the Senate. Read twice. Placed on Senate Legislative Calendar under General Orders. Calendar No. 465.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Received in the Senate. Read twice. Placed on Senate Legislative Calendar under General Orders. Calendar No. 465.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/5578"
-      ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/5578",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-6330",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 6330",
-      "title": "Federal Relocation Payment Improvement Act",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/6330"
-      ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/6330",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-5362",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 5362",
-      "title": "To name the Department of Veterans Affairs multispecialty clinic in Marietta, Georgia, as the \"Colonel Michael H. Boyce Department of Veterans Affairs Multispecialty Clinic\".",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Received in the Senate and Read twice and referred to the Committee on Veterans' Affairs.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Received in the Senate and Read twice and referred to the Committee on Veterans' Affairs.",
-      "chamber": "House",
-      "votes": [
-        {
-          "rollNumber": 248,
-          "chamber": "House",
-          "date": "2026-07-16",
-          "result": "Passed",
-          "yeas": 418,
-          "nays": 0,
-          "motion": "On Motion to Suspend the Rules and Pass",
-          "tally_text": "Passed 418–0"
-        }
-      ],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/5362"
-      ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/5362",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-2306",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 2306",
-      "title": "Adams Memorial-Great American Heroes Act",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Committee on Energy and Natural Resources Subcommittee on National Parks. Hearings held.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Committee on Energy and Natural Resources Subcommittee on National Parks. Hearings held.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/2306"
-      ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/2306",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-5729",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 5729",
-      "title": "North Rim Restoration Act of 2025",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Committee on Energy and Natural Resources Subcommittee on National Parks. Hearings held.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Committee on Energy and Natural Resources Subcommittee on National Parks. Hearings held.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/5729"
-      ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/5729",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-5254",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 5254",
-      "title": "Gateway Partnership Act of 2025",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Committee on Energy and Natural Resources Subcommittee on National Parks. Hearings held.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Committee on Energy and Natural Resources Subcommittee on National Parks. Hearings held.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/5254"
-      ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/5254",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-HR-6365",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "HR 6365",
-      "title": "Wintergreen Emergency Egress Act",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Committee on Energy and Natural Resources Subcommittee on National Parks. Hearings held.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Committee on Energy and Natural Resources Subcommittee on National Parks. Hearings held.",
-      "chamber": "House",
-      "votes": [],
-      "committees": [],
-      "events": [],
-      "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/house-bill/6365"
-      ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/house-bill/6365",
-      "ai_summary_short": "",
-      "ai_summary_detailed": "",
-      "ai_impact_analysis": "",
-      "ai_topics": [],
-      "ai_tags": []
-    },
-    {
-      "id": "119-S-3542",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "bill_number": "S 3542",
-      "title": "Upper Raritan River Watershed Wild and Scenic River Study Act of 2025",
-      "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Committee on Energy and Natural Resources Subcommittee on National Parks. Hearings held.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Committee on Energy and Natural Resources Subcommittee on National Parks. Hearings held.",
+      "latest_action": "Read twice and referred to the Committee on Indian Affairs. (Sponsor introductory remarks on measure: CR S1937)",
+      "latest_action_date": "2026-04-22T00:00:00",
+      "status": "Read twice and referred to the Committee on Indian Affairs. (Sponsor introductory remarks on measure: CR S1937)",
       "chamber": "Senate",
       "votes": [],
       "committees": [],
       "events": [],
       "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/senate-bill/3542"
+        "https://www.congress.gov/bill/119th-congress/senate-bill/4368"
       ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/senate-bill/3542",
+      "updated_at": "2026-07-23T01:11:16.847065+00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/senate-bill/4368",
       "ai_summary_short": "",
       "ai_summary_detailed": "",
       "ai_impact_analysis": "",
@@ -867,27 +75,73 @@
       "ai_tags": []
     },
     {
-      "id": "119-S-3524",
+      "id": "119-S-4417",
       "source": "congress",
       "level": "federal",
       "state": null,
-      "bill_number": "S 3524",
-      "title": "American Battlefield Protection Program Amendments Act of 2025",
+      "bill_number": "S 4417",
+      "title": "Pechanga Band of Indians Water Rights Settlement Technical Amendments Act",
       "summary": "",
-      "classification": [],
-      "sponsors": [],
-      "latest_action": "Committee on Energy and Natural Resources Subcommittee on National Parks. Hearings held.",
-      "latest_action_date": "2026-07-21T00:00:00",
-      "status": "Committee on Energy and Natural Resources Subcommittee on National Parks. Hearings held.",
+      "classification": [
+        "Native Americans"
+      ],
+      "sponsors": [
+        {
+          "name": "Sen. Padilla, Alex [D-CA]",
+          "party": "D",
+          "state": "CA",
+          "role": "primary"
+        }
+      ],
+      "latest_action": "Read twice and referred to the Committee on Indian Affairs. (Sponsor introductory remarks on measure: CR S2083)",
+      "latest_action_date": "2026-04-28T00:00:00",
+      "status": "Read twice and referred to the Committee on Indian Affairs. (Sponsor introductory remarks on measure: CR S2083)",
       "chamber": "Senate",
       "votes": [],
       "committees": [],
       "events": [],
       "document_urls": [
-        "https://www.congress.gov/bill/119th-congress/senate-bill/3524"
+        "https://www.congress.gov/bill/119th-congress/senate-bill/4417"
       ],
-      "updated_at": "2026-07-22T12:14:32.495114+00:00",
-      "url": "https://www.congress.gov/bill/119th-congress/senate-bill/3524",
+      "updated_at": "2026-07-23T01:11:17.248408+00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/senate-bill/4417",
+      "ai_summary_short": "",
+      "ai_summary_detailed": "",
+      "ai_impact_analysis": "",
+      "ai_topics": [],
+      "ai_tags": []
+    },
+    {
+      "id": "119-S-4890",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "bill_number": "S 4890",
+      "title": "Protecting Indian Water Rights Settlements Act of 2026",
+      "summary": "",
+      "classification": [
+        "Native Americans"
+      ],
+      "sponsors": [
+        {
+          "name": "Sen. Luján, Ben Ray [D-NM]",
+          "party": "D",
+          "state": "NM",
+          "role": "primary"
+        }
+      ],
+      "latest_action": "Read twice and referred to the Committee on Indian Affairs.",
+      "latest_action_date": "2026-06-24T00:00:00",
+      "status": "Read twice and referred to the Committee on Indian Affairs.",
+      "chamber": "Senate",
+      "votes": [],
+      "committees": [],
+      "events": [],
+      "document_urls": [
+        "https://www.congress.gov/bill/119th-congress/senate-bill/4890"
+      ],
+      "updated_at": "2026-07-23T01:11:17.868117+00:00",
+      "url": "https://www.congress.gov/bill/119th-congress/senate-bill/4890",
       "ai_summary_short": "",
       "ai_summary_detailed": "",
       "ai_impact_analysis": "",
@@ -2403,76 +1657,6 @@
   ],
   "upcoming_hearings": [
     {
-      "id": "338679",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "title": "Business meeting to consider the nominations of Todd Blanche, of Florida, to be Attorney General, and Christopher Nassar, to be United States Attorney for the Northern District of Oklahoma, both of the Department of Justice, Daniel Desmond Domenico, of Colorado, to be United States Circuit Judge for the Tenth Circuit, and Matthew R. Byrne, to be United States District Judge for the Southern District of Ohio.",
-      "description": "Congressional meeting before the Senate Judiciary.",
-      "scheduled_date": "2026-07-23",
-      "scheduled_time": "14:15",
-      "location": "Room 216, Hart Senate Office Building",
-      "chamber": "Senate",
-      "committees": [
-        "Senate Judiciary"
-      ],
-      "url": "https://www.congress.gov/event/119th-congress/senate-event/338679",
-      "stream_url": "",
-      "updated_at": "2026-07-23"
-    },
-    {
-      "id": "338678",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "title": "Business meeting to consider the nominations of Francis Brooke, of Virginia, to be Deputy Secretary, Erin Browne, of New York, to be an Under Secretary, Sriprakash Kothari, of Massachusetts, to be an Assistant Secretary, and George McMaster, of South Carolina, to be an Assistant Secretary, all of the Department of the Treasury.",
-      "description": "Congressional meeting in the Senate.",
-      "scheduled_date": "2026-07-23",
-      "scheduled_time": "14:30",
-      "location": "Room 215, Dirksen Senate Office Building",
-      "chamber": "Senate",
-      "committees": [],
-      "url": "https://www.congress.gov/event/119th-congress/senate-event/338678",
-      "stream_url": "",
-      "updated_at": "2026-07-23"
-    },
-    {
-      "id": "338680",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "title": "Business meeting to consider the nominations of Christopher Phelan, of Minnesota, to be Chairman of the Council of Economic Advisers, John Crews, of Virginia, to be a Member of the National Credit Union Administration Board, and Jeffrey Ledbetter, of Virginia, to be Inspector General, Department of Housing and Urban Development; to be immediately followed by an opening hearing to examine the nominations of Brian Johnson, of Ohio, to be Director, Bureau of Consumer Financial Protection, Abby Warren, of Virginia, to be an Assistant Secretary of Commerce, and Irving Dennis, of Ohio, to be Chief Financial Officer, Department of Housing and Urban Development.",
-      "description": "Congressional meeting before the Senate Banking, Housing, and Urban Affairs.",
-      "scheduled_date": "2026-07-23",
-      "scheduled_time": "14:00",
-      "location": "Room 538, Dirksen Senate Office Building",
-      "chamber": "Senate",
-      "committees": [
-        "Senate Banking, Housing, and Urban Affairs"
-      ],
-      "url": "https://www.congress.gov/event/119th-congress/senate-event/338680",
-      "stream_url": "",
-      "updated_at": "2026-07-23"
-    },
-    {
-      "id": "338671",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "title": "Business meeting to consider the nominations of Sean Kaufman, of Georgia, to be Assistant Secretary for Preparedness and Response, Erica Schwartz, of Florida, to be Director of the Centers for Disease Control and Prevention, both of the Department of Health and Human Services, and Keith Sonderling, of Florida, to be Secretary of Labor.",
-      "description": "Congressional meeting before the Senate Health, Education, Labor, and Pensions.",
-      "scheduled_date": "2026-07-23",
-      "scheduled_time": "13:47",
-      "location": "Room 430, Dirksen Senate Office Building",
-      "chamber": "Senate",
-      "committees": [
-        "Senate Health, Education, Labor, and Pensions"
-      ],
-      "url": "https://www.congress.gov/event/119th-congress/senate-event/338671",
-      "stream_url": "",
-      "updated_at": "2026-07-23"
-    },
-    {
       "id": "ocd-event/63e3cce2-2855-4983-8740-03373394a0e4",
       "source": "openstates",
       "level": "state",
@@ -2539,6 +1723,42 @@
       "updated_at": "2026-07-28T17:00:00+00:00"
     },
     {
+      "id": "338687",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "title": "Hearings to examine S.3573, to amend the Aamodt Litigation Settlement Act to modify a provision relating to the extension of certain dates for the completion of the Regional Water System, S.3617, to approve the settlement of water rights claims of the Yavapai-Apache Nation in the State of Arizona, to authorize construction of a water project relating to those water rights claims, S.4368, to approve the settlement of the water rights claims of the Agua Caliente Band of Cahuilla Indians, S.4417, to amend the Pechanga Band of Luiseno Mission Indians Water Rights Settlement Act to make technical corrections, and S.4890, to amend the Infrastructure Investment and Jobs Act to establish subaccounts in the Indian Water Rights Settlement Completion Fund.",
+      "description": "Congressional meeting before the Senate Indian Affairs.",
+      "scheduled_date": "2026-07-29",
+      "scheduled_time": "18:30",
+      "location": "Room 628, Dirksen Senate Office Building",
+      "chamber": "Senate",
+      "committees": [
+        "Senate Indian Affairs"
+      ],
+      "url": "https://www.congress.gov/event/119th-congress/senate-event/338687",
+      "stream_url": "",
+      "updated_at": "2026-07-29"
+    },
+    {
+      "id": "338686",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "title": "Hearings to examine the impact of AI on the workplace.",
+      "description": "Congressional meeting before the Senate Health, Education, Labor, and Pensions Subcommittee on Employment and Workplace Safety.",
+      "scheduled_date": "2026-07-29",
+      "scheduled_time": "18:00",
+      "location": "Room 430, Dirksen Senate Office Building",
+      "chamber": "Senate",
+      "committees": [
+        "Senate Health, Education, Labor, and Pensions Subcommittee on Employment and Workplace Safety"
+      ],
+      "url": "https://www.congress.gov/event/119th-congress/senate-event/338686",
+      "stream_url": "",
+      "updated_at": "2026-07-29"
+    },
+    {
       "id": "338685",
       "source": "congress",
       "level": "federal",
@@ -2557,24 +1777,6 @@
       "updated_at": "2026-07-29"
     },
     {
-      "id": "338683",
-      "source": "congress",
-      "level": "federal",
-      "state": null,
-      "title": "Hearings to examine the testimony of Anthony Fauci.",
-      "description": "Congressional meeting before the Senate Homeland Security and Governmental Affairs.",
-      "scheduled_date": "2026-07-29",
-      "scheduled_time": "12:30",
-      "location": "Room 342, Dirksen Senate Office Building",
-      "chamber": "Senate",
-      "committees": [
-        "Senate Homeland Security and Governmental Affairs"
-      ],
-      "url": "https://www.congress.gov/event/119th-congress/senate-event/338683",
-      "stream_url": "",
-      "updated_at": "2026-07-29"
-    },
-    {
       "id": "338684",
       "source": "congress",
       "level": "federal",
@@ -2589,6 +1791,24 @@
         "Senate Health, Education, Labor, and Pensions"
       ],
       "url": "https://www.congress.gov/event/119th-congress/senate-event/338684",
+      "stream_url": "",
+      "updated_at": "2026-07-29"
+    },
+    {
+      "id": "338683",
+      "source": "congress",
+      "level": "federal",
+      "state": null,
+      "title": "Hearings to examine the testimony of Anthony Fauci.",
+      "description": "Congressional meeting before the Senate Homeland Security and Governmental Affairs.",
+      "scheduled_date": "2026-07-29",
+      "scheduled_time": "12:30",
+      "location": "Room 342, Dirksen Senate Office Building",
+      "chamber": "Senate",
+      "committees": [
+        "Senate Homeland Security and Governmental Affairs"
+      ],
+      "url": "https://www.congress.gov/event/119th-congress/senate-event/338683",
       "stream_url": "",
       "updated_at": "2026-07-29"
     },
@@ -3215,6 +2435,38 @@
       "url": "",
       "stream_url": "",
       "updated_at": "2026-09-16T14:30:00+00:00"
+    },
+    {
+      "id": "ocd-event/0462ce16-e411-47b5-a841-4da17ea18c18",
+      "source": "openstates",
+      "level": "state",
+      "state": "UT",
+      "title": "Government Operations Interim Committee",
+      "description": "",
+      "scheduled_date": "2026-09-16T19:15:00+00:00",
+      "scheduled_time": "",
+      "location": "210 Senate Building, Utah State Capitol, 350 State St, Salt Lake City, UT 84103",
+      "chamber": "",
+      "committees": [],
+      "url": "",
+      "stream_url": "",
+      "updated_at": "2026-09-16T19:15:00+00:00"
+    },
+    {
+      "id": "ocd-event/276819df-2d8a-4484-b59e-fd0fd125021a",
+      "source": "openstates",
+      "level": "state",
+      "state": "UT",
+      "title": "Political Subdivisions Interim Committee",
+      "description": "",
+      "scheduled_date": "2026-09-16T19:15:00+00:00",
+      "scheduled_time": "",
+      "location": "220 Senate Building, Utah State Capitol, 350 State St, Salt Lake City, UT 84103",
+      "chamber": "",
+      "committees": [],
+      "url": "",
+      "stream_url": "",
+      "updated_at": "2026-09-16T19:15:00+00:00"
     }
   ],
   "recent_votes": [
@@ -9139,11 +8391,11 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2312_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2312_00_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/HB2312/",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2312/hb2312_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2312/hb2312_01_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2312/hb2312_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2312_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2312_00_0000.pdf"
         ],
         "updated_at": "2026-05-05T15:57:12+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2312/",
@@ -9362,9 +8614,9 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_152/sb152_00_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/SB152/",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb152_00_0000/fisc_note_sb152_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/SB152/"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_152/sb152_00_0000.pdf"
         ],
         "updated_at": "2026-04-29T16:17:38+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB152/",
@@ -9456,9 +8708,9 @@
         "document_urls": [
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2083/hb2083_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2083_00_0000/fisc_note_hb2083_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2083_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2083/hb2083_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2083/"
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2083/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2083_01_0000.pdf"
         ],
         "updated_at": "2026-04-27T14:18:10+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2083/",
@@ -9674,13 +8926,13 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2044_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_enrolled.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2044_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2044_00_0000/fisc_note_hb2044_00_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/HB2044/",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2044_00_0000/fisc_note_hb2044_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_enrolled.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2044_00_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2044_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2044/hb2044_01_0000.pdf"
         ],
         "updated_at": "2026-03-27T23:25:55+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2044/",
@@ -10078,12 +9330,12 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_enrolled.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2043_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2043_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2043_00_0000/fisc_note_hb2043_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2043_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_00_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2043_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_enrolled.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/HB2043/",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2043/hb2043_01_0000.pdf"
         ],
@@ -10534,15 +9786,15 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_03_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_03_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_enrolled.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_02_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_01_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/HB2192/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2192_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_enrolled.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_03_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2192/hb2192_00_0000.pdf"
         ],
         "updated_at": "2026-03-26T18:47:22+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2192/",
@@ -10992,11 +10244,11 @@
         "events": [],
         "document_urls": [
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_03_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_03_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_04_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_04_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_03_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_02_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_scr1603_02_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/scr_1603/scr1603_01_0000.pdf",
@@ -11409,9 +10661,9 @@
         ],
         "events": [],
         "document_urls": [
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_534/sb534_00_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/SB534/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb534_00_0000/fisc_note_sb534_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_534/sb534_00_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb534_00_0000/fisc_note_sb534_00_0000.pdf"
         ],
         "updated_at": "2026-03-10T22:45:23+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB534/",
@@ -11614,7 +10866,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-21T22:29:14.471124+00:00"
+        "enriched_at": "2026-07-23T01:03:57.925983+00:00"
       },
       {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/81109cee8b944c5dccc95f3bc3b801a3",
@@ -11718,9 +10970,9 @@
         ],
         "events": [],
         "document_urls": [
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2791_00_0000/fisc_note_hb2791_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2791/hb2791_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2791/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2791_00_0000/fisc_note_hb2791_00_0000.pdf"
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2791/"
         ],
         "updated_at": "2026-03-04T18:21:13+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2791/",
@@ -11761,7 +11013,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-21T22:28:45.973957+00:00"
+        "enriched_at": "2026-07-23T01:03:28.044952+00:00"
       },
       {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/6b4805020684d3eecbbca2e097c855a6",
@@ -12008,8 +11260,8 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hcr_5034/hcr5034_00_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HCR5034/"
+          "https://www.kslegislature.gov/li/b2025_26/measures/HCR5034/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hcr_5034/hcr5034_00_0000.pdf"
         ],
         "updated_at": "2026-03-04T18:20:42+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HCR5034/",
@@ -12058,7 +11310,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-21T22:29:13.502085+00:00"
+        "enriched_at": "2026-07-23T01:03:56.924080+00:00"
       },
       {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/f98c70876606715f687119090654cf35",
@@ -12135,13 +11387,13 @@
         ],
         "events": [],
         "document_urls": [
-          "https://www.kslegislature.gov/li/b2025_26/measures/SB33/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb33_02_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_sb33_01_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_sb33_02_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_00_0000.pdf",
+          "https://www.kslegislature.gov/li/b2025_26/measures/SB33/",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_sb33_00_0000/fisc_note_sb33_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_01_0000.pdf"
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_sb33_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb33_02_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/sb_33/sb33_00_0000.pdf"
         ],
         "updated_at": "2026-03-04T17:49:14+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/SB33/",
@@ -12406,11 +11658,11 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2377/hb2377_01_0000.pdf",
-          "https://www.kslegislature.gov/li/b2025_26/measures/HB2377/",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2377_00_0000/fisc_note_hb2377_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2377/hb2377_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2377_01_0000.pdf"
+          "https://www.kslegislature.gov/li/b2025_26/measures/HB2377/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2377_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2377/hb2377_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2377_00_0000/fisc_note_hb2377_00_0000.pdf"
         ],
         "updated_at": "2026-02-18T19:22:56+00:00",
         "url": "https://www.kslegislature.gov/li/b2025_26/measures/HB2377/",
@@ -12574,8 +11826,8 @@
         ],
         "events": [],
         "document_urls": [
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2782_00_0000/fisc_note_hb2782_00_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/HB2782/",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2782_00_0000/fisc_note_hb2782_00_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2782/hb2782_00_0000.pdf"
         ],
         "updated_at": "2026-02-18T19:02:22+00:00",
@@ -12633,7 +11885,7 @@
           }
         ],
         "enrichment_source": "kansas_api",
-        "enriched_at": "2026-07-21T22:28:37.527434+00:00"
+        "enriched_at": "2026-07-23T01:03:19.107968+00:00"
       },
       {
         "id": "https://kslegislature.gov/li/data/feeds/rss/events/d65e7e507bef5d0601cd44b1318fc9b0",
@@ -12683,8 +11935,8 @@
         "events": [],
         "document_urls": [
           "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2408/hb2408_00_0000.pdf",
-          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2408/hb2408_01_0000.pdf",
           "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2408_01_0000.pdf",
+          "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2408/hb2408_01_0000.pdf",
           "https://www.kslegislature.gov/li/b2025_26/measures/HB2408/"
         ],
         "updated_at": "2026-02-12T00:20:12+00:00",
