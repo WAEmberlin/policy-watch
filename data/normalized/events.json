@@ -1,23 +1,5 @@
 [
   {
-    "id": "338686",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Hearings to examine the impact of AI on the workplace.",
-    "description": "Congressional meeting before the Senate Health, Education, Labor, and Pensions Subcommittee on Employment and Workplace Safety.",
-    "scheduled_date": "2026-07-29",
-    "scheduled_time": "18:00",
-    "location": "Room 430, Dirksen Senate Office Building",
-    "chamber": "Senate",
-    "committees": [
-      "Senate Health, Education, Labor, and Pensions Subcommittee on Employment and Workplace Safety"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338686",
-    "stream_url": "",
-    "updated_at": "2026-07-29"
-  },
-  {
     "id": "338687",
     "source": "congress",
     "level": "federal",
@@ -32,6 +14,24 @@
       "Senate Indian Affairs"
     ],
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338687",
+    "stream_url": "",
+    "updated_at": "2026-07-29"
+  },
+  {
+    "id": "338686",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Hearings to examine the impact of AI on the workplace.",
+    "description": "Congressional meeting before the Senate Health, Education, Labor, and Pensions Subcommittee on Employment and Workplace Safety.",
+    "scheduled_date": "2026-07-29",
+    "scheduled_time": "18:00",
+    "location": "Room 430, Dirksen Senate Office Building",
+    "chamber": "Senate",
+    "committees": [
+      "Senate Health, Education, Labor, and Pensions Subcommittee on Employment and Workplace Safety"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338686",
     "stream_url": "",
     "updated_at": "2026-07-29"
   },
@@ -108,20 +108,20 @@
     "updated_at": "2026-07-24"
   },
   {
-    "id": "338671",
+    "id": "338679",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "Business meeting to consider the nominations of Sean Kaufman, of Georgia, to be Assistant Secretary for Preparedness and Response, Erica Schwartz, of Florida, to be Director of the Centers for Disease Control and Prevention, both of the Department of Health and Human Services, and Keith Sonderling, of Florida, to be Secretary of Labor.",
-    "description": "Congressional meeting before the Senate Health, Education, Labor, and Pensions.",
+    "title": "Business meeting to consider the nominations of Todd Blanche, of Florida, to be Attorney General, and Christopher Nassar, to be United States Attorney for the Northern District of Oklahoma, both of the Department of Justice, Daniel Desmond Domenico, of Colorado, to be United States Circuit Judge for the Tenth Circuit, and Matthew R. Byrne, to be United States District Judge for the Southern District of Ohio, and designation of subcommittees for the 119th Congress.",
+    "description": "Congressional meeting before the Senate Judiciary.",
     "scheduled_date": "2026-07-23",
-    "scheduled_time": "13:47",
-    "location": "Room 430, Dirksen Senate Office Building",
+    "scheduled_time": "14:15",
+    "location": "Room 216, Hart Senate Office Building",
     "chamber": "Senate",
     "committees": [
-      "Senate Health, Education, Labor, and Pensions"
+      "Senate Judiciary"
     ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338671",
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338679",
     "stream_url": "",
     "updated_at": "2026-07-23"
   },
@@ -142,20 +142,20 @@
     "updated_at": "2026-07-23"
   },
   {
-    "id": "338679",
+    "id": "338671",
     "source": "congress",
     "level": "federal",
     "state": null,
-    "title": "Business meeting to consider the nominations of Todd Blanche, of Florida, to be Attorney General, and Christopher Nassar, to be United States Attorney for the Northern District of Oklahoma, both of the Department of Justice, Daniel Desmond Domenico, of Colorado, to be United States Circuit Judge for the Tenth Circuit, and Matthew R. Byrne, to be United States District Judge for the Southern District of Ohio, and designation of subcommittees for the 119th Congress.",
-    "description": "Congressional meeting before the Senate Judiciary.",
+    "title": "Business meeting to consider the nominations of Sean Kaufman, of Georgia, to be Assistant Secretary for Preparedness and Response, Erica Schwartz, of Florida, to be Director of the Centers for Disease Control and Prevention, both of the Department of Health and Human Services, and Keith Sonderling, of Florida, to be Secretary of Labor.",
+    "description": "Congressional meeting before the Senate Health, Education, Labor, and Pensions.",
     "scheduled_date": "2026-07-23",
-    "scheduled_time": "14:15",
-    "location": "Room 216, Hart Senate Office Building",
+    "scheduled_time": "13:47",
+    "location": "Room 430, Dirksen Senate Office Building",
     "chamber": "Senate",
     "committees": [
-      "Senate Judiciary"
+      "Senate Health, Education, Labor, and Pensions"
     ],
-    "url": "https://www.congress.gov/event/119th-congress/senate-event/338679",
+    "url": "https://www.congress.gov/event/119th-congress/senate-event/338671",
     "stream_url": "",
     "updated_at": "2026-07-23"
   },
@@ -176,6 +176,24 @@
     "url": "https://www.congress.gov/event/119th-congress/senate-event/338680",
     "stream_url": "",
     "updated_at": "2026-07-23"
+  },
+  {
+    "id": "119492",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "the Full Committee to consider the following:\r\n\r\n1) H.R. 6610, Pharmacists Fight Back [in Federal Employee Health Benefit Plans Act];\r\n\r\n2) H.R. 9720, D.C. Taxing Authority Review Act;\r\n      \r\n3) H.R. 9725, Restoring Integrity and Efficiency to Inspector General Oversight Act of 2025;\r\n\r\n4) H.R. 9643, Comment Integrity and Management Act;\r\n\r\n5) H.R. 9741, To name the DC Tuition Assistance Grant program the “Eleanor Holmes Norton District of Columbia Tuition Assistance Grant Program”;\r\n           \r\n6) Several postal naming measures.",
+    "description": "Congressional meeting before the House Oversight and Government Reform.",
+    "scheduled_date": "2026-07-22",
+    "scheduled_time": "14:00",
+    "location": "Room 2154, Rayburn House Office Building",
+    "chamber": "House",
+    "committees": [
+      "House Oversight and Government Reform"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119492",
+    "stream_url": "",
+    "updated_at": "2026-07-22"
   },
   {
     "id": "119487",
@@ -300,24 +318,6 @@
       "House Judiciary Subcommittee on Oversight"
     ],
     "url": "https://www.congress.gov/event/119th-congress/house-event/119408",
-    "stream_url": "",
-    "updated_at": "2026-07-22"
-  },
-  {
-    "id": "119492",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "the Full Committee to consider the following:\r\n\r\n1) H.R. 6610, Pharmacists Fight Back [in Federal Employee Health Benefit Plans Act];\r\n\r\n2) H.R. 9720, D.C. Taxing Authority Review Act;\r\n      \r\n3) H.R. 9725, Restoring Integrity and Efficiency to Inspector General Oversight Act of 2025;\r\n\r\n4) H.R. 9643, Comment Integrity and Management Act;\r\n\r\n5) H.R. 9741, To name the DC Tuition Assistance Grant program the “Eleanor Holmes Norton District of Columbia Tuition Assistance Grant Program”;\r\n           \r\n6) Several postal naming measures.",
-    "description": "Congressional meeting before the House Oversight and Government Reform.",
-    "scheduled_date": "2026-07-22",
-    "scheduled_time": "14:00",
-    "location": "Room 2154, Rayburn House Office Building",
-    "chamber": "House",
-    "committees": [
-      "House Oversight and Government Reform"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/119492",
     "stream_url": "",
     "updated_at": "2026-07-22"
   },
@@ -970,24 +970,6 @@
     "updated_at": "2026-07-21"
   },
   {
-    "id": "119490",
-    "source": "congress",
-    "level": "federal",
-    "state": null,
-    "title": "Full Committee Markup of Twenty-Nine Pieces of Legislation",
-    "description": "Congressional meeting before the House Energy and Commerce.",
-    "scheduled_date": "2026-07-20",
-    "scheduled_time": "21:00",
-    "location": "Room 2123, Rayburn House Office Building",
-    "chamber": "House",
-    "committees": [
-      "House Energy and Commerce"
-    ],
-    "url": "https://www.congress.gov/event/119th-congress/house-event/119490",
-    "stream_url": "",
-    "updated_at": "2026-07-20"
-  },
-  {
     "id": "119474",
     "source": "congress",
     "level": "federal",
@@ -1002,6 +984,24 @@
       "House Intelligence (Permanent Select)"
     ],
     "url": "https://www.congress.gov/event/119th-congress/house-event/119474",
+    "stream_url": "",
+    "updated_at": "2026-07-20"
+  },
+  {
+    "id": "119490",
+    "source": "congress",
+    "level": "federal",
+    "state": null,
+    "title": "Full Committee Markup of Twenty-Nine Pieces of Legislation",
+    "description": "Congressional meeting before the House Energy and Commerce.",
+    "scheduled_date": "2026-07-20",
+    "scheduled_time": "21:00",
+    "location": "Room 2123, Rayburn House Office Building",
+    "chamber": "House",
+    "committees": [
+      "House Energy and Commerce"
+    ],
+    "url": "https://www.congress.gov/event/119th-congress/house-event/119490",
     "stream_url": "",
     "updated_at": "2026-07-20"
   },
