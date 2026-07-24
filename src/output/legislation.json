@@ -39,7 +39,7 @@
         "actionCode": "8000"
       },
       {
-        "text": "Considered as unfinished business.",
+        "text": "Considered as unfinished business. (consideration: CR H5159)",
         "actionDate": "2026-07-22",
         "type": "Floor",
         "actionTime": "17:02:18",
@@ -207,6 +207,16 @@
     "cosponsors": [],
     "actions": [
       {
+        "text": "Cloture motion on the motion to proceed to the measure presented in Senate. (CR S4253)",
+        "actionDate": "2026-07-23",
+        "type": "Floor"
+      },
+      {
+        "text": "Motion to proceed to consideration of measure made in Senate. (CR S4253)",
+        "actionDate": "2026-07-23",
+        "type": "Floor"
+      },
+      {
         "text": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 454.",
         "actionDate": "2026-07-14",
         "type": "Calendars"
@@ -331,11 +341,178 @@
     "cosponsors": [],
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 494.",
     "latest_action_date": "2026-07-23T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 494.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-06-10",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+        "actionDate": "2026-02-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-07-23",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2025-07-22",
+        "type": "Floor",
+        "actionTime": "16:48:50",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by the Yeas and Nays: (2/3 required): 410 - 1 (Roll no. 215). (text: CR H3541)",
+        "actionDate": "2025-07-22",
+        "type": "Floor",
+        "actionTime": "16:48:49",
+        "actionCode": "H37300",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2025-07-22T20:48:49Z",
+            "rollNumber": 215,
+            "sessionNumber": 1,
+            "url": "https://clerk.house.gov/evs/2025/roll215.xml"
+          }
+        ]
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by the Yeas and Nays: (2/3 required): 410 - 1 (Roll no. 215). (text: CR H3541)",
+        "actionDate": "2025-07-22",
+        "type": "Floor",
+        "actionTime": "16:48:49",
+        "actionCode": "8000",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2025-07-22T20:48:49Z",
+            "rollNumber": 215,
+            "sessionNumber": 1,
+            "url": "https://clerk.house.gov/evs/2025/roll215.xml"
+          }
+        ]
+      },
+      {
+        "text": "Considered as unfinished business. (consideration: CR H3544-3545)",
+        "actionDate": "2025-07-22",
+        "type": "Floor",
+        "actionTime": "16:19:31",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "At the conclusion of debate, the Yeas and Nays were demanded and ordered. Pursuant to the provisions of clause 8, rule XX, the Chair announced that further proceedings on the motion would be postponed.",
+        "actionDate": "2025-07-22",
+        "type": "Floor",
+        "actionTime": "16:08:07",
+        "actionCode": "H37220"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 3937.",
+        "actionDate": "2025-07-22",
+        "type": "Floor",
+        "actionTime": "16:01:14",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H3541-3543)",
+        "actionDate": "2025-07-22",
+        "type": "Floor",
+        "actionTime": "16:01:13",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Tiffany moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2025-07-22",
+        "type": "Floor",
+        "actionTime": "16:01:01",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Natural Resources. H. Rept. 119-211, Part I.",
+        "actionDate": "2025-07-21",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Natural Resources. H. Rept. 119-211, Part I.",
+        "actionDate": "2025-07-21",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported in the Nature of a Substitute by Unanimous Consent.",
+        "actionDate": "2025-06-25",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-06-25",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the Committee on Agriculture, and in addition to the Committee on Natural Resources, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2025-06-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Committee on Agriculture, and in addition to the Committee on Natural Resources, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2025-06-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-06-11",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-06-11",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 494.",
-    "votes": [],
+    "votes": [
+      {
+        "rollNumber": 215,
+        "chamber": "House",
+        "date": "2025-07-22",
+        "result": "Passed",
+        "yeas": 410,
+        "nays": 1,
+        "motion": "On Motion to Suspend the Rules and Pass, as Amended",
+        "tally_text": "Passed 410\u20131"
+      }
+    ],
     "introduced_date": "",
     "url": "https://www.congress.gov/bill/119th-congress/house-bill/3937",
     "published": "2026-07-23T00:00:00",
@@ -363,7 +540,45 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 470.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-06-10",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources Subcommittee on National Parks. Hearings held.",
+        "actionDate": "2025-12-09",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-01-30",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-01-30",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 470.",
@@ -389,7 +604,45 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 488.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-03-04",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+        "actionDate": "2026-02-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-12-16",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-12-16",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 488.",
@@ -415,7 +668,45 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 487.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-03-04",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+        "actionDate": "2026-02-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-10-14",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-10-14",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 487.",
@@ -441,7 +732,45 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 485.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment favorably.",
+        "actionDate": "2026-03-04",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+        "actionDate": "2026-02-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources. (text: CR S6578)",
+        "actionDate": "2025-09-11",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-09-11",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 485.",
@@ -461,7 +790,105 @@
     "cosponsors": [],
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 490.",
     "latest_action_date": "2026-07-23T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 490.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-03-04",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+        "actionDate": "2026-02-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-01-22",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2025-01-21",
+        "type": "Floor",
+        "actionTime": "15:01:57",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H244-245)",
+        "actionDate": "2025-01-21",
+        "type": "Floor",
+        "actionTime": "15:01:53",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H244-245)",
+        "actionDate": "2025-01-21",
+        "type": "Floor",
+        "actionTime": "15:01:53",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 204.",
+        "actionDate": "2025-01-21",
+        "type": "Floor",
+        "actionTime": "14:49:58",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H244-246)",
+        "actionDate": "2025-01-21",
+        "type": "Floor",
+        "actionTime": "14:49:56",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Westerman moved to suspend the rules and pass the bill.",
+        "actionDate": "2025-01-21",
+        "type": "Floor",
+        "actionTime": "14:49:31",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Referred to the Committee on Natural Resources, and in addition to the Committee on Agriculture, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2025-01-03",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Committee on Natural Resources, and in addition to the Committee on Agriculture, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2025-01-03",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-01-03",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-01-03",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 490.",
@@ -487,7 +914,99 @@
     "cosponsors": [],
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 491.",
     "latest_action_date": "2026-07-23T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 491.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-03-04",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+        "actionDate": "2026-02-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-05-14",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2025-05-13",
+        "type": "Floor",
+        "actionTime": "17:31:28",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H1982)",
+        "actionDate": "2025-05-13",
+        "type": "Floor",
+        "actionTime": "17:31:26",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H1982)",
+        "actionDate": "2025-05-13",
+        "type": "Floor",
+        "actionTime": "17:31:26",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 952.",
+        "actionDate": "2025-05-13",
+        "type": "Floor",
+        "actionTime": "17:26:27",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H1982-1983)",
+        "actionDate": "2025-05-13",
+        "type": "Floor",
+        "actionTime": "17:26:26",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Westerman moved to suspend the rules and pass the bill.",
+        "actionDate": "2025-05-13",
+        "type": "Floor",
+        "actionTime": "17:26:17",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Referred to the House Committee on Natural Resources.",
+        "actionDate": "2025-02-04",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-02-04",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-02-04",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 491.",
@@ -513,7 +1032,99 @@
     "cosponsors": [],
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 493.",
     "latest_action_date": "2026-07-23T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 493.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-03-04",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+        "actionDate": "2026-02-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-05-14",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2025-05-13",
+        "type": "Floor",
+        "actionTime": "17:00:46",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H1975-1976)",
+        "actionDate": "2025-05-13",
+        "type": "Floor",
+        "actionTime": "17:00:44",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H1975-1976)",
+        "actionDate": "2025-05-13",
+        "type": "Floor",
+        "actionTime": "17:00:44",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 1829.",
+        "actionDate": "2025-05-13",
+        "type": "Floor",
+        "actionTime": "16:54:55",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H1975-1976)",
+        "actionDate": "2025-05-13",
+        "type": "Floor",
+        "actionTime": "16:54:52",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Westerman moved to suspend the rules and pass the bill.",
+        "actionDate": "2025-05-13",
+        "type": "Floor",
+        "actionTime": "16:54:39",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Referred to the House Committee on Natural Resources.",
+        "actionDate": "2025-03-04",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-03-04",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-03-04",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 493.",
@@ -539,7 +1150,45 @@
     "cosponsors": [],
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 495.",
     "latest_action_date": "2026-07-23T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 495.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-03-04",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+        "actionDate": "2026-02-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-06-05",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-06-05",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 495.",
@@ -571,7 +1220,45 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 473.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment and an amendment to the title. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment and an amendment to the title. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-03-04",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources Subcommittee on National Parks. Hearings held.",
+        "actionDate": "2025-12-09",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-03-26",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-03-26",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 473.",
@@ -591,7 +1278,40 @@
     "cosponsors": [],
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 472.",
     "latest_action_date": "2026-07-23T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 472.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-03-04",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-03-03",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-03-03",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 472.",
@@ -617,7 +1337,40 @@
     "cosponsors": [],
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 482.",
     "latest_action_date": "2026-07-23T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 482.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-03-04",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-06-17",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-06-17",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 482.",
@@ -643,7 +1396,94 @@
     "cosponsors": [],
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 492.",
     "latest_action_date": "2026-07-23T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 492.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-02-04",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-05-14",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2025-05-13",
+        "type": "Floor",
+        "actionTime": "16:54:38",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H1974)",
+        "actionDate": "2025-05-13",
+        "type": "Floor",
+        "actionTime": "16:54:36",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H1974)",
+        "actionDate": "2025-05-13",
+        "type": "Floor",
+        "actionTime": "16:54:36",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 1550.",
+        "actionDate": "2025-05-13",
+        "type": "Floor",
+        "actionTime": "16:46:45",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H1974-1975)",
+        "actionDate": "2025-05-13",
+        "type": "Floor",
+        "actionTime": "16:46:43",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Westerman moved to suspend the rules and pass the bill.",
+        "actionDate": "2025-05-13",
+        "type": "Floor",
+        "actionTime": "16:46:24",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Referred to the House Committee on Natural Resources.",
+        "actionDate": "2025-02-25",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-02-25",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-02-25",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 492.",
@@ -669,7 +1509,40 @@
     "cosponsors": [],
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 471.",
     "latest_action_date": "2026-07-23T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 471.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment favorably.",
+        "actionDate": "2026-02-04",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-02-25",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-02-25",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 471.",
@@ -701,7 +1574,45 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 479.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-02-04",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources Subcommittee on National Parks. Hearings held.",
+        "actionDate": "2025-12-09",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-04-29",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-04-29",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 479.",
@@ -727,7 +1638,45 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 475.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment favorably.",
+        "actionDate": "2026-02-04",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources Subcommittee on National Parks. Hearings held.",
+        "actionDate": "2025-12-09",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-04-08",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-04-08",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 475.",
@@ -753,7 +1702,45 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 469.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-02-04",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources Subcommittee on National Parks. Hearings held.",
+        "actionDate": "2025-12-09",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources. (text: CR S481-482)",
+        "actionDate": "2025-01-29",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-01-29",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 469.",
@@ -779,7 +1766,40 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 486.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment favorably.",
+        "actionDate": "2026-02-04",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources. (Sponsor introductory remarks on measure: CR S6734)",
+        "actionDate": "2025-09-18",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-09-18",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 486.",
@@ -799,7 +1819,40 @@
     "cosponsors": [],
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 478.",
     "latest_action_date": "2026-07-23T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 478.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-02-04",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources. (text: CR S2668)",
+        "actionDate": "2025-04-29",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-04-29",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 478.",
@@ -831,7 +1884,45 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 484.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported without amendment favorably.",
+        "actionDate": "2025-12-17",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources Subcommittee on National Parks. Hearings held.",
+        "actionDate": "2025-12-09",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-07-30",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-07-30",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 484.",
@@ -857,7 +1948,45 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 483.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported without amendment favorably.",
+        "actionDate": "2025-12-17",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+        "actionDate": "2025-12-02",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-07-14",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-07-14",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 483.",
@@ -883,7 +2012,40 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 480.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported without amendment favorably.",
+        "actionDate": "2025-12-17",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-05-15",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-05-15",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 480.",
@@ -909,7 +2071,45 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 481.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2025-12-17",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+        "actionDate": "2025-12-02",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-05-22",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-05-22",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 481.",
@@ -935,7 +2135,40 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 477.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported without amendment favorably.",
+        "actionDate": "2025-12-17",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-04-10",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-04-10",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 477.",
@@ -961,7 +2194,45 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 476.",
+        "actionDate": "2026-07-23",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment. Without written report.",
+        "actionDate": "2026-07-23",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment favorably.",
+        "actionDate": "2025-12-17",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+        "actionDate": "2025-12-02",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-04-09",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-04-09",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 476.",
