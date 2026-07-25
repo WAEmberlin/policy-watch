@@ -7595,7 +7595,19 @@
     "cosponsors": [],
     "latest_action": "Read twice and referred to the Committee on Energy and Natural Resources.",
     "latest_action_date": "2026-07-21T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2026-07-21",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2026-07-21",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Read twice and referred to the Committee on Energy and Natural Resources.",
