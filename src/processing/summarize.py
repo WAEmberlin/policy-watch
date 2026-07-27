@@ -941,11 +941,12 @@ if "legislation" not in output:
     output["legislation"] = {"total_items": 0, "pages": []}
 
 with open(SITE_DATA_FILE, "w", encoding="utf-8") as f:
-    json.dump(output, f, indent=2)
+    # Compact JSON — pretty-printing pushes this file over GitHub's 100MB limit.
+    json.dump(output, f, ensure_ascii=False, separators=(",", ":"))
 
 legislator_votes_file = os.path.join(DOCS_DIR, "legislator_votes.json")
 with open(legislator_votes_file, "w", encoding="utf-8") as f:
-    json.dump(normalized_legislator_votes, f, indent=2)
+    json.dump(normalized_legislator_votes, f, ensure_ascii=False, separators=(",", ":"))
 legislator_vote_counts = {
     leg_id: len(votes)
     for leg_id, votes in (normalized_legislator_votes or {}).items()

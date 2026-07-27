@@ -45,15 +45,35 @@ def load_json(path: Path, default: Any) -> Any:
         return json.load(f)
 
 
-def save_json(path: Path, data: Any) -> None:
+def save_json(path: Path, data: Any, *, compact: bool = False) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp_path = path.with_suffix(path.suffix + ".tmp")
-    payload = json.dumps(data, indent=2, ensure_ascii=False)
+    if compact:
+        payload = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+    else:
+        payload = json.dumps(data, indent=2, ensure_ascii=False)
     with open(tmp_path, "w", encoding="utf-8") as f:
         f.write(payload)
         f.flush()
         os.fsync(f.fileno())
     tmp_path.replace(path)
+
+
+def slim_votes_for_storage(votes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Drop per-voter roll-call arrays after legislator index is built.
+
+    Those arrays dominate normalized/votes.json size and push GitHub over 100MB.
+    """
+    slimmed: List[Dict[str, Any]] = []
+    for vote in votes:
+        if not isinstance(vote, dict):
+            continue
+        row = dict(vote)
+        voters = row.pop("votes", None)
+        if isinstance(voters, list) and "voter_count" not in row:
+            row["voter_count"] = len(voters)
+        slimmed.append(row)
+    return slimmed
 
 
 def dedupe_bills(bills: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
@@ -175,23 +195,32 @@ def normalize_all(skip_ai: bool = False) -> Dict[str, Any]:
     if not skip_ai:
         all_bills = enrich_bills(all_bills)
 
-    save_json(NORMALIZED_DIR / "bills.json", all_bills)
-    save_json(NORMALIZED_DIR / "events.json", all_events)
+    if build_legislator_vote_index:
+        legislator_votes = build_legislator_vote_index(
+            all_legislators,
+            all_votes,
+            max_per_legislator=250,
+        )
+    else:
+        legislator_votes = {}
+
+    # Slim after index build — voter lists are only needed for matching.
+    all_votes = slim_votes_for_storage(all_votes)
+
+    # Compact JSON for large artifacts to stay under GitHub's 100MB hard limit.
+    save_json(NORMALIZED_DIR / "bills.json", all_bills, compact=True)
+    save_json(NORMALIZED_DIR / "events.json", all_events, compact=True)
     save_json(NORMALIZED_DIR / "legislators.json", all_legislators)
-    save_json(NORMALIZED_DIR / "votes.json", all_votes)
+    save_json(NORMALIZED_DIR / "votes.json", all_votes, compact=True)
 
     search_index = build_search_index(all_bills, all_events, all_legislators)
     dashboards = build_dashboards(all_bills, all_events, all_votes, config)
     legislator_stats = build_legislator_stats(all_legislators)
-    if build_legislator_vote_index:
-        legislator_votes = build_legislator_vote_index(all_legislators, all_votes, max_per_legislator=1000)
-    else:
-        legislator_votes = {}
 
-    save_json(NORMALIZED_DIR / "search_index.json", search_index)
-    save_json(NORMALIZED_DIR / "dashboards.json", dashboards)
+    save_json(NORMALIZED_DIR / "search_index.json", search_index, compact=True)
+    save_json(NORMALIZED_DIR / "dashboards.json", dashboards, compact=True)
     save_json(NORMALIZED_DIR / "legislator_stats.json", legislator_stats)
-    save_json(NORMALIZED_DIR / "legislator_votes.json", legislator_votes)
+    save_json(NORMALIZED_DIR / "legislator_votes.json", legislator_votes, compact=True)
 
     meta = {
         "normalized_at": datetime.now(timezone.utc).isoformat(),

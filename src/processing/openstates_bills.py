@@ -19,15 +19,23 @@ def load_json(path: Path, default: Any) -> Any:
         return json.load(f)
 
 
-def save_json(path: Path, data: Any) -> None:
+def save_json(path: Path, data: Any, *, compact: bool = False) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
+        if compact:
+            json.dump(data, f, ensure_ascii=False, separators=(",", ":"))
+        else:
+            json.dump(data, f, indent=2, ensure_ascii=False)
 
 
 def session_slug(session: Any) -> str:
     text = str(session or "unknown").strip()
     return text.replace("/", "-").replace("\\", "-")
+
+
+def bill_session(bill: Dict[str, Any]) -> Any:
+    """Open States records use `session` or `legislative_session` depending on endpoint."""
+    return bill.get("legislative_session") or bill.get("session")
 
 
 def session_bill_paths(state_dir: Path) -> List[Path]:
@@ -69,7 +77,7 @@ def _serialized_size(bills: List[Dict[str, Any]]) -> int:
 def _group_by_session(bills: List[Dict[str, Any]]) -> Dict[str, List[Dict[str, Any]]]:
     grouped: Dict[str, List[Dict[str, Any]]] = {}
     for bill in bills:
-        key = session_slug(bill.get("legislative_session"))
+        key = session_slug(bill_session(bill))
         grouped.setdefault(key, []).append(bill)
     return grouped
 
@@ -92,10 +100,17 @@ def save_state_bills(state_dir: Path, bills: List[Dict[str, Any]]) -> List[str]:
 
     Uses a single bills.json when small enough; otherwise bills_{session}.json
     files so each chunk stays within GitHub size limits.
+
+    Avoid json.dumps()-probing the full bill list when the cache is already
+    session-split or clearly large — that doubles peak memory and OOMs CI
+    runners for AZ/ME/NE/MD-sized datasets.
     """
     state_dir.mkdir(parents=True, exist_ok=True)
 
-    if _serialized_size(bills) <= MAX_MONOLITHIC_BYTES:
+    # Prefer session files when already split or bill count is large enough that
+    # a monolithic dump is unlikely to stay under GitHub's size limits.
+    use_sessions = uses_session_split(state_dir) or len(bills) >= 3000
+    if not use_sessions and _serialized_size(bills) <= MAX_MONOLITHIC_BYTES:
         save_json(state_dir / "bills.json", bills)
         for path in session_bill_paths(state_dir):
             path.unlink()
@@ -107,7 +122,8 @@ def save_state_bills(state_dir: Path, bills: List[Dict[str, Any]]) -> List[str]:
 
     for session in sorted(grouped):
         filename = f"bills_{session}.json"
-        save_json(state_dir / filename, grouped[session])
+        # Compact JSON keeps multi-session caches under GitHub's 100MB hard limit.
+        save_json(state_dir / filename, grouped[session], compact=True)
         saved_names.add(filename)
 
     _remove_stale_session_files(state_dir, saved_names)

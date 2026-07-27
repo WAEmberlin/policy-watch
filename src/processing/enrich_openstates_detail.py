@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
 from processing.openstates_bills import load_state_bills, save_state_bills  # noqa: E402
+from processing.openstates_client import OpenStatesClient  # noqa: E402
 
 CONFIG_PATH = ROOT / "config" / "states.yaml"
 OPENSTATES_DIR = ROOT / "data" / "openstates"
@@ -115,14 +116,27 @@ def enrich_state(client: OpenStatesClient, state_code: str, max_bills: int, days
                 "documents": detail.get("documents"),
                 "enriched_at": datetime.now(timezone.utc).isoformat(),
             }
-            # Update bills list in place
+            # Update bills in place with lean fields only — merging full detail
+            # (especially nested roll-call voter lists) balloons session caches
+            # past GitHub's 100MB push limit.
             for i, b in enumerate(bills):
                 if b.get("id") == detail.get("id"):
-                    bills[i] = {**b, **detail}
+                    bills[i] = {
+                        **b,
+                        "sponsorships": detail.get("sponsorships") or b.get("sponsorships"),
+                        "actions": detail.get("actions") or b.get("actions"),
+                        "versions": detail.get("versions") or b.get("versions"),
+                        "documents": detail.get("documents") or b.get("documents"),
+                    }
                     break
             enriched += 1
 
-    save_state_bills(OPENSTATES_DIR / state_code, bills)
+    # Skip rewriting multi-GB-class caches when nothing changed (saves CI memory/time).
+    if enriched:
+        save_state_bills(OPENSTATES_DIR / state_code, bills)
+    else:
+        print(f"{state_code.upper()}: no bill updates; skipping bills cache rewrite")
+
     enrichments["_meta"] = {
         "state": state_code.upper(),
         "updated_at": datetime.now(timezone.utc).isoformat(),
@@ -146,6 +160,7 @@ def enrich_all_openstates(max_per_state: int = DEFAULT_MAX_PER_STATE, days_back:
 
     detail_states = set(config.get("enrichment", {}).get("openstates_detail", []))
     total = 0
+    errors: list[str] = []
     for state_cfg in config.get("states", []):
         if not state_cfg.get("enabled"):
             continue
@@ -154,7 +169,14 @@ def enrich_all_openstates(max_per_state: int = DEFAULT_MAX_PER_STATE, days_back:
             continue
         if state_cfg.get("enrichment") == "kansas_api":
             continue
-        total += enrich_state(client, code, max_per_state, days_back)
+        try:
+            total += enrich_state(client, code, max_per_state, days_back)
+        except Exception as exc:
+            # One oversized state must not fail the whole nightly sync.
+            print(f"ERROR: Open States detail enrichment failed for {code.upper()}: {exc}")
+            errors.append(f"{code}:{exc}")
+    if errors:
+        print(f"Open States detail enrichment finished with {len(errors)} state error(s)")
     return total
 
 

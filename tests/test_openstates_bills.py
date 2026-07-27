@@ -19,6 +19,19 @@ def test_session_slug_sanitizes_path_chars():
     assert session_slug("2025/26") == "2025-26"
 
 
+def test_group_uses_session_or_legislative_session(tmp_path):
+    bills = [
+        {"id": "ocd-bill/a", "identifier": "HB 1", "session": "2026A"},
+        {"id": "ocd-bill/b", "identifier": "HB 2", "legislative_session": "2025B"},
+    ]
+    saved = save_state_bills(tmp_path, bills)
+    # Force session path via monkeypatch isn't needed for small; check helper instead
+    from processing.openstates_bills import _group_by_session
+
+    grouped = _group_by_session(bills)
+    assert set(grouped) == {"2026A", "2025B"}
+
+
 def test_save_small_cache_uses_monolithic_file(tmp_path):
     bills = [
         {"id": "ocd-bill/a", "identifier": "HB 1", "legislative_session": "2026"},
@@ -63,3 +76,37 @@ def test_load_merges_legacy_and_session_files(tmp_path):
     loaded = load_state_bills(tmp_path)
     assert len(loaded) == 2
     assert {b["id"] for b in loaded} == {"ocd-bill/legacy", "ocd-bill/new"}
+
+
+def test_save_already_split_skips_monolithic_size_probe(tmp_path, monkeypatch):
+    """Regression: probing full dumps of AZ/MD caches OOMs GitHub runners."""
+    (tmp_path / "bills_2024.json").write_text("[]", encoding="utf-8")
+
+    def boom(_bills):
+        raise AssertionError("_serialized_size should not run for session-split dirs")
+
+    monkeypatch.setattr("processing.openstates_bills._serialized_size", boom)
+    bills = [
+        {"id": "ocd-bill/a", "identifier": "HB 1", "legislative_session": "2024"},
+        {"id": "ocd-bill/b", "identifier": "HB 2", "legislative_session": "2025"},
+    ]
+    saved = save_state_bills(tmp_path, bills)
+    assert saved == ["bills_2024.json", "bills_2025.json"]
+    assert not (tmp_path / "bills.json").exists()
+
+
+def test_save_many_bills_uses_sessions_without_size_probe(tmp_path, monkeypatch):
+    def boom(_bills):
+        raise AssertionError("_serialized_size should not run for large bill counts")
+
+    monkeypatch.setattr("processing.openstates_bills._serialized_size", boom)
+    bills = [
+        {
+            "id": f"ocd-bill/{i}",
+            "identifier": f"HB {i}",
+            "legislative_session": "2026" if i % 2 == 0 else "2025",
+        }
+        for i in range(3000)
+    ]
+    saved = save_state_bills(tmp_path, bills)
+    assert saved == ["bills_2025.json", "bills_2026.json"]
