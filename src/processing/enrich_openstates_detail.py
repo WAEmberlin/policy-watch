@@ -23,7 +23,6 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
 from processing.openstates_bills import load_state_bills, save_state_bills  # noqa: E402
-from processing.openstates_client import OpenStatesClient  # noqa: E402
 
 CONFIG_PATH = ROOT / "config" / "states.yaml"
 OPENSTATES_DIR = ROOT / "data" / "openstates"
@@ -123,12 +122,7 @@ def enrich_state(client: OpenStatesClient, state_code: str, max_bills: int, days
                     break
             enriched += 1
 
-    # Skip rewriting multi-GB-class caches when nothing changed (saves CI memory/time).
-    if enriched:
-        save_state_bills(OPENSTATES_DIR / state_code, bills)
-    else:
-        print(f"{state_code.upper()}: no bill updates; skipping bills cache rewrite")
-
+    save_state_bills(OPENSTATES_DIR / state_code, bills)
     enrichments["_meta"] = {
         "state": state_code.upper(),
         "updated_at": datetime.now(timezone.utc).isoformat(),
@@ -152,7 +146,6 @@ def enrich_all_openstates(max_per_state: int = DEFAULT_MAX_PER_STATE, days_back:
 
     detail_states = set(config.get("enrichment", {}).get("openstates_detail", []))
     total = 0
-    errors: list[str] = []
     for state_cfg in config.get("states", []):
         if not state_cfg.get("enabled"):
             continue
@@ -161,14 +154,7 @@ def enrich_all_openstates(max_per_state: int = DEFAULT_MAX_PER_STATE, days_back:
             continue
         if state_cfg.get("enrichment") == "kansas_api":
             continue
-        try:
-            total += enrich_state(client, code, max_per_state, days_back)
-        except Exception as exc:
-            # One oversized state must not fail the whole nightly sync.
-            print(f"ERROR: Open States detail enrichment failed for {code.upper()}: {exc}")
-            errors.append(f"{code}:{exc}")
-    if errors:
-        print(f"Open States detail enrichment finished with {len(errors)} state error(s)")
+        total += enrich_state(client, code, max_per_state, days_back)
     return total
 
 

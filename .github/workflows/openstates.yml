@@ -73,9 +73,6 @@ jobs:
           fi
 
       - name: Enrich state data (Kansas API + Open States detail)
-        # Non-blocking: a successful Open States fetch should still normalize/commit
-        # even if detail enrichment hits API/memory issues on large state caches.
-        continue-on-error: true
         env:
           KANSAS_LEGISLATURE_API_KEY: ${{ secrets.KANSAS_LEGISLATURE_API_KEY }}
           OPENSTATES_API_KEY: ${{ secrets.OPENSTATES_API_KEY }}
