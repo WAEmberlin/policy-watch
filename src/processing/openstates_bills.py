@@ -92,10 +92,17 @@ def save_state_bills(state_dir: Path, bills: List[Dict[str, Any]]) -> List[str]:
 
     Uses a single bills.json when small enough; otherwise bills_{session}.json
     files so each chunk stays within GitHub size limits.
+
+    Avoid json.dumps()-probing the full bill list when the cache is already
+    session-split or clearly large — that doubles peak memory and OOMs CI
+    runners for AZ/ME/NE/MD-sized datasets.
     """
     state_dir.mkdir(parents=True, exist_ok=True)
 
-    if _serialized_size(bills) <= MAX_MONOLITHIC_BYTES:
+    # Prefer session files when already split or bill count is large enough that
+    # a monolithic dump is unlikely to stay under GitHub's size limits.
+    use_sessions = uses_session_split(state_dir) or len(bills) >= 3000
+    if not use_sessions and _serialized_size(bills) <= MAX_MONOLITHIC_BYTES:
         save_json(state_dir / "bills.json", bills)
         for path in session_bill_paths(state_dir):
             path.unlink()
