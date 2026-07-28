@@ -1,12 +1,12 @@
 {
-  "week_start": "2026-07-18T00:11:08.240997-05:00",
-  "week_end": "2026-07-25T00:11:08.240997-05:00",
+  "week_start": "2026-07-20T22:26:50.591342-05:00",
+  "week_end": "2026-07-27T22:26:50.591342-05:00",
   "item_counts": {
-    "federal": 143,
+    "federal": 76,
     "ks": 0,
     "co": 0,
-    "az": 4,
-    "ut": 1,
+    "az": 3,
+    "ut": 0,
     "me": 1,
     "ne": 0,
     "md": 0
@@ -23,30 +23,20 @@
         "   Placed on Senate Legislative Calendar under General Orders. Calendar No. 474.",
         "HR 5334: SEED Act of 2025",
         "   Cloture motion on the motion to proceed to the measure presented in Senate.",
-        "   Plus 1 immigration, 14 healthcare, 2 education, 5 economic, 1 defense, 21 environmental, 3 tax, 3 infrastructure bills, and 38 others.",
-        "52 hearings scheduled."
+        "   Plus 7 healthcare, 2 education, 4 economic, 1 tax, 3 infrastructure bills, and 25 others.",
+        "31 hearings scheduled."
       ],
-      "item_count": 143,
+      "item_count": 76,
       "veterans_highlight": {
-        "summary": "HR 5362: To name the Department of Veterans Affairs multispecialty clinic in Marietta, Georgia, as the \"Colonel Michael H.; Hearings to examine advancing the mission, focusing on evaluating the future of VA research.; Hearings to examine S.1674, to modify the boundary of the Mammoth Cave National Park in the State of Kentucky, S.2498, to authorize the...; plus 1 more",
+        "summary": "Hearings to examine advancing the mission, focusing on evaluating the future of VA research.",
         "items": [
-          {
-            "type": "bill",
-            "title": "HR 5362: To name the Department of Veterans Affairs multispecialty clinic in Marietta, Georgia, as the \"Colonel Michael H.",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/5362"
-          },
           {
             "type": "hearing",
             "title": "Hearings to examine advancing the mission, focusing on evaluating the future of VA research.",
             "url": "https://www.congress.gov/event/119th-congress/senate-event/338668"
-          },
-          {
-            "type": "hearing",
-            "title": "Hearings to examine S.1674, to modify the boundary of the Mammoth Cave National Park in the State of Kentucky, S.2498, to authorize the...",
-            "url": "https://www.congress.gov/event/119th-congress/senate-event/338675"
           }
         ],
-        "total_matches": 4
+        "total_matches": 1
       }
     },
     {
@@ -70,18 +60,17 @@
       "label": "Arizona",
       "recap_lines": [
         "Arizona:",
-        "   4 hearings."
+        "   3 hearings."
       ],
-      "item_count": 4
+      "item_count": 3
     },
     {
       "id": "ut",
       "label": "Utah",
       "recap_lines": [
-        "Utah:",
-        "   1 hearings."
+        "Utah: No new activity this week."
       ],
-      "item_count": 1
+      "item_count": 0
     },
     {
       "id": "me",
@@ -109,8 +98,8 @@
       "item_count": 0
     }
   ],
-  "script": "CivicWatch weekly overview for July 18 through July 25, 2026.\n\nCongress / Federal:\nHR 1722: Billion Dollar Boondoggle Act of 2025\nVeterans & Military highlight: HR 5362: To name the Department of Veterans Affairs multispecialty clinic in Marietta, Georgia, as the \"Colonel Michael H.; Hearings to examine advancing the mission, focusing on evaluating the future of VA research.;....\n   Received in the Senate. Read twice. Placed on Senate Legislative Calendar under General Orders.\nS 1175: Small County PILT Parity Act\n   Placed on Senate Legislative Calendar under General Orders. Calendar No. 474.\nHR 5334: SEED Act of 2025\n   Cloture motion on the motion to proceed to the measure presented in Senate.\n   Plus 1 immigration, 14 healthcare, 2 education, 5 economic, 1 defense, 21 environmental, 3 tax, 3 infrastructure bills, and 38 others.\n52 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona:\n   4 hearings.\n\nUtah:\n   1 hearings.\n\nMaine:\n   1 hearings.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nExplore full details at CivicWatch.",
-  "generated_at": "2026-07-25T00:11:08.240997-05:00",
+  "script": "CivicWatch weekly overview for July 20 through July 27, 2026.\n\nCongress / Federal:\nHR 1722: Billion Dollar Boondoggle Act of 2025\nVeterans & Military highlight: Hearings to examine advancing the mission, focusing on evaluating the future of VA research..\n   Received in the Senate. Read twice. Placed on Senate Legislative Calendar under General Orders.\nS 1175: Small County PILT Parity Act\n   Placed on Senate Legislative Calendar under General Orders. Calendar No. 474.\nHR 5334: SEED Act of 2025\n   Cloture motion on the motion to proceed to the measure presented in Senate.\n   Plus 7 healthcare, 2 education, 4 economic, 1 tax, 3 infrastructure bills, and 25 others.\n31 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona:\n   3 hearings.\n\nUtah: No new activity this week.\n\nMaine:\n   1 hearings.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nExplore full details at CivicWatch.",
+  "generated_at": "2026-07-27T22:26:50.591342-05:00",
   "audio_available": false,
   "audio_file": null
 }
