@@ -56,7 +56,7 @@ const CivicWatchLegislatorVotes = (() => {
     async function ensureCountsLoaded() {
         if (Object.keys(voteCounts).length) return voteCounts;
         if (!countsPromise) {
-            countsPromise = fetch('legislator_vote_counts.json')
+            countsPromise = civicwatchFetch('legislator_vote_counts.json')
                 .then((res) => {
                     if (!res.ok) throw new Error(`HTTP ${res.status}`);
                     return res.json();
@@ -77,8 +77,8 @@ const CivicWatchLegislatorVotes = (() => {
         if (billTitleLookup && billUrlLookup) return billTitleLookup;
         if (!titleLookupPromise) {
             titleLookupPromise = Promise.all([
-                fetch('bill_title_lookup.json').then((res) => res.ok ? res.json() : {}).catch(() => ({})),
-                fetch('bill_url_lookup.json').then((res) => res.ok ? res.json() : {}).catch(() => ({})),
+                civicwatchFetch('bill_title_lookup.json').then((res) => res.ok ? res.json() : {}).catch(() => ({})),
+                civicwatchFetch('bill_url_lookup.json').then((res) => res.ok ? res.json() : {}).catch(() => ({})),
             ]).then(([titles, urls]) => {
                 billTitleLookup = titles || {};
                 billUrlLookup = urls || {};
@@ -91,7 +91,7 @@ const CivicWatchLegislatorVotes = (() => {
     async function ensureLoaded() {
         if (voteIndex) return voteIndex;
         if (!loadPromise) {
-            loadPromise = Promise.all([ensureTitleLookupLoaded(), fetch('legislator_votes.json')
+            loadPromise = Promise.all([ensureTitleLookupLoaded(), civicwatchFetch('legislator_votes.json')
                 .then((res) => {
                     if (!res.ok) throw new Error(`HTTP ${res.status}`);
                     return res.json();

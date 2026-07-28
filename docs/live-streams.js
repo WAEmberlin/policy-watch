@@ -195,11 +195,11 @@
   }
 
   function loadConfigs() {
-    var configPromise = fetch('live-streams-config.json').then(function (r) {
+    var configPromise = civicwatchFetch('live-streams-config.json').then(function (r) {
       if (!r.ok) throw new Error('live-streams-config.json missing');
       return r.json();
     });
-    var statusPromise = fetch('live_status.json').then(function (r) {
+    var statusPromise = civicwatchFetch('live_status.json').then(function (r) {
       return r.ok ? r.json() : { streams: {} };
     }).catch(function () { return { streams: {} }; });
 

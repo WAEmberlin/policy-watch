@@ -30,7 +30,7 @@ jobs:
 
       - name: Install feed/fetch dependencies
         run: |
-          pip install feedparser pyyaml requests beautifulsoup4
+          pip install feedparser pyyaml requests beautifulsoup4 boto3
 
       - name: Fetch feeds and Congress/Kansas data
         env:
@@ -95,11 +95,25 @@ jobs:
           echo "Regenerating site_data.json with daily summaries..."
           python src/processing/summarize.py
 
+      - name: Upload generated data to Cloudflare R2
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+          R2_PUBLIC_BASE_URL: ${{ secrets.R2_PUBLIC_BASE_URL }}
+        run: |
+          if [ -z "$R2_ACCOUNT_ID" ] || [ -z "$R2_ACCESS_KEY_ID" ] || [ -z "$R2_PUBLIC_BASE_URL" ]; then
+            echo "ERROR: R2 secrets are required"
+            exit 1
+          fi
+          python src/processing/r2_sync.py upload --docs-only
+
       - name: Check for changes
         id: check_changes
         run: |
           if [ -f "data/daily_summaries.json" ]; then
-            git diff --quiet data/daily_summaries.json docs/site_data.json 2>/dev/null || echo "changes=true" >> $GITHUB_OUTPUT
+            echo "changes=true" >> $GITHUB_OUTPUT
           else
             echo "No summary file generated"
           fi
@@ -110,7 +124,7 @@ jobs:
           git config user.name "civicwatch-bot"
           git config user.email "actions@github.com"
           
-          git add data/daily_summaries.json docs/site_data.json
+          git add -f data/daily_summaries.json docs/data-config.js
           
           # Get yesterday's date for commit message
           YESTERDAY=$(date -d "yesterday" +%Y-%m-%d 2>/dev/null || date -v-1d +%Y-%m-%d)

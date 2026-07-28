@@ -139,7 +139,7 @@ function updateFilterPills() {
 async function loadData() {
     setContentBusy(true);
     try {
-        const res = await fetch("site_data.json");
+        const res = await civicwatchFetch("site_data.json");
         allData = await res.json();
         if (typeof CivicWatchBillVotes !== 'undefined') {
             CivicWatchBillVotes.init(allData);
@@ -1185,7 +1185,7 @@ async function loadWeeklyOverview() {
     }
     
     try {
-        const res = await fetch("weekly/latest.json");
+        const res = await civicwatchFetch("weekly/latest.json");
         const data = await res.json();
         
         // Format week range

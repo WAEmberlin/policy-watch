@@ -564,7 +564,7 @@
 
     setStatus('Loading map data…');
     Promise.all([
-      loadJson('site_data.json'),
+      loadJson(typeof civicwatchDataUrl === 'function' ? civicwatchDataUrl('site_data.json') : 'site_data.json'),
       loadJson('data/federal/delegation.json').catch(function () {
         return [];
       }),

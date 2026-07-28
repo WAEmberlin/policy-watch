@@ -8,3 +8,16 @@ data/nebraska/*
 !data/nebraska/README.md
 data/maryland/*
 !data/maryland/README.md
+
+# Large generated artifacts live on Cloudflare R2 (not git)
+docs/site_data.json
+docs/legislator_votes.json
+docs/legislator_vote_counts.json
+docs/bill_title_lookup.json
+docs/bill_url_lookup.json
+data/normalized/bills.json
+data/normalized/votes.json
+data/normalized/legislator_votes.json
+data/normalized/search_index.json
+data/openstates/*/bills*.json
+data/openstates/*/votes.json

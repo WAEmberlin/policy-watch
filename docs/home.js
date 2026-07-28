@@ -208,7 +208,7 @@ const CivicWatchHome = (() => {
 
     async function fetchWeeklyCounts() {
         try {
-            const res = await fetch('weekly/latest.json');
+            const res = await civicwatchFetch('weekly/latest.json');
             if (!res.ok) return {};
             const data = await res.json();
             return data.item_counts || {};
@@ -223,8 +223,8 @@ const CivicWatchHome = (() => {
 
         try {
             const [configRes, statusRes] = await Promise.all([
-                fetch('live-streams-config.json'),
-                fetch('live_status.json').catch(() => null),
+                civicwatchFetch('live-streams-config.json'),
+                civicwatchFetch('live_status.json').catch(() => null),
             ]);
             if (!configRes.ok) throw new Error('config missing');
             const config = await configRes.json();

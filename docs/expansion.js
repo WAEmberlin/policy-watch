@@ -12,7 +12,7 @@ const CivicWatchExpansion = (() => {
 
     async function loadSiteData() {
         if (siteData) return siteData;
-        const res = await fetch('site_data.json');
+        const res = await civicwatchFetch('site_data.json');
         siteData = await res.json();
         return siteData;
     }

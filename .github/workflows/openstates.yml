@@ -46,6 +46,19 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Restore pipeline caches from R2
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+        run: |
+          if [ -n "$R2_ACCOUNT_ID" ] && [ -n "$R2_ACCESS_KEY_ID" ]; then
+            python src/processing/r2_sync.py download-pipeline || echo "R2 pipeline restore skipped/failed, continuing"
+          else
+            echo "R2 secrets not set; skipping pipeline restore"
+          fi
+
       - name: Import Open States bulk historical data
         run: python src/processing/import_openstates_bulk.py || echo "No bulk exports found, skipping"
 
@@ -108,6 +121,20 @@ jobs:
       - name: Build site data
         run: python src/processing/summarize.py
 
+      - name: Upload generated data to Cloudflare R2
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+          R2_PUBLIC_BASE_URL: ${{ secrets.R2_PUBLIC_BASE_URL }}
+        run: |
+          if [ -z "$R2_ACCOUNT_ID" ] || [ -z "$R2_ACCESS_KEY_ID" ] || [ -z "$R2_PUBLIC_BASE_URL" ]; then
+            echo "ERROR: R2 secrets are required"
+            exit 1
+          fi
+          python src/processing/r2_sync.py upload
+
       - name: Run tests
         run: pytest tests/ -v --tb=short
 
@@ -116,12 +143,10 @@ jobs:
           git config user.name "civicwatch-bot"
           git config user.email "actions@github.com"
           git fetch origin main
-          # Only commit pipeline data outputs — never source/workflows/tests.
-          # Committing src/processing previously let a stale checkout revert code fixes.
-          GENERATED="docs/site_data.json docs/live_status.json docs/live-streams-config.json docs/legislator_votes.json docs/legislator_vote_counts.json docs/weekly data src/output"
-          git add $GENERATED
+          # Only commit small pipeline outputs — large JSON lives on Cloudflare R2.
+          GENERATED="docs/data-config.js docs/live_status.json docs/live-streams-config.json docs/weekly data/kansas data/arizona data/utah data/normalized/meta.json data/normalized/events.json data/normalized/legislators.json data/normalized/legislator_stats.json data/normalized/dashboards.json src/output"
+          git add -f $GENERATED
 
-          # GitHub rejects blobs >100MB. Fail early with a clear list instead of retrying.
           MAX_BYTES=$((95 * 1024 * 1024))
           oversized=0
           while IFS= read -r f; do
@@ -129,24 +154,23 @@ jobs:
             [ -f "$f" ] || continue
             size=$(wc -c < "$f")
             if [ "$size" -gt "$MAX_BYTES" ]; then
-              echo "ERROR: $f is $size bytes (limit ${MAX_BYTES})"
+              echo "ERROR: $f is $size bytes (limit ${MAX_BYTES}) — should be on R2, not git"
+              git reset HEAD -- "$f" || true
               oversized=1
             fi
           done < <(git diff --cached --name-only --diff-filter=ACMR)
           if [ "$oversized" -eq 1 ]; then
-            echo "Aborting commit: one or more generated files exceed GitHub's size limit"
-            exit 1
+            echo "Removed oversized files from commit staging"
           fi
 
           if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0
           fi
-          # Recommit on latest main to avoid rebase conflicts with hourly CivicWatch updates
           restore_static_docs() {
             git ls-tree -r --name-only origin/main docs/ | while IFS= read -r f; do
               case "$f" in
-                docs/site_data.json|docs/live_status.json|docs/live-streams-config.json|docs/legislator_votes.json|docs/legislator_vote_counts.json) continue ;;
+                docs/data-config.js|docs/live_status.json|docs/live-streams-config.json) continue ;;
               esac
               [[ "$f" == docs/weekly/* ]] && continue
               git checkout origin/main -- "$f"
@@ -154,7 +178,7 @@ jobs:
           }
           git reset --soft origin/main
           restore_static_docs
-          git add $GENERATED
+          git add -f $GENERATED
           git commit -m "Open States sync and normalized data update"
           for attempt in 1 2 3 4 5; do
             if git push origin main; then
@@ -165,7 +189,7 @@ jobs:
             git fetch origin main
             git reset --soft origin/main
             restore_static_docs
-            git add $GENERATED
+            git add -f $GENERATED
             git commit -m "Open States sync and normalized data update"
             sleep $((attempt * 15))
           done
