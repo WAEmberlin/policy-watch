@@ -1,5 +1,5 @@
 {
-  "last_fetched": "2026-07-31T13:16:00.075132+00:00",
+  "last_fetched": "2026-07-31T15:38:31.744195+00:00",
   "feed_url": "https://le.utah.gov/asp/billtrack/comrssfeed.asp?com=INTBUS|SPECWL|APPCRI|APPECD|INTEDW|INTEDU|SPEEJC|APPEXE|SPEFFO|SPEFED|APPGEN|SPEADM|INTGOC|INTHHS|APPHED|HSTBUS|HSTEDW|HSTEDU|HSTETH|HSTGOC|HSTHHS|HSTJUD|HSTLAW|SPEHEO|HSTNAE|HSTPOL|HSTPUT|HSTREV|HSTRUL|HSTTRA|INTJUD|INTLAW|SPEAUD|SPEMAN|SPELPC|SPELRD|SPESWD|SPEMCG|SPENAL|INTNAE|APPNAE|SPEOLY|INTPOL|APPPED|INTPUT|INTRIE|INTREV|SPERZC|SSTBUS|SPEBUS|SSTEDW|SPEEDW|SSTEDU|SPEEDU|SSTETH|SSTGOP|SPEGOV|SSTHHS|SPEHHS|SPESJC|SPEJUD|SSTJLC|SPELEC|SPESEO|SSTNAE|SPENAT|SPEPOL|SPERET|SSTREV|SPEREV|SSTRUL|SSTTPT|SPETRA|APPSOC|SUBOVE|APPTIF|INTTRA|TSKBHL|SPEUSL|SPEVMA",
   "entry_count": 69,
   "hearing_count": 539,
@@ -14718,19 +14718,30 @@
       "committee": "Social Services Appropriations Subcommittee",
       "committee_code": "APPSOC",
       "committee_link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=APPSOC",
-      "link": "http://le.utah.gov/Interim/2026/html/00002133.htm",
-      "url": "http://le.utah.gov/Interim/2026/html/00002133.htm",
-      "stream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=APPSOC",
+      "link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=APPSOC",
+      "url": "http://le.utah.gov/committee/committee.jsp?year=2026&com=APPSOC",
+      "stream_url": "",
       "source": "State (Utah)",
       "state": "UT",
       "level": "state",
-      "description": "Committee meeting scheduled",
-      "agenda_items": [],
+      "description": "1. Call to Order; 2. Approval of Minutes; 3. Accountable Process Budget - Provider Reimbursement Information System for Medicaid",
+      "agenda_items": [
+        "1. Call to Order",
+        "2. Approval of Minutes",
+        "3. Accountable Process Budget - Provider Reimbursement Information System for Medicaid",
+        "4. Accountable Process Budget Review - DHHS Operations",
+        "5. Accountable Process Budget Review - Division of Child and Family Services",
+        "6. Follow up on Audit for Medicaid Members Concurrently Enrolled in Another State",
+        "7. Utah State Auditor - Medicaid Upper Payment Limit Supplement for Skilled Nursing Facilities Audit",
+        "8. Opioid Settlement Fund Update",
+        "9. Other Business",
+        "10. Adjourn"
+      ],
       "feed": "utah_committee_rss",
       "notice_date": "",
       "notice_time": "",
       "notice_place": "",
-      "livestream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=APPSOC"
+      "livestream_url": ""
     },
     {
       "title": "Social Services Appropriations Subcommittee — 6/16/2026",

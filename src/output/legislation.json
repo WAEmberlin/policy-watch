@@ -17,11 +17,172 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Cloture motion on the motion to proceed to the measure presented in Senate. (CR S4365)",
+        "actionDate": "2026-07-30",
+        "type": "Floor"
+      },
+      {
+        "text": "Motion to proceed to consideration of measure made in Senate. (CR S4360)",
+        "actionDate": "2026-07-30",
+        "type": "Floor"
+      },
+      {
+        "text": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 320.",
+        "actionDate": "2026-02-10",
+        "type": "Calendars"
+      },
+      {
+        "text": "Read the first time. Placed on Senate Legislative Calendar under Read the First Time.",
+        "actionDate": "2026-02-09",
+        "type": "Calendars"
+      },
+      {
+        "text": "Received in the Senate.",
+        "actionDate": "2026-01-13",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-01-12",
+        "type": "Floor",
+        "actionTime": "19:05:16",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by the Yeas and Nays: (2/3 required): 340 - 54 (Roll no. 14). (text: CR H637)",
+        "actionDate": "2026-01-12",
+        "type": "Floor",
+        "actionTime": "19:05:15",
+        "actionCode": "H37300",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2026-01-13T00:05:15Z",
+            "rollNumber": 14,
+            "sessionNumber": 2,
+            "url": "https://clerk.house.gov/evs/2026/roll014.xml"
+          }
+        ]
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by the Yeas and Nays: (2/3 required): 340 - 54 (Roll no. 14). (text: CR H637)",
+        "actionDate": "2026-01-12",
+        "type": "Floor",
+        "actionTime": "19:05:15",
+        "actionCode": "8000",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2026-01-13T00:05:15Z",
+            "rollNumber": 14,
+            "sessionNumber": 2,
+            "url": "https://clerk.house.gov/evs/2026/roll014.xml"
+          }
+        ]
+      },
+      {
+        "text": "Considered as unfinished business. (consideration: CR H646)",
+        "actionDate": "2026-01-12",
+        "type": "Floor",
+        "actionTime": "18:57:36",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "At the conclusion of debate, the Yeas and Nays were demanded and ordered. Pursuant to the provisions of clause 8, rule XX, the Chair announced that further proceedings on the motion would be postponed.",
+        "actionDate": "2026-01-12",
+        "type": "Floor",
+        "actionTime": "17:36:41",
+        "actionCode": "H37220"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 6500.",
+        "actionDate": "2026-01-12",
+        "type": "Floor",
+        "actionTime": "17:05:43",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H637-642)",
+        "actionDate": "2026-01-12",
+        "type": "Floor",
+        "actionTime": "17:05:41",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Smith (MO) moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2026-01-12",
+        "type": "Floor",
+        "actionTime": "17:05:30",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 362.",
+        "actionDate": "2025-12-30",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Ways and Means. H. Rept. 119-416.",
+        "actionDate": "2025-12-30",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Ways and Means. H. Rept. 119-416.",
+        "actionDate": "2025-12-30",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 37 - 3.",
+        "actionDate": "2025-12-10",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-12-10",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Ways and Means.",
+        "actionDate": "2025-12-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-12-09",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-12-09",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Cloture motion on the motion to proceed to the measure presented in Senate.",
-    "votes": [],
+    "votes": [
+      {
+        "rollNumber": 14,
+        "chamber": "House",
+        "date": "2026-01-13",
+        "result": "Passed",
+        "yeas": 340,
+        "nays": 54,
+        "motion": "On Motion to Suspend the Rules and Pass, as Amended",
+        "tally_text": "Passed 340\u201354"
+      }
+    ],
     "introduced_date": "",
     "last_synced_at": "2026-07-31T13:17:51.479132+00:00"
   },
@@ -37,7 +198,24 @@
     "cosponsors": [],
     "latest_action": "Committee on Health, Education, Labor, and Pensions. Ordered to be reported with an amendment in the nature of a substitute favorably.",
     "latest_action_date": "2026-07-30T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Health, Education, Labor, and Pensions. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-07-30",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
+        "actionDate": "2026-01-07",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2026-01-07",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Health, Education, Labor, and Pensions. Ordered to be reported with an amendment in the nature of a substitute favorably.",
@@ -69,7 +247,24 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Health, Education, Labor, and Pensions. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-07-30",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
+        "actionDate": "2025-12-03",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-12-03",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Health, Education, Labor, and Pensions. Ordered to be reported with an amendment in the nature of a substitute favorably.",
@@ -95,7 +290,24 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Health, Education, Labor, and Pensions. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-07-30",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
+        "actionDate": "2025-11-04",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-11-04",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Health, Education, Labor, and Pensions. Ordered to be reported with an amendment in the nature of a substitute favorably.",
@@ -121,7 +333,24 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Health, Education, Labor, and Pensions. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-07-30",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
+        "actionDate": "2025-10-15",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-10-15",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Health, Education, Labor, and Pensions. Ordered to be reported without amendment favorably.",
@@ -141,7 +370,24 @@
     "cosponsors": [],
     "latest_action": "Committee on Health, Education, Labor, and Pensions. Ordered to be reported with an amendment in the nature of a substitute favorably.",
     "latest_action_date": "2026-07-30T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Health, Education, Labor, and Pensions. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-07-30",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
+        "actionDate": "2025-07-29",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-07-29",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Health, Education, Labor, and Pensions. Ordered to be reported with an amendment in the nature of a substitute favorably.",
