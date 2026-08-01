@@ -1,6 +1,7 @@
 """Tests for Congress.gov API fetch and roll-call vote enrichment."""
 
 import sys
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from unittest.mock import patch
 
@@ -197,9 +198,14 @@ def test_deduplicate_preserves_enriched_votes():
 @patch("processing.fetch_congress_api.fetch_bill_actions")
 @patch("processing.fetch_congress_api.fetch_house_vote_detail")
 def test_enrich_bills_with_votes_and_actions(mock_detail, mock_actions):
+    # Keep inside the 30-day enrich window regardless of when CI runs.
+    recent = datetime.now(timezone.utc) - timedelta(days=1)
+    recent_iso = recent.strftime("%Y-%m-%dT%H:%M:%S")
+    recent_date = recent.strftime("%Y-%m-%d")
+
     mock_actions.return_value = [{
         "text": "House vote",
-        "actionDate": "2026-07-01",
+        "actionDate": recent_date,
         "recordedVotes": [{"chamber": "House", "congress": 119, "rollNumber": 5, "sessionNumber": 1}],
     }]
     mock_detail.return_value = {
@@ -212,7 +218,7 @@ def test_enrich_bills_with_votes_and_actions(mock_detail, mock_actions):
         "bill_type": "HR",
         "bill_number": "123",
         "congress": 119,
-        "latest_action_date": "2026-07-01T00:00:00",
+        "latest_action_date": recent_iso,
     }]
     updated, feed = enrich_bills_with_votes_and_actions("key", bills, max_enrich=10)
 

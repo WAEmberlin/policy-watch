@@ -135,8 +135,8 @@ jobs:
           fi
           python src/processing/r2_sync.py upload
 
-      - name: Run tests
-        run: pytest tests/ -v --tb=short
+      # Unit tests live in CivicWatch Tests (tests.yml) on push/PR.
+      # Do not run pytest here — a flaky/stale unit test must not fail data delivery.
 
       - name: Commit updated data
         run: |
