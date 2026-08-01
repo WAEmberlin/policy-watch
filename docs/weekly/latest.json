@@ -1,13 +1,13 @@
 {
-  "week_start": "2026-07-20T22:26:50.591342-05:00",
-  "week_end": "2026-07-27T22:26:50.591342-05:00",
+  "week_start": "2026-07-24T23:35:30.439036-05:00",
+  "week_end": "2026-07-31T23:35:30.439036-05:00",
   "item_counts": {
-    "federal": 76,
+    "federal": 44,
     "ks": 0,
     "co": 0,
-    "az": 3,
+    "az": 1,
     "ut": 0,
-    "me": 1,
+    "me": 0,
     "ne": 0,
     "md": 0
   },
@@ -17,23 +17,23 @@
       "label": "Congress / Federal",
       "recap_lines": [
         "Congress / Federal:",
-        "HR 1722: Billion Dollar Boondoggle Act of 2025",
-        "   Received in the Senate. Read twice. Placed on Senate Legislative Calendar under General Orders.",
-        "S 1175: Small County PILT Parity Act",
-        "   Placed on Senate Legislative Calendar under General Orders. Calendar No. 474.",
-        "HR 5334: SEED Act of 2025",
+        "HR 6500: AGOA Extension Act",
         "   Cloture motion on the motion to proceed to the measure presented in Senate.",
-        "   Plus 7 healthcare, 2 education, 4 economic, 1 tax, 3 infrastructure bills, and 25 others.",
-        "31 hearings scheduled."
+        "S 3589: A bill to amend the Higher Education Act of 1965 to provide students with disabilities and their families with access to critical information needed to select the right college and succeed once enrolled.",
+        "   Committee on Health, Education, Labor, and Pensions.",
+        "S 3333: Emergency Savings Enhancement Act of 2025",
+        "   Committee on Health, Education, Labor, and Pensions.",
+        "   Plus 4 healthcare, 12 environmental, 2 tax bills, and 13 others.",
+        "10 hearings scheduled."
       ],
-      "item_count": 76,
+      "item_count": 44,
       "veterans_highlight": {
-        "summary": "Hearings to examine advancing the mission, focusing on evaluating the future of VA research.",
+        "summary": "Business meeting to consider S.365 and H.R.1729, bills to amend the John D. Dingell, Jr.",
         "items": [
           {
             "type": "hearing",
-            "title": "Hearings to examine advancing the mission, focusing on evaluating the future of VA research.",
-            "url": "https://www.congress.gov/event/119th-congress/senate-event/338668"
+            "title": "Business meeting to consider S.365 and H.R.1729, bills to amend the John D. Dingell, Jr.",
+            "url": "https://www.congress.gov/event/119th-congress/senate-event/338691"
           }
         ],
         "total_matches": 1
@@ -60,9 +60,9 @@
       "label": "Arizona",
       "recap_lines": [
         "Arizona:",
-        "   3 hearings."
+        "   1 hearings."
       ],
-      "item_count": 3
+      "item_count": 1
     },
     {
       "id": "ut",
@@ -76,10 +76,9 @@
       "id": "me",
       "label": "Maine",
       "recap_lines": [
-        "Maine:",
-        "   1 hearings."
+        "Maine: No new activity this week."
       ],
-      "item_count": 1
+      "item_count": 0
     },
     {
       "id": "ne",
@@ -98,8 +97,8 @@
       "item_count": 0
     }
   ],
-  "script": "CivicWatch weekly overview for July 20 through July 27, 2026.\n\nCongress / Federal:\nHR 1722: Billion Dollar Boondoggle Act of 2025\nVeterans & Military highlight: Hearings to examine advancing the mission, focusing on evaluating the future of VA research..\n   Received in the Senate. Read twice. Placed on Senate Legislative Calendar under General Orders.\nS 1175: Small County PILT Parity Act\n   Placed on Senate Legislative Calendar under General Orders. Calendar No. 474.\nHR 5334: SEED Act of 2025\n   Cloture motion on the motion to proceed to the measure presented in Senate.\n   Plus 7 healthcare, 2 education, 4 economic, 1 tax, 3 infrastructure bills, and 25 others.\n31 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona:\n   3 hearings.\n\nUtah: No new activity this week.\n\nMaine:\n   1 hearings.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nExplore full details at CivicWatch.",
-  "generated_at": "2026-07-27T22:26:50.591342-05:00",
+  "script": "CivicWatch weekly overview for July 24 through July 31, 2026.\n\nCongress / Federal:\nHR 6500: AGOA Extension Act\nVeterans & Military highlight: Business meeting to consider S.365 and H.R.1729, bills to amend the John D. Dingell, Jr..\n   Cloture motion on the motion to proceed to the measure presented in Senate.\nS 3589: A bill to amend the Higher Education Act of 1965 to provide students with disabilities and their families with access to critical information needed to select the right college and succeed once enrolled.\n   Committee on Health, Education, Labor, and Pensions.\nS 3333: Emergency Savings Enhancement Act of 2025\n   Committee on Health, Education, Labor, and Pensions.\n   Plus 4 healthcare, 12 environmental, 2 tax bills, and 13 others.\n10 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona:\n   1 hearings.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nExplore full details at CivicWatch.",
+  "generated_at": "2026-07-31T23:35:30.439036-05:00",
   "audio_available": false,
   "audio_file": null
 }
