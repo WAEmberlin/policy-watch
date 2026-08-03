@@ -145,28 +145,7 @@ jobs:
           git fetch origin main
           # Only commit small pipeline outputs — large JSON lives on Cloudflare R2.
           GENERATED="docs/data-config.js docs/live_status.json docs/live-streams-config.json docs/weekly data/kansas data/arizona data/utah data/normalized/meta.json data/normalized/events.json data/normalized/legislators.json data/normalized/legislator_stats.json data/normalized/dashboards.json src/output"
-          git add -f $GENERATED
 
-          MAX_BYTES=$((95 * 1024 * 1024))
-          oversized=0
-          while IFS= read -r f; do
-            [ -z "$f" ] && continue
-            [ -f "$f" ] || continue
-            size=$(wc -c < "$f")
-            if [ "$size" -gt "$MAX_BYTES" ]; then
-              echo "ERROR: $f is $size bytes (limit ${MAX_BYTES}) — should be on R2, not git"
-              git reset HEAD -- "$f" || true
-              oversized=1
-            fi
-          done < <(git diff --cached --name-only --diff-filter=ACMR)
-          if [ "$oversized" -eq 1 ]; then
-            echo "Removed oversized files from commit staging"
-          fi
-
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-            exit 0
-          fi
           restore_static_docs() {
             git ls-tree -r --name-only origin/main docs/ | while IFS= read -r f; do
               case "$f" in
@@ -176,21 +155,54 @@ jobs:
               git checkout origin/main -- "$f"
             done
           }
-          git reset --soft origin/main
-          restore_static_docs
-          git add -f $GENERATED
-          git commit -m "Open States sync and normalized data update"
+
+          drop_oversized() {
+            MAX_BYTES=$((95 * 1024 * 1024))
+            while IFS= read -r f; do
+              [ -z "$f" ] && continue
+              [ -f "$f" ] || continue
+              size=$(wc -c < "$f")
+              if [ "$size" -gt "$MAX_BYTES" ]; then
+                echo "ERROR: $f is $size bytes (limit ${MAX_BYTES}) — should be on R2, not git"
+                git reset HEAD -- "$f" || true
+              fi
+            done < <(git diff --cached --name-only --diff-filter=ACMR)
+          }
+
+          # Mixed reset (not --soft): keep pipeline outputs in the working tree, but
+          # sync the index to origin/main so a concurrent workflow/.github commit is
+          # never reverted — GITHUB_TOKEN cannot push workflow file changes.
+          rebuild_commit() {
+            git fetch origin main
+            git reset origin/main
+            restore_static_docs
+            git checkout origin/main -- .github || true
+            git add -f $GENERATED
+            drop_oversized
+            git reset HEAD -- .github 2>/dev/null || true
+            if git diff --cached --name-only | grep -E '^\.github/'; then
+              echo "ERROR: refusing to commit .github paths"
+              git diff --cached --name-only | grep -E '^\.github/' || true
+              git reset HEAD -- .github
+            fi
+            if git diff --cached --quiet; then
+              echo "No changes to commit"
+              return 1
+            fi
+            git commit -m "Open States sync and normalized data update"
+            return 0
+          }
+
+          if ! rebuild_commit; then
+            exit 0
+          fi
           for attempt in 1 2 3 4 5; do
             if git push origin main; then
               echo "Push succeeded on attempt $attempt"
               exit 0
             fi
-            echo "Push rejected, refreshing from main and retrying ($attempt/5)..."
-            git fetch origin main
-            git reset --soft origin/main
-            restore_static_docs
-            git add -f $GENERATED
-            git commit -m "Open States sync and normalized data update"
+            echo "Push rejected, rebuilding commit from origin/main ($attempt/5)..."
+            rebuild_commit || exit 0
             sleep $((attempt * 15))
           done
           echo "Failed to push after 5 attempts"

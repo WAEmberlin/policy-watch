@@ -183,11 +183,7 @@ jobs:
           # Only commit small pipeline outputs — large JSON lives on Cloudflare R2.
           # Never git-add docs/site_data.json or data/normalized bulk files.
           GENERATED="docs/data-config.js docs/weekly src/output data/kansas data/arizona data/utah data/normalized/meta.json data/normalized/events.json data/normalized/legislators.json data/normalized/legislator_stats.json data/normalized/dashboards.json"
-          git add -f $GENERATED
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-            exit 0
-          fi
+
           restore_static_docs() {
             git ls-tree -r --name-only origin/main docs/ | while IFS= read -r f; do
               case "$f" in
@@ -197,21 +193,39 @@ jobs:
               git checkout origin/main -- "$f"
             done
           }
-          git reset --soft origin/main
-          restore_static_docs
-          git checkout origin/main -- data/openstates || true
-          git add -f $GENERATED
-          git commit -m "Automated CivicWatch update"
+
+          # Mixed reset (not --soft): keep pipeline outputs in the working tree, but
+          # sync the index to origin/main so a concurrent workflow/.github commit is
+          # never reverted — GITHUB_TOKEN cannot push workflow file changes.
+          rebuild_commit() {
+            git fetch origin main
+            git reset origin/main
+            restore_static_docs
+            git checkout origin/main -- data/openstates .github || true
+            git add -f $GENERATED
+            git reset HEAD -- .github 2>/dev/null || true
+            if git diff --cached --name-only | grep -E '^\.github/'; then
+              echo "ERROR: refusing to commit .github paths"
+              git diff --cached --name-only | grep -E '^\.github/' || true
+              git reset HEAD -- .github
+            fi
+            if git diff --cached --quiet; then
+              echo "No changes to commit"
+              return 1
+            fi
+            git commit -m "Automated CivicWatch update"
+            return 0
+          }
+
+          if ! rebuild_commit; then
+            exit 0
+          fi
           for attempt in 1 2 3 4 5; do
             if git push origin main; then
               exit 0
             fi
-            git fetch origin main
-            git reset --soft origin/main
-            restore_static_docs
-            git checkout origin/main -- data/openstates || true
-            git add -f $GENERATED
-            git commit -m "Automated CivicWatch update"
+            echo "Push rejected, rebuilding commit from origin/main ($attempt/5)..."
+            rebuild_commit || exit 0
             sleep $((attempt * 15))
           done
           exit 1
