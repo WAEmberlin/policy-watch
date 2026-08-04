@@ -56,7 +56,26 @@ def save_json(path: Path, data: Any, *, compact: bool = False) -> None:
         f.write(payload)
         f.flush()
         os.fsync(f.fileno())
-    tmp_path.replace(path)
+    # OneDrive/Windows can briefly lock the destination; retry replace, then
+    # fall back to unlink + rename so a single locked file cannot fail the run.
+    import time
+
+    last_err: OSError | None = None
+    for attempt in range(8):
+        try:
+            tmp_path.replace(path)
+            return
+        except OSError as exc:
+            last_err = exc
+            time.sleep(0.25 * (attempt + 1))
+    try:
+        if path.exists():
+            path.unlink()
+        tmp_path.replace(path)
+    except OSError:
+        if last_err is not None:
+            raise last_err
+        raise
 
 
 def slim_votes_for_storage(votes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
@@ -177,11 +196,17 @@ def normalize_all(skip_ai: bool = False) -> Dict[str, Any]:
         os_bills = os_source.normalize_bills(os_source.fetch_bills())
         os_events = os_source.normalize_events(os_source.fetch_events())
         os_legislators = os_source.normalize_legislators(os_source.fetch_legislators())
+        state_votes = load_json(state_dir / "votes.json", [])
 
         all_bills.extend(b.to_dict() for b in os_bills)
         all_events.extend(e.to_dict() for e in os_events)
         all_legislators.extend(l.to_dict() for l in os_legislators)
-        all_votes.extend(load_json(state_dir / "votes.json", []))
+        all_votes.extend(state_votes)
+        print(
+            f"Open States {code.upper()}: {len(os_bills)} bills, "
+            f"{len(os_events)} events, {len(os_legislators)} legislators, "
+            f"{len(state_votes)} votes"
+        )
 
     # Apply Kansas official API enrichments (RSS remains primary; this adds depth)
     ks_enrichments = load_json(KANSAS_DIR / "enrichments.json", {})
