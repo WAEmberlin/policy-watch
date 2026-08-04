@@ -156,6 +156,29 @@
       "average_age": 59.0,
       "race_available": false
     },
+    "PA": {
+      "total": 252,
+      "party": {
+        "Republican": 127,
+        "Democratic": 125
+      },
+      "gender": {
+        "Male": 167,
+        "Female": 85
+      },
+      "chamber": {
+        "House": 202,
+        "Senate": 50
+      },
+      "age_buckets": {
+        "under_40": 18,
+        "40_59": 73,
+        "60_plus": 63,
+        "unknown": 98
+      },
+      "average_age": 55.4,
+      "race_available": false
+    },
     "UT": {
       "total": 107,
       "party": {
