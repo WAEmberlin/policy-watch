@@ -25,12 +25,17 @@ FEDERAL_CODE = "FEDERAL"
 
 # Email clients wrap poorly on multi-thousand-char omnibus hearing titles.
 DIGEST_TITLE_MAX_LEN = 160
+DIGEST_AGENDA_ITEM_MAX_LEN = 220
 _DIGEST_TITLE_ELLIPSIS = "…"
 _BILL_DESIGNATION_RE = re.compile(
     r"\b(?:"
     r"H\.J\.Res\.|S\.J\.Res\.|H\.Con\.Res\.|S\.Con\.Res\.|"
     r"H\.R\.|H\.B\.|S\.B\.|HB|SB|S\."
     r")\s*\d+",
+    re.IGNORECASE,
+)
+_OMNIBUS_PREFIX_SPLIT_RE = re.compile(
+    r"^(?P<header>.*?)\b(?P<connector>to consider|to examine|regarding)\b\s*(?P<preamble>.*)$",
     re.IGNORECASE,
 )
 
@@ -350,36 +355,54 @@ def _clause_truncate(text: str, max_length: int, suffix: str = _DIGEST_TITLE_ELL
 
 
 def format_digest_title(title: str, max_length: int = DIGEST_TITLE_MAX_LEN) -> str:
-    """
-    Shorten long digest titles for email readability.
-
-    Omnibus business-meeting titles that list many bill designations keep a
-    short primary lead-in (through the first measure, or an 'X and Y' pair)
-    plus an ellipsis instead of dumping dozens of bills into the body.
-    """
+    """Shorten long single-line digest titles (bills / non-omnibus hearings)."""
     text = " ".join(str(title or "").split())
     if not text:
         return "(no title)"
     if len(text) <= max_length:
         return text
+    return _clause_truncate(text, max_length)
+
+
+def split_omnibus_hearing_title(title: str) -> Tuple[str, List[str]]:
+    """
+    Split laundry-list hearing titles into a short header + per-measure bullets.
+
+    Congress business meetings often pack many bill designations into one title
+    because that hearing covers all of them. Returns (header, []) when the title
+    is not an omnibus list (≥3 bill designations).
+    """
+    text = " ".join(str(title or "").split())
+    if not text:
+        return "(no title)", []
 
     designations = list(_BILL_DESIGNATION_RE.finditer(text))
-    if len(designations) >= 3:
-        keep_through = designations[0].end()
-        next_idx = 1
-        gap = text[designations[0].end():designations[1].start()]
-        if re.search(r"\band\b", gap, re.IGNORECASE) and len(gap) <= 30:
-            keep_through = designations[1].end()
-            next_idx = 2
+    if len(designations) < 3:
+        return text, []
 
-        if next_idx < len(designations):
-            candidate = text[:designations[next_idx].start()].rstrip(" ,;")
-            if len(candidate) > max_length - len(_DIGEST_TITLE_ELLIPSIS):
-                return _clause_truncate(candidate, max_length)
-            if len(candidate) < len(text):
-                return candidate + _DIGEST_TITLE_ELLIPSIS
+    prefix = text[: designations[0].start()].rstrip(" ,;")
+    bullets: List[str] = []
 
-    return _clause_truncate(text, max_length)
+    split = _OMNIBUS_PREFIX_SPLIT_RE.match(prefix)
+    if split and split.group("preamble").strip():
+        header = f"{split.group('header').strip()} {split.group('connector').strip()}".strip()
+        preamble = split.group("preamble").strip(" ,;")
+        if preamble:
+            bullets.append(preamble[0].upper() + preamble[1:] if len(preamble) > 1 else preamble)
+    else:
+        header = prefix or "Hearing agenda"
+
+    for i, match in enumerate(designations):
+        start = match.start()
+        end = designations[i + 1].start() if i + 1 < len(designations) else len(text)
+        chunk = text[start:end].strip().rstrip(" ,;")
+        if not chunk:
+            continue
+        if len(chunk) > DIGEST_AGENDA_ITEM_MAX_LEN:
+            chunk = _clause_truncate(chunk, DIGEST_AGENDA_ITEM_MAX_LEN)
+        bullets.append(chunk)
+
+    return header or "Hearing agenda", bullets
 
 
 def render_item(item: Dict[str, Any]) -> str:
@@ -438,7 +461,16 @@ def render_utah_hearing_update(item: Dict[str, Any]) -> str:
 
 
 def render_hearing(hearing: Dict[str, Any]) -> str:
-    title = format_digest_title(hearing.get("title", "(no title)"))
+    raw_title = hearing.get("title", "(no title)")
+    header, agenda_items = split_omnibus_hearing_title(raw_title)
+    if agenda_items:
+        info = f"<strong>{header}</strong><ul>"
+        for item in agenda_items:
+            info += f"<li>{item}</li>"
+        info += "</ul>"
+    else:
+        info = f"<strong>{format_digest_title(raw_title)}</strong>"
+
     committee = hearing.get("committee") or hearing.get("committees", "")
     chamber = hearing.get("chamber", "")
     time_str = hearing.get("scheduled_time", "")
@@ -446,7 +478,6 @@ def render_hearing(hearing: Dict[str, Any]) -> str:
     url = hearing.get("url") or hearing.get("link", "")
     is_federal = infer_hearing_state(hearing) == FEDERAL_CODE
 
-    info = f"<strong>{title}</strong>"
     if committee:
         info += f"<br>Committee: {committee}"
     if chamber:

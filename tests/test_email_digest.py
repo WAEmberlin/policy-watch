@@ -20,6 +20,7 @@ from processing.email_digest import (
     partition_hearings,
     render_hearing,
     render_utah_hearing_update,
+    split_omnibus_hearing_title,
     split_state_items,
 )
 
@@ -175,39 +176,36 @@ def test_format_digest_title_keeps_short_titles():
     assert format_digest_title(title) == title
 
 
-def test_format_digest_title_shortens_omnibus_bill_list():
-    # Synthesized from Congress "business meeting to consider…" laundry-list titles
+def test_format_digest_title_clause_truncates_long_non_omnibus():
+    title = (
+        "A very long hearing title without enough bill designations to treat as omnibus "
+        "that keeps going with more descriptive text about the committee business day "
+        "and procedural matters that would otherwise wrap poorly in email clients"
+    )
+    short = format_digest_title(title)
+    assert short.endswith("…")
+    assert len(short) <= DIGEST_TITLE_MAX_LEN
+
+
+def test_split_omnibus_hearing_title_lists_each_measure():
     long_title = (
         "Business meeting to consider an original resolution regarding Contempt of Congress, "
         "S.2732, to strengthen employee cost savings initiatives at federal agencies, "
         "H.R.418, to rename the Main Street post office as the Firefighter Jane Doe Post Office, "
         "S.991, to rename the Oak Avenue post office, "
-        "H.R.2201, to rename the Elm Street post office, "
-        "S.1500, to authorize Fire"
+        "H.R.2201, to rename the Elm Street post office"
     )
-    short = format_digest_title(long_title)
-    assert short.endswith("…")
-    assert len(short) <= DIGEST_TITLE_MAX_LEN
-    assert "Business meeting to consider" in short
-    assert "S.2732" in short
-    assert "H.R.418" not in short
-    assert "Firefighter Jane Doe" not in short
-    assert not short.endswith("Fire")
+    header, bullets = split_omnibus_hearing_title(long_title)
+    assert "Business meeting to consider" in header
+    assert any("Contempt of Congress" in b for b in bullets)
+    assert any(b.startswith("S.2732") for b in bullets)
+    assert any("H.R.418" in b and "Firefighter Jane Doe" in b for b in bullets)
+    assert any(b.startswith("S.991") for b in bullets)
+    assert any(b.startswith("H.R.2201") for b in bullets)
+    assert len(bullets) >= 5
 
 
-def test_format_digest_title_keeps_paired_bill_designations():
-    title = (
-        "Business meeting to consider S.365 and H.R.1729, bills to amend the John D. Dingell, "
-        "Jr. Conservation Act for Bolts Ditch maintenance, S.1055, to amend the Indian Health "
-        "Care Improvement Act, S.1514, to take land into trust for the Quinault Indian Nation"
-    )
-    short = format_digest_title(title)
-    assert "S.365 and H.R.1729" in short
-    assert short.endswith("…")
-    assert "S.1055" not in short
-
-
-def test_render_hearing_truncates_long_title_keeps_metadata():
+def test_render_hearing_omnibus_uses_sub_bullets_keeps_metadata():
     long_title = (
         "Hearings to examine S.1674, to modify the boundary of Mammoth Cave National Park, "
         "S.2498, to authorize lease extensions in National Park units, "
@@ -224,9 +222,11 @@ def test_render_hearing_truncates_long_title_keeps_metadata():
         "level": "federal",
     })
     assert "Hearings to examine" in html
-    assert "S.1674" in html
-    assert "S.2498" not in html
-    assert "…" in html
+    assert "<ul>" in html
+    assert "<li>S.1674" in html
+    assert "<li>S.2498" in html
+    assert "<li>S.2767" in html
+    assert "<li>H.R.5254" in html
     assert "Committee: Committee on Energy and Natural Resources" in html
     assert "Time: 10:00 AM" in html
     assert "Location: SD-366" in html
@@ -234,19 +234,17 @@ def test_render_hearing_truncates_long_title_keeps_metadata():
     assert "View on Congress.gov" in html
 
 
-def test_render_hearing_truncates_state_titles_too():
+def test_render_hearing_omnibus_state_titles_use_sub_bullets():
     long_title = (
         "Joint hearing to consider HB 1001, relating to veterans services funding, "
         "SB 220, relating to military family tax credits, "
         "HB 330, relating to National Guard benefits, "
-        "SB 440, relating to Fire"
+        "SB 440, relating to firefighter training"
     )
-    short = format_digest_title(long_title)
-    assert short.endswith("…")
-    assert len(short) <= DIGEST_TITLE_MAX_LEN
-    assert "Joint hearing to consider" in short
-    assert "HB 1001" in short
-    assert "SB 220" not in short
+    header, bullets = split_omnibus_hearing_title(long_title)
+    assert "Joint hearing to consider" in header
+    assert any("HB 1001" in b for b in bullets)
+    assert any("SB 220" in b for b in bullets)
 
     html = render_hearing({
         "title": long_title,
@@ -256,7 +254,9 @@ def test_render_hearing_truncates_state_titles_too():
         "location": "Room 112-N",
         "url": "https://example.state.ks.us/hearing",
     })
-    assert "…" in html
+    assert "<ul>" in html
+    assert "HB 1001" in html
+    assert "SB 440" in html
     assert "Committee: Veterans Affairs" in html
     assert "View details" in html
     assert 'href="https://example.state.ks.us/hearing"' in html
