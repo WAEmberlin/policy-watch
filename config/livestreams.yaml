@@ -341,8 +341,9 @@ streams:
     type: floor
     target_id: wv-senate-floor
     tab_pane: pane-west-virginia
+    youtube_channel_id: UCU26nKcSqjFbMmJmCCMdosw
+    youtube_url: https://www.youtube.com/@westvirginiastatesenate
     external_url: https://www.wvlegislature.gov/live.cfm
-    youtube_url: https://www.wvlegislature.gov/live.cfm
 
   - id: wv-house-floor
     title: West Virginia House Floor
@@ -351,8 +352,9 @@ streams:
     type: floor
     target_id: wv-house-floor
     tab_pane: pane-west-virginia
+    youtube_channel_id: UCyawg6i7FZaV8hH-e3c8zlQ
+    youtube_url: https://www.youtube.com/@WestVirginiaHouseofDelegates
     external_url: https://www.wvlegislature.gov/live.cfm
-    youtube_url: https://www.wvlegislature.gov/live.cfm
 
   - id: wv-committees
     title: West Virginia Legislature Committees
@@ -361,8 +363,9 @@ streams:
     type: committee
     target_id: wv-committees
     tab_pane: pane-west-virginia
+    youtube_channel_id: UCxTZ7B1NGsmgS43rcz3y19w
+    youtube_url: https://www.youtube.com/@wvlegislature
     external_url: https://home.wvlegislature.gov/live-media/
-    youtube_url: https://home.wvlegislature.gov/live-media/
 
   # ——— Tennessee ———
   - id: tn-senate-floor
@@ -372,6 +375,7 @@ streams:
     type: floor
     target_id: tn-senate-floor
     tab_pane: pane-tennessee
+    youtube_channel_id: UCJVxVcvaQI-WDnlra0TwzOw
     external_url: https://wapp.capitol.tn.gov/apps/livevideo
     youtube_url: https://wapp.capitol.tn.gov/apps/livevideo
 
@@ -382,8 +386,9 @@ streams:
     type: floor
     target_id: tn-house-floor
     tab_pane: pane-tennessee
+    youtube_channel_id: UC2K2XG1Ebrh_9Yn0EGbgpxQ
+    youtube_url: https://www.youtube.com/@TNHouseReps
     external_url: https://wapp.capitol.tn.gov/apps/livevideo
-    youtube_url: https://wapp.capitol.tn.gov/apps/livevideo
 
   - id: tn-committees
     title: Tennessee General Assembly Committees
@@ -403,8 +408,9 @@ streams:
     type: floor
     target_id: nc-senate-floor
     tab_pane: pane-north-carolina
+    youtube_channel_id: UC-MHnEY6_Ha-PrivtOcofaw
+    youtube_url: https://www.youtube.com/@NorthCarolinaGeneralAssembly
     external_url: https://www.ncleg.gov/Streaming
-    youtube_url: https://www.ncleg.gov/Streaming
 
   - id: nc-house-floor
     title: North Carolina House Floor
@@ -413,8 +419,9 @@ streams:
     type: floor
     target_id: nc-house-floor
     tab_pane: pane-north-carolina
+    youtube_channel_id: UC-MHnEY6_Ha-PrivtOcofaw
+    youtube_url: https://www.youtube.com/@NorthCarolinaGeneralAssembly
     external_url: https://www.ncleg.gov/Streaming
-    youtube_url: https://www.ncleg.gov/Streaming
 
   - id: nc-committees
     title: North Carolina General Assembly Committees
@@ -423,8 +430,9 @@ streams:
     type: committee
     target_id: nc-committees
     tab_pane: pane-north-carolina
+    youtube_channel_id: UC-MHnEY6_Ha-PrivtOcofaw
+    youtube_url: https://www.youtube.com/@NorthCarolinaGeneralAssembly
     external_url: https://www.ncleg.gov/Streaming
-    youtube_url: https://www.ncleg.gov/Streaming
 
   # ——— Missouri ———
   - id: mo-senate-floor
@@ -434,6 +442,7 @@ streams:
     type: floor
     target_id: mo-senate-floor
     tab_pane: pane-missouri
+    youtube_channel_id: UCAVVWIzSIjg5UkVjfqboVQA
     external_url: https://www.senate.mo.gov/media/
     youtube_url: https://www.senate.mo.gov/media/
 
@@ -444,6 +453,7 @@ streams:
     type: floor
     target_id: mo-house-floor
     tab_pane: pane-missouri
+    youtube_channel_id: UCd6ymiL-IlKewSkyoocKcuw
     external_url: https://house.mo.gov/MediaCenter.aspx
     youtube_url: https://house.mo.gov/MediaCenter.aspx
 
