@@ -1,5 +1,5 @@
 {
-  "last_fetched": "2026-08-03T20:44:46.104272+00:00",
+  "last_fetched": "2026-08-04T01:01:11.604249+00:00",
   "feed_url": "https://le.utah.gov/asp/billtrack/comrssfeed.asp?com=INTBUS|SPECWL|APPCRI|APPECD|INTEDW|INTEDU|SPEEJC|APPEXE|SPEFFO|SPEFED|APPGEN|SPEADM|INTGOC|INTHHS|APPHED|HSTBUS|HSTEDW|HSTEDU|HSTETH|HSTGOC|HSTHHS|HSTJUD|HSTLAW|SPEHEO|HSTNAE|HSTPOL|HSTPUT|HSTREV|HSTRUL|HSTTRA|INTJUD|INTLAW|SPEAUD|SPEMAN|SPELPC|SPELRD|SPESWD|SPEMCG|SPENAL|INTNAE|APPNAE|SPEOLY|INTPOL|APPPED|INTPUT|INTRIE|INTREV|SPERZC|SSTBUS|SPEBUS|SSTEDW|SPEEDW|SSTEDU|SPEEDU|SSTETH|SSTGOP|SPEGOV|SSTHHS|SPEHHS|SPESJC|SPEJUD|SSTJLC|SPELEC|SPESEO|SSTNAE|SPENAT|SPEPOL|SPERET|SSTREV|SPEREV|SSTRUL|SSTTPT|SPETRA|APPSOC|SUBOVE|APPTIF|INTTRA|TSKBHL|SPEUSL|SPEVMA",
   "entry_count": 70,
   "hearing_count": 540,
@@ -10957,20 +10957,23 @@
       "committee": "Senate Economic Development and Workforce Services Confirmation Committee",
       "committee_code": "SPEEDW",
       "committee_link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=SPEEDW",
-      "link": "http://le.utah.gov/Interim/2026/html/00002909.htm",
-      "url": "http://le.utah.gov/Interim/2026/html/00002909.htm",
-      "stream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=SPEEDW",
+      "link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=SPEEDW",
+      "url": "http://le.utah.gov/committee/committee.jsp?year=2026&com=SPEEDW",
+      "stream_url": "",
       "source": "State (Utah)",
       "state": "UT",
       "level": "state",
-      "description": "Committee meeting scheduled",
-      "agenda_items": [],
+      "description": "1. Committee Business; 2. Appointment of Katherine Potter to the Department of Cultural and Community Engagement; 3. Other Items/Adjourn",
+      "agenda_items": [
+        "1. Committee Business",
+        "2. Appointment of Katherine Potter to the Department of Cultural and Community Engagement",
+        "3. Other Items/Adjourn"
+      ],
       "feed": "utah_committee_rss",
-      "notice_date": "Friday, August 7, 2026",
-      "notice_time": "10:00 a.m.",
-      "notice_place": "Room 220 Senate Building",
-      "livestream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=SPEEDW",
-      "notice_enriched_at": "2026-07-28T20:45:18.859243+00:00"
+      "notice_date": "",
+      "notice_time": "",
+      "notice_place": "",
+      "livestream_url": ""
     },
     {
       "title": "Senate Economic Development and Workforce Services Confirmation Committee — 6/15/2026",
