@@ -131,9 +131,10 @@
         new bootstrap.Tab(tabButton).show();
       }
     }
-    var subTabContent = el.closest('#kansasSubTabContent, #houseSubTabContent, #senateSubTabContent');
+    // Nested chamber tabs (kansasSubTabContent, marylandSubTabContent, houseSubTabContent, …)
+    var subTabContent = el.closest('[id$="SubTabContent"]');
     if (subTabContent) {
-      var panes = subTabContent.querySelectorAll('.tab-pane[id]');
+      var panes = subTabContent.querySelectorAll(':scope > .tab-pane[id]');
       for (var i = 0; i < panes.length; i++) {
         if (panes[i].contains(el)) {
           var subTabBtn = document.querySelector('[data-bs-target="#' + panes[i].id + '"]');
@@ -153,6 +154,21 @@
       }
     }
     setTimeout(function () { el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 150);
+  }
+
+  /** Honor homepage / external deep links: livestreams.html#md-senate-floor */
+  function applyHashDeepLink() {
+    var hash = (window.location.hash || '').replace(/^#/, '');
+    if (!hash) return;
+    goToTarget(hash);
+    var stream = liveStreams.filter(function (s) {
+      return s.targetId === hash || s.id === hash;
+    })[0];
+    if (!stream || !stream.isLive) return;
+    setTimeout(function () {
+      var wrapper = document.querySelector('.embed-wrapper[data-stream-id="' + stream.id + '"]');
+      if (wrapper) loadEmbedInWrapper(wrapper, { autoplay: true, force: true });
+    }, 300);
   }
 
   function loadEmbedInWrapper(wrapper, options) {
@@ -220,6 +236,8 @@
       buildLiveNowBar();
       initAccordionLazyLoad();
       initPlayHereButtons();
+      applyHashDeepLink();
+      window.addEventListener('hashchange', applyHashDeepLink);
     }).catch(function (err) {
       console.error('Live streams config failed to load:', err);
       var container = document.getElementById('live-now-bar');
