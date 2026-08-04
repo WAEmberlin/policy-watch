@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T05:17:26.450168+00:00",
+  "generated_at": "2026-08-04T21:03:02.953395+00:00",
   "state_floor_stream": {
     "KS": "kansas-house-floor",
     "CO": "colorado-floor",
@@ -8,6 +8,7 @@
     "ME": "maine-floor",
     "NE": "nebraska-floor",
     "MD": "md-senate-floor",
+    "PA": "pa-senate-floor",
     "Federal": "us-house-floor"
   },
   "streams": [
@@ -348,6 +349,45 @@
       "youtubeUrl": "https://mgaleg.maryland.gov/mgawebsite/Search/Media",
       "youtubeChannelId": "",
       "externalUrl": "https://mgaleg.maryland.gov/mgawebsite/Search/Media"
+    },
+    {
+      "id": "pa-senate-floor",
+      "title": "Pennsylvania Senate Floor",
+      "state": "PA",
+      "jurisdiction": "pennsylvania",
+      "type": "floor",
+      "targetId": "pa-senate-floor",
+      "tabPane": "pane-pennsylvania",
+      "embedUrl": "",
+      "youtubeUrl": "https://www.palegis.us/senate/session/watch",
+      "youtubeChannelId": "",
+      "externalUrl": "https://www.palegis.us/senate/session/watch"
+    },
+    {
+      "id": "pa-house-floor",
+      "title": "Pennsylvania House Floor",
+      "state": "PA",
+      "jurisdiction": "pennsylvania",
+      "type": "floor",
+      "targetId": "pa-house-floor",
+      "tabPane": "pane-pennsylvania",
+      "embedUrl": "",
+      "youtubeUrl": "https://pahouse.com/live",
+      "youtubeChannelId": "",
+      "externalUrl": "https://www.palegis.us/house/session/watch"
+    },
+    {
+      "id": "pa-committees",
+      "title": "Pennsylvania General Assembly Committees",
+      "state": "PA",
+      "jurisdiction": "pennsylvania",
+      "type": "committee",
+      "targetId": "pa-committees",
+      "tabPane": "pane-pennsylvania",
+      "embedUrl": "",
+      "youtubeUrl": "https://pahouse.com/live",
+      "youtubeChannelId": "",
+      "externalUrl": "https://www.palegis.us/house/committees/committee-archives"
     },
     {
       "id": "us-house-floor",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T05:17:29.245562+00:00",
+  "generated_at": "2026-08-04T21:03:05.663472+00:00",
   "streams": {
     "kansas-house-floor": {
       "isLive": false
@@ -71,12 +71,24 @@
       "isLive": false
     },
     "md-senate-floor": {
-      "isLive": false
+      "isLive": true,
+      "videoId": "WP69LrN-HwA",
+      "title": "Senate Floor Session, 8/4/2026 #3",
+      "embedUrl": "https://www.youtube.com/embed/WP69LrN-HwA"
     },
     "md-house-floor": {
       "isLive": false
     },
     "md-committees": {
+      "isLive": false
+    },
+    "pa-senate-floor": {
+      "isLive": false
+    },
+    "pa-house-floor": {
+      "isLive": false
+    },
+    "pa-committees": {
       "isLive": false
     },
     "us-house-floor": {
