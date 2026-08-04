@@ -1,4 +1,4 @@
-"""Source adapters for CivicWatch unified legislative data."""
+﻿"""Source adapters for PolicyWatch unified legislative data."""
 
 from .base import LegislativeSource, NormalizedBill, NormalizedEvent, NormalizedLegislator
 from .congress_source import CongressSource

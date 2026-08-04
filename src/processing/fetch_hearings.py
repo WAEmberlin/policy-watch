@@ -1,4 +1,4 @@
-"""
+﻿"""
 Fetch Congressional committee meetings (including hearings) from the Congress.gov API.
 
 This module:
@@ -6,7 +6,7 @@ This module:
 - Also fetches from /v3/hearing/{congress} for HISTORICAL published hearings
 - Supports filtering by status (Scheduled, Canceled, Postponed, Rescheduled)
 - Implements pagination using pagination.next URLs
-- Normalizes data into CivicWatch schema
+- Normalizes data into PolicyWatch schema
 - Handles API rate limits and missing fields safely
 """
 import os

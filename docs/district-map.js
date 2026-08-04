@@ -1,5 +1,5 @@
-/**
- * CivicWatch district map — multi-state legislative and congressional districts.
+﻿/**
+ * PolicyWatch district map — multi-state legislative and congressional districts.
  * Join logic mirrors src/processing/district_join.py for tests.
  */
 (function (global) {
@@ -233,7 +233,7 @@
         '<h3 class="district-popup__title">' +
         districtLabel +
         '</h3>' +
-        '<p class="district-popup__empty">No matching legislator found in CivicWatch data.</p>' +
+        '<p class="district-popup__empty">No matching legislator found in PolicyWatch data.</p>' +
         '</div>'
       );
     }
@@ -418,9 +418,9 @@
           className: 'district-leaflet-popup',
         })
         .openPopup();
-      if (window.CivicWatchA11y && typeof CivicWatchA11y.announce === 'function') {
+      if (window.PolicyWatchA11y && typeof PolicyWatchA11y.announce === 'function') {
         var name = matchedLegislators.length ? matchedLegislators[0].name : 'No legislator matched';
-        CivicWatchA11y.announce((statewide ? 'Statewide' : 'District ' + district) + ': ' + name);
+        PolicyWatchA11y.announce((statewide ? 'Statewide' : 'District ' + district) + ': ' + name);
       }
     }
 
@@ -575,7 +575,7 @@
 
     setStatus('Loading map data…');
     Promise.all([
-      loadJson(typeof civicwatchDataUrl === 'function' ? civicwatchDataUrl('site_data.json') : 'site_data.json'),
+      loadJson(typeof policywatchDataUrl === 'function' ? policywatchDataUrl('site_data.json') : 'site_data.json'),
       loadJson('data/federal/delegation.json').catch(function () {
         return [];
       }),
@@ -599,7 +599,7 @@
     });
   }
 
-  global.CivicWatchDistrictMap = {
+  global.PolicyWatchDistrictMap = {
     normalizeChamber: normalizeChamber,
     normalizeDistrict: normalizeDistrict,
     extractDistrictFromFeature: extractDistrictFromFeature,

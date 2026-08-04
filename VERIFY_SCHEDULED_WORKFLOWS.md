@@ -1,4 +1,4 @@
-# Verify Scheduled Workflows Are Running
+﻿# Verify Scheduled Workflows Are Running
 
 Since your workflow file is in `main` and manual runs work, here's how to verify scheduled runs:
 
@@ -68,7 +68,7 @@ After committing the hourly schedule:
 
 To verify the schedule is recognized:
 1. Go to Actions tab
-2. Click "CivicWatch Update" workflow
+2. Click "PolicyWatch Update" workflow
 3. Look at the workflow details - it should show the schedule
 4. Wait for the next hour and check for a scheduled run
 

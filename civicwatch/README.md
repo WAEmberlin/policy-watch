@@ -1,4 +1,4 @@
-# CivicWatch Map-Reduce Summarization Pipeline
+﻿# PolicyWatch Map-Reduce Summarization Pipeline
 
 A local, free, map-reduce summarization pipeline for civic transparency data. Uses Ollama for local LLM inference - no paid APIs required.
 
@@ -50,7 +50,7 @@ A local, free, map-reduce summarization pipeline for civic transparency data. Us
 ## Project Structure
 
 ```
-civicwatch/
+PolicyWatch/
 ├── config/
 │   └── settings.py          # Configuration (Ollama URL, model, chunking params)
 ├── scraper/
@@ -80,33 +80,33 @@ civicwatch/
 
 Scrape and summarize a URL:
 ```bash
-python civicwatch/pipeline.py --url "https://www.congress.gov/bill/119th-congress/house-bill/1234"
+python PolicyWatch/pipeline.py --url "https://www.congress.gov/bill/119th-congress/house-bill/1234"
 ```
 
 ### With Mock Data (Testing)
 
 Test without scraping:
 ```bash
-python civicwatch/pipeline.py --mock
+python PolicyWatch/pipeline.py --mock
 ```
 
 ### Force Regeneration
 
 Regenerate summaries even if cached:
 ```bash
-python civicwatch/pipeline.py --url "https://..." --force-rerun
+python PolicyWatch/pipeline.py --url "https://..." --force-rerun
 ```
 
 ### Different Scrapers
 
 Use Congress scraper (default):
 ```bash
-python civicwatch/pipeline.py --url "https://..." --scraper congress
+python PolicyWatch/pipeline.py --url "https://..." --scraper congress
 ```
 
 ## Configuration
 
-Edit `civicwatch/config/settings.py` or set environment variables:
+Edit `PolicyWatch/config/settings.py` or set environment variables:
 
 ```bash
 export OLLAMA_BASE_URL="http://localhost:11434"
@@ -139,10 +139,10 @@ The pipeline generates:
 
 ### Add a New Scraper
 
-Create `civicwatch/scraper/my_scraper.py`:
+Create `PolicyWatch/scraper/my_scraper.py`:
 
 ```python
-from civicwatch.scraper.base import BaseScraper
+from PolicyWatch.scraper.base import BaseScraper
 from bs4 import BeautifulSoup
 
 class MyScraper(BaseScraper):
@@ -159,7 +159,7 @@ class MyScraper(BaseScraper):
 
 ### Customize Normalization
 
-Edit `civicwatch/normalizer/normalize.py` to add:
+Edit `PolicyWatch/normalizer/normalize.py` to add:
 - Custom tag generation
 - Additional field extraction
 - Source-specific parsing
@@ -185,5 +185,5 @@ Edit `civicwatch/normalizer/normalize.py` to add:
 
 ## License
 
-Part of the CivicWatch civic transparency project.
+Part of the PolicyWatch civic transparency project.
 

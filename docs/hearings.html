@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Upcoming & Historical Hearings — CivicWatch</title>
+<title>Upcoming & Historical Hearings — PolicyWatch</title>
 <link rel="stylesheet" href="theme.css" />
 <link rel="stylesheet" href="sr-only.css" />
 <script src="theme.js"></script>
@@ -46,10 +46,10 @@ tailwind.config = {
         <div class="cw-card-header">
             <div class="flex items-center justify-between gap-4 flex-wrap">
             <div class="flex items-center gap-4">
-                <img src="CivicWatch Logo.png" alt="CivicWatch Logo" class="h-14 w-auto hidden sm:block" />
+                <img src="PolicyWatch Logo.png" alt="PolicyWatch Logo" class="h-14 w-auto hidden sm:block" />
                 <div>
                     <h1 class="text-3xl font-bold">
-                        <span class="text-white">Civic</span><span class="text-civic-gold">Watch</span>
+                        <span class="text-white">Policy</span><span class="text-civic-gold">Watch</span>
                     </h1>
                     <div class="text-slate-300 text-sm mt-1">Legislative Hearings — All States</div>
                 </div>
@@ -184,7 +184,7 @@ tailwind.config = {
 <script src="shell.js"></script>
 <script src="stream-utils.js"></script>
 <script>
-CivicWatchShell.init({
+PolicyWatchShell.init({
     page: 'hearings',
     stateChips: [
         { select: 'upcoming-state-filter', chips: 'upcoming-state-chips' },
@@ -454,11 +454,11 @@ function renderHearings(hearings, container, emptyMessage, stateFilter = "", yea
             const badgeClass = STATE_BADGE_COLORS[hearingState] || "bg-slate-500";
             const badgeLabel = hearingState === "Federal" ? "Federal (US Congress)" : `State (${STATE_LABELS[hearingState] || hearingState})`;
 
-            const streamInfo = window.CivicWatchStreamUtils
-                ? CivicWatchStreamUtils.resolveHearingStream(hearing)
+            const streamInfo = window.PolicyWatchStreamUtils
+                ? PolicyWatchStreamUtils.resolveHearingStream(hearing)
                 : null;
             const streamHtml = streamInfo
-                ? CivicWatchStreamUtils.renderStreamActions(streamInfo, { compact: true, hearingTitle: titleWithTime })
+                ? PolicyWatchStreamUtils.renderStreamActions(streamInfo, { compact: true, hearingTitle: titleWithTime })
                 : "";
             
             card.innerHTML = `
@@ -518,10 +518,10 @@ function setupHearingStreamHandlers() {
         if (playBtn) {
             const card = playBtn.closest(".hearing-card");
             const embedUrl = playBtn.getAttribute("data-embed-url");
-            if (!card || !embedUrl || !window.CivicWatchStreamUtils) return;
+            if (!card || !embedUrl || !window.PolicyWatchStreamUtils) return;
             const slot = card.querySelector(".hearing-embed-slot");
             if (slot) {
-                slot.innerHTML = CivicWatchStreamUtils.renderInlinePlayer(embedUrl);
+                slot.innerHTML = PolicyWatchStreamUtils.renderInlinePlayer(embedUrl);
                 slot.scrollIntoView({ behavior: "smooth", block: "nearest" });
             }
             return;
@@ -606,7 +606,7 @@ async function loadHearings() {
     const historicalContainer = document.getElementById("historical-hearings-container");
     
     try {
-        const res = await civicwatchFetch("site_data.json");
+        const res = await policywatchFetch("site_data.json");
         const data = await res.json();
         
         allUpcomingHearings = data.upcoming_hearings || [];

@@ -1,4 +1,4 @@
-name: Open States Sync
+﻿name: Open States Sync
 
 on:
   schedule:
@@ -135,12 +135,12 @@ jobs:
           fi
           python src/processing/r2_sync.py upload
 
-      # Unit tests live in CivicWatch Tests (tests.yml) on push/PR.
+      # Unit tests live in PolicyWatch Tests (tests.yml) on push/PR.
       # Do not run pytest here — a flaky/stale unit test must not fail data delivery.
 
       - name: Commit updated data
         run: |
-          git config user.name "civicwatch-bot"
+          git config user.name "policywatch-bot"
           git config user.email "actions@github.com"
           git fetch origin main
           # Only commit small pipeline outputs — large JSON lives on Cloudflare R2.

@@ -1,4 +1,4 @@
-# Deployment Guide: Ollama Pipeline Integration
+﻿# Deployment Guide: Ollama Pipeline Integration
 
 ## The Problem
 
@@ -44,10 +44,10 @@ We use a **hybrid approach** with graceful fallback:
 
 ```bash
 # On your laptop (when it's on)
-python civicwatch/weekly_integration.py
+python PolicyWatch/weekly_integration.py
 
 # Commit the results
-git add civicwatch/storage/summaries/
+git add PolicyWatch/storage/summaries/
 git add docs/weekly/
 git commit -m "Update weekly summaries"
 git push
@@ -97,7 +97,7 @@ The `weekly_integration.py` script:
 
 - name: Try enhanced summaries (optional)
   continue-on-error: true
-  run: python civicwatch/weekly_integration.py
+  run: python PolicyWatch/weekly_integration.py
 ```
 
 **Pros:**
@@ -116,12 +116,12 @@ The `weekly_integration.py` script:
 1. **Install Ollama locally** (on your laptop)
 2. **Run enhanced pipeline** when you want better summaries:
    ```bash
-   python civicwatch/weekly_integration.py
+   python PolicyWatch/weekly_integration.py
    ```
 
 3. **Commit summaries** to make them available on website:
    ```bash
-   git add civicwatch/storage/summaries/reduce/
+   git add PolicyWatch/storage/summaries/reduce/
    git commit -m "Update AI-generated summaries"
    git push
    ```
@@ -139,14 +139,14 @@ The `weekly_integration.py` script:
    - Falls back gracefully if not available
 
 3. **Cached summaries** (committed to repo):
-   - Pre-generated summaries in `civicwatch/storage/summaries/`
+   - Pre-generated summaries in `PolicyWatch/storage/summaries/`
    - Loaded by website even when Ollama offline
    - Updated when you run locally and commit
 
 ## File Structure
 
 ```
-civicwatch/
+PolicyWatch/
 ├── storage/
 │   └── summaries/
 │       ├── map/          # Chunk summaries (can commit)

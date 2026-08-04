@@ -1,5 +1,5 @@
-/**
- * CivicWatch accessibility helpers — skip link and live region announcements.
+﻿/**
+ * PolicyWatch accessibility helpers — skip link and live region announcements.
  */
 (function (global) {
   'use strict';
@@ -50,7 +50,7 @@
     initSkipLink();
   }
 
-  global.CivicWatchA11y = {
+  global.PolicyWatchA11y = {
     init: init,
     announce: announce,
   };

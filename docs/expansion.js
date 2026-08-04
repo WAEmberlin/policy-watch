@@ -1,18 +1,18 @@
-/**
- * CivicWatch expansion layer — multi-state dashboards, unified search, legislators
+﻿/**
+ * PolicyWatch expansion layer — multi-state dashboards, unified search, legislators
  */
-const CivicWatchExpansion = (() => {
+const PolicyWatchExpansion = (() => {
     let siteData = null;
 
     function a11yAnnounce(message) {
-        if (window.CivicWatchA11y && typeof CivicWatchA11y.announce === "function" && message) {
-            CivicWatchA11y.announce(message);
+        if (window.PolicyWatchA11y && typeof PolicyWatchA11y.announce === "function" && message) {
+            PolicyWatchA11y.announce(message);
         }
     }
 
     async function loadSiteData() {
         if (siteData) return siteData;
-        const res = await civicwatchFetch('site_data.json');
+        const res = await policywatchFetch('site_data.json');
         siteData = await res.json();
         return siteData;
     }
@@ -28,13 +28,13 @@ const CivicWatchExpansion = (() => {
     function renderBillCard(bill) {
         const stateLabel = bill.state || (bill.level === 'federal' ? 'Federal' : '');
         const action = bill.latest_action ? `<p class="text-sm text-slate-500 mt-1">${bill.latest_action}</p>` : '';
-        const url = CivicWatchBillUtils.resolveBillUrl(bill);
+        const url = PolicyWatchBillUtils.resolveBillUrl(bill);
         const link = url
             ? `<a href="${url}" class="text-civic-blue hover:underline text-sm" target="_blank" rel="noopener">View on ${stateLabel || 'official'} site →</a>`
             : '';
-        const hasVotes = typeof CivicWatchBillVotes !== 'undefined' && CivicWatchBillVotes.hasVotes(bill);
-        const billNo = CivicWatchBillVotes.normalizeBillNo(bill.bill_number || '');
-        const voteCount = hasVotes ? CivicWatchBillVotes.getVoteCount(bill) : 0;
+        const hasVotes = typeof PolicyWatchBillVotes !== 'undefined' && PolicyWatchBillVotes.hasVotes(bill);
+        const billNo = PolicyWatchBillVotes.normalizeBillNo(bill.bill_number || '');
+        const voteCount = hasVotes ? PolicyWatchBillVotes.getVoteCount(bill) : 0;
         const billTitle = bill.short_title || bill.title || '';
         const voteBtn = hasVotes
             ? `<button type="button" class="cw-vote-btn mt-2 px-3 py-1.5 text-sm font-medium rounded-lg bg-civic-blue text-white hover:bg-civic-blue-dark" data-bill-number="${billNo}" data-bill-title="${billTitle.replace(/"/g, '&quot;')}">Roll call votes (${voteCount})</button>`
@@ -92,7 +92,7 @@ const CivicWatchExpansion = (() => {
     }
 
     function filterBills(bills, filters) {
-        return CivicWatchBillUtils.filterByStateAndLevel(bills, filters, {
+        return PolicyWatchBillUtils.filterByStateAndLevel(bills, filters, {
             getHaystack: (bill) =>
                 `${bill.title || ''} ${bill.summary || ''} ${bill.latest_action || ''} ${(bill.ai_topics || []).join(' ')} ${bill.bill_number || ''}`,
         });
@@ -100,8 +100,8 @@ const CivicWatchExpansion = (() => {
 
     async function initDashboards() {
         const data = await loadSiteData();
-        if (typeof CivicWatchBillVotes !== 'undefined') {
-            CivicWatchBillVotes.init(data);
+        if (typeof PolicyWatchBillVotes !== 'undefined') {
+            PolicyWatchBillVotes.init(data);
         }
         const dashboards = data.dashboards || {};
         const searchIndex = data.search_index || {};
@@ -150,7 +150,7 @@ const CivicWatchExpansion = (() => {
             let items = getTabItems(tabId);
 
             if (tabId === 'upcoming_hearings') {
-                items = CivicWatchBillUtils.filterByStateAndLevel(items, filters, {
+                items = PolicyWatchBillUtils.filterByStateAndLevel(items, filters, {
                     getHaystack: (event) => `${event.title || ''} ${event.scheduled_date || ''}`,
                 });
                 contentEl.setAttribute('aria-busy', 'false');
@@ -166,7 +166,7 @@ const CivicWatchExpansion = (() => {
             }
 
             if (tabId === 'recent_votes') {
-                items = CivicWatchBillUtils.filterByStateAndLevel(items, filters, {
+                items = PolicyWatchBillUtils.filterByStateAndLevel(items, filters, {
                     getHaystack: (vote) =>
                         `${vote.bill_number || ''} ${vote.action || ''} ${vote.motion_text || ''} ${vote.title || ''}`,
                 });
@@ -222,11 +222,11 @@ const CivicWatchExpansion = (() => {
 
         contentEl.addEventListener('click', (event) => {
             const btn = event.target.closest('.cw-vote-btn');
-            if (!btn || typeof CivicWatchBillVotes === 'undefined') return;
+            if (!btn || typeof PolicyWatchBillVotes === 'undefined') return;
             const billNo = btn.getAttribute('data-bill-number');
             if (!billNo) return;
             event.preventDefault();
-            CivicWatchBillVotes.open({
+            PolicyWatchBillVotes.open({
                 bill_number: billNo,
                 title: btn.getAttribute('data-bill-title') || btn.textContent,
                 short_title: btn.getAttribute('data-bill-title') || '',
@@ -242,7 +242,7 @@ const CivicWatchExpansion = (() => {
     async function initLegislators() {
         const [data] = await Promise.all([
             loadSiteData(),
-            typeof CivicWatchLegislatorVotes !== 'undefined' ? CivicWatchLegislatorVotes.init() : Promise.resolve(),
+            typeof PolicyWatchLegislatorVotes !== 'undefined' ? PolicyWatchLegislatorVotes.init() : Promise.resolve(),
         ]);
         const legislators = (data.search_index || {}).legislators || [];
         const statsData = data.legislator_stats || {};
@@ -282,8 +282,8 @@ const CivicWatchExpansion = (() => {
             const chamberLabel = formatChamber(l.chamber);
             const district = l.district ? `District ${l.district}` : '';
             const meta = [l.party, l.state, chamberLabel, district].filter(Boolean).join(' · ');
-            const voteCount = typeof CivicWatchLegislatorVotes !== 'undefined'
-                ? CivicWatchLegislatorVotes.getVoteCount(l)
+            const voteCount = typeof PolicyWatchLegislatorVotes !== 'undefined'
+                ? PolicyWatchLegislatorVotes.getVoteCount(l)
                 : 0;
             const voteHint = voteCount
                 ? `<p class="text-xs text-slate-400 mt-2">Click card for vote history (${voteCount} vote${voteCount === 1 ? '' : 's'})</p>`
@@ -307,9 +307,9 @@ const CivicWatchExpansion = (() => {
         }
 
         function openLegislatorVotes(legId) {
-            if (!legId || typeof CivicWatchLegislatorVotes === 'undefined') return;
+            if (!legId || typeof PolicyWatchLegislatorVotes === 'undefined') return;
             const legislator = legislators.find((leg) => leg.id === legId);
-            if (legislator) CivicWatchLegislatorVotes.open(legislator);
+            if (legislator) PolicyWatchLegislatorVotes.open(legislator);
         }
 
         listEl?.addEventListener('click', (e) => {

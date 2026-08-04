@@ -1,6 +1,6 @@
-# Email Digest Setup
+﻿# Email Digest Setup
 
-CivicWatch can send **separate email digests** for each state plus federal and a combined all-states digest.
+PolicyWatch can send **separate email digests** for each state plus federal and a combined all-states digest.
 
 **Recipient email addresses are never stored in the repository.** They live only in GitHub Secrets and are delivered via **BCC** so recipients cannot see each other.
 
@@ -10,12 +10,12 @@ CivicWatch can send **separate email digests** for each state plus federal and a
 
 | Digest ID | Subject example | Contents |
 |-----------|-----------------|----------|
-| `ks` | Kansas Policy Watch — … | Kansas updates first, then federal |
-| `co` | Colorado Policy Watch — … | Colorado first, then federal |
-| `az` | Arizona Policy Watch — … | Arizona first, then federal |
-| `ut` | Utah Policy Watch — … | Utah first, then federal |
-| `federal` | Federal Policy Watch — … | U.S. Congress only |
-| `all` | Policy Watch — All States — … | AZ, CO, KS, UT (alphabetical), then federal at bottom |
+| `ks` | Kansas PolicyWatch — … | Kansas updates first, then federal |
+| `co` | Colorado PolicyWatch — … | Colorado first, then federal |
+| `az` | Arizona PolicyWatch — … | Arizona first, then federal |
+| `ut` | Utah PolicyWatch — … | Utah first, then federal |
+| `federal` | Federal PolicyWatch — … | U.S. Congress only |
+| `all` | PolicyWatch — All States — … | AZ, CO, KS, UT (alphabetical), then federal at bottom |
 
 Each digest includes:
 - Bill/legislation updates from the **last 6 hours**

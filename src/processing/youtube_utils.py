@@ -1,5 +1,5 @@
-"""
-YouTube URL parsing and live-stream helpers for CivicWatch.
+﻿"""
+YouTube URL parsing and live-stream helpers for PolicyWatch.
 """
 from __future__ import annotations
 

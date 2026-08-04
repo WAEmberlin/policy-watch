@@ -1,4 +1,4 @@
-# Email digest definitions (recipient addresses are NOT stored here).
+﻿# Email digest definitions (recipient addresses are NOT stored here).
 #
 # Assign recipients via GitHub secret EMAIL_DIGEST_RECIPIENTS (JSON).
 # See EMAIL_DIGEST_SETUP.md for setup instructions.
@@ -9,41 +9,41 @@ hearing_lookahead_days: 1
 digests:
   - id: ks
     name: Kansas
-    subject_prefix: "Kansas Policy Watch"
+    subject_prefix: "Kansas PolicyWatch"
 
   - id: co
     name: Colorado
-    subject_prefix: "Colorado Policy Watch"
+    subject_prefix: "Colorado PolicyWatch"
 
   - id: az
     name: Arizona
-    subject_prefix: "Arizona Policy Watch"
+    subject_prefix: "Arizona PolicyWatch"
 
   - id: ut
     name: Utah
-    subject_prefix: "Utah Policy Watch"
+    subject_prefix: "Utah PolicyWatch"
 
   - id: me
     name: Maine
-    subject_prefix: "Maine Policy Watch"
+    subject_prefix: "Maine PolicyWatch"
 
   - id: ne
     name: Nebraska
-    subject_prefix: "Nebraska Policy Watch"
+    subject_prefix: "Nebraska PolicyWatch"
 
   - id: md
     name: Maryland
-    subject_prefix: "Maryland Policy Watch"
+    subject_prefix: "Maryland PolicyWatch"
 
   - id: pa
     name: Pennsylvania
-    subject_prefix: "Pennsylvania Policy Watch"
+    subject_prefix: "Pennsylvania PolicyWatch"
 
   - id: federal
     name: Federal
-    subject_prefix: "Federal Policy Watch"
+    subject_prefix: "Federal PolicyWatch"
 
   - id: all
     name: All States
-    subject_prefix: "Policy Watch"
+    subject_prefix: "PolicyWatch"
     description: "All states (alphabetical) plus federal at the bottom"

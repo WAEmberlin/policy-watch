@@ -1,4 +1,4 @@
-"""
+﻿"""
 Enhanced Weekly Summary Generator (No GPU Required)
 
 Uses extractive summarization and better content selection to create
@@ -243,7 +243,7 @@ def generate_enhanced_summary(
     lines = []
     
     # Intro
-    lines.append(f"Here is your CivicWatch weekly overview for the week of {week_start_str} through {week_end_str}.")
+    lines.append(f"Here is your PolicyWatch weekly overview for the week of {week_start_str} through {week_end_str}.")
     lines.append("")
     
     # Congress section
@@ -366,7 +366,7 @@ def generate_enhanced_summary(
     
     # Closing
     lines.append("---")
-    lines.append("Explore full details and sources at CivicWatch.")
+    lines.append("Explore full details and sources at PolicyWatch.")
     
     return "\n".join(lines)
 

@@ -1,4 +1,4 @@
-"""
+﻿"""
 Normalizer for converting scraper output into a clean, standardized schema.
 """
 import hashlib
@@ -9,7 +9,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional
 
-from civicwatch.config.settings import NORMALIZED_DIR
+from PolicyWatch.config.settings import NORMALIZED_DIR
 
 logger = logging.getLogger(__name__)
 

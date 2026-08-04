@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 Fetch Utah Legislature committee hearing schedules via the official committee RSS feed.
 
@@ -55,7 +55,7 @@ NOTICE_CACHE_FIELDS = NOTICE_ENRICHMENT_FIELDS + ("notice_enriched_at",)
 NOTICE_FETCH_RETRY_HOURS = 24
 RSS_FETCH_RETRIES = 3
 RSS_FETCH_TIMEOUT = 60
-USER_AGENT = "CivicWatch/1.0 (+https://github.com/WAEmberlin/policy-watch)"
+USER_AGENT = "PolicyWatch/1.0 (+https://github.com/WAEmberlin/policy-watch)"
 
 SESSION_BLOCK_RE = re.compile(
     r"^(?P<date>\d{1,2}/\d{1,2}/\d{4})\s+(?P<time>\d{1,2}:\d{2}:\d{2}\s*[AP]M)\s*-\s*(?P<location>.+)$",

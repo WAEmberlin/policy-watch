@@ -1,6 +1,6 @@
-# Kansas Legislature RSS Feeds Integration
+﻿# Kansas Legislature RSS Feeds Integration
 
-This document explains how Kansas Legislature RSS feeds are integrated into CivicWatch.
+This document explains how Kansas Legislature RSS feeds are integrated into PolicyWatch.
 
 ## Feed Definitions
 

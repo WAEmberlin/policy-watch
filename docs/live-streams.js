@@ -1,5 +1,5 @@
-/**
- * CivicWatch Live Streams — loads config + live status, drives embeds and Live Now bar.
+﻿/**
+ * PolicyWatch Live Streams — loads config + live status, drives embeds and Live Now bar.
  */
 (function () {
   'use strict';
@@ -8,8 +8,8 @@
   var stateFloorStream = {};
 
   function a11yAnnounce(message) {
-    if (window.CivicWatchA11y && typeof CivicWatchA11y.announce === 'function') {
-      CivicWatchA11y.announce(message);
+    if (window.PolicyWatchA11y && typeof PolicyWatchA11y.announce === 'function') {
+      PolicyWatchA11y.announce(message);
     }
   }
 
@@ -50,7 +50,7 @@
       if (placeholder) {
         placeholder.textContent = stream.isLive
           ? '🔴 Live now — click Play here'
-          : 'Click Play here to watch on CivicWatch';
+          : 'Click Play here to watch on PolicyWatch';
       }
     });
     document.querySelectorAll('.play-here-btn[data-stream-id]').forEach(function (btn) {
@@ -60,7 +60,7 @@
       var streamTitle = stream ? stream.title : 'stream';
       btn.disabled = !hasEmbed;
       btn.title = hasEmbed
-        ? 'Load the stream in the player below without leaving CivicWatch'
+        ? 'Load the stream in the player below without leaving PolicyWatch'
         : 'No embed configured for this stream yet';
       btn.setAttribute('aria-label', hasEmbed
         ? (stream && stream.isLive ? 'Play live: ' : 'Play here: ') + streamTitle
@@ -195,11 +195,11 @@
   }
 
   function loadConfigs() {
-    var configPromise = civicwatchFetch('live-streams-config.json').then(function (r) {
+    var configPromise = policywatchFetch('live-streams-config.json').then(function (r) {
       if (!r.ok) throw new Error('live-streams-config.json missing');
       return r.json();
     });
-    var statusPromise = civicwatchFetch('live_status.json').then(function (r) {
+    var statusPromise = policywatchFetch('live_status.json').then(function (r) {
       return r.ok ? r.json() : { streams: {} };
     }).catch(function () { return { streams: {} }; });
 
@@ -229,7 +229,7 @@
     });
   }
 
-  window.CivicWatchLiveStreams = {
+  window.PolicyWatchLiveStreams = {
     goToTarget: goToTarget,
     loadEmbedInWrapper: loadEmbedInWrapper,
     getStateFloorStreamId: function (state) {

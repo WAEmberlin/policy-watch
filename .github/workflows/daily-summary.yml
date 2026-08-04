@@ -1,4 +1,4 @@
-name: Daily Legislative Summary
+﻿name: Daily Legislative Summary
 
 on:
   schedule:
@@ -121,7 +121,7 @@ jobs:
       - name: Commit and push changes
         if: steps.check_changes.outputs.changes == 'true'
         run: |
-          git config user.name "civicwatch-bot"
+          git config user.name "policywatch-bot"
           git config user.email "actions@github.com"
           
           git add -f data/daily_summaries.json docs/data-config.js

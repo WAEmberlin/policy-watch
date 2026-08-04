@@ -1,4 +1,4 @@
-"""Parse Utah Legislature interim meeting notice HTML pages."""
+﻿"""Parse Utah Legislature interim meeting notice HTML pages."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ from urllib.parse import urljoin
 import requests
 from bs4 import BeautifulSoup
 
-USER_AGENT = "CivicWatch/1.0 (+https://github.com/WAEmberlin/policy-watch)"
+USER_AGENT = "PolicyWatch/1.0 (+https://github.com/WAEmberlin/policy-watch)"
 INTERIM_NOTICE_RE = re.compile(r"/Interim/\d{4}/html/\d+\.htm", re.IGNORECASE)
 COMMITTEE_STREAM_RE = re.compile(
     r"https?://le\.utah\.gov/committee/committee\.jsp\?[^\"'\s>]+",

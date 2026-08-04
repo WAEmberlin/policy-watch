@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>About — CivicWatch</title>
+<title>About — PolicyWatch</title>
 <link rel="stylesheet" href="theme.css" />
 <link rel="stylesheet" href="sr-only.css" />
 <script src="theme.js"></script>
@@ -44,12 +44,12 @@ tailwind.config = {
         <div class="cw-card-header">
             <div class="flex flex-wrap items-center justify-between gap-4">
                 <div class="flex items-center gap-4">
-                    <img src="CivicWatch Logo.png" alt="CivicWatch Logo" class="h-14 w-auto hidden sm:block" />
+                    <img src="PolicyWatch Logo.png" alt="PolicyWatch Logo" class="h-14 w-auto hidden sm:block" />
                     <div>
                         <h1 class="text-3xl font-bold">
-                            <span class="text-white">Civic</span><span class="text-civic-gold">Watch</span>
+                            <span class="text-white">Policy</span><span class="text-civic-gold">Watch</span>
                         </h1>
-                        <p class="cw-text-on-header-muted text-sm mt-1">About CivicWatch</p>
+                        <p class="cw-text-on-header-muted text-sm mt-1">About PolicyWatch</p>
                     </div>
                 </div>
                 <div data-cw-theme-toggle></div>
@@ -58,9 +58,9 @@ tailwind.config = {
 
         <div class="p-6 md:p-8 space-y-8">
             <section>
-                <h2 class="text-2xl font-bold text-civic-navy mb-3">About CivicWatch</h2>
+                <h2 class="text-2xl font-bold text-civic-navy mb-3">About PolicyWatch</h2>
                 <p class="text-slate-600 leading-relaxed">
-                    CivicWatch is a civic-legislation tracker that brings together bill activity, committee hearings,
+                    PolicyWatch is a civic-legislation tracker that brings together bill activity, committee hearings,
                     and live legislative streams from Kansas, Colorado, Arizona, Utah, Maine, and the U.S. Congress in
                     one place. Instead of checking a dozen separate state and federal sites, you can follow what
                     lawmakers are doing from a single homepage feed.
@@ -72,13 +72,13 @@ tailwind.config = {
                     map round out the tools for staying oriented during a legislative session.
                 </p>
                 <p class="text-slate-600 leading-relaxed mt-3">
-                    CivicWatch also highlights military- and veteran-related bills with a simple
+                    PolicyWatch also highlights military- and veteran-related bills with a simple
                     <strong>Red</strong>, <strong>Yellow</strong>, and <strong>Green</strong> impact system so you can
                     quickly tell which measures may materially affect benefits and services versus ceremonial or general
                     mentions. That classification guide is explained in the sections below.
                 </p>
                 <p class="text-slate-600 leading-relaxed mt-3">
-                    CivicWatch is a volunteer project built for transparency and ease of use. Impact labels and summaries
+                    PolicyWatch is a volunteer project built for transparency and ease of use. Impact labels and summaries
                     are automated triage signals — not legal advice. Always review the full bill text and official analysis
                     before drawing conclusions.
                 </p>
@@ -91,7 +91,7 @@ tailwind.config = {
                         <p class="font-semibold text-slate-800">Austin Emberlin</p>
                         <p class="text-sm text-slate-500 mt-0.5">Lead Developer</p>
                         <p class="text-slate-600 text-sm leading-relaxed mt-1">
-                            Built and maintains CivicWatch — the data pipelines, website, and multi-state feed that
+                            Built and maintains PolicyWatch — the data pipelines, website, and multi-state feed that
                             power the project.
                         </p>
                         <p class="text-sm text-slate-500 mt-0.5">
@@ -106,9 +106,9 @@ tailwind.config = {
             </section>
 
             <section>
-                <h2 class="text-2xl font-bold text-civic-navy mb-3">How CivicWatch classifies veteran-related bills</h2>
+                <h2 class="text-2xl font-bold text-civic-navy mb-3">How PolicyWatch classifies veteran-related bills</h2>
                 <p class="text-slate-600 leading-relaxed">
-                    CivicWatch tags legislation that affects veterans, service members, or military families with a
+                    PolicyWatch tags legislation that affects veterans, service members, or military families with a
                     <strong>Red</strong>, <strong>Yellow</strong>, or <strong>Green</strong> impact level. Colored cards
                     on the homepage make it easier to spot bills that may materially change benefits, services, or rights
                     versus ceremonial or general military mentions.
@@ -180,7 +180,7 @@ tailwind.config = {
             <section class="rounded-xl border p-5 bg-slate-50" style="border-color: var(--cw-border); background: var(--cw-surface-muted);">
                 <h2 class="text-xl font-bold text-civic-navy mb-3">Where the data comes from</h2>
                 <ul class="text-slate-600 text-sm space-y-2 list-disc list-inside leading-relaxed">
-                    <li><strong>Colorado</strong> — CivicWatch imports a curated legislative tracker CSV when available. CSV impact levels take priority.</li>
+                    <li><strong>Colorado</strong> — PolicyWatch imports a curated legislative tracker CSV when available. CSV impact levels take priority.</li>
                     <li><strong>All other states &amp; federal</strong> — Keyword and topic rules classify bills from Open States, Congress.gov, and RSS feed text.</li>
                     <li><strong>Not legal advice</strong> — Impact levels are automated triage signals to help you prioritize reading. Always review the full bill text and official analysis.</li>
                 </ul>
@@ -215,6 +215,6 @@ tailwind.config = {
 </main>
 </div>
 <script src="shell.js"></script>
-<script>CivicWatchShell.init({ page: 'about' });</script>
+<script>PolicyWatchShell.init({ page: 'about' });</script>
 </body>
 </html>

@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>CivicWatch — Legislative & Policy Updates</title>
+<title>PolicyWatch — Legislative & Policy Updates</title>
 <link rel="stylesheet" href="sr-only.css" />
 <link rel="stylesheet" href="theme.css" />
 <script src="theme.js"></script>
@@ -92,10 +92,10 @@ tailwind.config = {
         <header class="cw-header px-6 md:px-8 py-6">
             <div class="flex items-center justify-between gap-4 flex-wrap">
             <div class="flex items-center gap-4 flex-1">
-                <img src="CivicWatch Logo.png" alt="CivicWatch Logo" class="h-14 w-auto hidden sm:block" />
+                <img src="PolicyWatch Logo.png" alt="PolicyWatch Logo" class="h-14 w-auto hidden sm:block" />
                 <div class="flex-1">
                     <h1 class="text-3xl font-bold">
-                        <span class="text-white">Civic</span><span class="text-civic-gold">Watch</span>
+                        <span class="text-white">Policy</span><span class="text-civic-gold">Watch</span>
                     </h1>
                     <div id="last-updated" class="cw-text-on-header-muted text-sm mt-1">Loading...</div>
                 </div>
@@ -123,7 +123,7 @@ tailwind.config = {
                         <svg class="w-6 h-6 text-civic-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                         </svg>
-                        Weekly CivicWatch Overview
+                        Weekly PolicyWatch Overview
                         <span id="weekly-overview-arrow" class="text-slate-400 transition-transform duration-300" aria-hidden="true">▼</span>
                     </h2>
                 </button>
@@ -221,7 +221,7 @@ tailwind.config = {
 
     <!-- Footer -->
     <footer data-cw-footer-replace class="text-center text-slate-500 text-sm mt-6 px-4">
-        CivicWatch — Tracking legislation for Kansas, Colorado, Arizona, Utah, Maine, Nebraska, Maryland, Pennsylvania, and U.S. Congress
+        PolicyWatch — Tracking legislation for Kansas, Colorado, Arizona, Utah, Maine, Nebraska, Maryland, Pennsylvania, and U.S. Congress
     </footer>
 </div>
 <script src="a11y.js"></script>
@@ -232,6 +232,6 @@ tailwind.config = {
 <script src="bill-votes.js"></script>
 <script src="home.js"></script>
 <script src="script.js"></script>
-<script>CivicWatchShell.init({ page: 'home' });</script>
+<script>PolicyWatchShell.init({ page: 'home' });</script>
 </body>
 </html>

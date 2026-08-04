@@ -1,4 +1,4 @@
-let currentYear = null;
+﻿let currentYear = null;
 let currentPage = 0;  // Time-chunk index (0 = most recent period)
 let currentItemPage = 0;  // Item page within a time chunk (veterans filters only)
 let allData = null;
@@ -15,8 +15,8 @@ const SEARCH_MIN_CHARS = 3;
 const SEARCH_MAX_RESULTS = 200;
 
 function a11yAnnounce(message) {
-    if (window.CivicWatchA11y && typeof CivicWatchA11y.announce === "function" && message) {
-        CivicWatchA11y.announce(message);
+    if (window.PolicyWatchA11y && typeof PolicyWatchA11y.announce === "function" && message) {
+        PolicyWatchA11y.announce(message);
     }
 }
 
@@ -28,7 +28,7 @@ function setContentBusy(isBusy) {
 const STATE_NAMES = { KS: "Kansas", CO: "Colorado", AZ: "Arizona", UT: "Utah", ME: "Maine", NE: "Nebraska", MD: "Maryland", PA: "Pennsylvania", Federal: "U.S. Congress" };
 
 function inferItemState(item) {
-    if (typeof CivicWatchHome !== "undefined") return CivicWatchHome.inferItemState(item);
+    if (typeof PolicyWatchHome !== "undefined") return PolicyWatchHome.inferItemState(item);
     if (item.level === "federal") return "Federal";
     if (item.state) return item.state;
     const src = (item.source || "").toLowerCase();
@@ -50,15 +50,15 @@ function itemMatchesStateFilter(item) {
 }
 
 function isVoteFeedItem(item) {
-    if (typeof CivicWatchHome !== "undefined" && CivicWatchHome.isVoteEvent) {
-        return CivicWatchHome.isVoteEvent(item);
+    if (typeof PolicyWatchHome !== "undefined" && PolicyWatchHome.isVoteEvent) {
+        return PolicyWatchHome.isVoteEvent(item);
     }
     return item.item_type === "vote_event" || Boolean(item.vote_tally);
 }
 
 function classifyActionType(text) {
-    if (typeof CivicWatchHome !== "undefined" && CivicWatchHome.classifyActionType) {
-        return CivicWatchHome.classifyActionType(text);
+    if (typeof PolicyWatchHome !== "undefined" && PolicyWatchHome.classifyActionType) {
+        return PolicyWatchHome.classifyActionType(text);
     }
     const hay = String(text || "").toLowerCase();
     if (!hay.trim()) return null;
@@ -89,8 +89,8 @@ function buildFeedSearchText(item) {
 
 function itemMatchesVeteransFilter(item) {
     if (!veteransImpactFilter) return true;
-    if (typeof CivicWatchHome !== "undefined" && CivicWatchHome.itemMatchesVeteransImpactFilter) {
-        return CivicWatchHome.itemMatchesVeteransImpactFilter(item, veteransImpactFilter);
+    if (typeof PolicyWatchHome !== "undefined" && PolicyWatchHome.itemMatchesVeteransImpactFilter) {
+        return PolicyWatchHome.itemMatchesVeteransImpactFilter(item, veteransImpactFilter);
     }
     return true;
 }
@@ -127,8 +127,8 @@ function refreshView() {
 }
 
 function updateFilterPills() {
-    if (typeof CivicWatchHome === "undefined") return;
-    CivicWatchHome.updateActiveFilterPills({
+    if (typeof PolicyWatchHome === "undefined") return;
+    PolicyWatchHome.updateActiveFilterPills({
         state: selectedState,
         source: selectedSource,
         category: selectedCategory,
@@ -140,13 +140,13 @@ function updateFilterPills() {
 async function loadData() {
     setContentBusy(true);
     try {
-        const res = await civicwatchFetch("site_data.json");
+        const res = await policywatchFetch("site_data.json");
         allData = await res.json();
-        if (typeof CivicWatchBillVotes !== 'undefined') {
-            CivicWatchBillVotes.init(allData);
+        if (typeof PolicyWatchBillVotes !== 'undefined') {
+            PolicyWatchBillVotes.init(allData);
         }
-        if (typeof CivicWatchHome !== 'undefined' && CivicWatchHome.setVeteranImpactLookup) {
-            CivicWatchHome.setVeteranImpactLookup((allData.veteran_impact || {}).lookup || {});
+        if (typeof PolicyWatchHome !== 'undefined' && PolicyWatchHome.setVeteranImpactLookup) {
+            PolicyWatchHome.setVeteranImpactLookup((allData.veteran_impact || {}).lookup || {});
         }
     } catch (error) {
         setContentBusy(false);
@@ -178,12 +178,12 @@ async function loadData() {
     // Setup filters
     setupFilters();
 
-    if (typeof CivicWatchHome !== "undefined") {
-        CivicWatchHome.fetchWeeklyCounts().then((weeklyCounts) => {
-            CivicWatchHome.renderStateSnapshots(allData, weeklyCounts);
+    if (typeof PolicyWatchHome !== "undefined") {
+        PolicyWatchHome.fetchWeeklyCounts().then((weeklyCounts) => {
+            PolicyWatchHome.renderStateSnapshots(allData, weeklyCounts);
         });
-        CivicWatchHome.setSelectedState(selectedState);
-        if (veteransImpactFilter) CivicWatchHome.setVeteransImpactFilter(veteransImpactFilter);
+        PolicyWatchHome.setSelectedState(selectedState);
+        if (veteransImpactFilter) PolicyWatchHome.setVeteransImpactFilter(veteransImpactFilter);
     }
     updateFilterPills();
     
@@ -297,7 +297,7 @@ function setupFilters() {
         });
         stateFilter.addEventListener("change", () => {
             selectedState = stateFilter.value;
-            if (typeof CivicWatchHome !== "undefined") CivicWatchHome.setSelectedState(selectedState);
+            if (typeof PolicyWatchHome !== "undefined") PolicyWatchHome.setSelectedState(selectedState);
             currentPage = 0;
             currentItemPage = 0;
             refreshView();
@@ -465,7 +465,7 @@ function enrichMultiStateBill(bill, date) {
     const latestAction = bill.latest_action || "";
     const enriched = {
         title: `${bill.bill_number}: ${bill.title}`,
-        link: (typeof CivicWatchBillUtils !== "undefined" ? CivicWatchBillUtils.resolveBillUrl(bill) : bill.url),
+        link: (typeof PolicyWatchBillUtils !== "undefined" ? PolicyWatchBillUtils.resolveBillUrl(bill) : bill.url),
         summary: bill.summary || latestAction || "",
         source: `State (${STATE_NAMES[bill.state] || bill.state})`,
         state: bill.state,
@@ -481,8 +481,8 @@ function enrichMultiStateBill(bill, date) {
         vote_tally: bill.vote_tally,
         motion: bill.motion,
     };
-    if (typeof CivicWatchHome !== "undefined" && CivicWatchHome.resolveVeteranImpact) {
-        enriched.veteran_impact = CivicWatchHome.resolveVeteranImpact(enriched);
+    if (typeof PolicyWatchHome !== "undefined" && PolicyWatchHome.resolveVeteranImpact) {
+        enriched.veteran_impact = PolicyWatchHome.resolveVeteranImpact(enriched);
     } else if (impactLookup) {
         const key = `${String(bill.state || "").toUpperCase()}|${bill.bill_number}`;
         enriched.veteran_impact = impactLookup[key] || null;
@@ -643,8 +643,8 @@ function displayUnifiedView(year, chunkIndex) {
         const dayItems = itemsByDate[date];
         if (!dayItems || dayItems.length === 0) return;
 
-        const daySection = typeof CivicWatchHome !== "undefined"
-            ? CivicWatchHome.renderFeedDay(date, dayItems, {
+        const daySection = typeof PolicyWatchHome !== "undefined"
+            ? PolicyWatchHome.renderFeedDay(date, dayItems, {
                 searchQuery: "",
                 veteransImpactFilter,
             })
@@ -796,7 +796,7 @@ function performSearch(query) {
             if (searchText.includes(searchQuery)) {
                 if (tryAdd({
                     title: `${bill.bill_number}: ${bill.title}`,
-                    link: (typeof CivicWatchBillUtils !== "undefined" ? CivicWatchBillUtils.resolveBillUrl(bill) : bill.url),
+                    link: (typeof PolicyWatchBillUtils !== "undefined" ? PolicyWatchBillUtils.resolveBillUrl(bill) : bill.url),
                     summary: bill.summary || bill.latest_action || "",
                     source: bill.level === "federal" ? "Federal (U.S. Congress)" : `State (${STATE_NAMES[bill.state] || bill.state})`,
                     state: bill.state,
@@ -889,8 +889,8 @@ function displaySearchResults(options = {}) {
 
     const dates = Object.keys(itemsByDate).sort().reverse();
     dates.forEach(date => {
-        const daySection = typeof CivicWatchHome !== "undefined"
-            ? CivicWatchHome.renderFeedDay(date, itemsByDate[date], {
+        const daySection = typeof PolicyWatchHome !== "undefined"
+            ? PolicyWatchHome.renderFeedDay(date, itemsByDate[date], {
                 searchQuery: searchQuery,
                 veteransImpactFilter,
             })
@@ -1055,9 +1055,9 @@ function setupSearch() {
             if (sourceFilter) sourceFilter.value = "";
             if (categoryFilter) categoryFilter.value = "";
             if (stateFilter) stateFilter.value = "";
-            if (typeof CivicWatchHome !== "undefined") {
-                CivicWatchHome.setSelectedState("");
-                CivicWatchHome.setVeteransImpactFilter(null);
+            if (typeof PolicyWatchHome !== "undefined") {
+                PolicyWatchHome.setSelectedState("");
+                PolicyWatchHome.setVeteransImpactFilter(null);
             }
             searchMode = false;
             searchQuery = "";
@@ -1158,7 +1158,7 @@ async function loadWeeklyOverview() {
     // Set up toggle functionality (collapsed by default; localStorage remembers preference)
     const header = document.getElementById("weekly-overview-header");
     if (header) {
-        const saved = localStorage.getItem("civicwatch-weekly-expanded");
+        const saved = localStorage.getItem("PolicyWatch-weekly-expanded");
         const expanded = saved === "true";
         section.classList.toggle("collapsed", !expanded);
         section.classList.toggle("expanded", expanded);
@@ -1173,20 +1173,20 @@ async function loadWeeklyOverview() {
                 section.classList.remove("collapsed");
                 section.classList.add("expanded");
                 header.setAttribute("aria-expanded", "true");
-                localStorage.setItem("civicwatch-weekly-expanded", "true");
+                localStorage.setItem("PolicyWatch-weekly-expanded", "true");
                 a11yAnnounce("Weekly overview expanded.");
             } else {
                 section.classList.remove("expanded");
                 section.classList.add("collapsed");
                 header.setAttribute("aria-expanded", "false");
-                localStorage.setItem("civicwatch-weekly-expanded", "false");
+                localStorage.setItem("PolicyWatch-weekly-expanded", "false");
                 a11yAnnounce("Weekly overview collapsed.");
             }
         };
     }
     
     try {
-        const res = await civicwatchFetch("weekly/latest.json");
+        const res = await policywatchFetch("weekly/latest.json");
         const data = await res.json();
         
         // Format week range
@@ -1296,8 +1296,8 @@ async function loadWeeklyOverview() {
 }
 
 window.onload = () => {
-    if (typeof CivicWatchHome !== "undefined") {
-        CivicWatchHome.init({
+    if (typeof PolicyWatchHome !== "undefined") {
+        PolicyWatchHome.init({
             onStateFilter: (state) => {
                 selectedState = state;
                 currentPage = 0;
@@ -1321,12 +1321,12 @@ window.onload = () => {
             onClearFilter: (key) => {
                 if (key === "state") {
                     selectedState = "";
-                    if (typeof CivicWatchHome !== "undefined") CivicWatchHome.setSelectedState("");
+                    if (typeof PolicyWatchHome !== "undefined") PolicyWatchHome.setSelectedState("");
                     const stateFilter = document.getElementById("state-filter");
                     if (stateFilter) stateFilter.value = "";
                 } else if (key === "veterans") {
                     veteransImpactFilter = null;
-                    if (typeof CivicWatchHome !== "undefined") CivicWatchHome.setVeteransImpactFilter(null);
+                    if (typeof PolicyWatchHome !== "undefined") PolicyWatchHome.setVeteransImpactFilter(null);
                 } else if (key === "source") {
                     selectedSource = "";
                     const sourceFilter = document.getElementById("source-filter");

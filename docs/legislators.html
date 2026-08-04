@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Legislators — CivicWatch</title>
+<title>Legislators — PolicyWatch</title>
 <link rel="stylesheet" href="theme.css" />
 <link rel="stylesheet" href="sr-only.css" />
 <script src="theme.js"></script>
@@ -44,10 +44,10 @@ tailwind.config = {
         <div class="cw-card-header">
             <div class="flex flex-wrap items-center justify-between gap-4">
                 <div class="flex items-center gap-4">
-                    <img src="CivicWatch Logo.png" alt="CivicWatch Logo" class="h-14 w-auto hidden sm:block" />
+                    <img src="PolicyWatch Logo.png" alt="PolicyWatch Logo" class="h-14 w-auto hidden sm:block" />
                     <div>
                         <h1 class="text-3xl font-bold">
-                            <span class="text-white">Civic</span><span class="text-civic-gold">Watch</span>
+                            <span class="text-white">Policy</span><span class="text-civic-gold">Watch</span>
                         </h1>
                         <div class="cw-text-on-header-muted text-sm mt-1">Legislators — All States</div>
                     </div>
@@ -92,9 +92,9 @@ tailwind.config = {
 <script src="legislator-votes.js"></script>
 <script src="expansion.js"></script>
 <script>
-CivicWatchShell.init({ page: 'legislators' });
+PolicyWatchShell.init({ page: 'legislators' });
 document.addEventListener('DOMContentLoaded', () => {
-    CivicWatchExpansion.initLegislators();
+    PolicyWatchExpansion.initLegislators();
 });
 </script>
 </body>

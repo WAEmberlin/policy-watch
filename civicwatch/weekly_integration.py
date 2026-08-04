@@ -1,4 +1,4 @@
-"""
+﻿"""
 Integration script to enhance weekly_overview.py with map-reduce summaries.
 
 This can be run:
@@ -15,7 +15,7 @@ from datetime import datetime, timedelta
 # Add parent to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from civicwatch.integration import (
+from PolicyWatch.integration import (
     check_ollama_available,
     generate_enhanced_summaries,
     integrate_with_weekly_overview,

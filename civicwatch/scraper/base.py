@@ -1,4 +1,4 @@
-"""
+﻿"""
 Base scraper class for extracting civic/government data.
 """
 import hashlib
@@ -13,7 +13,7 @@ from urllib.parse import urlparse
 import requests
 from bs4 import BeautifulSoup
 
-from civicwatch.config.settings import RAW_DIR
+from PolicyWatch.config.settings import RAW_DIR
 
 logger = logging.getLogger(__name__)
 
@@ -37,7 +37,7 @@ class BaseScraper(ABC):
         self.mock_data = mock_data
         self.session = requests.Session()
         self.session.headers.update({
-            "User-Agent": "CivicWatch/1.0 (Civic Transparency Project)"
+            "User-Agent": "PolicyWatch/1.0 (Civic Transparency Project)"
         })
     
     def scrape(self) -> Dict:

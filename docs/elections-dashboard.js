@@ -1,7 +1,7 @@
-/**
- * CivicWatch elections dashboard — upcoming dates and official results links.
+﻿/**
+ * PolicyWatch elections dashboard — upcoming dates and official results links.
  */
-const CivicWatchElections = (() => {
+const PolicyWatchElections = (() => {
     'use strict';
 
     const JURISDICTIONS = [
@@ -213,11 +213,11 @@ const CivicWatchElections = (() => {
                 ${JURISDICTIONS.map((j) => renderCard(j, today)).join('')}
             </div>
             <p class="text-xs text-slate-400 mt-8 text-center">
-                CivicWatch tracks legislation — not live vote tallies. For certified results, use the official results links above.
+                PolicyWatch tracks legislation — not live vote tallies. For certified results, use the official results links above.
             </p>`;
 
-        if (window.CivicWatchA11y) {
-            CivicWatchA11y.announce('Election dashboard loaded.');
+        if (window.PolicyWatchA11y) {
+            PolicyWatchA11y.announce('Election dashboard loaded.');
         }
     }
 

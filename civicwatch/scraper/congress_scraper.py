@@ -1,4 +1,4 @@
-"""
+﻿"""
 Congress.gov scraper for extracting bill and hearing information.
 """
 import logging
@@ -6,7 +6,7 @@ from typing import Dict, Optional
 
 from bs4 import BeautifulSoup
 
-from civicwatch.scraper.base import BaseScraper
+from PolicyWatch.scraper.base import BaseScraper
 
 logger = logging.getLogger(__name__)
 

@@ -1,6 +1,6 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
-Daily Summary Generator for CivicWatch
+Daily Summary Generator for PolicyWatch
 
 Generates factual daily legislative summaries using Ollama with phi-3:mini.
 Summaries are jurisdiction-separated (Kansas Legislature vs U.S. Congress)
@@ -475,7 +475,7 @@ def main():
     args = parser.parse_args()
     
     print("=" * 60)
-    print("CivicWatch Daily Summary Generator")
+    print("PolicyWatch Daily Summary Generator")
     print(f"Prompt Version: {PROMPT_VERSION}")
     print("=" * 60)
     

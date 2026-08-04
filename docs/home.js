@@ -1,7 +1,7 @@
-/**
- * CivicWatch homepage UI — live strip, state snapshots, filters, feed cards.
+﻿/**
+ * PolicyWatch homepage UI — live strip, state snapshots, filters, feed cards.
  */
-const CivicWatchHome = (() => {
+const PolicyWatchHome = (() => {
     'use strict';
 
     const STATE_CHIPS = [
@@ -211,7 +211,7 @@ const CivicWatchHome = (() => {
 
     async function fetchWeeklyCounts() {
         try {
-            const res = await civicwatchFetch('weekly/latest.json');
+            const res = await policywatchFetch('weekly/latest.json');
             if (!res.ok) return {};
             const data = await res.json();
             return data.item_counts || {};
@@ -226,8 +226,8 @@ const CivicWatchHome = (() => {
 
         try {
             const [configRes, statusRes] = await Promise.all([
-                civicwatchFetch('live-streams-config.json'),
-                civicwatchFetch('live_status.json').catch(() => null),
+                policywatchFetch('live-streams-config.json'),
+                policywatchFetch('live_status.json').catch(() => null),
             ]);
             if (!configRes.ok) throw new Error('config missing');
             const config = await configRes.json();
@@ -745,8 +745,8 @@ const CivicWatchHome = (() => {
             ? voteEventTitle(item)
             : (item.short_title || item.title || '(no title)');
         const url = item.link || item.url || '#';
-        const officialUrl = (typeof CivicWatchBillUtils !== 'undefined')
-            ? CivicWatchBillUtils.resolveBillUrl(item)
+        const officialUrl = (typeof PolicyWatchBillUtils !== 'undefined')
+            ? PolicyWatchBillUtils.resolveBillUrl(item)
             : url;
 
         const header = document.createElement('div');
@@ -824,8 +824,8 @@ const CivicWatchHome = (() => {
             }
         }
 
-        const hasVoteRecords = typeof CivicWatchBillVotes !== 'undefined'
-            && CivicWatchBillVotes.hasVotes(item);
+        const hasVoteRecords = typeof PolicyWatchBillVotes !== 'undefined'
+            && PolicyWatchBillVotes.hasVotes(item);
 
         if (hasVoteRecords) {
             const titleBtn = document.createElement('button');
@@ -837,7 +837,7 @@ const CivicWatchHome = (() => {
             } else {
                 titleBtn.textContent = displayTitle;
             }
-            titleBtn.addEventListener('click', () => CivicWatchBillVotes.open(item));
+            titleBtn.addEventListener('click', () => PolicyWatchBillVotes.open(item));
             card.appendChild(titleBtn);
         } else {
             const titleLink = document.createElement('a');
@@ -927,8 +927,8 @@ const CivicWatchHome = (() => {
             card.appendChild(linkRow);
         }
 
-        if (typeof CivicWatchBillVotes !== 'undefined') {
-            CivicWatchBillVotes.attachVoteButton(card, item);
+        if (typeof PolicyWatchBillVotes !== 'undefined') {
+            PolicyWatchBillVotes.attachVoteButton(card, item);
         }
 
         return card;
@@ -1013,8 +1013,8 @@ const CivicWatchHome = (() => {
         list.className = 'space-y-1 text-sm';
         matches.slice(0, 5).forEach((item) => {
             const li = document.createElement('li');
-            const url = (typeof CivicWatchBillUtils !== 'undefined')
-                ? CivicWatchBillUtils.resolveBillUrl(item)
+            const url = (typeof PolicyWatchBillUtils !== 'undefined')
+                ? PolicyWatchBillUtils.resolveBillUrl(item)
                 : (item.link || item.url);
             const displayTitle = item.short_title || item.title || 'Bill';
             const label = (item.bill_number && !displayTitle.startsWith(item.bill_number))

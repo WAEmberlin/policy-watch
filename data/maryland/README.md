@@ -1,10 +1,10 @@
-# Maryland Open States bulk exports
+﻿# Maryland Open States bulk exports
 
 Historical Maryland legislative data exported from [Open States](https://openstates.org/) (JSON format 1.0).
 
 Sessions included: 2023, 2024, 2025, 2026.
 
-## Import into CivicWatch
+## Import into PolicyWatch
 
 Bulk JSON is converted into the standard Open States cache at `data/openstates/md/`:
 
@@ -18,4 +18,4 @@ Raw export folders in this directory are gitignored (like `data/historic/`). Com
 
 Large states are stored as per-session files (`bills_2023.json`, `bills_2024.json`, …) when a single `bills.json` would exceed GitHub size limits.
 
-Maryland has no official bill-tracking REST API. The Department of Legislative Services publishes RSS feeds for dashboards and publications only — CivicWatch uses **Open States API v3** for live updates, merged on top of this bulk cache.
+Maryland has no official bill-tracking REST API. The Department of Legislative Services publishes RSS feeds for dashboards and publications only — PolicyWatch uses **Open States API v3** for live updates, merged on top of this bulk cache.

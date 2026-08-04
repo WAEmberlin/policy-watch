@@ -1,14 +1,14 @@
-"""
-Configuration settings for the CivicWatch summarization pipeline.
+﻿"""
+Configuration settings for the PolicyWatch summarization pipeline.
 """
 import os
 from pathlib import Path
 
-# Base directory (parent of civicwatch/)
+# Base directory (parent of PolicyWatch/)
 BASE_DIR = Path(__file__).parent.parent.parent
 
 # Storage directories
-STORAGE_DIR = BASE_DIR / "civicwatch" / "storage"
+STORAGE_DIR = BASE_DIR / "PolicyWatch" / "storage"
 RAW_DIR = STORAGE_DIR / "raw"
 NORMALIZED_DIR = STORAGE_DIR / "normalized"
 CHUNKS_DIR = STORAGE_DIR / "chunks"

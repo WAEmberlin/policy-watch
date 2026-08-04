@@ -1,8 +1,8 @@
-# Workflow Schedule Configuration
+﻿# Workflow Schedule Configuration
 
 ## Current Schedule
 
-The CivicWatch workflow runs **every 10 minutes** to keep the website updated with the latest data.
+The PolicyWatch workflow runs **every 10 minutes** to keep the website updated with the latest data.
 
 ## Schedule Details
 
@@ -81,7 +81,7 @@ on:
 
 You can manually trigger the workflow:
 1. Go to GitHub Actions tab
-2. Select "CivicWatch Update" workflow
+2. Select "PolicyWatch Update" workflow
 3. Click "Run workflow" button
 
 ## Monitoring

@@ -1,9 +1,9 @@
-name: Ensure Pages Deploy
+﻿name: Ensure Pages Deploy
 
 on:
   workflow_run:
     workflows:
-      - CivicWatch Update
+      - PolicyWatch Update
       - Open States Sync
       - Daily Legislative Summary
     types:

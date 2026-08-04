@@ -1,10 +1,10 @@
-# Nebraska Open States bulk exports
+﻿# Nebraska Open States bulk exports
 
 Historical Nebraska legislative data exported from [Open States](https://openstates.org/) (JSON format 1.0).
 
 Sessions included: 105, 106, 107, 107S1, 108, 108S1, 109.
 
-## Import into CivicWatch
+## Import into PolicyWatch
 
 Bulk JSON is converted into the standard Open States cache at `data/openstates/ne/`:
 

@@ -1,4 +1,4 @@
-# Check Workflow Status - Step by Step
+﻿# Check Workflow Status - Step by Step
 
 ## Immediate Checks
 
@@ -19,7 +19,7 @@
 ### 2. Check Actions Tab
 
 1. Go to **Actions** tab in your repository
-2. Do you see **"CivicWatch Update"** in the workflow list?
+2. Do you see **"PolicyWatch Update"** in the workflow list?
    - ✅ **Yes**: Workflow is recognized, continue to step 3
    - ❌ **No**: Workflow file might not be in default branch or has syntax errors
 

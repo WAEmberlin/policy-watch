@@ -1,5 +1,5 @@
-"""
-Weekly Overview Generator for CivicWatch
+﻿"""
+Weekly Overview Generator for PolicyWatch
 
 Generates a weekly summary of activity from:
 - Congress API (bills, votes, hearings)
@@ -763,7 +763,7 @@ def generate_summary(
         week_start_str += f", {week_start.year}"
     week_end_str += f", {week_end.year}"
 
-    lines = [f"CivicWatch weekly overview for {week_start_str} through {week_end_str}.", ""]
+    lines = [f"PolicyWatch weekly overview for {week_start_str} through {week_end_str}.", ""]
     sections: List[Dict[str, Any]] = []
     item_counts: Dict[str, int] = {}
 
@@ -800,7 +800,7 @@ def generate_summary(
             section_data["veterans_highlight"] = veterans_highlight
         sections.append(section_data)
 
-    lines.append("Explore full details at CivicWatch.")
+    lines.append("Explore full details at PolicyWatch.")
     return "\n".join(lines), sections, item_counts
 
 

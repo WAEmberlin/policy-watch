@@ -1,6 +1,6 @@
-# CivicWatch Updates Summary
+﻿# PolicyWatch Updates Summary
 
-This document summarizes the major changes made to transform Policy Watch into CivicWatch.
+This document summarizes the major changes made to transform PolicyWatch into PolicyWatch.
 
 ## 1. Email Schedule Update
 
@@ -8,12 +8,12 @@ This document summarizes the major changes made to transform Policy Watch into C
 
 **File**: `.github/workflows/daily.yml`
 - Updated cron schedule from `"30 23 * * *"` to `"30 0 * * *"` (00:30 UTC = 6:30 PM Central)
-- Updated workflow name to "Daily CivicWatch Update"
-- Updated commit message to "Automated daily CivicWatch update"
+- Updated workflow name to "Daily PolicyWatch Update"
+- Updated commit message to "Automated daily PolicyWatch Update"
 
-## 2. Site Rebranding to CivicWatch
+## 2. Site Rebranding to PolicyWatch
 
-**Changed**: Site name from "Policy Watch" to "CivicWatch"
+**Changed**: Site name from "PolicyWatch" to "PolicyWatch"
 
 **Files Modified**:
 - `docs/index.html`: Updated title, added logo header, styled "Civic" and "Watch" text

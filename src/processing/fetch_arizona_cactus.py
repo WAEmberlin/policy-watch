@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 Fetch Arizona bill updates from the Cactus Watch public API.
 
@@ -33,7 +33,7 @@ DATA_DIR = ROOT / "data" / "arizona"
 ENRICHMENTS_FILE = DATA_DIR / "enrichments.json"
 META_FILE = DATA_DIR / "cactus_meta.json"
 
-USER_AGENT = "CivicWatch/1.0 (+https://github.com/WAEmberlin/policy-watch)"
+USER_AGENT = "PolicyWatch/1.0 (+https://github.com/WAEmberlin/policy-watch)"
 BILL_NUMBER_RE = re.compile(r"^([A-Za-z]+)\s*(\d+[A-Za-z]?)$")
 
 
@@ -43,7 +43,7 @@ def load_config() -> Dict[str, Any]:
 
 
 def normalize_az_bill_number(raw: str) -> str:
-    """HB2839 -> HB 2839 for CivicWatch lookup keys."""
+    """HB2839 -> HB 2839 for PolicyWatch lookup keys."""
     text = (raw or "").strip().upper().replace(".", "")
     match = BILL_NUMBER_RE.match(text)
     if match:

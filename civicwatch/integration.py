@@ -1,5 +1,5 @@
-"""
-Integration layer for CivicWatch map-reduce pipeline.
+﻿"""
+Integration layer for PolicyWatch map-reduce pipeline.
 
 This module allows the Ollama-based summarization to work alongside
 the existing weekly_overview.py system, with graceful fallback when
@@ -12,11 +12,11 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, List, Optional
 
-from civicwatch.config.settings import REDUCE_SUMMARIES_DIR
-from civicwatch.normalizer.normalize import Normalizer
-from civicwatch.chunker.chunk_text import TextChunker
-from civicwatch.summarizer.map_summarize import MapSummarizer
-from civicwatch.summarizer.reduce_summarize import ReduceSummarizer
+from PolicyWatch.config.settings import REDUCE_SUMMARIES_DIR
+from PolicyWatch.normalizer.normalize import Normalizer
+from PolicyWatch.chunker.chunk_text import TextChunker
+from PolicyWatch.summarizer.map_summarize import MapSummarizer
+from PolicyWatch.summarizer.reduce_summarize import ReduceSummarizer
 
 logger = logging.getLogger(__name__)
 
@@ -30,7 +30,7 @@ def check_ollama_available() -> bool:
     """
     try:
         import requests
-        from civicwatch.config.settings import OLLAMA_BASE_URL
+        from PolicyWatch.config.settings import OLLAMA_BASE_URL
         
         response = requests.get(f"{OLLAMA_BASE_URL}/api/tags", timeout=5)
         return response.status_code == 200

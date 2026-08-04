@@ -1,11 +1,11 @@
-/**
- * CivicWatch theme system — light, dark, high-contrast.
- * Persists to localStorage (civicwatch-theme). shell.js calls init() after nav injection.
+﻿/**
+ * PolicyWatch theme system — light, dark, high-contrast.
+ * Persists to localStorage (PolicyWatch-theme). shell.js calls init() after nav injection.
  */
 (function (global) {
   'use strict';
 
-  var STORAGE_KEY = 'civicwatch-theme';
+  var STORAGE_KEY = 'PolicyWatch-theme';
   var VALID_THEMES = ['light', 'dark', 'high-contrast'];
   var THEME_LABELS = {
     light: 'Light',
@@ -70,7 +70,7 @@
   }
 
   function syncToggleUI(theme) {
-    var group = document.getElementById('civicwatch-theme-toggle');
+    var group = document.getElementById('PolicyWatch-theme-toggle');
     if (!group) return;
     var options = group.querySelectorAll('[role="radio"]');
     for (var i = 0; i < options.length; i++) {
@@ -105,13 +105,13 @@
   }
 
   function buildToggle(host) {
-    if (!host || document.getElementById('civicwatch-theme-toggle')) return;
+    if (!host || document.getElementById('PolicyWatch-theme-toggle')) return;
 
     host.innerHTML = '';
     host.classList.add('cw-theme-toggle-host');
 
     var group = document.createElement('div');
-    group.id = 'civicwatch-theme-toggle';
+    group.id = 'PolicyWatch-theme-toggle';
     group.className = 'cw-theme-segmented';
     group.setAttribute('role', 'radiogroup');
     group.setAttribute('aria-label', 'Color theme');
@@ -182,7 +182,7 @@
   /* Apply before paint to reduce flash */
   applyTheme(getStoredTheme() || getSystemTheme());
 
-  global.CivicWatchTheme = {
+  global.PolicyWatchTheme = {
     init: init,
     setTheme: setTheme,
     getTheme: getTheme,

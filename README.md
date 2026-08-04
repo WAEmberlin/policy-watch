@@ -1,6 +1,6 @@
-# CivicWatch (policy-watch)
+﻿# PolicyWatch (policy-watch)
 
-**CivicWatch** is an open-source legislative tracking dashboard for veterans, military families, and civic engagement. It aggregates bill activity, hearings, live streams, and legislator data across **Kansas, Colorado, Arizona, Utah, Maine**, and **U.S. Congress**, with automated daily updates via GitHub Actions.
+**PolicyWatch** is an open-source legislative tracking dashboard for veterans, military families, and civic engagement. It aggregates bill activity, hearings, live streams, and legislator data across **Kansas, Colorado, Arizona, Utah, Maine**, and **U.S. Congress**, with automated daily updates via GitHub Actions.
 
 **Live site:** [https://waemberlin.github.io/policy-watch/](https://waemberlin.github.io/policy-watch/)
 
@@ -166,4 +166,4 @@ See repository license file. Data from third-party APIs (Open States, Congress.g
 
 ## Disclaimer
 
-CivicWatch is a civic information tool, not legal advice. Impact colors and summaries are automated aids — always consult official bill text and qualified counsel for decisions affecting benefits or rights.
+PolicyWatch is a civic information tool, not legal advice. Impact colors and summaries are automated aids — always consult official bill text and qualified counsel for decisions affecting benefits or rights.

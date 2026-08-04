@@ -1,7 +1,7 @@
-/**
- * Shared bill URL + filter helpers for CivicWatch pages.
+﻿/**
+ * Shared bill URL + filter helpers for PolicyWatch pages.
  */
-const CivicWatchBillUtils = (() => {
+const PolicyWatchBillUtils = (() => {
     const SKIP_DOMAINS = ["openstates.org", "open.pluralpolicy.com", "pluralpolicy.com"];
 
     function isOfficialUrl(url) {

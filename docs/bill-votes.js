@@ -1,7 +1,7 @@
-/**
+﻿/**
  * Kansas roll-call vote modal — show who voted yea/nay on a bill.
  */
-const CivicWatchBillVotes = (() => {
+const PolicyWatchBillVotes = (() => {
     'use strict';
 
     let voteIndex = {};

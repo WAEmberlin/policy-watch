@@ -1,4 +1,4 @@
-"""
+﻿"""
 Text chunker for splitting documents into overlapping chunks.
 """
 import json
@@ -6,7 +6,7 @@ import logging
 from pathlib import Path
 from typing import List, Dict
 
-from civicwatch.config.settings import CHUNKS_DIR, CHUNK_SIZE, CHUNK_OVERLAP
+from PolicyWatch.config.settings import CHUNKS_DIR, CHUNK_SIZE, CHUNK_OVERLAP
 
 logger = logging.getLogger(__name__)
 

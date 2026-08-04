@@ -1,4 +1,4 @@
-# GitHub Actions Setup & Troubleshooting
+﻿# GitHub Actions Setup & Troubleshooting
 
 ## Why Your Workflow Might Not Be Running Every 10 Minutes
 
@@ -32,7 +32,7 @@ The workflow file must be in the **default branch** (usually `main` or `master`)
 1. Go to your repository on GitHub
 2. Click the **Actions** tab (top menu)
 3. You should see:
-   - **"CivicWatch Update"** workflow listed
+   - **"PolicyWatch Update"** workflow listed
    - Recent runs showing success/failure
    - Scheduled runs appearing every 10 minutes
 
@@ -48,7 +48,7 @@ The workflow file must be in the **default branch** (usually `main` or `master`)
 
 ### Check Recent Runs:
 1. Go to **Actions** tab
-2. Click on **"CivicWatch Update"** workflow
+2. Click on **"PolicyWatch Update"** workflow
 3. You should see runs listed with timestamps
 4. Click on a run to see:
    - ✅ Green checkmark = Success
@@ -65,7 +65,7 @@ The workflow file must be in the **default branch** (usually `main` or `master`)
 Test the workflow manually to ensure it works:
 
 1. Go to **Actions** tab
-2. Click **"CivicWatch Update"** workflow
+2. Click **"PolicyWatch Update"** workflow
 3. Click **"Run workflow"** button (top right)
 4. Select branch (usually `main`)
 5. Click **"Run workflow"**

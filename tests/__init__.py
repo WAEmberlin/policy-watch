@@ -1,1 +1,1 @@
-"""CivicWatch expansion test suite."""
+"""PolicyWatch expansion test suite."""

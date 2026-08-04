@@ -1,6 +1,6 @@
-/**
- * CivicWatch shared page shell — site nav, skip link, footer, theme toggle host.
- * Usage: CivicWatchShell.init({ page: 'hearings' });
+﻿/**
+ * PolicyWatch shared page shell — site nav, skip link, footer, theme toggle host.
+ * Usage: PolicyWatchShell.init({ page: 'hearings' });
  */
 (function (global) {
   'use strict';
@@ -16,7 +16,7 @@
   ];
 
   var FOOTER_TEXT =
-    'CivicWatch — Tracking legislation for Kansas, Colorado, Arizona, Utah, Maine, Nebraska, Maryland, Pennsylvania, and U.S. Congress';
+    'PolicyWatch — Tracking legislation for Kansas, Colorado, Arizona, Utah, Maine, Nebraska, Maryland, Pennsylvania, and U.S. Congress';
 
   var STATE_CHIP_OPTIONS = [
     { value: '', label: 'All' },
@@ -178,11 +178,11 @@
     injectNav(page);
     injectFooter();
 
-    if (global.CivicWatchTheme && typeof global.CivicWatchTheme.init === 'function') {
-      global.CivicWatchTheme.init();
+    if (global.PolicyWatchTheme && typeof global.PolicyWatchTheme.init === 'function') {
+      global.PolicyWatchTheme.init();
     }
-    if (global.CivicWatchA11y && typeof global.CivicWatchA11y.init === 'function') {
-      global.CivicWatchA11y.init();
+    if (global.PolicyWatchA11y && typeof global.PolicyWatchA11y.init === 'function') {
+      global.PolicyWatchA11y.init();
     }
 
     if (options.stateChips) {
@@ -192,7 +192,7 @@
     }
   }
 
-  global.CivicWatchShell = {
+  global.PolicyWatchShell = {
     init: init,
     initStateChips: initStateChips,
     NAV_ITEMS: NAV_ITEMS,

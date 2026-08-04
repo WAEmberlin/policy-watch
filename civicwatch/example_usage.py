@@ -1,8 +1,8 @@
+﻿"""
+Example usage of the PolicyWatch summarization pipeline.
 """
-Example usage of the CivicWatch summarization pipeline.
-"""
-from civicwatch.pipeline import SummarizationPipeline
-from civicwatch.scraper.congress_scraper import CongressScraper
+from PolicyWatch.pipeline import SummarizationPipeline
+from PolicyWatch.scraper.congress_scraper import CongressScraper
 
 # Example 1: Scrape and summarize a Congress.gov URL
 def example_congress_url():
@@ -21,7 +21,7 @@ def example_congress_url():
 # Example 2: Use mock data for testing
 def example_mock_data():
     """Example: Test with mock data."""
-    from civicwatch.scraper.base import BaseScraper
+    from PolicyWatch.scraper.base import BaseScraper
     
     mock_data = {
         "title": "Example Bill: Improving Civic Transparency",
@@ -54,7 +54,7 @@ def example_mock_data():
         print(summary)
 
 if __name__ == "__main__":
-    print("CivicWatch Pipeline Examples")
+    print("PolicyWatch Pipeline Examples")
     print("=" * 50)
     
     # Run mock example (doesn't require internet)

@@ -1,7 +1,7 @@
-/**
- * Shared stream / YouTube embed helpers for CivicWatch pages.
+﻿/**
+ * Shared stream / YouTube embed helpers for PolicyWatch pages.
  */
-const CivicWatchStreamUtils = (() => {
+const PolicyWatchStreamUtils = (() => {
     const YOUTUBE_RE = /(?:youtube\.com\/(?:watch\?(?:[^&]+&)*v=|embed\/|live\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/i;
 
     function isYouTubeUrl(url) {

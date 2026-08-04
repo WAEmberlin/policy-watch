@@ -1,4 +1,4 @@
-"""
+﻿"""
 Map summarizer: summarizes individual chunks using Ollama.
 """
 import json
@@ -19,7 +19,7 @@ except ImportError:
             "LangChain not installed. Install with: pip install langchain langchain-community"
         )
 
-from civicwatch.config.settings import MAP_SUMMARIES_DIR, OLLAMA_BASE_URL, OLLAMA_MODEL, OLLAMA_TEMPERATURE
+from PolicyWatch.config.settings import MAP_SUMMARIES_DIR, OLLAMA_BASE_URL, OLLAMA_MODEL, OLLAMA_TEMPERATURE
 
 logger = logging.getLogger(__name__)
 

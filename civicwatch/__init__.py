@@ -1,5 +1,5 @@
-"""
-CivicWatch Map-Reduce Summarization Pipeline
+﻿"""
+PolicyWatch Map-Reduce Summarization Pipeline
 
 A local, free summarization system for civic transparency data.
 """

@@ -1,5 +1,5 @@
-"""
-Main pipeline for CivicWatch map-reduce summarization.
+﻿"""
+Main pipeline for PolicyWatch map-reduce summarization.
 """
 import argparse
 import logging
@@ -7,18 +7,18 @@ import sys
 from pathlib import Path
 from typing import Dict, List, Optional
 
-# Add civicwatch directory to path for imports
-_civicwatch_dir = Path(__file__).parent
-if str(_civicwatch_dir) not in sys.path:
-    sys.path.insert(0, str(_civicwatch_dir.parent))
+# Add PolicyWatch directory to path for imports
+_PolicyWatch_dir = Path(__file__).parent
+if str(_PolicyWatch_dir) not in sys.path:
+    sys.path.insert(0, str(_PolicyWatch_dir.parent))
 
-from civicwatch.chunker.chunk_text import TextChunker
-from civicwatch.config.settings import LOG_LEVEL
-from civicwatch.normalizer.normalize import Normalizer
-from civicwatch.scraper.base import BaseScraper
-from civicwatch.scraper.congress_scraper import CongressScraper
-from civicwatch.summarizer.map_summarize import MapSummarizer
-from civicwatch.summarizer.reduce_summarize import ReduceSummarizer
+from PolicyWatch.chunker.chunk_text import TextChunker
+from PolicyWatch.config.settings import LOG_LEVEL
+from PolicyWatch.normalizer.normalize import Normalizer
+from PolicyWatch.scraper.base import BaseScraper
+from PolicyWatch.scraper.congress_scraper import CongressScraper
+from PolicyWatch.summarizer.map_summarize import MapSummarizer
+from PolicyWatch.summarizer.reduce_summarize import ReduceSummarizer
 
 # Configure logging
 logging.basicConfig(
@@ -125,7 +125,7 @@ class SummarizationPipeline:
 
 def main():
     """Main entry point."""
-    parser = argparse.ArgumentParser(description="CivicWatch summarization pipeline")
+    parser = argparse.ArgumentParser(description="PolicyWatch summarization pipeline")
     parser.add_argument(
         "--url",
         type=str,

@@ -1,4 +1,4 @@
-name: CivicWatch Update
+﻿name: PolicyWatch Update
 
 on:
   schedule:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: civicwatch-update
+  group: policywatch-update
   cancel-in-progress: true
 
 permissions:
@@ -177,7 +177,7 @@ jobs:
 
       - name: Commit updated site
         run: |
-          git config user.name "civicwatch-bot"
+          git config user.name "policywatch-bot"
           git config user.email "actions@github.com"
           git fetch origin main
           # Only commit small pipeline outputs — large JSON lives on Cloudflare R2.
@@ -213,7 +213,7 @@ jobs:
               echo "No changes to commit"
               return 1
             fi
-            git commit -m "Automated CivicWatch update"
+            git commit -m "Automated PolicyWatch Update"
             return 0
           }
 

@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>District Map — CivicWatch</title>
+<title>District Map — PolicyWatch</title>
 <link rel="stylesheet" href="theme.css" />
 <link rel="stylesheet" href="sr-only.css" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -194,10 +194,10 @@ tailwind.config = {
         <div class="cw-card-header">
             <div class="flex flex-wrap items-center justify-between gap-4">
                 <div class="flex items-center gap-4">
-                    <img src="CivicWatch Logo.png" alt="CivicWatch Logo" class="h-14 w-auto hidden sm:block" />
+                    <img src="PolicyWatch Logo.png" alt="PolicyWatch Logo" class="h-14 w-auto hidden sm:block" />
                     <div>
                         <h1 class="text-3xl font-bold">
-                            <span class="text-white">Civic</span><span class="text-civic-gold">Watch</span>
+                            <span class="text-white">Policy</span><span class="text-civic-gold">Watch</span>
                         </h1>
                         <div id="map-subtitle" class="cw-text-on-header-muted text-sm mt-1">District Map — Kansas House</div>
                     </div>
@@ -249,9 +249,9 @@ tailwind.config = {
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src="district-map.js"></script>
 <script>
-CivicWatchShell.init({ page: 'map' });
+PolicyWatchShell.init({ page: 'map' });
 document.addEventListener('DOMContentLoaded', function () {
-    CivicWatchDistrictMap.init();
+    PolicyWatchDistrictMap.init();
 });
 </script>
 </body>

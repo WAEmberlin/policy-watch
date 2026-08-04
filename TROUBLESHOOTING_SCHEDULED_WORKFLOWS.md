@@ -1,4 +1,4 @@
-# Troubleshooting: Scheduled Workflows Not Running
+﻿# Troubleshooting: Scheduled Workflows Not Running
 
 ## Common Issues & Solutions
 
@@ -74,7 +74,7 @@ git push
 
 **Check**:
 1. Go to **Actions** tab
-2. Look for "CivicWatch Update" workflow
+2. Look for "PolicyWatch Update" workflow
 3. If it doesn't appear, there's likely a syntax error
 
 **Fix**: Validate YAML syntax:
@@ -148,7 +148,7 @@ git push
 
 3. **Check Actions Tab**:
    - Go to **Actions** tab
-   - Look for "CivicWatch Update"
+   - Look for "PolicyWatch Update"
    - Check recent runs (should see manual runs)
 
 4. **Check Permissions**:
@@ -156,7 +156,7 @@ git push
    - Verify all permissions enabled
 
 5. **Try Manual Run**:
-   - Actions → CivicWatch Update → Run workflow
+   - Actions → PolicyWatch Update → Run workflow
    - If manual works, scheduled should work too
 
 6. **Wait and Monitor**:

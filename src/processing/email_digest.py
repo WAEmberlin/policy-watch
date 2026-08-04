@@ -1,4 +1,4 @@
-"""Build per-state and combined Policy Watch email digests."""
+"""Build per-state and combined PolicyWatch email digests."""
 
 from __future__ import annotations
 
@@ -545,13 +545,13 @@ def build_digest_html(
     federal_hearings = hearings_by_state.get(FEDERAL_CODE, [])
     cfg = load_digest_config()
     digest_meta = next((d for d in cfg["digests"] if d["id"] == digest_id), None)
-    prefix = digest_meta["subject_prefix"] if digest_meta else "Policy Watch"
+    prefix = digest_meta["subject_prefix"] if digest_meta else "PolicyWatch"
     window = cfg.get("window_hours", 6)
 
     html = ""
 
     if digest_id == "all":
-        display_name = "Policy Watch — All States"
+        display_name = "PolicyWatch — All States"
         html += f"<h1>{display_name}</h1>"
         html += f"<p>Legislative updates from the last {window} hours.</p>"
 
@@ -583,7 +583,7 @@ def build_digest_html(
         return html, subject, total
 
     if digest_id == "federal":
-        display_name = "Federal Policy Watch"
+        display_name = "Federal PolicyWatch"
         html += f"<h1>{display_name}</h1>"
         html += f"<p>U.S. Congress updates from the last {window} hours.</p>"
         total = len(federal_items) + len(federal_hearings)
@@ -602,7 +602,7 @@ def build_digest_html(
     state_hearings = hearings_by_state.get(code, [])
     total = len(state_items) + len(state_hearings) + len(federal_items) + len(federal_hearings)
 
-    html += f"<h1>{name} Policy Watch</h1>"
+    html += f"<h1>{name} PolicyWatch</h1>"
     html += f"<p>{name} legislative updates from the last {window} hours, plus relevant federal activity.</p>"
 
     html += f"<h2>{name}</h2>"
