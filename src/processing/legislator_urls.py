@@ -28,6 +28,12 @@ _STATE_PROFILE_DOMAINS = {
     "NE": ("nebraskalegislature.gov", "ne.gov"),
     "MD": ("mgaleg.maryland.gov", "maryland.gov"),
     "PA": ("legis.state.pa.us", "palegis.us", "pahouse.com", "pasenategop.com"),
+    "MA": ("malegislature.gov", "mass.gov"),
+    "WV": ("wvlegislature.gov",),
+    "TN": ("capitol.tn.gov", "wapp.capitol.tn.gov"),
+    "NC": ("ncleg.gov",),
+    "MO": ("house.mo.gov", "senate.mo.gov", "mo.gov"),
+    "IA": ("legis.iowa.gov",),
     "FEDERAL": ("congress.gov", "house.gov", "senate.gov"),
 }
 

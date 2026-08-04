@@ -302,6 +302,192 @@ streams:
     external_url: https://www.palegis.us/house/committees/committee-archives
     youtube_url: https://pahouse.com/live
 
+  # ——— Massachusetts ———
+  - id: ma-senate-floor
+    title: Massachusetts Senate Floor
+    state: MA
+    jurisdiction: massachusetts
+    type: floor
+    target_id: ma-senate-floor
+    tab_pane: pane-massachusetts
+    external_url: https://malegislature.gov/Events/Debates
+    youtube_url: https://malegislature.gov/Events/Debates
+
+  - id: ma-house-floor
+    title: Massachusetts House Floor
+    state: MA
+    jurisdiction: massachusetts
+    type: floor
+    target_id: ma-house-floor
+    tab_pane: pane-massachusetts
+    external_url: https://malegislature.gov/Events/Debates
+    youtube_url: https://malegislature.gov/Events/Debates
+
+  - id: ma-committees
+    title: Massachusetts General Court Committees
+    state: MA
+    jurisdiction: massachusetts
+    type: committee
+    target_id: ma-committees
+    tab_pane: pane-massachusetts
+    external_url: https://malegislature.gov/Events/Hearings
+    youtube_url: https://malegislature.gov/Events/Hearings
+
+  # ——— West Virginia ———
+  - id: wv-senate-floor
+    title: West Virginia Senate Floor
+    state: WV
+    jurisdiction: west-virginia
+    type: floor
+    target_id: wv-senate-floor
+    tab_pane: pane-west-virginia
+    external_url: https://www.wvlegislature.gov/live.cfm
+    youtube_url: https://www.wvlegislature.gov/live.cfm
+
+  - id: wv-house-floor
+    title: West Virginia House Floor
+    state: WV
+    jurisdiction: west-virginia
+    type: floor
+    target_id: wv-house-floor
+    tab_pane: pane-west-virginia
+    external_url: https://www.wvlegislature.gov/live.cfm
+    youtube_url: https://www.wvlegislature.gov/live.cfm
+
+  - id: wv-committees
+    title: West Virginia Legislature Committees
+    state: WV
+    jurisdiction: west-virginia
+    type: committee
+    target_id: wv-committees
+    tab_pane: pane-west-virginia
+    external_url: https://home.wvlegislature.gov/live-media/
+    youtube_url: https://home.wvlegislature.gov/live-media/
+
+  # ——— Tennessee ———
+  - id: tn-senate-floor
+    title: Tennessee Senate Floor
+    state: TN
+    jurisdiction: tennessee
+    type: floor
+    target_id: tn-senate-floor
+    tab_pane: pane-tennessee
+    external_url: https://wapp.capitol.tn.gov/apps/livevideo
+    youtube_url: https://wapp.capitol.tn.gov/apps/livevideo
+
+  - id: tn-house-floor
+    title: Tennessee House Floor
+    state: TN
+    jurisdiction: tennessee
+    type: floor
+    target_id: tn-house-floor
+    tab_pane: pane-tennessee
+    external_url: https://wapp.capitol.tn.gov/apps/livevideo
+    youtube_url: https://wapp.capitol.tn.gov/apps/livevideo
+
+  - id: tn-committees
+    title: Tennessee General Assembly Committees
+    state: TN
+    jurisdiction: tennessee
+    type: committee
+    target_id: tn-committees
+    tab_pane: pane-tennessee
+    external_url: https://wapp.capitol.tn.gov/apps/livevideo
+    youtube_url: https://wapp.capitol.tn.gov/apps/livevideo
+
+  # ——— North Carolina ———
+  - id: nc-senate-floor
+    title: North Carolina Senate Floor
+    state: NC
+    jurisdiction: north-carolina
+    type: floor
+    target_id: nc-senate-floor
+    tab_pane: pane-north-carolina
+    external_url: https://www.ncleg.gov/Streaming
+    youtube_url: https://www.ncleg.gov/Streaming
+
+  - id: nc-house-floor
+    title: North Carolina House Floor
+    state: NC
+    jurisdiction: north-carolina
+    type: floor
+    target_id: nc-house-floor
+    tab_pane: pane-north-carolina
+    external_url: https://www.ncleg.gov/Streaming
+    youtube_url: https://www.ncleg.gov/Streaming
+
+  - id: nc-committees
+    title: North Carolina General Assembly Committees
+    state: NC
+    jurisdiction: north-carolina
+    type: committee
+    target_id: nc-committees
+    tab_pane: pane-north-carolina
+    external_url: https://www.ncleg.gov/Streaming
+    youtube_url: https://www.ncleg.gov/Streaming
+
+  # ——— Missouri ———
+  - id: mo-senate-floor
+    title: Missouri Senate Floor
+    state: MO
+    jurisdiction: missouri
+    type: floor
+    target_id: mo-senate-floor
+    tab_pane: pane-missouri
+    external_url: https://www.senate.mo.gov/media/
+    youtube_url: https://www.senate.mo.gov/media/
+
+  - id: mo-house-floor
+    title: Missouri House Floor
+    state: MO
+    jurisdiction: missouri
+    type: floor
+    target_id: mo-house-floor
+    tab_pane: pane-missouri
+    external_url: https://house.mo.gov/MediaCenter.aspx
+    youtube_url: https://house.mo.gov/MediaCenter.aspx
+
+  - id: mo-committees
+    title: Missouri General Assembly Committees
+    state: MO
+    jurisdiction: missouri
+    type: committee
+    target_id: mo-committees
+    tab_pane: pane-missouri
+    external_url: https://house.mo.gov/MediaCenter.aspx
+    youtube_url: https://house.mo.gov/MediaCenter.aspx
+
+  # ——— Iowa ———
+  - id: ia-senate-floor
+    title: Iowa Senate Floor
+    state: IA
+    jurisdiction: iowa
+    type: floor
+    target_id: ia-senate-floor
+    tab_pane: pane-iowa
+    external_url: https://www.legis.iowa.gov/dashboard?view=video
+    youtube_url: https://www.legis.iowa.gov/dashboard?view=video
+
+  - id: ia-house-floor
+    title: Iowa House Floor
+    state: IA
+    jurisdiction: iowa
+    type: floor
+    target_id: ia-house-floor
+    tab_pane: pane-iowa
+    external_url: https://www.legis.iowa.gov/dashboard?view=video
+    youtube_url: https://www.legis.iowa.gov/dashboard?view=video
+
+  - id: ia-committees
+    title: Iowa General Assembly Committees
+    state: IA
+    jurisdiction: iowa
+    type: committee
+    target_id: ia-committees
+    tab_pane: pane-iowa
+    external_url: https://www.legis.iowa.gov/dashboard?view=video
+    youtube_url: https://www.legis.iowa.gov/dashboard?view=video
+
   # ——— U.S. House ———
   - id: us-house-floor
     title: US House Floor
@@ -408,4 +594,10 @@ state_floor_stream:
   NE: nebraska-floor
   MD: md-senate-floor
   PA: pa-senate-floor
+  MA: ma-senate-floor
+  WV: wv-senate-floor
+  TN: tn-senate-floor
+  NC: nc-senate-floor
+  MO: mo-senate-floor
+  IA: ia-senate-floor
   Federal: us-house-floor

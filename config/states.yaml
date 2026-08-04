@@ -77,6 +77,60 @@ states:
     enrichment: openstates_detail
     enabled: true
 
+  - code: ma
+    name: Massachusetts
+    level: state
+    sources:
+      - openstates
+    openstates_jurisdiction: ocd-jurisdiction/country:us/state:ma/government
+    enrichment: openstates_detail
+    enabled: true
+
+  - code: wv
+    name: West Virginia
+    level: state
+    sources:
+      - openstates
+    openstates_jurisdiction: ocd-jurisdiction/country:us/state:wv/government
+    enrichment: openstates_detail
+    enabled: true
+
+  - code: tn
+    name: Tennessee
+    level: state
+    sources:
+      - openstates
+    openstates_jurisdiction: ocd-jurisdiction/country:us/state:tn/government
+    enrichment: openstates_detail
+    enabled: true
+
+  - code: nc
+    name: North Carolina
+    level: state
+    sources:
+      - openstates
+    openstates_jurisdiction: ocd-jurisdiction/country:us/state:nc/government
+    enrichment: openstates_detail
+    enabled: true
+
+  - code: mo
+    name: Missouri
+    level: state
+    sources:
+      - openstates
+    openstates_jurisdiction: ocd-jurisdiction/country:us/state:mo/government
+    enrichment: openstates_detail
+    enabled: true
+
+  - code: ia
+    name: Iowa
+    level: state
+    sources:
+      - openstates
+    openstates_jurisdiction: ocd-jurisdiction/country:us/state:ia/government
+    enrichment: openstates_detail
+    enabled: true
+
 federal:
   sources:
     - congress
@@ -106,8 +160,8 @@ kansas_api:
 enrichment:
   # Kansas: official REST API (RSS stays primary ingest)
   kansas_api: ks
-  # CO/AZ/UT/ME/NE/MD/PA: Open States detail re-fetch for sponsors/votes
-  openstates_detail: [co, az, ut, me, ne, md, pa]
+  # CO/AZ/UT/ME/NE/MD/PA/MA/WV/TN/NC/MO/IA: Open States detail re-fetch for sponsors/votes
+  openstates_detail: [co, az, ut, me, ne, md, pa, ma, wv, tn, nc, mo, ia]
 
 topic_dashboards:
   - id: veterans

@@ -15,11 +15,22 @@ const PolicyWatchHome = (() => {
         { value: 'NE', label: 'NE' },
         { value: 'MD', label: 'MD' },
         { value: 'PA', label: 'PA' },
+        { value: 'MA', label: 'MA' },
+        { value: 'WV', label: 'WV' },
+        { value: 'TN', label: 'TN' },
+        { value: 'NC', label: 'NC' },
+        { value: 'MO', label: 'MO' },
+        { value: 'IA', label: 'IA' },
     ];
 
     const STATE_NAMES = {
-        KS: 'Kansas', CO: 'Colorado', AZ: 'Arizona', UT: 'Utah', ME: 'Maine', NE: 'Nebraska', MD: 'Maryland', PA: 'Pennsylvania', Federal: 'U.S. Congress',
+        KS: 'Kansas', CO: 'Colorado', AZ: 'Arizona', UT: 'Utah', ME: 'Maine', NE: 'Nebraska',
+        MD: 'Maryland', PA: 'Pennsylvania', MA: 'Massachusetts', WV: 'West Virginia',
+        TN: 'Tennessee', NC: 'North Carolina', MO: 'Missouri', IA: 'Iowa', Federal: 'U.S. Congress',
     };
+
+    const JURISDICTIONS_STORAGE_KEY = 'policywatch.jurisdictionsExpanded';
+    const JURISDICTIONS_WIDE_MQ = '(min-width: 768px)';
 
     const META_SOURCE_PATTERNS = [/congress\.gov api/i, /openstates/i, /data sync/i, /api feed/i];
 
@@ -128,6 +139,12 @@ const PolicyWatchHome = (() => {
         if (src.includes('nebraska')) return 'NE';
         if (src.includes('maryland')) return 'MD';
         if (src.includes('pennsylvania')) return 'PA';
+        if (src.includes('massachusetts')) return 'MA';
+        if (src.includes('west virginia')) return 'WV';
+        if (src.includes('tennessee')) return 'TN';
+        if (src.includes('north carolina')) return 'NC';
+        if (src.includes('missouri')) return 'MO';
+        if (src.includes('iowa')) return 'IA';
         return '';
     }
 
@@ -142,6 +159,12 @@ const PolicyWatchHome = (() => {
             NE: 'bg-amber-100 text-amber-800',
             MD: 'bg-teal-100 text-teal-800',
             PA: 'bg-blue-100 text-blue-800',
+            MA: 'bg-cyan-100 text-cyan-800',
+            WV: 'bg-lime-100 text-lime-800',
+            TN: 'bg-pink-100 text-pink-800',
+            NC: 'bg-fuchsia-100 text-fuchsia-800',
+            MO: 'bg-yellow-100 text-yellow-800',
+            IA: 'bg-stone-100 text-stone-800',
         };
         return map[state] || 'bg-slate-100 text-slate-700';
     }
@@ -197,7 +220,10 @@ const PolicyWatchHome = (() => {
     }
 
     function countBillsByState(siteData) {
-        const counts = { Federal: 0, KS: 0, CO: 0, AZ: 0, UT: 0, ME: 0, NE: 0, MD: 0, PA: 0 };
+        const counts = {
+            Federal: 0, KS: 0, CO: 0, AZ: 0, UT: 0, ME: 0, NE: 0, MD: 0, PA: 0,
+            MA: 0, WV: 0, TN: 0, NC: 0, MO: 0, IA: 0,
+        };
         (siteData.search_index?.bills || []).forEach((bill) => {
             if (bill.level === 'federal' || !bill.state) {
                 counts.Federal++;
@@ -284,9 +310,78 @@ const PolicyWatchHome = (() => {
         }
     }
 
+    function defaultJurisdictionsExpanded() {
+        try {
+            const saved = localStorage.getItem(JURISDICTIONS_STORAGE_KEY);
+            if (saved === 'true') return true;
+            if (saved === 'false') return false;
+        } catch {
+            /* ignore */
+        }
+        return window.matchMedia(JURISDICTIONS_WIDE_MQ).matches;
+    }
+
+    function setJurisdictionsExpanded(expanded, { persist = true } = {}) {
+        const section = document.getElementById('jurisdictions-section');
+        const header = document.getElementById('jurisdictions-header');
+        const grid = document.getElementById('state-snapshots');
+        if (!section || !header) return;
+
+        section.classList.toggle('collapsed', !expanded);
+        section.classList.toggle('expanded', expanded);
+        header.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+
+        if (grid) {
+            grid.setAttribute('aria-hidden', expanded ? 'false' : 'true');
+            if ('inert' in grid) grid.inert = !expanded;
+        }
+
+        const label = header.querySelector('.jurisdictions-toggle-label');
+        if (label) {
+            label.textContent = expanded ? 'Hide jurisdictions' : 'Show jurisdictions';
+        }
+
+        if (persist) {
+            try {
+                localStorage.setItem(JURISDICTIONS_STORAGE_KEY, expanded ? 'true' : 'false');
+            } catch {
+                /* ignore */
+            }
+        }
+    }
+
+    function initJurisdictionsCollapse() {
+        const section = document.getElementById('jurisdictions-section');
+        const header = document.getElementById('jurisdictions-header');
+        if (!section || !header || header.dataset.bound === '1') return;
+        header.dataset.bound = '1';
+
+        // Apply default without writing localStorage until the user toggles.
+        const hasSaved = (() => {
+            try {
+                const saved = localStorage.getItem(JURISDICTIONS_STORAGE_KEY);
+                return saved === 'true' || saved === 'false';
+            } catch {
+                return false;
+            }
+        })();
+        setJurisdictionsExpanded(defaultJurisdictionsExpanded(), { persist: hasSaved });
+
+        header.addEventListener('click', (e) => {
+            e.preventDefault();
+            const expanding = section.classList.contains('collapsed');
+            setJurisdictionsExpanded(expanding, { persist: true });
+            if (typeof a11yAnnounce === 'function') {
+                a11yAnnounce(expanding ? 'Tracked jurisdictions expanded.' : 'Tracked jurisdictions collapsed.');
+            }
+        });
+    }
+
     function renderStateSnapshots(siteData, weeklyCounts) {
         const row = document.getElementById('state-snapshots');
         if (!row) return;
+
+        initJurisdictionsCollapse();
 
         const billCounts = countBillsByState(siteData);
         const weekMap = {
@@ -299,6 +394,12 @@ const PolicyWatchHome = (() => {
             NE: weeklyCounts.ne || 0,
             MD: weeklyCounts.md || 0,
             PA: weeklyCounts.pa || 0,
+            MA: weeklyCounts.ma || 0,
+            WV: weeklyCounts.wv || 0,
+            TN: weeklyCounts.tn || 0,
+            NC: weeklyCounts.nc || 0,
+            MO: weeklyCounts.mo || 0,
+            IA: weeklyCounts.ia || 0,
         };
 
         const cards = [
@@ -311,6 +412,12 @@ const PolicyWatchHome = (() => {
             { value: 'NE', label: 'Nebraska', sub: 'Unicameral Legislature' },
             { value: 'MD', label: 'Maryland', sub: 'General Assembly' },
             { value: 'PA', label: 'Pennsylvania', sub: 'General Assembly' },
+            { value: 'MA', label: 'Massachusetts', sub: 'General Court' },
+            { value: 'WV', label: 'West Virginia', sub: 'Legislature' },
+            { value: 'TN', label: 'Tennessee', sub: 'General Assembly' },
+            { value: 'NC', label: 'North Carolina', sub: 'General Assembly' },
+            { value: 'MO', label: 'Missouri', sub: 'General Assembly' },
+            { value: 'IA', label: 'Iowa', sub: 'General Assembly' },
         ];
 
         row.innerHTML = '';
@@ -1075,7 +1182,7 @@ const PolicyWatchHome = (() => {
         });
 
         const stateKeys = Object.keys(byState).sort((a, b) => {
-            const order = ['Federal', 'KS', 'CO', 'AZ', 'UT', 'ME', 'NE', 'MD', 'PA', 'Other'];
+            const order = ['Federal', 'KS', 'CO', 'AZ', 'UT', 'ME', 'NE', 'MD', 'PA', 'MA', 'WV', 'TN', 'NC', 'MO', 'IA', 'Other'];
             return order.indexOf(a) - order.indexOf(b);
         });
 
@@ -1155,6 +1262,7 @@ const PolicyWatchHome = (() => {
         initStateChips();
         initVeteransFilter();
         initFilterDrawer();
+        initJurisdictionsCollapse();
         loadLiveNowStrip();
 
         const weeklyCounts = await fetchWeeklyCounts();

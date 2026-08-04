@@ -25,7 +25,11 @@ function setContentBusy(isBusy) {
     if (content) content.setAttribute("aria-busy", isBusy ? "true" : "false");
 }
 
-const STATE_NAMES = { KS: "Kansas", CO: "Colorado", AZ: "Arizona", UT: "Utah", ME: "Maine", NE: "Nebraska", MD: "Maryland", PA: "Pennsylvania", Federal: "U.S. Congress" };
+const STATE_NAMES = {
+    KS: "Kansas", CO: "Colorado", AZ: "Arizona", UT: "Utah", ME: "Maine", NE: "Nebraska",
+    MD: "Maryland", PA: "Pennsylvania", MA: "Massachusetts", WV: "West Virginia",
+    TN: "Tennessee", NC: "North Carolina", MO: "Missouri", IA: "Iowa", Federal: "U.S. Congress",
+};
 
 function inferItemState(item) {
     if (typeof PolicyWatchHome !== "undefined") return PolicyWatchHome.inferItemState(item);
@@ -41,6 +45,12 @@ function inferItemState(item) {
     if (src.includes("nebraska")) return "NE";
     if (src.includes("maryland")) return "MD";
     if (src.includes("pennsylvania")) return "PA";
+    if (src.includes("massachusetts")) return "MA";
+    if (src.includes("west virginia")) return "WV";
+    if (src.includes("tennessee")) return "TN";
+    if (src.includes("north carolina")) return "NC";
+    if (src.includes("missouri")) return "MO";
+    if (src.includes("iowa")) return "IA";
     return "";
 }
 

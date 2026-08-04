@@ -39,6 +39,30 @@ digests:
     name: Pennsylvania
     subject_prefix: "Pennsylvania PolicyWatch"
 
+  - id: ma
+    name: Massachusetts
+    subject_prefix: "Massachusetts PolicyWatch"
+
+  - id: wv
+    name: West Virginia
+    subject_prefix: "West Virginia PolicyWatch"
+
+  - id: tn
+    name: Tennessee
+    subject_prefix: "Tennessee PolicyWatch"
+
+  - id: nc
+    name: North Carolina
+    subject_prefix: "North Carolina PolicyWatch"
+
+  - id: mo
+    name: Missouri
+    subject_prefix: "Missouri PolicyWatch"
+
+  - id: ia
+    name: Iowa
+    subject_prefix: "Iowa PolicyWatch"
+
   - id: federal
     name: Federal
     subject_prefix: "Federal PolicyWatch"

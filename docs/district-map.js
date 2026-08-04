@@ -135,6 +135,72 @@
         us_senate: { file: 'pa-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
       },
     },
+    MA: {
+      name: 'Massachusetts',
+      center: [42.2, -71.8],
+      zoom: 8,
+      chambers: {
+        house: { file: 'ma-sld-lower.geojson', chamber: 'house', label: 'Massachusetts House', note: '160 districts' },
+        senate: { file: 'ma-sld-upper.geojson', chamber: 'senate', label: 'Massachusetts Senate', note: '40 districts' },
+        us_house: { file: 'ma-cd119.geojson', chamber: 'us_house', label: 'U.S. House', note: '9 districts' },
+        us_senate: { file: 'ma-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
+      },
+    },
+    WV: {
+      name: 'West Virginia',
+      center: [38.7, -80.6],
+      zoom: 7,
+      chambers: {
+        house: { file: 'wv-sld-lower.geojson', chamber: 'house', label: 'West Virginia House', note: '100 districts' },
+        senate: { file: 'wv-sld-upper.geojson', chamber: 'senate', label: 'West Virginia Senate', note: '17 districts (34 senators)' },
+        us_house: { file: 'wv-cd119.geojson', chamber: 'us_house', label: 'U.S. House', note: '2 districts' },
+        us_senate: { file: 'wv-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
+      },
+    },
+    TN: {
+      name: 'Tennessee',
+      center: [35.8, -86.3],
+      zoom: 7,
+      chambers: {
+        house: { file: 'tn-sld-lower.geojson', chamber: 'house', label: 'Tennessee House', note: '99 districts' },
+        senate: { file: 'tn-sld-upper.geojson', chamber: 'senate', label: 'Tennessee Senate', note: '33 districts' },
+        us_house: { file: 'tn-cd119.geojson', chamber: 'us_house', label: 'U.S. House', note: '9 districts' },
+        us_senate: { file: 'tn-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
+      },
+    },
+    NC: {
+      name: 'North Carolina',
+      center: [35.5, -79.5],
+      zoom: 7,
+      chambers: {
+        house: { file: 'nc-sld-lower.geojson', chamber: 'house', label: 'North Carolina House', note: '120 districts' },
+        senate: { file: 'nc-sld-upper.geojson', chamber: 'senate', label: 'North Carolina Senate', note: '50 districts' },
+        us_house: { file: 'nc-cd119.geojson', chamber: 'us_house', label: 'U.S. House', note: '14 districts' },
+        us_senate: { file: 'nc-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
+      },
+    },
+    MO: {
+      name: 'Missouri',
+      center: [38.3, -92.5],
+      zoom: 7,
+      chambers: {
+        house: { file: 'mo-sld-lower.geojson', chamber: 'house', label: 'Missouri House', note: '163 districts' },
+        senate: { file: 'mo-sld-upper.geojson', chamber: 'senate', label: 'Missouri Senate', note: '34 districts' },
+        us_house: { file: 'mo-cd119.geojson', chamber: 'us_house', label: 'U.S. House', note: '8 districts' },
+        us_senate: { file: 'mo-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
+      },
+    },
+    IA: {
+      name: 'Iowa',
+      center: [42.0, -93.5],
+      zoom: 7,
+      chambers: {
+        house: { file: 'ia-sld-lower.geojson', chamber: 'house', label: 'Iowa House', note: '100 districts' },
+        senate: { file: 'ia-sld-upper.geojson', chamber: 'senate', label: 'Iowa Senate', note: '50 districts' },
+        us_house: { file: 'ia-cd119.geojson', chamber: 'us_house', label: 'U.S. House', note: '4 districts' },
+        us_senate: { file: 'ia-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
+      },
+    },
   };
 
   function normalizeChamber(chamber) {

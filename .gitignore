@@ -10,6 +10,18 @@ data/maryland/*
 !data/maryland/README.md
 data/pennsylvania/*
 !data/pennsylvania/README.md
+data/massachusetts/*
+!data/massachusetts/README.md
+data/west_virginia/*
+!data/west_virginia/README.md
+data/tennessee/*
+!data/tennessee/README.md
+data/north_carolina/*
+!data/north_carolina/README.md
+data/missouri/*
+!data/missouri/README.md
+data/iowa/*
+!data/iowa/README.md
 
 # Large generated artifacts live on Cloudflare R2 (not git)
 docs/site_data.json

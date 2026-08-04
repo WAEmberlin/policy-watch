@@ -80,6 +80,24 @@
             <button class="nav-link" id="tab-pennsylvania" data-bs-toggle="tab" data-bs-target="#pane-pennsylvania" type="button" role="tab">Pennsylvania</button>
           </li>
           <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-massachusetts" data-bs-toggle="tab" data-bs-target="#pane-massachusetts" type="button" role="tab">Massachusetts</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-west-virginia" data-bs-toggle="tab" data-bs-target="#pane-west-virginia" type="button" role="tab">West Virginia</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-tennessee" data-bs-toggle="tab" data-bs-target="#pane-tennessee" type="button" role="tab">Tennessee</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-north-carolina" data-bs-toggle="tab" data-bs-target="#pane-north-carolina" type="button" role="tab">North Carolina</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-missouri" data-bs-toggle="tab" data-bs-target="#pane-missouri" type="button" role="tab">Missouri</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-iowa" data-bs-toggle="tab" data-bs-target="#pane-iowa" type="button" role="tab">Iowa</button>
+          </li>
+          <li class="nav-item" role="presentation">
             <button class="nav-link" id="tab-house" data-bs-toggle="tab" data-bs-target="#pane-house" type="button" role="tab">US House</button>
           </li>
           <li class="nav-item" role="presentation">
@@ -461,6 +479,360 @@
                   <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
                     <a href="https://www.palegis.us/house/committees/committee-archives" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">House Committee Archives</a>
                     <a href="https://pahouse.com/live" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">PA House Live</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---------- Massachusetts ---------- -->
+          <div class="tab-pane fade" id="pane-massachusetts" role="tabpanel">
+            <ul class="nav nav-tabs mb-3" id="massachusettsSubTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#massachusetts-senate-pane" type="button" role="tab">Senate Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#massachusetts-house-pane" type="button" role="tab">House Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#massachusetts-committees-pane" type="button" role="tab">Committees</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="massachusettsSubTabContent">
+              <div class="tab-pane fade show active" id="massachusetts-senate-pane" role="tabpanel">
+                <div id="ma-senate-floor">
+                  <h2 class="h5 fw-bold mb-2">Massachusetts Senate Floor</h2>
+                  <p class="text-body-secondary mb-2">Massachusetts Senate floor proceedings on the official General Court events page when the chamber is in session.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://malegislature.gov/Events/Debates" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Watch on MA Legislature – Debates</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="ma-senate-floor" aria-label="Play Massachusetts Senate floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light">
+                    <div class="embed-wrapper" data-stream-id="ma-senate-floor" style="min-height: 280px;">
+                      <iframe loading="lazy" title="Massachusetts Senate Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="embed-placeholder">Click Play here to watch on PolicyWatch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="massachusetts-house-pane" role="tabpanel">
+                <div id="ma-house-floor">
+                  <h2 class="h5 fw-bold mb-2">Massachusetts House Floor</h2>
+                  <p class="text-body-secondary mb-2">Massachusetts House floor proceedings via the official General Court debates and events page.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://malegislature.gov/Events/Debates" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Watch on MA Legislature – Debates</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="ma-house-floor" aria-label="Play Massachusetts House floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light">
+                    <div class="embed-wrapper" data-stream-id="ma-house-floor" style="min-height: 280px;">
+                      <iframe loading="lazy" title="Massachusetts House Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="embed-placeholder">Click Play here to watch on PolicyWatch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="massachusetts-committees-pane" role="tabpanel">
+                <div id="ma-committees">
+                  <h2 class="h5 fw-bold mb-2">Massachusetts Committee Hearings</h2>
+                  <p class="text-body-secondary mb-2">Committee hearings stream on the General Court events page. Browse hearings for live and recorded meetings.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://malegislature.gov/Events/Hearings" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">MA Legislature Hearings</a>
+                    <a href="https://malegislature.gov/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">General Court Home</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---------- West Virginia ---------- -->
+          <div class="tab-pane fade" id="pane-west-virginia" role="tabpanel">
+            <ul class="nav nav-tabs mb-3" id="westVirginiaSubTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#west-virginia-senate-pane" type="button" role="tab">Senate Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#west-virginia-house-pane" type="button" role="tab">House Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#west-virginia-committees-pane" type="button" role="tab">Committees</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="westVirginiaSubTabContent">
+              <div class="tab-pane fade show active" id="west-virginia-senate-pane" role="tabpanel">
+                <div id="wv-senate-floor">
+                  <h2 class="h5 fw-bold mb-2">West Virginia Senate Floor</h2>
+                  <p class="text-body-secondary mb-2">West Virginia Senate floor proceedings on the official legislature livestream when the chamber is in session.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://www.wvlegislature.gov/live.cfm" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Watch on WV Legislature Live</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="wv-senate-floor" aria-label="Play West Virginia Senate floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light">
+                    <div class="embed-wrapper" data-stream-id="wv-senate-floor" style="min-height: 280px;">
+                      <iframe loading="lazy" title="West Virginia Senate Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="embed-placeholder">Click Play here to watch on PolicyWatch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="west-virginia-house-pane" role="tabpanel">
+                <div id="wv-house-floor">
+                  <h2 class="h5 fw-bold mb-2">West Virginia House Floor</h2>
+                  <p class="text-body-secondary mb-2">West Virginia House of Delegates floor proceedings via the official legislature livestream.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://www.wvlegislature.gov/live.cfm" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Watch on WV Legislature Live</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="wv-house-floor" aria-label="Play West Virginia House floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light">
+                    <div class="embed-wrapper" data-stream-id="wv-house-floor" style="min-height: 280px;">
+                      <iframe loading="lazy" title="West Virginia House Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="embed-placeholder">Click Play here to watch on PolicyWatch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="west-virginia-committees-pane" role="tabpanel">
+                <div id="wv-committees">
+                  <h2 class="h5 fw-bold mb-2">West Virginia Committee Hearings</h2>
+                  <p class="text-body-secondary mb-2">Committee hearings stream on the WV Legislature live media page. Browse chamber and committee audio/video feeds.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://home.wvlegislature.gov/live-media/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">WV Live Media</a>
+                    <a href="https://www.wvlegislature.gov/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">WV Legislature Home</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---------- Tennessee ---------- -->
+          <div class="tab-pane fade" id="pane-tennessee" role="tabpanel">
+            <ul class="nav nav-tabs mb-3" id="tennesseeSubTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tennessee-senate-pane" type="button" role="tab">Senate Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tennessee-house-pane" type="button" role="tab">House Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tennessee-committees-pane" type="button" role="tab">Committees</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="tennesseeSubTabContent">
+              <div class="tab-pane fade show active" id="tennessee-senate-pane" role="tabpanel">
+                <div id="tn-senate-floor">
+                  <h2 class="h5 fw-bold mb-2">Tennessee Senate Floor</h2>
+                  <p class="text-body-secondary mb-2">Tennessee Senate floor proceedings on the official General Assembly live video page when the chamber is in session.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://wapp.capitol.tn.gov/apps/livevideo" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Watch on TN Live Video</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="tn-senate-floor" aria-label="Play Tennessee Senate floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light">
+                    <div class="embed-wrapper" data-stream-id="tn-senate-floor" style="min-height: 280px;">
+                      <iframe loading="lazy" title="Tennessee Senate Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="embed-placeholder">Click Play here to watch on PolicyWatch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="tennessee-house-pane" role="tabpanel">
+                <div id="tn-house-floor">
+                  <h2 class="h5 fw-bold mb-2">Tennessee House Floor</h2>
+                  <p class="text-body-secondary mb-2">Tennessee House floor proceedings via the official General Assembly live video stream.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://wapp.capitol.tn.gov/apps/livevideo" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Watch on TN Live Video</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="tn-house-floor" aria-label="Play Tennessee House floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light">
+                    <div class="embed-wrapper" data-stream-id="tn-house-floor" style="min-height: 280px;">
+                      <iframe loading="lazy" title="Tennessee House Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="embed-placeholder">Click Play here to watch on PolicyWatch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="tennessee-committees-pane" role="tabpanel">
+                <div id="tn-committees">
+                  <h2 class="h5 fw-bold mb-2">Tennessee Committee Hearings</h2>
+                  <p class="text-body-secondary mb-2">Committee hearings stream on the TN General Assembly live video page when meetings are in progress.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://wapp.capitol.tn.gov/apps/livevideo" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">TN Live Video</a>
+                    <a href="https://www.capitol.tn.gov/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">TN General Assembly Home</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---------- North Carolina ---------- -->
+          <div class="tab-pane fade" id="pane-north-carolina" role="tabpanel">
+            <ul class="nav nav-tabs mb-3" id="northCarolinaSubTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#north-carolina-senate-pane" type="button" role="tab">Senate Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#north-carolina-house-pane" type="button" role="tab">House Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#north-carolina-committees-pane" type="button" role="tab">Committees</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="northCarolinaSubTabContent">
+              <div class="tab-pane fade show active" id="north-carolina-senate-pane" role="tabpanel">
+                <div id="nc-senate-floor">
+                  <h2 class="h5 fw-bold mb-2">North Carolina Senate Floor</h2>
+                  <p class="text-body-secondary mb-2">North Carolina Senate floor proceedings on the official General Assembly streaming page when the chamber is in session.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://www.ncleg.gov/Streaming" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Watch on NCLEG Streaming</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="nc-senate-floor" aria-label="Play North Carolina Senate floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light">
+                    <div class="embed-wrapper" data-stream-id="nc-senate-floor" style="min-height: 280px;">
+                      <iframe loading="lazy" title="North Carolina Senate Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="embed-placeholder">Click Play here to watch on PolicyWatch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="north-carolina-house-pane" role="tabpanel">
+                <div id="nc-house-floor">
+                  <h2 class="h5 fw-bold mb-2">North Carolina House Floor</h2>
+                  <p class="text-body-secondary mb-2">North Carolina House floor proceedings via the official General Assembly audio/video streams.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://www.ncleg.gov/Streaming" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Watch on NCLEG Streaming</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="nc-house-floor" aria-label="Play North Carolina House floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light">
+                    <div class="embed-wrapper" data-stream-id="nc-house-floor" style="min-height: 280px;">
+                      <iframe loading="lazy" title="North Carolina House Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="embed-placeholder">Click Play here to watch on PolicyWatch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="north-carolina-committees-pane" role="tabpanel">
+                <div id="nc-committees">
+                  <h2 class="h5 fw-bold mb-2">North Carolina Committee Hearings</h2>
+                  <p class="text-body-secondary mb-2">Committee hearings stream on NCLEG Streaming when meetings are in progress. Browse the calendar for upcoming feeds.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://www.ncleg.gov/Streaming" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">NCLEG Streaming</a>
+                    <a href="https://www.ncleg.gov/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">NC General Assembly Home</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---------- Missouri ---------- -->
+          <div class="tab-pane fade" id="pane-missouri" role="tabpanel">
+            <ul class="nav nav-tabs mb-3" id="missouriSubTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#missouri-senate-pane" type="button" role="tab">Senate Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#missouri-house-pane" type="button" role="tab">House Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#missouri-committees-pane" type="button" role="tab">Committees</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="missouriSubTabContent">
+              <div class="tab-pane fade show active" id="missouri-senate-pane" role="tabpanel">
+                <div id="mo-senate-floor">
+                  <h2 class="h5 fw-bold mb-2">Missouri Senate Floor</h2>
+                  <p class="text-body-secondary mb-2">Missouri Senate floor proceedings on the official Senate media page when the chamber is in session.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://www.senate.mo.gov/media/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Watch on MO Senate Media</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="mo-senate-floor" aria-label="Play Missouri Senate floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light">
+                    <div class="embed-wrapper" data-stream-id="mo-senate-floor" style="min-height: 280px;">
+                      <iframe loading="lazy" title="Missouri Senate Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="embed-placeholder">Click Play here to watch on PolicyWatch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="missouri-house-pane" role="tabpanel">
+                <div id="mo-house-floor">
+                  <h2 class="h5 fw-bold mb-2">Missouri House Floor</h2>
+                  <p class="text-body-secondary mb-2">Missouri House floor proceedings via the official House media center livestream.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://house.mo.gov/MediaCenter.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Watch on MO House Media Center</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="mo-house-floor" aria-label="Play Missouri House floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light">
+                    <div class="embed-wrapper" data-stream-id="mo-house-floor" style="min-height: 280px;">
+                      <iframe loading="lazy" title="Missouri House Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="embed-placeholder">Click Play here to watch on PolicyWatch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="missouri-committees-pane" role="tabpanel">
+                <div id="mo-committees">
+                  <h2 class="h5 fw-bold mb-2">Missouri Committee Hearings</h2>
+                  <p class="text-body-secondary mb-2">Committee hearings stream on House and Senate media pages. Browse archives for recorded meetings.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://house.mo.gov/MediaCenter.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">MO House Media Center</a>
+                    <a href="https://www.senate.mo.gov/media/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">MO Senate Media</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---------- Iowa ---------- -->
+          <div class="tab-pane fade" id="pane-iowa" role="tabpanel">
+            <ul class="nav nav-tabs mb-3" id="iowaSubTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#iowa-senate-pane" type="button" role="tab">Senate Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#iowa-house-pane" type="button" role="tab">House Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#iowa-committees-pane" type="button" role="tab">Committees</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="iowaSubTabContent">
+              <div class="tab-pane fade show active" id="iowa-senate-pane" role="tabpanel">
+                <div id="ia-senate-floor">
+                  <h2 class="h5 fw-bold mb-2">Iowa Senate Floor</h2>
+                  <p class="text-body-secondary mb-2">Iowa Senate floor proceedings on the official General Assembly video dashboard when the chamber is in session.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://www.legis.iowa.gov/dashboard?view=video" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Watch on Iowa Legislature Video</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="ia-senate-floor" aria-label="Play Iowa Senate floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light">
+                    <div class="embed-wrapper" data-stream-id="ia-senate-floor" style="min-height: 280px;">
+                      <iframe loading="lazy" title="Iowa Senate Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="embed-placeholder">Click Play here to watch on PolicyWatch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="iowa-house-pane" role="tabpanel">
+                <div id="ia-house-floor">
+                  <h2 class="h5 fw-bold mb-2">Iowa House Floor</h2>
+                  <p class="text-body-secondary mb-2">Iowa House floor proceedings via the official General Assembly video dashboard.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://www.legis.iowa.gov/dashboard?view=video" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Watch on Iowa Legislature Video</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="ia-house-floor" aria-label="Play Iowa House floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light">
+                    <div class="embed-wrapper" data-stream-id="ia-house-floor" style="min-height: 280px;">
+                      <iframe loading="lazy" title="Iowa House Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="embed-placeholder">Click Play here to watch on PolicyWatch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="iowa-committees-pane" role="tabpanel">
+                <div id="ia-committees">
+                  <h2 class="h5 fw-bold mb-2">Iowa Committee Hearings</h2>
+                  <p class="text-body-secondary mb-2">Committee hearings stream on the Iowa Legislature video dashboard when meetings are in progress.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://www.legis.iowa.gov/dashboard?view=video" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">Iowa Legislature Video</a>
+                    <a href="https://www.legis.iowa.gov/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">Iowa Legislature Home</a>
                   </div>
                 </div>
               </div>

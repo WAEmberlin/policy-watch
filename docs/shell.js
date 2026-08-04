@@ -16,7 +16,7 @@
   ];
 
   var FOOTER_TEXT =
-    'PolicyWatch — Tracking legislation for Kansas, Colorado, Arizona, Utah, Maine, Nebraska, Maryland, Pennsylvania, and U.S. Congress';
+    'PolicyWatch — Tracking legislation for Kansas, Colorado, Arizona, Utah, Maine, Nebraska, Maryland, Pennsylvania, Massachusetts, West Virginia, Tennessee, North Carolina, Missouri, Iowa, and U.S. Congress';
 
   var STATE_CHIP_OPTIONS = [
     { value: '', label: 'All' },
@@ -29,6 +29,12 @@
     { value: 'NE', label: 'NE' },
     { value: 'MD', label: 'MD' },
     { value: 'PA', label: 'PA' },
+    { value: 'MA', label: 'MA' },
+    { value: 'WV', label: 'WV' },
+    { value: 'TN', label: 'TN' },
+    { value: 'NC', label: 'NC' },
+    { value: 'MO', label: 'MO' },
+    { value: 'IA', label: 'IA' },
   ];
 
   function injectSkipLink() {

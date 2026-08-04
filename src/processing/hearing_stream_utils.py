@@ -15,6 +15,12 @@ SOURCE_STATE_HINTS = {
     "nebraska": "NE",
     "maryland": "MD",
     "pennsylvania": "PA",
+    "massachusetts": "MA",
+    "west virginia": "WV",
+    "tennessee": "TN",
+    "north carolina": "NC",
+    "missouri": "MO",
+    "iowa": "IA",
 }
 
 _STREAM_NOTE_HINTS = ("stream", "video", "live", "watch", "broadcast", "webcast")
@@ -68,7 +74,7 @@ def _committee_matches(committee_text: str, stream: dict) -> bool:
     if norm_title in norm_committee or norm_committee in norm_title:
         return True
 
-    title_tokens = [t for t in norm_title.split() if len(t) > 3 and t not in {"house", "senate", "committee", "colorado", "utah", "arizona", "maine", "kansas", "maryland", "nebraska", "pennsylvania"}]
+    title_tokens = [t for t in norm_title.split() if len(t) > 3 and t not in {"house", "senate", "committee", "colorado", "utah", "arizona", "maine", "kansas", "maryland", "nebraska", "pennsylvania", "massachusetts", "virginia", "tennessee", "carolina", "missouri", "iowa", "west", "north"}]
     return any(token in norm_committee for token in title_tokens)
 
 

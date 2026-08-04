@@ -111,9 +111,18 @@ tailwind.config = {
                 <p class="text-sm text-slate-400 italic">Checking live streams…</p>
             </section>
 
-            <!-- State Snapshot Row -->
-            <section id="state-snapshots" class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8" aria-label="State overview">
-                <!-- Populated by home.js -->
+            <!-- Tracked jurisdictions (collapsible snapshot grid) -->
+            <section id="jurisdictions-section" class="collapsed mb-8" aria-label="Tracked jurisdictions">
+                <button id="jurisdictions-header" type="button" class="jurisdictions-header w-full py-3 px-1 cursor-pointer flex justify-between items-center text-left gap-3" aria-expanded="false" aria-controls="state-snapshots">
+                    <h2 class="text-lg font-semibold text-civic-navy flex items-center gap-2">
+                        Tracked jurisdictions
+                        <span id="jurisdictions-arrow" class="text-slate-400 text-sm transition-transform duration-300" aria-hidden="true">▼</span>
+                    </h2>
+                    <span class="jurisdictions-toggle-label text-sm font-medium text-civic-blue whitespace-nowrap">Show jurisdictions</span>
+                </button>
+                <div id="state-snapshots" class="grid grid-cols-2 sm:grid-cols-4 gap-3" aria-label="State overview" aria-hidden="true">
+                    <!-- Populated by home.js -->
+                </div>
             </section>
 
             <!-- Weekly Overview (collapsed by default) -->
@@ -221,7 +230,7 @@ tailwind.config = {
 
     <!-- Footer -->
     <footer data-cw-footer-replace class="text-center text-slate-500 text-sm mt-6 px-4">
-        PolicyWatch — Tracking legislation for Kansas, Colorado, Arizona, Utah, Maine, Nebraska, Maryland, Pennsylvania, and U.S. Congress
+        PolicyWatch — Tracking legislation for Kansas, Colorado, Arizona, Utah, Maine, Nebraska, Maryland, Pennsylvania, Massachusetts, West Virginia, Tennessee, North Carolina, Missouri, Iowa, and U.S. Congress
     </footer>
 </div>
 <script src="a11y.js"></script>

@@ -526,6 +526,12 @@ STATE_HEARING_LABELS = {
     "NE": "State (Nebraska)",
     "MD": "State (Maryland)",
     "PA": "State (Pennsylvania)",
+    "MA": "State (Massachusetts)",
+    "WV": "State (West Virginia)",
+    "TN": "State (Tennessee)",
+    "NC": "State (North Carolina)",
+    "MO": "State (Missouri)",
+    "IA": "State (Iowa)",
 }
 
 

@@ -339,6 +339,46 @@ mark {
   padding: 0 1rem 1.5rem;
 }
 
+/* Homepage tracked-jurisdictions collapse (state snapshot grid) */
+#jurisdictions-section .jurisdictions-header {
+  border-bottom: 1px solid transparent;
+  color: var(--cw-text);
+  background: transparent;
+}
+#jurisdictions-section .jurisdictions-header:hover {
+  background: color-mix(in srgb, var(--cw-surface-muted) 70%, transparent);
+  border-radius: 0.5rem;
+}
+#jurisdictions-section .jurisdictions-toggle-label {
+  color: var(--cw-blue);
+}
+#jurisdictions-section #state-snapshots {
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.2s ease-out, margin-top 0.2s ease-out;
+}
+#jurisdictions-section.collapsed #state-snapshots {
+  max-height: 0 !important;
+  opacity: 0;
+  margin-top: 0 !important;
+  pointer-events: none;
+}
+#jurisdictions-section.expanded #state-snapshots {
+  max-height: 4000px;
+  opacity: 1;
+  margin-top: 0.75rem;
+  pointer-events: auto;
+}
+#jurisdictions-section.collapsed #jurisdictions-arrow {
+  transform: rotate(-90deg);
+}
+#jurisdictions-section.expanded #jurisdictions-arrow {
+  transform: rotate(0deg);
+}
+#jurisdictions-arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
 /* State filter chips (hearings) */
 .cw-state-chips {
   display: flex;

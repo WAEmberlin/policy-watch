@@ -27,6 +27,12 @@ DEFAULT_BULK_DIRS = [
     ROOT / "data" / "nebraska",
     ROOT / "data" / "maryland",
     ROOT / "data" / "pennsylvania",
+    ROOT / "data" / "massachusetts",
+    ROOT / "data" / "west_virginia",
+    ROOT / "data" / "tennessee",
+    ROOT / "data" / "north_carolina",
+    ROOT / "data" / "missouri",
+    ROOT / "data" / "iowa",
 ]
 OUTPUT_DIR = ROOT / "data" / "openstates"
 SKIP_STATE_CODES = {"US"}
@@ -299,7 +305,7 @@ def main() -> None:
         action="append",
         dest="bulk_dirs",
         type=Path,
-        help="Directory containing extracted Open States bulk JSON folders (repeatable; default: data/historic, data/nebraska, data/maryland, data/pennsylvania)",
+        help="Directory containing extracted Open States bulk JSON folders (repeatable; default: data/historic, data/nebraska, data/maryland, data/pennsylvania, data/massachusetts, data/west_virginia, data/tennessee, data/north_carolina, data/missouri, data/iowa)",
     )
     parser.add_argument(
         "--since",

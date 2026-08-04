@@ -86,6 +86,12 @@ tailwind.config = {
                             <option value="NE">Nebraska</option>
                             <option value="MD">Maryland</option>
                             <option value="PA">Pennsylvania</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="MO">Missouri</option>
+                            <option value="IA">Iowa</option>
                         </select>
                     </div>
                     <div class="flex items-center gap-2">
@@ -143,6 +149,12 @@ tailwind.config = {
                             <option value="NE">Nebraska</option>
                             <option value="MD">Maryland</option>
                             <option value="PA">Pennsylvania</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="MO">Missouri</option>
+                            <option value="IA">Iowa</option>
                         </select>
                     </div>
                     <div class="flex items-center gap-2">
@@ -243,7 +255,11 @@ function getYearFromDate(dateStr) {
     }
 }
 
-const STATE_LABELS = { KS: "Kansas", CO: "Colorado", AZ: "Arizona", UT: "Utah", ME: "Maine", NE: "Nebraska", MD: "Maryland", PA: "Pennsylvania", Federal: "Federal" };
+const STATE_LABELS = {
+    KS: "Kansas", CO: "Colorado", AZ: "Arizona", UT: "Utah", ME: "Maine", NE: "Nebraska",
+    MD: "Maryland", PA: "Pennsylvania", MA: "Massachusetts", WV: "West Virginia",
+    TN: "Tennessee", NC: "North Carolina", MO: "Missouri", IA: "Iowa", Federal: "Federal",
+};
 const STATE_BADGE_COLORS = {
     KS: "bg-emerald-500",
     CO: "bg-sky-500",
@@ -252,6 +268,13 @@ const STATE_BADGE_COLORS = {
     ME: "bg-teal-600",
     NE: "bg-amber-600",
     MD: "bg-teal-500",
+    PA: "bg-blue-500",
+    MA: "bg-cyan-600",
+    WV: "bg-lime-600",
+    TN: "bg-pink-600",
+    NC: "bg-fuchsia-600",
+    MO: "bg-yellow-600",
+    IA: "bg-stone-500",
     Federal: "bg-civic-blue",
 };
 
@@ -267,6 +290,13 @@ function inferHearingState(hearing) {
     if (source.includes("maine")) return "ME";
     if (source.includes("nebraska")) return "NE";
     if (source.includes("maryland")) return "MD";
+    if (source.includes("pennsylvania")) return "PA";
+    if (source.includes("massachusetts")) return "MA";
+    if (source.includes("west virginia")) return "WV";
+    if (source.includes("tennessee")) return "TN";
+    if (source.includes("north carolina")) return "NC";
+    if (source.includes("missouri")) return "MO";
+    if (source.includes("iowa")) return "IA";
     return "";
 }
 
