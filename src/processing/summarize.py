@@ -525,6 +525,7 @@ STATE_HEARING_LABELS = {
     "ME": "State (Maine)",
     "NE": "State (Nebraska)",
     "MD": "State (Maryland)",
+    "PA": "State (Pennsylvania)",
 }
 
 

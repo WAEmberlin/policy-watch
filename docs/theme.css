@@ -428,6 +428,25 @@ mark {
   color: #14532d !important;
   border-color: #bbf7d0 !important;
 }
+.veteran-impact-reason-toggle {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.veteran-impact-reason-arrow {
+  display: inline-block;
+  line-height: 1;
+}
+.veteran-impact-card .veteran-impact-reason-toggle {
+  color: #475569;
+}
+.veteran-impact-card .veteran-impact-reason-toggle:hover {
+  color: #1e293b;
+}
+.veteran-impact-card .veteran-impact-reason-body {
+  color: #475569;
+}
 [data-theme="dark"] .veteran-impact-card .veteran-impact-title,
 [data-theme="high-contrast"] .veteran-impact-card .veteran-impact-title {
   color: #0f172a !important;
@@ -443,6 +462,18 @@ mark {
 }
 [data-theme="dark"] .veteran-impact-card .veteran-impact-summary,
 [data-theme="high-contrast"] .veteran-impact-card .veteran-impact-summary {
+  color: #475569 !important;
+}
+[data-theme="dark"] .veteran-impact-card .veteran-impact-reason-toggle,
+[data-theme="high-contrast"] .veteran-impact-card .veteran-impact-reason-toggle {
+  color: #475569 !important;
+}
+[data-theme="dark"] .veteran-impact-card .veteran-impact-reason-toggle:hover,
+[data-theme="high-contrast"] .veteran-impact-card .veteran-impact-reason-toggle:hover {
+  color: #1e293b !important;
+}
+[data-theme="dark"] .veteran-impact-card .veteran-impact-reason-body,
+[data-theme="high-contrast"] .veteran-impact-card .veteran-impact-reason-body {
   color: #475569 !important;
 }
 [data-theme="dark"] .veteran-impact-card .veteran-impact-link,

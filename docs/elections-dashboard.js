@@ -115,6 +115,19 @@ const CivicWatchElections = (() => {
                 { date: '2026-11-03', label: 'General Election' },
             ],
         },
+        {
+            id: 'pa',
+            name: 'Pennsylvania',
+            badgeClass: 'bg-blue-100 text-blue-800',
+            calendarUrl: 'https://www.vote.pa.gov/About-Elections/Pages/Upcoming-Elections.aspx',
+            calendarLabel: 'Upcoming elections (Pennsylvania DOS)',
+            resultsUrl: 'https://www.electionreturns.pa.gov/',
+            resultsLabel: 'Pennsylvania election returns',
+            dates: [
+                { date: '2026-05-19', label: 'Primary Election' },
+                { date: '2026-11-03', label: 'General Election' },
+            ],
+        },
     ];
 
     function parseLocalDate(dateStr) {

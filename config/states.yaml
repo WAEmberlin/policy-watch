@@ -68,6 +68,15 @@ states:
     enrichment: openstates_detail
     enabled: true
 
+  - code: pa
+    name: Pennsylvania
+    level: state
+    sources:
+      - openstates
+    openstates_jurisdiction: ocd-jurisdiction/country:us/state:pa/government
+    enrichment: openstates_detail
+    enabled: true
+
 federal:
   sources:
     - congress
@@ -97,8 +106,8 @@ kansas_api:
 enrichment:
   # Kansas: official REST API (RSS stays primary ingest)
   kansas_api: ks
-  # CO/AZ/UT/ME: Open States detail re-fetch for sponsors/votes
-  openstates_detail: [co, az, ut, me, ne, md]
+  # CO/AZ/UT/ME/NE/MD/PA: Open States detail re-fetch for sponsors/votes
+  openstates_detail: [co, az, ut, me, ne, md, pa]
 
 topic_dashboards:
   - id: veterans

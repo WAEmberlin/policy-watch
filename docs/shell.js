@@ -16,7 +16,7 @@
   ];
 
   var FOOTER_TEXT =
-    'CivicWatch — Tracking legislation for Kansas, Colorado, Arizona, Utah, Maine, Nebraska, Maryland, and U.S. Congress';
+    'CivicWatch — Tracking legislation for Kansas, Colorado, Arizona, Utah, Maine, Nebraska, Maryland, Pennsylvania, and U.S. Congress';
 
   var STATE_CHIP_OPTIONS = [
     { value: '', label: 'All' },
@@ -28,6 +28,7 @@
     { value: 'ME', label: 'ME' },
     { value: 'NE', label: 'NE' },
     { value: 'MD', label: 'MD' },
+    { value: 'PA', label: 'PA' },
   ];
 
   function injectSkipLink() {

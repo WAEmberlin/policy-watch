@@ -10,6 +10,7 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from processing.veteran_impact import (  # noqa: E402
     build_bill_lookup_key,
+    build_impact_reason,
     build_veteran_impact_lookup,
     classify_veteran_impact,
     collect_feed_bills_for_veteran_lookup,
@@ -30,6 +31,9 @@ def test_classify_red_from_gi_bill():
     assert result is not None
     assert result["level"] == "red"
     assert "Benefits & Compensation" in result["factors"]
+    assert "reason" in result
+    assert "gi bill" in result["reason"].lower()
+    assert "red" in result["reason"].lower()
 
 
 def test_classify_red_from_va_appropriations_title():
@@ -37,24 +41,28 @@ def test_classify_red_from_va_appropriations_title():
     assert result is not None
     assert result["level"] == "red"
     assert "Appropriations & Funding" in result["factors"]
+    assert "take care of america" in result["reason"].lower()
 
 
 def test_classify_red_from_hr_9237_full_title():
     result = classify_veteran_impact("H.R. 9237 – Take Care of America's Veterans Act")
     assert result is not None
     assert result["level"] == "red"
+    assert result["reason"]
 
 
 def test_classify_yellow_from_employment_preference():
     result = classify_veteran_impact("Veterans employment preference in state hiring")
     assert result is not None
     assert result["level"] == "yellow"
+    assert "employment preference" in result["reason"].lower()
 
 
 def test_classify_green_from_memorial():
     result = classify_veteran_impact("Honoring Post-9/11 Veterans memorial resolution")
     assert result is not None
     assert result["level"] == "green"
+    assert "memorial" in result["reason"].lower() or "honor" in result["reason"].lower()
 
 
 def test_classify_green_from_va_clinic_naming():
@@ -67,6 +75,7 @@ def test_classify_green_from_va_clinic_naming():
     assert result is not None
     assert result["level"] == "green"
     assert "Facility Naming" in result["factors"]
+    assert "clinic" in result["reason"].lower() or "facility" in result["reason"].lower()
 
 
 def test_classify_green_from_va_outpatient_rename():
@@ -103,6 +112,19 @@ def test_csv_level_overrides_rules():
     assert result is not None
     assert result["level"] == "red"
     assert result["source"] == "csv"
+    assert "colorado veteran tracker" in result["reason"].lower()
+    assert "csv" in result["reason"].lower()
+
+
+def test_build_impact_reason_includes_keywords_and_factors():
+    reason = build_impact_reason(
+        "red",
+        factors=["Benefits & Compensation"],
+        matched_keywords=["gi bill", "veterans benefit"],
+    )
+    assert "red (high impact)" in reason
+    assert "gi bill" in reason
+    assert "Benefits & Compensation" in reason
 
 
 def test_build_lookup_from_co_data():
@@ -121,6 +143,8 @@ def test_build_lookup_from_co_data():
     lookup = build_veteran_impact_lookup(co_data=co_data, normalized_bills=[])
     assert lookup["CO|HB26-1002"]["level"] == "green"
     assert lookup[build_bill_lookup_key("CO", "HB 1002")]["level"] == "green"
+    assert lookup["CO|HB26-1002"]["reason"]
+    assert "csv" in lookup["CO|HB26-1002"]["reason"].lower()
 
 
 def test_resolve_veteran_impact_for_feed_item():

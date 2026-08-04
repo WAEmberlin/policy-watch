@@ -102,6 +102,9 @@ def load_state_config() -> Tuple[List[Dict[str, Any]], bool]:
         {"code": "az", "name": "Arizona", "enabled": True},
         {"code": "ut", "name": "Utah", "enabled": True},
         {"code": "me", "name": "Maine", "enabled": True},
+        {"code": "ne", "name": "Nebraska", "enabled": True},
+        {"code": "md", "name": "Maryland", "enabled": True},
+        {"code": "pa", "name": "Pennsylvania", "enabled": True},
     ]
     federal_enabled = True
 

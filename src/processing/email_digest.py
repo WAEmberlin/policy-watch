@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 from datetime import datetime, time, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
@@ -21,6 +22,17 @@ HEARINGS_FILE = ROOT / "src" / "output" / "hearings.json"
 NORMALIZED_BILLS_FILE = ROOT / "data" / "normalized" / "bills.json"
 
 FEDERAL_CODE = "FEDERAL"
+
+# Email clients wrap poorly on multi-thousand-char omnibus hearing titles.
+DIGEST_TITLE_MAX_LEN = 160
+_DIGEST_TITLE_ELLIPSIS = "…"
+_BILL_DESIGNATION_RE = re.compile(
+    r"\b(?:"
+    r"H\.J\.Res\.|S\.J\.Res\.|H\.Con\.Res\.|S\.Con\.Res\.|"
+    r"H\.R\.|H\.B\.|S\.B\.|HB|SB|S\."
+    r")\s*\d+",
+    re.IGNORECASE,
+)
 
 
 def load_digest_config() -> Dict[str, Any]:
@@ -59,6 +71,8 @@ def infer_item_state(item: Dict[str, Any]) -> Optional[str]:
         return "NE"
     if "maryland" in src:
         return "MD"
+    if "pennsylvania" in src:
+        return "PA"
     if item.get("type") == "state_legislation" and item.get("state"):
         return str(item["state"]).upper()
     return None
@@ -86,6 +100,8 @@ def infer_hearing_state(hearing: Dict[str, Any]) -> Optional[str]:
         return "NE"
     if "maryland" in src:
         return "MD"
+    if "pennsylvania" in src:
+        return "PA"
     return None
 
 
@@ -313,8 +329,61 @@ def split_state_items(
     return updates, hearing_updates
 
 
+def _clause_truncate(text: str, max_length: int, suffix: str = _DIGEST_TITLE_ELLIPSIS) -> str:
+    """Truncate at a clause/word boundary; never mid-word when possible."""
+    if len(text) <= max_length:
+        return text
+    budget = max(1, max_length - len(suffix))
+    window = text[:budget]
+    min_keep = int(budget * 0.45)
+
+    # Prefer clause breaks. Avoid ". " — hearing titles use abbreviations (Jr., U.S.).
+    for sep in ("; ", " — ", " – ", " - ", ", "):
+        idx = window.rfind(sep)
+        if idx >= min_keep:
+            return window[:idx].rstrip(" ,;") + suffix
+
+    idx = window.rfind(" ")
+    if idx >= int(budget * 0.5):
+        return window[:idx].rstrip(" ,;") + suffix
+    return window.rstrip() + suffix
+
+
+def format_digest_title(title: str, max_length: int = DIGEST_TITLE_MAX_LEN) -> str:
+    """
+    Shorten long digest titles for email readability.
+
+    Omnibus business-meeting titles that list many bill designations keep a
+    short primary lead-in (through the first measure, or an 'X and Y' pair)
+    plus an ellipsis instead of dumping dozens of bills into the body.
+    """
+    text = " ".join(str(title or "").split())
+    if not text:
+        return "(no title)"
+    if len(text) <= max_length:
+        return text
+
+    designations = list(_BILL_DESIGNATION_RE.finditer(text))
+    if len(designations) >= 3:
+        keep_through = designations[0].end()
+        next_idx = 1
+        gap = text[designations[0].end():designations[1].start()]
+        if re.search(r"\band\b", gap, re.IGNORECASE) and len(gap) <= 30:
+            keep_through = designations[1].end()
+            next_idx = 2
+
+        if next_idx < len(designations):
+            candidate = text[:designations[next_idx].start()].rstrip(" ,;")
+            if len(candidate) > max_length - len(_DIGEST_TITLE_ELLIPSIS):
+                return _clause_truncate(candidate, max_length)
+            if len(candidate) < len(text):
+                return candidate + _DIGEST_TITLE_ELLIPSIS
+
+    return _clause_truncate(text, max_length)
+
+
 def render_item(item: Dict[str, Any]) -> str:
-    display_title = item.get("short_title") or item.get("title", "(no title)")
+    display_title = format_digest_title(item.get("short_title") or item.get("title", "(no title)"))
     html = f"<li><strong>{display_title}</strong><br>"
     if item.get("bill_number"):
         html += f"<em>Bill: {item.get('bill_number')}</em><br>"
@@ -323,14 +392,17 @@ def render_item(item: Dict[str, Any]) -> str:
         html += f"<em>Latest action: {action}</em><br>"
     official = item.get("official_title", "")
     if official and official != display_title:
-        html += f"<em style='color:#666;font-size:0.9em;'>Official: {official}</em><br>"
+        html += (
+            f"<em style='color:#666;font-size:0.9em;'>"
+            f"Official: {format_digest_title(official)}</em><br>"
+        )
     link = item.get("link") or item.get("url") or "#"
     html += f'<a href="{link}">{link}</a><br><p>{item.get("summary", "")}</p></li><hr>'
     return html
 
 
 def render_utah_hearing_update(item: Dict[str, Any]) -> str:
-    display_title = item.get("title", "(no title)")
+    display_title = format_digest_title(item.get("title", "(no title)"))
     html = f"<li><strong>{display_title}</strong><br>"
 
     notice_date = item.get("notice_date", "")
@@ -366,7 +438,7 @@ def render_utah_hearing_update(item: Dict[str, Any]) -> str:
 
 
 def render_hearing(hearing: Dict[str, Any]) -> str:
-    title = hearing.get("title", "(no title)")
+    title = format_digest_title(hearing.get("title", "(no title)"))
     committee = hearing.get("committee") or hearing.get("committees", "")
     chamber = hearing.get("chamber", "")
     time_str = hearing.get("scheduled_time", "")

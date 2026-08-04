@@ -124,6 +124,17 @@
         us_senate: { file: 'md-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
       },
     },
+    PA: {
+      name: 'Pennsylvania',
+      center: [40.9, -77.6],
+      zoom: 7,
+      chambers: {
+        house: { file: 'pa-sld-lower.geojson', chamber: 'house', label: 'Pennsylvania House', note: '203 districts' },
+        senate: { file: 'pa-sld-upper.geojson', chamber: 'senate', label: 'Pennsylvania Senate', note: '50 districts' },
+        us_house: { file: 'pa-cd119.geojson', chamber: 'us_house', label: 'U.S. House', note: '17 districts' },
+        us_senate: { file: 'pa-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
+      },
+    },
   };
 
   function normalizeChamber(chamber) {

@@ -77,6 +77,9 @@
             <button class="nav-link" id="tab-maryland" data-bs-toggle="tab" data-bs-target="#pane-maryland" type="button" role="tab">Maryland</button>
           </li>
           <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-pennsylvania" data-bs-toggle="tab" data-bs-target="#pane-pennsylvania" type="button" role="tab">Pennsylvania</button>
+          </li>
+          <li class="nav-item" role="presentation">
             <button class="nav-link" id="tab-house" data-bs-toggle="tab" data-bs-target="#pane-house" type="button" role="tab">US House</button>
           </li>
           <li class="nav-item" role="presentation">
@@ -398,6 +401,66 @@
                   <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
                     <a href="https://mgaleg.maryland.gov/mgawebsite/Search/Media" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">MGA Media Archive</a>
                     <a href="https://mgaleg.maryland.gov/mgawebsite/Information/YouTubeChannelInfo" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">YouTube Channel Index</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---------- Pennsylvania ---------- -->
+          <div class="tab-pane fade" id="pane-pennsylvania" role="tabpanel">
+            <ul class="nav nav-tabs mb-3" id="pennsylvaniaSubTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#pennsylvania-senate-pane" type="button" role="tab">Senate Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#pennsylvania-house-pane" type="button" role="tab">House Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#pennsylvania-committees-pane" type="button" role="tab">Committees</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="pennsylvaniaSubTabContent">
+              <div class="tab-pane fade show active" id="pennsylvania-senate-pane" role="tabpanel">
+                <div id="pa-senate-floor">
+                  <h2 class="h5 fw-bold mb-2">Pennsylvania Senate Floor</h2>
+                  <p class="text-body-secondary mb-2">Pennsylvania Senate floor proceedings on the official General Assembly livestream when the chamber is in session.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://www.palegis.us/senate/session/watch" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Watch on PALegis – Senate Floor</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="pa-senate-floor" aria-label="Play Pennsylvania Senate floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light">
+                    <div class="embed-wrapper" data-stream-id="pa-senate-floor" style="min-height: 280px;">
+                      <iframe loading="lazy" title="Pennsylvania Senate Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="embed-placeholder">Click Play here to watch on CivicWatch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="pennsylvania-house-pane" role="tabpanel">
+                <div id="pa-house-floor">
+                  <h2 class="h5 fw-bold mb-2">Pennsylvania House Floor</h2>
+                  <p class="text-body-secondary mb-2">Pennsylvania House floor proceedings via the official PALegis watch page and caucus livestream.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://www.palegis.us/house/session/watch" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Watch on PALegis – House Floor</a>
+                    <a href="https://pahouse.com/live" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">PA House Live</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="pa-house-floor" aria-label="Play Pennsylvania House floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light">
+                    <div class="embed-wrapper" data-stream-id="pa-house-floor" style="min-height: 280px;">
+                      <iframe loading="lazy" title="Pennsylvania House Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="embed-placeholder">Click Play here to watch on CivicWatch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="pennsylvania-committees-pane" role="tabpanel">
+                <div id="pa-committees">
+                  <h2 class="h5 fw-bold mb-2">Pennsylvania Committee Hearings</h2>
+                  <p class="text-body-secondary mb-2">Committee hearings stream on PALegis and PA House Live. Browse archives for recorded meetings.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://www.palegis.us/house/committees/committee-archives" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">House Committee Archives</a>
+                    <a href="https://pahouse.com/live" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">PA House Live</a>
                   </div>
                 </div>
               </div>

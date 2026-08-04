@@ -271,6 +271,37 @@ streams:
     external_url: https://mgaleg.maryland.gov/mgawebsite/Search/Media
     youtube_url: https://mgaleg.maryland.gov/mgawebsite/Search/Media
 
+  # ——— Pennsylvania ———
+  - id: pa-senate-floor
+    title: Pennsylvania Senate Floor
+    state: PA
+    jurisdiction: pennsylvania
+    type: floor
+    target_id: pa-senate-floor
+    tab_pane: pane-pennsylvania
+    external_url: https://www.palegis.us/senate/session/watch
+    youtube_url: https://www.palegis.us/senate/session/watch
+
+  - id: pa-house-floor
+    title: Pennsylvania House Floor
+    state: PA
+    jurisdiction: pennsylvania
+    type: floor
+    target_id: pa-house-floor
+    tab_pane: pane-pennsylvania
+    external_url: https://www.palegis.us/house/session/watch
+    youtube_url: https://pahouse.com/live
+
+  - id: pa-committees
+    title: Pennsylvania General Assembly Committees
+    state: PA
+    jurisdiction: pennsylvania
+    type: committee
+    target_id: pa-committees
+    tab_pane: pane-pennsylvania
+    external_url: https://www.palegis.us/house/committees/committee-archives
+    youtube_url: https://pahouse.com/live
+
   # ——— U.S. House ———
   - id: us-house-floor
     title: US House Floor
@@ -376,4 +407,5 @@ state_floor_stream:
   ME: maine-floor
   NE: nebraska-floor
   MD: md-senate-floor
+  PA: pa-senate-floor
   Federal: us-house-floor

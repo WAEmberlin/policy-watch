@@ -32,6 +32,7 @@ STATES: Dict[str, Dict[str, str]] = {
     "me": {"fips": "23", "name": "Maine"},
     "ne": {"fips": "31", "name": "Nebraska"},
     "md": {"fips": "24", "name": "Maryland"},
+    "pa": {"fips": "42", "name": "Pennsylvania"},
 }
 
 LAYERS: Dict[str, Dict[str, object]] = {

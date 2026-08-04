@@ -66,3 +66,10 @@ def test_parse_state_from_nebraska_bills_path():
 def test_parse_state_from_maryland_bills_path():
     path = Path("data/maryland/MD_2025_json_hash/MD/2025/MD_2025_bills.json")
     assert parse_state_from_bills_path(path) == "md"
+
+
+def test_parse_state_from_pennsylvania_bills_path():
+    path = Path(
+        "data/pennsylvania/PA_2025-2026_json_hash/PA/2025-2026/PA_2025-2026_bills.json"
+    )
+    assert parse_state_from_bills_path(path) == "pa"

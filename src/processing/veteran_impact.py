@@ -154,6 +154,7 @@ def infer_item_state(item: Dict[str, Any]) -> str:
     for code, name in (
         ("KS", "kansas"), ("CO", "colorado"), ("AZ", "arizona"),
         ("UT", "utah"), ("ME", "maine"), ("NE", "nebraska"), ("MD", "maryland"),
+        ("PA", "pennsylvania"),
     ):
         if name in src:
             return code
@@ -237,6 +238,67 @@ def detect_scoring_factors(text: str) -> List[str]:
     return matched
 
 
+def _matched_keywords(text_lower: str, keywords: List[str], limit: int = 5) -> List[str]:
+    """Return unique keywords from *keywords* that appear in *text_lower*."""
+    matched: List[str] = []
+    for kw in keywords:
+        if kw in text_lower and kw not in matched:
+            matched.append(kw)
+            if len(matched) >= limit:
+                break
+    return matched
+
+
+_LEVEL_LABELS = {
+    "red": "red (high impact)",
+    "yellow": "yellow (moderate impact)",
+    "green": "green (ceremonial / general)",
+}
+
+
+def build_impact_reason(
+    level: str,
+    *,
+    source: str = "rules",
+    factors: Optional[List[str]] = None,
+    matched_keywords: Optional[List[str]] = None,
+    special: Optional[str] = None,
+) -> str:
+    """Build a human-readable explanation for an impact classification."""
+    label = _LEVEL_LABELS.get(level, level)
+    factors = factors or []
+    matched_keywords = matched_keywords or []
+
+    if source == "csv":
+        parts = [f"Impact level set from Colorado veteran tracker (CSV) as {label}."]
+        if factors:
+            parts.append(f"Matched topics: {', '.join(factors)}.")
+        return " ".join(parts)
+
+    if special == "facility_naming":
+        return (
+            "Classified green because this bill names or renames a VA clinic "
+            "or outpatient facility."
+        )
+
+    if special == "veteran_marker":
+        marker_note = ""
+        if matched_keywords:
+            marker_note = f" Matched markers: {', '.join(matched_keywords)}."
+        return (
+            f"Classified {label} as veteran-related without high or moderate "
+            f"impact keyword signals.{marker_note}"
+        )
+
+    sentence = f"Classified {label}"
+    if matched_keywords:
+        sentence += f" based on matched keywords: {', '.join(matched_keywords)}"
+    sentence += "."
+    if factors:
+        sentence += f" Scoring factors: {', '.join(factors)}."
+    return sentence
+
+
 def classify_veteran_impact(
     text: str,
     csv_level: Optional[str] = None,
@@ -255,6 +317,7 @@ def classify_veteran_impact(
                 "factors": factors,
                 "source": "csv",
                 "veteran_related": True,
+                "reason": build_impact_reason(level, source="csv", factors=factors),
             }
 
     text_lower = (text or "").lower()
@@ -266,22 +329,31 @@ def classify_veteran_impact(
             return None
 
     if is_va_facility_naming(text_lower):
+        factors = ["Facility Naming"]
         return {
             "level": "green",
-            "factors": ["Facility Naming"],
+            "factors": factors,
             "source": "rules",
             "veteran_related": True,
+            "reason": build_impact_reason(
+                "green", factors=factors, special="facility_naming",
+            ),
         }
 
     factors = detect_scoring_factors(text)
-    if any(kw in text_lower for kw in RED_SIGNALS):
-        level = "red"
-    elif any(kw in text_lower for kw in YELLOW_SIGNALS):
-        level = "yellow"
-    elif any(kw in text_lower for kw in GREEN_SIGNALS):
-        level = "green"
-    elif any(marker in text_lower for marker in VETERAN_MARKERS):
-        level = "green"
+    matched_red = _matched_keywords(text_lower, RED_SIGNALS)
+    matched_yellow = _matched_keywords(text_lower, YELLOW_SIGNALS)
+    matched_green = _matched_keywords(text_lower, GREEN_SIGNALS)
+    matched_markers = _matched_keywords(text_lower, VETERAN_MARKERS)
+
+    if matched_red:
+        level, matched, special = "red", matched_red, None
+    elif matched_yellow:
+        level, matched, special = "yellow", matched_yellow, None
+    elif matched_green:
+        level, matched, special = "green", matched_green, None
+    elif matched_markers:
+        level, matched, special = "green", matched_markers, "veteran_marker"
     else:
         return None
 
@@ -290,6 +362,12 @@ def classify_veteran_impact(
         "factors": factors,
         "source": "rules",
         "veteran_related": True,
+        "reason": build_impact_reason(
+            level,
+            factors=factors,
+            matched_keywords=matched,
+            special=special,
+        ),
     }
 
 

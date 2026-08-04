@@ -1,0 +1,28 @@
+{
+  "state": "PA",
+  "source": "bulk_import",
+  "fetched_at": "2026-08-04T01:14:12.845666+00:00",
+  "last_successful_fetch_at": "2026-08-04T01:14:12.845680+00:00",
+  "updated_since": null,
+  "import_mode": "full",
+  "backfill_complete": true,
+  "bulk_files": [
+    "PA_2021-2022_json_7XE1dd7lijIXFhWN9WmDIl/PA/2021-2022/PA_2021-2022_bills.json",
+    "PA_2023-2024_json_eFxyik0TJfAYyaBLCgkmJ/PA/2023-2024/PA_2023-2024_bills.json",
+    "PA_2023-2024S1_json_1LewARM4VOX6ZRMzTHNiHb/PA/2023-2024S1/PA_2023-2024S1_bills.json",
+    "PA_2025-2026_json_7DfrjQ77yhJTZa50rRCbfz/PA/2025-2026/PA_2025-2026_bills.json"
+  ],
+  "bill_files": [
+    "bills_2021-2022.json",
+    "bills_2023-2024.json",
+    "bills_2023-2024S1.json",
+    "bills_2025-2026.json"
+  ],
+  "counts": {
+    "bills": 14424,
+    "events": 0,
+    "committees": 0,
+    "legislators": 252,
+    "votes": 13683
+  }
+}

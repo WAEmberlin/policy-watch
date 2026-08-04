@@ -8,7 +8,9 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from processing.email_digest import (
+    DIGEST_TITLE_MAX_LEN,
     build_digest_html,
+    format_digest_title,
     hearing_scheduled_date,
     infer_item_state,
     is_hearing_within_lookahead,
@@ -16,6 +18,7 @@ from processing.email_digest import (
     item_recency_ts,
     partition_by_state,
     partition_hearings,
+    render_hearing,
     render_utah_hearing_update,
     split_state_items,
 )
@@ -165,3 +168,95 @@ def test_render_utah_hearing_update_skips_notice_summary():
     assert "NOTICE" not in html
     assert "Date: Tuesday, December 8, 2026" in html
     assert "Live stream options" in html
+
+
+def test_format_digest_title_keeps_short_titles():
+    title = "Business meeting to consider S.239, Crow Tribe mineral interests"
+    assert format_digest_title(title) == title
+
+
+def test_format_digest_title_shortens_omnibus_bill_list():
+    # Synthesized from Congress "business meeting to consider…" laundry-list titles
+    long_title = (
+        "Business meeting to consider an original resolution regarding Contempt of Congress, "
+        "S.2732, to strengthen employee cost savings initiatives at federal agencies, "
+        "H.R.418, to rename the Main Street post office as the Firefighter Jane Doe Post Office, "
+        "S.991, to rename the Oak Avenue post office, "
+        "H.R.2201, to rename the Elm Street post office, "
+        "S.1500, to authorize Fire"
+    )
+    short = format_digest_title(long_title)
+    assert short.endswith("…")
+    assert len(short) <= DIGEST_TITLE_MAX_LEN
+    assert "Business meeting to consider" in short
+    assert "S.2732" in short
+    assert "H.R.418" not in short
+    assert "Firefighter Jane Doe" not in short
+    assert not short.endswith("Fire")
+
+
+def test_format_digest_title_keeps_paired_bill_designations():
+    title = (
+        "Business meeting to consider S.365 and H.R.1729, bills to amend the John D. Dingell, "
+        "Jr. Conservation Act for Bolts Ditch maintenance, S.1055, to amend the Indian Health "
+        "Care Improvement Act, S.1514, to take land into trust for the Quinault Indian Nation"
+    )
+    short = format_digest_title(title)
+    assert "S.365 and H.R.1729" in short
+    assert short.endswith("…")
+    assert "S.1055" not in short
+
+
+def test_render_hearing_truncates_long_title_keeps_metadata():
+    long_title = (
+        "Hearings to examine S.1674, to modify the boundary of Mammoth Cave National Park, "
+        "S.2498, to authorize lease extensions in National Park units, "
+        "S.2767, to authorize Fire safety grants, "
+        "H.R.5254, to rename a post office"
+    )
+    html = render_hearing({
+        "title": long_title,
+        "committee": "Committee on Energy and Natural Resources",
+        "chamber": "Senate",
+        "scheduled_time": "10:00 AM",
+        "location": "SD-366",
+        "url": "https://www.congress.gov/committee-schedule",
+        "level": "federal",
+    })
+    assert "Hearings to examine" in html
+    assert "S.1674" in html
+    assert "S.2498" not in html
+    assert "…" in html
+    assert "Committee: Committee on Energy and Natural Resources" in html
+    assert "Time: 10:00 AM" in html
+    assert "Location: SD-366" in html
+    assert 'href="https://www.congress.gov/committee-schedule"' in html
+    assert "View on Congress.gov" in html
+
+
+def test_render_hearing_truncates_state_titles_too():
+    long_title = (
+        "Joint hearing to consider HB 1001, relating to veterans services funding, "
+        "SB 220, relating to military family tax credits, "
+        "HB 330, relating to National Guard benefits, "
+        "SB 440, relating to Fire"
+    )
+    short = format_digest_title(long_title)
+    assert short.endswith("…")
+    assert len(short) <= DIGEST_TITLE_MAX_LEN
+    assert "Joint hearing to consider" in short
+    assert "HB 1001" in short
+    assert "SB 220" not in short
+
+    html = render_hearing({
+        "title": long_title,
+        "committee": "Veterans Affairs",
+        "state": "KS",
+        "scheduled_time": "1:30 PM",
+        "location": "Room 112-N",
+        "url": "https://example.state.ks.us/hearing",
+    })
+    assert "…" in html
+    assert "Committee: Veterans Affairs" in html
+    assert "View details" in html
+    assert 'href="https://example.state.ks.us/hearing"' in html

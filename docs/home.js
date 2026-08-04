@@ -14,10 +14,11 @@ const CivicWatchHome = (() => {
         { value: 'ME', label: 'ME' },
         { value: 'NE', label: 'NE' },
         { value: 'MD', label: 'MD' },
+        { value: 'PA', label: 'PA' },
     ];
 
     const STATE_NAMES = {
-        KS: 'Kansas', CO: 'Colorado', AZ: 'Arizona', UT: 'Utah', ME: 'Maine', NE: 'Nebraska', MD: 'Maryland', Federal: 'U.S. Congress',
+        KS: 'Kansas', CO: 'Colorado', AZ: 'Arizona', UT: 'Utah', ME: 'Maine', NE: 'Nebraska', MD: 'Maryland', PA: 'Pennsylvania', Federal: 'U.S. Congress',
     };
 
     const META_SOURCE_PATTERNS = [/congress\.gov api/i, /openstates/i, /data sync/i, /api feed/i];
@@ -126,6 +127,7 @@ const CivicWatchHome = (() => {
         if (src.includes('maine')) return 'ME';
         if (src.includes('nebraska')) return 'NE';
         if (src.includes('maryland')) return 'MD';
+        if (src.includes('pennsylvania')) return 'PA';
         return '';
     }
 
@@ -139,6 +141,7 @@ const CivicWatchHome = (() => {
             ME: 'bg-rose-100 text-rose-800',
             NE: 'bg-amber-100 text-amber-800',
             MD: 'bg-teal-100 text-teal-800',
+            PA: 'bg-blue-100 text-blue-800',
         };
         return map[state] || 'bg-slate-100 text-slate-700';
     }
@@ -194,7 +197,7 @@ const CivicWatchHome = (() => {
     }
 
     function countBillsByState(siteData) {
-        const counts = { Federal: 0, KS: 0, CO: 0, AZ: 0, UT: 0, ME: 0, NE: 0, MD: 0 };
+        const counts = { Federal: 0, KS: 0, CO: 0, AZ: 0, UT: 0, ME: 0, NE: 0, MD: 0, PA: 0 };
         (siteData.search_index?.bills || []).forEach((bill) => {
             if (bill.level === 'federal' || !bill.state) {
                 counts.Federal++;
@@ -295,6 +298,7 @@ const CivicWatchHome = (() => {
             ME: weeklyCounts.me || 0,
             NE: weeklyCounts.ne || 0,
             MD: weeklyCounts.md || 0,
+            PA: weeklyCounts.pa || 0,
         };
 
         const cards = [
@@ -306,6 +310,7 @@ const CivicWatchHome = (() => {
             { value: 'ME', label: 'Maine', sub: 'State Legislature' },
             { value: 'NE', label: 'Nebraska', sub: 'Unicameral Legislature' },
             { value: 'MD', label: 'Maryland', sub: 'General Assembly' },
+            { value: 'PA', label: 'Pennsylvania', sub: 'General Assembly' },
         ];
 
         row.innerHTML = '';
@@ -451,6 +456,64 @@ const CivicWatchHome = (() => {
         return tags.some((tag) => VETERANS_TOPIC_PATTERN.test(String(tag)));
     }
 
+    function matchedImpactKeywords(hay, keywords, limit) {
+        const matched = [];
+        const max = limit || 5;
+        for (let i = 0; i < keywords.length; i += 1) {
+            const kw = keywords[i];
+            if (hay.includes(kw) && !matched.includes(kw)) {
+                matched.push(kw);
+                if (matched.length >= max) break;
+            }
+        }
+        return matched;
+    }
+
+    function buildClientImpactReason(level, options) {
+        const opts = options || {};
+        const label = level === 'red'
+            ? 'red (high impact)'
+            : level === 'yellow'
+                ? 'yellow (moderate impact)'
+                : 'green (ceremonial / general)';
+        const factors = opts.factors || [];
+        const matched = opts.matchedKeywords || [];
+
+        if (opts.source === 'csv') {
+            let text = `Impact level set from Colorado veteran tracker (CSV) as ${label}.`;
+            if (factors.length) text += ` Matched topics: ${factors.join(', ')}.`;
+            return text;
+        }
+        if (opts.special === 'facility_naming') {
+            return 'Classified green because this bill names or renames a VA clinic or outpatient facility.';
+        }
+        if (opts.special === 'veteran_marker') {
+            const markerNote = matched.length ? ` Matched markers: ${matched.join(', ')}.` : '';
+            return `Classified ${label} as veteran-related without high or moderate impact keyword signals.${markerNote}`;
+        }
+
+        let sentence = `Classified ${label}`;
+        if (matched.length) sentence += ` based on matched keywords: ${matched.join(', ')}`;
+        sentence += '.';
+        if (factors.length) sentence += ` Scoring factors: ${factors.join(', ')}.`;
+        return sentence;
+    }
+
+    function veteranImpactReason(impact) {
+        if (!impact) return '';
+        if (impact.reason) return impact.reason;
+        if (impact.factors && impact.factors.includes('Facility Naming')) {
+            return buildClientImpactReason('green', { special: 'facility_naming', factors: impact.factors });
+        }
+        if (impact.source === 'csv') {
+            return buildClientImpactReason(impact.level, { source: 'csv', factors: impact.factors || [] });
+        }
+        if (impact.factors && impact.factors.length) {
+            return buildClientImpactReason(impact.level, { factors: impact.factors });
+        }
+        return buildClientImpactReason(impact.level, { special: 'veteran_marker' });
+    }
+
     function classifyVeteranImpactFromText(text) {
         const hay = String(text || '').toLowerCase();
         if (!hay.trim()) return null;
@@ -463,23 +526,64 @@ const CivicWatchHome = (() => {
         if (!hasMarker && !hasSignal) return null;
 
         if (isVaFacilityNaming(hay)) {
-            return { level: 'green', source: 'rules', veteran_related: true, factors: ['Facility Naming'] };
+            const factors = ['Facility Naming'];
+            return {
+                level: 'green',
+                source: 'rules',
+                veteran_related: true,
+                factors,
+                reason: buildClientImpactReason('green', { special: 'facility_naming', factors }),
+            };
         }
 
-        let level = 'green';
-        if (VETERAN_IMPACT_RED_SIGNALS.some((kw) => hay.includes(kw))) level = 'red';
-        else if (VETERAN_IMPACT_YELLOW_SIGNALS.some((kw) => hay.includes(kw))) level = 'yellow';
-        else if (VETERAN_IMPACT_GREEN_SIGNALS.some((kw) => hay.includes(kw))) level = 'green';
-        else if (!hasMarker) return null;
+        const matchedRed = matchedImpactKeywords(hay, VETERAN_IMPACT_RED_SIGNALS);
+        const matchedYellow = matchedImpactKeywords(hay, VETERAN_IMPACT_YELLOW_SIGNALS);
+        const matchedGreen = matchedImpactKeywords(hay, VETERAN_IMPACT_GREEN_SIGNALS);
+        const matchedMarkers = matchedImpactKeywords(hay, markers);
 
-        return { level, source: 'rules', veteran_related: true, factors: [] };
+        let level = 'green';
+        let matched = matchedMarkers;
+        let special = 'veteran_marker';
+        if (matchedRed.length) {
+            level = 'red';
+            matched = matchedRed;
+            special = null;
+        } else if (matchedYellow.length) {
+            level = 'yellow';
+            matched = matchedYellow;
+            special = null;
+        } else if (matchedGreen.length) {
+            level = 'green';
+            matched = matchedGreen;
+            special = null;
+        } else if (!hasMarker) {
+            return null;
+        }
+
+        return {
+            level,
+            source: 'rules',
+            veteran_related: true,
+            factors: [],
+            reason: buildClientImpactReason(level, { matchedKeywords: matched, special }),
+        };
+    }
+
+    function defaultGreenImpact() {
+        return {
+            level: 'green',
+            source: 'rules',
+            veteran_related: true,
+            factors: [],
+            reason: buildClientImpactReason('green', { special: 'veteran_marker' }),
+        };
     }
 
     function resolveVeteranImpact(item) {
         if (item.veteran_impact) return item.veteran_impact;
         if (!veteranImpactLookup || Object.keys(veteranImpactLookup).length === 0) {
             if (itemHasVeteranTagging(item)) {
-                return classifyVeteranImpactFromText(itemVeteransText(item)) || { level: 'green', source: 'rules', veteran_related: true, factors: [] };
+                return classifyVeteranImpactFromText(itemVeteransText(item)) || defaultGreenImpact();
             }
             return classifyVeteranImpactFromText(itemVeteransText(item));
         }
@@ -505,7 +609,7 @@ const CivicWatchHome = (() => {
         if (itemHasVeteranTagging(item)) {
             const tagged = classifyVeteranImpactFromText(itemVeteransText(item));
             if (tagged) return tagged;
-            return { level: 'green', source: 'rules', veteran_related: true, factors: [] };
+            return defaultGreenImpact();
         }
 
         return classifyVeteranImpactFromText(itemVeteransText(item));
@@ -677,6 +781,48 @@ const CivicWatchHome = (() => {
         }
 
         card.appendChild(header);
+
+        if (impact) {
+            const reasonText = veteranImpactReason(impact);
+            if (reasonText) {
+                const reasonWrap = document.createElement('div');
+                reasonWrap.className = 'veteran-impact-reason mb-2';
+
+                const reasonToggle = document.createElement('button');
+                reasonToggle.type = 'button';
+                reasonToggle.className = 'veteran-impact-reason-toggle inline-flex items-center gap-1 text-xs font-medium text-slate-600 hover:text-slate-800';
+                reasonToggle.setAttribute('aria-expanded', 'false');
+                const reasonId = `veteran-reason-${Math.random().toString(36).slice(2, 9)}`;
+                reasonToggle.setAttribute('aria-controls', reasonId);
+
+                const reasonLabel = document.createElement('span');
+                reasonLabel.textContent = 'Reasoning';
+                const reasonArrow = document.createElement('span');
+                reasonArrow.className = 'veteran-impact-reason-arrow';
+                reasonArrow.setAttribute('aria-hidden', 'true');
+                reasonArrow.textContent = '›';
+                reasonToggle.appendChild(reasonLabel);
+                reasonToggle.appendChild(reasonArrow);
+
+                const reasonBody = document.createElement('p');
+                reasonBody.id = reasonId;
+                reasonBody.className = 'veteran-impact-reason-body text-xs text-slate-600 mt-1 leading-relaxed';
+                reasonBody.hidden = true;
+                reasonBody.textContent = reasonText;
+
+                reasonToggle.addEventListener('click', () => {
+                    const open = reasonToggle.getAttribute('aria-expanded') === 'true';
+                    const nextOpen = !open;
+                    reasonToggle.setAttribute('aria-expanded', nextOpen ? 'true' : 'false');
+                    reasonBody.hidden = !nextOpen;
+                    reasonArrow.textContent = nextOpen ? '▾' : '›';
+                });
+
+                reasonWrap.appendChild(reasonToggle);
+                reasonWrap.appendChild(reasonBody);
+                card.appendChild(reasonWrap);
+            }
+        }
 
         const hasVoteRecords = typeof CivicWatchBillVotes !== 'undefined'
             && CivicWatchBillVotes.hasVotes(item);
@@ -929,7 +1075,7 @@ const CivicWatchHome = (() => {
         });
 
         const stateKeys = Object.keys(byState).sort((a, b) => {
-            const order = ['Federal', 'KS', 'CO', 'AZ', 'UT', 'ME', 'NE', 'MD', 'Other'];
+            const order = ['Federal', 'KS', 'CO', 'AZ', 'UT', 'ME', 'NE', 'MD', 'PA', 'Other'];
             return order.indexOf(a) - order.indexOf(b);
         });
 

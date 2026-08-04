@@ -28,6 +28,8 @@ def test_states_config_loads():
     assert "az" in codes
     assert "ut" in codes
     assert "me" in codes
+    assert "pa" in codes
+    assert "pa" in config.get("enrichment", {}).get("openstates_detail", [])
 
 
 def test_enriched_bill_schema():

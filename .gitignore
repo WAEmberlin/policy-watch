@@ -8,6 +8,8 @@ data/nebraska/*
 !data/nebraska/README.md
 data/maryland/*
 !data/maryland/README.md
+data/pennsylvania/*
+!data/pennsylvania/README.md
 
 # Large generated artifacts live on Cloudflare R2 (not git)
 docs/site_data.json

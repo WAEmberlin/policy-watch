@@ -1,0 +1,58 @@
+name: Seed PA Open States cache to R2
+
+# One-shot helper: download a GitHub Release zip of data/openstates/pa and upload to R2.
+# Usage:
+#   1. Create release with asset openstates-pa.zip (paths inside zip: data/openstates/pa/...)
+#   2. workflow_dispatch with tag name
+# Safe to delete after PA is on R2.
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Release tag containing openstates-pa.zip"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install boto3
+
+      - name: Download and extract PA cache from release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          TAG="${{ github.event.inputs.release_tag }}"
+          gh release download "$TAG" --pattern "openstates-pa.zip" --dir /tmp
+          unzip -o /tmp/openstates-pa.zip -d .
+          ls -lah data/openstates/pa/
+          test -f data/openstates/pa/meta.json
+
+      - name: Upload PA pipeline cache to Cloudflare R2
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+          R2_PUBLIC_BASE_URL: ${{ secrets.R2_PUBLIC_BASE_URL }}
+        run: |
+          if [ -z "$R2_ACCOUNT_ID" ] || [ -z "$R2_ACCESS_KEY_ID" ] || [ -z "$R2_PUBLIC_BASE_URL" ]; then
+            echo "ERROR: R2 secrets are required"
+            exit 1
+          fi
+          python src/processing/r2_sync.py upload --pipeline-only
