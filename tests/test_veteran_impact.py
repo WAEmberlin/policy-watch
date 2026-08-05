@@ -233,6 +233,74 @@ def test_non_veteran_bill_returns_none():
     assert classify_veteran_impact("Property tax assessment reform") is None
 
 
+@pytest.mark.parametrize(
+    "text",
+    [
+        "State employee pension reform and contribution rates",
+        "Establish hiring preference for local residents in public works",
+        "Expand drug treatment court and diversion programs statewide",
+        "A resolution to honor community volunteers and civic leaders",
+        "Designate State Route 12 as the Main Street Memorial Highway",
+        "Professional licensing and certification reciprocity for nurses",
+        "Employment preference for state contractors and apprenticeships",
+        "Ceremonial recognition commemorating local first responders",
+    ],
+)
+def test_generic_terms_alone_do_not_flag_veteran(text):
+    """Ambiguous keywords must not mark a bill veteran-related without context."""
+    assert classify_veteran_impact(text) is None
+
+
+def test_veteran_context_plus_pension_is_red():
+    result = classify_veteran_impact("Expand veteran pension and compensation benefits")
+    assert result is not None
+    assert result["level"] == "red"
+    assert "pension" in result["reason"].lower() or "compensation" in result["reason"].lower()
+
+
+def test_veteran_context_plus_hiring_preference_is_yellow():
+    result = classify_veteran_impact("Hiring preference for honorably discharged veterans")
+    assert result is not None
+    assert result["level"] == "yellow"
+    assert "hiring preference" in result["reason"].lower()
+
+
+def test_veteran_context_plus_diversion_is_yellow():
+    result = classify_veteran_impact("Veterans treatment court diversion and sentencing alternatives")
+    assert result is not None
+    assert result["level"] == "yellow"
+
+
+def test_veteran_context_plus_honor_is_green():
+    result = classify_veteran_impact("A resolution to honor military veterans from this state")
+    assert result is not None
+    assert result["level"] == "green"
+
+
+def test_veteran_context_plus_designate_memorial_is_green():
+    result = classify_veteran_impact(
+        "Designate State Route 12 as the Veterans Memorial Highway"
+    )
+    assert result is not None
+    assert result["level"] == "green"
+
+
+def test_strong_phrases_still_work_without_extra_markers():
+    assert classify_veteran_impact("Expand GI Bill education benefits")["level"] == "red"
+    assert classify_veteran_impact("Establish a veterans court program")["level"] == "yellow"
+    assert classify_veteran_impact("Improve VA health clinic access")["level"] == "red"
+
+
+def test_ai_veteran_tagging_gates_generic_keywords():
+    """AI/topic tagging establishes relatedness so gated terms can color."""
+    result = classify_veteran_impact(
+        "Expand pension and hiring preference programs",
+        has_veteran_tagging=True,
+    )
+    assert result is not None
+    assert result["level"] in ("red", "yellow")
+
+
 def test_classify_armed_forces_resolution_green():
     result = classify_veteran_impact(
         "HCONRES 68: To direct the removal of United States Armed Forces from hostilities"

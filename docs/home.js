@@ -520,8 +520,10 @@ const PolicyWatchHome = (() => {
     // RED: benefits, disability ratings, VA healthcare, housing, survivor/burial, GI Bill
     // YELLOW: employment preference, licensing, courts & diversion, mental health, military spouse
     // GREEN: recognition, memorials, honor resolutions, indirect military references
+    // Context-gated generics never establish veteran-relatedness alone; see CONTEXT_GATED.
     const VETERAN_IMPACT_RED_SIGNALS = [
         'gi bill', 'survivor benefit', 'burial benefit', 'va benefit', 'veterans benefit',
+        'veteran pension', 'veterans pension', 'veteran compensation', 'veterans compensation',
         'compensation', 'pension', 'dependency indemnity', 'title 38',
         'va health', 'veterans health', 'va healthcare', 'veterans healthcare',
         'veterans affairs', 'ptsd', 'tbi', 'suicide prevention', 'post-traumatic',
@@ -538,9 +540,14 @@ const PolicyWatchHome = (() => {
         'appropriations for veterans affairs',
     ];
     const VETERAN_IMPACT_YELLOW_SIGNALS = [
-        'veteran preference', 'hiring preference', 'employment preference',
+        'veteran preference', 'veterans preference',
+        'veteran hiring preference', 'veterans hiring preference',
+        'veteran employment preference', 'veterans employment preference',
+        'hiring preference', 'employment preference',
         'military spouse', 'licensing', 'certification', 'apprenticeship',
-        'veterans court', 'veteran court', 'diversion', 'treatment court',
+        'veterans court', 'veteran court',
+        'veterans treatment court', 'veteran treatment court',
+        'diversion', 'treatment court',
         'veterans justice', 'justice outreach',
         'mental health',
     ];
@@ -549,6 +556,18 @@ const PolicyWatchHome = (() => {
         'designate', 'memorial highway', 'memorial day', 'purple heart day',
         'resolution honoring', 'honor resolution',
     ];
+    // Ambiguous terms — only score after a veteran marker / inherent phrase / AI tag.
+    const VETERAN_IMPACT_CONTEXT_GATED = new Set([
+        'compensation', 'pension', 'housing voucher',
+        'disability rating', 'rating schedule', 'survivor', 'burial',
+        'ptsd', 'tbi', 'suicide prevention', 'post-traumatic', 'mental health',
+        'hiring preference', 'employment preference',
+        'licensing', 'certification', 'apprenticeship',
+        'diversion', 'treatment court', 'justice outreach',
+        'recognition', 'memorial', 'honor', 'honoring', 'ceremonial', 'commemorative',
+        'designate', 'memorial highway', 'memorial day',
+        'resolution honoring', 'honor resolution',
+    ]);
     const VA_FACILITY_NAMING_PATTERNS = [
         /\b(to\s+)?(designate|name|rename|redesignate)\b.{0,160}\b(community-based outpatient clinic|outpatient clinic|multispecialty clinic|va clinic|veterans affairs clinic|va medical center|veterans affairs medical center|veterans affairs multispecialty clinic)\b/i,
         /\bcommunity-based outpatient clinic\b.{0,120}\bas the\b/i,
@@ -561,11 +580,28 @@ const PolicyWatchHome = (() => {
     }
 
     function itemHasVeteranTagging(item) {
+        if (item && item.veteran_related === true) return true;
         const tags = []
             .concat(item.ai_topics || [])
             .concat(item.classification || [])
             .concat(item.topics || []);
         return tags.some((tag) => VETERANS_TOPIC_PATTERN.test(String(tag)));
+    }
+
+    function textHasVeteranContext(hay) {
+        const markers = VETERANS_STRONG_KEYWORDS.concat([
+            'title 38', 'gi bill', 'servicemember', 'service member',
+            'va health', 'va healthcare', 'va benefit', 'va clinic', 'va medical',
+            'va appropriations', 'milcon-va',
+        ]);
+        if (markers.some((m) => hay.includes(m))) return true;
+        const allSignals = VETERAN_IMPACT_RED_SIGNALS
+            .concat(VETERAN_IMPACT_YELLOW_SIGNALS)
+            .concat(VETERAN_IMPACT_GREEN_SIGNALS);
+        if (allSignals.some((kw) => !VETERAN_IMPACT_CONTEXT_GATED.has(kw) && hay.includes(kw))) {
+            return true;
+        }
+        return isVaFacilityNaming(hay);
     }
 
     function matchedImpactKeywords(hay, keywords, limit) {
@@ -626,16 +662,19 @@ const PolicyWatchHome = (() => {
         return buildClientImpactReason(impact.level, { special: 'veteran_marker' });
     }
 
-    function classifyVeteranImpactFromText(text) {
+    function classifyVeteranImpactFromText(text, options) {
+        const opts = options || {};
         const hay = String(text || '').toLowerCase();
         if (!hay.trim()) return null;
 
-        const markers = VETERANS_STRONG_KEYWORDS.concat(['title 38', 'gi bill', 'servicemember', 'service member']);
-        const hasMarker = markers.some((m) => hay.includes(m));
-        const hasSignal = VETERAN_IMPACT_RED_SIGNALS.some((kw) => hay.includes(kw))
-            || VETERAN_IMPACT_YELLOW_SIGNALS.some((kw) => hay.includes(kw))
-            || VETERAN_IMPACT_GREEN_SIGNALS.some((kw) => hay.includes(kw));
-        if (!hasMarker && !hasSignal) return null;
+        const markers = VETERANS_STRONG_KEYWORDS.concat([
+            'title 38', 'gi bill', 'servicemember', 'service member',
+            'va health', 'va healthcare', 'va benefit', 'va clinic', 'va medical',
+            'va appropriations', 'milcon-va',
+        ]);
+        const hasTagging = Boolean(opts.hasVeteranTagging);
+        // Gate: require veteran marker / inherent phrase / tagging before color keywords.
+        if (!hasTagging && !textHasVeteranContext(hay)) return null;
 
         if (isVaFacilityNaming(hay)) {
             const factors = ['Facility Naming'];
@@ -668,7 +707,7 @@ const PolicyWatchHome = (() => {
             level = 'green';
             matched = matchedGreen;
             special = null;
-        } else if (!hasMarker) {
+        } else if (!matchedMarkers.length && !hasTagging) {
             return null;
         }
 
@@ -693,11 +732,15 @@ const PolicyWatchHome = (() => {
 
     function resolveVeteranImpact(item) {
         if (item.veteran_impact) return item.veteran_impact;
+        const tagged = itemHasVeteranTagging(item);
+        const classifyOpts = { hasVeteranTagging: tagged };
+
         if (!veteranImpactLookup || Object.keys(veteranImpactLookup).length === 0) {
-            if (itemHasVeteranTagging(item)) {
-                return classifyVeteranImpactFromText(itemVeteransText(item)) || defaultGreenImpact();
+            if (tagged) {
+                return classifyVeteranImpactFromText(itemVeteransText(item), classifyOpts)
+                    || defaultGreenImpact();
             }
-            return classifyVeteranImpactFromText(itemVeteransText(item));
+            return classifyVeteranImpactFromText(itemVeteransText(item), classifyOpts);
         }
 
         const state = inferItemState(item);
@@ -718,13 +761,13 @@ const PolicyWatchHome = (() => {
             }
         }
 
-        if (itemHasVeteranTagging(item)) {
-            const tagged = classifyVeteranImpactFromText(itemVeteransText(item));
-            if (tagged) return tagged;
+        if (tagged) {
+            const classified = classifyVeteranImpactFromText(itemVeteransText(item), classifyOpts);
+            if (classified) return classified;
             return defaultGreenImpact();
         }
 
-        return classifyVeteranImpactFromText(itemVeteransText(item));
+        return classifyVeteranImpactFromText(itemVeteransText(item), classifyOpts);
     }
 
     function veteranImpactCardClasses(level) {

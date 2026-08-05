@@ -18,30 +18,50 @@ IMPACT_LEVELS = ("red", "yellow", "green")
 #   RED — benefits, disability ratings, VA healthcare, housing, survivor/burial, GI Bill
 #   YELLOW — employment preference, licensing, courts & diversion, mental health, military spouse
 #   GREEN — recognition, memorials, honor resolutions, indirect military references
+#
+# Ambiguous terms (pension, diversion, honor, etc.) are CONTEXT-GATED: they only
+# contribute to red/yellow/green after a veteran-related signal is established.
+# Inherently veteran phrases (gi bill, veterans court, va health, …) always count.
 SCORING_FACTORS: Dict[str, List[str]] = {
     "benefits_compensation": [
         "gi bill", "survivor benefit", "burial benefit", "va benefit", "veterans benefit",
-        "compensation", "pension", "dependency indemnity", "title 38",
+        "veteran pension", "veterans pension", "veteran compensation", "veterans compensation",
+        "dependency indemnity", "title 38",
+        # Gated when used alone — require veteran context first:
+        "compensation", "pension",
     ],
     "healthcare_mental_health": [
         # VA clinical / veteran-specific conditions → RED; generic mental health → YELLOW.
         "va health", "veterans health", "va healthcare", "veterans healthcare",
-        "veterans affairs", "ptsd", "tbi", "suicide prevention", "post-traumatic",
-        "mental health",
+        "veterans affairs",
+        # Gated clinical / mental-health terms:
+        "ptsd", "tbi", "suicide prevention", "post-traumatic", "mental health",
     ],
     "housing_homelessness": [
-        "veteran housing", "homeless veteran", "housing voucher", "shelter veteran",
+        "veteran housing", "homeless veteran", "shelter veteran",
+        # Gated:
+        "housing voucher",
     ],
     "disability_ratings": [
-        "disability rating", "service-connected", "service connected", "rating schedule",
+        "service-connected", "service connected",
+        # Gated:
+        "disability rating", "rating schedule",
     ],
     "employment_education": [
-        "veteran preference", "hiring preference", "employment preference",
-        "military spouse", "licensing", "certification", "apprenticeship",
+        "veteran preference", "veterans preference",
+        "veteran hiring preference", "veterans hiring preference",
+        "veteran employment preference", "veterans employment preference",
+        "military spouse",
+        # Gated:
+        "hiring preference", "employment preference",
+        "licensing", "certification", "apprenticeship",
     ],
     "criminal_justice_courts": [
-        "veterans court", "veteran court", "diversion", "treatment court",
-        "veterans justice", "justice outreach",
+        "veterans court", "veteran court",
+        "veterans treatment court", "veteran treatment court",
+        "veterans justice",
+        # Gated:
+        "diversion", "treatment court", "justice outreach",
     ],
     "appropriations_funding": [
         "take care of america",
@@ -54,6 +74,19 @@ SCORING_FACTORS: Dict[str, List[str]] = {
         "appropriations for veterans affairs",
     ],
 }
+
+# Ambiguous color keywords — must NOT establish veteran-relatedness by themselves.
+CONTEXT_GATED_KEYWORDS = frozenset({
+    "compensation", "pension", "housing voucher",
+    "disability rating", "rating schedule", "survivor", "burial",
+    "ptsd", "tbi", "suicide prevention", "post-traumatic", "mental health",
+    "hiring preference", "employment preference",
+    "licensing", "certification", "apprenticeship",
+    "diversion", "treatment court", "justice outreach",
+    "recognition", "memorial", "honor", "honoring", "ceremonial", "commemorative",
+    "designate", "memorial highway", "memorial day",
+    "resolution honoring", "honor resolution",
+})
 
 # Veteran-specific clinical / VA healthcare signals (RED). Generic "mental health" stays YELLOW.
 RED_HEALTHCARE_SIGNALS = [
@@ -81,6 +114,12 @@ GREEN_SIGNALS = [
     "recognition", "memorial", "honor", "honoring", "ceremonial", "commemorative",
     "designate", "memorial highway", "memorial day", "purple heart day",
     "resolution honoring", "honor resolution",
+]
+
+# Phrases that are inherently veteran/military (establish relatedness without generic terms).
+INHERENT_VETERAN_SIGNALS = [
+    kw for kw in (RED_SIGNALS + YELLOW_SIGNALS + GREEN_SIGNALS)
+    if kw not in CONTEXT_GATED_KEYWORDS
 ]
 
 VA_FACILITY_TYPES = (
@@ -114,6 +153,8 @@ GENERIC_BILL_RE = re.compile(r"^([A-Z]+)\s*(\d+)$", re.IGNORECASE)
 VETERAN_MARKERS = [
     "veteran", "veterans", "military", "armed forces", "national guard",
     "servicemember", "service member", "title 38", "gi bill",
+    "va health", "va healthcare", "va benefit", "va clinic", "va medical",
+    "va appropriations", "milcon-va",
 ]
 
 VETERAN_TAG_PATTERN = re.compile(
@@ -143,13 +184,21 @@ def _bill_text_from_record(record: Dict[str, Any]) -> str:
     return " ".join(str(record.get(field, "") or "") for field in BILL_TEXT_FIELDS)
 
 
+def _text_has_veteran_context(text_lower: str) -> bool:
+    """True when text has a real veteran/military signal (not a gated generic term)."""
+    if not text_lower.strip():
+        return False
+    if any(marker in text_lower for marker in VETERAN_MARKERS):
+        return True
+    if any(kw in text_lower for kw in INHERENT_VETERAN_SIGNALS):
+        return True
+    return is_va_facility_naming(text_lower)
+
+
 def _might_be_veteran_related(text: str, item: Optional[Dict[str, Any]] = None) -> bool:
     if _item_has_veteran_tagging(item):
         return True
-    text_lower = (text or "").lower()
-    if any(marker in text_lower for marker in VETERAN_MARKERS):
-        return True
-    return any(kw in text_lower for kw in RED_SIGNALS + YELLOW_SIGNALS + GREEN_SIGNALS)
+    return _text_has_veteran_context((text or "").lower())
 
 
 def infer_item_state(item: Dict[str, Any]) -> str:
@@ -314,9 +363,15 @@ def build_impact_reason(
 def classify_veteran_impact(
     text: str,
     csv_level: Optional[str] = None,
+    *,
+    has_veteran_tagging: bool = False,
 ) -> Optional[Dict[str, Any]]:
     """
     Classify veteran impact level from bill text.
+
+    Gate: require a veteran-related signal (markers, inherent phrases, VA facility
+    naming, or AI/topic tagging) before applying red/yellow/green keywords.
+    Context-gated generics (pension, diversion, honor, …) never establish relatedness alone.
 
     Returns None when the bill does not appear veteran-related.
     """
@@ -336,9 +391,9 @@ def classify_veteran_impact(
     if not text_lower.strip():
         return None
 
-    if not any(marker in text_lower for marker in VETERAN_MARKERS):
-        if not any(kw in text_lower for kw in RED_SIGNALS + YELLOW_SIGNALS):
-            return None
+    # Step 1: veteran-relatedness gate (markers / inherent phrases / tagging).
+    if not has_veteran_tagging and not _text_has_veteran_context(text_lower):
+        return None
 
     if is_va_facility_naming(text_lower):
         factors = ["Facility Naming"]
@@ -352,6 +407,7 @@ def classify_veteran_impact(
             ),
         }
 
+    # Step 2: color scoring (inherent + context-gated keywords).
     factors = detect_scoring_factors(text)
     matched_red = _matched_keywords(text_lower, RED_SIGNALS)
     matched_yellow = _matched_keywords(text_lower, YELLOW_SIGNALS)
@@ -364,7 +420,7 @@ def classify_veteran_impact(
         level, matched, special = "yellow", matched_yellow, None
     elif matched_green:
         level, matched, special = "green", matched_green, None
-    elif matched_markers:
+    elif matched_markers or has_veteran_tagging:
         level, matched, special = "green", matched_markers, "veteran_marker"
     else:
         return None
@@ -422,10 +478,11 @@ def _classify_bill_record(
     text = _bill_text_from_record(record)
     if not _might_be_veteran_related(text, record):
         return None
-    classified = classify_veteran_impact(text, csv_level=csv_level)
-    if not classified and _item_has_veteran_tagging(record):
-        classified = classify_veteran_impact(text)
-    return classified
+    return classify_veteran_impact(
+        text,
+        csv_level=csv_level,
+        has_veteran_tagging=_item_has_veteran_tagging(record),
+    )
 
 
 def collect_feed_bills_for_veteran_lookup(
@@ -558,9 +615,8 @@ def resolve_veteran_impact_for_item(
         if hit:
             return hit
 
-    if _item_has_veteran_tagging(item):
-        classified = classify_veteran_impact(_bill_text_from_record(item))
-        if classified:
-            return classified
-
-    return classify_veteran_impact(_bill_text_from_record(item))
+    tagged = _item_has_veteran_tagging(item)
+    return classify_veteran_impact(
+        _bill_text_from_record(item),
+        has_veteran_tagging=tagged,
+    )
