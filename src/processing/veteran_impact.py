@@ -14,14 +14,20 @@ CO_BILLS_FILE = VETERANS_DATA_DIR / "co_bills.json"
 IMPACT_LEVELS = ("red", "yellow", "green")
 
 # Scoring factor keyword groups (ordered by priority for tie-breaking).
+# Color rows (Colorado tracker):
+#   RED — benefits, disability ratings, VA healthcare, housing, survivor/burial, GI Bill
+#   YELLOW — employment preference, licensing, courts & diversion, mental health, military spouse
+#   GREEN — recognition, memorials, honor resolutions, indirect military references
 SCORING_FACTORS: Dict[str, List[str]] = {
     "benefits_compensation": [
         "gi bill", "survivor benefit", "burial benefit", "va benefit", "veterans benefit",
         "compensation", "pension", "dependency indemnity", "title 38",
     ],
     "healthcare_mental_health": [
-        "va health", "veterans health", "veterans affairs", "ptsd", "tbi",
-        "mental health", "suicide prevention", "post-traumatic",
+        # VA clinical / veteran-specific conditions → RED; generic mental health → YELLOW.
+        "va health", "veterans health", "va healthcare", "veterans healthcare",
+        "veterans affairs", "ptsd", "tbi", "suicide prevention", "post-traumatic",
+        "mental health",
     ],
     "housing_homelessness": [
         "veteran housing", "homeless veteran", "housing voucher", "shelter veteran",
@@ -49,13 +55,18 @@ SCORING_FACTORS: Dict[str, List[str]] = {
     ],
 }
 
+# Veteran-specific clinical / VA healthcare signals (RED). Generic "mental health" stays YELLOW.
+RED_HEALTHCARE_SIGNALS = [
+    "va health", "veterans health", "va healthcare", "veterans healthcare",
+    "veterans affairs", "ptsd", "tbi", "suicide prevention", "post-traumatic",
+]
+
 RED_SIGNALS = [
     *SCORING_FACTORS["benefits_compensation"],
-    *SCORING_FACTORS["healthcare_mental_health"][:4],
+    *RED_HEALTHCARE_SIGNALS,
     *SCORING_FACTORS["housing_homelessness"],
     *SCORING_FACTORS["disability_ratings"],
     *SCORING_FACTORS["appropriations_funding"],
-    "gi bill",
     "survivor",
     "burial",
 ]
@@ -64,7 +75,6 @@ YELLOW_SIGNALS = [
     *SCORING_FACTORS["employment_education"],
     *SCORING_FACTORS["criminal_justice_courts"],
     "mental health",
-    "military spouse",
 ]
 
 GREEN_SIGNALS = [

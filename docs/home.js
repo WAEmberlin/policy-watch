@@ -516,11 +516,15 @@ const PolicyWatchHome = (() => {
         return generic ? `${st}|${generic[1]} ${generic[2]}` : `${st}|${num}`;
     }
 
+    // Keep in sync with src/processing/veteran_impact.py (Colorado tracker color rows).
+    // RED: benefits, disability ratings, VA healthcare, housing, survivor/burial, GI Bill
+    // YELLOW: employment preference, licensing, courts & diversion, mental health, military spouse
+    // GREEN: recognition, memorials, honor resolutions, indirect military references
     const VETERAN_IMPACT_RED_SIGNALS = [
         'gi bill', 'survivor benefit', 'burial benefit', 'va benefit', 'veterans benefit',
         'compensation', 'pension', 'dependency indemnity', 'title 38',
-        'va health', 'veterans health', 'veterans affairs', 'ptsd', 'tbi',
-        'mental health', 'suicide prevention', 'post-traumatic',
+        'va health', 'veterans health', 'va healthcare', 'veterans healthcare',
+        'veterans affairs', 'ptsd', 'tbi', 'suicide prevention', 'post-traumatic',
         'veteran housing', 'homeless veteran', 'housing voucher', 'shelter veteran',
         'disability rating', 'service-connected', 'service connected', 'rating schedule',
         'survivor', 'burial',
@@ -538,6 +542,7 @@ const PolicyWatchHome = (() => {
         'military spouse', 'licensing', 'certification', 'apprenticeship',
         'veterans court', 'veteran court', 'diversion', 'treatment court',
         'veterans justice', 'justice outreach',
+        'mental health',
     ];
     const VETERAN_IMPACT_GREEN_SIGNALS = [
         'recognition', 'memorial', 'honor', 'honoring', 'ceremonial', 'commemorative',

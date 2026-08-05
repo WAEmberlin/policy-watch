@@ -68,7 +68,7 @@ policy-watch/
 
 ### Veteran impact classification
 
-All tracked states (including Colorado) and federal bills use keyword rules in `src/processing/veteran_impact.py` (benefits → Red, employment/courts → Yellow, memorials → Green), applied to Open States and feed bill text.
+All tracked states (including Colorado) and federal bills use keyword rules in `src/processing/veteran_impact.py` aligned with Colorado tracker scoring factors: benefits / VA healthcare / housing / disability → Red; employment, licensing, courts, mental health, military spouse → Yellow; recognition / memorials / honor resolutions → Green. Colorado CSV impact levels override keyword rules when present. Client fallback keywords in `docs/home.js` stay in sync with the Python lists.
 
 ### Supplemental state sources (outside Open States)
 

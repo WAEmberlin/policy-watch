@@ -58,6 +58,73 @@ def test_classify_yellow_from_employment_preference():
     assert "employment preference" in result["reason"].lower()
 
 
+def test_classify_red_from_tbi():
+    result = classify_veteran_impact(
+        "Expand veterans health programs for traumatic brain injury (TBI) care"
+    )
+    assert result is not None
+    assert result["level"] == "red"
+    assert "Healthcare & Mental Health" in result["factors"]
+    assert "tbi" in result["reason"].lower()
+
+
+def test_classify_red_from_suicide_prevention():
+    result = classify_veteran_impact(
+        "Veterans suicide prevention and outreach funding for VA health clinics"
+    )
+    assert result is not None
+    assert result["level"] == "red"
+    assert "suicide prevention" in result["reason"].lower()
+
+
+def test_classify_red_from_ptsd():
+    result = classify_veteran_impact("PTSD treatment expansion for veterans")
+    assert result is not None
+    assert result["level"] == "red"
+    assert "ptsd" in result["reason"].lower()
+
+
+def test_classify_yellow_from_generic_mental_health():
+    """Generic mental health is YELLOW; veteran-specific clinical terms are RED."""
+    result = classify_veteran_impact(
+        "Expand veterans mental health counseling and peer support access"
+    )
+    assert result is not None
+    assert result["level"] == "yellow"
+    assert "mental health" in result["reason"].lower()
+    assert "Healthcare & Mental Health" in result["factors"]
+
+
+def test_classify_red_from_housing():
+    result = classify_veteran_impact("Homeless veteran housing voucher program")
+    assert result is not None
+    assert result["level"] == "red"
+    assert "Housing & Homelessness" in result["factors"]
+
+
+def test_classify_red_from_disability_rating():
+    result = classify_veteran_impact(
+        "Adjust service-connected disability rating schedule for veterans"
+    )
+    assert result is not None
+    assert result["level"] == "red"
+    assert "Disability Ratings" in result["factors"]
+
+
+def test_classify_yellow_from_veterans_court():
+    result = classify_veteran_impact("Establish a veterans court diversion program")
+    assert result is not None
+    assert result["level"] == "yellow"
+    assert "Criminal Justice / Courts" in result["factors"]
+
+
+def test_classify_yellow_from_military_spouse():
+    result = classify_veteran_impact("Military spouse licensing reciprocity for veterans families")
+    assert result is not None
+    assert result["level"] == "yellow"
+    assert "military spouse" in result["reason"].lower()
+
+
 def test_classify_green_from_memorial():
     result = classify_veteran_impact("Honoring Post-9/11 Veterans memorial resolution")
     assert result is not None
