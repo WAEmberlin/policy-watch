@@ -1,0 +1,65 @@
+﻿name: Seed new states cache to R2
+
+# One-shot: download release zip and upload pipeline + docs to R2.
+# Asset: openstates-new-states.zip with data/openstates/{ma,wv,tn,nc,mo,ia}/... and data/normalized/*.json and docs/* uploads.
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Release tag containing openstates-new-states.zip"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install boto3
+
+      - name: Download and extract new-states cache from release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          TAG="${{ github.event.inputs.release_tag }}"
+          gh release download "$TAG" --pattern "openstates-new-states.zip" --dir /tmp
+          unzip -o /tmp/openstates-new-states.zip -d .
+          for s in ma wv tn nc mo ia; do
+            ls -lah "data/openstates/$s/" || true
+            test -f "data/openstates/$s/meta.json"
+          done
+          test -f data/normalized/bills.json
+          test -f docs/site_data.json
+          python - <<'PY'
+          import json
+          m=json.load(open("data/normalized/meta.json",encoding="utf-8"))
+          print("normalized meta:", m)
+          assert m.get("counts",{}).get("bills",0) >= 100000
+          PY
+
+      - name: Upload pipeline + docs to Cloudflare R2
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+          R2_PUBLIC_BASE_URL: ${{ secrets.R2_PUBLIC_BASE_URL }}
+        run: |
+          if [ -z "$R2_ACCOUNT_ID" ] || [ -z "$R2_ACCESS_KEY_ID" ] || [ -z "$R2_PUBLIC_BASE_URL" ]; then
+            echo "ERROR: R2 secrets are required"
+            exit 1
+          fi
+          python src/processing/r2_sync.py upload
