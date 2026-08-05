@@ -2,11 +2,22 @@
 
 from __future__ import annotations
 
+import re
 from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, List, Optional
 
 from processing.bill_urls import resolve_official_bill_url
 from processing.legislator_urls import resolve_legislator_profile_url
+
+
+def _topic_keyword_matches(haystack: str, keyword: str) -> bool:
+    """Match topic keywords; require word boundaries for short tokens like 'va'/'ai'."""
+    kw = (keyword or "").lower().strip()
+    if not kw:
+        return False
+    if kw in {"va", "ai"}:
+        return bool(re.search(rf"\b{re.escape(kw)}\b", haystack))
+    return kw in haystack
 
 
 def _parse_date(value: str) -> Optional[datetime]:
@@ -206,7 +217,7 @@ def build_dashboards(
                 bill.get("latest_action", ""),
                 " ".join(bill.get("ai_topics") or []),
             ]).lower()
-            if any(kw in haystack for kw in keywords):
+            if any(_topic_keyword_matches(haystack, kw) for kw in keywords):
                 matched.append(bill)
         topic_dashboards[dash["id"]] = matched[:30]
 

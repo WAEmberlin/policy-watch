@@ -16,8 +16,23 @@ from processing.veteran_impact import (  # noqa: E402
     collect_feed_bills_for_veteran_lookup,
     infer_item_state,
     is_va_facility_naming,
+    lookup_entry_matches_item,
     normalize_co_csv_bill_number,
     resolve_veteran_impact_for_item,
+)
+
+MA_H2463_FUNERAL_VACCINE_TEXT = (
+    "An Act relative to proper classification of health care workers during a "
+    "public health emergency. "
+    "Chapter 111 of the General Laws is hereby amended by inserting after "
+    "section 5A 1/2, the following section: Section 5A 3/4 - Notwithstanding any "
+    "general or special law to contrary, Whenever the commissioner determines that "
+    "the inoculation of the general public by, or the administration to the general "
+    "public of, any antitoxin, serum, vaccine or other analogous product is essential "
+    "in the interest of the public health, and that supply for universal "
+    "administration is insufficient, the department shall ensure that funeral home "
+    "directors and funeral workers are included in the same category as health care "
+    "providers in terms of prioritization of access."
 )
 
 
@@ -385,3 +400,81 @@ def test_resolve_federal_feed_item():
 def test_infer_item_state_from_source():
     assert infer_item_state({"source": "State (Utah)"}) == "UT"
     assert infer_item_state({"source": "Congress.gov API", "level": "federal"}) == "Federal"
+
+
+def test_ma_h2463_funeral_vaccine_not_veteran():
+    """MA H2463 (funeral workers + vaccine priority) must not be veteran-colored."""
+    assert classify_veteran_impact(MA_H2463_FUNERAL_VACCINE_TEXT) is None
+
+
+def test_stale_lookup_cross_session_collision_ignored():
+    """
+    Stale MA|H 2463 yellow from an older 'firearm licensing' bill must not
+    color the current-session funeral/vaccine H2463.
+    """
+    stale_lookup = {
+        "MA|H 2463": {
+            "level": "yellow",
+            "factors": ["Employment & Education"],
+            "source": "rules",
+            "veteran_related": True,
+            "reason": "Classified yellow based on matched keywords: licensing.",
+            "title": "An Act relative to firearm licensing renewals during a state of emergency",
+            "bill_number_norm": "H 2463",
+        }
+    }
+    current = {
+        "title": "H 2463: An Act relative to proper classification of health care workers "
+                 "during a public health emergency",
+        "bill_number": "H 2463",
+        "state": "MA",
+        "source": "State (Massachusetts)",
+        "summary": MA_H2463_FUNERAL_VACCINE_TEXT,
+    }
+    assert not lookup_entry_matches_item(stale_lookup["MA|H 2463"], current)
+    assert resolve_veteran_impact_for_item(current, stale_lookup) is None
+
+
+@pytest.mark.parametrize(
+    "order",
+    [
+        "old_first",
+        "new_first",
+    ],
+)
+def test_lookup_prefers_newer_bill_and_clears_stale(order):
+    """Newer non-veteran bill with the same number clears an older classification."""
+    older_veteran = {
+        "state": "MA",
+        "bill_number": "H 2463",
+        "title": "An Act relative to veteran hiring preference and licensing",
+        "summary": "Veterans employment preference and professional licensing",
+        "latest_action_date": "2022-09-08",
+    }
+    newer_unrelated = {
+        "state": "MA",
+        "bill_number": "H 2463",
+        "title": "An Act relative to proper classification of health care workers "
+                 "during a public health emergency",
+        "summary": MA_H2463_FUNERAL_VACCINE_TEXT,
+        "latest_action_date": "2026-07-31",
+    }
+    bills = (
+        [older_veteran, newer_unrelated]
+        if order == "old_first"
+        else [newer_unrelated, older_veteran]
+    )
+    lookup = build_veteran_impact_lookup(
+        co_data={"bills": {}},
+        normalized_bills=bills,
+    )
+    assert build_bill_lookup_key("MA", "H 2463") not in lookup
+
+
+def test_true_burial_benefit_still_red():
+    result = classify_veteran_impact(
+        "Expand veterans burial benefits and national cemetery access"
+    )
+    assert result is not None
+    assert result["level"] == "red"
+    assert "burial" in result["reason"].lower()

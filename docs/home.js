@@ -516,6 +516,25 @@ const PolicyWatchHome = (() => {
         return generic ? `${st}|${generic[1]} ${generic[2]}` : `${st}|${num}`;
     }
 
+    function normalizeImpactTitle(title) {
+        return String(title || '')
+            .toLowerCase()
+            .replace(/\s+/g, ' ')
+            .trim()
+            .replace(/^[a-z]+\s*\d+[a-z]?\s*:\s*/i, '')
+            .replace(/^[\s.:;-]+|[\s.:;-]+$/g, '');
+    }
+
+    function lookupEntryMatchesItem(entry, item) {
+        if (!entry) return false;
+        const entryTitle = normalizeImpactTitle(entry.title || '');
+        const itemTitle = normalizeImpactTitle(item.title || item.short_title || '');
+        if (!entryTitle || !itemTitle) return false;
+        return entryTitle === itemTitle
+            || entryTitle.includes(itemTitle)
+            || itemTitle.includes(entryTitle);
+    }
+
     // Keep in sync with src/processing/veteran_impact.py (Colorado tracker color rows).
     // RED: benefits, disability ratings, VA healthcare, housing, survivor/burial, GI Bill
     // YELLOW: employment preference, licensing, courts & diversion, mental health, military spouse
@@ -734,13 +753,14 @@ const PolicyWatchHome = (() => {
         if (item.veteran_impact) return item.veteran_impact;
         const tagged = itemHasVeteranTagging(item);
         const classifyOpts = { hasVeteranTagging: tagged };
+        const itemText = itemVeteransText(item);
 
         if (!veteranImpactLookup || Object.keys(veteranImpactLookup).length === 0) {
             if (tagged) {
-                return classifyVeteranImpactFromText(itemVeteransText(item), classifyOpts)
+                return classifyVeteranImpactFromText(itemText, classifyOpts)
                     || defaultGreenImpact();
             }
-            return classifyVeteranImpactFromText(itemVeteransText(item), classifyOpts);
+            return classifyVeteranImpactFromText(itemText, classifyOpts);
         }
 
         const state = inferItemState(item);
@@ -750,6 +770,8 @@ const PolicyWatchHome = (() => {
             if (titleMatch) billNumber = titleMatch[1];
         }
 
+        // Bill numbers reuse across sessions; only trust lookup when titles match.
+        // On mismatch or miss, re-score from this item's text (protects stale R2 data).
         if (billNumber) {
             const keys = [buildVeteranImpactKey(state, billNumber)];
             if (state === 'CO') {
@@ -757,17 +779,18 @@ const PolicyWatchHome = (() => {
                 if (slug) keys.push(`CO|${slug}`);
             }
             for (const key of keys) {
-                if (key && veteranImpactLookup[key]) return veteranImpactLookup[key];
+                const hit = key ? veteranImpactLookup[key] : null;
+                if (hit && lookupEntryMatchesItem(hit, item)) return hit;
             }
         }
 
         if (tagged) {
-            const classified = classifyVeteranImpactFromText(itemVeteransText(item), classifyOpts);
+            const classified = classifyVeteranImpactFromText(itemText, classifyOpts);
             if (classified) return classified;
             return defaultGreenImpact();
         }
 
-        return classifyVeteranImpactFromText(itemVeteransText(item), classifyOpts);
+        return classifyVeteranImpactFromText(itemText, classifyOpts);
     }
 
     function veteranImpactCardClasses(level) {

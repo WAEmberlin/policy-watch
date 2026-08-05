@@ -451,24 +451,85 @@ def load_co_bills(path: Optional[Path] = None) -> Dict[str, Any]:
     return data
 
 
-def _store_lookup_entry(
-    lookup: Dict[str, Dict[str, Any]],
-    state: Optional[str],
-    bill_number: str,
-    entry: Dict[str, Any],
-) -> None:
-    """Store lookup entry under normalized and alias keys."""
+def _bill_recency(record: Dict[str, Any]) -> str:
+    """ISO-ish date string for comparing bill freshness (lexicographic)."""
+    return str(
+        record.get("latest_action_date")
+        or record.get("updated_at")
+        or record.get("published")
+        or ""
+    )
+
+
+def _normalize_impact_title(title: str) -> str:
+    """Normalize titles for cross-session lookup comparison."""
+    text = re.sub(r"\s+", " ", str(title or "").strip().lower())
+    text = re.sub(r"^(?:[a-z]+\s*\d+[a-z]?\s*:\s*)", "", text)
+    return text.strip(" .:;-")
+
+
+def lookup_entry_matches_item(
+    entry: Optional[Dict[str, Any]],
+    item: Dict[str, Any],
+) -> bool:
+    """
+    True when a lookup entry is about the same bill text as *item*.
+
+    Bill numbers reuse across sessions (e.g. MA H 2463), so title must agree
+    before trusting a cached impact level.
+    """
+    if not entry:
+        return False
+    entry_title = _normalize_impact_title(entry.get("title") or "")
+    item_title = _normalize_impact_title(
+        item.get("title") or item.get("short_title") or ""
+    )
+    if not entry_title or not item_title:
+        return False
+    return (
+        entry_title == item_title
+        or entry_title in item_title
+        or item_title in entry_title
+    )
+
+
+def _lookup_keys_for_bill(state: Optional[str], bill_number: str) -> List[str]:
     if not bill_number:
-        return
+        return []
     st = str(state or "Federal").upper()
     lookup_state = None if st == "FEDERAL" else st
     keys = [build_bill_lookup_key(lookup_state, bill_number)]
     if st == "CO":
         slug, _ = normalize_co_csv_bill_number(bill_number)
         keys.append(f"CO|{slug.upper()}")
-    for key in keys:
-        if key and key not in lookup:
+    return [key for key in keys if key]
+
+
+def _store_lookup_entry(
+    lookup: Dict[str, Dict[str, Any]],
+    recency_by_key: Dict[str, str],
+    state: Optional[str],
+    bill_number: str,
+    entry: Optional[Dict[str, Any]],
+    recency: str = "",
+) -> None:
+    """
+    Store or clear lookup entries for a bill number.
+
+    Newer bills win for reused numbers. A newer non-veteran bill clears a stale
+    older veteran classification for the same state|number key.
+    """
+    for key in _lookup_keys_for_bill(state, bill_number):
+        existing_recency = recency_by_key.get(key, "")
+        if key in recency_by_key and recency < existing_recency:
+            continue
+        # Always advance recency so an older bill cannot overwrite a newer one,
+        # even when the newer bill is not veteran-related (no lookup entry).
+        recency_by_key[key] = recency
+        if entry:
             lookup[key] = entry
+        elif key in lookup:
+            del lookup[key]
 
 
 def _classify_bill_record(
@@ -532,8 +593,11 @@ def build_veteran_impact_lookup(
     Build frontend lookup map keyed by state|bill_number.
 
     CO bills use CSV as source of truth; other states and federal use keyword rules.
+    When the same bill number appears in multiple sessions, the newest record wins;
+    a newer non-veteran bill clears a stale older classification.
     """
     lookup: Dict[str, Dict[str, Any]] = {}
+    recency_by_key: Dict[str, str] = {}
 
     co_payload = co_data if co_data is not None else load_co_bills()
     for slug, record in (co_payload.get("bills") or {}).items():
@@ -556,9 +620,12 @@ def build_veteran_impact_lookup(
             "bill_number_norm": record.get("bill_number_norm", ""),
         }
         lookup[f"CO|{slug.upper()}"] = entry
+        recency_by_key[f"CO|{slug.upper()}"] = _bill_recency(record)
         norm = record.get("bill_number_norm") or ""
         if norm:
-            _store_lookup_entry(lookup, "CO", norm, entry)
+            _store_lookup_entry(
+                lookup, recency_by_key, "CO", norm, entry, _bill_recency(record),
+            )
 
     for bill in (normalized_bills or []) + (feed_items or []):
         state = infer_item_state(bill)
@@ -577,16 +644,22 @@ def build_veteran_impact_lookup(
             continue
 
         classified = _classify_bill_record(bill)
-        if not classified:
-            continue
-
-        entry = {
-            **classified,
-            "title": bill.get("title", "") or bill.get("short_title", ""),
-            "bill_number_norm": bill_number,
-        }
+        entry = None
+        if classified:
+            entry = {
+                **classified,
+                "title": bill.get("title", "") or bill.get("short_title", ""),
+                "bill_number_norm": bill_number,
+            }
         lookup_state = None if is_federal else state
-        _store_lookup_entry(lookup, lookup_state, bill_number, entry)
+        _store_lookup_entry(
+            lookup,
+            recency_by_key,
+            lookup_state,
+            bill_number,
+            entry,
+            _bill_recency(bill),
+        )
 
     return lookup
 
@@ -601,22 +674,16 @@ def resolve_veteran_impact_for_item(
 
     state = infer_item_state(item)
     bill_number = _extract_bill_number(item)
-    if not bill_number:
-        return None
-
-    is_federal = state == "Federal" or item.get("level") == "federal"
-    keys = [build_bill_lookup_key(None if is_federal else state, bill_number)]
-    if state == "CO":
-        slug, _ = normalize_co_csv_bill_number(bill_number)
-        keys.append(f"CO|{slug.upper()}")
-
-    for key in keys:
-        hit = lookup.get(key)
-        if hit:
-            return hit
-
     tagged = _item_has_veteran_tagging(item)
-    return classify_veteran_impact(
-        _bill_text_from_record(item),
-        has_veteran_tagging=tagged,
-    )
+    text = _bill_text_from_record(item)
+
+    if bill_number:
+        is_federal = state == "Federal" or item.get("level") == "federal"
+        keys = _lookup_keys_for_bill(None if is_federal else state, bill_number)
+        for key in keys:
+            hit = lookup.get(key)
+            if hit and lookup_entry_matches_item(hit, item):
+                return hit
+
+    # Lookup miss or cross-session collision: re-score from this item's text.
+    return classify_veteran_impact(text, has_veteran_tagging=tagged)
