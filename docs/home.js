@@ -224,6 +224,15 @@ const PolicyWatchHome = (() => {
             Federal: 0, KS: 0, CO: 0, AZ: 0, UT: 0, ME: 0, NE: 0, MD: 0, PA: 0,
             MA: 0, WV: 0, TN: 0, NC: 0, MO: 0, IA: 0,
         };
+        // Prefer precomputed counts from home_feed.json (avoids shipping search_index).
+        const precomputed = siteData && siteData.bill_counts;
+        if (precomputed && typeof precomputed === 'object') {
+            Object.keys(counts).forEach((key) => {
+                const value = Number(precomputed[key]);
+                if (Number.isFinite(value)) counts[key] = value;
+            });
+            return counts;
+        }
         (siteData.search_index?.bills || []).forEach((bill) => {
             if (bill.level === 'federal' || !bill.state) {
                 counts.Federal++;

@@ -2,6 +2,8 @@
 let currentPage = 0;  // Time-chunk index (0 = most recent period)
 let currentItemPage = 0;  // Item page within a time chunk (veterans filters only)
 let allData = null;
+let homeFeedMode = false;  // true when serving slim home_feed.json (not full site_data)
+let fullSiteDataPromise = null;
 let searchQuery = "";
 let searchMode = false;
 let searchResults = [];
@@ -9,7 +11,7 @@ let selectedSource = "";
 let selectedCategory = "";
 let selectedState = "";
 let veteransImpactFilter = null;
-const DAYS_PER_CHUNK = 14;  // Show 2 weeks per "page"
+const DAYS_PER_CHUNK = 14;  // Show 2 weeks per "page" (full site_data only)
 const VETERANS_FEED_ITEM_LIMIT = 100;
 const SEARCH_MIN_CHARS = 3;
 const SEARCH_MAX_RESULTS = 200;
@@ -147,25 +149,130 @@ function updateFilterPills() {
     });
 }
 
+function applyLoadedSitePayload(data, { isHomeFeed }) {
+    allData = data;
+    homeFeedMode = Boolean(isHomeFeed || data.home_feed);
+    if (typeof PolicyWatchBillVotes !== "undefined") {
+        PolicyWatchBillVotes.init(allData);
+    }
+    if (typeof PolicyWatchHome !== "undefined" && PolicyWatchHome.setVeteranImpactLookup) {
+        PolicyWatchHome.setVeteranImpactLookup((allData.veteran_impact || {}).lookup || {});
+    }
+}
+
+async function loadFullSiteData() {
+    if (!homeFeedMode && allData && !allData.home_feed) {
+        return allData;
+    }
+    if (fullSiteDataPromise) return fullSiteDataPromise;
+
+    fullSiteDataPromise = (async () => {
+        const res = await policywatchFetch("site_data.json");
+        if (!res.ok) throw new Error(`site_data.json HTTP ${res.status}`);
+        const data = await res.json();
+        applyLoadedSitePayload(data, { isHomeFeed: false });
+        setupFilters();
+        return allData;
+    })().catch((err) => {
+        fullSiteDataPromise = null;
+        throw err;
+    });
+
+    return fullSiteDataPromise;
+}
+
+function renderYearTabsAndShowDefault() {
+    const years = Object.keys(allData.years || {});
+    const yearTabs = document.getElementById("year-tabs");
+    yearTabs.innerHTML = "";
+
+    if (years.length === 0) {
+        setContentBusy(false);
+        document.getElementById("content").innerHTML =
+            "<p class='text-slate-500 italic text-center py-8'>No data available. Run the backfill script to populate history.</p>";
+        return;
+    }
+
+    const currentYearNum = new Date().getFullYear();
+    const currentYearStr = currentYearNum.toString();
+    const sortedYears = [...years].sort((a, b) => {
+        if (a === currentYearStr) return -1;
+        if (b === currentYearStr) return 1;
+        return parseInt(b, 10) - parseInt(a, 10);
+    });
+
+    // Slim home feed only ships recent days — year tabs add little and invite full dumps.
+    if (homeFeedMode) {
+        yearTabs.hidden = true;
+        currentYear = sortedYears[0];
+        currentPage = 0;
+        currentItemPage = 0;
+        displayUnifiedView(currentYear, 0);
+        return;
+    }
+
+    yearTabs.hidden = false;
+    let defaultYearSet = false;
+    sortedYears.forEach((year) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = year;
+        btn.className = "year-tab px-5 py-2.5 bg-slate-100 hover:bg-slate-200 border-2 border-transparent rounded-lg font-medium transition-all text-slate-700";
+        btn.setAttribute("data-year", year);
+        btn.setAttribute("role", "tab");
+        btn.setAttribute("aria-selected", "false");
+        btn.onclick = () => {
+            searchMode = false;
+            searchQuery = "";
+            document.getElementById("search-input").value = "";
+            currentYear = year;
+            currentPage = 0;
+            currentItemPage = 0;
+            displayUnifiedView(year, 0);
+        };
+        yearTabs.appendChild(btn);
+
+        if (!defaultYearSet) {
+            if (year === currentYearStr || sortedYears.indexOf(year) === 0) {
+                currentYear = year;
+                btn.click();
+                defaultYearSet = true;
+            }
+        }
+    });
+}
+
 async function loadData() {
     setContentBusy(true);
     try {
-        const res = await policywatchFetch("site_data.json");
-        allData = await res.json();
-        if (typeof PolicyWatchBillVotes !== 'undefined') {
-            PolicyWatchBillVotes.init(allData);
+        // Prefer slim home_feed.json so mobile Safari never parses ~100MB+ site_data on first paint.
+        let loaded = false;
+        try {
+            const homeRes = await policywatchFetch("home_feed.json");
+            if (homeRes.ok) {
+                const homeData = await homeRes.json();
+                if (homeData && (homeData.home_feed || homeData.years)) {
+                    applyLoadedSitePayload(homeData, { isHomeFeed: true });
+                    loaded = true;
+                }
+            }
+        } catch {
+            /* fall through to full site_data */
         }
-        if (typeof PolicyWatchHome !== 'undefined' && PolicyWatchHome.setVeteranImpactLookup) {
-            PolicyWatchHome.setVeteranImpactLookup((allData.veteran_impact || {}).lookup || {});
+
+        if (!loaded) {
+            const res = await policywatchFetch("site_data.json");
+            if (!res.ok) throw new Error(`site_data.json HTTP ${res.status}`);
+            applyLoadedSitePayload(await res.json(), { isHomeFeed: false });
         }
     } catch (error) {
         setContentBusy(false);
-        document.getElementById("content").innerHTML = 
+        document.getElementById("content").innerHTML =
             "<div class='bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg text-red-700' role='alert'>Error loading data. Please try again later.</div>";
         a11yAnnounce("Error loading data.");
         return;
     }
-    
+
     // Load weekly overview
     loadWeeklyOverview();
 
@@ -173,7 +280,7 @@ async function loadData() {
     const lastUpdatedEl = document.getElementById("last-updated");
     if (lastUpdatedEl) {
         const updatedDate = new Date(allData.last_updated);
-        lastUpdatedEl.textContent = "Last updated: " + 
+        lastUpdatedEl.textContent = "Last updated: " +
             updatedDate.toLocaleString("en-US", {
                 timeZone: "America/Chicago",
                 year: "numeric",
@@ -196,166 +303,129 @@ async function loadData() {
         if (veteransImpactFilter) PolicyWatchHome.setVeteransImpactFilter(veteransImpactFilter);
     }
     updateFilterPills();
-    
-    // Load and display data
-    const years = Object.keys(allData.years || {});
-    const yearTabs = document.getElementById("year-tabs");
-    yearTabs.innerHTML = "";
 
-    if (years.length === 0) {
-        setContentBusy(false);
-        document.getElementById("content").innerHTML = 
-            "<p class='text-slate-500 italic text-center py-8'>No data available. Run the backfill script to populate history.</p>";
-        return;
-    }
-
-    // Get current year
-    const currentYearNum = new Date().getFullYear();
-    const currentYearStr = currentYearNum.toString();
-
-    // Sort years: current year first, then descending order (newest first)
-    const sortedYears = [...years].sort((a, b) => {
-        const aNum = parseInt(a);
-        const bNum = parseInt(b);
-        
-        // Current year always comes first
-        if (a === currentYearStr) return -1;
-        if (b === currentYearStr) return 1;
-        
-        // Otherwise, sort descending (newest first)
-        return bNum - aNum;
-    });
-
-    // Create year tabs
-    let defaultYearSet = false;
-    sortedYears.forEach((year) => {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.textContent = year;
-        btn.className = "year-tab px-5 py-2.5 bg-slate-100 hover:bg-slate-200 border-2 border-transparent rounded-lg font-medium transition-all text-slate-700";
-        btn.setAttribute("data-year", year);
-        btn.setAttribute("role", "tab");
-        btn.setAttribute("aria-selected", "false");
-        btn.onclick = () => {
-            searchMode = false;
-            searchQuery = "";
-            document.getElementById("search-input").value = "";
-            currentYear = year;
-            currentPage = 0;
-            currentItemPage = 0;
-            displayUnifiedView(year, 0);
-        };
-        yearTabs.appendChild(btn);
-
-        // Show current year by default (or first year if current year not available)
-        if (!defaultYearSet) {
-            if (year === currentYearStr || sortedYears.indexOf(year) === 0) {
-                currentYear = year;
-                btn.click();
-                defaultYearSet = true;
-            }
-        }
-    });
+    renderYearTabsAndShowDefault();
 }
 
 function setupFilters() {
     // Collect all unique sources and categories from data
-    const sources = new Set();
-    const categories = new Set();
-    
-    // Get sources from RSS feeds (years data)
-    const years = allData.years || {};
-    Object.values(years).forEach(yearData => {
-        const grouped = yearData.grouped || {};
-        Object.values(grouped).forEach(dateData => {
-            Object.keys(dateData).forEach(source => {
-                sources.add(source);
-                // Extract category from source if it's Kansas
-                if (source.includes("Kansas Legislature")) {
-                    const parts = source.split(" - ");
-                    if (parts.length > 1) {
-                        categories.add(parts[1]);
+    const sources = new Set(allData.sources || []);
+    const categories = new Set(allData.categories || []);
+
+    if (sources.size === 0 || categories.size === 0) {
+        // Get sources from RSS feeds (years data)
+        const years = allData.years || {};
+        Object.values(years).forEach(yearData => {
+            const grouped = yearData.grouped || {};
+            Object.values(grouped).forEach(dateData => {
+                Object.keys(dateData).forEach(source => {
+                    sources.add(source);
+                    if (source.includes("Kansas Legislature")) {
+                        const parts = source.split(" - ");
+                        if (parts.length > 1) {
+                            categories.add(parts[1]);
+                        }
                     }
-                }
+                });
             });
         });
-    });
-    
-    // Get sources from legislation
-    const legislation = allData.legislation || {};
-    if (legislation.pages) {
-        legislation.pages.forEach(page => {
-            page.forEach(bill => {
+
+        // Get sources from legislation
+        const legislation = allData.legislation || {};
+        if (legislation.pages) {
+            legislation.pages.forEach(page => {
+                page.forEach(bill => {
+                    sources.add(bill.source || "Congress.gov API");
+                });
+            });
+        } else if (Array.isArray(legislation)) {
+            legislation.forEach(bill => {
                 sources.add(bill.source || "Congress.gov API");
             });
-        });
-    } else if (Array.isArray(legislation)) {
-        legislation.forEach(bill => {
-            sources.add(bill.source || "Congress.gov API");
-        });
+        }
     }
-    
+
     // Populate state filter from site config
     const stateFilter = document.getElementById("state-filter");
     if (stateFilter) {
+        const previous = stateFilter.value;
+        // Keep the All option; replace dynamic state options only.
+        stateFilter.querySelectorAll("option[data-dynamic='1']").forEach((opt) => opt.remove());
         const states = allData.states || [];
         states.forEach(s => {
             const option = document.createElement("option");
             option.value = s.code.toUpperCase();
             option.textContent = s.name;
+            option.setAttribute("data-dynamic", "1");
             stateFilter.appendChild(option);
         });
-        stateFilter.addEventListener("change", () => {
-            selectedState = stateFilter.value;
-            if (typeof PolicyWatchHome !== "undefined") PolicyWatchHome.setSelectedState(selectedState);
-            currentPage = 0;
-            currentItemPage = 0;
-            refreshView();
-            a11yAnnounce("State filter applied.");
-        });
+        if (previous) stateFilter.value = previous;
+        if (!stateFilter.dataset.bound) {
+            stateFilter.dataset.bound = "1";
+            stateFilter.addEventListener("change", () => {
+                selectedState = stateFilter.value;
+                if (typeof PolicyWatchHome !== "undefined") PolicyWatchHome.setSelectedState(selectedState);
+                currentPage = 0;
+                currentItemPage = 0;
+                refreshView();
+                a11yAnnounce("State filter applied.");
+            });
+        }
     }
 
     // Populate source filter
     const sourceFilter = document.getElementById("source-filter");
     const categoryFilter = document.getElementById("category-filter");
-    
-    // Sort sources
+
     const sortedSources = Array.from(sources).sort();
+    const sourcePrev = sourceFilter.value;
+    sourceFilter.querySelectorAll("option[data-dynamic='1']").forEach((opt) => opt.remove());
     sortedSources.forEach(source => {
         const option = document.createElement("option");
         option.value = source;
         option.textContent = source;
+        option.setAttribute("data-dynamic", "1");
         sourceFilter.appendChild(option);
     });
-    
-    // Populate category filter
+    if (sourcePrev) sourceFilter.value = sourcePrev;
+
     const sortedCategories = Array.from(categories).sort();
+    const categoryPrev = categoryFilter.value;
+    categoryFilter.querySelectorAll("option[data-dynamic='1']").forEach((opt) => opt.remove());
     sortedCategories.forEach(cat => {
         const option = document.createElement("option");
         option.value = cat;
         option.textContent = cat;
+        option.setAttribute("data-dynamic", "1");
         categoryFilter.appendChild(option);
     });
-    
-    // Add event listeners
-    sourceFilter.addEventListener("change", () => {
-        selectedSource = sourceFilter.value;
-        currentPage = 0;
-        currentItemPage = 0;
-        refreshView();
-        a11yAnnounce("Source filter applied.");
-    });
-    
-    categoryFilter.addEventListener("change", () => {
-        selectedCategory = categoryFilter.value;
-        currentPage = 0;
-        currentItemPage = 0;
-        refreshView();
-        a11yAnnounce("Category filter applied.");
-    });
-    
+    if (categoryPrev) categoryFilter.value = categoryPrev;
+
+    if (!sourceFilter.dataset.bound) {
+        sourceFilter.dataset.bound = "1";
+        sourceFilter.addEventListener("change", () => {
+            selectedSource = sourceFilter.value;
+            currentPage = 0;
+            currentItemPage = 0;
+            refreshView();
+            a11yAnnounce("Source filter applied.");
+        });
+    }
+
+    if (!categoryFilter.dataset.bound) {
+        categoryFilter.dataset.bound = "1";
+        categoryFilter.addEventListener("change", () => {
+            selectedCategory = categoryFilter.value;
+            currentPage = 0;
+            currentItemPage = 0;
+            refreshView();
+            a11yAnnounce("Category filter applied.");
+        });
+    }
+
     const clearBtn = document.getElementById("clear-filters");
-    if (clearBtn) {
+    if (clearBtn && !clearBtn.dataset.bound) {
+        clearBtn.dataset.bound = "1";
         clearBtn.onclick = () => {
             sourceFilter.value = "";
             categoryFilter.value = "";
@@ -389,24 +459,44 @@ function paginateFeedItems(items) {
     };
 }
 
+function getHomeFeedDateRange() {
+    const dates = ((allData && allData.feed_window) || {}).dates || [];
+    if (!dates.length) {
+        const fromGrouped = [];
+        Object.values(allData.years || {}).forEach((yearData) => {
+            Object.keys(yearData.grouped || {}).forEach((d) => fromGrouped.push(d));
+        });
+        fromGrouped.sort().reverse();
+        if (!fromGrouped.length) return null;
+        return { start: fromGrouped[fromGrouped.length - 1], end: fromGrouped[0] };
+    }
+    const sorted = [...dates].sort();
+    return { start: sorted[0], end: sorted[sorted.length - 1] };
+}
+
 function getDateRangeForChunk(chunkIndex) {
     /**
      * Calculate the date range for a 14-day chunk.
      * chunkIndex 0 = most recent 2 weeks
      * chunkIndex 1 = previous 2 weeks
      * etc.
+     * In home_feed mode, ignore chunking and use the preselected recent dates.
      */
+    if (homeFeedMode) {
+        return getHomeFeedDateRange() || { start: "", end: "" };
+    }
+
     const now = new Date();
     now.setHours(0, 0, 0, 0);
-    
+
     // Calculate end date (most recent day in this chunk)
     const endDate = new Date(now);
     endDate.setDate(endDate.getDate() - (chunkIndex * DAYS_PER_CHUNK));
-    
+
     // Calculate start date (oldest day in this chunk)
     const startDate = new Date(endDate);
     startDate.setDate(startDate.getDate() - (DAYS_PER_CHUNK - 1));
-    
+
     return {
         start: startDate.toISOString().split('T')[0],
         end: endDate.toISOString().split('T')[0]
@@ -572,9 +662,20 @@ function feedFallbackNotice(dateRange) {
     return `No activity in the last 2 weeks — showing ${rangeLabel}`;
 }
 
+function collectHomeFeedItemsAcrossYears(dateRange) {
+    let allItems = [];
+    Object.keys(allData.years || {}).forEach((year) => {
+        const yearData = allData.years[year];
+        if (!yearData) return;
+        allItems = allItems.concat(getFeedItemsForDateRange(yearData, dateRange));
+    });
+    allItems.sort((a, b) => (b.published || b.date || "").localeCompare(a.published || a.date || ""));
+    return allItems;
+}
+
 function displayUnifiedView(year, chunkIndex) {
     const yearData = allData.years[year];
-    if (!yearData) return;
+    if (!yearData && !homeFeedMode) return;
 
     setContentBusy(true);
     const container = document.getElementById("content");
@@ -591,24 +692,34 @@ function displayUnifiedView(year, chunkIndex) {
         }
     });
 
-    // Get date range for this chunk
-    const grouped = yearData.grouped || {};
-    const allDatesInYear = Object.keys(grouped).sort().reverse();
-    const totalChunks = getTotalChunksForYear(allDatesInYear);
-
     let effectiveChunkIndex = chunkIndex;
-    let dateRange = getDateRangeForChunk(effectiveChunkIndex);
-    let allItems = getFeedItemsForDateRange(yearData, dateRange);
+    let dateRange;
+    let allItems;
+    let totalChunks = 1;
 
-    // When the current period is empty, fall back to the most recent 2-week window with data
-    if (chunkIndex === 0 && allItems.length === 0) {
-        const fallbackChunk = findFirstNonEmptyChunkIndex(year, totalChunks);
-        if (fallbackChunk > 0) {
-            effectiveChunkIndex = fallbackChunk;
-            currentPage = fallbackChunk;
-            currentItemPage = 0;
-            dateRange = getDateRangeForChunk(effectiveChunkIndex);
-            allItems = getFeedItemsForDateRange(yearData, dateRange);
+    if (homeFeedMode) {
+        // Recent-window rule: pipeline ships up to 2 most recent calendar days with activity.
+        dateRange = getHomeFeedDateRange() || { start: "", end: "" };
+        allItems = collectHomeFeedItemsAcrossYears(dateRange);
+        totalChunks = 1;
+        effectiveChunkIndex = 0;
+    } else {
+        const grouped = yearData.grouped || {};
+        const allDatesInYear = Object.keys(grouped).sort().reverse();
+        totalChunks = getTotalChunksForYear(allDatesInYear);
+        dateRange = getDateRangeForChunk(effectiveChunkIndex);
+        allItems = getFeedItemsForDateRange(yearData, dateRange);
+
+        // When the current period is empty, fall back to the most recent 2-week window with data
+        if (chunkIndex === 0 && allItems.length === 0) {
+            const fallbackChunk = findFirstNonEmptyChunkIndex(year, totalChunks);
+            if (fallbackChunk > 0) {
+                effectiveChunkIndex = fallbackChunk;
+                currentPage = fallbackChunk;
+                currentItemPage = 0;
+                dateRange = getDateRangeForChunk(effectiveChunkIndex);
+                allItems = getFeedItemsForDateRange(yearData, dateRange);
+            }
         }
     }
 
@@ -626,10 +737,18 @@ function displayUnifiedView(year, chunkIndex) {
 
     const chunkDates = Object.keys(itemsByDate).sort().reverse();
 
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    if (homeFeedMode && pageItems.length > 0 && dateRange.start) {
+        const notice = document.createElement("p");
+        notice.className = "text-sm text-slate-500 text-center mb-4";
+        notice.setAttribute("role", "status");
+        const sameDay = dateRange.start === dateRange.end;
+        notice.textContent = sameDay
+            ? `Showing recent activity for ${formatDate(dateRange.start)}`
+            : `Showing recent activity for ${formatDate(dateRange.start)} – ${formatDate(dateRange.end)}`;
+        container.appendChild(notice);
+    }
 
-    const showFallbackNote = recentWeekHasNoActivity(year) && pageItems.length > 0;
+    const showFallbackNote = !homeFeedMode && recentWeekHasNoActivity(year) && pageItems.length > 0;
     if (showFallbackNote) {
         const notice = document.createElement("p");
         notice.className = "text-sm text-slate-500 text-center mb-4 italic";
@@ -692,29 +811,7 @@ function addSearchResult(item, seen, results) {
     return results.length >= SEARCH_MAX_RESULTS;
 }
 
-function performSearch(query) {
-    if (!query || query.trim().length === 0) {
-        searchMode = false;
-        searchQuery = "";
-        if (currentYear) {
-            displayUnifiedView(currentYear, 0);
-        }
-        return;
-    }
-
-    const trimmed = query.trim();
-    if (trimmed.length < SEARCH_MIN_CHARS) {
-        searchMode = true;
-        searchQuery = trimmed.toLowerCase();
-        searchResults = [];
-        displaySearchPrompt(`Type at least ${SEARCH_MIN_CHARS} characters to search.`);
-        updateFilterPills();
-        return;
-    }
-
-    setContentBusy(true);
-    searchMode = true;
-    searchQuery = trimmed.toLowerCase();
+function runSearchAgainstLoadedData(queryLower) {
     searchResults = [];
     const seen = new Set();
     let capped = false;
@@ -726,17 +823,17 @@ function performSearch(query) {
 
     // Search through all items in all years
     const years = Object.keys(allData.years || {});
-    
+
     outer: for (const year of years) {
         const yearData = allData.years[year];
         const grouped = yearData.grouped || {};
-        
+
         for (const date of Object.keys(grouped)) {
             const dateData = grouped[date];
             for (const source of Object.keys(dateData)) {
                 const items = dateData[source];
                 for (const item of items) {
-                    if (buildFeedSearchText(item).includes(searchQuery)) {
+                    if (buildFeedSearchText(item).includes(queryLower)) {
                         if (tryAdd({
                             ...item,
                             date: date,
@@ -763,7 +860,7 @@ function performSearch(query) {
         } else if (Array.isArray(legislation)) {
             legislationItems = legislation;
         }
-        
+
         legLoop: for (const bill of legislationItems) {
             const searchText = buildFeedSearchText({
                 title: bill.title,
@@ -775,7 +872,7 @@ function performSearch(query) {
                 vote_tally: bill.vote_tally,
             });
 
-            if (searchText.includes(searchQuery)) {
+            if (searchText.includes(queryLower)) {
                 const billNumber = `${bill.bill_type || ""} ${bill.bill_number || ""}`.trim();
                 if (tryAdd({
                     ...bill,
@@ -791,9 +888,10 @@ function performSearch(query) {
         }
     }
 
-    if (!capped) {
-        // Also search multi-state index
-        const indexBills = (allData.search_index || {}).bills || [];
+    // Skip giant search_index scans on the slim homepage payload (empty stub) and on
+    // mobile — full corpus search lives on bills/search pages that lazy-load site_data.
+    const indexBills = (allData.search_index || {}).bills || [];
+    if (!capped && indexBills.length && !homeFeedMode) {
         indexLoop: for (const bill of indexBills) {
             const searchText = buildFeedSearchText({
                 title: bill.title,
@@ -803,7 +901,7 @@ function performSearch(query) {
                 motion: bill.motion,
                 vote_tally: bill.vote_tally,
             });
-            if (searchText.includes(searchQuery)) {
+            if (searchText.includes(queryLower)) {
                 if (tryAdd({
                     title: `${bill.bill_number}: ${bill.title}`,
                     link: (typeof PolicyWatchBillUtils !== "undefined" ? PolicyWatchBillUtils.resolveBillUrl(bill) : bill.url),
@@ -824,7 +922,6 @@ function performSearch(query) {
         }
     }
 
-    // Apply state filter to search results
     if (selectedState) {
         searchResults = searchResults.filter(item => itemMatchesStateFilter(item));
     }
@@ -832,14 +929,42 @@ function performSearch(query) {
         searchResults = searchResults.filter(item => itemMatchesVeteransFilter(item));
     }
 
-    // Sort search results by date (newest first)
     searchResults.sort((a, b) => {
         const dateA = a.published || a.date || "";
         const dateB = b.published || b.date || "";
         return dateB.localeCompare(dateA);
     });
 
-    displaySearchResults({ capped });
+    return capped;
+}
+
+function performSearch(query) {
+    if (!query || query.trim().length === 0) {
+        searchMode = false;
+        searchQuery = "";
+        if (currentYear) {
+            displayUnifiedView(currentYear, 0);
+        }
+        return;
+    }
+
+    const trimmed = query.trim();
+    if (trimmed.length < SEARCH_MIN_CHARS) {
+        searchMode = true;
+        searchQuery = trimmed.toLowerCase();
+        searchResults = [];
+        displaySearchPrompt(`Type at least ${SEARCH_MIN_CHARS} characters to search.`);
+        updateFilterPills();
+        return;
+    }
+
+    setContentBusy(true);
+    searchMode = true;
+    searchQuery = trimmed.toLowerCase();
+    // Homepage search stays within the loaded recent feed to avoid pulling site_data.json
+    // (often 100MB+) into mobile Safari. Broader search: bills.html / expansion pages.
+    const capped = runSearchAgainstLoadedData(searchQuery);
+    displaySearchResults({ capped, homeFeedScoped: homeFeedMode });
     updateFilterPills();
 }
 
@@ -857,7 +982,7 @@ function displaySearchPrompt(message) {
 }
 
 function displaySearchResults(options = {}) {
-    const { capped = false } = options;
+    const { capped = false, homeFeedScoped = false } = options;
     const container = document.getElementById("content");
     container.innerHTML = "";
 
@@ -872,7 +997,10 @@ function displaySearchResults(options = {}) {
     document.getElementById("pagination").innerHTML = "";
 
     if (searchResults.length === 0) {
-        container.innerHTML = `<p class='text-slate-500 italic text-center py-8'>No results found for "${searchQuery}".</p>`;
+        const scopeNote = homeFeedScoped
+            ? " Homepage search covers recent activity only — try the Bills page for the full archive."
+            : "";
+        container.innerHTML = `<p class='text-slate-500 italic text-center py-8'>No results found for "${escapeHtmlText(searchQuery)}".${scopeNote}</p>`;
         a11yAnnounce(`No search results for ${searchQuery}.`);
         setContentBusy(false);
         return;
@@ -885,6 +1013,7 @@ function displaySearchResults(options = {}) {
     resultsHeader.innerHTML = `
         <h2 class="text-xl font-bold text-civic-blue mb-1">Search Results (${searchResults.length} found${capped ? "+" : ""})</h2>
         <p class="text-slate-600">Searching for: "<strong>${escapeHtmlText(searchQuery)}</strong>"</p>
+        ${homeFeedScoped ? `<p class="text-sm text-slate-500 mt-2">Searching recent homepage activity only. Use the Bills page for the full archive.</p>` : ""}
         ${capped ? `<p class="text-sm text-slate-500 mt-2">Showing the first ${SEARCH_MAX_RESULTS} matches. Add more characters to narrow results.</p>` : ""}
     `;
     container.appendChild(resultsHeader);
@@ -931,7 +1060,8 @@ function renderPagination(year, current, total, dateRange, itemPagination) {
     container.innerHTML = "";
 
     const itemPages = itemPagination?.totalItemPages || 1;
-    const showPeriodNav = total > 1;
+    // Slim home feed has no older 14-day windows — only item paging (e.g. veterans filter).
+    const showPeriodNav = !homeFeedMode && total > 1;
     const showItemNav = itemPages > 1;
     if (!showPeriodNav && !showItemNav) return;
 

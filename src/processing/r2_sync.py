@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[2]
 # Browser-facing files under docs/ (R2 key == path relative to docs/)
 DOCS_UPLOAD_FILES = [
     "site_data.json",
+    "home_feed.json",
     "legislator_votes.json",
     "legislator_vote_counts.json",
     "bill_title_lookup.json",
