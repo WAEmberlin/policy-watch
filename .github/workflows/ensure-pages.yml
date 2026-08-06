@@ -81,12 +81,8 @@ jobs:
               });
               return (data.workflow_runs || []).filter((run) => {
                 if (run.head_sha !== headSha) return false;
-                const name = (run.name || "").toLowerCase();
                 const path = (run.path || "").toLowerCase();
-                return (
-                  name.includes("pages") ||
-                  path.includes("pages-build-deployment")
-                );
+                return path.includes("pages-build-deployment");
               });
             }
 
