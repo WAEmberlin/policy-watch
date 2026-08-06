@@ -10,7 +10,8 @@ permissions:
 
 jobs:
   upload:
-    runs-on: ubuntu-latest
+    # windows-latest: ubuntu-latest hosted runners were stuck queued during Actions outages.
+    runs-on: windows-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -31,6 +32,7 @@ jobs:
           R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
           R2_PUBLIC_BASE_URL: ${{ secrets.R2_PUBLIC_BASE_URL }}
           PYTHONPATH: src
+        shell: bash
         run: |
           if [ -z "$R2_ACCOUNT_ID" ] || [ -z "$R2_ACCESS_KEY_ID" ] || [ -z "$R2_PUBLIC_BASE_URL" ]; then
             echo "ERROR: R2 secrets are required"
