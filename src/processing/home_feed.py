@@ -1,4 +1,4 @@
-"""Build a slim homepage feed artifact so index.html need not load site_data.json.
+"""Build slim homepage feed artifacts so index.html need not load site_data.json.
 
 Recent-window rule (documented for operators and home.js consumers):
   Take up to HOME_FEED_MAX_DAYS (default 2) most recent calendar dates on or
@@ -7,6 +7,12 @@ Recent-window rule (documented for operators and home.js consumers):
   Dates need not be consecutive — if yesterday is empty but today and three
   days ago have items, those two dates are used. Future-dated rows are ignored
   so sparse bad dates cannot empty the homepage.
+
+Older history:
+  Every activity date (same rule, unlimited) is also written to
+  docs/home_feed_days/YYYY-MM-DD.json. The slim home_feed.json lists
+  available_dates so the homepage can page backward and fetch one day at a time
+  without parsing full site_data.json.
 """
 
 from __future__ import annotations
@@ -21,7 +27,11 @@ from typing import Any, Dict, Iterable, List, Optional, Sequence, Set, Tuple
 from processing.bill_action_utils import classify_action_type
 
 HOME_FEED_MAX_DAYS = 2
+# Search-index-only days (no grouped history) are browsable only within this lookback.
+# Full grouped history remains available; avoids thousands of sparse day files from bill corpora.
+HOME_FEED_SEARCH_LOOKBACK_DAYS = 120
 HOME_FEED_FILENAME = "home_feed.json"
+HOME_FEED_DAYS_DIRNAME = "home_feed_days"
 
 try:
     from zoneinfo import ZoneInfo
@@ -113,6 +123,47 @@ def _collect_search_index_dates(search_index: Dict[str, Any], *, on_or_before: s
     return dates
 
 
+def _parse_iso_date(value: str):
+    return datetime.strptime(value, "%Y-%m-%d").date()
+
+
+def collect_recent_candidate_dates(
+    site_years: Dict[str, Any],
+    search_index: Optional[Dict[str, Any]] = None,
+    *,
+    today: Optional[str] = None,
+) -> List[str]:
+    """All activity dates used to pick the slim recent window (grouped + search index)."""
+    on_or_before = _today_central(today)
+    dates = _collect_grouped_dates(site_years, on_or_before=on_or_before)
+    dates |= _collect_search_index_dates(search_index or {}, on_or_before=on_or_before)
+    return sorted(dates, reverse=True)
+
+
+def collect_all_feed_dates(
+    site_years: Dict[str, Any],
+    search_index: Optional[Dict[str, Any]] = None,
+    *,
+    today: Optional[str] = None,
+    search_lookback_days: int = HOME_FEED_SEARCH_LOOKBACK_DAYS,
+) -> List[str]:
+    """Return browseable YYYY-MM-DD dates, newest first.
+
+    Includes every grouped history day, plus search-index-only days within
+    search_lookback_days (so recent multi-state-only days remain pageable without
+    emitting thousands of sparse archive day files).
+    """
+    on_or_before = _today_central(today)
+    dates = _collect_grouped_dates(site_years, on_or_before=on_or_before)
+    search_dates = _collect_search_index_dates(search_index or {}, on_or_before=on_or_before)
+    if search_lookback_days is None or int(search_lookback_days) < 0:
+        dates |= search_dates
+    else:
+        cutoff = (_parse_iso_date(on_or_before) - timedelta(days=int(search_lookback_days))).isoformat()
+        dates |= {d for d in search_dates if d >= cutoff}
+    return sorted(dates, reverse=True)
+
+
 def select_recent_feed_dates(
     site_years: Dict[str, Any],
     search_index: Optional[Dict[str, Any]] = None,
@@ -121,10 +172,9 @@ def select_recent_feed_dates(
     today: Optional[str] = None,
 ) -> List[str]:
     """Return up to max_days most recent YYYY-MM-DD dates that have activity."""
-    on_or_before = _today_central(today)
-    dates = _collect_grouped_dates(site_years, on_or_before=on_or_before)
-    dates |= _collect_search_index_dates(search_index or {}, on_or_before=on_or_before)
-    return sorted(dates, reverse=True)[: max(0, int(max_days))]
+    return collect_recent_candidate_dates(site_years, search_index, today=today)[
+        : max(0, int(max_days))
+    ]
 
 
 def compute_bill_counts(search_index: Dict[str, Any]) -> Dict[str, int]:
@@ -309,6 +359,50 @@ def _slim_years_for_dates(site_years: Dict[str, Any], feed_dates: Sequence[str])
     return slim
 
 
+def _refresh_year_totals(slim_years: Dict[str, Any]) -> int:
+    item_count = 0
+    for year_data in slim_years.values():
+        grouped = year_data.get("grouped") or {}
+        total = sum(
+            len(items or []) for sources in grouped.values() for items in sources.values()
+        )
+        year_data["total_items"] = total
+        item_count += total
+    return item_count
+
+
+def build_day_feed(
+    *,
+    date: str,
+    site_years: Dict[str, Any],
+    search_index: Optional[Dict[str, Any]] = None,
+    veteran_impact_lookup: Optional[Dict[str, Any]] = None,
+    kansas_vote_records: Optional[Dict[str, Any]] = None,
+) -> Dict[str, Any]:
+    """Build a single-day homepage feed payload for on-demand older browsing."""
+    search_index = search_index or {}
+    feed_dates = [date]
+    slim_years = _slim_years_for_dates(site_years, feed_dates)
+    injected = _inject_multi_state_bills(slim_years, search_index, feed_dates)
+    item_count = _refresh_year_totals(slim_years)
+    sources, categories = _collect_sources_and_categories(slim_years)
+    return {
+        "home_feed_day": True,
+        "date": date,
+        "years": slim_years,
+        "sources": sources,
+        "categories": categories,
+        "veteran_impact": {
+            "lookup": _slim_veteran_lookup(veteran_impact_lookup or {}, slim_years),
+        },
+        "kansas_vote_records": _slim_kansas_votes(kansas_vote_records or {}, slim_years),
+        "stats": {
+            "feed_item_count": item_count,
+            "multi_state_injected": injected,
+        },
+    }
+
+
 def build_home_feed(
     *,
     last_updated: str,
@@ -327,19 +421,18 @@ def build_home_feed(
     feed_dates = select_recent_feed_dates(
         site_years, search_index, max_days=max_days, today=as_of
     )
+    available_dates = collect_all_feed_dates(site_years, search_index, today=as_of)
+    # Recent window days must always be browseable even if search-only outside lookback.
+    if feed_dates:
+        available_set = set(available_dates)
+        available_set.update(feed_dates)
+        available_dates = sorted(available_set, reverse=True)
     slim_years = _slim_years_for_dates(site_years, feed_dates)
     injected = _inject_multi_state_bills(slim_years, search_index, feed_dates)
-
-    # Refresh totals after injection
-    for year_data in slim_years.values():
-        grouped = year_data.get("grouped") or {}
-        year_data["total_items"] = sum(
-            len(items or []) for sources in grouped.values() for items in sources.values()
-        )
+    item_count = _refresh_year_totals(slim_years)
 
     sources, categories = _collect_sources_and_categories(slim_years)
     bill_counts = compute_bill_counts(search_index)
-    item_count = sum(int(y.get("total_items") or 0) for y in slim_years.values())
 
     return {
         "last_updated": last_updated,
@@ -356,6 +449,8 @@ def build_home_feed(
                 "(history/legislation/votes or multi-state bill updates)."
             ),
         },
+        # Full activity calendar for older-day pagination (filenames under home_feed_days/).
+        "available_dates": available_dates,
         "bill_counts": bill_counts,
         "states": states or [],
         "sources": sources,
@@ -373,6 +468,7 @@ def build_home_feed(
             "feed_item_count": item_count,
             "multi_state_injected": injected,
             "feed_day_count": len(feed_dates),
+            "available_day_count": len(available_dates),
         },
     }
 
@@ -384,6 +480,96 @@ def write_home_feed(docs_dir: str | Path, payload: Dict[str, Any]) -> Path:
     with open(out, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
     return out
+
+
+def home_feed_day_path(docs_dir: str | Path, date: str) -> Path:
+    return Path(docs_dir) / HOME_FEED_DAYS_DIRNAME / f"{date}.json"
+
+
+def write_home_feed_day(docs_dir: str | Path, payload: Dict[str, Any]) -> Path:
+    date = payload.get("date") or ""
+    if not date:
+        raise ValueError("day feed payload missing date")
+    out = home_feed_day_path(docs_dir, date)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with open(out, "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
+    return out
+
+
+def write_home_feed_days(
+    docs_dir: str | Path,
+    *,
+    site_years: Dict[str, Any],
+    search_index: Optional[Dict[str, Any]] = None,
+    veteran_impact_lookup: Optional[Dict[str, Any]] = None,
+    kansas_vote_records: Optional[Dict[str, Any]] = None,
+    today: Optional[str] = None,
+    dates: Optional[Sequence[str]] = None,
+) -> Tuple[List[str], List[Path]]:
+    """Write one JSON file per activity date; remove stale day files."""
+    search_index = search_index or {}
+    feed_dates = list(dates) if dates is not None else collect_all_feed_dates(
+        site_years, search_index, today=today
+    )
+    days_dir = Path(docs_dir) / HOME_FEED_DAYS_DIRNAME
+    days_dir.mkdir(parents=True, exist_ok=True)
+
+    written: List[Path] = []
+    keep = set(feed_dates)
+    for date in feed_dates:
+        payload = build_day_feed(
+            date=date,
+            site_years=site_years,
+            search_index=search_index,
+            veteran_impact_lookup=veteran_impact_lookup,
+            kansas_vote_records=kansas_vote_records,
+        )
+        written.append(write_home_feed_day(docs_dir, payload))
+
+    for path in days_dir.glob("*.json"):
+        if path.stem not in keep:
+            path.unlink()
+
+    return feed_dates, written
+
+
+def write_home_feed_artifacts(
+    docs_dir: str | Path,
+    *,
+    last_updated: str,
+    site_years: Dict[str, Any],
+    search_index: Optional[Dict[str, Any]] = None,
+    states: Optional[List[Dict[str, Any]]] = None,
+    veteran_impact_lookup: Optional[Dict[str, Any]] = None,
+    kansas_vote_records: Optional[Dict[str, Any]] = None,
+    action_badges: Optional[Dict[str, Any]] = None,
+    max_days: int = HOME_FEED_MAX_DAYS,
+    today: Optional[str] = None,
+) -> Tuple[Path, List[Path], Dict[str, Any]]:
+    """Write slim home_feed.json plus per-day files under home_feed_days/."""
+    payload = build_home_feed(
+        last_updated=last_updated,
+        site_years=site_years,
+        search_index=search_index,
+        states=states,
+        veteran_impact_lookup=veteran_impact_lookup,
+        kansas_vote_records=kansas_vote_records,
+        action_badges=action_badges,
+        max_days=max_days,
+        today=today,
+    )
+    home_path = write_home_feed(docs_dir, payload)
+    _, day_paths = write_home_feed_days(
+        docs_dir,
+        site_years=site_years,
+        search_index=search_index,
+        veteran_impact_lookup=veteran_impact_lookup,
+        kansas_vote_records=kansas_vote_records,
+        today=today,
+        dates=payload.get("available_dates") or [],
+    )
+    return home_path, day_paths, payload
 
 
 def build_home_feed_from_site_data(

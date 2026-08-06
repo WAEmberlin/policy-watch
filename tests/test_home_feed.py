@@ -1,5 +1,6 @@
 """Tests for slim homepage feed generation."""
 
+import json
 import sys
 from pathlib import Path
 
@@ -7,10 +8,14 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from processing.home_feed import (  # noqa: E402
+    HOME_FEED_DAYS_DIRNAME,
     HOME_FEED_MAX_DAYS,
+    build_day_feed,
     build_home_feed,
+    collect_all_feed_dates,
     compute_bill_counts,
     select_recent_feed_dates,
+    write_home_feed_artifacts,
 )
 
 
@@ -34,6 +39,46 @@ def test_select_recent_feed_dates_picks_two_most_recent_with_activity():
     )
     dates = select_recent_feed_dates(site_years, {}, max_days=2, today="2026-08-04")
     assert dates == ["2026-08-04", "2026-08-02"]
+
+
+def test_collect_all_feed_dates_includes_older_grouped_days():
+    site_years = _year(
+        {
+            "2026-08-04": {"Federal": [{"title": "A"}]},
+            "2026-08-02": {"Federal": [{"title": "B"}]},
+            "2026-08-01": {"Federal": [{"title": "C"}]},
+        }
+    )
+    dates = collect_all_feed_dates(site_years, {}, today="2026-08-04")
+    assert dates == ["2026-08-04", "2026-08-02", "2026-08-01"]
+
+
+def test_collect_all_feed_dates_limits_search_index_only_lookback():
+    site_years = _year({"2026-08-04": {"Federal": [{"title": "A"}]}})
+    search_index = {
+        "bills": [
+            {
+                "bill_number": "HB 1",
+                "title": "Recent CO",
+                "state": "CO",
+                "level": "state",
+                "latest_action_date": "2026-07-31T12:00:00",
+            },
+            {
+                "bill_number": "HB 2",
+                "title": "Old CO",
+                "state": "CO",
+                "level": "state",
+                "latest_action_date": "2025-01-01T12:00:00",
+            },
+        ]
+    }
+    dates = collect_all_feed_dates(
+        site_years, search_index, today="2026-08-04", search_lookback_days=120
+    )
+    assert "2026-08-04" in dates
+    assert "2026-07-31" in dates
+    assert "2025-01-01" not in dates
 
 
 def test_select_recent_feed_dates_ignores_future_dates():
@@ -153,6 +198,9 @@ def test_build_home_feed_excludes_full_search_index_and_injects_multi_state():
 
     assert feed["home_feed"] is True
     assert feed["feed_window"]["dates"] == ["2026-08-04", "2026-08-03"]
+    # 2026-01-01 is search-index-only and outside the lookback window.
+    assert feed["available_dates"] == ["2026-08-04", "2026-08-03"]
+    assert feed["stats"]["available_day_count"] == 2
     assert feed["search_index"]["bills"] == []
     assert feed["legislation"]["pages"] == []
     assert "CO|HB 10" in feed["veteran_impact"]["lookup"]
@@ -167,6 +215,71 @@ def test_build_home_feed_excludes_full_search_index_and_injects_multi_state():
     assert feed["stats"]["multi_state_injected"] == 1
     assert feed["bill_counts"]["CO"] == 2
     assert feed["bill_counts"]["Federal"] == 1
+
+
+def test_build_day_feed_is_single_day_and_injects_multi_state():
+    site_years = _year(
+        {
+            "2026-08-04": {"Congress.gov API": [{"title": "A", "bill_number": "HR 1"}]},
+            "2026-08-01": {"Congress.gov API": [{"title": "B", "bill_number": "HR 2"}]},
+        }
+    )
+    search_index = {
+        "bills": [
+            {
+                "bill_number": "HB 10",
+                "title": "Colorado update",
+                "state": "CO",
+                "level": "state",
+                "latest_action_date": "2026-08-01T15:00:00",
+                "latest_action": "Introduced",
+                "url": "https://example.com/co/hb10",
+            }
+        ]
+    }
+    day = build_day_feed(
+        date="2026-08-01",
+        site_years=site_years,
+        search_index=search_index,
+        veteran_impact_lookup={"CO|HB 10": {"level": "green"}},
+    )
+    assert day["home_feed_day"] is True
+    assert day["date"] == "2026-08-01"
+    assert set(day["years"]["2026"]["grouped"].keys()) == {"2026-08-01"}
+    assert "State (Colorado)" in day["years"]["2026"]["grouped"]["2026-08-01"]
+    assert "CO|HB 10" in day["veteran_impact"]["lookup"]
+
+
+def test_write_home_feed_artifacts_writes_day_files_and_prunes_stale(tmp_path):
+    site_years = _year(
+        {
+            "2026-08-04": {"Federal": [{"title": "A"}]},
+            "2026-08-02": {"Federal": [{"title": "B"}]},
+            "2026-08-01": {"Federal": [{"title": "C"}]},
+        }
+    )
+    stale_dir = tmp_path / HOME_FEED_DAYS_DIRNAME
+    stale_dir.mkdir()
+    stale = stale_dir / "2020-01-01.json"
+    stale.write_text("{}", encoding="utf-8")
+
+    home_path, day_paths, payload = write_home_feed_artifacts(
+        tmp_path,
+        last_updated="2026-08-04T12:00:00",
+        site_years=site_years,
+        search_index={},
+        today="2026-08-04",
+    )
+    assert home_path.is_file()
+    assert payload["available_dates"] == ["2026-08-04", "2026-08-02", "2026-08-01"]
+    assert len(day_paths) == 3
+    assert not stale.exists()
+    for date in payload["available_dates"]:
+        day_file = tmp_path / HOME_FEED_DAYS_DIRNAME / f"{date}.json"
+        assert day_file.is_file()
+        data = json.loads(day_file.read_text(encoding="utf-8"))
+        assert data["date"] == date
+        assert data["home_feed_day"] is True
 
 
 def test_compute_bill_counts():
@@ -186,7 +299,8 @@ def test_compute_bill_counts():
     assert "ZZ" not in counts
 
 
-def test_r2_upload_list_includes_home_feed():
-    from processing.r2_sync import DOCS_UPLOAD_FILES
+def test_r2_upload_list_includes_home_feed_and_day_glob():
+    from processing.r2_sync import DOCS_UPLOAD_FILES, DOCS_UPLOAD_GLOBS
 
     assert "home_feed.json" in DOCS_UPLOAD_FILES
+    assert "home_feed_days/*.json" in DOCS_UPLOAD_GLOBS

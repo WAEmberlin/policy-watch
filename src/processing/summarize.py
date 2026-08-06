@@ -18,7 +18,7 @@ from processing.bill_action_utils import (  # noqa: E402
 )
 from processing.bill_urls import pick_best_bill_url, build_ks_bill_url  # noqa: E402
 from processing.hearing_stream_utils import enrich_hearing_stream  # noqa: E402
-from processing.home_feed import build_home_feed, write_home_feed  # noqa: E402
+from processing.home_feed import write_home_feed_artifacts  # noqa: E402
 from processing.veteran_impact import (  # noqa: E402
     build_veteran_impact_lookup,
     collect_feed_bills_for_veteran_lookup,
@@ -75,13 +75,13 @@ if not os.path.exists(HISTORY_FILE):
     }
     with open(SITE_DATA_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
-    empty_home = build_home_feed(
+    write_home_feed_artifacts(
+        DOCS_DIR,
         last_updated=data["last_updated"],
         site_years={},
         search_index={},
         states=[],
     )
-    write_home_feed(DOCS_DIR, empty_home)
     exit(0)
 
 # Load history with error handling
@@ -960,8 +960,10 @@ with open(SITE_DATA_FILE, "w", encoding="utf-8") as f:
     # Compact JSON — pretty-printing pushes this file over GitHub's 100MB limit.
     json.dump(output, f, ensure_ascii=False, separators=(",", ":"))
 
-# Slim homepage artifact — index.html must not download full site_data.json (~100MB+).
-home_feed_payload = build_home_feed(
+# Slim homepage artifacts — index.html must not download full site_data.json (~100MB+).
+# Recent window in home_feed.json; older days in docs/home_feed_days/ for on-demand paging.
+home_feed_path, home_day_paths, home_feed_payload = write_home_feed_artifacts(
+    DOCS_DIR,
     last_updated=output["last_updated"],
     site_years=site_years,
     search_index=normalized_search_index,
@@ -970,14 +972,15 @@ home_feed_payload = build_home_feed(
     kansas_vote_records=kansas_vote_records,
     action_badges=ACTION_BADGES,
 )
-home_feed_path = write_home_feed(DOCS_DIR, home_feed_payload)
 home_stats = home_feed_payload.get("stats") or {}
 print(
     f"Wrote homepage feed {home_feed_path} "
-    f"({home_stats.get('feed_day_count', 0)} days, "
-    f"{home_stats.get('feed_item_count', 0)} items, "
+    f"({home_stats.get('feed_day_count', 0)} recent days, "
+    f"{home_stats.get('available_day_count', 0)} available days, "
+    f"{home_stats.get('feed_item_count', 0)} recent items, "
     f"{os.path.getsize(home_feed_path) / (1024 * 1024):.2f} MB)"
 )
+print(f"Wrote {len(home_day_paths)} per-day home feed files under home_feed_days/")
 
 legislator_votes_file = os.path.join(DOCS_DIR, "legislator_votes.json")
 with open(legislator_votes_file, "w", encoding="utf-8") as f:

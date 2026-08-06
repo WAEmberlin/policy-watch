@@ -4,6 +4,8 @@ let currentItemPage = 0;  // Item page within a time chunk (veterans filters onl
 let allData = null;
 let homeFeedMode = false;  // true when serving slim home_feed.json (not full site_data)
 let fullSiteDataPromise = null;
+let loadedHomeFeedDays = new Set();  // YYYY-MM-DD day files already merged
+let homeFeedDayPromises = {};
 let searchQuery = "";
 let searchMode = false;
 let searchResults = [];
@@ -152,6 +154,16 @@ function updateFilterPills() {
 function applyLoadedSitePayload(data, { isHomeFeed }) {
     allData = data;
     homeFeedMode = Boolean(isHomeFeed || data.home_feed);
+    loadedHomeFeedDays = new Set();
+    homeFeedDayPromises = {};
+    // Recent window days ship inside home_feed.json — mark them loaded.
+    if (homeFeedMode) {
+        const recent = ((allData.feed_window || {}).dates || []);
+        recent.forEach((d) => loadedHomeFeedDays.add(d));
+        Object.values(allData.years || {}).forEach((yearData) => {
+            Object.keys(yearData.grouped || {}).forEach((d) => loadedHomeFeedDays.add(d));
+        });
+    }
     if (typeof PolicyWatchBillVotes !== "undefined") {
         PolicyWatchBillVotes.init(allData);
     }
@@ -459,11 +471,53 @@ function paginateFeedItems(items) {
     };
 }
 
+function getHomeFeedAvailableDates() {
+    const listed = (allData && allData.available_dates) || [];
+    if (listed.length) return listed.slice();
+    const recent = ((allData && allData.feed_window) || {}).dates || [];
+    if (recent.length) return recent.slice();
+    const fromGrouped = [];
+    Object.values((allData && allData.years) || {}).forEach((yearData) => {
+        Object.keys(yearData.grouped || {}).forEach((d) => fromGrouped.push(d));
+    });
+    return fromGrouped.sort().reverse();
+}
+
+function getHomeFeedRecentDates() {
+    const recent = ((allData && allData.feed_window) || {}).dates || [];
+    if (recent.length) return recent.slice();
+    const available = getHomeFeedAvailableDates();
+    const maxDays = Number(((allData && allData.feed_window) || {}).max_days) || 2;
+    return available.slice(0, Math.max(0, maxDays));
+}
+
+function getHomeFeedTotalPages() {
+    const available = getHomeFeedAvailableDates();
+    const recent = getHomeFeedRecentDates();
+    if (!available.length) return 1;
+    // Page 0 = recent window (up to max_days). Pages 1+ = one older day each.
+    return Math.max(1, 1 + Math.max(0, available.length - recent.length));
+}
+
+function getHomeFeedPageDates(pageIndex) {
+    const available = getHomeFeedAvailableDates();
+    const recent = getHomeFeedRecentDates();
+    if (!available.length) return [];
+    if (pageIndex <= 0) return recent.length ? recent : available.slice(0, 1);
+    const olderOffset = recent.length + (pageIndex - 1);
+    if (olderOffset >= available.length) return [];
+    return [available[olderOffset]];
+}
+
 function getHomeFeedDateRange() {
-    const dates = ((allData && allData.feed_window) || {}).dates || [];
+    return getHomeFeedDateRangeForPage(currentPage);
+}
+
+function getHomeFeedDateRangeForPage(pageIndex) {
+    const dates = getHomeFeedPageDates(pageIndex);
     if (!dates.length) {
         const fromGrouped = [];
-        Object.values(allData.years || {}).forEach((yearData) => {
+        Object.values((allData && allData.years) || {}).forEach((yearData) => {
             Object.keys(yearData.grouped || {}).forEach((d) => fromGrouped.push(d));
         });
         fromGrouped.sort().reverse();
@@ -474,16 +528,79 @@ function getHomeFeedDateRange() {
     return { start: sorted[0], end: sorted[sorted.length - 1] };
 }
 
+function mergeHomeFeedDayPayload(dayData) {
+    if (!allData || !dayData) return;
+    const date = dayData.date;
+    if (!allData.years) allData.years = {};
+    Object.entries(dayData.years || {}).forEach(([year, yearData]) => {
+        if (!allData.years[year]) {
+            allData.years[year] = { total_items: 0, pages: [], grouped: {} };
+        }
+        const target = allData.years[year];
+        if (!target.grouped) target.grouped = {};
+        Object.entries((yearData && yearData.grouped) || {}).forEach(([day, sources]) => {
+            target.grouped[day] = sources;
+        });
+        target.total_items = Object.values(target.grouped).reduce(
+            (sum, sources) => sum + Object.values(sources || {}).reduce((n, items) => n + (items || []).length, 0),
+            0
+        );
+    });
+
+    if (!allData.veteran_impact) allData.veteran_impact = { lookup: {} };
+    if (!allData.veteran_impact.lookup) allData.veteran_impact.lookup = {};
+    Object.assign(allData.veteran_impact.lookup, ((dayData.veteran_impact || {}).lookup) || {});
+    if (typeof PolicyWatchHome !== "undefined" && PolicyWatchHome.setVeteranImpactLookup) {
+        PolicyWatchHome.setVeteranImpactLookup(allData.veteran_impact.lookup);
+    }
+
+    if (!allData.kansas_vote_records) allData.kansas_vote_records = {};
+    Object.assign(allData.kansas_vote_records, dayData.kansas_vote_records || {});
+
+    if (Array.isArray(dayData.sources) && dayData.sources.length) {
+        const sourceSet = new Set([...(allData.sources || []), ...dayData.sources]);
+        allData.sources = Array.from(sourceSet).sort();
+    }
+    if (Array.isArray(dayData.categories) && dayData.categories.length) {
+        const catSet = new Set([...(allData.categories || []), ...dayData.categories]);
+        allData.categories = Array.from(catSet).sort();
+    }
+
+    if (date) loadedHomeFeedDays.add(date);
+}
+
+async function ensureHomeFeedDaysLoaded(dates) {
+    const needed = (dates || []).filter((d) => d && !loadedHomeFeedDays.has(d));
+    if (!needed.length) return;
+
+    await Promise.all(needed.map(async (date) => {
+        if (loadedHomeFeedDays.has(date)) return;
+        if (!homeFeedDayPromises[date]) {
+            homeFeedDayPromises[date] = (async () => {
+                const res = await policywatchFetch(`home_feed_days/${date}.json`);
+                if (!res.ok) throw new Error(`home_feed_days/${date}.json HTTP ${res.status}`);
+                const dayData = await res.json();
+                mergeHomeFeedDayPayload(dayData);
+                return dayData;
+            })().catch((err) => {
+                delete homeFeedDayPromises[date];
+                throw err;
+            });
+        }
+        await homeFeedDayPromises[date];
+    }));
+}
+
 function getDateRangeForChunk(chunkIndex) {
     /**
      * Calculate the date range for a 14-day chunk.
      * chunkIndex 0 = most recent 2 weeks
      * chunkIndex 1 = previous 2 weeks
      * etc.
-     * In home_feed mode, ignore chunking and use the preselected recent dates.
+     * In home_feed mode, page 0 is the recent window; older pages are single days.
      */
     if (homeFeedMode) {
-        return getHomeFeedDateRange() || { start: "", end: "" };
+        return getHomeFeedDateRangeForPage(chunkIndex) || { start: "", end: "" };
     }
 
     const now = new Date();
@@ -673,7 +790,7 @@ function collectHomeFeedItemsAcrossYears(dateRange) {
     return allItems;
 }
 
-function displayUnifiedView(year, chunkIndex) {
+async function displayUnifiedView(year, chunkIndex) {
     const yearData = allData.years[year];
     if (!yearData && !homeFeedMode) return;
 
@@ -698,11 +815,30 @@ function displayUnifiedView(year, chunkIndex) {
     let totalChunks = 1;
 
     if (homeFeedMode) {
-        // Recent-window rule: pipeline ships up to 2 most recent calendar days with activity.
-        dateRange = getHomeFeedDateRange() || { start: "", end: "" };
+        totalChunks = getHomeFeedTotalPages();
+        effectiveChunkIndex = Math.max(0, Math.min(chunkIndex, totalChunks - 1));
+        if (effectiveChunkIndex !== currentPage) currentPage = effectiveChunkIndex;
+        const pageDates = getHomeFeedPageDates(effectiveChunkIndex);
+        try {
+            await ensureHomeFeedDaysLoaded(pageDates);
+        } catch (err) {
+            console.error("Failed to load older home feed day:", err);
+            container.innerHTML =
+                "<div class='bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg text-red-700' role='alert'>Could not load older activity. Please try again.</div>";
+            setContentBusy(false);
+            renderPagination(year, effectiveChunkIndex, totalChunks, getHomeFeedDateRangeForPage(effectiveChunkIndex) || { start: "", end: "" }, { totalItemPages: 1 });
+            return;
+        }
+        dateRange = getHomeFeedDateRangeForPage(effectiveChunkIndex) || { start: "", end: "" };
         allItems = collectHomeFeedItemsAcrossYears(dateRange);
-        totalChunks = 1;
-        effectiveChunkIndex = 0;
+        // Keep page scoped to the requested day(s) even if more days were previously merged.
+        if (pageDates.length) {
+            const allow = new Set(pageDates);
+            allItems = allItems.filter((item) => {
+                const itemDate = item.date || (item.published ? item.published.split("T")[0] : "");
+                return allow.has(itemDate);
+            });
+        }
     } else {
         const grouped = yearData.grouped || {};
         const allDatesInYear = Object.keys(grouped).sort().reverse();
@@ -742,9 +878,15 @@ function displayUnifiedView(year, chunkIndex) {
         notice.className = "text-sm text-slate-500 text-center mb-4";
         notice.setAttribute("role", "status");
         const sameDay = dateRange.start === dateRange.end;
-        notice.textContent = sameDay
-            ? `Showing recent activity for ${formatDate(dateRange.start)}`
-            : `Showing recent activity for ${formatDate(dateRange.start)} – ${formatDate(dateRange.end)}`;
+        if (effectiveChunkIndex === 0) {
+            notice.textContent = sameDay
+                ? `Showing recent activity for ${formatDate(dateRange.start)}`
+                : `Showing recent activity for ${formatDate(dateRange.start)} – ${formatDate(dateRange.end)}`;
+        } else {
+            notice.textContent = sameDay
+                ? `Showing activity for ${formatDate(dateRange.start)}`
+                : `Showing activity for ${formatDate(dateRange.start)} – ${formatDate(dateRange.end)}`;
+        }
         container.appendChild(notice);
     }
 
@@ -1060,8 +1202,8 @@ function renderPagination(year, current, total, dateRange, itemPagination) {
     container.innerHTML = "";
 
     const itemPages = itemPagination?.totalItemPages || 1;
-    // Slim home feed has no older 14-day windows — only item paging (e.g. veterans filter).
-    const showPeriodNav = !homeFeedMode && total > 1;
+    // Home feed: page through older activity days on demand. Full site_data: 14-day chunks.
+    const showPeriodNav = total > 1;
     const showItemNav = itemPages > 1;
     if (!showPeriodNav && !showItemNav) return;
 
@@ -1072,7 +1214,11 @@ function renderPagination(year, current, total, dateRange, itemPagination) {
     if (showPeriodNav) {
         const paginationInfo = document.createElement("div");
         paginationInfo.className = "text-center text-slate-600 mb-4 text-sm";
-        paginationInfo.textContent = `Showing ${startFormatted} - ${endFormatted} (${current + 1} of ${total} periods)`;
+        if (homeFeedMode) {
+            paginationInfo.textContent = `Showing ${startFormatted}${dateRange.start !== dateRange.end ? ` - ${endFormatted}` : ""} (${current + 1} of ${total})`;
+        } else {
+            paginationInfo.textContent = `Showing ${startFormatted} - ${endFormatted} (${current + 1} of ${total} periods)`;
+        }
         container.appendChild(paginationInfo);
     }
 
@@ -1112,17 +1258,27 @@ function renderPagination(year, current, total, dateRange, itemPagination) {
         }
     }
 
-    // Previous 2 weeks button
+    // Newer period / recent window (lower page index)
     if (showPeriodNav && current > 0) {
         const prevBtn = document.createElement("button");
-        prevBtn.innerHTML = `
-            <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-            </svg>
-            Previous 2 Weeks
-        `;
+        if (homeFeedMode) {
+            prevBtn.innerHTML = `
+                <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                Newer activity
+            `;
+            prevBtn.setAttribute("aria-label", "Show newer activity");
+        } else {
+            prevBtn.innerHTML = `
+                <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                Previous 2 Weeks
+            `;
+            prevBtn.setAttribute("aria-label", "Show previous 2 weeks");
+        }
         prevBtn.className = "px-4 py-2 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-lg text-sm font-medium transition-colors";
-        prevBtn.setAttribute("aria-label", "Show previous 2 weeks");
         prevBtn.onclick = () => {
             currentPage = current - 1;
             currentItemPage = 0;
@@ -1132,17 +1288,27 @@ function renderPagination(year, current, total, dateRange, itemPagination) {
         btnContainer.appendChild(prevBtn);
     }
 
-    // Next 2 weeks button
+    // Older period / older day (higher page index)
     if (showPeriodNav && current < total - 1) {
         const nextBtn = document.createElement("button");
-        nextBtn.innerHTML = `
-            Next 2 Weeks
-            <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-        `;
+        if (homeFeedMode) {
+            nextBtn.innerHTML = `
+                Older activity
+                <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            `;
+            nextBtn.setAttribute("aria-label", "Show older activity");
+        } else {
+            nextBtn.innerHTML = `
+                Next 2 Weeks
+                <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            `;
+            nextBtn.setAttribute("aria-label", "Show next 2 weeks");
+        }
         nextBtn.className = "px-4 py-2 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-lg text-sm font-medium transition-colors";
-        nextBtn.setAttribute("aria-label", "Show next 2 weeks");
         nextBtn.onclick = () => {
             currentPage = current + 1;
             currentItemPage = 0;

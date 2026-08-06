@@ -1,5 +1,5 @@
-# Upload generated docs JSON (including home_feed.json) to Cloudflare R2.
-# Use after landing slim homepage artifacts without waiting for a full data sync.
+# Rebuild homepage feed artifacts from R2 site_data.json and upload to Cloudflare R2.
+# Day files are gitignored; this workflow regenerates them before upload.
 name: Upload docs to R2
 
 on:
@@ -23,17 +23,27 @@ jobs:
       - name: Install dependencies
         run: pip install boto3
 
-      - name: Upload docs JSON to R2
+      - name: Rebuild home feeds from R2 site_data and upload docs
         env:
           R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
           R2_PUBLIC_BASE_URL: ${{ secrets.R2_PUBLIC_BASE_URL }}
+          PYTHONPATH: src
         run: |
           if [ -z "$R2_ACCOUNT_ID" ] || [ -z "$R2_ACCESS_KEY_ID" ] || [ -z "$R2_PUBLIC_BASE_URL" ]; then
             echo "ERROR: R2 secrets are required"
             exit 1
           fi
+          # Prefer local site_data if present (manual runners); otherwise pull from R2.
+          if [ ! -f docs/site_data.json ]; then
+            python src/processing/r2_sync.py download site_data.json
+          fi
+          test -f docs/site_data.json || { echo "ERROR: docs/site_data.json missing"; exit 1; }
+          python src/processing/r2_sync.py rebuild-home-feeds
           test -f docs/home_feed.json || { echo "ERROR: docs/home_feed.json missing"; exit 1; }
+          test -d docs/home_feed_days || { echo "ERROR: docs/home_feed_days/ missing"; exit 1; }
+          day_count=$(find docs/home_feed_days -name '*.json' | wc -l)
+          echo "Uploading home_feed.json plus ${day_count} day files"
           python src/processing/r2_sync.py upload --docs-only
