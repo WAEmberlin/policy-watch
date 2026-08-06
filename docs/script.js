@@ -4,6 +4,8 @@ let currentItemPage = 0;  // Item page within a time chunk (veterans filters onl
 let allData = null;
 let homeFeedMode = false;  // true when serving slim home_feed.json (not full site_data)
 let fullSiteDataPromise = null;
+let homeSearchBillsPromise = null;
+let homeSearchBills = null;  // compact archive bills lazy-loaded for homepage search
 let loadedHomeFeedDays = new Set();  // YYYY-MM-DD day files already merged
 let homeFeedDayPromises = {};
 let searchQuery = "";
@@ -191,6 +193,24 @@ async function loadFullSiteData() {
     });
 
     return fullSiteDataPromise;
+}
+
+async function ensureHomeSearchBillsLoaded() {
+    if (Array.isArray(homeSearchBills)) return homeSearchBills;
+    if (homeSearchBillsPromise) return homeSearchBillsPromise;
+
+    homeSearchBillsPromise = (async () => {
+        const res = await policywatchFetch("home_search_bills.json");
+        if (!res.ok) throw new Error(`home_search_bills.json HTTP ${res.status}`);
+        const data = await res.json();
+        homeSearchBills = Array.isArray(data) ? data : (data.bills || []);
+        return homeSearchBills;
+    })().catch((err) => {
+        homeSearchBillsPromise = null;
+        throw err;
+    });
+
+    return homeSearchBillsPromise;
 }
 
 function renderYearTabsAndShowDefault() {
@@ -888,6 +908,13 @@ async function displayUnifiedView(year, chunkIndex) {
                 : `Showing activity for ${formatDate(dateRange.start)} – ${formatDate(dateRange.end)}`;
         }
         container.appendChild(notice);
+        const listedDates = (allData && allData.available_dates) || [];
+        if (effectiveChunkIndex === 0 && getHomeFeedTotalPages() <= 1 && !listedDates.length) {
+            const hint = document.createElement("p");
+            hint.className = "text-xs text-slate-400 text-center mb-4";
+            hint.textContent = "Older activity paging is unavailable for this feed snapshot.";
+            container.appendChild(hint);
+        }
     }
 
     const showFallbackNote = !homeFeedMode && recentWeekHasNoActivity(year) && pageItems.length > 0;
@@ -1030,10 +1057,10 @@ function runSearchAgainstLoadedData(queryLower) {
         }
     }
 
-    // Skip giant search_index scans on the slim homepage payload (empty stub) and on
-    // mobile — full corpus search lives on bills/search pages that lazy-load site_data.
-    const indexBills = (allData.search_index || {}).bills || [];
-    if (!capped && indexBills.length && !homeFeedMode) {
+    // Full corpus: either in-memory search_index (full site_data) or lazy home_search_bills.
+    const indexBills = homeSearchBills
+        || ((allData.search_index || {}).bills || []);
+    if (!capped && indexBills.length) {
         indexLoop: for (const bill of indexBills) {
             const searchText = buildFeedSearchText({
                 title: bill.title,
@@ -1080,7 +1107,7 @@ function runSearchAgainstLoadedData(queryLower) {
     return capped;
 }
 
-function performSearch(query) {
+async function performSearch(query) {
     if (!query || query.trim().length === 0) {
         searchMode = false;
         searchQuery = "";
@@ -1103,10 +1130,27 @@ function performSearch(query) {
     setContentBusy(true);
     searchMode = true;
     searchQuery = trimmed.toLowerCase();
-    // Homepage search stays within the loaded recent feed to avoid pulling site_data.json
-    // (often 100MB+) into mobile Safari. Broader search: bills.html / expansion pages.
+
+    let archiveLoaded = !homeFeedMode;
+    let archiveError = null;
+    if (homeFeedMode) {
+        displaySearchPrompt("Loading bill archive for search…");
+        try {
+            await ensureHomeSearchBillsLoaded();
+            archiveLoaded = true;
+        } catch (err) {
+            console.error("Failed to load home_search_bills.json:", err);
+            archiveError = err;
+            archiveLoaded = false;
+        }
+    }
+
     const capped = runSearchAgainstLoadedData(searchQuery);
-    displaySearchResults({ capped, homeFeedScoped: homeFeedMode });
+    displaySearchResults({
+        capped,
+        homeFeedScoped: homeFeedMode && !archiveLoaded,
+        archiveError: Boolean(archiveError),
+    });
     updateFilterPills();
 }
 
@@ -1124,7 +1168,7 @@ function displaySearchPrompt(message) {
 }
 
 function displaySearchResults(options = {}) {
-    const { capped = false, homeFeedScoped = false } = options;
+    const { capped = false, homeFeedScoped = false, archiveError = false } = options;
     const container = document.getElementById("content");
     container.innerHTML = "";
 
@@ -1139,9 +1183,12 @@ function displaySearchResults(options = {}) {
     document.getElementById("pagination").innerHTML = "";
 
     if (searchResults.length === 0) {
-        const scopeNote = homeFeedScoped
-            ? " Homepage search covers recent activity only — try the Bills page for the full archive."
-            : "";
+        let scopeNote = "";
+        if (archiveError) {
+            scopeNote = " Could not load the full bill archive — showing recent activity only. Try again in a moment.";
+        } else if (homeFeedScoped) {
+            scopeNote = " Homepage search could not load the archive index yet — try again.";
+        }
         container.innerHTML = `<p class='text-slate-500 italic text-center py-8'>No results found for "${escapeHtmlText(searchQuery)}".${scopeNote}</p>`;
         a11yAnnounce(`No search results for ${searchQuery}.`);
         setContentBusy(false);
@@ -1155,7 +1202,8 @@ function displaySearchResults(options = {}) {
     resultsHeader.innerHTML = `
         <h2 class="text-xl font-bold text-civic-blue mb-1">Search Results (${searchResults.length} found${capped ? "+" : ""})</h2>
         <p class="text-slate-600">Searching for: "<strong>${escapeHtmlText(searchQuery)}</strong>"</p>
-        ${homeFeedScoped ? `<p class="text-sm text-slate-500 mt-2">Searching recent homepage activity only. Use the Bills page for the full archive.</p>` : ""}
+        ${homeFeedMode && !homeFeedScoped ? `<p class="text-sm text-slate-500 mt-2">Searching the full bill archive (loaded on demand).</p>` : ""}
+        ${homeFeedScoped || archiveError ? `<p class="text-sm text-slate-500 mt-2">Archive index unavailable — results are limited to recently loaded activity.</p>` : ""}
         ${capped ? `<p class="text-sm text-slate-500 mt-2">Showing the first ${SEARCH_MAX_RESULTS} matches. Add more characters to narrow results.</p>` : ""}
     `;
     container.appendChild(resultsHeader);

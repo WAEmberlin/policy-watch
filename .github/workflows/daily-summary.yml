@@ -90,24 +90,10 @@ jobs:
             python scripts/generate_daily_summary.py --yesterday
           fi
 
-      - name: Regenerate site data
-        run: |
-          echo "Regenerating site_data.json with daily summaries..."
-          python src/processing/summarize.py
-
-      - name: Upload generated data to Cloudflare R2
-        env:
-          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
-          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
-          R2_PUBLIC_BASE_URL: ${{ secrets.R2_PUBLIC_BASE_URL }}
-        run: |
-          if [ -z "$R2_ACCOUNT_ID" ] || [ -z "$R2_ACCESS_KEY_ID" ] || [ -z "$R2_PUBLIC_BASE_URL" ]; then
-            echo "ERROR: R2 secrets are required"
-            exit 1
-          fi
-          python src/processing/r2_sync.py upload --docs-only
+      # Do not run summarize.py / R2 docs upload here. This job lacks history.json and
+      # full pipeline caches; a sparse summarize previously overwrote home_feed.json on
+      # R2 and disabled Older-activity paging. daily_summaries.json is committed below
+      # and picked up by the main PolicyWatch Update (daily.yml) summarize step.
 
       - name: Check for changes
         id: check_changes

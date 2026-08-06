@@ -303,4 +303,40 @@ def test_r2_upload_list_includes_home_feed_and_day_glob():
     from processing.r2_sync import DOCS_UPLOAD_FILES, DOCS_UPLOAD_GLOBS
 
     assert "home_feed.json" in DOCS_UPLOAD_FILES
+    assert "home_search_bills.json" in DOCS_UPLOAD_FILES
     assert "home_feed_days/*.json" in DOCS_UPLOAD_GLOBS
+
+
+def test_write_home_feed_artifacts_writes_search_bills(tmp_path):
+    site_years = _year({"2026-08-04": {"Federal": [{"title": "A"}]}})
+    search_index = {
+        "bills": [
+            {
+                "bill_number": "HB 10",
+                "title": "Colorado update",
+                "state": "CO",
+                "level": "state",
+                "latest_action": "Introduced",
+                "latest_action_date": "2026-08-04T15:00:00",
+                "url": "https://example.com/co/hb10",
+                "summary": "x" * 400,
+            }
+        ]
+    }
+    home_path, day_paths, payload = write_home_feed_artifacts(
+        tmp_path,
+        last_updated="2026-08-04T12:00:00",
+        site_years=site_years,
+        search_index=search_index,
+        today="2026-08-04",
+    )
+    assert home_path.is_file()
+    assert payload["stats"]["home_search_bill_count"] == 1
+    search_file = tmp_path / "home_search_bills.json"
+    assert search_file.is_file()
+    data = json.loads(search_file.read_text(encoding="utf-8"))
+    assert data["home_search_bills"] is True
+    assert len(data["bills"]) == 1
+    assert data["bills"][0]["bill_number"] == "HB 10"
+    assert len(data["bills"][0]["summary"]) <= 160
+    assert len(day_paths) >= 1

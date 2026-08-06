@@ -43,7 +43,15 @@ jobs:
           test -f docs/site_data.json || { echo "ERROR: docs/site_data.json missing"; exit 1; }
           python src/processing/r2_sync.py rebuild-home-feeds
           test -f docs/home_feed.json || { echo "ERROR: docs/home_feed.json missing"; exit 1; }
+          test -f docs/home_search_bills.json || { echo "ERROR: docs/home_search_bills.json missing"; exit 1; }
           test -d docs/home_feed_days || { echo "ERROR: docs/home_feed_days/ missing"; exit 1; }
           day_count=$(find docs/home_feed_days -name '*.json' | wc -l)
-          echo "Uploading home_feed.json plus ${day_count} day files"
+          python - <<'PY'
+          import json
+          feed = json.load(open("docs/home_feed.json", encoding="utf-8"))
+          dates = feed.get("available_dates") or []
+          assert dates, "home_feed.json missing available_dates"
+          print(f"home_feed available_dates={len(dates)} recent={((feed.get('feed_window') or {}).get('dates'))}")
+          PY
+          echo "Uploading home_feed.json, home_search_bills.json, plus ${day_count} day files"
           python src/processing/r2_sync.py upload --docs-only

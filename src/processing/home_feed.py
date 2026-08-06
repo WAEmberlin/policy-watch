@@ -32,6 +32,9 @@ HOME_FEED_MAX_DAYS = 2
 HOME_FEED_SEARCH_LOOKBACK_DAYS = 120
 HOME_FEED_FILENAME = "home_feed.json"
 HOME_FEED_DAYS_DIRNAME = "home_feed_days"
+# Compact bill list for on-demand homepage archive search (lazy-loaded by script.js).
+HOME_SEARCH_BILLS_FILENAME = "home_search_bills.json"
+HOME_SEARCH_SUMMARY_MAX = 160
 
 try:
     from zoneinfo import ZoneInfo
@@ -473,6 +476,49 @@ def build_home_feed(
     }
 
 
+def build_home_search_bills(search_index: Optional[Dict[str, Any]] = None) -> List[Dict[str, Any]]:
+    """Compact bill rows for lazy homepage archive search (not full search_index)."""
+    rows: List[Dict[str, Any]] = []
+    for bill in (search_index or {}).get("bills") or []:
+        summary = str(bill.get("summary") or "")
+        if len(summary) > HOME_SEARCH_SUMMARY_MAX:
+            summary = summary[: HOME_SEARCH_SUMMARY_MAX - 1].rstrip() + "…"
+        row = {
+            "bill_number": bill.get("bill_number") or "",
+            "title": bill.get("title") or "",
+            "state": bill.get("state") or "",
+            "level": bill.get("level") or "",
+            "latest_action": bill.get("latest_action") or "",
+            "latest_action_date": bill.get("latest_action_date") or "",
+            "url": bill.get("url") or "",
+            "item_type": bill.get("item_type") or "bill_update",
+            "action_type": bill.get("action_type") or "",
+        }
+        if summary:
+            row["summary"] = summary
+        motion = bill.get("motion") or ""
+        if motion:
+            row["motion"] = motion
+        vote_tally = bill.get("vote_tally") or ""
+        if vote_tally:
+            row["vote_tally"] = vote_tally
+        rows.append(row)
+    return rows
+
+
+def write_home_search_bills(docs_dir: str | Path, search_index: Optional[Dict[str, Any]] = None) -> Path:
+    docs = Path(docs_dir)
+    docs.mkdir(parents=True, exist_ok=True)
+    out = docs / HOME_SEARCH_BILLS_FILENAME
+    payload = {
+        "home_search_bills": True,
+        "bills": build_home_search_bills(search_index),
+    }
+    with open(out, "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
+    return out
+
+
 def write_home_feed(docs_dir: str | Path, payload: Dict[str, Any]) -> Path:
     docs = Path(docs_dir)
     docs.mkdir(parents=True, exist_ok=True)
@@ -559,7 +605,18 @@ def write_home_feed_artifacts(
         max_days=max_days,
         today=today,
     )
+    search_bills = build_home_search_bills(search_index)
+    payload.setdefault("stats", {})["home_search_bill_count"] = len(search_bills)
     home_path = write_home_feed(docs_dir, payload)
+    search_path = Path(docs_dir) / HOME_SEARCH_BILLS_FILENAME
+    search_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(search_path, "w", encoding="utf-8") as f:
+        json.dump(
+            {"home_search_bills": True, "bills": search_bills},
+            f,
+            ensure_ascii=False,
+            separators=(",", ":"),
+        )
     _, day_paths = write_home_feed_days(
         docs_dir,
         site_years=site_years,

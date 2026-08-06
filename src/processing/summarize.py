@@ -60,6 +60,14 @@ ITEMS_PER_PAGE = 50
 os.makedirs(DOCS_DIR, exist_ok=True)
 
 if not os.path.exists(HISTORY_FILE):
+    # Sparse CI jobs (e.g. daily-summary) often lack history.json. Never clobber a
+    # full site_data / home_feed already restored from R2 or a prior full pipeline run.
+    if os.path.exists(SITE_DATA_FILE) and os.path.getsize(SITE_DATA_FILE) > 1024:
+        print(
+            "No history.json found — keeping existing site_data.json / home feed "
+            "(refusing to overwrite with an empty payload)."
+        )
+        exit(0)
     print("No history.json found — creating empty site data.")
     # Get current time in central timezone
     if hasattr(central, 'localize'):

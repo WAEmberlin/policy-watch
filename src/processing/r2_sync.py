@@ -18,6 +18,7 @@ if str(ROOT / "src") not in sys.path:
 DOCS_UPLOAD_FILES = [
     "site_data.json",
     "home_feed.json",
+    "home_search_bills.json",
     "legislator_votes.json",
     "legislator_vote_counts.json",
     "bill_title_lookup.json",
@@ -107,10 +108,34 @@ def _collect_pipeline_files() -> List[Tuple[Path, str]]:
     return pairs
 
 
+def _validate_docs_upload(paths: Sequence[Tuple[Path, str]]) -> None:
+    """Refuse to publish a slim home_feed that would disable Older-activity paging."""
+    import json
+
+    for path, key in paths:
+        if key != "home_feed.json":
+            continue
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            raise SystemExit(f"Invalid home_feed.json at {path}: {exc}") from exc
+        if not data.get("home_feed"):
+            continue
+        available = data.get("available_dates") or []
+        if not isinstance(available, list) or not available:
+            raise SystemExit(
+                "Refusing to upload home_feed.json without available_dates "
+                "(would break homepage Older activity paging). "
+                "Rebuild with: python src/processing/r2_sync.py rebuild-home-feeds"
+            )
+        print(f"home_feed.json OK ({len(available)} available_dates)")
+
+
 def upload(paths: Sequence[Tuple[Path, str]], *, dry_run: bool = False) -> int:
     bucket = os.environ.get("R2_BUCKET_NAME", "").strip() or "PolicyWatch-data"
     if not dry_run:
         bucket = _require_env("R2_BUCKET_NAME")
+    _validate_docs_upload(paths)
     if dry_run:
         for path, key in paths:
             print(f"DRY-RUN upload {path} -> s3://{bucket}/{key} ({path.stat().st_size} bytes)")

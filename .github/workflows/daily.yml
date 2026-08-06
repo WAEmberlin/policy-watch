@@ -187,7 +187,7 @@ jobs:
           restore_static_docs() {
             git ls-tree -r --name-only origin/main docs/ | while IFS= read -r f; do
               case "$f" in
-                docs/data-config.js) continue ;;
+                docs/data-config.js|docs/home_feed.json) continue ;;
               esac
               [[ "$f" == docs/weekly/* ]] && continue
               git checkout origin/main -- "$f"
