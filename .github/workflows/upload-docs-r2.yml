@@ -43,6 +43,15 @@ jobs:
             python src/processing/r2_sync.py download site_data.json
           fi
           test -f docs/site_data.json || { echo "ERROR: docs/site_data.json missing"; exit 1; }
+          # Full bill archive lives in normalized search_index (site_data is often stale).
+          mkdir -p data/normalized
+          python src/processing/r2_sync.py download \
+            data/normalized/search_index.json \
+            data/normalized/meta.json
+          test -f data/normalized/search_index.json || {
+            echo "ERROR: data/normalized/search_index.json missing"
+            exit 1
+          }
           python src/processing/r2_sync.py rebuild-home-feeds
           test -f docs/home_feed.json || { echo "ERROR: docs/home_feed.json missing"; exit 1; }
           test -f docs/home_search_bills.json || { echo "ERROR: docs/home_search_bills.json missing"; exit 1; }
@@ -50,10 +59,24 @@ jobs:
           day_count=$(find docs/home_feed_days -name '*.json' | wc -l)
           python - <<'PY'
           import json
+          from pathlib import Path
           feed = json.load(open("docs/home_feed.json", encoding="utf-8"))
           dates = feed.get("available_dates") or []
           assert dates, "home_feed.json missing available_dates"
-          print(f"home_feed available_dates={len(dates)} recent={((feed.get('feed_window') or {}).get('dates'))}")
+          search = json.load(open("docs/home_search_bills.json", encoding="utf-8"))
+          search_n = len(search.get("bills") or [])
+          meta = json.load(open("data/normalized/meta.json", encoding="utf-8"))
+          expected = int((meta.get("counts") or {}).get("bills") or 0)
+          print(
+              f"home_feed available_dates={len(dates)} "
+              f"recent={((feed.get('feed_window') or {}).get('dates'))} "
+              f"search_bills={search_n} normalized_bills={expected}"
+          )
+          assert expected > 0, "normalized meta missing bill count"
+          assert search_n >= int(expected * 0.90), (
+              f"home_search_bills.json too small ({search_n} < 90% of {expected})"
+          )
+          print(f"home_search size={Path('docs/home_search_bills.json').stat().st_size} bytes")
           PY
           echo "Uploading home_feed.json, home_search_bills.json, plus ${day_count} day files"
           python src/processing/r2_sync.py upload --docs-only

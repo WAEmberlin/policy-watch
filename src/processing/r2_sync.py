@@ -4,15 +4,20 @@
 from __future__ import annotations
 
 import argparse
+import json
 import mimetypes
 import os
 import sys
 from pathlib import Path
-from typing import Iterable, List, Sequence, Tuple
+from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
 ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT / "src") not in sys.path:
     sys.path.insert(0, str(ROOT / "src"))
+
+# Refuse to publish a search archive that is drastically smaller than the
+# normalized corpus (guards against rebuilding from stale site_data.json).
+HOME_SEARCH_MIN_COVERAGE = 0.90
 
 # Browser-facing files under docs/ (R2 key == path relative to docs/)
 DOCS_UPLOAD_FILES = [
@@ -108,27 +113,100 @@ def _collect_pipeline_files() -> List[Tuple[Path, str]]:
     return pairs
 
 
-def _validate_docs_upload(paths: Sequence[Tuple[Path, str]]) -> None:
-    """Refuse to publish a slim home_feed that would disable Older-activity paging."""
-    import json
+def _normalized_bill_count() -> Optional[int]:
+    meta_path = ROOT / "data" / "normalized" / "meta.json"
+    if not meta_path.is_file():
+        return None
+    try:
+        meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    counts = meta.get("counts") if isinstance(meta, dict) else None
+    if not isinstance(counts, dict):
+        return None
+    try:
+        return int(counts.get("bills") or 0) or None
+    except (TypeError, ValueError):
+        return None
 
-    for path, key in paths:
-        if key != "home_feed.json":
-            continue
+
+def _bill_count(index: Optional[Dict[str, Any]]) -> int:
+    bills = (index or {}).get("bills") if isinstance(index, dict) else None
+    return len(bills) if isinstance(bills, list) else 0
+
+
+def prefer_search_index(
+    site_search_index: Optional[Dict[str, Any]] = None,
+    *,
+    normalized_path: Optional[Path] = None,
+) -> Dict[str, Any]:
+    """Prefer data/normalized/search_index.json when it has more bills than site_data."""
+    site_index = site_search_index if isinstance(site_search_index, dict) else {}
+    path = normalized_path or (ROOT / "data" / "normalized" / "search_index.json")
+    if not path.is_file():
+        return site_index
+    try:
+        normalized = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        print(f"warning: could not read {path}: {exc}")
+        return site_index
+    if not isinstance(normalized, dict):
+        return site_index
+    site_n = _bill_count(site_index)
+    norm_n = _bill_count(normalized)
+    if norm_n > site_n:
+        print(
+            f"Using normalized search_index ({norm_n} bills) over "
+            f"site_data.search_index ({site_n} bills)"
+        )
+        return normalized
+    if site_n:
+        print(f"Using site_data.search_index ({site_n} bills)")
+    return site_index if site_n else normalized
+
+
+def _validate_docs_upload(paths: Sequence[Tuple[Path, str]]) -> None:
+    """Refuse to publish broken home_feed / incomplete home_search archives."""
+    by_key = {key: path for path, key in paths}
+
+    home_feed_path = by_key.get("home_feed.json")
+    if home_feed_path is not None:
         try:
-            data = json.loads(path.read_text(encoding="utf-8"))
+            data = json.loads(home_feed_path.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError) as exc:
-            raise SystemExit(f"Invalid home_feed.json at {path}: {exc}") from exc
-        if not data.get("home_feed"):
-            continue
-        available = data.get("available_dates") or []
-        if not isinstance(available, list) or not available:
+            raise SystemExit(f"Invalid home_feed.json at {home_feed_path}: {exc}") from exc
+        if data.get("home_feed"):
+            available = data.get("available_dates") or []
+            if not isinstance(available, list) or not available:
+                raise SystemExit(
+                    "Refusing to upload home_feed.json without available_dates "
+                    "(would break homepage Older activity paging). "
+                    "Rebuild with: python src/processing/r2_sync.py rebuild-home-feeds"
+                )
+            print(f"home_feed.json OK ({len(available)} available_dates)")
+
+    search_path = by_key.get("home_search_bills.json")
+    if search_path is not None:
+        try:
+            search_data = json.loads(search_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            raise SystemExit(f"Invalid home_search_bills.json at {search_path}: {exc}") from exc
+        bills = (
+            search_data
+            if isinstance(search_data, list)
+            else (search_data.get("bills") if isinstance(search_data, dict) else None)
+        )
+        search_n = len(bills) if isinstance(bills, list) else 0
+        expected = _normalized_bill_count()
+        print(f"home_search_bills.json OK ({search_n} bills)")
+        if expected and search_n < int(expected * HOME_SEARCH_MIN_COVERAGE):
             raise SystemExit(
-                "Refusing to upload home_feed.json without available_dates "
-                "(would break homepage Older activity paging). "
-                "Rebuild with: python src/processing/r2_sync.py rebuild-home-feeds"
+                f"Refusing to upload home_search_bills.json with {search_n} bills; "
+                f"normalized corpus has {expected} bills "
+                f"(need >= {HOME_SEARCH_MIN_COVERAGE:.0%} coverage). "
+                "Download data/normalized/search_index.json and rebuild with "
+                "python src/processing/r2_sync.py rebuild-home-feeds"
             )
-        print(f"home_feed.json OK ({len(available)} available_dates)")
 
 
 def upload(paths: Sequence[Tuple[Path, str]], *, dry_run: bool = False) -> int:
@@ -200,9 +278,12 @@ def download_keys(keys: Sequence[str], *, dry_run: bool = False) -> int:
 
 
 def rebuild_home_feeds_from_site_data(*, site_data_path: Path | None = None) -> int:
-    """Rebuild slim home_feed.json + per-day files from docs/site_data.json."""
-    import json
+    """Rebuild slim home_feed.json + per-day files from docs/site_data.json.
 
+    Homepage archive search must cover the full normalized corpus. site_data.json
+    often ships a stale/partial search_index, so prefer data/normalized/search_index.json
+    when it contains more bills.
+    """
     from processing.home_feed import write_home_feed_artifacts
 
     path = site_data_path or (ROOT / "docs" / "site_data.json")
@@ -210,11 +291,12 @@ def rebuild_home_feeds_from_site_data(*, site_data_path: Path | None = None) -> 
         raise SystemExit(f"Missing site data for home feed rebuild: {path}")
     site = json.loads(path.read_text(encoding="utf-8"))
     veteran = site.get("veteran_impact") or {}
+    search_index = prefer_search_index(site.get("search_index") or {})
     home_path, day_paths, payload = write_home_feed_artifacts(
         ROOT / "docs",
         last_updated=site.get("last_updated") or "",
         site_years=site.get("years") or {},
-        search_index=site.get("search_index") or {},
+        search_index=search_index,
         states=site.get("states") or [],
         veteran_impact_lookup=(veteran.get("lookup") or {}),
         kansas_vote_records=site.get("kansas_vote_records") or {},
@@ -223,7 +305,8 @@ def rebuild_home_feeds_from_site_data(*, site_data_path: Path | None = None) -> 
     stats = payload.get("stats") or {}
     print(
         f"Rebuilt {home_path} and {len(day_paths)} day files "
-        f"({stats.get('available_day_count', 0)} available days)"
+        f"({stats.get('available_day_count', 0)} available days; "
+        f"{stats.get('home_search_bill_count', 0)} search bills)"
     )
     return len(day_paths)
 

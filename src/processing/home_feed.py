@@ -634,13 +634,14 @@ def build_home_feed_from_site_data(
     *,
     max_days: int = HOME_FEED_MAX_DAYS,
     today: Optional[str] = None,
+    search_index: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     """Convenience for one-off rebuilds from an existing site_data.json dict."""
     veteran = site_data.get("veteran_impact") or {}
     return build_home_feed(
         last_updated=site_data.get("last_updated") or datetime.now().isoformat(),
         site_years=site_data.get("years") or {},
-        search_index=site_data.get("search_index") or {},
+        search_index=search_index if search_index is not None else (site_data.get("search_index") or {}),
         states=site_data.get("states") or [],
         veteran_impact_lookup=veteran.get("lookup") or {},
         kansas_vote_records=site_data.get("kansas_vote_records") or {},
