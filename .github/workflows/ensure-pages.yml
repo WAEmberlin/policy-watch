@@ -16,6 +16,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: read
   contents: read
   pages: write
 
@@ -42,6 +43,9 @@ jobs:
             const repo = context.repo.repo;
             const pollSeconds = 30;
             const maxTriggerCycles = 5;
+            // Cancelled/superseded deploys often leave pages/builds stuck on
+            // "building"; treat those as dead after this age.
+            const stuckBuildingMinutes = 12;
 
             const sleep = (seconds) =>
               new Promise((resolve) => setTimeout(resolve, seconds * 1000));
@@ -68,6 +72,50 @@ jobs:
               return data[0] || null;
             }
 
+            async function getPagesDeployRuns(headSha) {
+              const { data } = await github.rest.actions.listWorkflowRunsForRepo({
+                owner,
+                repo,
+                branch: "main",
+                per_page: 30,
+              });
+              return (data.workflow_runs || []).filter((run) => {
+                if (run.head_sha !== headSha) return false;
+                const name = (run.name || "").toLowerCase();
+                const path = (run.path || "").toLowerCase();
+                return (
+                  name.includes("pages") ||
+                  path.includes("pages-build-deployment")
+                );
+              });
+            }
+
+            function isInProgressRun(run) {
+              return ["queued", "in_progress", "waiting", "requested", "pending"].includes(
+                run.status
+              );
+            }
+
+            function isBuildStuck(build) {
+              if (!build || build.status !== "building" || !build.created_at) {
+                return false;
+              }
+              const createdMs = Date.parse(build.created_at);
+              if (Number.isNaN(createdMs)) return false;
+              return Date.now() - createdMs > stuckBuildingMinutes * 60 * 1000;
+            }
+
+            async function isPagesLive(headSha) {
+              const build = await getLatestBuild();
+              if (build?.commit === headSha && build.status === "built") {
+                return true;
+              }
+              const runs = await getPagesDeployRuns(headSha);
+              return runs.some(
+                (run) => run.status === "completed" && run.conclusion === "success"
+              );
+            }
+
             async function triggerBuild() {
               core.info("Triggering GitHub Pages rebuild...");
               await github.request("POST /repos/{owner}/{repo}/pages/builds", {
@@ -77,24 +125,65 @@ jobs:
               });
             }
 
-            async function waitForBuilt(headSha, maxPolls = 16) {
+            async function waitForDeploy(headSha, maxPolls = 20) {
               for (let poll = 1; poll <= maxPolls; poll++) {
-                const build = await getLatestBuild();
-                if (build) {
-                  core.info(
-                    `Poll ${poll}/${maxPolls}: status=${build.status}, commit=${(build.commit || "").slice(0, 7)}`
-                  );
-                  if (build.commit === headSha && build.status === "built") {
-                    return true;
-                  }
-                  if (build.commit === headSha && build.status === "errored") {
-                    const message = build.error?.message || "Page build failed.";
-                    core.warning(`Pages build errored for ${headSha.slice(0, 7)}: ${message}`);
-                    return false;
-                  }
-                } else {
-                  core.info(`Poll ${poll}/${maxPolls}: no Pages builds found yet`);
+                if (await isPagesLive(headSha)) {
+                  return true;
                 }
+
+                const build = await getLatestBuild();
+                const runs = await getPagesDeployRuns(headSha);
+                const inProgress = runs.filter(isInProgressRun);
+                const latestRun = runs[0];
+
+                core.info(
+                  `Poll ${poll}/${maxPolls}: pages=${build?.status || "none"}@${(
+                    build?.commit || ""
+                  ).slice(0, 7)}, actions=${latestRun?.status || "none"}/${
+                    latestRun?.conclusion || "-"
+                  }, in_progress=${inProgress.length}`
+                );
+
+                if (
+                  !inProgress.length &&
+                  build?.commit === headSha &&
+                  build.status === "errored"
+                ) {
+                  const message = build.error?.message || "Page build failed.";
+                  core.warning(
+                    `Pages build errored for ${headSha.slice(0, 7)}: ${message}`
+                  );
+                  return false;
+                }
+
+                if (
+                  !inProgress.length &&
+                  runs.length &&
+                  runs.every(
+                    (run) =>
+                      run.status === "completed" && run.conclusion !== "success"
+                  )
+                ) {
+                  core.warning(
+                    `pages-build-deployment ended ${latestRun.conclusion} for ${headSha.slice(
+                      0,
+                      7
+                    )} (often Deployment cancelled from a race)`
+                  );
+                  return false;
+                }
+
+                if (
+                  !inProgress.length &&
+                  build?.commit === headSha &&
+                  isBuildStuck(build)
+                ) {
+                  core.warning(
+                    `Pages API stuck in building since ${build.created_at}; ending wait cycle`
+                  );
+                  return false;
+                }
+
                 await sleep(pollSeconds);
               }
               return false;
@@ -103,8 +192,7 @@ jobs:
             const headSha = await getMainHead();
             core.info(`main HEAD: ${headSha}`);
 
-            let build = await getLatestBuild();
-            if (build?.commit === headSha && build.status === "built") {
+            if (await isPagesLive(headSha)) {
               core.info("Pages already serving latest main commit.");
               return;
             }
@@ -112,26 +200,52 @@ jobs:
             for (let cycle = 1; cycle <= maxTriggerCycles; cycle++) {
               core.info(`Deploy cycle ${cycle}/${maxTriggerCycles}`);
 
-              build = await getLatestBuild();
-              if (build?.commit === headSha && build.status === "building") {
-                core.info("Automatic Pages build already in progress for latest commit.");
-              } else if (build?.commit === headSha && build.status === "built") {
+              if (await isPagesLive(headSha)) {
                 core.info("Pages already serving latest main commit.");
                 return;
-              } else {
-                await triggerBuild();
-                await sleep(60);
               }
 
-              if (await waitForBuilt(headSha)) {
+              const build = await getLatestBuild();
+              const runs = await getPagesDeployRuns(headSha);
+              const inProgress = runs.some(isInProgressRun);
+              const stuck = build?.commit === headSha && isBuildStuck(build);
+
+              if (inProgress) {
+                core.info(
+                  "pages-build-deployment already in progress for latest commit; waiting (no re-trigger)."
+                );
+              } else if (
+                build?.commit === headSha &&
+                build.status === "building" &&
+                !stuck
+              ) {
+                core.info(
+                  "Pages API reports building for latest commit; waiting (no re-trigger)."
+                );
+              } else {
+                if (stuck) {
+                  core.warning(
+                    `Pages build stuck in building since ${build.created_at}; re-triggering.`
+                  );
+                }
+                await triggerBuild();
+                await sleep(45);
+              }
+
+              if (await waitForDeploy(headSha)) {
                 core.info("Pages deploy succeeded.");
                 return;
               }
 
-              core.warning(`Cycle ${cycle} did not reach built state for ${headSha.slice(0, 7)}`);
+              core.warning(
+                `Cycle ${cycle} did not reach built state for ${headSha.slice(0, 7)}`
+              );
               await sleep(60);
             }
 
             core.setFailed(
-              `Pages deploy did not reach built state for ${headSha.slice(0, 7)} after ${maxTriggerCycles} attempts`
+              `Pages deploy did not reach built state for ${headSha.slice(
+                0,
+                7
+              )} after ${maxTriggerCycles} attempts`
             );
