@@ -47,6 +47,7 @@ jobs:
           mkdir -p data/normalized
           python src/processing/r2_sync.py download \
             data/normalized/search_index.json \
+            data/normalized/legislators.json \
             data/normalized/legislator_stats.json \
             data/normalized/meta.json
           test -f data/normalized/search_index.json || {

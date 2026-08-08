@@ -166,12 +166,24 @@ def prefer_search_index(
     return site_index if site_n else normalized
 
 
+def _legislator_state_coverage(rows: Sequence[Dict[str, Any]]) -> int:
+    return len(
+        {
+            str(row.get("state") or "").strip().upper()
+            for row in rows
+            if isinstance(row, dict) and str(row.get("state") or "").strip()
+        }
+        - {"", "FEDERAL"}
+    )
+
+
 def prefer_legislators(
     site_search_index: Optional[Dict[str, Any]] = None,
     *,
     preferred_index: Optional[Dict[str, Any]] = None,
+    normalized_legislators_path: Optional[Path] = None,
 ) -> List[Dict[str, Any]]:
-    """Pick the fuller legislator list (site may include federal merge)."""
+    """Pick the fuller legislator list (prefer normalized coverage over stale indexes)."""
     site_index = site_search_index if isinstance(site_search_index, dict) else {}
     preferred = preferred_index if isinstance(preferred_index, dict) else {}
     site_legs = site_index.get("legislators") or []
@@ -180,15 +192,38 @@ def prefer_legislators(
         site_legs = []
     if not isinstance(pref_legs, list):
         pref_legs = []
-    if len(pref_legs) >= len(site_legs):
-        if pref_legs:
-            print(f"Using preferred search_index legislators ({len(pref_legs)})")
-        return list(pref_legs)
-    print(
-        f"Using site_data legislators ({len(site_legs)}) over "
-        f"preferred index ({len(pref_legs)})"
+
+    candidates: List[Tuple[str, List[Dict[str, Any]]]] = []
+    if pref_legs:
+        candidates.append(("preferred search_index", list(pref_legs)))
+    if site_legs:
+        candidates.append(("site_data search_index", list(site_legs)))
+
+    norm_path = normalized_legislators_path or (
+        ROOT / "data" / "normalized" / "legislators.json"
     )
-    return list(site_legs)
+    if norm_path.is_file():
+        try:
+            normalized = json.loads(norm_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            print(f"warning: could not read {norm_path}: {exc}")
+            normalized = None
+        if isinstance(normalized, list) and normalized:
+            candidates.append(("normalized legislators.json", list(normalized)))
+
+    if not candidates:
+        return []
+
+    def _rank(item: Tuple[str, List[Dict[str, Any]]]) -> Tuple[int, int]:
+        rows = item[1]
+        return (_legislator_state_coverage(rows), len(rows))
+
+    label, chosen = max(candidates, key=_rank)
+    print(
+        f"Using {label} ({len(chosen)} legislators, "
+        f"{_legislator_state_coverage(chosen)} states)"
+    )
+    return chosen
 
 
 def prefer_legislator_stats(
@@ -344,18 +379,21 @@ def rebuild_home_feeds_from_site_data(*, site_data_path: Path | None = None) -> 
     """
     from processing.home_feed import write_home_feed_artifacts
 
+    from processing.legislators_directory import load_enabled_states
+
     path = site_data_path or (ROOT / "docs" / "site_data.json")
     if not path.is_file():
         raise SystemExit(f"Missing site data for home feed rebuild: {path}")
     site = json.loads(path.read_text(encoding="utf-8"))
     veteran = site.get("veteran_impact") or {}
     search_index = prefer_search_index(site.get("search_index") or {})
+    states = load_enabled_states() or list(site.get("states") or [])
     home_path, day_paths, payload = write_home_feed_artifacts(
         ROOT / "docs",
         last_updated=site.get("last_updated") or "",
         site_years=site.get("years") or {},
         search_index=search_index,
-        states=site.get("states") or [],
+        states=states,
         veteran_impact_lookup=(veteran.get("lookup") or {}),
         kansas_vote_records=site.get("kansas_vote_records") or {},
         action_badges=site.get("action_badges") or {},
@@ -373,7 +411,10 @@ def rebuild_legislators_directory_from_site_data(
     *, site_data_path: Path | None = None
 ) -> Path:
     """Rebuild docs/legislators_directory.json from normalized + site_data sources."""
-    from processing.legislators_directory import write_legislators_directory_artifacts
+    from processing.legislators_directory import (
+        load_enabled_states,
+        write_legislators_directory_artifacts,
+    )
 
     path = site_data_path or (ROOT / "docs" / "site_data.json")
     if not path.is_file():
@@ -385,17 +426,21 @@ def rebuild_legislators_directory_from_site_data(
         preferred_index=search_index,
     )
     legislator_stats = prefer_legislator_stats(site.get("legislator_stats") or {})
+    # Never trust stale site_data.states alone — states.yaml is the source of truth.
+    states = load_enabled_states() or list(site.get("states") or [])
     out_path, payload = write_legislators_directory_artifacts(
         ROOT / "docs",
         legislators=legislators,
         legislator_stats=legislator_stats,
-        states=site.get("states") or [],
+        states=states,
         generated_at=site.get("last_updated") or "",
     )
     stats = payload.get("stats") or {}
+    state_codes = [s.get("code") for s in (payload.get("states") or [])]
     print(
         f"Rebuilt {out_path} "
         f"({stats.get('legislator_count', 0)} legislators, "
+        f"{len(state_codes)} states {state_codes}, "
         f"{out_path.stat().st_size / 1024:.1f} KB)"
     )
     return out_path

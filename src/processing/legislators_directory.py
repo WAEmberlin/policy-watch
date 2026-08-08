@@ -12,6 +12,8 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence
 
 LEGISLATORS_DIRECTORY_FILENAME = "legislators_directory.json"
+_ROOT = Path(__file__).resolve().parents[2]
+_STATES_YAML = _ROOT / "config" / "states.yaml"
 
 # Fields used by renderLegislatorCard / vote modal open — not images.
 _SLIM_KEYS = ("id", "name", "party", "state", "chamber", "district", "url")
@@ -34,6 +36,77 @@ def build_slim_legislators(
     return [slim_legislator(leg) for leg in source if isinstance(leg, dict)]
 
 
+def load_enabled_states(
+    config_path: Optional[Path] = None,
+) -> List[Dict[str, str]]:
+    """Return enabled [{code, name}, ...] from config/states.yaml (stable order)."""
+    path = Path(config_path) if config_path else _STATES_YAML
+    if not path.is_file():
+        return []
+    try:
+        import yaml
+    except ImportError:
+        return []
+    try:
+        cfg = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    except (OSError, yaml.YAMLError):
+        return []
+    out: List[Dict[str, str]] = []
+    for row in cfg.get("states") or []:
+        if not isinstance(row, dict) or not row.get("enabled"):
+            continue
+        code = (row.get("code") or "").strip().lower()
+        if not code:
+            continue
+        out.append({"code": code, "name": str(row.get("name") or code.upper())})
+    return out
+
+
+def resolve_directory_states(
+    states: Optional[Sequence[Dict[str, Any]]] = None,
+    legislators: Optional[Sequence[Dict[str, Any]]] = None,
+    *,
+    config_path: Optional[Path] = None,
+) -> List[Dict[str, str]]:
+    """States for the legislators dropdown: enabled jurisdictions that have rows.
+
+    Prefer config/states.yaml over stale site_data.states. Keep yaml order, then
+    append any unexpected legislator.state values not listed in config.
+    """
+    present = {
+        str(leg.get("state") or "").strip().upper()
+        for leg in (legislators or [])
+        if isinstance(leg, dict)
+    }
+    present.discard("")
+    present.discard("FEDERAL")
+
+    enabled = [
+        {"code": str(s.get("code") or "").strip().lower(), "name": str(s.get("name") or "")}
+        for s in (states or [])
+        if isinstance(s, dict) and (s.get("code") or "").strip()
+    ]
+    # site_data.states is often months behind states.yaml — always prefer yaml when present.
+    from_yaml = load_enabled_states(config_path)
+    if from_yaml:
+        enabled = from_yaml
+
+    resolved: List[Dict[str, str]] = []
+    seen: set[str] = set()
+    for row in enabled:
+        code_u = row["code"].upper()
+        if present and code_u not in present:
+            continue
+        if code_u in seen:
+            continue
+        seen.add(code_u)
+        resolved.append({"code": row["code"], "name": row["name"] or code_u})
+
+    for code_u in sorted(present - seen):
+        resolved.append({"code": code_u.lower(), "name": code_u})
+    return resolved
+
+
 def build_legislators_directory(
     *,
     search_index: Optional[Dict[str, Any]] = None,
@@ -44,10 +117,11 @@ def build_legislators_directory(
 ) -> Dict[str, Any]:
     """Build the legislators page JSON payload (no full site_data / search_index)."""
     slim = build_slim_legislators(search_index, legislators=legislators)
+    resolved_states = resolve_directory_states(states, slim)
     return {
         "legislators_directory": True,
         "generated_at": generated_at or datetime.now(timezone.utc).isoformat(),
-        "states": list(states or []),
+        "states": resolved_states,
         "legislators": slim,
         "legislator_stats": legislator_stats if isinstance(legislator_stats, dict) else {},
         "stats": {

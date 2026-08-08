@@ -95,6 +95,25 @@ const PolicyWatchExpansion = (() => {
         return `<div class="p-4 mb-3 border border-slate-200 rounded-lg">${inner}</div>`;
     }
 
+    /**
+     * Build dropdown states from payload.states, unioned with distinct legislator
+     * states so a stale site_data.states list cannot hide newer jurisdictions.
+     */
+    function resolveStatesForFilter(data, legislators) {
+        const byCode = new Map();
+        (data && Array.isArray(data.states) ? data.states : []).forEach((s) => {
+            if (!s || !s.code) return;
+            const code = String(s.code).toUpperCase();
+            byCode.set(code, { code: String(s.code).toLowerCase(), name: s.name || code });
+        });
+        (legislators || []).forEach((leg) => {
+            const code = String((leg && leg.state) || '').toUpperCase();
+            if (!code || code === 'FEDERAL' || byCode.has(code)) return;
+            byCode.set(code, { code: code.toLowerCase(), name: code });
+        });
+        return Array.from(byCode.values());
+    }
+
     function populateStateFilter(selectId, states) {
         const sel = document.getElementById(selectId);
         if (!sel) return;
@@ -126,7 +145,10 @@ const PolicyWatchExpansion = (() => {
         const searchIndex = data.search_index || {};
         const bills = searchIndex.bills || [];
 
-        populateStateFilter('state-filter', data.states);
+        populateStateFilter(
+            'state-filter',
+            resolveStatesForFilter(data, (data.search_index || {}).legislators || [])
+        );
 
         const tabs = [
             { id: 'whats_new_today', label: "What's New Today" },
@@ -267,8 +289,9 @@ const PolicyWatchExpansion = (() => {
             || (data.search_index || {}).legislators
             || [];
         const statsData = data.legislator_stats || {};
-        populateStateFilter('leg-state-filter', data.states);
-        populateStateFilter('leg-stats-state-filter', data.states);
+        const filterStates = resolveStatesForFilter(data, legislators);
+        populateStateFilter('leg-state-filter', filterStates);
+        populateStateFilter('leg-stats-state-filter', filterStates);
 
         const listEl = document.getElementById('legislators-list');
         const statsEl = document.getElementById('legislators-stats');

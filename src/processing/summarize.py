@@ -999,9 +999,19 @@ print(
 print(f"Wrote {len(home_day_paths)} per-day home feed files under home_feed_days/")
 
 # Slim legislators directory — legislators.html must not download full site_data.json.
+# Prefer the fuller of search_index vs normalized legislators.json (search_index can lag).
+_search_legs = list((normalized_search_index or {}).get("legislators") or [])
+_norm_legs = list(normalized_legislators or [])
+_dir_legislators = (
+    _norm_legs
+    if len({(x.get("state") or "").upper() for x in _norm_legs if isinstance(x, dict)})
+    > len({(x.get("state") or "").upper() for x in _search_legs if isinstance(x, dict)})
+    or len(_norm_legs) > len(_search_legs)
+    else _search_legs
+)
 leg_dir_path, leg_dir_payload = write_legislators_directory_artifacts(
     DOCS_DIR,
-    search_index=normalized_search_index,
+    legislators=_dir_legislators,
     legislator_stats=normalized_legislator_stats,
     states=configured_states,
     generated_at=output["last_updated"],

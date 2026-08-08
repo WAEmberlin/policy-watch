@@ -137,19 +137,75 @@ def test_r2_upload_list_includes_legislators_directory():
     assert "legislators_directory.json" in DOCS_UPLOAD_FILES
 
 
-def test_prefer_legislators_picks_fuller_list():
+def test_prefer_legislators_picks_fuller_list(tmp_path):
     from processing.r2_sync import prefer_legislators
 
     site = {
         "legislators": [
-            {"id": "1", "name": "Site"},
-            {"id": "2", "name": "Federal"},
+            {"id": "1", "name": "Site", "state": "KS"},
+            {"id": "2", "name": "Federal", "state": "KS"},
         ]
     }
-    preferred = {"legislators": [{"id": "1", "name": "Norm"}]}
-    chosen = prefer_legislators(site, preferred_index=preferred)
+    preferred = {"legislators": [{"id": "1", "name": "Norm", "state": "KS"}]}
+    missing_norm = tmp_path / "missing-legislators.json"
+    chosen = prefer_legislators(
+        site,
+        preferred_index=preferred,
+        normalized_legislators_path=missing_norm,
+    )
     assert len(chosen) == 2
     assert chosen[1]["name"] == "Federal"
+
+
+def test_prefer_legislators_prefers_normalized_state_coverage(tmp_path):
+    from processing.r2_sync import prefer_legislators
+
+    norm = tmp_path / "legislators.json"
+    norm.write_text(
+        json.dumps(
+            [
+                {"id": "a", "name": "A", "state": "KS"},
+                {"id": "b", "name": "B", "state": "MA"},
+                {"id": "c", "name": "C", "state": "IA"},
+            ]
+        ),
+        encoding="utf-8",
+    )
+    site = {"legislators": [{"id": "a", "name": "A", "state": "KS"}]}
+    preferred = {"legislators": [{"id": "a", "name": "A", "state": "KS"}]}
+    chosen = prefer_legislators(
+        site,
+        preferred_index=preferred,
+        normalized_legislators_path=norm,
+    )
+    assert len(chosen) == 3
+    assert {row["state"] for row in chosen} == {"KS", "MA", "IA"}
+
+
+def test_resolve_directory_states_uses_yaml_over_stale_site_states(tmp_path):
+    from processing.legislators_directory import resolve_directory_states
+
+    yaml_path = tmp_path / "states.yaml"
+    yaml_path.write_text(
+        "states:\n"
+        "  - code: ks\n    name: Kansas\n    enabled: true\n"
+        "  - code: ma\n    name: Massachusetts\n    enabled: true\n"
+        "  - code: ia\n    name: Iowa\n    enabled: true\n",
+        encoding="utf-8",
+    )
+    stale_site = [{"code": "ks", "name": "Kansas"}]
+    legislators = [
+        {"state": "KS"},
+        {"state": "MA"},
+        {"state": "IA"},
+    ]
+    resolved = resolve_directory_states(
+        stale_site,
+        legislators,
+        config_path=yaml_path,
+    )
+    assert [s["code"] for s in resolved] == ["ks", "ma", "ia"]
+    assert resolved[1]["name"] == "Massachusetts"
 
 
 def test_prefer_legislator_stats_uses_normalized(tmp_path):
