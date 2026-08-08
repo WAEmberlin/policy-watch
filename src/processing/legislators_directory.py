@@ -36,30 +36,50 @@ def build_slim_legislators(
     return [slim_legislator(leg) for leg in source if isinstance(leg, dict)]
 
 
+# Fallback when PyYAML is unavailable (e.g. slim CI images). Keep in sync with states.yaml.
+_DEFAULT_ENABLED_STATES: List[Dict[str, str]] = [
+    {"code": "ks", "name": "Kansas"},
+    {"code": "co", "name": "Colorado"},
+    {"code": "az", "name": "Arizona"},
+    {"code": "ut", "name": "Utah"},
+    {"code": "me", "name": "Maine"},
+    {"code": "ne", "name": "Nebraska"},
+    {"code": "md", "name": "Maryland"},
+    {"code": "pa", "name": "Pennsylvania"},
+    {"code": "ma", "name": "Massachusetts"},
+    {"code": "wv", "name": "West Virginia"},
+    {"code": "tn", "name": "Tennessee"},
+    {"code": "nc", "name": "North Carolina"},
+    {"code": "mo", "name": "Missouri"},
+    {"code": "ia", "name": "Iowa"},
+]
+
+
 def load_enabled_states(
     config_path: Optional[Path] = None,
 ) -> List[Dict[str, str]]:
     """Return enabled [{code, name}, ...] from config/states.yaml (stable order)."""
     path = Path(config_path) if config_path else _STATES_YAML
-    if not path.is_file():
-        return []
     try:
         import yaml
     except ImportError:
-        return []
-    try:
-        cfg = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
-    except (OSError, yaml.YAMLError):
-        return []
-    out: List[Dict[str, str]] = []
-    for row in cfg.get("states") or []:
-        if not isinstance(row, dict) or not row.get("enabled"):
-            continue
-        code = (row.get("code") or "").strip().lower()
-        if not code:
-            continue
-        out.append({"code": code, "name": str(row.get("name") or code.upper())})
-    return out
+        yaml = None  # type: ignore[assignment]
+    if yaml is not None and path.is_file():
+        try:
+            cfg = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+            out: List[Dict[str, str]] = []
+            for row in cfg.get("states") or []:
+                if not isinstance(row, dict) or not row.get("enabled"):
+                    continue
+                code = (row.get("code") or "").strip().lower()
+                if not code:
+                    continue
+                out.append({"code": code, "name": str(row.get("name") or code.upper())})
+            if out:
+                return out
+        except (OSError, yaml.YAMLError):
+            pass
+    return [dict(row) for row in _DEFAULT_ENABLED_STATES]
 
 
 def resolve_directory_states(

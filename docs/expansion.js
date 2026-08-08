@@ -95,6 +95,13 @@ const PolicyWatchExpansion = (() => {
         return `<div class="p-4 mb-3 border border-slate-200 rounded-lg">${inner}</div>`;
     }
 
+    const STATE_NAMES = {
+        KS: 'Kansas', CO: 'Colorado', AZ: 'Arizona', UT: 'Utah', ME: 'Maine',
+        NE: 'Nebraska', MD: 'Maryland', PA: 'Pennsylvania', MA: 'Massachusetts',
+        WV: 'West Virginia', TN: 'Tennessee', NC: 'North Carolina', MO: 'Missouri',
+        IA: 'Iowa',
+    };
+
     /**
      * Build dropdown states from payload.states, unioned with distinct legislator
      * states so a stale site_data.states list cannot hide newer jurisdictions.
@@ -104,12 +111,15 @@ const PolicyWatchExpansion = (() => {
         (data && Array.isArray(data.states) ? data.states : []).forEach((s) => {
             if (!s || !s.code) return;
             const code = String(s.code).toUpperCase();
-            byCode.set(code, { code: String(s.code).toLowerCase(), name: s.name || code });
+            byCode.set(code, {
+                code: String(s.code).toLowerCase(),
+                name: s.name || STATE_NAMES[code] || code,
+            });
         });
         (legislators || []).forEach((leg) => {
             const code = String((leg && leg.state) || '').toUpperCase();
             if (!code || code === 'FEDERAL' || byCode.has(code)) return;
-            byCode.set(code, { code: code.toLowerCase(), name: code });
+            byCode.set(code, { code: code.toLowerCase(), name: STATE_NAMES[code] || code });
         });
         return Array.from(byCode.values());
     }

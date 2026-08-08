@@ -22,7 +22,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install boto3
+        run: pip install boto3 pyyaml
 
       - name: Rebuild home feeds from R2 site_data and upload docs
         env:
