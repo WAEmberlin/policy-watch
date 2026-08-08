@@ -19,6 +19,11 @@
     "cosponsors": [],
     "actions": [
       {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
         "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
         "actionDate": "2026-07-14",
         "type": "IntroReferral"
@@ -116,6 +121,11 @@
     "latest_action": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
     "latest_action_date": "2026-08-06T00:00:00",
     "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
       {
         "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
         "actionDate": "2026-07-13",
@@ -220,6 +230,11 @@
     "latest_action": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
     "latest_action_date": "2026-08-06T00:00:00",
     "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
       {
         "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
         "actionDate": "2026-07-13",
@@ -329,7 +344,51 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Passed Senate with an amendment by Unanimous Consent. (consideration: CR S4492-4493; text: CR S4492-4493)",
+        "actionDate": "2026-08-06",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate with an amendment by Unanimous Consent.",
+        "actionDate": "2026-08-06",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 434.",
+        "actionDate": "2026-06-15",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Reported by Senator Cruz with an amendment in the nature of a substitute. With written report No. 119-126.",
+        "actionDate": "2026-06-15",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Reported by Senator Cruz with an amendment in the nature of a substitute. With written report No. 119-126.",
+        "actionDate": "2026-06-15",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-02-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+        "actionDate": "2025-11-20",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-11-20",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Passed Senate with an amendment by Unanimous Consent.",
@@ -355,7 +414,90 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2026-04-15",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:34:27",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2847)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:34:25",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2847)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:34:25",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 1431.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:29:04",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H2847-2848)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:29:02",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Gill (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:29:00",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported by the Yeas and Nays: 38 - 2.",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2025-02-18",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-02-18",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-02-18",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -381,7 +523,90 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2026-04-15",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:25:27",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2855)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:25:25",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2855)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:25:25",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 6247.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:20:23",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H2855)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:20:22",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Gill (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:20:01",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported by Voice Vote.",
+        "actionDate": "2026-03-18",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2026-03-18",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2025-11-21",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-11-21",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-11-21",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -401,7 +626,90 @@
     "cosponsors": [],
     "latest_action": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
     "latest_action_date": "2026-08-06T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2026-04-15",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:19:59",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2854)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:19:58",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2854)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:19:58",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 6995.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:16:55",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H2854-2855)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:16:52",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Gill (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:16:41",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported by Voice Vote.",
+        "actionDate": "2026-02-04",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2026-02-04",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2026-01-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-01-09",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-01-09",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -433,7 +741,90 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2026-04-15",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:16:41",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2853)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:16:39",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2853)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:16:39",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 6808.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:11:49",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H2853-2854)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:11:47",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Gill (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:11:29",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported by Voice Vote.",
+        "actionDate": "2026-02-04",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2026-02-04",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2025-12-17",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-12-17",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-12-17",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -459,7 +850,90 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2026-04-15",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:06:10",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2852)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:06:08",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2852)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:06:08",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 6020.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:01:09",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H2852-2853)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:01:07",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Gill (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:01:02",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported by Voice Vote.",
+        "actionDate": "2026-02-04",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2026-02-04",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2025-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -485,7 +959,90 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2026-04-15",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:00:48",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2851)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:00:46",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2851)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:00:46",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 5773.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:57:31",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H2851-2852)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:57:30",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Gill (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:57:07",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported by the Yeas and Nays: 38 - 2.",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2025-10-17",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-10-17",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-10-17",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -511,7 +1068,90 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2026-04-15",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:57:06",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2851)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:57:04",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2851)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:57:04",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 5058.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:54:09",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H2851)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:54:06",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Gill (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:54:01",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported by the Yeas and Nays: 38 - 2.",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2025-08-26",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-08-26",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-08-26",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -537,7 +1177,90 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2026-04-15",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:29:05",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2855)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:29:04",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2855)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:29:04",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 5831.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:25:59",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H2855-2856)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:25:57",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Gill (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:25:33",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported by the Yeas and Nays: 38 - 2.",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2025-10-24",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-10-24",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-10-24",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -563,7 +1286,96 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2026-04-15",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:53:55",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2850)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:53:53",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2850)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:53:53",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 4707.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:50:48",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H2850-2851)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:50:47",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Gill (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:50:37",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported by the Yeas and Nays: 38 - 2.",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2025-07-23",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-07-23",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-07-23",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      },
+      {
+        "text": "Sponsor introductory remarks on measure. (CR H3532)",
+        "actionDate": "2025-07-22",
+        "type": "IntroReferral",
+        "actionCode": "B00100"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -589,7 +1401,90 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2026-04-15",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:50:36",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2849-2850)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:50:33",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2849-2850)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:50:33",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 4635.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:45:44",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H2849-2850)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:45:42",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Gill (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:45:32",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported by the Yeas and Nays: 38 - 2.",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2025-07-23",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-07-23",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-07-23",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -615,7 +1510,90 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2026-04-15",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:45:32",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2849)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:45:30",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2849)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:45:30",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 3393.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:42:02",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H2849)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:42:01",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Gill (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:42:00",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported by the Yeas and Nays: 38 - 2.",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2025-05-14",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-05-14",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-05-14",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -641,7 +1619,90 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2026-04-15",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:41:47",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2848)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:41:45",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2848)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:41:45",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 1706.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:34:46",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H2848-2849)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:34:44",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Gill (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:34:28",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported by the Yeas and Nays: 38 - 2.",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2025-02-27",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-02-27",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-02-27",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -667,7 +1728,90 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2026-04-15",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:28:47",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2846)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:28:42",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2846)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:28:42",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 6310.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:23:50",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H2846-2847)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:23:48",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Gill (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "15:23:36",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported by the Yeas and Nays: 38 - 2.",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2025-11-25",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-11-25",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-11-25",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -693,7 +1837,90 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2026-04-15",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:11:28",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2853)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:11:26",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H2853)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:11:26",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 6317.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:06:40",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H2853)",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:06:38",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Gill (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-04-14",
+        "type": "Floor",
+        "actionTime": "16:06:11",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported by the Yeas and Nays: 38 - 2.",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2025-11-25",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-11-25",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-11-25",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -719,7 +1946,90 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2026-02-24",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-02-23",
+        "type": "Floor",
+        "actionTime": "16:42:18",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H2247)",
+        "actionDate": "2026-02-23",
+        "type": "Floor",
+        "actionTime": "16:41:44",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H2247)",
+        "actionDate": "2026-02-23",
+        "type": "Floor",
+        "actionTime": "16:41:44",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 5235.",
+        "actionDate": "2026-02-23",
+        "type": "Floor",
+        "actionTime": "16:34:38",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H2247-2248)",
+        "actionDate": "2026-02-23",
+        "type": "Floor",
+        "actionTime": "16:34:37",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Timmons moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2026-02-23",
+        "type": "Floor",
+        "actionTime": "16:34:00",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported (Amended) by the Yeas and Nays: 44 - 0.",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2025-09-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-09-09",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-09-09",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -745,7 +2055,24 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs. (text: CR S8672)",
+        "actionDate": "2025-12-11",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-12-11",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -771,7 +2098,90 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-12-10",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:31:38",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H5097)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:31:36",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H5097)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:31:36",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 2466.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:26:30",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H5097)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:26:28",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Gill (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:26:18",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported by the Yeas and Nays: 38 - 2.",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2025-03-27",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-03-27",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-03-27",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -797,7 +2207,90 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-12-10",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:43:48",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H5098)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:43:45",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H5098)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:43:45",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 2175.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:37:19",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H5098-5099)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:37:18",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Gill (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:37:08",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported by the Yeas and Nays: 38 - 2.",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-12-02",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2025-03-18",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-03-18",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-03-18",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -823,7 +2316,90 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-12-10",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:23:29",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H5095-5096)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:23:27",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H5095-5096)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:23:27",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 1830.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:18:08",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H5095-5096)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:18:06",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Gill (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:17:53",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported by the Yeas and Nays: 23 - 15.",
+        "actionDate": "2025-04-30",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-04-30",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2025-03-04",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-03-04",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-03-04",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -849,7 +2425,90 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-12-10",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:49:50",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H5099)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:49:48",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H5099)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:49:48",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 1372.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:44:01",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H5099-5100)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:43:59",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Gill (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:43:49",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported by the Yeas and Nays: 23 - 15.",
+        "actionDate": "2025-04-30",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-04-30",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Gov Reform.",
+        "actionDate": "2025-02-14",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-02-14",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-02-14",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -875,7 +2534,90 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-12-10",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:17:52",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H5095)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:17:49",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H5095)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:17:49",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 1009.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:12:56",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H5095)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:12:54",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Gill (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:12:43",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported by Voice Vote.",
+        "actionDate": "2025-05-21",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-05-21",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2025-02-05",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-02-05",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-02-05",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -901,7 +2643,90 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-12-10",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:12:42",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H5094)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:12:39",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H5094)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:12:39",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 1008.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:07:50",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H5094-5095)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:07:49",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Gill (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:07:40",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported by Voice Vote.",
+        "actionDate": "2025-05-21",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-05-21",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2025-02-05",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-02-05",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-02-05",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -927,7 +2752,90 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-12-10",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:07:20",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H5093)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:07:00",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H5093)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:07:00",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 323.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:00:40",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H5093-5094)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:00:38",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Gill (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "17:00:26",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported by the Yeas and Nays: 23 - 15.",
+        "actionDate": "2025-04-30",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-04-30",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2025-01-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-01-09",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-01-09",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -953,7 +2861,24 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-12-04",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-12-04",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -979,7 +2904,24 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-12-03",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-12-03",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -1005,7 +2947,24 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs. (Sponsor introductory remarks on measure: CR S8450-8451)",
+        "actionDate": "2025-12-02",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-12-02",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -1031,7 +2990,24 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-12-02",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-12-02",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -1057,7 +3033,24 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-11-20",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-11-20",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -1083,7 +3076,24 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-11-19",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-11-19",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported with an amendment in the nature of a substitute favorably.",
@@ -1109,7 +3119,24 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-11-19",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-11-19",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported with an amendment in the nature of a substitute favorably.",
@@ -1135,7 +3162,24 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-11-18",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-11-18",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported with an amendment in the nature of a substitute favorably.",
@@ -1161,7 +3205,56 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Passed Senate with an amendment by Unanimous Consent. (text: CR S4493-4494)",
+        "actionDate": "2026-08-06",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate with an amendment by Unanimous Consent.",
+        "actionDate": "2026-08-06",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Measure laid before Senate by unanimous consent. (consideration: CR S4493-4494)",
+        "actionDate": "2026-08-06",
+        "type": "Floor"
+      },
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 198.",
+        "actionDate": "2025-10-21",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Reported by Senator Cruz with an amendment in the nature of a substitute. With written report No. 119-87.",
+        "actionDate": "2025-10-21",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Reported by Senator Cruz with an amendment in the nature of a substitute. With written report No. 119-87.",
+        "actionDate": "2025-10-21",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2025-06-25",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+        "actionDate": "2025-02-05",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-02-05",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Passed Senate with an amendment by Unanimous Consent.",
@@ -1187,7 +3280,24 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-09-08",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-09-08",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -1213,7 +3323,24 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-09-08",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-09-08",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported with an amendment in the nature of a substitute favorably.",
@@ -1239,7 +3366,51 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Passed Senate with an amendment by Voice Vote. (consideration: CR S4494-4495; text: CR S4494-4495)",
+        "actionDate": "2026-08-06",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate with an amendment by Voice Vote.",
+        "actionDate": "2026-08-06",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 154.",
+        "actionDate": "2025-09-08",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Health, Education, Labor, and Pensions. Reported by Senator Cassidy with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2025-09-08",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Health, Education, Labor, and Pensions. Reported by Senator Cassidy with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2025-09-08",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Health, Education, Labor, and Pensions. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2025-07-30",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
+        "actionDate": "2025-07-23",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-07-23",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Passed Senate with an amendment by Voice Vote.",
@@ -1259,7 +3430,40 @@
     "cosponsors": [],
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 545.",
     "latest_action_date": "2026-08-06T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 545.",
+        "actionDate": "2026-08-06",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Reported by Senator Paul with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Reported by Senator Paul with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-08-06",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-07-30",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-07-30",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 545.",
@@ -1285,7 +3489,24 @@
     "cosponsors": [],
     "latest_action": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
     "latest_action_date": "2026-08-06T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-07-24",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-07-24",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -1311,7 +3532,24 @@
     "cosponsors": [],
     "latest_action": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
     "latest_action_date": "2026-08-06T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-07-23",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-07-23",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -1337,7 +3575,24 @@
     "cosponsors": [],
     "latest_action": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported with an amendment in the nature of a substitute favorably.",
     "latest_action_date": "2026-08-06T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-05-13",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-05-13",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported with an amendment in the nature of a substitute favorably.",
@@ -1363,7 +3618,24 @@
     "cosponsors": [],
     "latest_action": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
     "latest_action_date": "2026-08-06T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-03-10",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-03-10",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -1389,7 +3661,24 @@
     "cosponsors": [],
     "latest_action": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
     "latest_action_date": "2026-08-06T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-03-04",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-03-04",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -1415,7 +3704,24 @@
     "cosponsors": [],
     "latest_action": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported with an amendment in the nature of a substitute favorably.",
     "latest_action_date": "2026-08-06T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-02-04",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-02-04",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported with an amendment in the nature of a substitute favorably.",
@@ -1441,7 +3747,24 @@
     "cosponsors": [],
     "latest_action": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported with an amendment in the nature of a substitute favorably.",
     "latest_action_date": "2026-08-06T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-01-24",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-01-24",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported with an amendment in the nature of a substitute favorably.",
@@ -1467,7 +3790,24 @@
     "cosponsors": [],
     "latest_action": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
     "latest_action_date": "2026-08-06T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-01-21",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-01-21",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -1493,7 +3833,24 @@
     "cosponsors": [],
     "latest_action": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
     "latest_action_date": "2026-08-06T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-01-09",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-01-09",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -1519,7 +3876,24 @@
     "cosponsors": [],
     "latest_action": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
     "latest_action_date": "2026-08-06T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-08-06",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2025-01-07",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-01-07",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
@@ -1545,7 +3919,46 @@
     "cosponsors": [],
     "latest_action": "Passed Senate with an amendment by Voice Vote.",
     "latest_action_date": "2026-08-06T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Passed Senate with an amendment by Voice Vote. (text of amendment in the nature of a substitute: CR S4495-4496)",
+        "actionDate": "2026-08-06",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate with an amendment by Voice Vote.",
+        "actionDate": "2026-08-06",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Measure laid before Senate by unanimous consent. (consideration: CR S4495-4498)",
+        "actionDate": "2026-08-06",
+        "type": "Floor"
+      },
+      {
+        "text": "Senate Committee on Health, Education, Labor, and Pensions discharged by Unanimous Consent.",
+        "actionDate": "2026-08-06",
+        "type": "Discharge"
+      },
+      {
+        "text": "Senate Committee on Health, Education, Labor, and Pensions discharged by Unanimous Consent.",
+        "actionDate": "2026-08-06",
+        "type": "Committee",
+        "actionCode": "14500"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
+        "actionDate": "2025-05-21",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-05-21",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Passed Senate with an amendment by Voice Vote.",
