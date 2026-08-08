@@ -24,6 +24,7 @@ DOCS_UPLOAD_FILES = [
     "site_data.json",
     "home_feed.json",
     "home_search_bills.json",
+    "legislators_directory.json",
     "legislator_votes.json",
     "legislator_vote_counts.json",
     "bill_title_lookup.json",
@@ -163,6 +164,63 @@ def prefer_search_index(
     if site_n:
         print(f"Using site_data.search_index ({site_n} bills)")
     return site_index if site_n else normalized
+
+
+def prefer_legislators(
+    site_search_index: Optional[Dict[str, Any]] = None,
+    *,
+    preferred_index: Optional[Dict[str, Any]] = None,
+) -> List[Dict[str, Any]]:
+    """Pick the fuller legislator list (site may include federal merge)."""
+    site_index = site_search_index if isinstance(site_search_index, dict) else {}
+    preferred = preferred_index if isinstance(preferred_index, dict) else {}
+    site_legs = site_index.get("legislators") or []
+    pref_legs = preferred.get("legislators") or []
+    if not isinstance(site_legs, list):
+        site_legs = []
+    if not isinstance(pref_legs, list):
+        pref_legs = []
+    if len(pref_legs) >= len(site_legs):
+        if pref_legs:
+            print(f"Using preferred search_index legislators ({len(pref_legs)})")
+        return list(pref_legs)
+    print(
+        f"Using site_data legislators ({len(site_legs)}) over "
+        f"preferred index ({len(pref_legs)})"
+    )
+    return list(site_legs)
+
+
+def prefer_legislator_stats(
+    site_stats: Optional[Dict[str, Any]] = None,
+    *,
+    normalized_path: Optional[Path] = None,
+) -> Dict[str, Any]:
+    """Prefer data/normalized/legislator_stats.json when it has more by_state coverage."""
+    site = site_stats if isinstance(site_stats, dict) else {}
+    path = normalized_path or (ROOT / "data" / "normalized" / "legislator_stats.json")
+    if not path.is_file():
+        return site
+    try:
+        normalized = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        print(f"warning: could not read {path}: {exc}")
+        return site
+    if not isinstance(normalized, dict):
+        return site
+    site_n = len((site.get("by_state") or {})) if isinstance(site.get("by_state"), dict) else 0
+    norm_n = (
+        len((normalized.get("by_state") or {}))
+        if isinstance(normalized.get("by_state"), dict)
+        else 0
+    )
+    if norm_n >= site_n and (norm_n or not site_n):
+        if norm_n:
+            print(f"Using normalized legislator_stats ({norm_n} states)")
+        return normalized
+    if site_n:
+        print(f"Using site_data legislator_stats ({site_n} states)")
+    return site if site_n else normalized
 
 
 def _validate_docs_upload(paths: Sequence[Tuple[Path, str]]) -> None:
@@ -311,6 +369,38 @@ def rebuild_home_feeds_from_site_data(*, site_data_path: Path | None = None) -> 
     return len(day_paths)
 
 
+def rebuild_legislators_directory_from_site_data(
+    *, site_data_path: Path | None = None
+) -> Path:
+    """Rebuild docs/legislators_directory.json from normalized + site_data sources."""
+    from processing.legislators_directory import write_legislators_directory_artifacts
+
+    path = site_data_path or (ROOT / "docs" / "site_data.json")
+    if not path.is_file():
+        raise SystemExit(f"Missing site data for legislators directory rebuild: {path}")
+    site = json.loads(path.read_text(encoding="utf-8"))
+    search_index = prefer_search_index(site.get("search_index") or {})
+    legislators = prefer_legislators(
+        site.get("search_index") or {},
+        preferred_index=search_index,
+    )
+    legislator_stats = prefer_legislator_stats(site.get("legislator_stats") or {})
+    out_path, payload = write_legislators_directory_artifacts(
+        ROOT / "docs",
+        legislators=legislators,
+        legislator_stats=legislator_stats,
+        states=site.get("states") or [],
+        generated_at=site.get("last_updated") or "",
+    )
+    stats = payload.get("stats") or {}
+    print(
+        f"Rebuilt {out_path} "
+        f"({stats.get('legislator_count', 0)} legislators, "
+        f"{out_path.stat().st_size / 1024:.1f} KB)"
+    )
+    return out_path
+
+
 def download_pipeline(*, dry_run: bool = False) -> int:
     """Restore pipeline caches from R2 into the workspace (best-effort)."""
     bucket = _require_env("R2_BUCKET_NAME")
@@ -364,6 +454,10 @@ def main(argv: Iterable[str] | None = None) -> None:
         "rebuild-home-feeds",
         help="Rebuild home_feed.json + home_feed_days/ from docs/site_data.json",
     )
+    sub.add_parser(
+        "rebuild-legislators-directory",
+        help="Rebuild legislators_directory.json from normalized + site_data",
+    )
 
     args = parser.parse_args(list(argv) if argv is not None else None)
 
@@ -381,6 +475,10 @@ def main(argv: Iterable[str] | None = None) -> None:
 
     if args.command == "rebuild-home-feeds":
         rebuild_home_feeds_from_site_data()
+        return
+
+    if args.command == "rebuild-legislators-directory":
+        rebuild_legislators_directory_from_site_data()
         return
 
     if args.command == "upload":

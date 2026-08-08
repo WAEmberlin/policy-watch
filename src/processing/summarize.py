@@ -19,6 +19,7 @@ from processing.bill_action_utils import (  # noqa: E402
 from processing.bill_urls import pick_best_bill_url, build_ks_bill_url  # noqa: E402
 from processing.hearing_stream_utils import enrich_hearing_stream  # noqa: E402
 from processing.home_feed import write_home_feed_artifacts  # noqa: E402
+from processing.legislators_directory import write_legislators_directory_artifacts  # noqa: E402
 from processing.veteran_impact import (  # noqa: E402
     build_veteran_impact_lookup,
     collect_feed_bills_for_veteran_lookup,
@@ -89,6 +90,13 @@ if not os.path.exists(HISTORY_FILE):
         site_years={},
         search_index={},
         states=[],
+    )
+    write_legislators_directory_artifacts(
+        DOCS_DIR,
+        search_index={},
+        legislator_stats={},
+        states=[],
+        generated_at=data["last_updated"],
     )
     exit(0)
 
@@ -989,6 +997,21 @@ print(
     f"{os.path.getsize(home_feed_path) / (1024 * 1024):.2f} MB)"
 )
 print(f"Wrote {len(home_day_paths)} per-day home feed files under home_feed_days/")
+
+# Slim legislators directory — legislators.html must not download full site_data.json.
+leg_dir_path, leg_dir_payload = write_legislators_directory_artifacts(
+    DOCS_DIR,
+    search_index=normalized_search_index,
+    legislator_stats=normalized_legislator_stats,
+    states=configured_states,
+    generated_at=output["last_updated"],
+)
+leg_dir_stats = leg_dir_payload.get("stats") or {}
+print(
+    f"Wrote legislators directory {leg_dir_path} "
+    f"({leg_dir_stats.get('legislator_count', 0)} legislators, "
+    f"{os.path.getsize(leg_dir_path) / 1024:.1f} KB)"
+)
 
 legislator_votes_file = os.path.join(DOCS_DIR, "legislator_votes.json")
 with open(legislator_votes_file, "w", encoding="utf-8") as f:

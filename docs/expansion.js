@@ -17,6 +17,25 @@ const PolicyWatchExpansion = (() => {
         return siteData;
     }
 
+    /**
+     * Prefer slim legislators_directory.json so mobile never parses ~200MB site_data
+     * on first paint. Falls back to site_data when the slim file is missing.
+     */
+    async function loadLegislatorsDirectory() {
+        try {
+            const res = await policywatchFetch('legislators_directory.json');
+            if (res.ok) {
+                const data = await res.json();
+                if (data && (data.legislators_directory || Array.isArray(data.legislators))) {
+                    return data;
+                }
+            }
+        } catch (e) {
+            /* fall through to site_data */
+        }
+        return loadSiteData();
+    }
+
     function getFilters() {
         return {
             state: document.getElementById('state-filter')?.value || '',
@@ -241,10 +260,12 @@ const PolicyWatchExpansion = (() => {
 
     async function initLegislators() {
         const [data] = await Promise.all([
-            loadSiteData(),
+            loadLegislatorsDirectory(),
             typeof PolicyWatchLegislatorVotes !== 'undefined' ? PolicyWatchLegislatorVotes.init() : Promise.resolve(),
         ]);
-        const legislators = (data.search_index || {}).legislators || [];
+        const legislators = data.legislators
+            || (data.search_index || {}).legislators
+            || [];
         const statsData = data.legislator_stats || {};
         populateStateFilter('leg-state-filter', data.states);
         populateStateFilter('leg-stats-state-filter', data.states);

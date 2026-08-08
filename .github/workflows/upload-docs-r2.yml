@@ -43,18 +43,24 @@ jobs:
             python src/processing/r2_sync.py download site_data.json
           fi
           test -f docs/site_data.json || { echo "ERROR: docs/site_data.json missing"; exit 1; }
-          # Full bill archive lives in normalized search_index (site_data is often stale).
+          # Full bill/legislator archive lives in normalized (site_data is often stale).
           mkdir -p data/normalized
           python src/processing/r2_sync.py download \
             data/normalized/search_index.json \
+            data/normalized/legislator_stats.json \
             data/normalized/meta.json
           test -f data/normalized/search_index.json || {
             echo "ERROR: data/normalized/search_index.json missing"
             exit 1
           }
           python src/processing/r2_sync.py rebuild-home-feeds
+          python src/processing/r2_sync.py rebuild-legislators-directory
           test -f docs/home_feed.json || { echo "ERROR: docs/home_feed.json missing"; exit 1; }
           test -f docs/home_search_bills.json || { echo "ERROR: docs/home_search_bills.json missing"; exit 1; }
+          test -f docs/legislators_directory.json || {
+            echo "ERROR: docs/legislators_directory.json missing"
+            exit 1
+          }
           test -d docs/home_feed_days || { echo "ERROR: docs/home_feed_days/ missing"; exit 1; }
           day_count=$(find docs/home_feed_days -name '*.json' | wc -l)
           python - <<'PY'
@@ -77,6 +83,15 @@ jobs:
               f"home_search_bills.json too small ({search_n} < 90% of {expected})"
           )
           print(f"home_search size={Path('docs/home_search_bills.json').stat().st_size} bytes")
+          leg_dir = json.load(open("docs/legislators_directory.json", encoding="utf-8"))
+          leg_n = len(leg_dir.get("legislators") or [])
+          assert leg_dir.get("legislators_directory") or leg_n > 0, (
+              "legislators_directory.json empty/invalid"
+          )
+          # Must stay tiny vs site_data (~200MB); directory cards only.
+          leg_size = Path("docs/legislators_directory.json").stat().st_size
+          assert leg_size < 2_000_000, f"legislators_directory.json too large ({leg_size} bytes)"
+          print(f"legislators_directory count={leg_n} size={leg_size} bytes")
           PY
-          echo "Uploading home_feed.json, home_search_bills.json, plus ${day_count} day files"
+          echo "Uploading home_feed.json, home_search_bills.json, legislators_directory.json, plus ${day_count} day files"
           python src/processing/r2_sync.py upload --docs-only
