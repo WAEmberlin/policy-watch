@@ -382,6 +382,47 @@
     });
   }
 
+  /**
+   * Prefer slim legislators_directory.json (same pattern as expansion.js).
+   * Falls back to site_data when the directory file is missing.
+   */
+  function loadLegislatorsDirectory() {
+    var fetchFn =
+      typeof policywatchFetch === 'function'
+        ? policywatchFetch
+        : function (path) {
+            return fetch(
+              typeof policywatchDataUrl === 'function' ? policywatchDataUrl(path) : path
+            );
+          };
+
+    return fetchFn('legislators_directory.json')
+      .then(function (res) {
+        if (!res.ok) throw new Error('legislators_directory.json HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        if (data && (data.legislators_directory || Array.isArray(data.legislators))) {
+          return data;
+        }
+        throw new Error('legislators_directory.json missing legislators');
+      })
+      .catch(function () {
+        return fetchFn('site_data.json').then(function (res) {
+          if (!res.ok) throw new Error('site_data.json HTTP ' + res.status);
+          return res.json();
+        });
+      });
+  }
+
+  function legislatorsFromData(data) {
+    return (
+      (data && data.legislators) ||
+      (data && data.search_index && data.search_index.legislators) ||
+      []
+    );
+  }
+
   function init() {
     var mapEl = document.getElementById('district-map');
     var panelEl = document.getElementById('district-info-panel');
@@ -641,23 +682,19 @@
 
     setStatus('Loading map data…');
     Promise.all([
-      loadJson(typeof policywatchDataUrl === 'function' ? policywatchDataUrl('site_data.json') : 'site_data.json'),
+      loadLegislatorsDirectory(),
       loadJson('data/federal/delegation.json').catch(function () {
         return [];
       }),
     ])
       .then(function (results) {
-        var siteData = results[0];
-        legislators = mergeFederalDelegation(
-          (siteData.search_index || {}).legislators || [],
-          results[1]
-        );
+        legislators = mergeFederalDelegation(legislatorsFromData(results[0]), results[1]);
         siteDataLoaded = true;
         loadChamber(activeState, activeChamberKey);
       })
       .catch(function (err) {
         console.error(err);
-        setStatus('Could not load legislator data from site_data.json.', true);
+        setStatus('Could not load legislator data.', true);
       });
 
     window.addEventListener('resize', function () {
