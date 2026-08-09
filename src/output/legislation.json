@@ -325,11 +325,227 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Cloture motion on the motion to proceed to the measure presented in Senate.",
+        "actionDate": "2026-08-08",
+        "type": "Floor"
+      },
+      {
+        "text": "Motion to proceed to consideration of measure made in Senate.",
+        "actionDate": "2026-08-08",
+        "type": "Floor"
+      },
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 423.",
+        "actionDate": "2026-06-01",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Banking, Housing, and Urban Affairs. Reported by Senator Scott SC, with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-06-01",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Banking, Housing, and Urban Affairs. Reported by Senator Scott SC, with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-06-01",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Banking, Housing, and Urban Affairs. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-05-14",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
+        "actionDate": "2025-09-18",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2025-07-17",
+        "type": "Floor",
+        "actionTime": "15:30:33",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On passage Passed by the Yeas and Nays: 294 - 134 (Roll no. 199). (text of amendment in the nature of a substitute: CR H3373-3397)",
+        "actionDate": "2025-07-17",
+        "type": "Floor",
+        "actionTime": "15:30:31",
+        "actionCode": "H37100",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2025-07-17T19:30:31Z",
+            "rollNumber": 199,
+            "sessionNumber": 1,
+            "url": "https://clerk.house.gov/evs/2025/roll199.xml"
+          }
+        ]
+      },
+      {
+        "text": "Passed/agreed to in House: On passage Passed by the Yeas and Nays: 294 - 134 (Roll no. 199).",
+        "actionDate": "2025-07-17",
+        "type": "Floor",
+        "actionTime": "15:30:31",
+        "actionCode": "8000",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2025-07-17T19:30:31Z",
+            "rollNumber": 199,
+            "sessionNumber": 1,
+            "url": "https://clerk.house.gov/evs/2025/roll199.xml"
+          }
+        ]
+      },
+      {
+        "text": "Considered as unfinished business. (consideration: CR H3449)",
+        "actionDate": "2025-07-17",
+        "type": "Floor",
+        "actionTime": "14:49:15",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "POSTPONED PROCEEDINGS - At the conclusion of debate on H.R. 3633, the Chair put the question on passage of the bill and by voice vote, announced that the ayes had prevailed. Ms. Craig demanded the yeas and nays and the Chair postponed further proceedings until a time to be announced.",
+        "actionDate": "2025-07-17",
+        "type": "Floor",
+        "actionTime": "10:35:07",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "The previous question was ordered pursuant to the rule.",
+        "actionDate": "2025-07-17",
+        "type": "Floor",
+        "actionTime": "10:34:41",
+        "actionCode": "H35000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with one hour of debate on H.R. 3633.",
+        "actionDate": "2025-07-17",
+        "type": "Floor",
+        "actionTime": "09:24:25",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Rule provides for consideration of H.R. 4016, H.R. 3633, H.R. 1919 and S. 1582. The resolution provides for consideration of H.R. 4016 and H.R. 3633 under a structured rule, and H.R. 1919 and S. 1582 under a closed rule, with one hour of general debate on each bill. The resolution provides for a motion to recommit on H.R. 4016, H.R. 3633, and H.R. 1919, and a motion to commit on S. 1582.",
+        "actionDate": "2025-07-17",
+        "type": "Floor",
+        "actionTime": "09:22:50",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under the provisions of rule H. Res. 580. (consideration: CR H3373)",
+        "actionDate": "2025-07-17",
+        "type": "Floor",
+        "actionTime": "09:22:45",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Rules Committee Resolution H. Res. 580 Reported to House. Rule provides for consideration of H.R. 4016, H.R. 3633, H.R. 1919 and S. 1582. The resolution provides for consideration of H.R. 4016 and H.R. 3633 under a structured rule, and H.R. 1919 and S. 1582 under a closed rule, with one hour of general debate on each bill. The resolution provides for a motion to recommit on H.R. 4016, H.R. 3633, and H.R. 1919, and a motion to commit on S. 1582.",
+        "actionDate": "2025-07-15",
+        "type": "Floor",
+        "actionTime": "09:34:09",
+        "actionCode": "H1L210"
+      },
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 134.",
+        "actionDate": "2025-06-23",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Financial Services. H. Rept. 119-168, Part II.",
+        "actionDate": "2025-06-23",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Financial Services. H. Rept. 119-168, Part II.",
+        "actionDate": "2025-06-23",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Agriculture. H. Rept. 119-168, Part I.",
+        "actionDate": "2025-06-23",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Agriculture. H. Rept. 119-168, Part I.",
+        "actionDate": "2025-06-23",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported (Amended) by the Yeas and Nays: 32 - 19.",
+        "actionDate": "2025-06-10",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-06-10",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Ordered to be Reported (Amended) by the Yeas and Nays: 47 - 6.",
+        "actionDate": "2025-06-10",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-06-10",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the Committee on Financial Services, and in addition to the Committee on Agriculture, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2025-05-29",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Committee on Financial Services, and in addition to the Committee on Agriculture, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2025-05-29",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-05-29",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-05-29",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Cloture motion on the motion to proceed to the measure presented in Senate.",
-    "votes": [],
+    "votes": [
+      {
+        "rollNumber": 199,
+        "chamber": "House",
+        "date": "2025-07-17",
+        "result": "Passed",
+        "yeas": 294,
+        "nays": 134,
+        "motion": "On Passage",
+        "tally_text": "Passed 294\u2013134"
+      }
+    ],
     "introduced_date": "2025-05-29T00:00:00",
     "last_synced_at": "2026-08-08T23:58:49.789725+00:00"
   },
@@ -666,7 +882,18 @@
     "latest_action_date": "2026-08-07T00:00:00",
     "actions": [
       {
-        "text": "Received in the Senate.",
+        "text": "Passed Senate without amendment by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Received in the Senate, read twice.",
         "actionDate": "2026-07-21",
         "type": "IntroReferral"
       },
@@ -774,7 +1001,125 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Passed Senate without amendment by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Senate Committee on Finance discharged by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Discharge"
+      },
+      {
+        "text": "Senate Committee on Finance discharged by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Committee",
+        "actionCode": "14500"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Finance.",
+        "actionDate": "2026-04-28",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-04-27",
+        "type": "Floor",
+        "actionTime": "16:15:13",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H3107-3108)",
+        "actionDate": "2026-04-27",
+        "type": "Floor",
+        "actionTime": "16:15:09",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H3107-3108)",
+        "actionDate": "2026-04-27",
+        "type": "Floor",
+        "actionTime": "16:15:09",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 5366.",
+        "actionDate": "2026-04-27",
+        "type": "Floor",
+        "actionTime": "15:55:01",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H3107-3110)",
+        "actionDate": "2026-04-27",
+        "type": "Floor",
+        "actionTime": "15:54:58",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Smith (MO) moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2026-04-27",
+        "type": "Floor",
+        "actionTime": "15:54:41",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 525.",
+        "actionDate": "2026-04-09",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Ways and Means. H. Rept. 119-605.",
+        "actionDate": "2026-04-09",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Ways and Means. H. Rept. 119-605.",
+        "actionDate": "2026-04-09",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported in the Nature of a Substitute by the Yeas and Nays: 43 - 0.",
+        "actionDate": "2026-03-25",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2026-03-25",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Ways and Means.",
+        "actionDate": "2025-09-15",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-09-15",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-09-15",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Passed Senate without amendment by Unanimous Consent.",
@@ -800,7 +1145,143 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Passed Senate without amendment by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Senate Committee on Energy and Natural Resources discharged by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Discharge"
+      },
+      {
+        "text": "Senate Committee on Energy and Natural Resources discharged by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Committee",
+        "actionCode": "14500"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2026-03-17",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-03-16",
+        "type": "Floor",
+        "actionTime": "17:35:21",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H2523)",
+        "actionDate": "2026-03-16",
+        "type": "Floor",
+        "actionTime": "17:35:18",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H2523)",
+        "actionDate": "2026-03-16",
+        "type": "Floor",
+        "actionTime": "17:35:18",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 2196.",
+        "actionDate": "2026-03-16",
+        "type": "Floor",
+        "actionTime": "17:29:48",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H2523-2524)",
+        "actionDate": "2026-03-16",
+        "type": "Floor",
+        "actionTime": "17:29:47",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Wittman moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2026-03-16",
+        "type": "Floor",
+        "actionTime": "17:29:35",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 443.",
+        "actionDate": "2026-02-24",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Natural Resources. H. Rept. 119-518.",
+        "actionDate": "2026-02-24",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Natural Resources. H. Rept. 119-518.",
+        "actionDate": "2026-02-24",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported in the Nature of a Substitute (Amended) by Unanimous Consent.",
+        "actionDate": "2026-02-11",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2026-02-11",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Subcommittee on Federal Lands Discharged",
+        "actionDate": "2026-02-11",
+        "type": "Committee",
+        "actionCode": "H25000"
+      },
+      {
+        "text": "Subcommittee Hearings Held",
+        "actionDate": "2025-09-18",
+        "type": "Committee",
+        "actionCode": "H21000"
+      },
+      {
+        "text": "Referred to the Subcommittee on Federal Lands.",
+        "actionDate": "2025-09-11",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
+        "text": "Referred to the House Committee on Natural Resources.",
+        "actionDate": "2025-03-18",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-03-18",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-03-18",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Passed Senate without amendment by Unanimous Consent.",
@@ -826,7 +1307,148 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Passed Senate without amendment by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Senate Committee on Energy and Natural Resources discharged by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Discharge"
+      },
+      {
+        "text": "Senate Committee on Energy and Natural Resources discharged by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Committee",
+        "actionCode": "14500"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-03-04",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-12-10",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "15:01:58",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H5073)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "15:01:55",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H5073)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "15:01:55",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 1276.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "14:54:42",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H5073-5074)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "14:54:41",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Westerman moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "14:54:20",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 237.",
+        "actionDate": "2025-09-15",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Natural Resources. H. Rept. 119-281.",
+        "actionDate": "2025-09-15",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Natural Resources. H. Rept. 119-281.",
+        "actionDate": "2025-09-15",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported (Amended) by Unanimous Consent.",
+        "actionDate": "2025-07-23",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-07-23",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Subcommittee on Federal Lands Discharged",
+        "actionDate": "2025-06-25",
+        "type": "Committee",
+        "actionCode": "H25000"
+      },
+      {
+        "text": "Subcommittee Hearings Held",
+        "actionDate": "2025-04-29",
+        "type": "Committee",
+        "actionCode": "H21000"
+      },
+      {
+        "text": "Referred to the Subcommittee on Federal Lands.",
+        "actionDate": "2025-04-23",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
+        "text": "Referred to the House Committee on Natural Resources.",
+        "actionDate": "2025-02-13",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-02-13",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-02-13",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Passed Senate without amendment by Unanimous Consent.",
@@ -846,7 +1468,46 @@
     "cosponsors": [],
     "latest_action": "Passed Senate with an amendment by Unanimous Consent.",
     "latest_action_date": "2026-08-07T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Passed Senate with an amendment by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate with an amendment by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Measure laid before Senate by unanimous consent.",
+        "actionDate": "2026-08-07",
+        "type": "Floor"
+      },
+      {
+        "text": "Senate Committee on Banking, Housing, and Urban Affairs discharged by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Discharge"
+      },
+      {
+        "text": "Senate Committee on Banking, Housing, and Urban Affairs discharged by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Committee",
+        "actionCode": "14500"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
+        "actionDate": "2025-04-30",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-04-30",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Passed Senate with an amendment by Unanimous Consent.",
@@ -872,7 +1533,46 @@
     "cosponsors": [],
     "latest_action": "Passed Senate with an amendment by Unanimous Consent.",
     "latest_action_date": "2026-08-07T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Passed Senate with an amendment by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate with an amendment by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Measure laid before Senate by unanimous consent.",
+        "actionDate": "2026-08-07",
+        "type": "Floor"
+      },
+      {
+        "text": "Senate Committee on Finance discharged by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Discharge"
+      },
+      {
+        "text": "Senate Committee on Finance discharged by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Committee",
+        "actionCode": "14500"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Finance.",
+        "actionDate": "2025-08-01",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-08-01",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Passed Senate with an amendment by Unanimous Consent.",
