@@ -8,6 +8,7 @@ import json
 import mimetypes
 import os
 import sys
+import time
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
@@ -421,6 +422,35 @@ def _validate_normalized_upload(
     )
 
 
+def _upload_file_with_retry(
+    client: Any,
+    path: Path,
+    bucket: str,
+    key: str,
+    *,
+    extra: Dict[str, str],
+    attempts: int = 5,
+) -> None:
+    """Upload one object, retrying transient R2/S3 multipart InternalErrors."""
+    last_exc: Optional[BaseException] = None
+    for attempt in range(1, attempts + 1):
+        try:
+            client.upload_file(str(path), bucket, key, ExtraArgs=extra)
+            return
+        except Exception as exc:  # boto3 wraps service errors in S3UploadFailedError
+            last_exc = exc
+            if attempt >= attempts:
+                break
+            wait = min(60, 2**attempt)
+            print(
+                f"upload {key} failed (attempt {attempt}/{attempts}): {exc}; "
+                f"retrying in {wait}s"
+            )
+            time.sleep(wait)
+    assert last_exc is not None
+    raise last_exc
+
+
 def upload(paths: Sequence[Tuple[Path, str]], *, dry_run: bool = False) -> int:
     bucket = os.environ.get("R2_BUCKET_NAME", "").strip() or "PolicyWatch-data"
     if not dry_run:
@@ -441,7 +471,7 @@ def upload(paths: Sequence[Tuple[Path, str]], *, dry_run: bool = False) -> int:
             "ContentType": _content_type(path),
             "CacheControl": "public, max-age=60",
         }
-        client.upload_file(str(path), bucket, key, ExtraArgs=extra)
+        _upload_file_with_retry(client, path, bucket, key, extra=extra)
         uploaded += 1
     print(f"Uploaded {uploaded} objects to r2://{bucket}")
     return uploaded

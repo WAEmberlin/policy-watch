@@ -205,6 +205,15 @@ jobs:
               const runs = await getPagesDeployRuns(headSha);
               const inProgress = runs.some(isInProgressRun);
               const stuck = build?.commit === headSha && isBuildStuck(build);
+              // Pages API can stay "building" after Actions already failed/cancelled
+              // (queued runner never started). Do not wait — re-trigger.
+              const actionsAlreadyFailed =
+                !inProgress &&
+                runs.length > 0 &&
+                runs.every(
+                  (run) =>
+                    run.status === "completed" && run.conclusion !== "success"
+                );
 
               if (inProgress) {
                 core.info(
@@ -213,7 +222,8 @@ jobs:
               } else if (
                 build?.commit === headSha &&
                 build.status === "building" &&
-                !stuck
+                !stuck &&
+                !actionsAlreadyFailed
               ) {
                 core.info(
                   "Pages API reports building for latest commit; waiting (no re-trigger)."
@@ -222,6 +232,13 @@ jobs:
                 if (stuck) {
                   core.warning(
                     `Pages build stuck in building since ${build.created_at}; re-triggering.`
+                  );
+                } else if (actionsAlreadyFailed) {
+                  core.warning(
+                    `pages-build-deployment already failed/cancelled for ${headSha.slice(
+                      0,
+                      7
+                    )} while Pages API still reports ${build?.status || "none"}; re-triggering.`
                   );
                 }
                 await triggerBuild();
