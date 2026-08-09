@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Upload/download PolicyWatch generated JSON to Cloudflare R2 (S3-compatible)."""
 
 from __future__ import annotations
@@ -35,6 +35,7 @@ DOCS_UPLOAD_FILES = [
     "home_feed.json",
     "home_search_bills.json",
     "legislators_directory.json",
+    "hearings.json",
     "legislator_votes.json",
     "legislator_vote_counts.json",
     "bill_title_lookup.json",
@@ -564,6 +565,47 @@ def rebuild_legislators_directory_from_site_data(
     return out_path
 
 
+
+def rebuild_hearings_feed_from_site_data(
+    *, site_data_path: Path | None = None
+) -> Path:
+    """Rebuild docs/hearings.json from site_data + normalized events + states.yaml."""
+    from processing.hearings_feed import (
+        prefer_hearings_from_normalized,
+        write_hearings_feed_artifacts,
+    )
+    from processing.legislators_directory import load_enabled_states
+
+    path = site_data_path or (ROOT / "docs" / "site_data.json")
+    if not path.is_file():
+        raise SystemExit(f"Missing site data for hearings feed rebuild: {path}")
+    site = json.loads(path.read_text(encoding="utf-8"))
+    upcoming, historical = prefer_hearings_from_normalized(
+        site.get("upcoming_hearings") or [],
+        site.get("historical_hearings") or [],
+    )
+    # Never trust stale site_data.states alone — states.yaml is the source of truth.
+    states = load_enabled_states() or list(site.get("states") or [])
+    out_path, payload = write_hearings_feed_artifacts(
+        ROOT / "docs",
+        upcoming_hearings=upcoming,
+        historical_hearings=historical,
+        kansas_calendars=site.get("kansas_calendars") or {},
+        states=states,
+        generated_at=site.get("last_updated") or "",
+    )
+    stats = payload.get("stats") or {}
+    state_codes = [s.get("code") for s in (payload.get("states") or [])]
+    print(
+        f"Rebuilt {out_path} "
+        f"({stats.get('upcoming_count', 0)} upcoming, "
+        f"{stats.get('historical_count', 0)} historical, "
+        f"{len(state_codes)} states {state_codes}, "
+        f"{out_path.stat().st_size / 1024:.1f} KB)"
+    )
+    return out_path
+
+
 def download_pipeline(*, dry_run: bool = False) -> int:
     """Restore pipeline caches from R2 into the workspace (best-effort)."""
     bucket = _require_env("R2_BUCKET_NAME")
@@ -621,6 +663,10 @@ def main(argv: Iterable[str] | None = None) -> None:
         "rebuild-legislators-directory",
         help="Rebuild legislators_directory.json from normalized + site_data",
     )
+    sub.add_parser(
+        "rebuild-hearings-feed",
+        help="Rebuild hearings.json from site_data + normalized events",
+    )
 
     args = parser.parse_args(list(argv) if argv is not None else None)
 
@@ -642,6 +688,10 @@ def main(argv: Iterable[str] | None = None) -> None:
 
     if args.command == "rebuild-legislators-directory":
         rebuild_legislators_directory_from_site_data()
+        return
+
+    if args.command == "rebuild-hearings-feed":
+        rebuild_hearings_feed_from_site_data()
         return
 
     if args.command == "upload":

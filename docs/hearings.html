@@ -631,17 +631,71 @@ function clearFilters(type) {
     }
 }
 
+function populateStateFilters(states) {
+    const selects = [
+        document.getElementById("upcoming-state-filter"),
+        document.getElementById("historical-state-filter"),
+    ].filter(Boolean);
+    if (!selects.length || !Array.isArray(states) || !states.length) return;
+
+    const prevValues = selects.map((s) => s.value);
+    selects.forEach((select) => {
+        select.innerHTML = "";
+        const allOpt = document.createElement("option");
+        allOpt.value = "";
+        allOpt.textContent = "All States / Federal";
+        select.appendChild(allOpt);
+        const fedOpt = document.createElement("option");
+        fedOpt.value = "Federal";
+        fedOpt.textContent = "Federal (U.S. Congress)";
+        select.appendChild(fedOpt);
+        states.forEach((row) => {
+            if (!row || !row.code) return;
+            const code = String(row.code).toUpperCase();
+            const opt = document.createElement("option");
+            opt.value = code;
+            opt.textContent = row.name || STATE_LABELS[code] || code;
+            select.appendChild(opt);
+        });
+    });
+    selects.forEach((select, i) => {
+        if ([...select.options].some((o) => o.value === prevValues[i])) {
+            select.value = prevValues[i];
+        }
+    });
+}
+
+/**
+ * Prefer slim hearings.json so the page never parses ~200MB site_data on first paint.
+ * Falls back to site_data when the slim file is missing.
+ */
+async function loadHearingsPayload() {
+    try {
+        const res = await policywatchFetch("hearings.json");
+        if (res.ok) {
+            const data = await res.json();
+            if (data && (data.hearings_feed || Array.isArray(data.upcoming_hearings))) {
+                return data;
+            }
+        }
+    } catch (e) {
+        /* fall through to site_data */
+    }
+    const res = await policywatchFetch("site_data.json");
+    return res.json();
+}
+
 async function loadHearings() {
     const upcomingContainer = document.getElementById("upcoming-hearings-container");
     const historicalContainer = document.getElementById("historical-hearings-container");
     
     try {
-        const res = await policywatchFetch("site_data.json");
-        const data = await res.json();
+        const data = await loadHearingsPayload();
         
         allUpcomingHearings = data.upcoming_hearings || [];
         allHistoricalHearings = data.historical_hearings || [];
         kansasCalendarsByDate = data.kansas_calendars || {};
+        populateStateFilters(data.states || []);
         
         // Populate year and committee filters
         populateYearFilters(allUpcomingHearings, "upcoming-year-filter");

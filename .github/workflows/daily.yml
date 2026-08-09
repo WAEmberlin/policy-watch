@@ -182,12 +182,12 @@ jobs:
           git fetch origin main
           # Only commit small pipeline outputs — large JSON lives on Cloudflare R2.
           # Never git-add docs/site_data.json or data/normalized bulk files.
-          GENERATED="docs/data-config.js docs/home_feed.json docs/legislators_directory.json docs/weekly src/output data/kansas data/arizona data/utah data/normalized/meta.json data/normalized/events.json data/normalized/legislators.json data/normalized/legislator_stats.json data/normalized/dashboards.json"
+          GENERATED="docs/data-config.js docs/home_feed.json docs/legislators_directory.json docs/hearings.json docs/weekly src/output data/kansas data/arizona data/utah data/normalized/meta.json data/normalized/events.json data/normalized/legislators.json data/normalized/legislator_stats.json data/normalized/dashboards.json"
 
           restore_static_docs() {
             git ls-tree -r --name-only origin/main docs/ | while IFS= read -r f; do
               case "$f" in
-                docs/data-config.js|docs/home_feed.json|docs/legislators_directory.json) continue ;;
+                docs/data-config.js|docs/home_feed.json|docs/legislators_directory.json|docs/hearings.json) continue ;;
               esac
               [[ "$f" == docs/weekly/* ]] && continue
               git checkout origin/main -- "$f"

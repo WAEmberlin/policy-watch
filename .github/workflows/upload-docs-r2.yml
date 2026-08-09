@@ -49,6 +49,7 @@ jobs:
             data/normalized/search_index.json \
             data/normalized/legislators.json \
             data/normalized/legislator_stats.json \
+            data/normalized/events.json \
             data/normalized/meta.json
           test -f data/normalized/search_index.json || {
             echo "ERROR: data/normalized/search_index.json missing"
@@ -56,10 +57,15 @@ jobs:
           }
           python src/processing/r2_sync.py rebuild-home-feeds
           python src/processing/r2_sync.py rebuild-legislators-directory
+          python src/processing/r2_sync.py rebuild-hearings-feed
           test -f docs/home_feed.json || { echo "ERROR: docs/home_feed.json missing"; exit 1; }
           test -f docs/home_search_bills.json || { echo "ERROR: docs/home_search_bills.json missing"; exit 1; }
           test -f docs/legislators_directory.json || {
             echo "ERROR: docs/legislators_directory.json missing"
+            exit 1
+          }
+          test -f docs/hearings.json || {
+            echo "ERROR: docs/hearings.json missing"
             exit 1
           }
           test -d docs/home_feed_days || { echo "ERROR: docs/home_feed_days/ missing"; exit 1; }
@@ -95,6 +101,19 @@ jobs:
           leg_size = Path("docs/legislators_directory.json").stat().st_size
           assert leg_size < 2_000_000, f"legislators_directory.json too large ({leg_size} bytes)"
           print(f"legislators_directory count={leg_n} size={leg_size} bytes")
+          hearings = json.load(open("docs/hearings.json", encoding="utf-8"))
+          assert hearings.get("hearings_feed") or isinstance(hearings.get("upcoming_hearings"), list), (
+              "hearings.json empty/invalid"
+          )
+          h_states = hearings.get("states") or []
+          assert len(h_states) >= 7, f"hearings.json states too short ({len(h_states)})"
+          h_size = Path("docs/hearings.json").stat().st_size
+          assert h_size < 20_000_000, f"hearings.json too large ({h_size} bytes)"
+          print(
+              f"hearings upcoming={len(hearings.get('upcoming_hearings') or [])} "
+              f"historical={len(hearings.get('historical_hearings') or [])} "
+              f"states={len(h_states)} size={h_size} bytes"
+          )
           PY
-          echo "Uploading home_feed.json, home_search_bills.json, legislators_directory.json, plus ${day_count} day files"
+          echo "Uploading home_feed.json, home_search_bills.json, legislators_directory.json, hearings.json, plus ${day_count} day files"
           python src/processing/r2_sync.py upload --docs-only

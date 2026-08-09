@@ -20,6 +20,7 @@ from processing.bill_urls import pick_best_bill_url, build_ks_bill_url  # noqa: 
 from processing.hearing_stream_utils import enrich_hearing_stream  # noqa: E402
 from processing.home_feed import write_home_feed_artifacts  # noqa: E402
 from processing.legislators_directory import write_legislators_directory_artifacts  # noqa: E402
+from processing.hearings_feed import write_hearings_feed_artifacts  # noqa: E402
 from processing.veteran_impact import (  # noqa: E402
     build_veteran_impact_lookup,
     collect_feed_bills_for_veteran_lookup,
@@ -95,6 +96,14 @@ if not os.path.exists(HISTORY_FILE):
         DOCS_DIR,
         search_index={},
         legislator_stats={},
+        states=[],
+        generated_at=data["last_updated"],
+    )
+    write_hearings_feed_artifacts(
+        DOCS_DIR,
+        upcoming_hearings=[],
+        historical_hearings=[],
+        kansas_calendars={},
         states=[],
         generated_at=data["last_updated"],
     )
@@ -1021,6 +1030,24 @@ print(
     f"Wrote legislators directory {leg_dir_path} "
     f"({leg_dir_stats.get('legislator_count', 0)} legislators, "
     f"{os.path.getsize(leg_dir_path) / 1024:.1f} KB)"
+)
+
+# Slim hearings page — hearings.html must not download full site_data.json.
+hearings_feed_path, hearings_feed_payload = write_hearings_feed_artifacts(
+    DOCS_DIR,
+    upcoming_hearings=all_upcoming_hearings,
+    historical_hearings=all_historical_hearings,
+    kansas_calendars=kansas_calendars,
+    states=configured_states,
+    generated_at=output["last_updated"],
+)
+hearings_stats = hearings_feed_payload.get("stats") or {}
+print(
+    f"Wrote hearings feed {hearings_feed_path} "
+    f"({hearings_stats.get('upcoming_count', 0)} upcoming, "
+    f"{hearings_stats.get('historical_count', 0)} historical, "
+    f"{hearings_stats.get('state_count', 0)} states, "
+    f"{os.path.getsize(hearings_feed_path) / 1024:.1f} KB)"
 )
 
 legislator_votes_file = os.path.join(DOCS_DIR, "legislator_votes.json")
