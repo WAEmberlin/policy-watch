@@ -44,20 +44,28 @@ jobs:
           fi
           test -f docs/site_data.json || { echo "ERROR: docs/site_data.json missing"; exit 1; }
           # Full bill/legislator archive lives in normalized (site_data is often stale).
-          mkdir -p data/normalized
+          mkdir -p data/normalized data/openstates
           python src/processing/r2_sync.py download \
             data/normalized/search_index.json \
             data/normalized/legislators.json \
             data/normalized/legislator_stats.json \
             data/normalized/events.json \
-            data/normalized/meta.json
+            data/normalized/meta.json \
+            data/normalized/bills.json
           test -f data/normalized/search_index.json || {
             echo "ERROR: data/normalized/search_index.json missing"
             exit 1
           }
+          # Roll-call voter arrays live in openstates caches (normalized votes are slimmed).
+          for st in ks co az ut me ne md pa ma wv tn nc mo ia; do
+            python src/processing/r2_sync.py download "data/openstates/${st}/votes.json" \
+              || echo "WARN: missing openstates votes for ${st}"
+          done
           python src/processing/r2_sync.py rebuild-home-feeds
           python src/processing/r2_sync.py rebuild-legislators-directory
           python src/processing/r2_sync.py rebuild-hearings-feed
+          # Vote docs + bill lookups from openstates/normalized — never site_data.
+          python src/processing/r2_sync.py rebuild-vote-docs
           test -f docs/home_feed.json || { echo "ERROR: docs/home_feed.json missing"; exit 1; }
           test -f docs/home_search_bills.json || { echo "ERROR: docs/home_search_bills.json missing"; exit 1; }
           test -f docs/legislators_directory.json || {
@@ -68,11 +76,25 @@ jobs:
             echo "ERROR: docs/hearings.json missing"
             exit 1
           }
+          test -f docs/legislator_vote_counts.json || {
+            echo "ERROR: docs/legislator_vote_counts.json missing"
+            exit 1
+          }
+          test -f docs/legislator_votes.json || {
+            echo "ERROR: docs/legislator_votes.json missing"
+            exit 1
+          }
+          test -f docs/bill_title_lookup.json || {
+            echo "ERROR: docs/bill_title_lookup.json missing"
+            exit 1
+          }
           test -d docs/home_feed_days || { echo "ERROR: docs/home_feed_days/ missing"; exit 1; }
           day_count=$(find docs/home_feed_days -name '*.json' | wc -l)
           python - <<'PY'
           import json
           from pathlib import Path
+          from processing.vote_docs import vote_counts_by_state
+
           feed = json.load(open("docs/home_feed.json", encoding="utf-8"))
           dates = feed.get("available_dates") or []
           assert dates, "home_feed.json missing available_dates"
@@ -114,6 +136,24 @@ jobs:
               f"historical={len(hearings.get('historical_hearings') or [])} "
               f"states={len(h_states)} size={h_size} bytes"
           )
+
+          counts = json.load(open("docs/legislator_vote_counts.json", encoding="utf-8"))
+          legs = {
+              row["id"]: row
+              for row in json.load(open("data/normalized/legislators.json", encoding="utf-8"))
+              if isinstance(row, dict) and row.get("id")
+          }
+          fake_votes = {lid: [None] * n for lid, n in counts.items() if n}
+          by_state = vote_counts_by_state(fake_votes, list(legs.values()))
+          print(f"legislator_vote_counts by state: {by_state}")
+          assert len(by_state) >= 8, (
+              f"vote counts cover too few states ({by_state}); "
+              "expected openstates votes for PA/MA/etc."
+          )
+          titles = json.load(open("docs/bill_title_lookup.json", encoding="utf-8"))
+          title_states = sorted({k.split(":", 1)[0] for k in titles})
+          print(f"bill_title_lookup keys={len(titles)} states={title_states}")
+          assert len(titles) > 10000, f"bill_title_lookup too small ({len(titles)})"
           PY
-          echo "Uploading home_feed.json, home_search_bills.json, legislators_directory.json, hearings.json, plus ${day_count} day files"
+          echo "Uploading home_feed, legislators_directory, hearings, vote docs, bill lookups, plus ${day_count} day files"
           python src/processing/r2_sync.py upload --docs-only

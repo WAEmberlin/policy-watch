@@ -27,6 +27,9 @@ VOTE_OPTION_LABELS = {
     "excused": "Excused",
 }
 
+# Per-state lookup: key -> list of (leg_id, chamber_key, full_name, surname)
+_LegEntry = Tuple[str, str, str, str]
+
 
 def chamber_key(chamber: str = "", organization: str = "") -> str:
     text = f"{chamber} {organization}".lower()
@@ -88,35 +91,87 @@ def voter_match_keys(voter_name: str, state: str) -> List[str]:
     return list(dict.fromkeys(key for key in keys if key))
 
 
+def _build_state_name_index(legislators: List[Dict[str, Any]]) -> Dict[str, List[_LegEntry]]:
+    """Map exact full-name / surname keys to legislator entries for O(1) matching."""
+    index: Dict[str, List[_LegEntry]] = defaultdict(list)
+    for leg in legislators:
+        leg_id = leg.get("id")
+        if not leg_id:
+            continue
+        full = normalize_person_name(leg.get("name") or "")
+        surname = legislator_surname(leg)
+        chamber = chamber_key(leg.get("chamber", ""))
+        entry: _LegEntry = (leg_id, chamber, full, surname)
+        if full:
+            index[full].append(entry)
+        if surname:
+            index[surname].append(entry)
+    return index
+
+
 def _match_voter_name(
     voter_name: str,
     state: str,
     organization: str,
     legislators: List[Dict[str, Any]],
+    name_index: Optional[Dict[str, List[_LegEntry]]] = None,
 ) -> Optional[str]:
     keys = voter_match_keys(voter_name, state)
     if not keys:
         return None
     target_chamber = chamber_key(organization=organization)
     matches: List[str] = []
-    for leg in legislators:
-        if (leg.get("state") or "").upper() != state.upper():
-            continue
-        leg_chamber = chamber_key(leg.get("chamber", ""))
-        if target_chamber and leg_chamber and leg_chamber != target_chamber:
-            continue
-        full = normalize_person_name(leg.get("name") or "")
-        surname = legislator_surname(leg)
+
+    if name_index is not None:
+        seen_ids: set[str] = set()
+        candidates: List[_LegEntry] = []
         for key in keys:
-            if key == full or (surname and key == surname):
-                matches.append(leg["id"])
-                break
-            if surname and key.endswith(f" {surname}"):
-                matches.append(leg["id"])
-                break
-            if full and (key == full or full.startswith(f"{key} ") or f" {key}" in f" {full}"):
-                matches.append(leg["id"])
-                break
+            for entry in name_index.get(key) or []:
+                if entry[0] in seen_ids:
+                    continue
+                seen_ids.add(entry[0])
+                candidates.append(entry)
+        # Fuzzy pass over a small candidate pool (same surname token), else skip.
+        if not candidates:
+            surname_keys = [k for k in keys if " " not in k]
+            for key in surname_keys:
+                for entry in name_index.get(key) or []:
+                    if entry[0] not in seen_ids:
+                        seen_ids.add(entry[0])
+                        candidates.append(entry)
+        for leg_id, leg_chamber, full, surname in candidates:
+            if target_chamber and leg_chamber and leg_chamber != target_chamber:
+                continue
+            for key in keys:
+                if key == full or (surname and key == surname):
+                    matches.append(leg_id)
+                    break
+                if surname and key.endswith(f" {surname}"):
+                    matches.append(leg_id)
+                    break
+                if full and (key == full or full.startswith(f"{key} ") or f" {key}" in f" {full}"):
+                    matches.append(leg_id)
+                    break
+    else:
+        for leg in legislators:
+            if (leg.get("state") or "").upper() != state.upper():
+                continue
+            leg_chamber = chamber_key(leg.get("chamber", ""))
+            if target_chamber and leg_chamber and leg_chamber != target_chamber:
+                continue
+            full = normalize_person_name(leg.get("name") or "")
+            surname = legislator_surname(leg)
+            for key in keys:
+                if key == full or (surname and key == surname):
+                    matches.append(leg["id"])
+                    break
+                if surname and key.endswith(f" {surname}"):
+                    matches.append(leg["id"])
+                    break
+                if full and (key == full or full.startswith(f"{key} ") or f" {key}" in f" {full}"):
+                    matches.append(leg["id"])
+                    break
+
     unique = list(dict.fromkeys(matches))
     if len(unique) == 1:
         return unique[0]
@@ -129,9 +184,11 @@ def build_legislator_vote_index(
     kansas_vote_records: Optional[Dict[str, Any]] = None,
     *,
     max_per_legislator: int = 1000,
+    load_kansas_file: bool = True,
 ) -> Dict[str, List[Dict[str, Any]]]:
     index: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
     by_state: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
+    name_indexes: Dict[str, Dict[str, List[_LegEntry]]] = {}
     kpid_to_id: Dict[str, str] = {}
 
     for leg in legislators:
@@ -142,10 +199,18 @@ def build_legislator_vote_index(
         if kpid and leg.get("id"):
             kpid_to_id[kpid] = leg["id"]
 
-    records = kansas_vote_records or {}
-    if not records and KANSAS_VOTES_FILE.exists():
-        with open(KANSAS_VOTES_FILE, encoding="utf-8") as f:
-            records = json.load(f)
+    for state, rows in by_state.items():
+        name_indexes[state] = _build_state_name_index(rows)
+
+    # None => optionally auto-load Kansas API file. Explicit {} skips that load
+    # (used when merging per-state openstates passes).
+    if kansas_vote_records is None:
+        records: Dict[str, Any] = {}
+        if load_kansas_file and KANSAS_VOTES_FILE.exists():
+            with open(KANSAS_VOTES_FILE, encoding="utf-8") as f:
+                records = json.load(f)
+    else:
+        records = kansas_vote_records
 
     for bill_number, vote_list in records.items():
         if bill_number.startswith("_") or not isinstance(vote_list, list):
@@ -182,6 +247,8 @@ def build_legislator_vote_index(
         state = (vote.get("state") or "").upper()
         if not state:
             continue
+        state_index = name_indexes.get(state)
+        state_legs = by_state.get(state, [])
         for voter in vote.get("votes") or []:
             if not isinstance(voter, dict):
                 continue
@@ -189,7 +256,8 @@ def build_legislator_vote_index(
                 voter.get("voter_name") or voter.get("name") or "",
                 state,
                 vote.get("organization") or "",
-                by_state.get(state, []),
+                state_legs,
+                name_index=state_index,
             )
             if not leg_id:
                 continue

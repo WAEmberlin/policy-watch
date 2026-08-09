@@ -565,6 +565,23 @@ def rebuild_legislators_directory_from_site_data(
     return out_path
 
 
+def rebuild_vote_and_bill_docs_from_sources() -> Dict[str, Any]:
+    """Rebuild legislator vote + bill lookup docs from openstates/normalized data.
+
+    Never uses site_data.json — normalized votes.json is often slimmed, so roll
+    calls are loaded from data/openstates/*/votes.json for enabled states.
+    """
+    from processing.vote_docs import rebuild_vote_and_bill_docs
+
+    stats = rebuild_vote_and_bill_docs(write_normalized=True)
+    vote_states = (stats.get("votes") or {}).get("by_state") or {}
+    if len(vote_states) < 8:
+        raise SystemExit(
+            f"Vote docs rebuild produced too few states ({vote_states}). "
+            "Download data/openstates/*/votes.json for enabled states and retry."
+        )
+    return stats
+
 
 def rebuild_hearings_feed_from_site_data(
     *, site_data_path: Path | None = None
@@ -667,6 +684,13 @@ def main(argv: Iterable[str] | None = None) -> None:
         "rebuild-hearings-feed",
         help="Rebuild hearings.json from site_data + normalized events",
     )
+    sub.add_parser(
+        "rebuild-vote-docs",
+        help=(
+            "Rebuild legislator_votes/vote_counts + bill_*_lookup from "
+            "openstates votes and normalized/openstates bills"
+        ),
+    )
 
     args = parser.parse_args(list(argv) if argv is not None else None)
 
@@ -692,6 +716,10 @@ def main(argv: Iterable[str] | None = None) -> None:
 
     if args.command == "rebuild-hearings-feed":
         rebuild_hearings_feed_from_site_data()
+        return
+
+    if args.command == "rebuild-vote-docs":
+        rebuild_vote_and_bill_docs_from_sources()
         return
 
     if args.command == "upload":

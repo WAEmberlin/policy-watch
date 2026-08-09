@@ -1,6 +1,5 @@
 import json
 import os
-import re
 import sys
 from datetime import datetime, timezone
 from collections import defaultdict
@@ -16,7 +15,6 @@ from processing.bill_action_utils import (  # noqa: E402
     inject_vote_events_into_grouped,
     is_bill_feed_item,
 )
-from processing.bill_urls import pick_best_bill_url, build_ks_bill_url  # noqa: E402
 from processing.hearing_stream_utils import enrich_hearing_stream  # noqa: E402
 from processing.home_feed import write_home_feed_artifacts  # noqa: E402
 from processing.legislators_directory import write_legislators_directory_artifacts  # noqa: E402
@@ -1050,59 +1048,16 @@ print(
     f"{os.path.getsize(hearings_feed_path) / 1024:.1f} KB)"
 )
 
-legislator_votes_file = os.path.join(DOCS_DIR, "legislator_votes.json")
-with open(legislator_votes_file, "w", encoding="utf-8") as f:
-    json.dump(normalized_legislator_votes, f, ensure_ascii=False, separators=(",", ":"))
-legislator_vote_counts = {
-    leg_id: len(votes)
-    for leg_id, votes in (normalized_legislator_votes or {}).items()
-    if votes
-}
-legislator_vote_counts_file = os.path.join(DOCS_DIR, "legislator_vote_counts.json")
-with open(legislator_vote_counts_file, "w", encoding="utf-8") as f:
-    json.dump(legislator_vote_counts, f, indent=2)
-legislator_vote_count = sum(len(v) for v in (normalized_legislator_votes or {}).values())
-print(
-    f"Wrote {len(normalized_legislator_votes or {})} legislators with "
-    f"{legislator_vote_count} total votes to {legislator_votes_file}"
+# Vote history + bill lookups from full normalized/openstates data — never from
+# truncated site_data. If normalized legislator_votes is stale (few states),
+# rebuild from data/openstates/*/votes.json for all enabled states.
+from processing.vote_docs import write_vote_docs_from_normalized  # noqa: E402
+
+write_vote_docs_from_normalized(
+    legislator_votes=normalized_legislator_votes,
+    bills=normalized_bills,
+    rebuild_if_stale=True,
 )
-print(f"Wrote {len(legislator_vote_counts)} legislator vote counts to {legislator_vote_counts_file}")
-
-bill_title_lookup = {}
-bill_url_lookup = {}
-bill_url_candidates = {}
-for bill in normalized_bills:
-    state = (bill.get("state") or "").upper()
-    if not state:
-        continue
-    bill_number = re.sub(r"\s+", "", bill.get("bill_number") or "").upper()
-    title = (bill.get("title") or bill.get("short_title") or "").strip()
-    url = (bill.get("url") or "").strip()
-    if not bill_number:
-        continue
-    key = f"{state}:{bill_number}"
-    if title:
-        bill_title_lookup[key] = title
-    if url:
-        bill_url_candidates.setdefault(key, []).append(url)
-
-for key, candidates in bill_url_candidates.items():
-    state, bill_number = key.split(":", 1)
-    best = pick_best_bill_url(candidates, state, bill_number)
-    if best:
-        bill_url_lookup[key] = best
-    elif state == "KS":
-        built = build_ks_bill_url(bill_number)
-        if built:
-            bill_url_lookup[key] = built
-bill_title_lookup_file = os.path.join(DOCS_DIR, "bill_title_lookup.json")
-with open(bill_title_lookup_file, "w", encoding="utf-8") as f:
-    json.dump(bill_title_lookup, f)
-print(f"Wrote {len(bill_title_lookup)} bill titles to {bill_title_lookup_file}")
-bill_url_lookup_file = os.path.join(DOCS_DIR, "bill_url_lookup.json")
-with open(bill_url_lookup_file, "w", encoding="utf-8") as f:
-    json.dump(bill_url_lookup, f)
-print(f"Wrote {len(bill_url_lookup)} bill URLs to {bill_url_lookup_file}")
 
 print("Site data generated successfully.")
 print(f"Years available: {', '.join(site_years.keys())}")
