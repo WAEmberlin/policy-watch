@@ -135,8 +135,9 @@ function feedEmptyMessage(dateRange) {
 
 function refreshView() {
     updateFilterPills();
-    if (searchMode && searchQuery) {
-        performSearch(searchQuery);
+    if (searchMode) {
+        const searchInput = document.getElementById("search-input");
+        performSearch(searchInput ? searchInput.value : searchQuery);
     } else if (currentYear) {
         displayUnifiedView(currentYear, currentPage);
     }
@@ -337,10 +338,11 @@ async function searchBillsViaApi(query, state, dateFrom, dateTo) {
     if (!base) return null;
 
     const params = new URLSearchParams({
-        q: query,
         limit: String(Math.min(SEARCH_MAX_RESULTS, 50)),
         offset: "0",
     });
+    const q = String(query || "").trim();
+    if (q) params.set("q", q);
     if (state) params.set("state", state);
     if (dateFrom) params.set("date_from", dateFrom);
     if (dateTo) params.set("date_to", dateTo);
@@ -1127,6 +1129,9 @@ function runSearchAgainstLoadedData(queryLower, dateFrom = null, dateTo = null) 
     searchResults = [];
     const seen = new Set();
     let capped = false;
+    const hasTextQuery = Boolean(queryLower);
+
+    const textMatches = (text) => !hasTextQuery || text.includes(queryLower);
 
     const tryAdd = (item) => {
         if (!itemMatchesSearchDateRange(item, dateFrom, dateTo)) return capped;
@@ -1146,7 +1151,7 @@ function runSearchAgainstLoadedData(queryLower, dateFrom = null, dateTo = null) 
             for (const source of Object.keys(dateData)) {
                 const items = dateData[source];
                 for (const item of items) {
-                    if (buildFeedSearchText(item).includes(queryLower)) {
+                    if (textMatches(buildFeedSearchText(item))) {
                         if (tryAdd({
                             ...item,
                             date: date,
@@ -1185,7 +1190,7 @@ function runSearchAgainstLoadedData(queryLower, dateFrom = null, dateTo = null) 
                 vote_tally: bill.vote_tally,
             });
 
-            if (searchText.includes(queryLower)) {
+            if (textMatches(searchText)) {
                 const billNumber = `${bill.bill_type || ""} ${bill.bill_number || ""}`.trim();
                 if (tryAdd({
                     ...bill,
@@ -1214,7 +1219,7 @@ function runSearchAgainstLoadedData(queryLower, dateFrom = null, dateTo = null) 
                 motion: bill.motion,
                 vote_tally: bill.vote_tally,
             });
-            if (searchText.includes(queryLower)) {
+            if (textMatches(searchText)) {
                 if (tryAdd({
                     title: `${bill.bill_number}: ${bill.title}`,
                     link: (typeof PolicyWatchBillUtils !== "undefined" ? PolicyWatchBillUtils.resolveBillUrl(bill) : bill.url),
@@ -1257,7 +1262,12 @@ function runSearchAgainstLoadedData(queryLower, dateFrom = null, dateTo = null) 
 }
 
 async function performSearch(query) {
-    if (!query || query.trim().length === 0) {
+    const trimmed = String(query || "").trim();
+    const { dateFrom, dateTo, invalid } = getSearchDateRange();
+    const hasDateFilter = Boolean(dateFrom || dateTo);
+
+    // Empty query with no dates → leave search mode and show the feed.
+    if (!trimmed && !hasDateFilter) {
         searchMode = false;
         searchQuery = "";
         if (currentYear) {
@@ -1266,8 +1276,8 @@ async function performSearch(query) {
         return;
     }
 
-    const trimmed = query.trim();
-    if (trimmed.length < SEARCH_MIN_CHARS) {
+    // Short non-empty query still needs MIN chars (dates alone are OK).
+    if (trimmed && trimmed.length < SEARCH_MIN_CHARS) {
         searchMode = true;
         searchQuery = trimmed.toLowerCase();
         searchResults = [];
@@ -1276,7 +1286,6 @@ async function performSearch(query) {
         return;
     }
 
-    const { dateFrom, dateTo, invalid } = getSearchDateRange();
     if (invalid) {
         searchMode = true;
         searchQuery = trimmed.toLowerCase();
@@ -1412,6 +1421,10 @@ function displaySearchResults(options = {}) {
     document.getElementById("pagination").innerHTML = "";
 
     const dateRangeLabel = formatSearchDateRangeLabel(dateFrom, dateTo);
+    const dateOnly = !searchQuery && Boolean(dateFrom || dateTo);
+    const queryLabel = dateOnly
+        ? (dateRangeLabel || "selected date range")
+        : `"${searchQuery}"`;
 
     if (searchResults.length === 0) {
         let scopeNote = "";
@@ -1420,9 +1433,9 @@ function displaySearchResults(options = {}) {
         } else if (homeFeedScoped) {
             scopeNote = " Homepage search could not load the archive index yet — try again.";
         }
-        const dateNote = dateRangeLabel ? ` (${escapeHtmlText(dateRangeLabel)})` : "";
-        container.innerHTML = `<p class='text-slate-500 italic text-center py-8'>No results found for "${escapeHtmlText(searchQuery)}"${dateNote}.${scopeNote}</p>`;
-        a11yAnnounce(`No search results for ${searchQuery}.`);
+        const dateNote = (!dateOnly && dateRangeLabel) ? ` (${escapeHtmlText(dateRangeLabel)})` : "";
+        container.innerHTML = `<p class='text-slate-500 italic text-center py-8'>No results found for ${dateOnly ? escapeHtmlText(queryLabel) : `"${escapeHtmlText(searchQuery)}"${dateNote}`}.${scopeNote}</p>`;
+        a11yAnnounce(`No search results for ${queryLabel}.`);
         setContentBusy(false);
         return;
     }
@@ -1433,12 +1446,14 @@ function displaySearchResults(options = {}) {
     resultsHeader.className = "mb-6 p-5 bg-blue-50 rounded-xl border-l-4 border-civic-blue";
     resultsHeader.innerHTML = `
         <h2 class="text-xl font-bold text-civic-blue mb-1">Search Results (${searchResults.length} found${capped ? "+" : ""})</h2>
-        <p class="text-slate-600">Searching for: "<strong>${escapeHtmlText(searchQuery)}</strong>"</p>
-        ${dateRangeLabel ? `<p class="text-slate-600 mt-1">${escapeHtmlText(dateRangeLabel)}</p>` : ""}
+        ${dateOnly
+            ? `<p class="text-slate-600">Browsing by date${dateRangeLabel ? `: <strong>${escapeHtmlText(dateRangeLabel)}</strong>` : ""}</p>`
+            : `<p class="text-slate-600">Searching for: "<strong>${escapeHtmlText(searchQuery)}</strong>"</p>
+        ${dateRangeLabel ? `<p class="text-slate-600 mt-1">${escapeHtmlText(dateRangeLabel)}</p>` : ""}`}
         ${viaApi ? `<p class="text-sm text-slate-500 mt-2">Searching the full bill archive via PolicyWatch API.</p>` : ""}
         ${homeFeedMode && !homeFeedScoped && !viaApi ? `<p class="text-sm text-slate-500 mt-2">Searching the full bill archive (loaded on demand).</p>` : ""}
         ${homeFeedScoped || archiveError ? `<p class="text-sm text-slate-500 mt-2">Archive index unavailable — results are limited to recently loaded activity.</p>` : ""}
-        ${capped ? `<p class="text-sm text-slate-500 mt-2">Showing the first ${Math.min(SEARCH_MAX_RESULTS, viaApi ? 50 : SEARCH_MAX_RESULTS)} matches. Add more characters to narrow results.</p>` : ""}
+        ${capped ? `<p class="text-sm text-slate-500 mt-2">Showing the first ${Math.min(SEARCH_MAX_RESULTS, viaApi ? 50 : SEARCH_MAX_RESULTS)} matches.${dateOnly ? " Narrow the date range or add a search term." : " Add more characters to narrow results."}</p>` : ""}
     `;
     container.appendChild(resultsHeader);
 
@@ -1631,7 +1646,11 @@ function setupSearch() {
     });
 
     const onDateChange = () => {
-        if (searchInput.value.trim().length >= SEARCH_MIN_CHARS) {
+        const q = searchInput.value.trim();
+        const { dateFrom, dateTo, invalid } = getSearchDateRange();
+        if (invalid) return;
+        // Re-run when there is a usable text query, or date-only browse (both dates set).
+        if (q.length >= SEARCH_MIN_CHARS || (dateFrom && dateTo) || searchMode) {
             handleSearch();
         }
     };

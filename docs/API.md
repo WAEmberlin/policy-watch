@@ -137,12 +137,14 @@ Results are sorted by `latest_action_date` descending (date portion `YYYY-MM-DD`
 
 | Param | Required | Default | Limits | Description |
 |-------|----------|---------|--------|-------------|
-| `q` | **Yes** | — | Min length **3** | Search query (trimmed). Shorter queries return **400**. |
+| `q` | Conditional | — | Min length **3** when provided | Search query (trimmed). Optional when `date_from` and/or `date_to` is set (date-only browse). Empty/`q` omitted with no dates → **400**. Non-empty shorter than 3 → **400**. |
 | `state` | No | (all) | — | Jurisdiction filter. Empty = all shards. See [State filter](#state-filter). |
-| `date_from` | No | (none) | `YYYY-MM-DD` | Inclusive lower bound on `latest_action_date` (date portion). |
-| `date_to` | No | (none) | `YYYY-MM-DD` | Inclusive upper bound on `latest_action_date` (date portion). |
+| `date_from` | No* | (none) | `YYYY-MM-DD` | Inclusive lower bound on `latest_action_date` (date portion). |
+| `date_to` | No* | (none) | `YYYY-MM-DD` | Inclusive upper bound on `latest_action_date` (date portion). |
 | `limit` | No | `25` | Clamped to **1–50** | Page size. |
 | `offset` | No | `0` | Clamped to **0–100000** | Skip this many matches after sort. |
+
+\* At least one of `q` (≥3 chars) or `date_from` / `date_to` is required.
 
 Invalid or non-numeric `limit` / `offset` fall back to the defaults above, then are clamped.
 
@@ -152,14 +154,16 @@ Optional `date_from` / `date_to` filter bills by the **date portion** of `latest
 
 | Params present | Behavior |
 |----------------|----------|
-| neither | No date filter |
+| neither | No date filter (text `q` required) |
 | `date_from` only | Keep bills with `latest_action_date` ≥ `date_from` |
 | `date_to` only | Keep bills with `latest_action_date` ≤ `date_to` |
 | both | Keep bills in `[date_from, date_to]` inclusive |
 | both, but `date_from` > `date_to` | Values are swapped so the range is still inclusive |
 | invalid format / impossible calendar date | **400** with an error message |
 
-Bills missing a parseable `latest_action_date` are excluded when either bound is set. Valid responses echo the effective (possibly swapped) `date_from` / `date_to` values, or `null` when omitted.
+**Date-only search:** when `q` is omitted or empty and at least one date bound is set, every bill in the date range matches (no text filter). Results are still sorted by `latest_action_date` descending and paginated.
+
+Bills missing a parseable `latest_action_date` are excluded when either bound is set. Valid responses echo the effective (possibly swapped) `date_from` / `date_to` values, or `null` when omitted. Response `q` is `null` for date-only requests.
 
 #### State filter
 
@@ -204,7 +208,7 @@ When `state` is set and equals a shard name in meta, only that shard is loaded. 
 | `total` | `number` | Total matches across scanned shards (not capped by `limit`) |
 | `limit` | `number` | Effective page size after clamping |
 | `offset` | `number` | Effective offset after clamping |
-| `q` | `string` | Trimmed query as received |
+| `q` | `string \| null` | Trimmed query as received, or `null` for date-only search |
 | `state` | `string \| null` | Normalized state key, or `null` if no state filter |
 | `date_from` | `string \| null` | Effective lower bound, or `null` if omitted |
 | `date_to` | `string \| null` | Effective upper bound, or `null` if omitted |
@@ -225,11 +229,21 @@ When `state` is set and equals a shard name in meta, only that shard is loaded. 
 
 #### Response `400`
 
-Query shorter than 3 characters, or invalid `date_from` / `date_to`:
+Missing query and dates, query shorter than 3 characters (when provided), or invalid `date_from` / `date_to`:
 
 ```json
 {
   "error": "Query must be at least 3 characters",
+  "results": [],
+  "total": 0,
+  "limit": 25,
+  "offset": 0
+}
+```
+
+```json
+{
+  "error": "Provide a query of at least 3 characters, or date_from/date_to",
   "results": [],
   "total": 0,
   "limit": 25,
@@ -280,6 +294,9 @@ curl -sS "https://policywatch-api.wesley-a-emberlin.workers.dev/api/search?q=vet
 
 # Single day
 curl -sS "https://policywatch-api.wesley-a-emberlin.workers.dev/api/search?q=housing&date_from=2026-08-08&date_to=2026-08-08"
+
+# Date-only browse (no text query)
+curl -sS "https://policywatch-api.wesley-a-emberlin.workers.dev/api/search?date_from=2026-08-01&date_to=2026-08-08"
 ```
 
 Example `200` response (abbreviated):

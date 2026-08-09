@@ -3,6 +3,7 @@
  *
  * GET /api/health — R2 connectivity check
  * GET /api/search?q=&state=&limit=&offset=&date_from=&date_to= — bill search over R2 shards
+ *   (q optional when date_from and/or date_to is set — date-only browse)
  *
  * Search data: prefer search_shards/*.json (compact per-jurisdiction files).
  * Largest shard is ~MA (~12–15MB compact). Shards are loaded one at a time and
@@ -241,6 +242,7 @@ async function searchBills(
 ): Promise<{ results: SearchBill[]; total: number }> {
   const meta = await loadShardMeta(env);
   const query = q.toLowerCase();
+  const hasTextQuery = query.length > 0;
   const shardKeys =
     stateKey && meta.shards.includes(stateKey) ? [stateKey] : meta.shards;
 
@@ -251,7 +253,7 @@ async function searchBills(
     for (const bill of bills) {
       if (!billMatchesState(bill, stateKey)) continue;
       if (!billMatchesDateRange(bill, dateFrom, dateTo)) continue;
-      if (!billSearchText(bill).includes(query)) continue;
+      if (hasTextQuery && !billSearchText(bill).includes(query)) continue;
       total += 1;
       if (matched.length < MATCH_COLLECT_CAP) {
         matched.push(expandShardBill(bill));
@@ -308,20 +310,6 @@ export default {
 
     if (request.method === "GET" && url.pathname === "/api/search") {
       const q = (url.searchParams.get("q") || "").trim();
-      if (q.length < MIN_QUERY_LEN) {
-        return jsonResponse(
-          request,
-          {
-            error: `Query must be at least ${MIN_QUERY_LEN} characters`,
-            results: [],
-            total: 0,
-            limit: DEFAULT_LIMIT,
-            offset: 0,
-          },
-          400
-        );
-      }
-
       const stateKey = normalizeStateParam(url.searchParams.get("state") || "");
       const limit = clampInt(url.searchParams.get("limit"), DEFAULT_LIMIT, 1, MAX_LIMIT);
       const offset = clampInt(url.searchParams.get("offset"), 0, 0, 100_000);
@@ -351,6 +339,35 @@ export default {
         dateTo = tmp;
       }
 
+      const hasDateFilter = Boolean(dateFrom || dateTo);
+      // Text query is required unless browsing by date range only.
+      if (q.length > 0 && q.length < MIN_QUERY_LEN) {
+        return jsonResponse(
+          request,
+          {
+            error: `Query must be at least ${MIN_QUERY_LEN} characters`,
+            results: [],
+            total: 0,
+            limit,
+            offset,
+          },
+          400
+        );
+      }
+      if (!q && !hasDateFilter) {
+        return jsonResponse(
+          request,
+          {
+            error: `Provide a query of at least ${MIN_QUERY_LEN} characters, or date_from/date_to`,
+            results: [],
+            total: 0,
+            limit,
+            offset,
+          },
+          400
+        );
+      }
+
       try {
         const { results, total } = await searchBills(
           env,
@@ -366,7 +383,7 @@ export default {
           total,
           limit,
           offset,
-          q,
+          q: q || null,
           state: stateKey || null,
           date_from: dateFrom,
           date_to: dateTo,
