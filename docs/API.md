@@ -139,10 +139,27 @@ Results are sorted by `latest_action_date` descending (date portion `YYYY-MM-DD`
 |-------|----------|---------|--------|-------------|
 | `q` | **Yes** | — | Min length **3** | Search query (trimmed). Shorter queries return **400**. |
 | `state` | No | (all) | — | Jurisdiction filter. Empty = all shards. See [State filter](#state-filter). |
+| `date_from` | No | (none) | `YYYY-MM-DD` | Inclusive lower bound on `latest_action_date` (date portion). |
+| `date_to` | No | (none) | `YYYY-MM-DD` | Inclusive upper bound on `latest_action_date` (date portion). |
 | `limit` | No | `25` | Clamped to **1–50** | Page size. |
 | `offset` | No | `0` | Clamped to **0–100000** | Skip this many matches after sort. |
 
 Invalid or non-numeric `limit` / `offset` fall back to the defaults above, then are clamped.
+
+#### Date range filter
+
+Optional `date_from` / `date_to` filter bills by the **date portion** of `latest_action_date` (`YYYY-MM-DD`), inclusive.
+
+| Params present | Behavior |
+|----------------|----------|
+| neither | No date filter |
+| `date_from` only | Keep bills with `latest_action_date` ≥ `date_from` |
+| `date_to` only | Keep bills with `latest_action_date` ≤ `date_to` |
+| both | Keep bills in `[date_from, date_to]` inclusive |
+| both, but `date_from` > `date_to` | Values are swapped so the range is still inclusive |
+| invalid format / impossible calendar date | **400** with an error message |
+
+Bills missing a parseable `latest_action_date` are excluded when either bound is set. Valid responses echo the effective (possibly swapped) `date_from` / `date_to` values, or `null` when omitted.
 
 #### State filter
 
@@ -175,7 +192,9 @@ When `state` is set and equals a shard name in meta, only that shard is loaded. 
   "limit": 25,
   "offset": 0,
   "q": "veteran",
-  "state": "KS"
+  "state": "KS",
+  "date_from": "2026-08-01",
+  "date_to": "2026-08-08"
 }
 ```
 
@@ -187,6 +206,8 @@ When `state` is set and equals a shard name in meta, only that shard is loaded. 
 | `offset` | `number` | Effective offset after clamping |
 | `q` | `string` | Trimmed query as received |
 | `state` | `string \| null` | Normalized state key, or `null` if no state filter |
+| `date_from` | `string \| null` | Effective lower bound, or `null` if omitted |
+| `date_to` | `string \| null` | Effective upper bound, or `null` if omitted |
 
 ##### `SearchBill` schema
 
@@ -204,11 +225,21 @@ When `state` is set and equals a shard name in meta, only that shard is loaded. 
 
 #### Response `400`
 
-Query shorter than 3 characters:
+Query shorter than 3 characters, or invalid `date_from` / `date_to`:
 
 ```json
 {
   "error": "Query must be at least 3 characters",
+  "results": [],
+  "total": 0,
+  "limit": 25,
+  "offset": 0
+}
+```
+
+```json
+{
+  "error": "date_from/date_to must be YYYY-MM-DD",
   "results": [],
   "total": 0,
   "limit": 25,
@@ -243,6 +274,12 @@ curl -sS "https://policywatch-api.wesley-a-emberlin.workers.dev/api/search?q=hou
 
 # Federal
 curl -sS "https://policywatch-api.wesley-a-emberlin.workers.dev/api/search?q=VA&state=federal"
+
+# Date range (inclusive latest_action_date)
+curl -sS "https://policywatch-api.wesley-a-emberlin.workers.dev/api/search?q=veteran&date_from=2026-08-01&date_to=2026-08-08"
+
+# Single day
+curl -sS "https://policywatch-api.wesley-a-emberlin.workers.dev/api/search?q=housing&date_from=2026-08-08&date_to=2026-08-08"
 ```
 
 Example `200` response (abbreviated):

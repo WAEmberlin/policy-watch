@@ -2,7 +2,7 @@
  * PolicyWatch API Worker
  *
  * GET /api/health — R2 connectivity check
- * GET /api/search?q=&state=&limit=&offset= — bill search over R2 shards
+ * GET /api/search?q=&state=&limit=&offset=&date_from=&date_to= — bill search over R2 shards
  *
  * Search data: prefer search_shards/*.json (compact per-jurisdiction files).
  * Largest shard is ~MA (~12–15MB compact). Shards are loaded one at a time and
@@ -155,6 +155,43 @@ function clampInt(value: string | null, fallback: number, min: number, max: numb
   return Math.min(max, Math.max(min, n));
 }
 
+const DATE_PARAM_RE = /^\d{4}-\d{2}-\d{2}$/;
+
+/** Parse YYYY-MM-DD; returns null if empty/omitted, or an error string if invalid. */
+function parseOptionalDateParam(value: string | null): { date: string | null; error: string | null } {
+  const raw = (value || "").trim();
+  if (!raw) return { date: null, error: null };
+  if (!DATE_PARAM_RE.test(raw)) {
+    return { date: null, error: "date_from/date_to must be YYYY-MM-DD" };
+  }
+  const [y, m, d] = raw.split("-").map((part) => Number.parseInt(part, 10));
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  if (
+    !Number.isFinite(y) ||
+    !Number.isFinite(m) ||
+    !Number.isFinite(d) ||
+    dt.getUTCFullYear() !== y ||
+    dt.getUTCMonth() !== m - 1 ||
+    dt.getUTCDate() !== d
+  ) {
+    return { date: null, error: "date_from/date_to must be a valid calendar date (YYYY-MM-DD)" };
+  }
+  return { date: raw, error: null };
+}
+
+function billMatchesDateRange(
+  bill: ShardBill,
+  dateFrom: string | null,
+  dateTo: string | null
+): boolean {
+  if (!dateFrom && !dateTo) return true;
+  const day = String(bill.latest_action_date || bill.d || "").slice(0, 10);
+  if (!DATE_PARAM_RE.test(day)) return false;
+  if (dateFrom && day < dateFrom) return false;
+  if (dateTo && day > dateTo) return false;
+  return true;
+}
+
 async function loadShardMeta(env: Env): Promise<ShardMeta> {
   const now = Date.now();
   if (shardMetaCache && now - shardMetaCache.loadedAt < CACHE_TTL_MS) {
@@ -198,7 +235,9 @@ async function searchBills(
   q: string,
   stateKey: string,
   limit: number,
-  offset: number
+  offset: number,
+  dateFrom: string | null = null,
+  dateTo: string | null = null
 ): Promise<{ results: SearchBill[]; total: number }> {
   const meta = await loadShardMeta(env);
   const query = q.toLowerCase();
@@ -211,6 +250,7 @@ async function searchBills(
     const bills = await loadShard(env, key);
     for (const bill of bills) {
       if (!billMatchesState(bill, stateKey)) continue;
+      if (!billMatchesDateRange(bill, dateFrom, dateTo)) continue;
       if (!billSearchText(bill).includes(query)) continue;
       total += 1;
       if (matched.length < MATCH_COLLECT_CAP) {
@@ -286,8 +326,41 @@ export default {
       const limit = clampInt(url.searchParams.get("limit"), DEFAULT_LIMIT, 1, MAX_LIMIT);
       const offset = clampInt(url.searchParams.get("offset"), 0, 0, 100_000);
 
+      const fromParsed = parseOptionalDateParam(url.searchParams.get("date_from"));
+      const toParsed = parseOptionalDateParam(url.searchParams.get("date_to"));
+      if (fromParsed.error || toParsed.error) {
+        return jsonResponse(
+          request,
+          {
+            error: fromParsed.error || toParsed.error,
+            results: [],
+            total: 0,
+            limit,
+            offset,
+          },
+          400
+        );
+      }
+
+      let dateFrom = fromParsed.date;
+      let dateTo = toParsed.date;
+      // If both provided and reversed, swap so the range is inclusive [min, max].
+      if (dateFrom && dateTo && dateFrom > dateTo) {
+        const tmp = dateFrom;
+        dateFrom = dateTo;
+        dateTo = tmp;
+      }
+
       try {
-        const { results, total } = await searchBills(env, q, stateKey, limit, offset);
+        const { results, total } = await searchBills(
+          env,
+          q,
+          stateKey,
+          limit,
+          offset,
+          dateFrom,
+          dateTo
+        );
         return jsonResponse(request, {
           results,
           total,
@@ -295,6 +368,8 @@ export default {
           offset,
           q,
           state: stateKey || null,
+          date_from: dateFrom,
+          date_to: dateTo,
         });
       } catch (err) {
         const message = err instanceof Error ? err.message : String(err);

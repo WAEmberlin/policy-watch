@@ -237,7 +237,102 @@ function mapApiBillToSearchResult(bill) {
     };
 }
 
-async function searchBillsViaApi(query, state) {
+function todayCentralYYYYMMDD() {
+    // Match home_feed.py America/Chicago "today" for search defaults.
+    try {
+        return new Intl.DateTimeFormat("en-CA", {
+            timeZone: "America/Chicago",
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+        }).format(new Date());
+    } catch {
+        const d = new Date();
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, "0");
+        const day = String(d.getDate()).padStart(2, "0");
+        return `${y}-${m}-${day}`;
+    }
+}
+
+function isValidYYYYMMDD(value) {
+    if (!value || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+    const [y, m, d] = value.split("-").map((part) => Number.parseInt(part, 10));
+    const dt = new Date(Date.UTC(y, m - 1, d));
+    return (
+        dt.getUTCFullYear() === y &&
+        dt.getUTCMonth() === m - 1 &&
+        dt.getUTCDate() === d
+    );
+}
+
+function setSearchDateError(message) {
+    const el = document.getElementById("search-date-error");
+    if (!el) return;
+    if (message) {
+        el.textContent = message;
+        el.hidden = false;
+    } else {
+        el.textContent = "";
+        el.hidden = true;
+    }
+}
+
+function initSearchDateDefaults() {
+    const today = todayCentralYYYYMMDD();
+    const fromEl = document.getElementById("search-date-from");
+    const toEl = document.getElementById("search-date-to");
+    if (fromEl && !fromEl.value) fromEl.value = today;
+    if (toEl && !toEl.value) toEl.value = today;
+}
+
+/**
+ * Read From/To date inputs. Empty means no bound.
+ * If both set and from > to, swap input values and show a brief note.
+ */
+function getSearchDateRange() {
+    const fromEl = document.getElementById("search-date-from");
+    const toEl = document.getElementById("search-date-to");
+    let from = fromEl ? String(fromEl.value || "").trim() : "";
+    let to = toEl ? String(toEl.value || "").trim() : "";
+
+    if (from && !isValidYYYYMMDD(from)) {
+        setSearchDateError("From date must be a valid date.");
+        return { dateFrom: null, dateTo: null, invalid: true };
+    }
+    if (to && !isValidYYYYMMDD(to)) {
+        setSearchDateError("To date must be a valid date.");
+        return { dateFrom: null, dateTo: null, invalid: true };
+    }
+
+    if (from && to && from > to) {
+        if (fromEl) fromEl.value = to;
+        if (toEl) toEl.value = from;
+        const tmp = from;
+        from = to;
+        to = tmp;
+        setSearchDateError("From was after To — dates were swapped.");
+    } else {
+        setSearchDateError("");
+    }
+
+    return {
+        dateFrom: from || null,
+        dateTo: to || null,
+        invalid: false,
+    };
+}
+
+function itemMatchesSearchDateRange(item, dateFrom, dateTo) {
+    if (!dateFrom && !dateTo) return true;
+    const day = String(item.date || item.published || item.latest_action_date || "").slice(0, 10);
+    if (!isValidYYYYMMDD(day)) return false;
+    if (dateFrom && day < dateFrom) return false;
+    if (dateTo && day > dateTo) return false;
+    return true;
+}
+
+async function searchBillsViaApi(query, state, dateFrom, dateTo) {
     const base = policywatchApiBase();
     if (!base) return null;
 
@@ -247,6 +342,8 @@ async function searchBillsViaApi(query, state) {
         offset: "0",
     });
     if (state) params.set("state", state);
+    if (dateFrom) params.set("date_from", dateFrom);
+    if (dateTo) params.set("date_to", dateTo);
 
     const res = await fetch(`${base}/api/search?${params.toString()}`, {
         headers: { Accept: "application/json" },
@@ -1026,12 +1123,13 @@ function addSearchResult(item, seen, results) {
     return results.length >= SEARCH_MAX_RESULTS;
 }
 
-function runSearchAgainstLoadedData(queryLower) {
+function runSearchAgainstLoadedData(queryLower, dateFrom = null, dateTo = null) {
     searchResults = [];
     const seen = new Set();
     let capped = false;
 
     const tryAdd = (item) => {
+        if (!itemMatchesSearchDateRange(item, dateFrom, dateTo)) return capped;
         if (addSearchResult(item, seen, searchResults)) capped = true;
         return capped;
     };
@@ -1143,6 +1241,11 @@ function runSearchAgainstLoadedData(queryLower) {
     if (veteransImpactFilter) {
         searchResults = searchResults.filter(item => itemMatchesVeteransFilter(item));
     }
+    if (dateFrom || dateTo) {
+        searchResults = searchResults.filter((item) =>
+            itemMatchesSearchDateRange(item, dateFrom, dateTo)
+        );
+    }
 
     searchResults.sort((a, b) => {
         const dateA = a.published || a.date || "";
@@ -1173,6 +1276,16 @@ async function performSearch(query) {
         return;
     }
 
+    const { dateFrom, dateTo, invalid } = getSearchDateRange();
+    if (invalid) {
+        searchMode = true;
+        searchQuery = trimmed.toLowerCase();
+        searchResults = [];
+        displaySearchPrompt("Fix the search date range, then try again.");
+        updateFilterPills();
+        return;
+    }
+
     setContentBusy(true);
     searchMode = true;
     searchQuery = trimmed.toLowerCase();
@@ -1184,7 +1297,7 @@ async function performSearch(query) {
     if (homeFeedMode && policywatchApiBase()) {
         displaySearchPrompt("Searching…");
         try {
-            const apiData = await searchBillsViaApi(trimmed, selectedState);
+            const apiData = await searchBillsViaApi(trimmed, selectedState, dateFrom, dateTo);
             if (apiData) {
                 usedSearchApi = true;
                 archiveLoaded = true;
@@ -1192,7 +1305,7 @@ async function performSearch(query) {
                 // lazy-loaded full archive cache (API returns only one page).
                 const savedArchive = homeSearchBills;
                 homeSearchBills = [];
-                runSearchAgainstLoadedData(searchQuery);
+                runSearchAgainstLoadedData(searchQuery, dateFrom, dateTo);
                 homeSearchBills = savedArchive;
 
                 const seen = new Set(searchResults.map((item) => searchResultKey(item)));
@@ -1201,6 +1314,7 @@ async function performSearch(query) {
                     const item = mapApiBillToSearchResult(bill);
                     if (!itemMatchesStateFilter(item)) continue;
                     if (!itemMatchesVeteransFilter(item)) continue;
+                    if (!itemMatchesSearchDateRange(item, dateFrom, dateTo)) continue;
                     if (addSearchResult(item, seen, searchResults)) {
                         capped = true;
                         break;
@@ -1216,6 +1330,8 @@ async function performSearch(query) {
                     homeFeedScoped: false,
                     archiveError: false,
                     viaApi: true,
+                    dateFrom,
+                    dateTo,
                 });
                 updateFilterPills();
                 return;
@@ -1237,11 +1353,13 @@ async function performSearch(query) {
         }
     }
 
-    const capped = runSearchAgainstLoadedData(searchQuery);
+    const capped = runSearchAgainstLoadedData(searchQuery, dateFrom, dateTo);
     displaySearchResults({
         capped,
         homeFeedScoped: homeFeedMode && !archiveLoaded,
         archiveError: Boolean(archiveError),
+        dateFrom,
+        dateTo,
     });
     updateFilterPills();
 }
@@ -1259,8 +1377,27 @@ function displaySearchPrompt(message) {
     setContentBusy(false);
 }
 
+function formatSearchDateRangeLabel(dateFrom, dateTo) {
+    if (!dateFrom && !dateTo) return "";
+    if (dateFrom && dateTo && dateFrom === dateTo) {
+        return `Latest action on ${formatDate(dateFrom)}`;
+    }
+    if (dateFrom && dateTo) {
+        return `Latest action from ${formatDate(dateFrom)} to ${formatDate(dateTo)}`;
+    }
+    if (dateFrom) return `Latest action on or after ${formatDate(dateFrom)}`;
+    return `Latest action on or before ${formatDate(dateTo)}`;
+}
+
 function displaySearchResults(options = {}) {
-    const { capped = false, homeFeedScoped = false, archiveError = false, viaApi = false } = options;
+    const {
+        capped = false,
+        homeFeedScoped = false,
+        archiveError = false,
+        viaApi = false,
+        dateFrom = null,
+        dateTo = null,
+    } = options;
     const container = document.getElementById("content");
     container.innerHTML = "";
 
@@ -1274,6 +1411,8 @@ function displaySearchResults(options = {}) {
     // Hide pagination
     document.getElementById("pagination").innerHTML = "";
 
+    const dateRangeLabel = formatSearchDateRangeLabel(dateFrom, dateTo);
+
     if (searchResults.length === 0) {
         let scopeNote = "";
         if (archiveError) {
@@ -1281,7 +1420,8 @@ function displaySearchResults(options = {}) {
         } else if (homeFeedScoped) {
             scopeNote = " Homepage search could not load the archive index yet — try again.";
         }
-        container.innerHTML = `<p class='text-slate-500 italic text-center py-8'>No results found for "${escapeHtmlText(searchQuery)}".${scopeNote}</p>`;
+        const dateNote = dateRangeLabel ? ` (${escapeHtmlText(dateRangeLabel)})` : "";
+        container.innerHTML = `<p class='text-slate-500 italic text-center py-8'>No results found for "${escapeHtmlText(searchQuery)}"${dateNote}.${scopeNote}</p>`;
         a11yAnnounce(`No search results for ${searchQuery}.`);
         setContentBusy(false);
         return;
@@ -1294,6 +1434,7 @@ function displaySearchResults(options = {}) {
     resultsHeader.innerHTML = `
         <h2 class="text-xl font-bold text-civic-blue mb-1">Search Results (${searchResults.length} found${capped ? "+" : ""})</h2>
         <p class="text-slate-600">Searching for: "<strong>${escapeHtmlText(searchQuery)}</strong>"</p>
+        ${dateRangeLabel ? `<p class="text-slate-600 mt-1">${escapeHtmlText(dateRangeLabel)}</p>` : ""}
         ${viaApi ? `<p class="text-sm text-slate-500 mt-2">Searching the full bill archive via PolicyWatch API.</p>` : ""}
         ${homeFeedMode && !homeFeedScoped && !viaApi ? `<p class="text-sm text-slate-500 mt-2">Searching the full bill archive (loaded on demand).</p>` : ""}
         ${homeFeedScoped || archiveError ? `<p class="text-sm text-slate-500 mt-2">Archive index unavailable — results are limited to recently loaded activity.</p>` : ""}
@@ -1467,6 +1608,10 @@ function setupSearch() {
     const searchInput = document.getElementById("search-input");
     const searchButton = document.getElementById("search-button");
     const clearButton = document.getElementById("clear-search");
+    const dateFromEl = document.getElementById("search-date-from");
+    const dateToEl = document.getElementById("search-date-to");
+
+    initSearchDateDefaults();
 
     function handleSearch() {
         const query = searchInput.value.trim();
@@ -1485,6 +1630,14 @@ function setupSearch() {
         searchDebounce = setTimeout(handleSearch, 400);
     });
 
+    const onDateChange = () => {
+        if (searchInput.value.trim().length >= SEARCH_MIN_CHARS) {
+            handleSearch();
+        }
+    };
+    if (dateFromEl) dateFromEl.addEventListener("change", onDateChange);
+    if (dateToEl) dateToEl.addEventListener("change", onDateChange);
+
     if (searchButton) {
         searchButton.addEventListener("click", handleSearch);
     }
@@ -1502,6 +1655,10 @@ function setupSearch() {
             if (sourceFilter) sourceFilter.value = "";
             if (categoryFilter) categoryFilter.value = "";
             if (stateFilter) stateFilter.value = "";
+            const today = todayCentralYYYYMMDD();
+            if (dateFromEl) dateFromEl.value = today;
+            if (dateToEl) dateToEl.value = today;
+            setSearchDateError("");
             if (typeof PolicyWatchHome !== "undefined") {
                 PolicyWatchHome.setSelectedState("");
                 PolicyWatchHome.setVeteransImpactFilter(null);
