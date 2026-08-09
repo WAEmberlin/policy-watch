@@ -35,6 +35,10 @@ HOME_FEED_DAYS_DIRNAME = "home_feed_days"
 # Compact bill list for on-demand homepage archive search (lazy-loaded by script.js).
 HOME_SEARCH_BILLS_FILENAME = "home_search_bills.json"
 HOME_SEARCH_SUMMARY_MAX = 160
+# Per-jurisdiction shards for Cloudflare Worker search (avoids loading ~78MB JSON).
+HOME_SEARCH_SHARDS_DIRNAME = "search_shards"
+HOME_SEARCH_SHARD_TITLE_MAX = 140
+HOME_SEARCH_SHARD_ACTION_MAX = 80
 
 try:
     from zoneinfo import ZoneInfo
@@ -519,6 +523,93 @@ def write_home_search_bills(docs_dir: str | Path, search_index: Optional[Dict[st
     return out
 
 
+def _shard_key_for_bill(bill: Dict[str, Any]) -> str:
+    state = str(bill.get("state") or "").strip().upper()
+    if state:
+        return state
+    if str(bill.get("level") or "").lower() == "federal":
+        return "US"
+    return "UNK"
+
+
+def build_home_search_shard_bill(bill: Dict[str, Any]) -> Dict[str, Any]:
+    """Compact short-key row for Worker search shards (keeps MA under memory limits)."""
+    title = str(bill.get("title") or "")
+    if len(title) > HOME_SEARCH_SHARD_TITLE_MAX:
+        title = title[: HOME_SEARCH_SHARD_TITLE_MAX - 1].rstrip() + "…"
+    latest_action = str(bill.get("latest_action") or "")
+    if len(latest_action) > HOME_SEARCH_SHARD_ACTION_MAX:
+        latest_action = latest_action[: HOME_SEARCH_SHARD_ACTION_MAX - 1].rstrip() + "…"
+    # Short keys + truncated text; Worker expands to full field names in API responses.
+    return {
+        "n": bill.get("bill_number") or "",
+        "t": title,
+        "s": bill.get("state") or "",
+        "l": bill.get("level") or "",
+        "a": latest_action,
+        "d": str(bill.get("latest_action_date") or "")[:10],
+        "u": bill.get("url") or "",
+    }
+
+
+def build_home_search_shards(
+    search_bills: Optional[Sequence[Dict[str, Any]]] = None,
+    search_index: Optional[Dict[str, Any]] = None,
+) -> Dict[str, List[Dict[str, Any]]]:
+    bills = list(search_bills) if search_bills is not None else build_home_search_bills(search_index)
+    shards: Dict[str, List[Dict[str, Any]]] = {}
+    for bill in bills:
+        key = _shard_key_for_bill(bill)
+        shards.setdefault(key, []).append(build_home_search_shard_bill(bill))
+    return shards
+
+
+def write_home_search_shards(
+    docs_dir: str | Path,
+    search_bills: Optional[Sequence[Dict[str, Any]]] = None,
+    search_index: Optional[Dict[str, Any]] = None,
+) -> Tuple[Path, List[Path]]:
+    """Write search_shards/meta.json + per-state JSON for the Worker search API."""
+    docs = Path(docs_dir)
+    out_dir = docs / HOME_SEARCH_SHARDS_DIRNAME
+    if out_dir.exists():
+        for old in out_dir.glob("*.json"):
+            old.unlink()
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    shards = build_home_search_shards(search_bills=search_bills, search_index=search_index)
+    shard_keys = sorted(shards.keys())
+    paths: List[Path] = []
+    bill_count = 0
+    for key in shard_keys:
+        rows = shards[key]
+        bill_count += len(rows)
+        path = out_dir / f"{key}.json"
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(
+                {"state": key, "bills": rows},
+                f,
+                ensure_ascii=False,
+                separators=(",", ":"),
+            )
+        paths.append(path)
+
+    meta_path = out_dir / "meta.json"
+    with open(meta_path, "w", encoding="utf-8") as f:
+        json.dump(
+            {
+                "search_shards": True,
+                "shards": shard_keys,
+                "bill_count": bill_count,
+                "generated_at": datetime.now(timezone.utc).isoformat(),
+            },
+            f,
+            ensure_ascii=False,
+            separators=(",", ":"),
+        )
+    return meta_path, paths
+
+
 def write_home_feed(docs_dir: str | Path, payload: Dict[str, Any]) -> Path:
     docs = Path(docs_dir)
     docs.mkdir(parents=True, exist_ok=True)
@@ -617,6 +708,7 @@ def write_home_feed_artifacts(
             ensure_ascii=False,
             separators=(",", ":"),
         )
+    write_home_search_shards(docs_dir, search_bills=search_bills)
     _, day_paths = write_home_feed_days(
         docs_dir,
         site_years=site_years,

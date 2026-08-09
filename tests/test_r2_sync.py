@@ -24,6 +24,8 @@ def test_write_data_config_sets_public_base(monkeypatch, tmp_path):
     assert "https://pub-example.r2.dev" in text
     assert "window.POLICYWATCH_DATA_BASE" in text
     assert "window.CIVICWATCH_DATA_BASE = window.POLICYWATCH_DATA_BASE" in text
+    assert "window.POLICYWATCH_API_BASE" in text
+    assert "policywatch-api.wesley-a-emberlin.workers.dev" in text
     # trailing slash stripped
     assert "https://pub-example.r2.dev/" not in text.replace("https://pub-example.r2.dev';", "")
 

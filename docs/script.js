@@ -213,6 +213,52 @@ async function ensureHomeSearchBillsLoaded() {
     return homeSearchBillsPromise;
 }
 
+function policywatchApiBase() {
+    return String(window.POLICYWATCH_API_BASE || "").replace(/\/+$/, "");
+}
+
+function mapApiBillToSearchResult(bill) {
+    return {
+        title: `${bill.bill_number || ""}: ${bill.title || ""}`.replace(/^:\s*/, ""),
+        link: (typeof PolicyWatchBillUtils !== "undefined" ? PolicyWatchBillUtils.resolveBillUrl(bill) : bill.url),
+        summary: bill.summary || bill.latest_action || "",
+        source: bill.level === "federal" ? "Federal (U.S. Congress)" : `State (${STATE_NAMES[bill.state] || bill.state})`,
+        state: bill.state || (bill.level === "federal" ? "" : bill.state),
+        level: bill.level,
+        published: bill.latest_action_date,
+        date: bill.latest_action_date ? String(bill.latest_action_date).split("T")[0] : "",
+        bill_number: bill.bill_number,
+        latest_action: bill.latest_action,
+        item_type: bill.item_type || "bill_update",
+        action_type: bill.action_type || classifyActionType(bill.latest_action),
+        vote_tally: bill.vote_tally,
+        motion: bill.motion,
+        url: bill.url,
+    };
+}
+
+async function searchBillsViaApi(query, state) {
+    const base = policywatchApiBase();
+    if (!base) return null;
+
+    const params = new URLSearchParams({
+        q: query,
+        limit: String(Math.min(SEARCH_MAX_RESULTS, 50)),
+        offset: "0",
+    });
+    if (state) params.set("state", state);
+
+    const res = await fetch(`${base}/api/search?${params.toString()}`, {
+        headers: { Accept: "application/json" },
+    });
+    if (!res.ok) throw new Error(`search API HTTP ${res.status}`);
+    const data = await res.json();
+    if (!data || !Array.isArray(data.results)) {
+        throw new Error("search API returned invalid payload");
+    }
+    return data;
+}
+
 function renderYearTabsAndShowDefault() {
     const years = Object.keys(allData.years || {});
     const yearTabs = document.getElementById("year-tabs");
@@ -1133,7 +1179,53 @@ async function performSearch(query) {
 
     let archiveLoaded = !homeFeedMode;
     let archiveError = null;
-    if (homeFeedMode) {
+    let usedSearchApi = false;
+
+    if (homeFeedMode && policywatchApiBase()) {
+        displaySearchPrompt("Searching…");
+        try {
+            const apiData = await searchBillsViaApi(trimmed, selectedState);
+            if (apiData) {
+                usedSearchApi = true;
+                archiveLoaded = true;
+                // Merge recent feed hits with API archive hits without replacing the
+                // lazy-loaded full archive cache (API returns only one page).
+                const savedArchive = homeSearchBills;
+                homeSearchBills = [];
+                runSearchAgainstLoadedData(searchQuery);
+                homeSearchBills = savedArchive;
+
+                const seen = new Set(searchResults.map((item) => searchResultKey(item)));
+                let capped = (apiData.total || 0) > (apiData.results || []).length;
+                for (const bill of apiData.results) {
+                    const item = mapApiBillToSearchResult(bill);
+                    if (!itemMatchesStateFilter(item)) continue;
+                    if (!itemMatchesVeteransFilter(item)) continue;
+                    if (addSearchResult(item, seen, searchResults)) {
+                        capped = true;
+                        break;
+                    }
+                }
+                searchResults.sort((a, b) => {
+                    const dateA = a.published || a.date || "";
+                    const dateB = b.published || b.date || "";
+                    return dateB.localeCompare(dateA);
+                });
+                displaySearchResults({
+                    capped,
+                    homeFeedScoped: false,
+                    archiveError: false,
+                    viaApi: true,
+                });
+                updateFilterPills();
+                return;
+            }
+        } catch (err) {
+            console.warn("Search API unavailable, falling back to archive download:", err);
+        }
+    }
+
+    if (homeFeedMode && !usedSearchApi) {
         displaySearchPrompt("Loading bill archive for search…");
         try {
             await ensureHomeSearchBillsLoaded();
@@ -1168,7 +1260,7 @@ function displaySearchPrompt(message) {
 }
 
 function displaySearchResults(options = {}) {
-    const { capped = false, homeFeedScoped = false, archiveError = false } = options;
+    const { capped = false, homeFeedScoped = false, archiveError = false, viaApi = false } = options;
     const container = document.getElementById("content");
     container.innerHTML = "";
 
@@ -1202,9 +1294,10 @@ function displaySearchResults(options = {}) {
     resultsHeader.innerHTML = `
         <h2 class="text-xl font-bold text-civic-blue mb-1">Search Results (${searchResults.length} found${capped ? "+" : ""})</h2>
         <p class="text-slate-600">Searching for: "<strong>${escapeHtmlText(searchQuery)}</strong>"</p>
-        ${homeFeedMode && !homeFeedScoped ? `<p class="text-sm text-slate-500 mt-2">Searching the full bill archive (loaded on demand).</p>` : ""}
+        ${viaApi ? `<p class="text-sm text-slate-500 mt-2">Searching the full bill archive via PolicyWatch API.</p>` : ""}
+        ${homeFeedMode && !homeFeedScoped && !viaApi ? `<p class="text-sm text-slate-500 mt-2">Searching the full bill archive (loaded on demand).</p>` : ""}
         ${homeFeedScoped || archiveError ? `<p class="text-sm text-slate-500 mt-2">Archive index unavailable — results are limited to recently loaded activity.</p>` : ""}
-        ${capped ? `<p class="text-sm text-slate-500 mt-2">Showing the first ${SEARCH_MAX_RESULTS} matches. Add more characters to narrow results.</p>` : ""}
+        ${capped ? `<p class="text-sm text-slate-500 mt-2">Showing the first ${Math.min(SEARCH_MAX_RESULTS, viaApi ? 50 : SEARCH_MAX_RESULTS)} matches. Add more characters to narrow results.</p>` : ""}
     `;
     container.appendChild(resultsHeader);
 

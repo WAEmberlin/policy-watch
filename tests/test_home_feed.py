@@ -305,6 +305,7 @@ def test_r2_upload_list_includes_home_feed_and_day_glob():
     assert "home_feed.json" in DOCS_UPLOAD_FILES
     assert "home_search_bills.json" in DOCS_UPLOAD_FILES
     assert "home_feed_days/*.json" in DOCS_UPLOAD_GLOBS
+    assert "search_shards/*.json" in DOCS_UPLOAD_GLOBS
 
 
 def test_write_home_feed_artifacts_writes_search_bills(tmp_path):
@@ -340,3 +341,9 @@ def test_write_home_feed_artifacts_writes_search_bills(tmp_path):
     assert data["bills"][0]["bill_number"] == "HB 10"
     assert len(data["bills"][0]["summary"]) <= 160
     assert len(day_paths) >= 1
+    meta = json.loads((tmp_path / "search_shards" / "meta.json").read_text(encoding="utf-8"))
+    assert meta["search_shards"] is True
+    assert "CO" in meta["shards"]
+    shard = json.loads((tmp_path / "search_shards" / "CO.json").read_text(encoding="utf-8"))
+    assert shard["bills"][0]["n"] == "HB 10"
+    assert shard["bills"][0]["t"] == "Colorado update"
