@@ -66,6 +66,12 @@ GitHub Actions (fetch → normalize → summarize)
 | **GitHub Actions** | Pipelines: daily update, Open States sync, summarize, R2 upload (see `.github/workflows/`). |
 | **Cloudflare Worker** | [`policywatch-api`](workers/policywatch-api) — search/health API at [https://policywatch-api.wesley-a-emberlin.workers.dev](https://policywatch-api.wesley-a-emberlin.workers.dev), R2 binding `BUCKET` → bucket `civicwatch-data`. |
 
+### API
+
+Public developer docs for the Worker (endpoints, CORS, schemas, local/dev deploy): **[docs/API.md](docs/API.md)**.
+
+Base URL: `https://policywatch-api.wesley-a-emberlin.workers.dev` (set as `POLICYWATCH_API_BASE` in [`docs/data-config.js`](docs/data-config.js)).
+
 ### Data pipeline (high level)
 
 1. **Fetch** — RSS, Kansas API, Congress.gov, Open States sync, YouTube live status.
