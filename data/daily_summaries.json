@@ -7262,5 +7262,40 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-08-08": {
+    "date": "2026-08-08",
+    "generated_at": "2026-08-09T02:39:09.290369+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "### Kansas Legislature Activity Summary: Not specified for this date.\n\n### U.S. Congress Activity on August 8, 2026:\n* HR 6500 - AGOA Extension Act passed the Senate with amendments and an add\u001b[3D\u001b[K\nadditional Title by a Yea-Nay Vote of 90 to 6 after Record Vote Number 228.\u001b[4D\u001b[K\n228. (URL: https://www.congress.gov/bill/119th-congress/house-bill/6500)\n* HR 3633 - Digital Asset Market Clarity Act of 2025 underwent a cloture mo\u001b[2D\u001b[K\nmotion on the Senate's consideration for proceeding to this measure. (URL: \u001b[K\nhttps://www.congress.gov/bill/119th-congress/house-bill/3633)\n\n*Note: No Kansas legislative activities are recorded for this date.*",
+    "counts": {
+      "total": 2,
+      "kansas_house": 0,
+      "kansas_senate": 0,
+      "congress_house": 2,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [],
+      "senate": []
+    },
+    "congress": {
+      "house": [
+        {
+          "bill": "HR 6500",
+          "short_title": "AGOA Extension Act",
+          "action": "Passed Senate with an amendment and an amendment to the Title by Yea-Nay Vote. 90 - 6. Record Vote Number: 228.",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/6500"
+        },
+        {
+          "bill": "HR 3633",
+          "short_title": "Digital Asset Market Clarity Act of 2025",
+          "action": "Cloture motion on the motion to proceed to the measure presented in Senate.",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/3633"
+        }
+      ],
+      "senate": []
+    }
   }
 }
