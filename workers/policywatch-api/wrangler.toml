@@ -4,5 +4,5 @@ compatibility_date = "2025-08-01"
 
 [[r2_buckets]]
 binding = "BUCKET"
-# Must be lowercase (Workers rule). Use the exact name from Cloudflare → R2.
-bucket_name = "policywatch-data"
+# Must be lowercase (Workers rule). Actual R2 bucket (pre-rebrand name).
+bucket_name = "civicwatch-data"
