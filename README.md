@@ -1,8 +1,9 @@
 ﻿# PolicyWatch (policy-watch)
 
-**PolicyWatch** is an open-source legislative tracking dashboard for veterans, military families, and civic engagement. It aggregates bill activity, hearings, live streams, and legislator data across **Kansas, Colorado, Arizona, Utah, Maine**, and **U.S. Congress**, with automated daily updates via GitHub Actions.
+**PolicyWatch** is an open-source multi-state + Congress legislative tracker for veterans, military families, and civic engagement. It aggregates bill activity, hearings, livestreams, district maps, elections links, and email digests — with **red / yellow / green** veteran-impact coloring and automated daily updates via GitHub Actions.
 
-**Live site:** [https://waemberlin.github.io/policy-watch/](https://waemberlin.github.io/policy-watch/)
+**Live site:** [https://policywatch.us](https://policywatch.us)  
+Mirror: [https://waemberlin.github.io/policy-watch/](https://waemberlin.github.io/policy-watch/)
 
 ---
 
@@ -11,64 +12,71 @@
 - **Homepage feed** — Unified timeline of federal and state legislative activity, searchable and filterable by state, source, and topic.
 - **Veterans & military impact matrix** — Bills tagged **Red** (high impact), **Yellow** (moderate), or **Green** (ceremonial/general) with colored cards and dedicated filters. See [docs/veterans-impact.html](docs/veterans-impact.html) on the live site.
 - **Hearings calendar** — Upcoming and historical committee hearings with state/committee filters.
+- **District map** — Interactive Leaflet map of state legislative districts and U.S. House/Senate delegation for tracked states.
+- **Elections links** — Dashboard of official SOS / election calendar and results links by jurisdiction.
 - **Live streams** — YouTube and official stream links for legislatures and Congress, with live-status detection.
-- **District map** — Interactive Leaflet map of state legislative districts and U.S. House/Senate delegation for all tracked states.
-- **Roll-call votes (Kansas)** — Yea/nay breakdowns with legislator profile links for supported KS bills.
+- **Roll-call votes (Kansas + Open States)** — Yea/nay breakdowns with legislator profile links where available.
 - **Email digests** — Scheduled HTML email summaries of recent legislative activity.
 - **Weekly AI overview** — Optional narrated weekly recap (ElevenLabs) generated on Fridays.
 
 ---
 
-## Tech stack
+## Tracked jurisdictions
 
-| Layer | Technologies |
-|-------|----------------|
-| **Frontend** | Static HTML, vanilla JavaScript (IIFE modules), [Tailwind CSS](https://tailwindcss.com/) (CDN), custom CSS design tokens (`theme.css`) |
-| **Maps** | [Leaflet](https://leafletjs.com/) + GeoJSON district boundaries |
-| **Live streams page** | [Bootstrap 5](https://getbootstrap.com/) |
-| **Hosting** | [GitHub Pages](https://pages.github.com/) — site served from `/docs` |
-| **Data pipeline** | **Python 3.11** — fetch, normalize, enrich, summarize |
-| **Data storage** | JSON files in `data/` and generated `docs/site_data.json` |
-| **Configuration** | YAML (`config/states.yaml`, `config/livestreams.yaml`) |
-| **APIs & feeds** | [Open States](https://openstates.org/), [Congress.gov API](https://api.congress.gov/), Kansas Legislature REST API, RSS/Atom feeds, [Cactus Watch](https://api.cactus.watch) (Arizona), Utah committee RSS, YouTube |
-| **CI/CD** | GitHub Actions (`.github/workflows/`) — hourly data refresh, Open States sync, tests |
-| **Testing** | [pytest](https://pytest.org/) |
-| **Email** | Python `send_email.py` (SMTP) via scheduled workflow |
-| **Optional AI/audio** | ElevenLabs API for weekly overview narration |
+| Code | Jurisdiction |
+|------|--------------|
+| Federal | U.S. Congress (House & Senate) |
+| KS | Kansas |
+| CO | Colorado |
+| AZ | Arizona |
+| UT | Utah |
+| ME | Maine |
+| NE | Nebraska |
+| MD | Maryland |
+| PA | Pennsylvania |
+| MA | Massachusetts |
+| WV | West Virginia |
+| TN | Tennessee |
+| NC | North Carolina |
+| MO | Missouri |
+| IA | Iowa |
 
-### Python dependencies
-
-See [`requirements.txt`](requirements.txt): `feedparser`, `pyyaml`, `requests`, `beautifulsoup4`, `pytest`.
-
----
-
-## Repository layout
-
-```
-policy-watch/
-├── docs/                  # GitHub Pages site (HTML, JS, generated site_data.json)
-├── src/processing/        # Python ETL: fetch, normalize, summarize, email
-├── src/adapters/          # Data source adapters (Open States, Congress)
-├── data/                  # Raw & normalized legislative JSON, GeoJSON, veterans tracker
-├── config/                # State and livestream configuration
-├── scripts/               # One-off import and maintenance scripts
-├── tests/                 # pytest suite
-└── .github/workflows/     # CI: daily update, Open States sync, tests, email
-```
+Configured in [`config/states.yaml`](config/states.yaml).
 
 ---
 
-## Key data flows
+## How the site works
 
-1. **Fetch** — RSS feeds, Kansas API, Congress.gov, Open States bulk/sync, YouTube live status.
-2. **Normalize** — Merge into unified bill/event records (`src/processing/normalize_data.py`).
-3. **Enrich** — Kansas API details, AI topics (optional), veteran impact classification (`veteran_impact.py`).
-4. **Summarize** — Build `docs/site_data.json`, weekly overview, email digest HTML.
-5. **Deploy** — GitHub Actions commits updated `docs/` artifacts; Pages serves automatically.
+```
+GitHub Actions (fetch → normalize → summarize)
+        │
+        ├─► commit slim UI / lookups to /docs  ──► GitHub Pages (static site)
+        │
+        └─► upload large JSON to Cloudflare R2 (civicwatch-data)
+                    │
+                    ├─► browser loads home_feed, hearings, etc. from R2
+                    └─► policywatch-api Worker (search / health) bound to same bucket
+```
+
+| Piece | Role |
+|-------|------|
+| **GitHub Pages** | Hosts the static UI from `/docs` (HTML, JS, CSS, small lookups). |
+| **Cloudflare R2** | Holds large JSON: `home_feed.json`, `home_search_bills.json`, `legislators_directory.json`, `hearings.json`, Open States caches, full `site_data.json`, etc. Public base URL is set via `R2_PUBLIC_BASE_URL` / `docs/data-config.js`. |
+| **Slim first paint** | Pages prefer slim artifacts (`home_feed`, `legislators_directory`, `hearings`) so mobile never parses a full ~100–200MB `site_data.json` on load. |
+| **GitHub Actions** | Pipelines: daily update, Open States sync, summarize, R2 upload (see `.github/workflows/`). |
+| **Cloudflare Worker** | [`policywatch-api`](workers/policywatch-api) — search/health API at [https://policywatch-api.wesley-a-emberlin.workers.dev](https://policywatch-api.wesley-a-emberlin.workers.dev), R2 binding `BUCKET` → bucket `civicwatch-data`. |
+
+### Data pipeline (high level)
+
+1. **Fetch** — RSS, Kansas API, Congress.gov, Open States sync, YouTube live status.
+2. **Normalize** — Unified bill/event records (`src/processing/normalize_data.py`).
+3. **Enrich** — Kansas API details, veteran impact classification (`veteran_impact.py`), optional AI topics.
+4. **Summarize** — Build site artifacts; emit slim feeds for the homepage and directories.
+5. **Deploy** — Commit UI/docs updates to GitHub Pages; upload heavy JSON to R2.
 
 ### Veteran impact classification
 
-All tracked states (including Colorado) and federal bills use keyword rules in `src/processing/veteran_impact.py` aligned with Colorado tracker scoring factors: benefits / VA healthcare / housing / disability → Red; employment, licensing, courts, mental health, military spouse → Yellow; recognition / memorials / honor resolutions → Green. Colorado CSV impact levels override keyword rules when present. Client fallback keywords in `docs/home.js` stay in sync with the Python lists.
+All tracked states and federal bills use keyword rules in `src/processing/veteran_impact.py` (benefits / VA healthcare / housing / disability → Red; employment, licensing, courts, mental health, military spouse → Yellow; recognition / memorials → Green). Colorado CSV impact levels override keyword rules when present.
 
 ### Supplemental state sources (outside Open States)
 
@@ -82,12 +90,49 @@ Config: `config/state_feeds.yaml`
 
 ---
 
+## Tech stack
+
+| Layer | Technologies |
+|-------|----------------|
+| **Frontend** | Static HTML, vanilla JavaScript, [Tailwind CSS](https://tailwindcss.com/) (CDN), `theme.css` |
+| **Maps** | [Leaflet](https://leafletjs.com/) + GeoJSON |
+| **Hosting** | GitHub Pages (`/docs`) + custom domain **policywatch.us** |
+| **Object storage** | Cloudflare R2 (`civicwatch-data`) |
+| **API** | Cloudflare Worker (`workers/policywatch-api`) |
+| **Data pipeline** | Python 3.11 — fetch, normalize, enrich, summarize |
+| **Configuration** | YAML (`config/states.yaml`, `config/livestreams.yaml`) |
+| **APIs & feeds** | [Open States](https://openstates.org/), [Congress.gov](https://api.congress.gov/), Kansas Legislature REST, RSS/Atom, Cactus Watch (AZ), Utah committee RSS, YouTube |
+| **CI/CD** | GitHub Actions — daily update, Open States sync, summarize, R2 upload, tests, email |
+| **Testing** | [pytest](https://pytest.org/) |
+
+Python deps: see [`requirements.txt`](requirements.txt).
+
+---
+
+## Repository layout
+
+```
+policy-watch/
+├── docs/                      # GitHub Pages site (static UI)
+├── workers/policywatch-api/   # Cloudflare Worker (R2-backed API)
+├── src/processing/            # Python ETL: fetch, normalize, summarize, R2 sync
+├── src/adapters/              # Data source adapters (Open States, Congress)
+├── data/                      # Raw & normalized legislative JSON, GeoJSON
+├── config/                    # State and livestream configuration
+├── scripts/                   # One-off import / maintenance scripts
+├── tests/                     # pytest suite
+└── .github/workflows/         # daily, openstates, summarize, R2 upload, email, tests
+```
+
+---
+
 ## Local development
 
 ### Prerequisites
 
 - Python 3.11+
 - Git
+- Node.js (for the Worker)
 
 ### Setup
 
@@ -113,17 +158,39 @@ pytest
 
 ### Preview the site locally
 
-Serve the `docs/` folder with any static file server, e.g.:
-
 ```bash
 python -m http.server 8080 --directory docs
 ```
 
-Then open `http://localhost:8080/index.html`.
+Open `http://localhost:8080/index.html`. Large JSON still loads from R2 when `docs/data-config.js` points at the public bucket URL.
+
+### Worker (local)
+
+```bash
+cd workers/policywatch-api
+npm install
+npx wrangler dev --remote
+```
+
+Uses `wrangler login` and the R2 bucket binding in `wrangler.toml` (`civicwatch-data`). `--remote` talks to the real R2 bucket.
 
 ---
 
-## GitHub Actions secrets (optional)
+## Secrets / environment
+
+### GitHub Actions (R2 upload & sync)
+
+| Secret | Purpose |
+|--------|---------|
+| `R2_ACCOUNT_ID` | Cloudflare account ID for R2 S3 API |
+| `R2_ACCESS_KEY_ID` | R2 API access key |
+| `R2_SECRET_ACCESS_KEY` | R2 API secret key |
+| `R2_BUCKET_NAME` | Bucket name (e.g. `civicwatch-data`) |
+| `R2_PUBLIC_BASE_URL` | Public HTTPS base for browser fetches |
+
+Used by daily / Open States / upload workflows via `src/processing/r2_sync.py`.
+
+### Other optional secrets
 
 | Secret | Purpose |
 |--------|---------|
@@ -132,35 +199,17 @@ Then open `http://localhost:8080/index.html`.
 | `ELEVENLABS_API_KEY` | Weekly overview audio narration |
 | SMTP credentials | Email digest delivery (see `daily_email.yml`) |
 
-Workflows degrade gracefully when secrets are not set.
+Workflows degrade gracefully when optional secrets are unset; R2 secrets are required for production data publish.
 
----
+### Worker
 
-## Tracked jurisdictions
-
-| Code | Jurisdiction |
-|------|--------------|
-| Federal | U.S. Congress (House & Senate) |
-| KS | Kansas |
-| CO | Colorado |
-| AZ | Arizona |
-| UT | Utah |
-| ME | Maine |
-| NE | Nebraska |
-| MD | Maryland |
-| PA | Pennsylvania |
-| MA | Massachusetts |
-| WV | West Virginia |
-| TN | Tennessee |
-| NC | North Carolina |
-| MO | Missouri |
-| IA | Iowa |
+Auth is via `wrangler login` (or CI deploy tokens). The Worker does **not** use the `R2_*` S3 secrets — it uses the R2 binding in `wrangler.toml` (`BUCKET` → `civicwatch-data`).
 
 ---
 
 ## Contributing
 
-Issues and pull requests are welcome. When changing data pipelines, run `pytest` and regenerate `docs/site_data.json` if schema or classification logic changes.
+Issues and pull requests are welcome. When changing data pipelines, run `pytest` and regenerate site artifacts if schema or classification logic changes.
 
 ---
 
