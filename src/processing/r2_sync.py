@@ -18,6 +18,16 @@ if str(ROOT / "src") not in sys.path:
 # Refuse to publish a search archive that is drastically smaller than the
 # normalized corpus (guards against rebuilding from stale site_data.json).
 HOME_SEARCH_MIN_COVERAGE = 0.90
+HOME_SEARCH_MAX_ABS_SHORTFALL = 10_000
+
+# Refuse to publish truncated normalized corpus artifacts when local counts diverge.
+NORMALIZED_COUNT_MAX_REL_GAP = 0.10
+NORMALIZED_COUNT_MAX_ABS_GAP = 5_000
+CRITICAL_NORMALIZED_KEYS = (
+    "data/normalized/meta.json",
+    "data/normalized/bills.json",
+    "data/normalized/search_index.json",
+)
 
 # Browser-facing files under docs/ (R2 key == path relative to docs/)
 DOCS_UPLOAD_FILES = [
@@ -114,6 +124,17 @@ def _collect_pipeline_files() -> List[Tuple[Path, str]]:
     return pairs
 
 
+def _meta_bill_count(meta: Any) -> Optional[int]:
+    counts = meta.get("counts") if isinstance(meta, dict) else None
+    if not isinstance(counts, dict):
+        return None
+    try:
+        value = int(counts.get("bills") or 0)
+    except (TypeError, ValueError):
+        return None
+    return value if value > 0 else None
+
+
 def _normalized_bill_count() -> Optional[int]:
     meta_path = ROOT / "data" / "normalized" / "meta.json"
     if not meta_path.is_file():
@@ -122,18 +143,73 @@ def _normalized_bill_count() -> Optional[int]:
         meta = json.loads(meta_path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
         return None
-    counts = meta.get("counts") if isinstance(meta, dict) else None
-    if not isinstance(counts, dict):
-        return None
-    try:
-        return int(counts.get("bills") or 0) or None
-    except (TypeError, ValueError):
-        return None
+    return _meta_bill_count(meta)
 
 
 def _bill_count(index: Optional[Dict[str, Any]]) -> int:
     bills = (index or {}).get("bills") if isinstance(index, dict) else None
     return len(bills) if isinstance(bills, list) else 0
+
+
+def _counts_diverge(
+    a: int,
+    b: int,
+    *,
+    max_rel: float = NORMALIZED_COUNT_MAX_REL_GAP,
+    max_abs: int = NORMALIZED_COUNT_MAX_ABS_GAP,
+) -> bool:
+    """True when two positive counts diverge by >max_rel or >max_abs."""
+    if a < 0 or b < 0:
+        return True
+    gap = abs(a - b)
+    if gap == 0:
+        return False
+    larger = max(a, b, 1)
+    return gap > max_abs or (gap / larger) > max_rel
+
+
+def _count_bills_in_normalized_file(path: Path, key: str) -> Optional[int]:
+    """Return bill count for a critical normalized artifact, or None if unreadable."""
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        print(f"warning: could not read {path}: {exc}")
+        return None
+    if key.endswith("/meta.json"):
+        return _meta_bill_count(data)
+    if key.endswith("/bills.json"):
+        return len(data) if isinstance(data, list) else None
+    if key.endswith("/search_index.json"):
+        n = _bill_count(data if isinstance(data, dict) else None)
+        return n if n > 0 else None
+    return None
+
+
+def _collect_normalized_bill_counts(
+    paths: Optional[Sequence[Tuple[Path, str]]] = None,
+) -> Dict[str, int]:
+    """Bill counts for critical normalized files that exist locally."""
+    by_key = {key: path for path, key in (paths or [])}
+    counts: Dict[str, int] = {}
+    for key in CRITICAL_NORMALIZED_KEYS:
+        path = by_key.get(key) or (ROOT / key)
+        if not path.is_file():
+            continue
+        n = _count_bills_in_normalized_file(path, key)
+        if n is not None:
+            counts[key] = n
+    return counts
+
+
+def _normalized_consistency_issues(counts: Dict[str, int]) -> List[str]:
+    """Return human-readable issues when critical normalized counts diverge hard."""
+    items = sorted(counts.items())
+    issues: List[str] = []
+    for i, (key_a, count_a) in enumerate(items):
+        for key_b, count_b in items[i + 1 :]:
+            if _counts_diverge(count_a, count_b):
+                issues.append(f"{key_a}={count_a} vs {key_b}={count_b}")
+    return issues
 
 
 def prefer_search_index(
@@ -292,14 +368,55 @@ def _validate_docs_upload(paths: Sequence[Tuple[Path, str]]) -> None:
         search_n = len(bills) if isinstance(bills, list) else 0
         expected = _normalized_bill_count()
         print(f"home_search_bills.json OK ({search_n} bills)")
-        if expected and search_n < int(expected * HOME_SEARCH_MIN_COVERAGE):
-            raise SystemExit(
-                f"Refusing to upload home_search_bills.json with {search_n} bills; "
-                f"normalized corpus has {expected} bills "
-                f"(need >= {HOME_SEARCH_MIN_COVERAGE:.0%} coverage). "
-                "Download data/normalized/search_index.json and rebuild with "
-                "python src/processing/r2_sync.py rebuild-home-feeds"
-            )
+        if expected:
+            shortfall = expected - search_n
+            min_coverage = int(expected * HOME_SEARCH_MIN_COVERAGE)
+            if search_n < min_coverage or shortfall > HOME_SEARCH_MAX_ABS_SHORTFALL:
+                raise SystemExit(
+                    f"Refusing to upload home_search_bills.json with {search_n} bills; "
+                    f"normalized corpus has {expected} bills "
+                    f"(need >= {HOME_SEARCH_MIN_COVERAGE:.0%} coverage and "
+                    f"shortfall <= {HOME_SEARCH_MAX_ABS_SHORTFALL}). "
+                    "Download data/normalized/search_index.json and rebuild with "
+                    "python src/processing/r2_sync.py rebuild-home-feeds"
+                )
+
+
+def _validate_normalized_upload(
+    paths: Sequence[Tuple[Path, str]],
+) -> List[Tuple[Path, str]]:
+    """Skip critical normalized keys when meta/bills/search_index counts diverge hard."""
+    by_key = {key: path for path, key in paths}
+    uploading_critical = [key for key in CRITICAL_NORMALIZED_KEYS if key in by_key]
+    if not uploading_critical:
+        return list(paths)
+
+    counts = _collect_normalized_bill_counts(paths)
+    # Only compare among files that exist; require at least two signals.
+    if len(counts) < 2:
+        for key, n in sorted(counts.items()):
+            print(f"{key} bill count OK ({n})")
+        return list(paths)
+
+    issues = _normalized_consistency_issues(counts)
+    summary = ", ".join(f"{Path(k).name}={n}" for k, n in sorted(counts.items()))
+    if not issues:
+        print(f"normalized bill counts OK ({summary})")
+        return list(paths)
+
+    detail = "; ".join(issues)
+    print(
+        f"WARNING: refusing upload of critical normalized keys due to count mismatch "
+        f"({summary}). Divergences: {detail}"
+    )
+    raise SystemExit(
+        "Refusing to upload truncated/inconsistent normalized data: "
+        f"{detail}. "
+        f"Need meta.counts.bills ≈ len(bills) ≈ len(search_index.bills) "
+        f"(within {NORMALIZED_COUNT_MAX_REL_GAP:.0%} or "
+        f"{NORMALIZED_COUNT_MAX_ABS_GAP} bills). "
+        "Re-run normalize_data before publishing."
+    )
 
 
 def upload(paths: Sequence[Tuple[Path, str]], *, dry_run: bool = False) -> int:
@@ -307,6 +424,7 @@ def upload(paths: Sequence[Tuple[Path, str]], *, dry_run: bool = False) -> int:
     if not dry_run:
         bucket = _require_env("R2_BUCKET_NAME")
     _validate_docs_upload(paths)
+    paths = _validate_normalized_upload(paths)
     if dry_run:
         for path, key in paths:
             print(f"DRY-RUN upload {path} -> s3://{bucket}/{key} ({path.stat().st_size} bytes)")

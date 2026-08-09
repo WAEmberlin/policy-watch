@@ -81,3 +81,95 @@ def test_validate_docs_upload_rejects_incomplete_home_search(monkeypatch, tmp_pa
                 (search, "home_search_bills.json"),
             ]
         )
+
+
+def test_validate_docs_upload_rejects_home_search_absolute_shortfall(monkeypatch, tmp_path):
+    docs = tmp_path / "docs"
+    docs.mkdir()
+    normalized = tmp_path / "data" / "normalized"
+    normalized.mkdir(parents=True)
+    monkeypatch.setattr(mod, "HOME_SEARCH_MAX_ABS_SHORTFALL", 50)
+    # 90% coverage passes the relative bar; absolute shortfall must still refuse.
+    expected = 1000
+    search_n = 900
+    (normalized / "meta.json").write_text(
+        json.dumps({"counts": {"bills": expected}}),
+        encoding="utf-8",
+    )
+    home_feed = docs / "home_feed.json"
+    home_feed.write_text(
+        json.dumps({"home_feed": True, "available_dates": ["2026-08-04"]}),
+        encoding="utf-8",
+    )
+    search = docs / "home_search_bills.json"
+    search.write_text(
+        json.dumps({"home_search_bills": True, "bills": [{"bill_number": "A"}] * search_n}),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(mod, "ROOT", tmp_path)
+    with pytest.raises(SystemExit, match="shortfall"):
+        mod._validate_docs_upload(
+            [
+                (home_feed, "home_feed.json"),
+                (search, "home_search_bills.json"),
+            ]
+        )
+
+
+def test_counts_diverge_relative_and_absolute():
+    assert not mod._counts_diverge(1000, 1000)
+    assert not mod._counts_diverge(100_000, 96_000)  # 4% < 10%, gap < 5k? 4000 < 5000
+    assert mod._counts_diverge(100_000, 80_000)  # 20% relative
+    assert mod._counts_diverge(100_000, 94_000)  # abs gap 6000 > 5000
+
+
+def test_validate_normalized_upload_accepts_consistent_counts(tmp_path):
+    normalized = tmp_path / "data" / "normalized"
+    normalized.mkdir(parents=True)
+    bills = [{"id": f"b{i}"} for i in range(100)]
+    meta = normalized / "meta.json"
+    bills_path = normalized / "bills.json"
+    search_path = normalized / "search_index.json"
+    meta.write_text(json.dumps({"counts": {"bills": 100}}), encoding="utf-8")
+    bills_path.write_text(json.dumps(bills), encoding="utf-8")
+    search_path.write_text(json.dumps({"bills": bills}), encoding="utf-8")
+
+    kept = mod._validate_normalized_upload(
+        [
+            (meta, "data/normalized/meta.json"),
+            (bills_path, "data/normalized/bills.json"),
+            (search_path, "data/normalized/search_index.json"),
+        ]
+    )
+    assert len(kept) == 3
+
+
+def test_validate_normalized_upload_refuses_truncated_bills(tmp_path):
+    normalized = tmp_path / "data" / "normalized"
+    normalized.mkdir(parents=True)
+    meta = normalized / "meta.json"
+    bills_path = normalized / "bills.json"
+    search_path = normalized / "search_index.json"
+    meta.write_text(json.dumps({"counts": {"bills": 10_000}}), encoding="utf-8")
+    bills_path.write_text(json.dumps([{"id": "x"}] * 100), encoding="utf-8")
+    search_path.write_text(
+        json.dumps({"bills": [{"id": "x"}] * 10_000}),
+        encoding="utf-8",
+    )
+
+    with pytest.raises(SystemExit, match="truncated/inconsistent normalized"):
+        mod._validate_normalized_upload(
+            [
+                (meta, "data/normalized/meta.json"),
+                (bills_path, "data/normalized/bills.json"),
+                (search_path, "data/normalized/search_index.json"),
+            ]
+        )
+
+
+def test_validate_normalized_upload_skips_when_no_critical_keys(tmp_path):
+    other = tmp_path / "docs" / "live_status.json"
+    other.parent.mkdir(parents=True)
+    other.write_text("{}", encoding="utf-8")
+    kept = mod._validate_normalized_upload([(other, "live_status.json")])
+    assert kept == [(other, "live_status.json")]

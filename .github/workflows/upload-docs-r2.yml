@@ -80,8 +80,10 @@ jobs:
               f"search_bills={search_n} normalized_bills={expected}"
           )
           assert expected > 0, "normalized meta missing bill count"
-          assert search_n >= int(expected * 0.90), (
-              f"home_search_bills.json too small ({search_n} < 90% of {expected})"
+          shortfall = expected - search_n
+          assert search_n >= int(expected * 0.90) and shortfall <= 10000, (
+              f"home_search_bills.json too small "
+              f"({search_n}; need >=90% of {expected} and shortfall<=10000)"
           )
           print(f"home_search size={Path('docs/home_search_bills.json').stat().st_size} bytes")
           leg_dir = json.load(open("docs/legislators_directory.json", encoding="utf-8"))
