@@ -1,0 +1,7 @@
+name = "policywatch-api"
+main = "src/index.ts"
+compatibility_date = "2025-08-01"
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "PolicyWatch-data"

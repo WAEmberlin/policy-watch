@@ -3,6 +3,7 @@ __pycache__/
 .pytest_cache/
 .env
 .venv/
+node_modules/
 data/historic/
 data/nebraska/*
 !data/nebraska/README.md
