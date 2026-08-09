@@ -288,7 +288,8 @@ function initSearchDateDefaults() {
 }
 
 /**
- * Read From/To date inputs. Empty means no bound.
+ * Read From/To date inputs. Empty From means no lower bound.
+ * To is required for search (enforced in performSearch).
  * If both set and from > to, swap input values and show a brief note.
  */
 function getSearchDateRange() {
@@ -299,11 +300,11 @@ function getSearchDateRange() {
 
     if (from && !isValidYYYYMMDD(from)) {
         setSearchDateError("From date must be a valid date.");
-        return { dateFrom: null, dateTo: null, invalid: true };
+        return { dateFrom: null, dateTo: null, invalid: true, missingTo: !to };
     }
     if (to && !isValidYYYYMMDD(to)) {
         setSearchDateError("To date must be a valid date.");
-        return { dateFrom: null, dateTo: null, invalid: true };
+        return { dateFrom: null, dateTo: null, invalid: true, missingTo: false };
     }
 
     if (from && to && from > to) {
@@ -313,7 +314,7 @@ function getSearchDateRange() {
         from = to;
         to = tmp;
         setSearchDateError("From was after To — dates were swapped.");
-    } else {
+    } else if (to) {
         setSearchDateError("");
     }
 
@@ -321,6 +322,7 @@ function getSearchDateRange() {
         dateFrom: from || null,
         dateTo: to || null,
         invalid: false,
+        missingTo: !to,
     };
 }
 
@@ -1263,16 +1265,23 @@ function runSearchAgainstLoadedData(queryLower, dateFrom = null, dateTo = null) 
 
 async function performSearch(query) {
     const trimmed = String(query || "").trim();
-    const { dateFrom, dateTo, invalid } = getSearchDateRange();
+    const { dateFrom, dateTo, invalid, missingTo } = getSearchDateRange();
     const hasDateFilter = Boolean(dateFrom || dateTo);
 
     // Empty query with no dates → leave search mode and show the feed.
     if (!trimmed && !hasDateFilter) {
+        setSearchDateError("");
         searchMode = false;
         searchQuery = "";
         if (currentYear) {
             displayUnifiedView(currentYear, 0);
         }
+        return;
+    }
+
+    // To is required before any API/fallback search.
+    if (missingTo) {
+        setSearchDateError("Enter an end date (To)");
         return;
     }
 
@@ -1622,6 +1631,7 @@ function renderPagination(year, current, total, dateRange, itemPagination) {
 function setupSearch() {
     const searchInput = document.getElementById("search-input");
     const searchButton = document.getElementById("search-button");
+    const updateSearchButton = document.getElementById("update-search");
     const clearButton = document.getElementById("clear-search");
     const dateFromEl = document.getElementById("search-date-from");
     const dateToEl = document.getElementById("search-date-to");
@@ -1645,17 +1655,28 @@ function setupSearch() {
         searchDebounce = setTimeout(handleSearch, 400);
     });
 
+    // Auto-run on date change only when both From and To are set (To required).
+    // Prefer the explicit "Update search" control when dates are incomplete.
     const onDateChange = () => {
         const q = searchInput.value.trim();
-        const { dateFrom, dateTo, invalid } = getSearchDateRange();
+        const { dateFrom, dateTo, invalid, missingTo } = getSearchDateRange();
         if (invalid) return;
-        // Re-run when there is a usable text query, or date-only browse (both dates set).
-        if (q.length >= SEARCH_MIN_CHARS || (dateFrom && dateTo) || searchMode) {
+        if (missingTo || !dateFrom || !dateTo) {
+            if (missingTo && (q || dateFrom || searchMode)) {
+                setSearchDateError("Enter an end date (To)");
+            }
+            return;
+        }
+        if (q.length >= SEARCH_MIN_CHARS || searchMode || (dateFrom && dateTo)) {
             handleSearch();
         }
     };
     if (dateFromEl) dateFromEl.addEventListener("change", onDateChange);
     if (dateToEl) dateToEl.addEventListener("change", onDateChange);
+
+    if (updateSearchButton) {
+        updateSearchButton.addEventListener("click", handleSearch);
+    }
 
     if (searchButton) {
         searchButton.addEventListener("click", handleSearch);
