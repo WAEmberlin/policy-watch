@@ -1,5 +1,5 @@
 {
-  "last_fetched": "2026-08-10T15:31:36.356109+00:00",
+  "last_fetched": "2026-08-10T16:27:31.688054+00:00",
   "feed_url": "https://le.utah.gov/asp/billtrack/comrssfeed.asp?com=INTBUS|SPECWL|APPCRI|APPECD|INTEDW|INTEDU|SPEEJC|APPEXE|SPEFFO|SPEFED|APPGEN|SPEADM|INTGOC|INTHHS|APPHED|HSTBUS|HSTEDW|HSTEDU|HSTETH|HSTGOC|HSTHHS|HSTJUD|HSTLAW|SPEHEO|HSTNAE|HSTPOL|HSTPUT|HSTREV|HSTRUL|HSTTRA|INTJUD|INTLAW|SPEAUD|SPEMAN|SPELPC|SPELRD|SPESWD|SPEMCG|SPENAL|INTNAE|APPNAE|SPEOLY|INTPOL|APPPED|INTPUT|INTRIE|INTREV|SPERZC|SSTBUS|SPEBUS|SSTEDW|SPEEDW|SSTEDU|SPEEDU|SSTETH|SSTGOP|SPEGOV|SSTHHS|SPEHHS|SPESJC|SPEJUD|SSTJLC|SPELEC|SPESEO|SSTNAE|SPENAT|SPEPOL|SPERET|SSTREV|SPEREV|SSTRUL|SSTTPT|SPETRA|APPSOC|SUBOVE|APPTIF|INTTRA|TSKBHL|SPEUSL|SPEVMA",
   "entry_count": 70,
   "hearing_count": 541,
@@ -1192,20 +1192,25 @@
       "committee": "Elected Officials and Judicial Compensation Commission",
       "committee_code": "",
       "committee_link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=speejc",
-      "link": "http://le.utah.gov/Interim/2026/html/00002828.htm",
-      "url": "http://le.utah.gov/Interim/2026/html/00002828.htm",
-      "stream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&amp;com=speejc</span",
+      "link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=speejc",
+      "url": "http://le.utah.gov/committee/committee.jsp?year=2026&com=speejc",
+      "stream_url": "",
       "source": "State (Utah)",
       "state": "UT",
       "level": "state",
-      "description": "Committee meeting scheduled",
-      "agenda_items": [],
+      "description": "1. Welcome/Call to Order; 2. Review of June 2026 Meeting Minutes; 3. Review of SB235 with Associate General Counsel Michael Cipriano",
+      "agenda_items": [
+        "1. Welcome/Call to Order",
+        "2. Review of June 2026 Meeting Minutes",
+        "3. Review of SB235 with Associate General Counsel Michael Cipriano",
+        "4. Elected Officials Compensation Information",
+        "5. Other Business/Adjourn"
+      ],
       "feed": "utah_committee_rss",
-      "notice_date": "Tuesday, August 11",
-      "notice_time": "12:00pm PLACE:",
+      "notice_date": "",
+      "notice_time": "",
       "notice_place": "",
-      "livestream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&amp;com=speejc</span",
-      "notice_enriched_at": "2026-07-03T05:29:06.186875+00:00"
+      "livestream_url": ""
     },
     {
       "title": "Elected Officials and Judicial Compensation Commission — 6/10/2026",
