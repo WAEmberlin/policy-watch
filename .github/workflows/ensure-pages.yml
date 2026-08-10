@@ -38,6 +38,9 @@ jobs:
       - name: Ensure latest main is live on GitHub Pages
         uses: actions/github-script@v7
         with:
+          # Retry transient GitHub API outages (502/503/504) instead of failing the job.
+          retries: 6
+          retry-exempt-status-codes: 400,401,403,404,422
           script: |
             const owner = context.repo.owner;
             const repo = context.repo.repo;
@@ -50,13 +53,40 @@ jobs:
             const sleep = (seconds) =>
               new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 
+            function isTransientApiError(error) {
+              const status = error?.status ?? error?.response?.status;
+              return [429, 500, 502, 503, 504].includes(status);
+            }
+
+            async function withApiRetry(label, fn, attempts = 6) {
+              let lastError;
+              for (let attempt = 1; attempt <= attempts; attempt++) {
+                try {
+                  return await fn();
+                } catch (error) {
+                  lastError = error;
+                  if (!isTransientApiError(error) || attempt === attempts) {
+                    throw error;
+                  }
+                  const waitSeconds = Math.min(60, 5 * attempt);
+                  core.warning(
+                    `${label} hit transient API ${error.status || "error"} (attempt ${attempt}/${attempts}); retrying in ${waitSeconds}s`
+                  );
+                  await sleep(waitSeconds);
+                }
+              }
+              throw lastError;
+            }
+
             async function getMainHead() {
-              const { data: ref } = await github.rest.git.getRef({
-                owner,
-                repo,
-                ref: "heads/main",
+              return withApiRetry("getMainHead", async () => {
+                const { data: ref } = await github.rest.git.getRef({
+                  owner,
+                  repo,
+                  ref: "heads/main",
+                });
+                return ref.object.sha;
               });
-              return ref.object.sha;
             }
 
             async function getLatestBuild() {
