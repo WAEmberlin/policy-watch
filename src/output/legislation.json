@@ -186,6 +186,11 @@
     "latest_action_date": "2026-08-10T00:00:00",
     "actions": [
       {
+        "text": "Message on Senate action sent to the House.",
+        "actionDate": "2026-08-10",
+        "type": "Floor"
+      },
+      {
         "text": "Held at the desk.",
         "actionDate": "2026-08-10",
         "type": "Floor",
@@ -719,6 +724,11 @@
     "latest_action": "Held at the desk.",
     "latest_action_date": "2026-08-10T00:00:00",
     "actions": [
+      {
+        "text": "Message on Senate action sent to the House.",
+        "actionDate": "2026-08-10",
+        "type": "Floor"
+      },
       {
         "text": "Held at the desk.",
         "actionDate": "2026-08-10",
@@ -1675,6 +1685,465 @@
     "last_synced_at": "2026-08-11T11:23:43.444334+00:00"
   },
   {
+    "bill_number": "2069",
+    "bill_type": "HR",
+    "title": "Stop Secret Spending Act of 2025",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Message on Senate action sent to the House.",
+    "latest_action_date": "2026-08-10T00:00:00",
+    "actions": [
+      {
+        "text": "Message on Senate action sent to the House.",
+        "actionDate": "2026-08-10",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed Senate without amendment by Unanimous Consent. (consideration: CR S4547)",
+        "actionDate": "2026-08-07",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Received in the Senate, read twice.",
+        "actionDate": "2026-07-21",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-07-20",
+        "type": "Floor",
+        "actionTime": "16:53:24",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H4657-4658)",
+        "actionDate": "2026-07-20",
+        "type": "Floor",
+        "actionTime": "16:53:23",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H4657-4658)",
+        "actionDate": "2026-07-20",
+        "type": "Floor",
+        "actionTime": "16:53:23",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 2069.",
+        "actionDate": "2026-07-20",
+        "type": "Floor",
+        "actionTime": "16:46:49",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H4657-4659)",
+        "actionDate": "2026-07-20",
+        "type": "Floor",
+        "actionTime": "16:46:48",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Burlison moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-07-20",
+        "type": "Floor",
+        "actionTime": "16:46:07",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Ordered to be Reported (Amended) by the Yeas and Nays: 40 - 0.",
+        "actionDate": "2026-03-18",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2026-03-18",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2025-03-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-03-11",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-03-11",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Message on Senate action sent to the House.",
+    "votes": [],
+    "introduced_date": "2025-03-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/2069",
+    "published": "2025-03-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "official_title": "To amend the Federal Funding Accountability and Transparency Act of 2006 to ensure that other transaction agreements are reported to USAspending.gov, and for other purposes.",
+    "short_title": "Stop Secret Spending Act of 2025",
+    "last_synced_at": "2026-08-11T12:14:39.524233+00:00"
+  },
+  {
+    "bill_number": "2196",
+    "bill_type": "HR",
+    "title": "National Emergency Medical Services Memorial Extension Act",
+    "summary": "",
+    "sponsor_name": "",
+    "latest_action": "Message on Senate action sent to the House.",
+    "latest_action_date": "2026-08-10T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/2196",
+    "published": "2025-03-18T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "official_title": "To provide for an extension of the legislative authority of the National Emergency Medical Services Memorial Foundation to establish a commemorative work in the District of Columbia and its environs.",
+    "short_title": "To provide for an extension of the legislative authority of the National Emergency Medical Services Memorial Foundation to establish a commemorative work in the District of Columbia and its environs.",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "actions": [
+      {
+        "text": "Message on Senate action sent to the House.",
+        "actionDate": "2026-08-10",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed Senate without amendment by Unanimous Consent. (consideration: CR S4551)",
+        "actionDate": "2026-08-07",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Senate Committee on Energy and Natural Resources discharged by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Discharge"
+      },
+      {
+        "text": "Senate Committee on Energy and Natural Resources discharged by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Committee",
+        "actionCode": "14500"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2026-03-17",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-03-16",
+        "type": "Floor",
+        "actionTime": "17:35:21",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H2523)",
+        "actionDate": "2026-03-16",
+        "type": "Floor",
+        "actionTime": "17:35:18",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H2523)",
+        "actionDate": "2026-03-16",
+        "type": "Floor",
+        "actionTime": "17:35:18",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 2196.",
+        "actionDate": "2026-03-16",
+        "type": "Floor",
+        "actionTime": "17:29:48",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H2523-2524)",
+        "actionDate": "2026-03-16",
+        "type": "Floor",
+        "actionTime": "17:29:47",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Wittman moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2026-03-16",
+        "type": "Floor",
+        "actionTime": "17:29:35",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 443.",
+        "actionDate": "2026-02-24",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Natural Resources. H. Rept. 119-518.",
+        "actionDate": "2026-02-24",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Natural Resources. H. Rept. 119-518.",
+        "actionDate": "2026-02-24",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported in the Nature of a Substitute (Amended) by Unanimous Consent.",
+        "actionDate": "2026-02-11",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2026-02-11",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Subcommittee on Federal Lands Discharged",
+        "actionDate": "2026-02-11",
+        "type": "Committee",
+        "actionCode": "H25000"
+      },
+      {
+        "text": "Subcommittee Hearings Held",
+        "actionDate": "2025-09-18",
+        "type": "Committee",
+        "actionCode": "H21000"
+      },
+      {
+        "text": "Referred to the Subcommittee on Federal Lands.",
+        "actionDate": "2025-09-11",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
+        "text": "Referred to the House Committee on Natural Resources.",
+        "actionDate": "2025-03-18",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-03-18",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-03-18",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Message on Senate action sent to the House.",
+    "votes": [],
+    "introduced_date": "2025-03-18T00:00:00",
+    "last_synced_at": "2026-08-11T12:14:39.524233+00:00"
+  },
+  {
+    "bill_number": "1276",
+    "bill_type": "HR",
+    "title": "To remove restrictions from a parcel of land in Paducah, Kentucky.",
+    "summary": "",
+    "sponsor_name": "",
+    "latest_action": "Message on Senate action sent to the House.",
+    "latest_action_date": "2026-08-10T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/1276",
+    "published": "2025-02-13T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "official_title": "To remove restrictions from a parcel of land in Paducah, Kentucky.",
+    "short_title": "To remove restrictions from a parcel of land in Paducah, Kentucky.",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "actions": [
+      {
+        "text": "Message on Senate action sent to the House.",
+        "actionDate": "2026-08-10",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed Senate without amendment by Unanimous Consent. (consideration: CR S4551-4552)",
+        "actionDate": "2026-08-07",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Senate Committee on Energy and Natural Resources discharged by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Discharge"
+      },
+      {
+        "text": "Senate Committee on Energy and Natural Resources discharged by Unanimous Consent.",
+        "actionDate": "2026-08-07",
+        "type": "Committee",
+        "actionCode": "14500"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-03-04",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-12-10",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "15:01:58",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H5073)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "15:01:55",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H5073)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "15:01:55",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 1276.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "14:54:42",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H5073-5074)",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "14:54:41",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Westerman moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2025-12-09",
+        "type": "Floor",
+        "actionTime": "14:54:20",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 237.",
+        "actionDate": "2025-09-15",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Natural Resources. H. Rept. 119-281.",
+        "actionDate": "2025-09-15",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Natural Resources. H. Rept. 119-281.",
+        "actionDate": "2025-09-15",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported (Amended) by Unanimous Consent.",
+        "actionDate": "2025-07-23",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-07-23",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Subcommittee on Federal Lands Discharged",
+        "actionDate": "2025-06-25",
+        "type": "Committee",
+        "actionCode": "H25000"
+      },
+      {
+        "text": "Subcommittee Hearings Held",
+        "actionDate": "2025-04-29",
+        "type": "Committee",
+        "actionCode": "H21000"
+      },
+      {
+        "text": "Referred to the Subcommittee on Federal Lands.",
+        "actionDate": "2025-04-23",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
+        "text": "Referred to the House Committee on Natural Resources.",
+        "actionDate": "2025-02-13",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-02-13",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-02-13",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Message on Senate action sent to the House.",
+    "votes": [],
+    "introduced_date": "2025-02-13T00:00:00",
+    "last_synced_at": "2026-08-11T12:14:39.524233+00:00"
+  },
+  {
     "bill_number": "3633",
     "bill_type": "HR",
     "title": "Digital Asset Market Clarity Act",
@@ -1914,465 +2383,6 @@
       }
     ],
     "introduced_date": "2025-05-29T00:00:00",
-    "last_synced_at": "2026-08-08T23:58:49.789725+00:00"
-  },
-  {
-    "bill_number": "2069",
-    "bill_type": "HR",
-    "title": "Stop Secret Spending Act of 2025",
-    "summary": "",
-    "sponsor_name": "",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "latest_action": "Passed Senate without amendment by Unanimous Consent.",
-    "latest_action_date": "2026-08-07T00:00:00",
-    "actions": [
-      {
-        "text": "Message on Senate action sent to the House.",
-        "actionDate": "2026-08-10",
-        "type": "Floor"
-      },
-      {
-        "text": "Passed Senate without amendment by Unanimous Consent. (consideration: CR S4547)",
-        "actionDate": "2026-08-07",
-        "type": "Floor"
-      },
-      {
-        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent.",
-        "actionDate": "2026-08-07",
-        "type": "Floor",
-        "actionCode": "17000"
-      },
-      {
-        "text": "Received in the Senate, read twice.",
-        "actionDate": "2026-07-21",
-        "type": "IntroReferral"
-      },
-      {
-        "text": "Motion to reconsider laid on the table Agreed to without objection.",
-        "actionDate": "2026-07-20",
-        "type": "Floor",
-        "actionTime": "16:53:24",
-        "actionCode": "H38310"
-      },
-      {
-        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H4657-4658)",
-        "actionDate": "2026-07-20",
-        "type": "Floor",
-        "actionTime": "16:53:23",
-        "actionCode": "H37300"
-      },
-      {
-        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H4657-4658)",
-        "actionDate": "2026-07-20",
-        "type": "Floor",
-        "actionTime": "16:53:23",
-        "actionCode": "8000"
-      },
-      {
-        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 2069.",
-        "actionDate": "2026-07-20",
-        "type": "Floor",
-        "actionTime": "16:46:49",
-        "actionCode": "H8D000"
-      },
-      {
-        "text": "Considered under suspension of the rules. (consideration: CR H4657-4659)",
-        "actionDate": "2026-07-20",
-        "type": "Floor",
-        "actionTime": "16:46:48",
-        "actionCode": "H30000"
-      },
-      {
-        "text": "Mr. Burlison moved to suspend the rules and pass the bill.",
-        "actionDate": "2026-07-20",
-        "type": "Floor",
-        "actionTime": "16:46:07",
-        "actionCode": "H30300"
-      },
-      {
-        "text": "Ordered to be Reported (Amended) by the Yeas and Nays: 40 - 0.",
-        "actionDate": "2026-03-18",
-        "type": "Committee",
-        "actionCode": "H19000"
-      },
-      {
-        "text": "Committee Consideration and Mark-up Session Held",
-        "actionDate": "2026-03-18",
-        "type": "Committee",
-        "actionCode": "H15001"
-      },
-      {
-        "text": "Referred to the House Committee on Oversight and Government Reform.",
-        "actionDate": "2025-03-11",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2025-03-11",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2025-03-11",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Passed Senate without amendment by Unanimous Consent.",
-    "votes": [],
-    "introduced_date": "2025-03-11T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/2069",
-    "published": "2025-03-11T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "official_title": "To amend the Federal Funding Accountability and Transparency Act of 2006 to ensure that other transaction agreements are reported to USAspending.gov, and for other purposes.",
-    "short_title": "Stop Secret Spending Act of 2025",
-    "last_synced_at": "2026-08-08T23:58:49.789725+00:00"
-  },
-  {
-    "bill_number": "2196",
-    "bill_type": "HR",
-    "title": "National Emergency Medical Services Memorial Extension Act",
-    "summary": "",
-    "sponsor_name": "",
-    "latest_action": "Passed Senate without amendment by Unanimous Consent.",
-    "latest_action_date": "2026-08-07T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/2196",
-    "published": "2025-03-18T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "official_title": "To provide for an extension of the legislative authority of the National Emergency Medical Services Memorial Foundation to establish a commemorative work in the District of Columbia and its environs.",
-    "short_title": "To provide for an extension of the legislative authority of the National Emergency Medical Services Memorial Foundation to establish a commemorative work in the District of Columbia and its environs.",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "actions": [
-      {
-        "text": "Message on Senate action sent to the House.",
-        "actionDate": "2026-08-10",
-        "type": "Floor"
-      },
-      {
-        "text": "Passed Senate without amendment by Unanimous Consent. (consideration: CR S4551)",
-        "actionDate": "2026-08-07",
-        "type": "Floor"
-      },
-      {
-        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent.",
-        "actionDate": "2026-08-07",
-        "type": "Floor",
-        "actionCode": "17000"
-      },
-      {
-        "text": "Senate Committee on Energy and Natural Resources discharged by Unanimous Consent.",
-        "actionDate": "2026-08-07",
-        "type": "Discharge"
-      },
-      {
-        "text": "Senate Committee on Energy and Natural Resources discharged by Unanimous Consent.",
-        "actionDate": "2026-08-07",
-        "type": "Committee",
-        "actionCode": "14500"
-      },
-      {
-        "text": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
-        "actionDate": "2026-03-17",
-        "type": "IntroReferral"
-      },
-      {
-        "text": "Motion to reconsider laid on the table Agreed to without objection.",
-        "actionDate": "2026-03-16",
-        "type": "Floor",
-        "actionTime": "17:35:21",
-        "actionCode": "H38310"
-      },
-      {
-        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H2523)",
-        "actionDate": "2026-03-16",
-        "type": "Floor",
-        "actionTime": "17:35:18",
-        "actionCode": "H37300"
-      },
-      {
-        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H2523)",
-        "actionDate": "2026-03-16",
-        "type": "Floor",
-        "actionTime": "17:35:18",
-        "actionCode": "8000"
-      },
-      {
-        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 2196.",
-        "actionDate": "2026-03-16",
-        "type": "Floor",
-        "actionTime": "17:29:48",
-        "actionCode": "H8D000"
-      },
-      {
-        "text": "Considered under suspension of the rules. (consideration: CR H2523-2524)",
-        "actionDate": "2026-03-16",
-        "type": "Floor",
-        "actionTime": "17:29:47",
-        "actionCode": "H30000"
-      },
-      {
-        "text": "Mr. Wittman moved to suspend the rules and pass the bill, as amended.",
-        "actionDate": "2026-03-16",
-        "type": "Floor",
-        "actionTime": "17:29:35",
-        "actionCode": "H30300"
-      },
-      {
-        "text": "Placed on the Union Calendar, Calendar No. 443.",
-        "actionDate": "2026-02-24",
-        "type": "Calendars",
-        "actionCode": "H12410"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Natural Resources. H. Rept. 119-518.",
-        "actionDate": "2026-02-24",
-        "type": "Committee",
-        "actionCode": "H12200"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Natural Resources. H. Rept. 119-518.",
-        "actionDate": "2026-02-24",
-        "type": "Committee",
-        "actionCode": "5000"
-      },
-      {
-        "text": "Ordered to be Reported in the Nature of a Substitute (Amended) by Unanimous Consent.",
-        "actionDate": "2026-02-11",
-        "type": "Committee",
-        "actionCode": "H19000"
-      },
-      {
-        "text": "Committee Consideration and Mark-up Session Held",
-        "actionDate": "2026-02-11",
-        "type": "Committee",
-        "actionCode": "H15001"
-      },
-      {
-        "text": "Subcommittee on Federal Lands Discharged",
-        "actionDate": "2026-02-11",
-        "type": "Committee",
-        "actionCode": "H25000"
-      },
-      {
-        "text": "Subcommittee Hearings Held",
-        "actionDate": "2025-09-18",
-        "type": "Committee",
-        "actionCode": "H21000"
-      },
-      {
-        "text": "Referred to the Subcommittee on Federal Lands.",
-        "actionDate": "2025-09-11",
-        "type": "Committee",
-        "actionCode": "H11000"
-      },
-      {
-        "text": "Referred to the House Committee on Natural Resources.",
-        "actionDate": "2025-03-18",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2025-03-18",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2025-03-18",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Passed Senate without amendment by Unanimous Consent.",
-    "votes": [],
-    "introduced_date": "2025-03-18T00:00:00",
-    "last_synced_at": "2026-08-08T23:58:49.789725+00:00"
-  },
-  {
-    "bill_number": "1276",
-    "bill_type": "HR",
-    "title": "To remove restrictions from a parcel of land in Paducah, Kentucky.",
-    "summary": "",
-    "sponsor_name": "",
-    "latest_action": "Passed Senate without amendment by Unanimous Consent.",
-    "latest_action_date": "2026-08-07T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/1276",
-    "published": "2025-02-13T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "official_title": "To remove restrictions from a parcel of land in Paducah, Kentucky.",
-    "short_title": "To remove restrictions from a parcel of land in Paducah, Kentucky.",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "actions": [
-      {
-        "text": "Message on Senate action sent to the House.",
-        "actionDate": "2026-08-10",
-        "type": "Floor"
-      },
-      {
-        "text": "Passed Senate without amendment by Unanimous Consent. (consideration: CR S4551-4552)",
-        "actionDate": "2026-08-07",
-        "type": "Floor"
-      },
-      {
-        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent.",
-        "actionDate": "2026-08-07",
-        "type": "Floor",
-        "actionCode": "17000"
-      },
-      {
-        "text": "Senate Committee on Energy and Natural Resources discharged by Unanimous Consent.",
-        "actionDate": "2026-08-07",
-        "type": "Discharge"
-      },
-      {
-        "text": "Senate Committee on Energy and Natural Resources discharged by Unanimous Consent.",
-        "actionDate": "2026-08-07",
-        "type": "Committee",
-        "actionCode": "14500"
-      },
-      {
-        "text": "Committee on Energy and Natural Resources. Ordered to be reported without amendment favorably.",
-        "actionDate": "2026-03-04",
-        "type": "Committee"
-      },
-      {
-        "text": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
-        "actionDate": "2025-12-10",
-        "type": "IntroReferral"
-      },
-      {
-        "text": "Motion to reconsider laid on the table Agreed to without objection.",
-        "actionDate": "2025-12-09",
-        "type": "Floor",
-        "actionTime": "15:01:58",
-        "actionCode": "H38310"
-      },
-      {
-        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H5073)",
-        "actionDate": "2025-12-09",
-        "type": "Floor",
-        "actionTime": "15:01:55",
-        "actionCode": "H37300"
-      },
-      {
-        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H5073)",
-        "actionDate": "2025-12-09",
-        "type": "Floor",
-        "actionTime": "15:01:55",
-        "actionCode": "8000"
-      },
-      {
-        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 1276.",
-        "actionDate": "2025-12-09",
-        "type": "Floor",
-        "actionTime": "14:54:42",
-        "actionCode": "H8D000"
-      },
-      {
-        "text": "Considered under suspension of the rules. (consideration: CR H5073-5074)",
-        "actionDate": "2025-12-09",
-        "type": "Floor",
-        "actionTime": "14:54:41",
-        "actionCode": "H30000"
-      },
-      {
-        "text": "Mr. Westerman moved to suspend the rules and pass the bill, as amended.",
-        "actionDate": "2025-12-09",
-        "type": "Floor",
-        "actionTime": "14:54:20",
-        "actionCode": "H30300"
-      },
-      {
-        "text": "Placed on the Union Calendar, Calendar No. 237.",
-        "actionDate": "2025-09-15",
-        "type": "Calendars",
-        "actionCode": "H12410"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Natural Resources. H. Rept. 119-281.",
-        "actionDate": "2025-09-15",
-        "type": "Committee",
-        "actionCode": "H12200"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Natural Resources. H. Rept. 119-281.",
-        "actionDate": "2025-09-15",
-        "type": "Committee",
-        "actionCode": "5000"
-      },
-      {
-        "text": "Ordered to be Reported (Amended) by Unanimous Consent.",
-        "actionDate": "2025-07-23",
-        "type": "Committee",
-        "actionCode": "H19000"
-      },
-      {
-        "text": "Committee Consideration and Mark-up Session Held",
-        "actionDate": "2025-07-23",
-        "type": "Committee",
-        "actionCode": "H15001"
-      },
-      {
-        "text": "Subcommittee on Federal Lands Discharged",
-        "actionDate": "2025-06-25",
-        "type": "Committee",
-        "actionCode": "H25000"
-      },
-      {
-        "text": "Subcommittee Hearings Held",
-        "actionDate": "2025-04-29",
-        "type": "Committee",
-        "actionCode": "H21000"
-      },
-      {
-        "text": "Referred to the Subcommittee on Federal Lands.",
-        "actionDate": "2025-04-23",
-        "type": "Committee",
-        "actionCode": "H11000"
-      },
-      {
-        "text": "Referred to the House Committee on Natural Resources.",
-        "actionDate": "2025-02-13",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2025-02-13",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2025-02-13",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Passed Senate without amendment by Unanimous Consent.",
-    "votes": [],
-    "introduced_date": "2025-02-13T00:00:00",
     "last_synced_at": "2026-08-08T23:58:49.789725+00:00"
   },
   {
