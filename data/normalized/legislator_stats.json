@@ -57,26 +57,26 @@
       "race_available": false
     },
     "IA": {
-      "total": 150,
+      "total": 149,
       "party": {
         "Democratic": 50,
-        "Republican": 100
+        "Republican": 99
       },
       "gender": {
-        "Male": 106,
+        "Male": 105,
         "Female": 44
       },
       "chamber": {
         "House": 100,
-        "Senate": 50
+        "Senate": 49
       },
       "age_buckets": {
         "under_40": 8,
-        "40_59": 21,
-        "60_plus": 28,
-        "unknown": 93
+        "40_59": 22,
+        "60_plus": 27,
+        "unknown": 92
       },
-      "average_age": 56.2,
+      "average_age": 55.5,
       "race_available": false
     },
     "KS": {
@@ -133,24 +133,25 @@
       "race_available": false
     },
     "MD": {
-      "total": 188,
+      "total": 189,
       "party": {
         "Democratic": 136,
-        "Republican": 52
+        "Republican": 53
       },
       "gender": {
         "Male": 112,
-        "Female": 76
+        "Female": 76,
+        "Unknown": 1
       },
       "chamber": {
-        "House": 141,
+        "House": 142,
         "Senate": 47
       },
       "age_buckets": {
         "under_40": 16,
         "40_59": 80,
         "60_plus": 67,
-        "unknown": 25
+        "unknown": 26
       },
       "average_age": 55.6,
       "race_available": false
