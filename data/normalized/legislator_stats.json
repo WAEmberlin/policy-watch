@@ -157,15 +157,15 @@
       "race_available": false
     },
     "ME": {
-      "total": 189,
+      "total": 190,
       "party": {
         "Independent": 6,
-        "Republican": 86,
+        "Republican": 87,
         "Democratic": 97
       },
       "gender": {
         "Male": 110,
-        "Female": 76,
+        "Female": 77,
         "X": 1,
         "Unknown": 2
       },
@@ -173,13 +173,14 @@
         "Representative": 152,
         "Senator": 35,
         "Attorney General": 1,
-        "Governor": 1
+        "Governor": 1,
+        "House": 1
       },
       "age_buckets": {
         "under_40": 3,
         "40_59": 7,
         "60_plus": 20,
-        "unknown": 159
+        "unknown": 160
       },
       "average_age": 60.2,
       "race_available": false
