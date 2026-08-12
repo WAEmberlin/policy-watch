@@ -1,5 +1,5 @@
 {
-  "last_fetched": "2026-08-12T13:59:39.214484+00:00",
+  "last_fetched": "2026-08-12T15:30:52.281560+00:00",
   "feed_url": "https://le.utah.gov/asp/billtrack/comrssfeed.asp?com=INTBUS|SPECWL|APPCRI|APPECD|INTEDW|INTEDU|SPEEJC|APPEXE|SPEFFO|SPEFED|APPGEN|SPEADM|INTGOC|INTHHS|APPHED|HSTBUS|HSTEDW|HSTEDU|HSTETH|HSTGOC|HSTHHS|HSTJUD|HSTLAW|SPEHEO|HSTNAE|HSTPOL|HSTPUT|HSTREV|HSTRUL|HSTTRA|INTJUD|INTLAW|SPEAUD|SPEMAN|SPELPC|SPELRD|SPESWD|SPEMCG|SPENAL|INTNAE|APPNAE|SPEOLY|INTPOL|APPPED|INTPUT|INTRIE|INTREV|SPERZC|SSTBUS|SPEBUS|SSTEDW|SPEEDW|SSTEDU|SPEEDU|SSTETH|SSTGOP|SPEGOV|SSTHHS|SPEHHS|SPESJC|SPEJUD|SSTJLC|SPELEC|SPESEO|SSTNAE|SPENAT|SPEPOL|SPERET|SSTREV|SPEREV|SSTRUL|SSTTPT|SPETRA|APPSOC|SUBOVE|APPTIF|INTTRA|TSKBHL|SPEUSL|SPEVMA",
   "entry_count": 70,
   "hearing_count": 542,
@@ -8821,19 +8821,30 @@
       "committee": "Natural Resources, Agriculture, and Environmental Quality Appropriations Subcommittee",
       "committee_code": "APPNAE",
       "committee_link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=APPNAE",
-      "link": "http://le.utah.gov/Interim/2026/html/00002152.htm",
-      "url": "http://le.utah.gov/Interim/2026/html/00002152.htm",
-      "stream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=APPNAE",
+      "link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=APPNAE",
+      "url": "http://le.utah.gov/committee/committee.jsp?year=2026&com=APPNAE",
+      "stream_url": "",
       "source": "State (Utah)",
       "state": "UT",
       "level": "state",
-      "description": "Committee meeting scheduled",
-      "agenda_items": [],
+      "description": "1. Call to Order; 2. Approval of Minutes:; 3. Colorado River Compact Updates",
+      "agenda_items": [
+        "1. Call to Order",
+        "2. Approval of Minutes:",
+        "3. Colorado River Compact Updates",
+        "4. Accountable Budget Process Draft Recommendations",
+        "5. Office of the Great Salt Lake Commissioner Work Plan",
+        "6. DEQ Permitting Process Updates",
+        "7. Specialized Product Division Changes",
+        "8. Wildfire Season Updates",
+        "9. Other Business",
+        "10. Adjourn"
+      ],
       "feed": "utah_committee_rss",
       "notice_date": "",
       "notice_time": "",
       "notice_place": "",
-      "livestream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=APPNAE"
+      "livestream_url": ""
     },
     {
       "title": "Natural Resources, Agriculture, and Environmental Quality Appropriations Subcommittee — 6/16/2026",
