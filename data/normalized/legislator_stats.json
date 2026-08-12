@@ -50,10 +50,10 @@
       "age_buckets": {
         "under_40": 5,
         "40_59": 14,
-        "60_plus": 13,
-        "unknown": 72
+        "60_plus": 12,
+        "unknown": 73
       },
-      "average_age": 53.8,
+      "average_age": 53.1,
       "race_available": false
     },
     "IA": {
@@ -157,15 +157,15 @@
       "race_available": false
     },
     "ME": {
-      "total": 190,
+      "total": 189,
       "party": {
         "Independent": 6,
-        "Republican": 87,
+        "Republican": 86,
         "Democratic": 97
       },
       "gender": {
         "Male": 110,
-        "Female": 77,
+        "Female": 76,
         "X": 1,
         "Unknown": 2
       },
@@ -173,40 +173,39 @@
         "Representative": 152,
         "Senator": 35,
         "Attorney General": 1,
-        "Governor": 1,
-        "House": 1
+        "Governor": 1
       },
       "age_buckets": {
         "under_40": 3,
         "40_59": 7,
         "60_plus": 20,
-        "unknown": 160
+        "unknown": 159
       },
       "average_age": 60.2,
       "race_available": false
     },
     "MO": {
-      "total": 191,
+      "total": 192,
       "party": {
         "Democratic": 62,
-        "Republican": 129
+        "Republican": 130
       },
       "gender": {
-        "Male": 133,
+        "Male": 134,
         "Female": 57,
         "X": 1
       },
       "chamber": {
         "House": 158,
-        "Senate": 33
+        "Senate": 34
       },
       "age_buckets": {
         "under_40": 6,
-        "40_59": 19,
+        "40_59": 20,
         "60_plus": 19,
         "unknown": 147
       },
-      "average_age": 54.6,
+      "average_age": 54.4,
       "race_available": false
     },
     "NC": {
@@ -329,26 +328,26 @@
       "race_available": false
     },
     "WV": {
-      "total": 133,
+      "total": 134,
       "party": {
-        "Republican": 122,
+        "Republican": 123,
         "Democratic": 11
       },
       "gender": {
-        "Male": 117,
+        "Male": 118,
         "Female": 16
       },
       "chamber": {
-        "House": 99,
+        "House": 100,
         "Senate": 34
       },
       "age_buckets": {
-        "under_40": 16,
+        "under_40": 17,
         "40_59": 43,
         "60_plus": 33,
         "unknown": 41
       },
-      "average_age": 54.2,
+      "average_age": 54.0,
       "race_available": false
     }
   },
