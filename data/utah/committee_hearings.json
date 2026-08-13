@@ -1,5 +1,5 @@
 {
-  "last_fetched": "2026-08-13T21:23:12.263937+00:00",
+  "last_fetched": "2026-08-13T22:12:55.794504+00:00",
   "feed_url": "https://le.utah.gov/asp/billtrack/comrssfeed.asp?com=INTBUS|SPECWL|APPCRI|APPECD|INTEDW|INTEDU|SPEEJC|APPEXE|SPEFFO|SPEFED|APPGEN|SPEADM|INTGOC|INTHHS|APPHED|HSTBUS|HSTEDW|HSTEDU|HSTETH|HSTGOC|HSTHHS|HSTJUD|HSTLAW|SPEHEO|HSTNAE|HSTPOL|HSTPUT|HSTREV|HSTRUL|HSTTRA|INTJUD|INTLAW|SPEAUD|SPEMAN|SPELPC|SPELRD|SPESWD|SPEMCG|SPENAL|INTNAE|APPNAE|SPEOLY|INTPOL|APPPED|INTPUT|INTRIE|INTREV|SPERZC|SSTBUS|SPEBUS|SSTEDW|SPEEDW|SSTEDU|SPEEDU|SSTETH|SSTGOP|SPEGOV|SSTHHS|SPEHHS|SPESJC|SPEJUD|SSTJLC|SPELEC|SPESEO|SSTNAE|SPENAT|SPEPOL|SPERET|SSTREV|SPEREV|SSTRUL|SSTTPT|SPETRA|APPSOC|SUBOVE|APPTIF|INTTRA|TSKBHL|SPEUSL|SPEVMA",
   "entry_count": 70,
   "hearing_count": 542,
@@ -1823,19 +1823,29 @@
       "committee": "General Government Appropriations Subcommittee",
       "committee_code": "APPGEN",
       "committee_link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=APPGEN",
-      "link": "http://le.utah.gov/Interim/2026/html/00002149.htm",
-      "url": "http://le.utah.gov/Interim/2026/html/00002149.htm",
-      "stream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=APPGEN",
+      "link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=APPGEN",
+      "url": "http://le.utah.gov/committee/committee.jsp?year=2026&com=APPGEN",
+      "stream_url": "",
       "source": "State (Utah)",
       "state": "UT",
       "level": "state",
-      "description": "Committee meeting scheduled",
-      "agenda_items": [],
+      "description": "1. Call to Order; 2. Approval of Minutes; 3. Office of Inspector General of Medicaid Services Update",
+      "agenda_items": [
+        "1. Call to Order",
+        "2. Approval of Minutes",
+        "3. Office of Inspector General of Medicaid Services Update",
+        "4. Tax Commission License Plate Design Update",
+        "5. Accountable Budget Process - Department of Commerce",
+        "6. Accountable Budget Process - Public Service Commission",
+        "7. Accountable Budget Process - DGO Non-ISF Entities",
+        "8. Other Business",
+        "9. Adjourn"
+      ],
       "feed": "utah_committee_rss",
       "notice_date": "",
       "notice_time": "",
       "notice_place": "",
-      "livestream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=APPGEN"
+      "livestream_url": ""
     },
     {
       "title": "General Government Appropriations Subcommittee — 6/16/2026",
