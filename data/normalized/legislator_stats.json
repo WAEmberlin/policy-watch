@@ -57,26 +57,31 @@
       "race_available": false
     },
     "IA": {
-      "total": 149,
+      "total": 154,
       "party": {
         "Democratic": 50,
-        "Republican": 99
+        "Republican": 104
       },
       "gender": {
-        "Male": 105,
-        "Female": 44
+        "Male": 106,
+        "Female": 45,
+        "Unknown": 3
       },
       "chamber": {
-        "House": 100,
-        "Senate": 49
+        "Representative": 100,
+        "Senator": 50,
+        "Attorney General": 1,
+        "Lt_Governor": 1,
+        "Governor": 1,
+        "Secretary Of State": 1
       },
       "age_buckets": {
         "under_40": 8,
         "40_59": 22,
-        "60_plus": 27,
-        "unknown": 92
+        "60_plus": 29,
+        "unknown": 95
       },
-      "average_age": 55.5,
+      "average_age": 56.2,
       "race_available": false
     },
     "KS": {
@@ -108,52 +113,63 @@
       "race_available": false
     },
     "MA": {
-      "total": 198,
+      "total": 206,
       "party": {
-        "Democratic": 167,
+        "Democratic": 175,
         "Republican": 30,
         "Independent": 1
       },
       "gender": {
         "Male": 138,
-        "Female": 59,
+        "Female": 60,
+        "Unknown": 7,
         "X": 1
       },
       "chamber": {
-        "House": 158,
-        "Senate": 40
+        "Representative": 158,
+        "Senator": 40,
+        "Attorney General": 2,
+        "Treasurer": 1,
+        "Auditor": 1,
+        "Lt_Governor": 2,
+        "Governor": 1,
+        "Chief Election Officer": 1
       },
       "age_buckets": {
         "under_40": 10,
-        "40_59": 40,
+        "40_59": 41,
         "60_plus": 39,
-        "unknown": 109
+        "unknown": 116
       },
       "average_age": 55.4,
       "race_available": false
     },
     "MD": {
-      "total": 189,
+      "total": 192,
       "party": {
-        "Democratic": 136,
+        "Democratic": 139,
         "Republican": 53
       },
       "gender": {
-        "Male": 112,
+        "Male": 113,
         "Female": 76,
-        "Unknown": 1
+        "Unknown": 3
       },
       "chamber": {
-        "House": 142,
-        "Senate": 47
+        "Delegate": 141,
+        "Senator": 47,
+        "Attorney General": 1,
+        "Lt_Governor": 1,
+        "Governor": 1,
+        "House": 1
       },
       "age_buckets": {
-        "under_40": 16,
-        "40_59": 80,
+        "under_40": 17,
+        "40_59": 81,
         "60_plus": 67,
-        "unknown": 26
+        "unknown": 27
       },
-      "average_age": 55.6,
+      "average_age": 55.4,
       "race_available": false
     },
     "ME": {
@@ -234,24 +250,30 @@
       "race_available": false
     },
     "NE": {
-      "total": 49,
+      "total": 53,
       "party": {
-        "Nonpartisan": 49
+        "Nonpartisan": 50,
+        "Republican": 3
       },
       "gender": {
         "Female": 14,
-        "Male": 35
+        "Male": 35,
+        "Unknown": 4
       },
       "chamber": {
-        "legislature": 49
+        "Senator": 49,
+        "Governor": 1,
+        "Lt_Governor": 1,
+        "Attorney General": 1,
+        "Secretary Of State": 1
       },
       "age_buckets": {
         "under_40": 7,
         "40_59": 13,
-        "60_plus": 27,
-        "unknown": 2
+        "60_plus": 28,
+        "unknown": 5
       },
-      "average_age": 59.0,
+      "average_age": 59.3,
       "race_available": false
     },
     "PA": {
@@ -278,26 +300,30 @@
       "race_available": false
     },
     "TN": {
-      "total": 132,
+      "total": 135,
       "party": {
-        "Republican": 102,
-        "Democratic": 30
+        "Republican": 104,
+        "Democratic": 31
       },
       "gender": {
-        "Male": 109,
-        "Female": 23
+        "Male": 110,
+        "Female": 23,
+        "Unknown": 2
       },
       "chamber": {
-        "Senate": 33,
-        "House": 99
+        "Senator": 33,
+        "Representative": 99,
+        "Governor": 1,
+        "Attorney General": 1,
+        "House": 1
       },
       "age_buckets": {
         "under_40": 8,
         "40_59": 53,
-        "60_plus": 51,
-        "unknown": 20
+        "60_plus": 53,
+        "unknown": 21
       },
-      "average_age": 58.6,
+      "average_age": 58.7,
       "race_available": false
     },
     "UT": {
