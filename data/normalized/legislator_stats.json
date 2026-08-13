@@ -139,20 +139,21 @@
         "Republican": 53
       },
       "gender": {
-        "Male": 113,
-        "Female": 76
+        "Male": 112,
+        "Female": 76,
+        "Unknown": 1
       },
       "chamber": {
         "House": 142,
         "Senate": 47
       },
       "age_buckets": {
-        "under_40": 17,
+        "under_40": 16,
         "40_59": 80,
         "60_plus": 67,
-        "unknown": 25
+        "unknown": 26
       },
-      "average_age": 55.4,
+      "average_age": 55.6,
       "race_available": false
     },
     "ME": {
