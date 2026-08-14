@@ -1,5 +1,5 @@
 {
-  "last_fetched": "2026-08-14T18:36:27.436246+00:00",
+  "last_fetched": "2026-08-14T19:32:28.966326+00:00",
   "feed_url": "https://le.utah.gov/asp/billtrack/comrssfeed.asp?com=INTBUS|SPECWL|APPCRI|APPECD|INTEDW|INTEDU|SPEEJC|APPEXE|SPEFFO|SPEFED|APPGEN|SPEADM|INTGOC|INTHHS|APPHED|HSTBUS|HSTEDW|HSTEDU|HSTETH|HSTGOC|HSTHHS|HSTJUD|HSTLAW|SPEHEO|HSTNAE|HSTPOL|HSTPUT|HSTREV|HSTRUL|HSTTRA|INTJUD|INTLAW|SPEAUD|SPEMAN|SPELPC|SPELRD|SPESWD|SPEMCG|SPENAL|INTNAE|APPNAE|SPEOLY|INTPOL|APPPED|INTPUT|INTRIE|INTREV|SPERZC|SSTBUS|SPEBUS|SSTEDW|SPEEDW|SSTEDU|SPEEDU|SSTETH|SSTGOP|SPEGOV|SSTHHS|SPEHHS|SPESJC|SPEJUD|SSTJLC|SPELEC|SPESEO|SSTNAE|SPENAT|SPEPOL|SPERET|SSTREV|SPEREV|SSTRUL|SSTTPT|SPETRA|APPSOC|SUBOVE|APPTIF|INTTRA|TSKBHL|SPEUSL|SPEVMA",
   "entry_count": 70,
   "hearing_count": 543,
@@ -9453,19 +9453,29 @@
       "committee": "Public Education Appropriations Subcommittee",
       "committee_code": "APPPED",
       "committee_link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=APPPED",
-      "link": "http://le.utah.gov/Interim/2026/html/00002113.htm",
-      "url": "http://le.utah.gov/Interim/2026/html/00002113.htm",
-      "stream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=APPPED",
+      "link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=APPPED",
+      "url": "http://le.utah.gov/committee/committee.jsp?year=2026&com=APPPED",
+      "stream_url": "",
       "source": "State (Utah)",
       "state": "UT",
       "level": "state",
-      "description": "Committee meeting scheduled",
-      "agenda_items": [],
+      "description": "1. Call to Order/Approval of Minutes - June 16, 2026; 2. SIS Data Quality Pilot Project Implementation Update; 3. SPED Funding Overview",
+      "agenda_items": [
+        "1. Call to Order/Approval of Minutes - June 16, 2026",
+        "2. SIS Data Quality Pilot Project Implementation Update",
+        "3. SPED Funding Overview",
+        "4. Accountable Process Budget Preliminary Recommendations",
+        "5. USBE Budget Flexibility and Reorganization Introduction",
+        "6. USDB FY 2026 Intent Language Report",
+        "7. Dual Language Immersion - Language Coach Reorganization",
+        "8. Other Business",
+        "9. Adjourn"
+      ],
       "feed": "utah_committee_rss",
       "notice_date": "",
       "notice_time": "",
       "notice_place": "",
-      "livestream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=APPPED"
+      "livestream_url": ""
     },
     {
       "title": "Public Education Appropriations Subcommittee — 6/16/2026",
