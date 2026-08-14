@@ -1,5 +1,5 @@
 {
-  "last_fetched": "2026-08-14T16:26:25.221635+00:00",
+  "last_fetched": "2026-08-14T17:46:49.818976+00:00",
   "feed_url": "https://le.utah.gov/asp/billtrack/comrssfeed.asp?com=INTBUS|SPECWL|APPCRI|APPECD|INTEDW|INTEDU|SPEEJC|APPEXE|SPEFFO|SPEFED|APPGEN|SPEADM|INTGOC|INTHHS|APPHED|HSTBUS|HSTEDW|HSTEDU|HSTETH|HSTGOC|HSTHHS|HSTJUD|HSTLAW|SPEHEO|HSTNAE|HSTPOL|HSTPUT|HSTREV|HSTRUL|HSTTRA|INTJUD|INTLAW|SPEAUD|SPEMAN|SPELPC|SPELRD|SPESWD|SPEMCG|SPENAL|INTNAE|APPNAE|SPEOLY|INTPOL|APPPED|INTPUT|INTRIE|INTREV|SPERZC|SSTBUS|SPEBUS|SSTEDW|SPEEDW|SSTEDU|SPEEDU|SSTETH|SSTGOP|SPEGOV|SSTHHS|SPEHHS|SPESJC|SPEJUD|SSTJLC|SPELEC|SPESEO|SSTNAE|SPENAT|SPEPOL|SPERET|SSTREV|SPEREV|SSTRUL|SSTTPT|SPETRA|APPSOC|SUBOVE|APPTIF|INTTRA|TSKBHL|SPEUSL|SPEVMA",
   "entry_count": 70,
   "hearing_count": 543,
@@ -15264,19 +15264,29 @@
       "committee": "Transportation and Infrastructure Appropriations Subcommittee",
       "committee_code": "APPTIF",
       "committee_link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=APPTIF",
-      "link": "http://le.utah.gov/Interim/2026/html/00002136.htm",
-      "url": "http://le.utah.gov/Interim/2026/html/00002136.htm",
-      "stream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=APPTIF",
+      "link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=APPTIF",
+      "url": "http://le.utah.gov/committee/committee.jsp?year=2026&com=APPTIF",
+      "stream_url": "",
       "source": "State (Utah)",
       "state": "UT",
       "level": "state",
-      "description": "Committee meeting scheduled",
-      "agenda_items": [],
+      "description": "1. Call to Order; 2. Approval of Minutes; 3. APB: Utah Education and Telehealth Network",
+      "agenda_items": [
+        "1. Call to Order",
+        "2. Approval of Minutes",
+        "3. APB: Utah Education and Telehealth Network",
+        "4. APB: Gov Ops- ISF Facilities Management",
+        "5. APB: School & Institutional Trust Beneficiaries' Advocacy Office",
+        "6. APB: UDOT Operations and Maintenance",
+        "7. UDOT Operations and Maintenance Management Presentation",
+        "8. Other Business",
+        "9. Adjourn"
+      ],
       "feed": "utah_committee_rss",
       "notice_date": "",
       "notice_time": "",
       "notice_place": "",
-      "livestream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=APPTIF"
+      "livestream_url": ""
     },
     {
       "title": "Transportation and Infrastructure Appropriations Subcommittee — 6/16/2026",
