@@ -1,5 +1,5 @@
 {
-  "last_fetched": "2026-08-15T20:50:44.845697+00:00",
+  "last_fetched": "2026-08-15T21:48:17.977251+00:00",
   "feed_url": "https://le.utah.gov/asp/billtrack/comrssfeed.asp?com=INTBUS|SPECWL|APPCRI|APPECD|INTEDW|INTEDU|SPEEJC|APPEXE|SPEFFO|SPEFED|APPGEN|SPEADM|INTGOC|INTHHS|APPHED|HSTBUS|HSTEDW|HSTEDU|HSTETH|HSTGOC|HSTHHS|HSTJUD|HSTLAW|SPEHEO|HSTNAE|HSTPOL|HSTPUT|HSTREV|HSTRUL|HSTTRA|INTJUD|INTLAW|SPEAUD|SPEMAN|SPELPC|SPELRD|SPESWD|SPEMCG|SPENAL|INTNAE|APPNAE|SPEOLY|INTPOL|APPPED|INTPUT|INTRIE|INTREV|SPERZC|SSTBUS|SPEBUS|SSTEDW|SPEEDW|SSTEDU|SPEEDU|SSTETH|SSTGOP|SPEGOV|SSTHHS|SPEHHS|SPESJC|SPEJUD|SSTJLC|SPELEC|SPESEO|SSTNAE|SPENAT|SPEPOL|SPERET|SSTREV|SPEREV|SSTRUL|SSTTPT|SPETRA|APPSOC|SUBOVE|APPTIF|INTTRA|TSKBHL|SPEUSL|SPEVMA",
   "entry_count": 70,
   "hearing_count": 543,
@@ -227,19 +227,25 @@
       "committee": "Criminal Justice Appropriations Subcommittee",
       "committee_code": "APPCRI",
       "committee_link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=APPCRI",
-      "link": "http://le.utah.gov/Interim/2026/html/00002119.htm",
-      "url": "http://le.utah.gov/Interim/2026/html/00002119.htm",
-      "stream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=APPCRI",
+      "link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=APPCRI",
+      "url": "http://le.utah.gov/committee/committee.jsp?year=2026&com=APPCRI",
+      "stream_url": "",
       "source": "State (Utah)",
       "state": "UT",
       "level": "state",
-      "description": "Committee meeting scheduled",
-      "agenda_items": [],
+      "description": "1. Call to Order/Approval of Minutes; 2. Accountable Process Budget; 3. Department of Corrections Community Correctional Centers Update",
+      "agenda_items": [
+        "1. Call to Order/Approval of Minutes",
+        "2. Accountable Process Budget",
+        "3. Department of Corrections Community Correctional Centers Update",
+        "4. Subcommittee Required Report: DPS Sexual Assault Kit Report",
+        "5. Other Business/Adjourn"
+      ],
       "feed": "utah_committee_rss",
       "notice_date": "",
       "notice_time": "",
       "notice_place": "",
-      "livestream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=APPCRI"
+      "livestream_url": ""
     },
     {
       "title": "Criminal Justice Appropriations Subcommittee — 6/16/2026",
