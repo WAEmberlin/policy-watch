@@ -1,5 +1,5 @@
 {
-  "last_fetched": "2026-08-17T19:54:00.724436+00:00",
+  "last_fetched": "2026-08-17T20:58:54.068529+00:00",
   "feed_url": "https://le.utah.gov/asp/billtrack/comrssfeed.asp?com=INTBUS|SPECWL|APPCRI|APPECD|INTEDW|INTEDU|SPEEJC|APPEXE|SPEFFO|SPEFED|APPGEN|SPEADM|INTGOC|INTHHS|APPHED|HSTBUS|HSTEDW|HSTEDU|HSTETH|HSTGOC|HSTHHS|HSTJUD|HSTLAW|SPEHEO|HSTNAE|HSTPOL|HSTPUT|HSTREV|HSTRUL|HSTTRA|INTJUD|INTLAW|SPEAUD|SPEMAN|SPELPC|SPELRD|SPESWD|SPEMCG|SPENAL|INTNAE|APPNAE|SPEOLY|INTPOL|APPPED|INTPUT|INTRIE|INTREV|SPERZC|SSTBUS|SPEBUS|SSTEDW|SPEEDW|SSTEDU|SPEEDU|SSTETH|SSTGOP|SPEGOV|SSTHHS|SPEHHS|SPESJC|SPEJUD|SSTJLC|SPELEC|SPESEO|SSTNAE|SPENAT|SPEPOL|SPERET|SSTREV|SPEREV|SSTRUL|SSTTPT|SPETRA|APPSOC|SUBOVE|APPTIF|INTTRA|TSKBHL|SPEUSL|SPEVMA",
   "entry_count": 70,
   "hearing_count": 544,
@@ -2456,19 +2456,28 @@
       "committee": "Health and Human Services Interim Committee",
       "committee_code": "INTHHS",
       "committee_link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=INTHHS",
-      "link": "http://le.utah.gov/Interim/2026/html/00002188.htm",
-      "url": "http://le.utah.gov/Interim/2026/html/00002188.htm",
-      "stream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=INTHHS",
+      "link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=INTHHS",
+      "url": "http://le.utah.gov/committee/committee.jsp?year=2026&com=INTHHS",
+      "stream_url": "",
       "source": "State (Utah)",
       "state": "UT",
       "level": "state",
-      "description": "Committee meeting scheduled",
-      "agenda_items": [],
+      "description": "1. Committee Business; 2. Beaver Valley Hospital Financial Statement; 3. Draft Legislation: Respiratory Care Interstate Compact",
+      "agenda_items": [
+        "1. Committee Business",
+        "2. Beaver Valley Hospital Financial Statement",
+        "3. Draft Legislation: Respiratory Care Interstate Compact",
+        "4. Draft Legislation: Health Care Patient Reporting to the Division of Professional Licensing",
+        "5. Utah State Hospital",
+        "6. Captain Your Story Initiative",
+        "7. Medicaid Budget Shortfall",
+        "8. Other Items/Adjourn"
+      ],
       "feed": "utah_committee_rss",
       "notice_date": "",
       "notice_time": "",
       "notice_place": "",
-      "livestream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=INTHHS"
+      "livestream_url": ""
     },
     {
       "title": "Health and Human Services Interim Committee — 6/17/2026",
