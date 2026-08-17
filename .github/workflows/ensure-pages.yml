@@ -184,8 +184,13 @@ jobs:
               });
             }
 
-            async function waitForDeploy(headSha, maxPolls = 20) {
+            async function waitForDeploy(resolveHeadSha, maxPolls = 20) {
               for (let poll = 1; poll <= maxPolls; poll++) {
+                const headSha =
+                  typeof resolveHeadSha === "function"
+                    ? await resolveHeadSha()
+                    : resolveHeadSha;
+
                 if (await isPagesLive(headSha)) {
                   return true;
                 }
@@ -226,6 +231,17 @@ jobs:
                       run.status === "completed" && run.conclusion !== "success"
                   )
                 ) {
+                  // Superseded SHA: main tip moved; caller will retarget.
+                  const current = await getMainHead();
+                  if (current !== headSha) {
+                    core.info(
+                      `pages-build-deployment ended ${latestRun.conclusion} for superseded ${headSha.slice(
+                        0,
+                        7
+                      )}; main is now ${current.slice(0, 7)}`
+                    );
+                    return false;
+                  }
                   core.warning(
                     `pages-build-deployment ended ${latestRun.conclusion} for ${headSha.slice(
                       0,
@@ -265,8 +281,25 @@ jobs:
               return false;
             }
 
-            const headSha = await getMainHead();
+            let headSha = await getMainHead();
             core.info(`main HEAD: ${headSha}`);
+
+            // POST /pages/builds always targets current main tip. If main moves
+            // (e.g. PolicyWatch Update lands mid-ensure), retarget or we wait
+            // forever on cancelled runs for a superseded SHA.
+            async function refreshHeadSha() {
+              const current = await getMainHead();
+              if (current !== headSha) {
+                core.info(
+                  `main advanced ${headSha.slice(0, 7)} → ${current.slice(
+                    0,
+                    7
+                  )}; retargeting`
+                );
+                headSha = current;
+              }
+              return headSha;
+            }
 
             if (await isPagesLive(headSha)) {
               core.info("Pages already serving latest main commit.");
@@ -274,7 +307,8 @@ jobs:
             }
 
             for (let cycle = 1; cycle <= maxTriggerCycles; cycle++) {
-              core.info(`Deploy cycle ${cycle}/${maxTriggerCycles}`);
+              await refreshHeadSha();
+              core.info(`Deploy cycle ${cycle}/${maxTriggerCycles} for ${headSha.slice(0, 7)}`);
 
               if (await isPagesLive(headSha)) {
                 core.info("Pages already serving latest main commit.");
@@ -348,7 +382,7 @@ jobs:
                 }
               }
 
-              if (await waitForDeploy(headSha)) {
+              if (await waitForDeploy(() => refreshHeadSha())) {
                 core.info("Pages deploy succeeded.");
                 return;
               }
