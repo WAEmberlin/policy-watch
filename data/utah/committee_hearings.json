@@ -1,5 +1,5 @@
 {
-  "last_fetched": "2026-08-17T20:58:54.068529+00:00",
+  "last_fetched": "2026-08-17T21:53:16.686572+00:00",
   "feed_url": "https://le.utah.gov/asp/billtrack/comrssfeed.asp?com=INTBUS|SPECWL|APPCRI|APPECD|INTEDW|INTEDU|SPEEJC|APPEXE|SPEFFO|SPEFED|APPGEN|SPEADM|INTGOC|INTHHS|APPHED|HSTBUS|HSTEDW|HSTEDU|HSTETH|HSTGOC|HSTHHS|HSTJUD|HSTLAW|SPEHEO|HSTNAE|HSTPOL|HSTPUT|HSTREV|HSTRUL|HSTTRA|INTJUD|INTLAW|SPEAUD|SPEMAN|SPELPC|SPELRD|SPESWD|SPEMCG|SPENAL|INTNAE|APPNAE|SPEOLY|INTPOL|APPPED|INTPUT|INTRIE|INTREV|SPERZC|SSTBUS|SPEBUS|SSTEDW|SPEEDW|SSTEDU|SPEEDU|SSTETH|SSTGOP|SPEGOV|SSTHHS|SPEHHS|SPESJC|SPEJUD|SSTJLC|SPELEC|SPESEO|SSTNAE|SPENAT|SPEPOL|SPERET|SSTREV|SPEREV|SSTRUL|SSTTPT|SPETRA|APPSOC|SUBOVE|APPTIF|INTTRA|TSKBHL|SPEUSL|SPEVMA",
   "entry_count": 70,
   "hearing_count": 544,
@@ -2299,19 +2299,26 @@
       "committee": "Government Operations Interim Committee",
       "committee_code": "INTGOC",
       "committee_link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=INTGOC",
-      "link": "http://le.utah.gov/Interim/2026/html/00002224.htm",
-      "url": "http://le.utah.gov/Interim/2026/html/00002224.htm",
-      "stream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=INTGOC",
+      "link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=INTGOC",
+      "url": "http://le.utah.gov/committee/committee.jsp?year=2026&com=INTGOC",
+      "stream_url": "",
       "source": "State (Utah)",
       "state": "UT",
       "level": "state",
-      "description": "Committee meeting scheduled",
-      "agenda_items": [],
+      "description": "1. Committee Business; 2. Cooperative Contracts Fund; 3. Artificial Intelligence in Political Advertising",
+      "agenda_items": [
+        "1. Committee Business",
+        "2. Cooperative Contracts Fund",
+        "3. Artificial Intelligence in Political Advertising",
+        "4. Municipal Service Districts",
+        "5. Lieutenant Governor's Conflict of Interest Avoidance Plan",
+        "6. Other Items/Adjourn"
+      ],
       "feed": "utah_committee_rss",
       "notice_date": "",
       "notice_time": "",
       "notice_place": "",
-      "livestream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=INTGOC"
+      "livestream_url": ""
     },
     {
       "title": "Government Operations Interim Committee — 6/17/2026",
@@ -7974,15 +7981,16 @@
       "source": "State (Utah)",
       "state": "UT",
       "level": "state",
-      "description": "1. Committee Business; 2. Public Safety Sunset Amendments; 3. Department of Criminal Justice Report on State Agency Reviews",
+      "description": "1. Committee Business; 2. Public Safety Sunset Amendments; 3. Data Security",
       "agenda_items": [
         "1. Committee Business",
         "2. Public Safety Sunset Amendments",
-        "3. Department of Criminal Justice Report on State Agency Reviews",
+        "3. Data Security",
         "4. First Responder Mental Health",
-        "5. Childhood Trauma & the Juvenile Justice System",
-        "6. Insanity Defense",
-        "7. Correctional Facility Drug Policies"
+        "5. Department of Criminal Justice Report on State Agency Reviews",
+        "6. Childhood Trauma & the Juvenile Justice System",
+        "7. Correctional Facility Drug Policies",
+        "8. Insanity Defense"
       ],
       "feed": "utah_committee_rss",
       "notice_date": "",
@@ -9413,19 +9421,24 @@
       "committee": "Political Subdivisions Interim Committee",
       "committee_code": "INTPOL",
       "committee_link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=INTPOL",
-      "link": "http://le.utah.gov/Interim/2026/html/00002249.htm",
-      "url": "http://le.utah.gov/Interim/2026/html/00002249.htm",
-      "stream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=INTPOL",
+      "link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=INTPOL",
+      "url": "http://le.utah.gov/committee/committee.jsp?year=2026&com=INTPOL",
+      "stream_url": "",
       "source": "State (Utah)",
       "state": "UT",
       "level": "state",
-      "description": "Committee meeting scheduled",
-      "agenda_items": [],
+      "description": "1. Committee Business; 2. Tax Increment Financing Working Group; 3. Public Infrastructure Districts",
+      "agenda_items": [
+        "1. Committee Business",
+        "2. Tax Increment Financing Working Group",
+        "3. Public Infrastructure Districts",
+        "4. Other Items/Adjourn"
+      ],
       "feed": "utah_committee_rss",
       "notice_date": "",
       "notice_time": "",
       "notice_place": "",
-      "livestream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=INTPOL"
+      "livestream_url": ""
     },
     {
       "title": "Political Subdivisions Interim Committee — 6/17/2026",
