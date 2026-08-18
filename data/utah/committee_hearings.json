@@ -1,5 +1,5 @@
 {
-  "last_fetched": "2026-08-17T22:52:27.378637+00:00",
+  "last_fetched": "2026-08-17T23:49:35.368710+00:00",
   "feed_url": "https://le.utah.gov/asp/billtrack/comrssfeed.asp?com=INTBUS|SPECWL|APPCRI|APPECD|INTEDW|INTEDU|SPEEJC|APPEXE|SPEFFO|SPEFED|APPGEN|SPEADM|INTGOC|INTHHS|APPHED|HSTBUS|HSTEDW|HSTEDU|HSTETH|HSTGOC|HSTHHS|HSTJUD|HSTLAW|SPEHEO|HSTNAE|HSTPOL|HSTPUT|HSTREV|HSTRUL|HSTTRA|INTJUD|INTLAW|SPEAUD|SPEMAN|SPELPC|SPELRD|SPESWD|SPEMCG|SPENAL|INTNAE|APPNAE|SPEOLY|INTPOL|APPPED|INTPUT|INTRIE|INTREV|SPERZC|SSTBUS|SPEBUS|SSTEDW|SPEEDW|SSTEDU|SPEEDU|SSTETH|SSTGOP|SPEGOV|SSTHHS|SPEHHS|SPESJC|SPEJUD|SSTJLC|SPELEC|SPESEO|SSTNAE|SPENAT|SPEPOL|SPERET|SSTREV|SPEREV|SSTRUL|SSTTPT|SPETRA|APPSOC|SUBOVE|APPTIF|INTTRA|TSKBHL|SPEUSL|SPEVMA",
   "entry_count": 70,
   "hearing_count": 544,
@@ -8304,19 +8304,27 @@
       "committee": "Legislative Management Committee",
       "committee_code": "SPEMAN",
       "committee_link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=SPEMAN",
-      "link": "http://le.utah.gov/Interim/2026/html/00002878.htm",
-      "url": "http://le.utah.gov/Interim/2026/html/00002878.htm",
-      "stream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=SPEMAN",
+      "link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=SPEMAN",
+      "url": "http://le.utah.gov/committee/committee.jsp?year=2026&com=SPEMAN",
+      "stream_url": "",
       "source": "State (Utah)",
       "state": "UT",
       "level": "state",
-      "description": "Committee meeting scheduled",
-      "agenda_items": [],
+      "description": "1. Committee Business; 2. State Armory Board Property Transactions; 3. Federalism Non-voting Members",
+      "agenda_items": [
+        "1. Committee Business",
+        "2. State Armory Board Property Transactions",
+        "3. Federalism Non-voting Members",
+        "4. Legislative Water Development Commission Non-voting Members",
+        "5. Authorized Legislative Meetings",
+        "6. Legislative Management Committee Review of Suspension of Statutes",
+        "7. Other Items/Adjourn"
+      ],
       "feed": "utah_committee_rss",
       "notice_date": "",
       "notice_time": "",
       "notice_place": "",
-      "livestream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=SPEMAN"
+      "livestream_url": ""
     },
     {
       "title": "Legislative Management Committee — 4/16/2026",
