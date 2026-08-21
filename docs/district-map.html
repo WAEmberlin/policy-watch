@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>District Map — PolicyWatch</title>
-<link rel="stylesheet" href="theme.css" />
+<title>District Map - PolicyWatch</title>
+<link rel="stylesheet" href="theme.css?v=ledger6" />
 <link rel="stylesheet" href="sr-only.css" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <script src="theme.js"></script>
@@ -52,9 +52,9 @@ tailwind.config = {
     width: 100%;
     height: min(70vh, 560px);
     min-height: 320px;
-    border-radius: 0.75rem;
-    border: 2px solid var(--cw-border);
-    background: var(--cw-surface-muted);
+    border-radius: 0.25rem;
+    border: var(--cw-border-width, 1px) solid var(--ink-line, var(--cw-border));
+    background: var(--ink-raised, var(--cw-surface-muted));
     z-index: 0;
 }
 .map-controls-row {
@@ -63,13 +63,15 @@ tailwind.config = {
     gap: 0.75rem;
     align-items: center;
     margin-bottom: 1rem;
+    font-family: var(--font-ui);
 }
 .map-state-select {
     padding: 0.5rem 0.75rem;
-    border-radius: 0.5rem;
-    border: 2px solid var(--cw-border);
-    background: var(--cw-surface);
-    color: var(--cw-text);
+    border-radius: 9999px;
+    border: var(--cw-border-width, 1px) solid var(--ink-line, var(--cw-border));
+    background: var(--ink-raised, var(--cw-surface));
+    color: var(--paper, var(--cw-text));
+    font-family: var(--font-ui);
     font-size: 0.875rem;
     min-width: 10rem;
 }
@@ -79,19 +81,20 @@ tailwind.config = {
     gap: 0.5rem;
 }
 .map-chamber-btn {
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    font-size: 0.875rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 9999px;
+    font-family: var(--font-ui);
+    font-size: 0.8125rem;
     font-weight: 500;
-    border: 2px solid var(--cw-border);
-    background: var(--cw-surface);
-    color: var(--cw-text);
+    border: var(--cw-border-width, 1px) solid var(--ink-line, var(--cw-border));
+    background: transparent;
+    color: var(--paper-dim, var(--cw-text));
     cursor: pointer;
 }
 .map-chamber-btn--active {
-    background: var(--cw-blue);
-    border-color: var(--cw-blue);
-    color: #fff;
+    background: color-mix(in srgb, var(--wire, var(--cw-blue)) 22%, transparent);
+    border-color: var(--wire, var(--cw-blue));
+    color: var(--paper, var(--cw-text));
 }
 .map-chamber-btn--disabled {
     opacity: 0.55;
@@ -106,16 +109,17 @@ tailwind.config = {
     color: var(--cw-danger);
 }
 #district-info-panel {
-    border: 2px solid var(--cw-border);
-    border-radius: 0.75rem;
+    border: var(--cw-border-width, 1px) solid var(--ink-line, var(--cw-border));
+    border-radius: 0.35rem;
     background: var(--cw-surface-muted);
     padding: 1rem;
     min-height: 200px;
 }
 .district-popup__title {
+    font-family: var(--font-display);
     font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--cw-navy);
+    font-weight: 600;
+    color: var(--paper, var(--cw-navy));
     margin: 0 0 0.75rem;
 }
 .district-popup__rep {
@@ -133,7 +137,7 @@ tailwind.config = {
 }
 .district-popup__name {
     display: block;
-    color: var(--cw-navy);
+    color: var(--paper, var(--cw-navy));
 }
 .district-popup__meta {
     font-size: 0.875rem;
@@ -154,17 +158,21 @@ tailwind.config = {
     font-style: italic;
 }
 .district-map-tooltip {
+    font-family: var(--font-ui);
     font-size: 0.75rem;
     font-weight: 600;
     border: none;
-    background: var(--cw-navy);
-    color: #fff;
+    background: var(--paper, var(--cw-navy));
+    color: var(--ink, #fff);
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
 }
 .district-leaflet-popup .leaflet-popup-content-wrapper {
-    border-radius: 0.75rem;
-    border: 2px solid var(--cw-border);
+    border-radius: 0.35rem;
+    border: 1px solid var(--cw-border);
+    background: var(--ink-raised, var(--cw-surface));
+    color: var(--paper, var(--cw-text));
+    font-family: var(--font-ui);
 }
 .district-map-legend {
     display: flex;
@@ -190,21 +198,20 @@ tailwind.config = {
 <body class="cw-page-bg min-h-screen" data-cw-page="map">
 <div id="cw-page-wrapper" class="max-w-6xl mx-auto px-4 py-4">
 <main id="cw-main-content">
+    <p class="ledger-preview-banner" style="font-family:var(--font-data);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);border:1px solid color-mix(in srgb,var(--amber) 45%,transparent);background:color-mix(in srgb,var(--amber) 12%,transparent);padding:0.5rem 0.75rem;border-radius:0.25rem;margin:0 0 0.75rem;">Ledger redesign active - if you still see a yellow Watch + blue-square Capitol logo, hard-refresh or use port 8090</p>
     <div class="cw-card shadow-xl">
-        <div class="cw-card-header">
+        <header class="cw-header cw-card-header">
             <div class="flex flex-wrap items-center justify-between gap-4">
-                <div class="flex items-center gap-4">
-                    <img src="PolicyWatch Logo.png" alt="PolicyWatch Logo" class="h-14 w-auto hidden sm:block" />
-                    <div>
-                        <h1 class="text-3xl font-bold">
-                            <span class="text-white">Policy</span><span class="text-civic-gold">Watch</span>
-                        </h1>
-                        <div id="map-subtitle" class="cw-text-on-header-muted text-sm mt-1">District Map — Kansas House</div>
-                    </div>
+                <div class="ledger-brand flex-1 min-w-0">
+                    <img src="policywatch-mark.png" alt="" class="ledger-mark" width="56" height="56" />
+                    <h1 class="ledger-wordmark">
+                        Policy <span class="ledger-wordmark-accent">Watch</span>
+                    </h1>
+                    <div id="map-subtitle" class="ledger-timestamp">District Map - Kansas House</div>
                 </div>
                 <div data-cw-theme-toggle></div>
             </div>
-        </div>
+        </header>
         <div class="cw-card-body p-6 md:p-8">
             <div class="map-controls-row">
                 <label for="map-state-select" class="text-sm font-medium text-slate-600">State</label>

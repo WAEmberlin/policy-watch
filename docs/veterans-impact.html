@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>About — PolicyWatch</title>
-<link rel="stylesheet" href="theme.css" />
+<title>About - PolicyWatch</title>
+<link rel="stylesheet" href="theme.css?v=ledger6" />
 <link rel="stylesheet" href="sr-only.css" />
 <script src="theme.js"></script>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -40,21 +40,20 @@ tailwind.config = {
 <body class="cw-page-bg min-h-screen" data-cw-page="about">
 <div id="cw-page-wrapper" class="max-w-6xl mx-auto px-4 py-4">
 <main id="cw-main-content">
+    <p class="ledger-preview-banner" style="font-family:var(--font-data);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);border:1px solid color-mix(in srgb,var(--amber) 45%,transparent);background:color-mix(in srgb,var(--amber) 12%,transparent);padding:0.5rem 0.75rem;border-radius:0.25rem;margin:0 0 0.75rem;">Ledger redesign active - if you still see a yellow Watch + blue-square Capitol logo, hard-refresh or use port 8090</p>
     <div class="cw-card shadow-xl">
-        <div class="cw-card-header">
+        <header class="cw-header cw-card-header">
             <div class="flex flex-wrap items-center justify-between gap-4">
-                <div class="flex items-center gap-4">
-                    <img src="PolicyWatch Logo.png" alt="PolicyWatch Logo" class="h-14 w-auto hidden sm:block" />
-                    <div>
-                        <h1 class="text-3xl font-bold">
-                            <span class="text-white">Policy</span><span class="text-civic-gold">Watch</span>
-                        </h1>
-                        <p class="cw-text-on-header-muted text-sm mt-1">About PolicyWatch</p>
-                    </div>
+                <div class="ledger-brand flex-1 min-w-0">
+                    <img src="policywatch-mark.png" alt="" class="ledger-mark" width="56" height="56" />
+                    <h1 class="ledger-wordmark">
+                        Policy <span class="ledger-wordmark-accent">Watch</span>
+                    </h1>
+                    <div class="ledger-timestamp">About PolicyWatch</div>
                 </div>
                 <div data-cw-theme-toggle></div>
             </div>
-        </div>
+        </header>
 
         <div class="p-6 md:p-8 space-y-8">
             <section>
@@ -66,8 +65,8 @@ tailwind.config = {
                     lawmakers are doing from a single homepage feed.
                 </p>
                 <p class="text-slate-600 leading-relaxed mt-3">
-                    The site pulls from official sources — Open States, Congress.gov, state RSS feeds, and public
-                    hearing calendars — and refreshes on a regular schedule so you can see recent actions, search across
+                    The site pulls from official sources - Open States, Congress.gov, state RSS feeds, and public
+                    hearing calendars - and refreshes on a regular schedule so you can see recent actions, search across
                     jurisdictions, and filter by state or topic. Hearings, dashboards, legislator lookup, and a district
                     map round out the tools for staying oriented during a legislative session.
                 </p>
@@ -79,7 +78,7 @@ tailwind.config = {
                 </p>
                 <p class="text-slate-600 leading-relaxed mt-3">
                     PolicyWatch is a volunteer project built for transparency and ease of use. Impact labels and summaries
-                    are automated triage signals — not legal advice. Always review the full bill text and official analysis
+                    are automated triage signals - not legal advice. Always review the full bill text and official analysis
                     before drawing conclusions.
                 </p>
             </section>
@@ -91,7 +90,7 @@ tailwind.config = {
                         <p class="font-semibold text-slate-800">Austin Emberlin</p>
                         <p class="text-sm text-slate-500 mt-0.5">Lead Developer</p>
                         <p class="text-slate-600 text-sm leading-relaxed mt-1">
-                            Built and maintains PolicyWatch — the data pipelines, website, and multi-state feed that
+                            Built and maintains PolicyWatch - the data pipelines, website, and multi-state feed that
                             power the project.
                         </p>
                         <p class="text-sm text-slate-500 mt-0.5">
@@ -145,7 +144,7 @@ tailwind.config = {
                         <h3 class="veteran-impact-title text-lg font-bold">Moderate impact</h3>
                     </div>
                     <p class="veteran-impact-summary text-sm leading-relaxed mb-3">
-                        Bills that adjust how veterans interact with employment, licensing, courts, or support systems —
+                        Bills that adjust how veterans interact with employment, licensing, courts, or support systems -
                         important, but usually narrower in scope than core benefit changes.
                     </p>
                     <ul class="veteran-impact-summary text-sm space-y-1 list-disc list-inside">
@@ -180,9 +179,9 @@ tailwind.config = {
             <section class="rounded-xl border p-5 bg-slate-50" style="border-color: var(--cw-border); background: var(--cw-surface-muted);">
                 <h2 class="text-xl font-bold text-civic-navy mb-3">Where the data comes from</h2>
                 <ul class="text-slate-600 text-sm space-y-2 list-disc list-inside leading-relaxed">
-                    <li><strong>Colorado</strong> — PolicyWatch imports a curated legislative tracker CSV when available. CSV impact levels take priority.</li>
-                    <li><strong>All other states &amp; federal</strong> — Keyword and topic rules classify bills from Open States, Congress.gov, and RSS feed text.</li>
-                    <li><strong>Not legal advice</strong> — Impact levels are automated triage signals to help you prioritize reading. Always review the full bill text and official analysis.</li>
+                    <li><strong>Colorado</strong> - PolicyWatch imports a curated legislative tracker CSV when available. CSV impact levels take priority.</li>
+                    <li><strong>All other states &amp; federal</strong> - Keyword and topic rules classify bills from Open States, Congress.gov, and RSS feed text.</li>
+                    <li><strong>Not legal advice</strong> - Impact levels are automated triage signals to help you prioritize reading. Always review the full bill text and official analysis.</li>
                 </ul>
             </section>
 

@@ -83,26 +83,10 @@ const PolicyWatchHome = (() => {
     };
 
     const VETERANS_IMPACT_FILTER_BUTTONS = {
-        all: {
-            id: 'veterans-filter-btn',
-            active: ['border-amber-500', 'bg-amber-500', 'text-white'],
-            inactive: ['border-slate-200', 'bg-white', 'text-slate-700'],
-        },
-        red: {
-            id: 'veterans-filter-red-btn',
-            active: ['border-red-600', 'bg-red-600', 'text-white'],
-            inactive: ['border-red-200', 'bg-red-50', 'text-red-900'],
-        },
-        yellow: {
-            id: 'veterans-filter-yellow-btn',
-            active: ['border-amber-500', 'bg-amber-500', 'text-white'],
-            inactive: ['border-amber-200', 'bg-amber-50', 'text-amber-900'],
-        },
-        green: {
-            id: 'veterans-filter-green-btn',
-            active: ['border-green-600', 'bg-green-600', 'text-white'],
-            inactive: ['border-green-200', 'bg-green-50', 'text-green-900'],
-        },
+        all: { id: 'veterans-filter-btn', active: [], inactive: [] },
+        red: { id: 'veterans-filter-red-btn', active: [], inactive: [] },
+        yellow: { id: 'veterans-filter-yellow-btn', active: [], inactive: [] },
+        green: { id: 'veterans-filter-green-btn', active: [], inactive: [] },
     };
 
     const VETERANS_IMPACT_FILTER_LABELS = {
@@ -188,10 +172,66 @@ const PolicyWatchHome = (() => {
 
     function renderActionBadge(actionType) {
         if (!actionType) return null;
+        const stampType = ['passed', 'enacted', 'failed', 'died', 'vetoed'].includes(actionType)
+            ? actionType
+            : (actionType === 'vote' || actionType === 'referred' ? actionType : 'pending');
         const badge = document.createElement('span');
-        badge.className = `inline-block px-2 py-0.5 rounded text-xs font-semibold border ${ACTION_BADGE_STYLES[actionType] || 'bg-slate-100 text-slate-700 border-slate-200'}`;
-        badge.textContent = actionBadgeLabel(actionType);
+        badge.className = `ledger-stamp ledger-stamp--${stampType}`;
+        badge.textContent = String(actionBadgeLabel(actionType) || '').toUpperCase();
         return badge;
+    }
+
+    function parseVoteTally(tally) {
+        const m = String(tally || '').match(/(\d+)\s*[–—\-]\s*(\d+)/);
+        if (!m) return null;
+        const yea = Number(m[1]);
+        const nay = Number(m[2]);
+        if (!Number.isFinite(yea) || !Number.isFinite(nay) || yea + nay <= 0) return null;
+        return { yea, nay, total: yea + nay };
+    }
+
+    function parseDraftRedline(item) {
+        const action = String(item.latest_action || item.summary || '');
+        const m = action.match(/accompanied a new draft,?\s*see\s+([A-Z]{1,4}\s*\d+)/i);
+        if (!m) return null;
+        const oldNum = (item.bill_number || '').trim();
+        const newNum = m[1].replace(/\s+/g, ' ').trim();
+        if (!oldNum || !newNum) return null;
+        return { oldNum, newNum, label: 'Accompanied a new draft' };
+    }
+
+    function renderVoteBar(tally) {
+        const parsed = parseVoteTally(tally);
+        if (!parsed) return null;
+        const wrap = document.createElement('div');
+        wrap.className = 'ledger-vote-bar';
+        wrap.setAttribute('aria-label', `Vote tally ${parsed.yea} yea, ${parsed.nay} nay`);
+        const yeaPct = (parsed.yea / parsed.total) * 100;
+        const nayPct = (parsed.nay / parsed.total) * 100;
+        wrap.innerHTML = `
+            <div class="ledger-vote-bar__track" aria-hidden="true">
+                <div class="ledger-vote-bar__yea" style="width:${yeaPct}%"></div>
+                <div class="ledger-vote-bar__nay" style="width:${nayPct}%"></div>
+            </div>
+            <div class="ledger-vote-bar__counts">
+                <span class="yea">Yea ${parsed.yea}</span>
+                <span class="nay">Nay ${parsed.nay}</span>
+            </div>`;
+        return wrap;
+    }
+
+    function renderRedline(redline) {
+        const wrap = document.createElement('div');
+        wrap.className = 'ledger-redline';
+        const oldCompact = redline.oldNum.replace(/\s+/g, '');
+        const newCompact = redline.newNum.replace(/\s+/g, '');
+        wrap.innerHTML = `
+            <span class="ledger-redline__old">${escapeHtml(oldCompact)}</span>
+            <span class="ledger-redline__arrow" aria-hidden="true">→</span>
+            <span class="ledger-redline__mid">accompanied by new draft</span>
+            <span class="ledger-redline__arrow" aria-hidden="true">→</span>
+            <span class="ledger-redline__new">${escapeHtml(newCompact)}</span>`;
+        return wrap;
     }
 
     function isVoteEvent(item) {
@@ -201,9 +241,32 @@ const PolicyWatchHome = (() => {
     function voteEventTitle(item) {
         const billNo = item.bill_number || '';
         const motion = item.motion || '';
+        // Prefer short bill name for stamp cards when available
+        const short = (item.short_title || '').trim();
+        if (short && !/^hr\s*\d+/i.test(short) && short.length < 80) return short;
         if (billNo && motion) return `${billNo} — ${motion}`;
         if (billNo) return billNo;
         return item.short_title || item.title || '(no title)';
+    }
+
+    function cleanDisplayTitle(item) {
+        let title = (item.short_title || item.title || '(no title)').trim();
+        // Congress.gov RSS often prefixes "Congress.gov Notifications..."
+        title = title.replace(/^Congress\.gov\s+Notifications\.?\s*/i, '');
+        // Keep "Congress.gov Enhancements..." wording from the mockup
+        if (/^Enhancements\b/i.test(title)) {
+            title = `Congress.gov ${title}`;
+        }
+        return title || '(no title)';
+    }
+
+    function notificationSummary(item, displayTitle) {
+        const plain = htmlToPlainText(item.summary || '');
+        if (!plain) return '';
+        if (/congress\.gov/i.test(displayTitle) || /enhancements?/i.test(displayTitle)) {
+            return 'Notification — legislation search improvements published to Congress.gov';
+        }
+        return plain;
     }
 
     function formatActionDate(item) {
@@ -347,7 +410,7 @@ const PolicyWatchHome = (() => {
 
         const label = header.querySelector('.jurisdictions-toggle-label');
         if (label) {
-            label.textContent = expanded ? 'Hide jurisdictions' : 'Show jurisdictions';
+            label.textContent = expanded ? 'Hide ▲' : 'Show ▾';
         }
 
         if (persist) {
@@ -433,21 +496,22 @@ const PolicyWatchHome = (() => {
         cards.forEach((card) => {
             const el = document.createElement('button');
             el.type = 'button';
-            el.className = 'state-snapshot-card w-full p-4 rounded-xl border-2 border-slate-200 bg-white hover:border-civic-blue hover:shadow-md transition-all text-left';
+            el.className = 'ledger-jurisdiction state-snapshot-card';
             el.setAttribute('data-state', card.value);
             el.setAttribute('aria-label', `Filter feed to ${card.label}`);
+            el.setAttribute('aria-pressed', 'false');
 
             const weekCount = weekMap[card.value];
-            const weekLine = weekCount > 0
-                ? `<div class="text-xs mt-1" style="color: var(--cw-success)">+${weekCount} this week</div>`
+            const delta = weekCount > 0
+                ? `<span class="ledger-jurisdiction__delta" title="+${weekCount} this week">▲ ${weekCount} wk</span>`
                 : '';
 
             el.innerHTML = `
-                <div class="text-xs font-semibold uppercase tracking-wide text-slate-400">${card.sub}</div>
-                <div class="text-lg font-bold text-civic-navy mt-0.5">${card.label}</div>
-                <div class="text-2xl font-bold text-civic-blue mt-1">${billCounts[card.value].toLocaleString()}</div>
-                <div class="text-xs text-slate-500">tracked bills</div>
-                ${weekLine}
+                ${delta}
+                <div class="ledger-jurisdiction__kind">${card.sub}</div>
+                <div class="ledger-jurisdiction__name">${card.label}</div>
+                <div class="ledger-jurisdiction__count">${billCounts[card.value].toLocaleString()}</div>
+                <div class="ledger-jurisdiction__meta">tracked bills</div>
             `;
 
             el.addEventListener('click', () => {
@@ -465,10 +529,13 @@ const PolicyWatchHome = (() => {
         if (!container) return;
 
         container.innerHTML = '';
-        STATE_CHIPS.forEach((chip) => {
+        const primary = STATE_CHIPS.filter((c) => c.value === '' || c.value === 'Federal');
+        const states = STATE_CHIPS.filter((c) => c.value && c.value !== 'Federal');
+
+        primary.forEach((chip) => {
             const btn = document.createElement('button');
             btn.type = 'button';
-            btn.className = 'state-chip px-4 py-2 rounded-full text-sm font-medium border-2 border-slate-200 bg-white text-slate-700 hover:border-civic-blue transition-colors whitespace-nowrap';
+            btn.className = 'state-chip ledger-chip';
             btn.textContent = chip.label;
             btn.setAttribute('data-state', chip.value);
             btn.setAttribute('aria-pressed', 'false');
@@ -478,24 +545,55 @@ const PolicyWatchHome = (() => {
             });
             container.appendChild(btn);
         });
+
+        const menu = document.createElement('details');
+        menu.className = 'ledger-states-menu';
+        const summary = document.createElement('summary');
+        summary.className = 'ledger-chip state-chip-states-trigger';
+        summary.textContent = 'States ▾';
+        menu.appendChild(summary);
+
+        const panel = document.createElement('div');
+        panel.className = 'ledger-states-panel';
+        panel.setAttribute('role', 'group');
+        panel.setAttribute('aria-label', 'Filter by state');
+
+        states.forEach((chip) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'state-chip ledger-chip';
+            btn.textContent = chip.label;
+            btn.setAttribute('data-state', chip.value);
+            btn.setAttribute('aria-pressed', 'false');
+            btn.addEventListener('click', () => {
+                setSelectedState(chip.value);
+                if (callbacks.onStateFilter) callbacks.onStateFilter(chip.value);
+                menu.open = false;
+            });
+            panel.appendChild(btn);
+        });
+
+        menu.appendChild(panel);
+        container.appendChild(menu);
     }
 
     function setSelectedState(state) {
         document.querySelectorAll('.state-chip').forEach((btn) => {
             const active = btn.getAttribute('data-state') === state;
             btn.setAttribute('aria-pressed', active ? 'true' : 'false');
-            btn.classList.toggle('border-civic-blue', active);
-            btn.classList.toggle('bg-civic-blue', active);
-            btn.classList.toggle('text-white', active);
-            btn.classList.toggle('border-slate-200', !active);
-            btn.classList.toggle('bg-white', !active);
-            btn.classList.toggle('text-slate-700', !active);
         });
+
+        const trigger = document.querySelector('.state-chip-states-trigger');
+        if (trigger) {
+            const stateChip = STATE_CHIPS.find((c) => c.value === state && c.value && c.value !== 'Federal');
+            trigger.textContent = stateChip ? `States · ${stateChip.label} ▾` : 'States ▾';
+            trigger.setAttribute('aria-pressed', stateChip ? 'true' : 'false');
+        }
 
         document.querySelectorAll('.state-snapshot-card').forEach((card) => {
             const active = card.getAttribute('data-state') === state;
-            card.classList.toggle('border-civic-blue', active);
-            card.classList.toggle('border-slate-200', !active);
+            card.classList.toggle('is-active', active);
+            card.setAttribute('aria-pressed', active ? 'true' : 'false');
         });
 
         const hiddenSelect = document.getElementById('state-filter');
@@ -918,43 +1016,49 @@ const PolicyWatchHome = (() => {
         const voteEvent = isVoteEvent(item);
         const card = document.createElement('article');
         const impactClasses = impact ? veteranImpactCardClasses(impact.level) : '';
-        const voteBorder = voteEvent ? 'border-l-4 border-l-blue-400 ' : '';
-        card.className = `bill-card p-4 rounded-lg border transition-all ${voteBorder}${impact ? `veteran-impact-card veteran-impact-card--${impact.level} ` : ''}${impactClasses || 'bg-white border-slate-200 hover:border-civic-blue/40 hover:shadow-sm'}`;
+        card.className = `bill-card ledger-card ${voteEvent ? 'ledger-card--vote ' : ''}${impact ? `veteran-impact-card veteran-impact-card--${impact.level} ` : ''}${impactClasses || ''}`.trim();
         const titleClass = impact
-            ? 'veteran-impact-title block text-base font-semibold transition-colors'
-            : 'block text-base font-semibold text-civic-navy hover:text-civic-blue transition-colors';
-        const metaLinkClass = impact
-            ? 'veteran-impact-link'
-            : 'text-civic-blue';
+            ? 'veteran-impact-title ledger-card__title'
+            : 'ledger-card__title';
+        const metaLinkClass = impact ? 'veteran-impact-link' : '';
 
         const state = inferItemState(item);
         const displayTitle = voteEvent
             ? voteEventTitle(item)
-            : (item.short_title || item.title || '(no title)');
+            : cleanDisplayTitle(item);
         const url = item.link || item.url || '#';
         const officialUrl = (typeof PolicyWatchBillUtils !== 'undefined')
             ? PolicyWatchBillUtils.resolveBillUrl(item)
             : url;
-
-        const header = document.createElement('div');
-        header.className = 'flex flex-wrap items-start gap-2 mb-2';
-
-        if (state) {
-            const badge = document.createElement('span');
-            badge.className = `inline-block px-2 py-0.5 rounded text-xs font-semibold ${stateBadgeClass(state)}`;
-            badge.textContent = state === 'Federal' ? 'Federal' : state;
-            header.appendChild(badge);
-        }
+        const redline = !voteEvent ? parseDraftRedline(item) : null;
 
         const actionType = item.action_type || (voteEvent ? 'vote' : null);
         if (actionType) {
             const actionBadge = renderActionBadge(actionType);
-            if (actionBadge) header.appendChild(actionBadge);
+            if (actionBadge) card.appendChild(actionBadge);
         }
 
-        if (item.bill_number && !voteEvent) {
+        const header = document.createElement('div');
+        header.className = 'ledger-card__meta';
+
+        if (state || (item.bill_number && !voteEvent)) {
+            const badge = document.createElement('span');
+            badge.className = 'ledger-card__jurisdiction';
+            const stateLabel = state === 'Federal' ? 'Federal' : (state || '');
+            if (item.bill_number && !voteEvent && stateLabel) {
+                badge.textContent = `${stateLabel} · ${item.bill_number}`;
+            } else if (item.bill_number && !voteEvent) {
+                badge.className = 'ledger-card__billno';
+                badge.textContent = item.bill_number;
+            } else {
+                badge.textContent = stateLabel;
+            }
+            header.appendChild(badge);
+        }
+
+        if (voteEvent && item.bill_number) {
             const billNum = document.createElement('span');
-            billNum.className = `text-xs font-semibold ${impact ? metaLinkClass : 'text-civic-blue'}`;
+            billNum.className = 'ledger-card__billno';
             billNum.textContent = item.bill_number;
             header.appendChild(billNum);
         }
@@ -977,7 +1081,7 @@ const PolicyWatchHome = (() => {
 
                 const reasonToggle = document.createElement('button');
                 reasonToggle.type = 'button';
-                reasonToggle.className = 'veteran-impact-reason-toggle inline-flex items-center gap-1 text-xs font-medium text-slate-600 hover:text-slate-800';
+                reasonToggle.className = 'veteran-impact-reason-toggle inline-flex items-center gap-1 text-xs font-medium';
                 reasonToggle.setAttribute('aria-expanded', 'false');
                 const reasonId = `veteran-reason-${Math.random().toString(36).slice(2, 9)}`;
                 reasonToggle.setAttribute('aria-controls', reasonId);
@@ -993,7 +1097,7 @@ const PolicyWatchHome = (() => {
 
                 const reasonBody = document.createElement('p');
                 reasonBody.id = reasonId;
-                reasonBody.className = 'veteran-impact-reason-body text-xs text-slate-600 mt-1 leading-relaxed';
+                reasonBody.className = 'veteran-impact-reason-body text-xs mt-1 leading-relaxed';
                 reasonBody.hidden = true;
                 reasonBody.textContent = reasonText;
 
@@ -1017,7 +1121,7 @@ const PolicyWatchHome = (() => {
         if (hasVoteRecords) {
             const titleBtn = document.createElement('button');
             titleBtn.type = 'button';
-            titleBtn.className = `text-left w-full ${titleClass}`;
+            titleBtn.className = titleClass;
             if (searchQuery) {
                 const regex = new RegExp(`(${escapeRegex(searchQuery)})`, 'gi');
                 titleBtn.innerHTML = highlightSafe(displayTitle, regex);
@@ -1042,30 +1146,30 @@ const PolicyWatchHome = (() => {
         }
 
         if (voteEvent && item.vote_tally) {
-            const tallyRow = document.createElement('div');
-            tallyRow.className = 'flex items-center gap-2 mt-2 text-sm font-semibold text-blue-900';
-            const iconWrap = document.createElement('span');
-            iconWrap.className = 'text-blue-600 flex-shrink-0';
-            iconWrap.setAttribute('aria-hidden', 'true');
-            iconWrap.innerHTML = `
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
-                </svg>`;
-            tallyRow.appendChild(iconWrap);
-            const tallyText = document.createElement('span');
-            if (searchQuery) {
-                const regex = new RegExp(`(${escapeRegex(searchQuery)})`, 'gi');
-                tallyText.innerHTML = highlightSafe(item.vote_tally, regex);
+            const bar = renderVoteBar(item.vote_tally);
+            if (bar) {
+                card.appendChild(bar);
             } else {
+                const tallyText = document.createElement('p');
+                tallyText.className = 'ledger-card__action';
+                tallyText.style.fontFamily = 'var(--font-data)';
                 tallyText.textContent = item.vote_tally;
+                card.appendChild(tallyText);
             }
-            tallyRow.appendChild(tallyText);
-            card.appendChild(tallyRow);
         }
 
-        if (!voteEvent && item.latest_action) {
+        if (redline) {
+            card.appendChild(renderRedline(redline));
+            const dateStr = formatActionDate(item);
+            if (dateStr) {
+                const dateEl = document.createElement('p');
+                dateEl.className = 'ledger-card__date';
+                dateEl.textContent = dateStr;
+                card.appendChild(dateEl);
+            }
+        } else if (!voteEvent && item.latest_action) {
             const actionRow = document.createElement('p');
-            actionRow.className = 'text-sm text-slate-600 mt-2';
+            actionRow.className = 'ledger-card__action';
             const dateStr = formatActionDate(item);
             const actionText = dateStr
                 ? `Action: ${item.latest_action} · ${dateStr}`
@@ -1079,16 +1183,21 @@ const PolicyWatchHome = (() => {
             card.appendChild(actionRow);
         }
 
-        const summaryText = item.summary || '';
+        // RSS may ship HTML in summary — plain text only. Skip when it duplicates action/redline.
+        const summaryText = notificationSummary(item, displayTitle) || htmlToPlainText(item.summary || '');
+        const actionPlain = htmlToPlainText(item.latest_action || '');
+        const isCongressNotice = /notification\s*—/i.test(summaryText);
         const showSummary = summaryText.trim()
             && summaryText !== displayTitle
-            && !(voteEvent && summaryText === item.vote_tally);
+            && summaryText !== actionPlain
+            && !(voteEvent && summaryText === item.vote_tally)
+            && !(redline && /accompanied a new draft/i.test(summaryText));
         if (showSummary) {
             const summary = document.createElement('p');
             summary.className = impact
-                ? 'veteran-impact-summary text-sm mt-2 line-clamp-2 leading-relaxed'
-                : 'text-sm text-slate-600 mt-2 line-clamp-2 leading-relaxed';
-            if (searchQuery) {
+                ? 'veteran-impact-summary ledger-card__summary line-clamp-2'
+                : 'ledger-card__summary line-clamp-2';
+            if (searchQuery && !isCongressNotice) {
                 const regex = new RegExp(`(${escapeRegex(searchQuery)})`, 'gi');
                 summary.innerHTML = highlightSafe(summaryText, regex);
             } else {
@@ -1099,17 +1208,13 @@ const PolicyWatchHome = (() => {
 
         if (officialUrl && officialUrl !== '#') {
             const linkRow = document.createElement('div');
-            linkRow.className = 'mt-2';
+            linkRow.className = 'ledger-card__source';
             const officialLink = document.createElement('a');
             officialLink.href = officialUrl;
             officialLink.target = '_blank';
             officialLink.rel = 'noopener noreferrer';
-            officialLink.className = `text-xs hover:underline inline-flex items-center gap-1 ${impact ? metaLinkClass : 'text-civic-blue'}`;
-            officialLink.innerHTML = `
-                Official source
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                </svg>`;
+            if (metaLinkClass) officialLink.className = metaLinkClass;
+            officialLink.textContent = 'Official source →';
             linkRow.appendChild(officialLink);
             card.appendChild(linkRow);
         }
@@ -1125,8 +1230,26 @@ const PolicyWatchHome = (() => {
         return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     }
 
+    function escapeHtml(text) {
+        return String(text)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    /** Strip tags / decode entities from RSS or API HTML; return readable plain text. */
+    function htmlToPlainText(value) {
+        const raw = String(value || '');
+        if (!raw) return '';
+        if (!/[<&]/.test(raw)) return raw.replace(/\s+/g, ' ').trim();
+        const doc = new DOMParser().parseFromString(raw, 'text/html');
+        return (doc.body.textContent || '').replace(/\s+/g, ' ').trim();
+    }
+
     function highlightSafe(text, regex) {
-        return String(text).replace(regex, '<mark>$1</mark>');
+        return escapeHtml(String(text)).replace(regex, '<mark>$1</mark>');
     }
 
     function matchesVeteransTopic(text) {
@@ -1141,7 +1264,7 @@ const PolicyWatchHome = (() => {
 
     function itemVeteransText(item) {
         const parts = [
-            item.title, item.short_title, item.summary, item.latest_action, item.bill_number,
+            item.title, item.short_title, htmlToPlainText(item.summary), item.latest_action, item.bill_number,
             item.link, item.url,
         ];
         if (Array.isArray(item.classification)) parts.push(item.classification.join(' '));
@@ -1237,12 +1360,11 @@ const PolicyWatchHome = (() => {
         section.setAttribute('aria-label', `Updates for ${date}`);
 
         const card = document.createElement('div');
-        card.className = 'feed-day-card rounded-xl border p-5 sm:p-6';
-        card.style.cssText = 'background: var(--cw-surface); border-color: var(--cw-border); box-shadow: 0 1px 2px color-mix(in srgb, var(--cw-text) 6%, transparent);';
+        card.className = 'feed-day-card';
+        card.style.cssText = 'background: transparent;';
 
         const header = document.createElement('h2');
-        header.className = 'text-xl font-bold text-civic-navy mb-4 pb-3 border-b';
-        header.style.borderColor = 'var(--cw-border)';
+        header.className = 'ledger-date-header';
         header.textContent = formatDate(date);
         card.appendChild(header);
 
@@ -1271,8 +1393,8 @@ const PolicyWatchHome = (() => {
             const stateItems = byState[st];
             if (multiState) {
                 const subHeader = document.createElement('h3');
-                subHeader.className = 'text-sm font-semibold uppercase tracking-wide text-slate-500 mb-3 mt-4';
-                subHeader.textContent = STATE_NAMES[st] || st;
+                subHeader.className = 'ledger-section-header';
+                subHeader.textContent = st === 'Federal' ? 'U.S. Congress' : (STATE_NAMES[st] || st);
                 card.appendChild(subHeader);
             }
 

@@ -168,7 +168,7 @@ pytest
 python -m http.server 8080 --directory docs
 ```
 
-Open `http://localhost:8080/index.html`. Large JSON still loads from R2 when `docs/data-config.js` points at the public bucket URL.
+Open `http://localhost:8080/index.html`. On localhost the UI loads JSON from the local `docs/` server (R2 CORS usually blocks `localhost`). Set `window.POLICYWATCH_FORCE_R2 = true` before `data-url.js` if you need the remote bucket instead.
 
 ### Worker (local)
 

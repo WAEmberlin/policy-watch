@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Upcoming & Historical Hearings — PolicyWatch</title>
-<link rel="stylesheet" href="theme.css" />
+<link rel="stylesheet" href="theme.css?v=ledger6" />
 <link rel="stylesheet" href="sr-only.css" />
 <script src="theme.js"></script>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -43,20 +43,18 @@ tailwind.config = {
     <!-- Main Card -->
     <div class="cw-card shadow-xl shadow-slate-200/50">
         <!-- Header -->
-        <div class="cw-card-header">
+        <header class="cw-header cw-card-header">
             <div class="flex items-center justify-between gap-4 flex-wrap">
-            <div class="flex items-center gap-4">
-                <img src="PolicyWatch Logo.png" alt="PolicyWatch Logo" class="h-14 w-auto hidden sm:block" />
-                <div>
-                    <h1 class="text-3xl font-bold">
-                        <span class="text-white">Policy</span><span class="text-civic-gold">Watch</span>
-                    </h1>
-                    <div class="text-slate-300 text-sm mt-1">Legislative Hearings — All States</div>
-                </div>
+            <div class="ledger-brand flex-1 min-w-0">
+                <img src="policywatch-mark.png" alt="" class="ledger-mark" width="56" height="56" />
+                <h1 class="ledger-wordmark">
+                    Policy <span class="ledger-wordmark-accent">Watch</span>
+                </h1>
+                <div class="ledger-timestamp">Legislative Hearings — All States</div>
             </div>
             <div data-cw-theme-toggle></div>
             </div>
-        </div>
+        </header>
         
         <!-- Content Area -->
         <div class="cw-card-body p-6 md:p-8">

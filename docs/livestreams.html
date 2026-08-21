@@ -3,47 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Live Legislative Streams — PolicyWatch</title>
-  <link rel="stylesheet" href="theme.css" />
+  <title>Live Legislative Streams - PolicyWatch</title>
   <link rel="stylesheet" href="sr-only.css" />
   <script src="theme.js"></script>
   <!-- Preconnect to embed origins to speed up first load when user opens a stream tab -->
   <link rel="preconnect" href="https://www.youtube.com" />
   <link rel="preconnect" href="https://live.house.gov" />
   <link rel="preconnect" href="https://www.senate.gov" />
-  <!-- Bootstrap 5 CSS -->
+  <!-- Bootstrap 5 CSS - theme.css must load AFTER so ledger tokens win -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="theme.css?v=ledger6" />
   <style>
-    /* Page-specific layout; colors from theme.css */
-    .nav-tabs .nav-link { font-weight: 500; }
-    .nav-tabs .nav-link.active { color: var(--cw-navy); }
-    /* 16:9 responsive embed wrapper */
-    .embed-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+    /* Page-specific layout; colors from theme.css ledger tokens */
+    body.cw-page-bg { font-family: var(--font-ui) !important; background: var(--ink) !important; color: var(--paper) !important; }
+    .ledger-wordmark,
+    h1.ledger-wordmark {
+      font-family: var(--font-display) !important;
+      font-size: clamp(1.85rem, 3.2vw, 2.4rem) !important;
+      font-weight: 600 !important;
+      color: var(--paper) !important;
+      line-height: 1.15 !important;
+      margin: 0 !important;
+    }
+    .ledger-wordmark-accent { color: var(--wire) !important; }
+    .ledger-timestamp {
+      font-family: var(--font-data) !important;
+      font-size: 0.75rem !important;
+      color: var(--slate) !important;
+    }
+    .card-header.civic-header {
+      background: var(--ink-raised) !important;
+      color: var(--paper) !important;
+      border-bottom: 1px solid var(--ink-line) !important;
+    }
+    .nav-tabs { border-bottom-color: var(--ink-line) !important; }
+    .nav-tabs .nav-link {
+      font-family: var(--font-ui) !important;
+      font-weight: 500;
+      color: var(--slate) !important;
+      border-color: transparent !important;
+    }
+    .nav-tabs .nav-link:hover { color: var(--wire) !important; border-color: transparent !important; }
+    .nav-tabs .nav-link.active {
+      color: var(--wire) !important;
+      background: var(--ink-raised) !important;
+      border-color: var(--ink-line) var(--ink-line) var(--ink-raised) !important;
+    }
+    .embed-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 0.25rem; border: 1px solid var(--ink-line); }
     .embed-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .embed-placeholder { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; z-index: 1; }
-    /* Live Now bar - minimal, clear */
-    .live-now-bar { font-size: 0.875rem; }
+    .embed-placeholder {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-ui); font-size: 0.95rem; z-index: 1;
+      background: var(--ink) !important; color: var(--slate) !important;
+    }
+    .live-now-bar { font-size: 0.875rem; font-family: var(--font-ui); }
+    .accordion-button { font-family: var(--font-ui) !important; }
+    h2, h3, h4 { font-family: var(--font-display) !important; color: var(--paper) !important; }
   </style>
 </head>
 <body class="cw-page-bg min-vh-100" data-cw-page="live">
   <a href="#main-content" class="cw-skip-link">Skip to main content</a>
   <div id="a11y-live-region" class="sr-only" aria-live="polite" aria-atomic="true" role="status"></div>
   <div id="cw-page-wrapper" class="container-xl py-4">
+    <p class="ledger-preview-banner" style="font-family:var(--font-data);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);border:1px solid color-mix(in srgb,var(--amber) 45%,transparent);background:color-mix(in srgb,var(--amber) 12%,transparent);padding:0.5rem 0.75rem;border-radius:0.25rem;margin:0 0 0.75rem;">Ledger redesign active - if you still see a yellow Watch + blue-square Capitol logo, hard-refresh or use port 8090</p>
     <!-- ========== Live Now bar: built by live-streams.js from config (only visible when isLive streams exist) ========== -->
     <div id="live-now-bar" class="live-now-bar" aria-live="polite" aria-atomic="true"></div>
 
     <!-- Main card -->
     <div class="card cw-card shadow-sm overflow-hidden">
-      <header class="card-header civic-header text-white px-4 py-3">
+      <header class="cw-header card-header civic-header px-4 py-3 border-0">
         <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap">
-        <div class="d-flex align-items-center gap-3 flex-wrap">
-          <img src="PolicyWatch Logo.png" alt="PolicyWatch — legislative and policy tracking" class="d-none d-sm-block" style="height: 3rem;" />
-          <div>
-            <h1 class="h4 mb-0 fw-bold">
-              <span class="text-white">Policy</span><span style="color: var(--cw-gold);">Watch</span>
-            </h1>
-            <p class="mb-0 small cw-text-on-header-muted">Live Streams</p>
-          </div>
+        <div class="ledger-brand flex-grow-1">
+          <img src="policywatch-mark.png" alt="" class="ledger-mark" width="56" height="56" />
+          <h1 class="ledger-wordmark mb-0">
+            Policy <span class="ledger-wordmark-accent">Watch</span>
+          </h1>
+          <div class="ledger-timestamp">Live Streams</div>
         </div>
         <div data-cw-theme-toggle></div>
         </div>
@@ -178,7 +214,7 @@
                             <div id="ks-house-judiciary-civil" class="accordion-collapse collapse" data-bs-parent="#ks-house-judiciary-sub">
                               <div class="accordion-body p-0">
                                 <div class="embed-wrapper" style="min-height: 240px;" data-stream-id="ks-house-judiciary-civil">
-                                  <iframe loading="lazy" title="Kansas House Judiciary — Civil Law" allow="fullscreen" allowfullscreen></iframe>
+                                  <iframe loading="lazy" title="Kansas House Judiciary - Civil Law" allow="fullscreen" allowfullscreen></iframe>
                                   <div class="embed-placeholder">Not Live</div>
                                 </div>
                               </div>
@@ -191,7 +227,7 @@
                             <div id="ks-house-judiciary-criminal" class="accordion-collapse collapse" data-bs-parent="#ks-house-judiciary-sub">
                               <div class="accordion-body p-0">
                                 <div class="embed-wrapper" style="min-height: 240px;" data-stream-id="ks-house-judiciary-criminal">
-                                  <iframe loading="lazy" title="Kansas House Judiciary — Criminal Law" allow="fullscreen" allowfullscreen></iframe>
+                                  <iframe loading="lazy" title="Kansas House Judiciary - Criminal Law" allow="fullscreen" allowfullscreen></iframe>
                                   <div class="embed-placeholder">Not Live</div>
                                 </div>
                               </div>
@@ -856,7 +892,7 @@
                 <div id="house-floor-section">
                 <h3 class="h6 fw-bold mb-2">House Floor</h3>
                 <p class="small text-muted mb-2">
-                  <span class="badge bg-secondary">Live / Not in Session</span> — Official U.S. House floor proceedings.
+                  <span class="badge bg-secondary">Live / Not in Session</span> - Official U.S. House floor proceedings.
                 </p>
                 <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
                   <a href="https://live.house.gov/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">live.house.gov</a>
@@ -1054,7 +1090,7 @@
       </main>
     </div>
 
-    <footer class="text-center text-muted small mt-3" data-cw-footer-replace>PolicyWatch — Tracking legislation for Kansas, Colorado, Arizona, Utah, Maine, and U.S. Congress</footer>
+    <footer class="text-center text-muted small mt-3" data-cw-footer-replace>PolicyWatch - Tracking legislation for Kansas, Colorado, Arizona, Utah, Maine, and U.S. Congress</footer>
   </div>
 
   <!-- Bootstrap 5 JS (required for tabs and accordions) -->

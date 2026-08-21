@@ -13,6 +13,13 @@ from processing.r2_sync import prefer_search_index, write_data_config  # noqa: E
 import processing.r2_sync as mod  # noqa: E402
 
 
+def test_pipeline_upload_includes_federal_legislation_cache():
+    """CI R2 restore must bring back merged federal bills, not only normalized state caches."""
+    globs = mod.PIPELINE_UPLOAD_GLOBS
+    assert "src/output/legislation.json" in globs
+    assert "data/congress/*.json" in globs
+
+
 def test_write_data_config_sets_public_base(monkeypatch, tmp_path):
     monkeypatch.setenv("R2_PUBLIC_BASE_URL", "https://pub-example.r2.dev/")
     docs = tmp_path / "docs"
@@ -23,6 +30,7 @@ def test_write_data_config_sets_public_base(monkeypatch, tmp_path):
     text = out.read_text(encoding="utf-8")
     assert "https://pub-example.r2.dev" in text
     assert "window.POLICYWATCH_DATA_BASE" in text
+    assert "localhost" in text
     assert "window.CIVICWATCH_DATA_BASE = window.POLICYWATCH_DATA_BASE" in text
     assert "window.POLICYWATCH_API_BASE" in text
     assert "policywatch-api.wesley-a-emberlin.workers.dev" in text
