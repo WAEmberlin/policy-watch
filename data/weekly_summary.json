@@ -1,9 +1,9 @@
 {
-  "week_start": "2026-08-02",
-  "week_end": "2026-08-09",
+  "week_start": "2026-08-09",
+  "week_end": "2026-08-16",
   "model": "phi-3:mini",
   "prompt_version": "v1",
-  "generated_at": "2026-08-09T06:46:29.761966+00:00",
+  "generated_at": "2026-08-16T06:31:36.866770+00:00",
   "jurisdictions": [
     {
       "name": "Kansas Legislature",
@@ -30,23 +30,16 @@
         {
           "title": "House of Representatives",
           "summary": [
-            "HR 6500 was passed senate with an amendment and an amendment to the title by yea-nay vote. 90 - 6. record vote number: 228. on 2026-08-08.",
-            "HR 3633 was cloture motion on the motion to proceed to the measure presented in senate. on 2026-08-08.",
-            "HR 5334 was passed senate with an amendment and an amendment to the title by yea-nay vote. 86 - 11. record vote number: 224. on 2026-08-07.",
-            "4 House of Representatives bills were passed senate without amendment by unanimous consent.: HR 2069, HR 5366, HR 2196, HR 1276.",
-            "13 House of Representatives bills were committee on homeland security and governmental affairs. ordered to be reported without amendment favorably.: HR 6332, HR 3350, HR 4662, HR 1431, HR 6247 and 8 more."
+            "6 House of Representatives bills were message on senate action sent to the house.: HR 6500, HR 5334, HR 5366, HR 2069, HR 2196 and 1 more."
           ],
-          "bill_count": 34
+          "bill_count": 6
         },
         {
           "title": "U.S. Senate",
           "summary": [
-            "5 U.S. Senate bills were passed senate with an amendment by unanimous consent.: S 2542, S 1525, S 2677, S 3266, S 434.",
-            "9 U.S. Senate bills were committee on homeland security and governmental affairs. ordered to be reported without amendment favorably.: S 3444, S 3373, S 3331, S 3296, S 3294 and 4 more.",
-            "5 U.S. Senate bills were committee on homeland security and governmental affairs. ordered to be reported with an amendment in the nature of a substitute favorably.: S 3226, S 3211, S 3175, S 2732, S 1735.",
-            "S 2398 was passed senate with an amendment by voice vote. on 2026-08-06."
+            "11 U.S. Senate bills were held at the desk.: S 2542, S 1525, S 2677, S 3266, S 434 and 6 more."
           ],
-          "bill_count": 43
+          "bill_count": 11
         }
       ]
     }

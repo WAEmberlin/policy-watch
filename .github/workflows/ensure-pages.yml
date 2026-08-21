@@ -49,6 +49,9 @@ jobs:
             // Cancelled/superseded deploys often leave pages/builds stuck on
             // "building"; treat those as dead after this age.
             const stuckBuildingMinutes = 12;
+            // Actions can sit forever in "queued" while Pages API says
+            // "building"; treat long-queued runs as dead so we can re-trigger.
+            const stuckQueuedMinutes = 12;
 
             const sleep = (seconds) =>
               new Promise((resolve) => setTimeout(resolve, seconds * 1000));
@@ -90,36 +93,62 @@ jobs:
             }
 
             async function getLatestBuild() {
-              const { data } = await github.request(
-                "GET /repos/{owner}/{repo}/pages/builds",
-                {
-                  owner,
-                  repo,
-                  headers: { Accept: "application/vnd.github+json" },
-                  per_page: 5,
-                }
-              );
-              return data[0] || null;
+              return withApiRetry("getLatestBuild", async () => {
+                const { data } = await github.request(
+                  "GET /repos/{owner}/{repo}/pages/builds",
+                  {
+                    owner,
+                    repo,
+                    headers: { Accept: "application/vnd.github+json" },
+                    per_page: 5,
+                  }
+                );
+                return data[0] || null;
+              });
             }
 
             async function getPagesDeployRuns(headSha) {
-              const { data } = await github.rest.actions.listWorkflowRunsForRepo({
-                owner,
-                repo,
-                branch: "main",
-                per_page: 30,
-              });
-              return (data.workflow_runs || []).filter((run) => {
-                if (run.head_sha !== headSha) return false;
-                const path = (run.path || "").toLowerCase();
-                return path.includes("pages-build-deployment");
+              return withApiRetry("getPagesDeployRuns", async () => {
+                const { data } = await github.rest.actions.listWorkflowRunsForRepo({
+                  owner,
+                  repo,
+                  branch: "main",
+                  per_page: 30,
+                });
+                return (data.workflow_runs || []).filter((run) => {
+                  if (run.head_sha !== headSha) return false;
+                  const path = (run.path || "").toLowerCase();
+                  return path.includes("pages-build-deployment");
+                });
               });
             }
 
+            function isSoftQueuedStatus(status) {
+              return ["queued", "waiting", "requested", "pending"].includes(status);
+            }
+
             function isInProgressRun(run) {
-              return ["queued", "in_progress", "waiting", "requested", "pending"].includes(
-                run.status
-              );
+              return run.status === "in_progress" || isSoftQueuedStatus(run.status);
+            }
+
+            function runCreatedAgeMs(run) {
+              const createdMs = Date.parse(run.created_at);
+              if (Number.isNaN(createdMs)) return 0;
+              return Date.now() - createdMs;
+            }
+
+            // Long-queued with no runner pickup — not a healthy deploy in progress.
+            function isRunStuckQueued(run) {
+              if (!isSoftQueuedStatus(run.status)) return false;
+              return runCreatedAgeMs(run) > stuckQueuedMinutes * 60 * 1000;
+            }
+
+            // Wait/no-retrigger only for active runs or recently queued ones.
+            // Stuck-queued must not block the stuck-building escape or re-trigger.
+            function isHealthyInProgressRun(run) {
+              if (run.status === "in_progress") return true;
+              if (isSoftQueuedStatus(run.status)) return !isRunStuckQueued(run);
+              return false;
             }
 
             function isBuildStuck(build) {
@@ -144,22 +173,32 @@ jobs:
 
             async function triggerBuild() {
               core.info("Triggering GitHub Pages rebuild...");
-              await github.request("POST /repos/{owner}/{repo}/pages/builds", {
-                owner,
-                repo,
-                headers: { Accept: "application/vnd.github+json" },
+              // Extra application-level retries beyond octokit's request retries.
+              // Persistent 503s should soft-fail at the call site so cycles continue.
+              await withApiRetry("triggerBuild", async () => {
+                await github.request("POST /repos/{owner}/{repo}/pages/builds", {
+                  owner,
+                  repo,
+                  headers: { Accept: "application/vnd.github+json" },
+                });
               });
             }
 
-            async function waitForDeploy(headSha, maxPolls = 20) {
+            async function waitForDeploy(resolveHeadSha, maxPolls = 20) {
               for (let poll = 1; poll <= maxPolls; poll++) {
+                const headSha =
+                  typeof resolveHeadSha === "function"
+                    ? await resolveHeadSha()
+                    : resolveHeadSha;
+
                 if (await isPagesLive(headSha)) {
                   return true;
                 }
 
                 const build = await getLatestBuild();
                 const runs = await getPagesDeployRuns(headSha);
-                const inProgress = runs.filter(isInProgressRun);
+                const healthyInProgress = runs.filter(isHealthyInProgressRun);
+                const stuckQueued = runs.filter(isRunStuckQueued);
                 const latestRun = runs[0];
 
                 core.info(
@@ -167,11 +206,13 @@ jobs:
                     build?.commit || ""
                   ).slice(0, 7)}, actions=${latestRun?.status || "none"}/${
                     latestRun?.conclusion || "-"
-                  }, in_progress=${inProgress.length}`
+                  }, healthy_in_progress=${healthyInProgress.length}, stuck_queued=${
+                    stuckQueued.length
+                  }`
                 );
 
                 if (
-                  !inProgress.length &&
+                  !healthyInProgress.length &&
                   build?.commit === headSha &&
                   build.status === "errored"
                 ) {
@@ -183,13 +224,24 @@ jobs:
                 }
 
                 if (
-                  !inProgress.length &&
+                  !healthyInProgress.length &&
                   runs.length &&
                   runs.every(
                     (run) =>
                       run.status === "completed" && run.conclusion !== "success"
                   )
                 ) {
+                  // Superseded SHA: main tip moved; caller will retarget.
+                  const current = await getMainHead();
+                  if (current !== headSha) {
+                    core.info(
+                      `pages-build-deployment ended ${latestRun.conclusion} for superseded ${headSha.slice(
+                        0,
+                        7
+                      )}; main is now ${current.slice(0, 7)}`
+                    );
+                    return false;
+                  }
                   core.warning(
                     `pages-build-deployment ended ${latestRun.conclusion} for ${headSha.slice(
                       0,
@@ -200,7 +252,21 @@ jobs:
                 }
 
                 if (
-                  !inProgress.length &&
+                  !healthyInProgress.length &&
+                  stuckQueued.length &&
+                  runs.every(
+                    (run) =>
+                      run.status === "completed" || isRunStuckQueued(run)
+                  )
+                ) {
+                  core.warning(
+                    `pages-build-deployment stuck queued since ${stuckQueued[0].created_at}; ending wait cycle`
+                  );
+                  return false;
+                }
+
+                if (
+                  !healthyInProgress.length &&
                   build?.commit === headSha &&
                   isBuildStuck(build)
                 ) {
@@ -215,8 +281,25 @@ jobs:
               return false;
             }
 
-            const headSha = await getMainHead();
+            let headSha = await getMainHead();
             core.info(`main HEAD: ${headSha}`);
+
+            // POST /pages/builds always targets current main tip. If main moves
+            // (e.g. PolicyWatch Update lands mid-ensure), retarget or we wait
+            // forever on cancelled runs for a superseded SHA.
+            async function refreshHeadSha() {
+              const current = await getMainHead();
+              if (current !== headSha) {
+                core.info(
+                  `main advanced ${headSha.slice(0, 7)} → ${current.slice(
+                    0,
+                    7
+                  )}; retargeting`
+                );
+                headSha = current;
+              }
+              return headSha;
+            }
 
             if (await isPagesLive(headSha)) {
               core.info("Pages already serving latest main commit.");
@@ -224,7 +307,8 @@ jobs:
             }
 
             for (let cycle = 1; cycle <= maxTriggerCycles; cycle++) {
-              core.info(`Deploy cycle ${cycle}/${maxTriggerCycles}`);
+              await refreshHeadSha();
+              core.info(`Deploy cycle ${cycle}/${maxTriggerCycles} for ${headSha.slice(0, 7)}`);
 
               if (await isPagesLive(headSha)) {
                 core.info("Pages already serving latest main commit.");
@@ -233,19 +317,23 @@ jobs:
 
               const build = await getLatestBuild();
               const runs = await getPagesDeployRuns(headSha);
-              const inProgress = runs.some(isInProgressRun);
-              const stuck = build?.commit === headSha && isBuildStuck(build);
+              const healthyInProgress = runs.some(isHealthyInProgressRun);
+              const stuckQueued = runs.some(isRunStuckQueued);
+              const stuckBuild =
+                build?.commit === headSha && isBuildStuck(build);
+              const stuck = stuckBuild || stuckQueued;
               // Pages API can stay "building" after Actions already failed/cancelled
               // (queued runner never started). Do not wait — re-trigger.
               const actionsAlreadyFailed =
-                !inProgress &&
+                !healthyInProgress &&
+                !stuckQueued &&
                 runs.length > 0 &&
                 runs.every(
                   (run) =>
                     run.status === "completed" && run.conclusion !== "success"
                 );
 
-              if (inProgress) {
+              if (healthyInProgress) {
                 core.info(
                   "pages-build-deployment already in progress for latest commit; waiting (no re-trigger)."
                 );
@@ -259,7 +347,12 @@ jobs:
                   "Pages API reports building for latest commit; waiting (no re-trigger)."
                 );
               } else {
-                if (stuck) {
+                if (stuckQueued) {
+                  const oldestQueued = runs.find(isRunStuckQueued);
+                  core.warning(
+                    `pages-build-deployment stuck queued since ${oldestQueued?.created_at}; re-triggering.`
+                  );
+                } else if (stuckBuild) {
                   core.warning(
                     `Pages build stuck in building since ${build.created_at}; re-triggering.`
                   );
@@ -271,11 +364,25 @@ jobs:
                     )} while Pages API still reports ${build?.status || "none"}; re-triggering.`
                   );
                 }
-                await triggerBuild();
-                await sleep(45);
+                try {
+                  await triggerBuild();
+                  await sleep(45);
+                } catch (error) {
+                  // Do not abort remaining cycles on prolonged Pages API outages.
+                  if (isTransientApiError(error)) {
+                    core.warning(
+                      `POST /pages/builds failed after retries (${error.status || "error"}): ${
+                        error.message || error
+                      }; continuing to wait/poll`
+                    );
+                    await sleep(60);
+                  } else {
+                    throw error;
+                  }
+                }
               }
 
-              if (await waitForDeploy(headSha)) {
+              if (await waitForDeploy(() => refreshHeadSha())) {
                 core.info("Pages deploy succeeded.");
                 return;
               }
