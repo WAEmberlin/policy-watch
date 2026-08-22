@@ -4,12 +4,6 @@ on:
   schedule:
     - cron: "30 * * * *"  # Every hour at :30 UTC
   workflow_dispatch:
-  # One-shot: committing this path on main starts an update without Actions:write.
-  # Remove after the run starts so later edits cannot retrigger.
-  push:
-    branches: [main]
-    paths:
-      - ".github/run-update-now"
 
 concurrency:
   group: policywatch-update
