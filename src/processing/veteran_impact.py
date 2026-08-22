@@ -15,9 +15,11 @@ IMPACT_LEVELS = ("red", "yellow", "green")
 
 # Scoring factor keyword groups (ordered by priority for tie-breaking).
 # Color rows (Colorado tracker):
-#   RED — benefits, disability ratings, VA healthcare, housing, survivor/burial, GI Bill
-#   YELLOW — employment preference, licensing, courts & diversion, mental health, military spouse
-#   GREEN — recognition, memorials, honor resolutions, indirect military references
+#   RED — benefits, disability ratings, VA healthcare, MST/IPV/suicide,
+#         housing, survivor/burial, GI Bill, retroactive veteran benefits
+#   YELLOW — employment preference, licensing, courts & diversion, generic mental health, military spouse
+#   GREEN — recognition, memorials, honor resolutions, VA committee referrals
+#           with no higher-impact keyword (default for veteran-related unmatched bills)
 #
 # Ambiguous terms (pension, diversion, honor, etc.) are CONTEXT-GATED: they only
 # contribute to red/yellow/green after a veteran-related signal is established.
@@ -29,13 +31,21 @@ SCORING_FACTORS: Dict[str, List[str]] = {
         "dependency indemnity", "title 38",
         # Gated when used alone — require veteran context first:
         "compensation", "pension",
+        "retroactive payment", "retroactive benefit", "retroactive benefits",
+        "retroactive compensation",
     ],
     "healthcare_mental_health": [
         # VA clinical / veteran-specific conditions → RED; generic mental health → YELLOW.
         "va health", "veterans health", "va healthcare", "veterans healthcare",
-        "veterans affairs",
+        "military sexual trauma",
         # Gated clinical / mental-health terms:
         "ptsd", "tbi", "suicide prevention", "post-traumatic", "mental health",
+    "sexual trauma", "intimate partner violence", "domestic violence",
+    "suicidal ideation", "suicide",
+    "retroactive payment", "retroactive benefit", "retroactive benefits",
+    "retroactive compensation",
+        "sexual trauma", "intimate partner violence", "domestic violence",
+        "suicidal ideation", "suicide",
     ],
     "housing_homelessness": [
         "veteran housing", "homeless veteran", "shelter veteran",
@@ -80,6 +90,10 @@ CONTEXT_GATED_KEYWORDS = frozenset({
     "compensation", "pension", "housing voucher",
     "disability rating", "rating schedule", "survivor", "burial",
     "ptsd", "tbi", "suicide prevention", "post-traumatic", "mental health",
+    "sexual trauma", "intimate partner violence", "domestic violence",
+    "suicidal ideation", "suicide",
+    "retroactive payment", "retroactive benefit", "retroactive benefits",
+    "retroactive compensation",
     "hiring preference", "employment preference",
     "licensing", "certification", "apprenticeship",
     "diversion", "treatment court", "justice outreach",
@@ -89,9 +103,14 @@ CONTEXT_GATED_KEYWORDS = frozenset({
 })
 
 # Veteran-specific clinical / VA healthcare signals (RED). Generic "mental health" stays YELLOW.
+# Bare "veterans affairs" is not red — committee referrals should color the card
+# (default green) unless a more specific high-impact keyword matches.
 RED_HEALTHCARE_SIGNALS = [
     "va health", "veterans health", "va healthcare", "veterans healthcare",
-    "veterans affairs", "ptsd", "tbi", "suicide prevention", "post-traumatic",
+    "military sexual trauma",
+    "ptsd", "tbi", "suicide prevention", "post-traumatic",
+    "sexual trauma", "intimate partner violence", "domestic violence",
+    "suicidal ideation", "suicide",
 ]
 
 RED_SIGNALS = [
@@ -155,6 +174,10 @@ VETERAN_MARKERS = [
     "servicemember", "service member", "title 38", "gi bill",
     "va health", "va healthcare", "va benefit", "va clinic", "va medical",
     "va appropriations", "milcon-va",
+    "military sexual trauma",
+    "committee on veterans", "veterans' affairs committee",
+    "veterans affairs committee", "veterans and military affairs",
+    "military and veterans affairs", "military affairs and veterans",
 ]
 
 VETERAN_TAG_PATTERN = re.compile(
@@ -164,8 +187,25 @@ VETERAN_TAG_PATTERN = re.compile(
 
 BILL_TEXT_FIELDS = (
     "title", "summary", "latest_action", "short_title", "official_title",
-    "notes", "committee", "last_action",
+    "notes", "committee", "committees", "last_action",
 )
+
+
+def _flatten_text_value(value: Any) -> str:
+    """Join committee lists/dicts and other nested fields into searchable text."""
+    if value is None:
+        return ""
+    if isinstance(value, str):
+        return value
+    if isinstance(value, dict):
+        return " ".join(
+            str(value.get(key) or "")
+            for key in ("name", "committee", "title", "text")
+            if value.get(key)
+        )
+    if isinstance(value, (list, tuple)):
+        return " ".join(_flatten_text_value(part) for part in value)
+    return str(value)
 
 
 def _item_has_veteran_tagging(item: Optional[Dict[str, Any]]) -> bool:
@@ -181,7 +221,9 @@ def _item_has_veteran_tagging(item: Optional[Dict[str, Any]]) -> bool:
 
 
 def _bill_text_from_record(record: Dict[str, Any]) -> str:
-    return " ".join(str(record.get(field, "") or "") for field in BILL_TEXT_FIELDS)
+    return " ".join(
+        _flatten_text_value(record.get(field)) for field in BILL_TEXT_FIELDS
+    )
 
 
 def _text_has_veteran_context(text_lower: str) -> bool:
@@ -683,7 +725,10 @@ def resolve_veteran_impact_for_item(
         for key in keys:
             hit = lookup.get(key)
             if hit and lookup_entry_matches_item(hit, item):
-                return hit
+                if hit.get("source") == "csv":
+                    return hit
+                rescored = classify_veteran_impact(text, has_veteran_tagging=tagged)
+                return rescored or hit
 
     # Lookup miss or cross-session collision: re-score from this item's text.
     return classify_veteran_impact(text, has_veteran_tagging=tagged)

@@ -478,3 +478,128 @@ def test_true_burial_benefit_still_red():
     assert result is not None
     assert result["level"] == "red"
     assert "burial" in result["reason"].lower()
+
+
+def test_classify_red_from_military_sexual_trauma():
+    result = classify_veteran_impact("Military Sexual Trauma Accountability Act")
+    assert result is not None
+    assert result["level"] == "red"
+    assert "military sexual trauma" in result["reason"].lower()
+
+
+def test_classify_red_from_mst_mental_health_retroactive_benefits():
+    result = classify_veteran_impact(
+        "A bill to provide for the retroactive payment of benefits for veterans "
+        "with covered mental health conditions based on military sexual trauma, "
+        "and for other purposes"
+    )
+    assert result is not None
+    assert result["level"] == "red"
+
+
+def test_classify_red_from_retroactive_veteran_benefits():
+    result = classify_veteran_impact(
+        "Retroactive payment of benefits for veterans denied earlier claims"
+    )
+    assert result is not None
+    assert result["level"] == "red"
+    assert "retroactive" in result["reason"].lower()
+
+
+def test_classify_red_from_suicide_and_veterans_affairs_committee():
+    result = classify_veteran_impact(
+        "Improving Personal Risk Assessments to Prevent Suicide Act. "
+        "Read twice and referred to the Committee on Veterans' Affairs."
+    )
+    assert result is not None
+    assert result["level"] == "red"
+    assert "suicide" in result["reason"].lower()
+
+
+def test_classify_red_from_ipv_with_veteran_context():
+    result = classify_veteran_impact(
+        "Intimate partner violence screening for members of the Armed Forces and veterans"
+    )
+    assert result is not None
+    assert result["level"] == "red"
+    assert "intimate partner violence" in result["reason"].lower()
+
+
+def test_classify_red_from_suicidal_ideation_veterans():
+    result = classify_veteran_impact(
+        "Programs addressing suicidal ideation and suicide among veterans"
+    )
+    assert result is not None
+    assert result["level"] == "red"
+
+
+def test_ipv_without_veteran_context_is_not_colored():
+    assert classify_veteran_impact(
+        "Intimate partner violence prevention grants for civilian community programs"
+    ) is None
+
+
+def test_suicide_without_veteran_context_is_not_colored():
+    assert classify_veteran_impact(
+        "A bill to expand suicide prevention hotlines for the general public"
+    ) is None
+
+
+def test_va_committee_referral_defaults_green():
+    """House/Senate/state Veterans' Affairs referrals get a color; default green."""
+    result = classify_veteran_impact(
+        "A bill relating to state procurement. "
+        "Referred to the Committee on Veterans' Affairs."
+    )
+    assert result is not None
+    assert result["level"] == "green"
+
+
+def test_state_veterans_committee_defaults_green():
+    result = classify_veteran_impact(
+        "An act concerning procurement of office supplies. "
+        "Assigned to the State, Veterans, and Military Affairs Committee.",
+    )
+    assert result is not None
+    assert result["level"] == "green"
+
+
+def test_stale_rules_lookup_is_rescored_with_current_keywords():
+    """Rules lookup from before MST keywords should not keep an outdated green."""
+    key = build_bill_lookup_key(None, "S 4877")
+    stale = {
+        key: {
+            "level": "green",
+            "source": "rules",
+            "veteran_related": True,
+            "title": "Military Sexual Trauma Accountability Act",
+            "bill_number_norm": "S 4877",
+        }
+    }
+    item = {
+        "title": "S 4877: Military Sexual Trauma Accountability Act",
+        "bill_number": "S 4877",
+        "level": "federal",
+        "source": "Congress.gov API",
+    }
+    impact = resolve_veteran_impact_for_item(item, stale)
+    assert impact is not None
+    assert impact["level"] == "red"
+
+
+def test_committee_list_on_record_colors_card():
+    record = {
+        "title": "Procurement transparency amendments",
+        "summary": "",
+        "latest_action": "Introduced",
+        "committees": [{"name": "House Committee on Veterans' Affairs"}],
+        "bill_number": "HR 100",
+        "level": "federal",
+    }
+    lookup = build_veteran_impact_lookup(
+        co_data={"bills": {}},
+        normalized_bills=[record],
+    )
+    key = build_bill_lookup_key(None, "HR 100")
+    assert key in lookup
+    assert lookup[key]["level"] == "green"
