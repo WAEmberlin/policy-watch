@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Veteran Legislation — PolicyWatch</title>
+<link rel="stylesheet" href="sr-only.css" />
+<link rel="stylesheet" href="theme.css" />
+<script src="theme.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                white: 'var(--cw-white)',
+                civic: {
+                    navy: 'var(--cw-navy)',
+                    gold: 'var(--cw-gold)',
+                    blue: 'var(--cw-blue)',
+                    'blue-dark': 'var(--cw-blue-dark)',
+                },
+                slate: {
+                    50: 'var(--cw-slate-50)',
+                    100: 'var(--cw-slate-100)',
+                    200: 'var(--cw-slate-200)',
+                    300: 'var(--cw-slate-300)',
+                    400: 'var(--cw-slate-400)',
+                    500: 'var(--cw-slate-500)',
+                    600: 'var(--cw-slate-600)',
+                    700: 'var(--cw-slate-700)',
+                    800: 'var(--cw-slate-800)',
+                }
+            }
+        }
+    }
+}
+</script>
+<style>
+#state-chips {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+#state-chips::-webkit-scrollbar {
+    display: none;
+}
+
+#feed-controls.is-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--cw-surface);
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    box-shadow: 0 1px 3px var(--cw-shadow);
+}
+</style>
+</head>
+<body class="cw-page-bg" data-cw-page="veterans" data-veterans-only="true">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div id="a11y-live-region" class="sr-only" aria-live="polite" aria-atomic="true" role="status"></div>
+<div class="max-w-6xl mx-auto px-4 py-8">
+    <div class="cw-card rounded-2xl overflow-hidden">
+        <!-- Header -->
+        <header class="cw-header px-6 md:px-8 py-6">
+            <div class="flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-4 flex-1">
+                <img src="PolicyWatch Logo.png" alt="PolicyWatch Logo" class="h-14 w-auto hidden sm:block" />
+                <div class="flex-1">
+                    <h1 class="text-3xl font-bold">
+                        <span class="text-white">Policy</span><span class="text-civic-gold">Watch</span>
+                    </h1>
+                    <p class="cw-text-on-header-muted text-sm mt-1">Veteran Legislation</p>
+                    <div id="last-updated" class="cw-text-on-header-muted text-sm mt-1">Loading...</div>
+                </div>
+            </div>
+            <div data-cw-theme-toggle></div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main id="main-content" class="p-6 md:p-8">
+            <!-- Live Now Strip -->
+            <section id="live-now-strip" class="mb-6 p-4 rounded-xl bg-slate-50 border border-slate-200" aria-live="polite">
+                <p class="text-sm text-slate-400 italic">Checking live streams…</p>
+            </section>
+
+            <!-- Tracked jurisdictions (collapsible snapshot grid) -->
+            <section id="jurisdictions-section" class="collapsed mb-8" aria-label="Tracked jurisdictions">
+                <button id="jurisdictions-header" type="button" class="jurisdictions-header w-full py-3 px-1 cursor-pointer flex justify-between items-center text-left gap-3" aria-expanded="false" aria-controls="state-snapshots">
+                    <h2 class="text-lg font-semibold text-civic-navy flex items-center gap-2">
+                        Tracked jurisdictions
+                        <span id="jurisdictions-arrow" class="text-slate-400 text-sm transition-transform duration-300" aria-hidden="true">▼</span>
+                    </h2>
+                    <span class="jurisdictions-toggle-label text-sm font-medium text-civic-blue whitespace-nowrap">Show jurisdictions</span>
+                </button>
+                <div id="state-snapshots" class="grid grid-cols-2 sm:grid-cols-4 gap-3" aria-label="State overview" aria-hidden="true">
+                    <!-- Populated by home.js -->
+                </div>
+            </section>
+
+            <!-- Feed Controls: chips, search, filters -->
+            <section id="feed-controls" class="mb-6 pb-4 border-b border-slate-200">
+                <!-- State Filter Chips -->
+                <div id="state-chips" class="flex gap-2 overflow-x-auto pb-3 mb-4" role="group" aria-label="Filter by state"></div>
+
+                <!-- Topic filters -->
+                <div class="flex flex-wrap items-center gap-2 mb-4">
+                    <div role="group" aria-label="Military and veterans impact filters" class="flex flex-wrap gap-2">
+                        <button type="button" id="veterans-filter-btn" class="px-4 py-2 rounded-full text-sm font-medium border-2 border-amber-500 bg-amber-500 text-white hover:border-amber-600 transition-colors whitespace-nowrap" aria-pressed="true">
+                            All veteran bills
+                        </button>
+                        <button type="button" id="veterans-filter-red-btn" class="px-4 py-2 rounded-full text-sm font-medium border-2 border-red-200 bg-red-50 text-red-900 hover:border-red-400 transition-colors whitespace-nowrap" aria-pressed="false" title="High impact — benefits, healthcare, housing, disability">
+                            Red
+                        </button>
+                        <button type="button" id="veterans-filter-yellow-btn" class="px-4 py-2 rounded-full text-sm font-medium border-2 border-amber-200 bg-amber-50 text-amber-900 hover:border-amber-400 transition-colors whitespace-nowrap" aria-pressed="false" title="Moderate impact — employment, licensing, courts, mental health">
+                            Yellow
+                        </button>
+                        <button type="button" id="veterans-filter-green-btn" class="px-4 py-2 rounded-full text-sm font-medium border-2 border-green-200 bg-green-50 text-green-900 hover:border-green-400 transition-colors whitespace-nowrap" aria-pressed="false" title="Ceremonial / general — recognition, memorials, honor resolutions">
+                            Green
+                        </button>
+                    </div>
+                    <a href="veterans-impact.html" class="text-xs text-civic-blue hover:underline whitespace-nowrap">About Red / Yellow / Green impact levels</a>
+                    <span class="text-xs text-slate-500">All legislation remains on <a href="index.html" class="text-civic-blue hover:underline">Home</a>.</span>
+                </div>
+
+                <!-- Search Bar -->
+                <div id="search-container" class="mb-3">
+                    <div class="relative">
+                        <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                        <input type="search" id="search-input" placeholder="Search veteran-related bills (3+ characters). Dates optional…"
+                               class="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-xl focus:border-civic-blue focus:ring-4 focus:ring-civic-blue/10 outline-none transition-all"
+                               aria-label="Search bills" />
+                    </div>
+                    <div class="mt-3 flex flex-wrap items-end gap-3">
+                        <div class="min-w-[140px]">
+                            <label for="search-date-from" class="block text-xs font-semibold text-slate-500 mb-1">From</label>
+                            <input type="date" id="search-date-from"
+                                   class="w-full px-3 py-2 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all"
+                                   aria-label="Search date from" />
+                        </div>
+                        <div class="min-w-[140px]">
+                            <label for="search-date-to" class="block text-xs font-semibold text-slate-500 mb-1">To</label>
+                            <input type="date" id="search-date-to"
+                                   class="w-full px-3 py-2 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all"
+                                   aria-label="Search date to" />
+                        </div>
+                        <div class="flex flex-wrap items-center gap-3 pb-0.5">
+                            <button id="update-search" type="button" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-civic-blue hover:bg-civic-blue-dark rounded-lg transition-colors">
+                                Update search
+                            </button>
+                            <button id="filters-toggle" type="button" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors" aria-expanded="false" aria-controls="filters-drawer">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/></svg>
+                                Filters
+                            </button>
+                            <button id="clear-search" type="button" class="text-sm text-slate-500 hover:text-slate-700 transition-colors">Clear all</button>
+                        </div>
+                        <p id="search-date-error" class="basis-full text-sm text-red-600" hidden role="alert"></p>
+                    </div>
+                </div>
+
+                <!-- Active filter pills -->
+                <div class="flex flex-wrap items-center gap-3">
+                    <div id="active-filter-pills" class="flex flex-wrap gap-2" hidden></div>
+                </div>
+
+                <!-- Secondary Filters (hidden by default) -->
+                <div id="filters-drawer" class="mt-4 p-4 bg-slate-50 rounded-xl border border-slate-200" hidden>
+                    <div class="flex flex-wrap gap-3 items-center">
+                        <select id="state-filter" class="sr-only" aria-hidden="true" tabindex="-1">
+                            <option value="">All States / Federal</option>
+                            <option value="Federal">Federal (U.S. Congress)</option>
+                        </select>
+                        <div class="flex-1 min-w-[160px]">
+                            <label for="source-filter" class="block text-xs font-semibold text-slate-500 mb-1">Source</label>
+                            <select id="source-filter" class="w-full px-4 py-2.5 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer">
+                                <option value="">All Sources</option>
+                            </select>
+                        </div>
+                        <div class="flex-1 min-w-[160px]">
+                            <label for="category-filter" class="block text-xs font-semibold text-slate-500 mb-1">Category</label>
+                            <select id="category-filter" class="w-full px-4 py-2.5 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer">
+                                <option value="">All Categories</option>
+                            </select>
+                        </div>
+                        <div class="flex items-end">
+                            <button id="clear-filters" type="button" class="px-4 py-2.5 bg-white hover:bg-slate-100 text-slate-600 rounded-lg font-medium transition-colors border-2 border-slate-200">
+                                Reset filters
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Year Tabs -->
+            <div id="year-tabs" class="flex flex-wrap gap-2 mb-6" role="tablist" aria-label="Select year"></div>
+
+            <!-- Feed -->
+            <div id="content" class="min-h-[200px]" role="feed" aria-busy="true">
+                <p class="text-slate-500 italic text-center py-8">Loading data...</p>
+            </div>
+
+            <!-- Pagination -->
+            <nav id="pagination" class="mt-8 pt-6 border-t-2 border-slate-200" aria-label="Feed pagination"></nav>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer data-cw-footer-replace class="text-center text-slate-500 text-sm mt-6 px-4">
+        PolicyWatch — Tracking legislation for Kansas, Colorado, Arizona, Utah, Maine, Nebraska, Maryland, Pennsylvania, Massachusetts, West Virginia, Tennessee, North Carolina, Missouri, Iowa, and U.S. Congress
+    </footer>
+</div>
+<script src="a11y.js"></script>
+<script src="data-config.js"></script>
+<script src="data-url.js"></script>
+<script src="shell.js"></script>
+<script src="bill-utils.js"></script>
+<script src="bill-votes.js"></script>
+<script src="home.js"></script>
+<script src="script.js"></script>
+<script>PolicyWatchShell.init({ page: 'veterans' });</script>
+</body>
+</html>

@@ -7,6 +7,7 @@
 
   var NAV_ITEMS = [
     { id: 'home', label: 'Home', href: 'index.html' },
+    { id: 'veterans', label: 'Veteran Legislation', shortLabel: 'Veterans', href: 'veterans.html' },
     { id: 'hearings', label: 'Hearings', href: 'hearings.html' },
     { id: 'live', label: 'Live', href: 'livestreams.html' },
     { id: 'dashboard', label: 'Elections', href: 'dashboard.html' },
