@@ -603,3 +603,17 @@ def test_committee_list_on_record_colors_card():
     key = build_bill_lookup_key(None, "HR 100")
     assert key in lookup
     assert lookup[key]["level"] == "green"
+
+
+def test_noaa_ndaa_sexual_assault_bill_is_not_veteran_colored():
+    """HR 2406 amends NDAA but is about NOAA personnel, not veterans/MST."""
+    text = (
+        "National Oceanic and Atmospheric Administration Sexual Harassment and "
+        "Assault Prevention Improvements Act of 2025. "
+        "To amend the National Defense Authorization Act for Fiscal Year 2017 to "
+        "address sexual harassment and sexual assault involving National Oceanic "
+        "and Atmospheric Administration personnel, and for other purposes. "
+        "Placed on the Union Calendar, Calendar No. 662."
+    )
+    assert classify_veteran_impact(text) is None
+
