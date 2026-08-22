@@ -206,17 +206,29 @@ const PolicyWatchHome = (() => {
         return item.short_title || item.title || '(no title)';
     }
 
-    function formatActionDate(item) {
-        const raw = item.published || item.date || '';
-        if (!raw) return '';
-        try {
-            const d = new Date(raw.includes('T') ? raw : `${raw}T00:00:00`);
-            return d.toLocaleDateString('en-US', {
-                month: 'short', day: 'numeric', year: 'numeric', timeZone: 'America/Chicago',
-            });
-        } catch {
-            return String(raw).slice(0, 10);
+    function actionDay(value) {
+        const day = String(value || '').trim().split('T')[0];
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(day)) return '';
+        const [y, m, d] = day.split('-').map((part) => Number.parseInt(part, 10));
+        const dt = new Date(Date.UTC(y, m - 1, d));
+        if (
+            dt.getUTCFullYear() !== y ||
+            dt.getUTCMonth() !== m - 1 ||
+            dt.getUTCDate() !== d
+        ) {
+            return '';
         }
+        return day;
+    }
+
+    function formatActionDate(item) {
+        const day = actionDay(item.published || item.date || '');
+        if (!day) return '';
+        const d = new Date(`${day}T00:00:00`);
+        if (Number.isNaN(d.getTime())) return '';
+        return d.toLocaleDateString('en-US', {
+            month: 'short', day: 'numeric', year: 'numeric', timeZone: 'America/Chicago',
+        });
     }
 
     function countBillsByState(siteData) {
@@ -1234,7 +1246,7 @@ const PolicyWatchHome = (() => {
         const { searchQuery, veteransImpactFilter } = options;
         const section = document.createElement('section');
         section.className = 'feed-day mb-6';
-        section.setAttribute('aria-label', `Updates for ${date}`);
+        section.setAttribute('aria-label', `Updates for ${formatDate(date)}`);
 
         const card = document.createElement('div');
         card.className = 'feed-day-card rounded-xl border p-5 sm:p-6';
@@ -1327,14 +1339,14 @@ const PolicyWatchHome = (() => {
     }
 
     function formatDate(dateStr) {
-        try {
-            const date = new Date(dateStr + 'T00:00:00');
-            return date.toLocaleDateString('en-US', {
-                year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/Chicago',
-            });
-        } catch {
-            return dateStr;
-        }
+        const day = actionDay(dateStr);
+        if (!day) return 'Date unavailable';
+        const date = new Date(`${day}T00:00:00`);
+        // Invalid Date does not throw; toLocaleDateString would otherwise render "Invalid Date".
+        if (Number.isNaN(date.getTime())) return 'Date unavailable';
+        return date.toLocaleDateString('en-US', {
+            year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/Chicago',
+        });
     }
 
     async function init(options) {

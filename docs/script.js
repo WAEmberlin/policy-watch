@@ -218,7 +218,13 @@ function policywatchApiBase() {
     return String(window.POLICYWATCH_API_BASE || "").replace(/\/+$/, "");
 }
 
+function billActionDay(value) {
+    const day = String(value || "").trim().split("T")[0];
+    return isValidYYYYMMDD(day) ? day : "";
+}
+
 function mapApiBillToSearchResult(bill) {
+    const day = billActionDay(bill.latest_action_date);
     return {
         title: `${bill.bill_number || ""}: ${bill.title || ""}`.replace(/^:\s*/, ""),
         link: (typeof PolicyWatchBillUtils !== "undefined" ? PolicyWatchBillUtils.resolveBillUrl(bill) : bill.url),
@@ -226,8 +232,8 @@ function mapApiBillToSearchResult(bill) {
         source: bill.level === "federal" ? "Federal (U.S. Congress)" : `State (${STATE_NAMES[bill.state] || bill.state})`,
         state: bill.state || (bill.level === "federal" ? "" : bill.state),
         level: bill.level,
-        published: bill.latest_action_date,
-        date: bill.latest_action_date ? String(bill.latest_action_date).split("T")[0] : "",
+        published: day,
+        date: day,
         bill_number: bill.bill_number,
         latest_action: bill.latest_action,
         item_type: bill.item_type || "bill_update",
@@ -1479,15 +1485,23 @@ function displaySearchResults(options = {}) {
     `;
     container.appendChild(resultsHeader);
 
-    // Group results by date (flat list)
+    // Group results by date (flat list). Missing/unparseable dates share one
+    // bucket and sort last so they never render as "Invalid Date".
     const itemsByDate = {};
     searchResults.forEach(item => {
-        const date = item.date || "Unknown";
+        const date = billActionDay(item.date || item.published || item.latest_action_date);
         if (!itemsByDate[date]) itemsByDate[date] = [];
         itemsByDate[date].push(item);
     });
 
-    const dates = Object.keys(itemsByDate).sort().reverse();
+    const dates = Object.keys(itemsByDate).sort((a, b) => {
+        const aOk = isValidYYYYMMDD(a);
+        const bOk = isValidYYYYMMDD(b);
+        if (aOk && !bOk) return -1;
+        if (!aOk && bOk) return 1;
+        if (aOk && bOk) return b.localeCompare(a);
+        return 0;
+    });
     dates.forEach(date => {
         const daySection = typeof PolicyWatchHome !== "undefined"
             ? PolicyWatchHome.renderFeedDay(date, itemsByDate[date], {
@@ -1503,17 +1517,17 @@ function displaySearchResults(options = {}) {
 }
 
 function formatDate(dateStr) {
-    try {
-        const date = new Date(dateStr + "T00:00:00");
-        return date.toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-            timeZone: "America/Chicago"
-        });
-    } catch {
-        return dateStr;
-    }
+    const day = billActionDay(dateStr);
+    if (!day) return "Date unavailable";
+    const date = new Date(`${day}T00:00:00`);
+    // Invalid Date does not throw; toLocaleDateString would otherwise render "Invalid Date".
+    if (Number.isNaN(date.getTime())) return "Date unavailable";
+    return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        timeZone: "America/Chicago"
+    });
 }
 
 function renderPagination(year, current, total, dateRange, itemPagination) {
