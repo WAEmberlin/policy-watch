@@ -1,6 +1,6 @@
 ﻿let currentYear = null;
 let currentPage = 0;  // Time-chunk index (0 = most recent period)
-let currentItemPage = 0;  // Item page within a time chunk (veterans filters only)
+let currentItemPage = 0;  // Item page (veterans filters / Veteran Legislation page)
 let allData = null;
 let homeFeedMode = false;  // true when serving slim home_feed.json (not full site_data)
 let fullSiteDataPromise = null;
@@ -24,7 +24,9 @@ function defaultVeteransImpactFilter() {
 }
 let veteransImpactFilter = defaultVeteransImpactFilter();
 const DAYS_PER_CHUNK = 14;  // Show 2 weeks per "page" (full site_data only)
-const VETERANS_FEED_ITEM_LIMIT = 100;
+const VETERANS_PAGE_FEED_ITEM_LIMIT = 50;  // Veteran Legislation page
+const VETERANS_FEED_ITEM_LIMIT = 100;  // Homepage Military-Veterans chip (within a date window)
+const VETERANS_FEED_DAY_BATCH = 8;
 const SEARCH_MIN_CHARS = 3;
 const SEARCH_MAX_RESULTS = 200;
 
@@ -120,6 +122,19 @@ function itemMatchesVeteransFilter(item) {
 }
 
 function feedEmptyMessage(dateRange) {
+    if (isVeteransOnlyPage()) {
+        const filterLabels = {
+            all: "military or veterans-related",
+            red: "high-impact veterans-related",
+            yellow: "moderate-impact veterans-related",
+            green: "ceremonial or general veterans-related",
+        };
+        const topicLabel = filterLabels[veteransImpactFilter] || "military or veterans-related";
+        const stateLabel = selectedState
+            ? (STATE_NAMES[selectedState] || selectedState)
+            : "any state";
+        return `No ${topicLabel} activity for ${stateLabel}. Try another filter, state, or search.`;
+    }
     const rangeLabel = `${formatDate(dateRange.start)} – ${formatDate(dateRange.end)}`;
     if (veteransImpactFilter) {
         const filterLabels = {
@@ -312,6 +327,8 @@ function yearsAgoCentralYYYYMMDD(years) {
  * Empty dates mean "no date restriction" (full archive search).
  */
 function applySearchDateDefaults({ force = false } = {}) {
+    // Veteran Legislation page: leave From/To blank (no date restriction).
+    if (isVeteransOnlyPage()) return;
     const fromEl = document.getElementById("search-date-from");
     const toEl = document.getElementById("search-date-to");
     const fromDefault = yearsAgoCentralYYYYMMDD(SEARCH_DEFAULT_LOOKBACK_YEARS);
@@ -650,16 +667,30 @@ function setupFilters() {
     }
 }
 
+function usesVeteransItemFeed() {
+    return isVeteransOnlyPage();
+}
+
 function getFeedItemLimit() {
+    if (isVeteransOnlyPage()) return VETERANS_PAGE_FEED_ITEM_LIMIT;
     return veteransImpactFilter ? VETERANS_FEED_ITEM_LIMIT : null;
 }
 
-function paginateFeedItems(items) {
+function paginateFeedItems(items, { unknownTotal = false } = {}) {
     const limit = getFeedItemLimit();
-    if (!limit || items.length <= limit) {
-        return { items, totalItems: items.length, totalItemPages: 1, startIndex: 0 };
+    if (!limit || (items.length <= limit && !unknownTotal)) {
+        return {
+            items,
+            totalItems: items.length,
+            totalItemPages: 1,
+            startIndex: 0,
+            unknownTotal: false,
+        };
     }
-    const totalItemPages = Math.ceil(items.length / limit);
+    const knownPages = Math.max(1, Math.ceil(items.length / limit));
+    const totalItemPages = unknownTotal
+        ? Math.max(knownPages, currentItemPage + 2)
+        : knownPages;
     const effectiveItemPage = Math.min(currentItemPage, totalItemPages - 1);
     if (effectiveItemPage !== currentItemPage) currentItemPage = effectiveItemPage;
     const startIndex = effectiveItemPage * limit;
@@ -668,6 +699,75 @@ function paginateFeedItems(items) {
         totalItems: items.length,
         totalItemPages,
         startIndex,
+        unknownTotal: Boolean(unknownTotal),
+    };
+}
+
+function feedItemDay(item) {
+    return (item && (item.date || (item.published ? String(item.published).split("T")[0] : ""))) || "";
+}
+
+function dateRangeFromDates(dates) {
+    const valid = (dates || []).filter((d) => isValidYYYYMMDD(d)).sort();
+    if (!valid.length) return { start: "", end: "" };
+    return { start: valid[0], end: valid[valid.length - 1] };
+}
+
+function collectHomeFeedItemsForDates(dates) {
+    const allow = new Set((dates || []).filter(Boolean));
+    if (!allow.size) return [];
+    const dateRange = dateRangeFromDates([...allow]);
+    let allItems = [];
+    Object.values(allData.years || {}).forEach((yearData) => {
+        if (!yearData) return;
+        allItems = allItems.concat(collectGroupedItems(yearData));
+    });
+    allItems = allItems.filter((item) => allow.has(feedItemDay(item)));
+    allItems = applyFeedFilters(allItems);
+    allItems = appendMultiStateBillsForRange(allItems, dateRange);
+    allItems = allItems.filter((item) => allow.has(feedItemDay(item)));
+    const seen = new Set();
+    const unique = [];
+    allItems.forEach((item) => {
+        const key = searchResultKey(item);
+        if (seen.has(key)) return;
+        seen.add(key);
+        unique.push(item);
+    });
+    unique.sort((a, b) => (b.published || b.date || "").localeCompare(a.published || a.date || ""));
+    return unique;
+}
+
+function collectVeteransItemsFromFullSiteData() {
+    const dates = getHomeFeedAvailableDates();
+    return collectHomeFeedItemsForDates(dates);
+}
+
+/**
+ * Load older home_feed days until we have enough veteran bills for the
+ * current item page (plus one extra to know whether another page exists).
+ */
+async function loadVeteransHomeFeedItems(neededCount) {
+    const available = getHomeFeedAvailableDates();
+    const loadedDates = [];
+    let items = [];
+    let i = 0;
+    while (i < available.length && loadedHomeFeedDays.has(available[i])) {
+        loadedDates.push(available[i]);
+        i += 1;
+    }
+    if (loadedDates.length) items = collectHomeFeedItemsForDates(loadedDates);
+    while (i < available.length && items.length < neededCount) {
+        const batch = available.slice(i, i + VETERANS_FEED_DAY_BATCH);
+        await ensureHomeFeedDaysLoaded(batch);
+        loadedDates.push(...batch);
+        i += batch.length;
+        items = collectHomeFeedItemsForDates(loadedDates);
+    }
+    return {
+        items,
+        hasMoreDates: i < available.length,
+        dateRange: dateRangeFromDates(loadedDates),
     };
 }
 
@@ -1013,8 +1113,34 @@ async function displayUnifiedView(year, chunkIndex) {
     let dateRange;
     let allItems;
     let totalChunks = 1;
+    let veteransFeedUnknownTotal = false;
 
-    if (homeFeedMode) {
+    if (usesVeteransItemFeed() && homeFeedMode) {
+        totalChunks = 1;
+        effectiveChunkIndex = 0;
+        currentPage = 0;
+        const limit = getFeedItemLimit() || VETERANS_PAGE_FEED_ITEM_LIMIT;
+        const needed = (currentItemPage + 1) * limit + 1;
+        try {
+            const loaded = await loadVeteransHomeFeedItems(needed);
+            allItems = loaded.items;
+            dateRange = loaded.dateRange;
+            veteransFeedUnknownTotal = loaded.hasMoreDates;
+        } catch (err) {
+            console.error("Failed to load veteran bills feed:", err);
+            container.innerHTML =
+                "<div class='bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg text-red-700' role='alert'>Could not load veteran legislation. Please try again.</div>";
+            setContentBusy(false);
+            renderPagination(year, 0, 1, { start: "", end: "" }, { totalItemPages: 1 });
+            return;
+        }
+    } else if (usesVeteransItemFeed()) {
+        totalChunks = 1;
+        effectiveChunkIndex = 0;
+        currentPage = 0;
+        allItems = collectVeteransItemsFromFullSiteData();
+        dateRange = dateRangeFromDates(allItems.map(feedItemDay));
+    } else if (homeFeedMode) {
         totalChunks = getHomeFeedTotalPages();
         effectiveChunkIndex = Math.max(0, Math.min(chunkIndex, totalChunks - 1));
         if (effectiveChunkIndex !== currentPage) currentPage = effectiveChunkIndex;
@@ -1034,10 +1160,7 @@ async function displayUnifiedView(year, chunkIndex) {
         // Keep page scoped to the requested day(s) even if more days were previously merged.
         if (pageDates.length) {
             const allow = new Set(pageDates);
-            allItems = allItems.filter((item) => {
-                const itemDate = item.date || (item.published ? item.published.split("T")[0] : "");
-                return allow.has(itemDate);
-            });
+            allItems = allItems.filter((item) => allow.has(feedItemDay(item)));
         }
     } else {
         const grouped = yearData.grouped || {};
@@ -1059,7 +1182,7 @@ async function displayUnifiedView(year, chunkIndex) {
         }
     }
 
-    const pagination = paginateFeedItems(allItems);
+    const pagination = paginateFeedItems(allItems, { unknownTotal: veteransFeedUnknownTotal });
     const pageItems = pagination.items;
 
     // Group by date (flat list per day)
@@ -1073,7 +1196,23 @@ async function displayUnifiedView(year, chunkIndex) {
 
     const chunkDates = Object.keys(itemsByDate).sort().reverse();
 
-    if (homeFeedMode && pageItems.length > 0 && dateRange.start) {
+    if (usesVeteransItemFeed() && pageItems.length > 0) {
+        const notice = document.createElement("p");
+        notice.className = "text-sm text-slate-500 text-center mb-4";
+        notice.setAttribute("role", "status");
+        const startNum = pagination.startIndex + 1;
+        const endNum = pagination.startIndex + pageItems.length;
+        if (pagination.totalItemPages > 1 || pagination.unknownTotal) {
+            notice.textContent = pagination.unknownTotal
+                ? `Showing ${startNum}–${endNum} of the most recent veteran bills`
+                : `Showing ${startNum}–${endNum} of ${pagination.totalItems} veteran bills`;
+        } else {
+            notice.textContent = pageItems.length === 1
+                ? "Showing the most recent veteran bill"
+                : `Showing the ${pageItems.length} most recent veteran bills`;
+        }
+        container.appendChild(notice);
+    } else if (homeFeedMode && pageItems.length > 0 && dateRange.start) {
         const notice = document.createElement("p");
         notice.className = "text-sm text-slate-500 text-center mb-4";
         notice.setAttribute("role", "status");
@@ -1097,7 +1236,7 @@ async function displayUnifiedView(year, chunkIndex) {
         }
     }
 
-    const showFallbackNote = !homeFeedMode && recentWeekHasNoActivity(year) && pageItems.length > 0;
+    const showFallbackNote = !usesVeteransItemFeed() && !homeFeedMode && recentWeekHasNoActivity(year) && pageItems.length > 0;
     if (showFallbackNote) {
         const notice = document.createElement("p");
         notice.className = "text-sm text-slate-500 text-center mb-4 italic";
@@ -1106,7 +1245,7 @@ async function displayUnifiedView(year, chunkIndex) {
         container.appendChild(notice);
     }
 
-    if (pagination.totalItemPages > 1) {
+    if (!usesVeteransItemFeed() && pagination.totalItemPages > 1) {
         const startNum = pagination.startIndex + 1;
         const endNum = pagination.startIndex + pageItems.length;
         const itemNotice = document.createElement("p");
@@ -1543,9 +1682,12 @@ function renderPagination(year, current, total, dateRange, itemPagination) {
     container.innerHTML = "";
 
     const itemPages = itemPagination?.totalItemPages || 1;
+    const unknownTotal = Boolean(itemPagination?.unknownTotal);
+    dateRange = dateRange || { start: "", end: "" };
     // Home feed: page through older activity days on demand. Full site_data: 14-day chunks.
-    const showPeriodNav = total > 1;
-    const showItemNav = itemPages > 1;
+    // Veteran Legislation page: item pages only (50 bills), not calendar periods.
+    const showPeriodNav = total > 1 && !usesVeteransItemFeed();
+    const showItemNav = itemPages > 1 || unknownTotal;
     if (!showPeriodNav && !showItemNav) return;
 
     // Format date range for display
@@ -1582,7 +1724,9 @@ function renderPagination(year, current, total, dateRange, itemPagination) {
 
         const itemPageInfo = document.createElement("span");
         itemPageInfo.className = "px-3 py-2 text-sm text-slate-600 self-center";
-        itemPageInfo.textContent = `Results page ${currentItemPage + 1} of ${itemPages}`;
+        itemPageInfo.textContent = unknownTotal
+            ? `Results page ${currentItemPage + 1}`
+            : `Results page ${currentItemPage + 1} of ${itemPages}`;
         btnContainer.appendChild(itemPageInfo);
 
         if (currentItemPage < itemPages - 1) {
