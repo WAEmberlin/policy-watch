@@ -37,31 +37,6 @@ tailwind.config = {
 }
 </script>
 <style>
-#weekly-overview-content {
-    overflow: hidden;
-    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-    max-height: 0;
-    padding: 0 20px;
-}
-
-#weekly-overview-section.collapsed #weekly-overview-content {
-    max-height: 0 !important;
-    padding: 0 20px !important;
-}
-
-#weekly-overview-section.expanded #weekly-overview-content {
-    max-height: 5000px;
-    padding: 20px;
-}
-
-#weekly-overview-section.collapsed #weekly-overview-arrow {
-    transform: rotate(-90deg);
-}
-
-#weekly-overview-section.expanded #weekly-overview-arrow {
-    transform: rotate(0deg);
-}
-
 #state-chips {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -122,22 +97,6 @@ tailwind.config = {
                 </button>
                 <div id="state-snapshots" class="grid grid-cols-2 sm:grid-cols-4 gap-3" aria-label="State overview" aria-hidden="true">
                     <!-- Populated by home.js -->
-                </div>
-            </section>
-
-            <!-- Weekly Overview (collapsed by default) -->
-            <section id="weekly-overview-section" class="collapsed mb-8 bg-gradient-to-r from-slate-50 to-slate-100 rounded-xl border border-slate-200 overflow-hidden">
-                <button id="weekly-overview-header" type="button" class="w-full p-5 cursor-pointer hover:bg-slate-100/50 transition-colors flex justify-between items-center text-left" aria-expanded="false" aria-controls="weekly-overview-content">
-                    <h2 class="text-xl font-semibold text-civic-navy flex items-center gap-3">
-                        <svg class="w-6 h-6 text-civic-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                        </svg>
-                        Weekly PolicyWatch Overview
-                        <span id="weekly-overview-arrow" class="text-slate-400 transition-transform duration-300" aria-hidden="true">▼</span>
-                    </h2>
-                </button>
-                <div id="weekly-overview-content" class="border-t border-slate-200">
-                    <p class="text-slate-500 italic">Loading weekly overview...</p>
                 </div>
             </section>
 
