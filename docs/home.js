@@ -1207,7 +1207,9 @@ const PolicyWatchHome = (() => {
         if (level === 'red' || level === 'yellow' || level === 'green') {
             return Boolean(impact && impact.level === level);
         }
-        return itemMatchesVeteransFilter(item);
+        // 'all' (Veteran Legislation page / Military-Veterans chip): colored cards only.
+        // Broader topic hits like NDAA titles without veteran impact stay off this list.
+        return Boolean(impact);
     }
 
     function itemMatchesVeteransFilter(item) {
