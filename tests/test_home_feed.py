@@ -1,6 +1,7 @@
 """Tests for slim homepage feed generation."""
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -317,6 +318,22 @@ def test_veteran_legislation_page_is_in_nav_and_veterans_only():
     assert "veterans.html" in shell
     assert "Veteran Legislation" in shell
     assert "index.html" in html  # homepage still linked for full bill list
+
+
+def test_veterans_page_blank_dates_and_fifty_item_pages():
+    root = Path(__file__).resolve().parents[1]
+    html = (root / "docs" / "veterans.html").read_text(encoding="utf-8")
+    script = (root / "docs" / "script.js").read_text(encoding="utf-8")
+    from_input = re.search(r'<input type="date" id="search-date-from"[^>]*>', html)
+    to_input = re.search(r'<input type="date" id="search-date-to"[^>]*>', html)
+    assert from_input, "missing From date input"
+    assert to_input, "missing To date input"
+    assert "value=" not in from_input.group(0)
+    assert "value=" not in to_input.group(0)
+    assert "VETERANS_PAGE_FEED_ITEM_LIMIT = 50" in script
+    assert "if (isVeteransOnlyPage()) return;" in script
+    assert "loadVeteransHomeFeedItems" in script
+    assert "usesVeteransItemFeed" in script
 
 
 def test_write_home_feed_artifacts_writes_search_bills(tmp_path):
