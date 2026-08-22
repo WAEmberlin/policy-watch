@@ -28,6 +28,24 @@ API_BASE_URL = "https://api.congress.gov/v3"
 CONGRESS_NUMBER = 119  # 119th Congress (2025-2026)
 ITEMS_PER_PAGE = 250  # Max allowed by API
 
+# How far back the list endpoint should request updates (via fromDateTime).
+# Override with CONGRESS_DAYS_BACK. Prior values of 30/90 missed quiet bills that
+# never re-appeared in the rolling window (e.g. S.4877 / S.4871 / H.R.7976).
+# 365-day window ≈ 16k bills for the 119th (~67 pages at 250/page); list fetch
+# is minutes, not hours, because fromDateTime + sort bound pagination.
+DEFAULT_DAYS_BACK = 365
+
+# Safety cap on list pagination. 50 pages (12,500) is below a full-year count
+# for the 119th; 100 pages covers ~25k bills with headroom for growth.
+MAX_LIST_PAGES = 100
+
+# Known gaps to always attempt by bill id (cheap: one GET each). Safe no-ops if present.
+PRIORITY_BACKFILL_BILLS: List[Tuple[str, str]] = [
+    ("s", "4877"),   # known gap from prior DAYS_BACK=30 window miss
+    ("s", "4871"),   # Improving Personal Risk Assessments to Prevent Suicide
+    ("hr", "7976"),  # Moral Injury Recognition and Restitution Act
+]
+
 # Rate limiting: API allows 1000 requests per hour
 # We'll be conservative and add small delays
 REQUEST_DELAY = 0.1  # 100ms between requests
@@ -63,39 +81,52 @@ def get_api_key() -> str:
     return api_key
 
 
-def fetch_bills_page(api_key: str, congress: int, offset: int = 0, limit: int = ITEMS_PER_PAGE) -> Optional[Dict]:
+def fetch_bills_page(
+    api_key: str,
+    congress: int,
+    offset: int = 0,
+    limit: int = ITEMS_PER_PAGE,
+    *,
+    from_datetime: Optional[str] = None,
+    sort: str = "updateDate+desc",
+) -> Optional[Dict]:
     """
     Fetch one page of bills from the Congress.gov API.
-    
+
     Args:
         api_key: Congress.gov API key
         congress: Congress number (e.g., 119)
         offset: Starting position for pagination
         limit: Number of items per page (max 250)
-    
+        from_datetime: Optional ISO cutoff (yyyy-MM-ddT00:00:00Z) for updateDate
+        sort: Congress.gov sort param (default newest updates first)
+
     Returns:
         API response as dict, or None if error
     """
     url = f"{API_BASE_URL}/bill/{congress}"
-    
+
     params = {
         "api_key": api_key,
         "format": "json",
         "limit": min(limit, ITEMS_PER_PAGE),  # API max is 250
-        "offset": offset
+        "offset": offset,
+        "sort": sort,
     }
-    
+    if from_datetime:
+        params["fromDateTime"] = from_datetime
+
     try:
         response = requests.get(url, params=params, timeout=30)
         response.raise_for_status()
-        
+
         # Rate limiting: small delay between requests
         time.sleep(REQUEST_DELAY)
-        
+
         return response.json()
     except requests.exceptions.RequestException as e:
         print(f"Error fetching bills (offset {offset}): {e}")
-        if hasattr(e.response, 'status_code'):
+        if hasattr(e, "response") and e.response is not None:
             if e.response.status_code == 429:
                 print("Rate limit exceeded. Waiting 60 seconds...")
                 time.sleep(60)
@@ -332,7 +363,7 @@ def enrich_legislation_from_hearings(
 ) -> Tuple[List[Dict], int]:
     """
     Fetch federal bills referenced in committee hearings but missing from legislation.json.
-    Covers bills like HR 9237 that appear in hearing titles but not the 30-day list API window.
+    Covers bills like HR 9237 that appear in hearing titles but not the rolling list window.
     """
     if not hearings_path.exists():
         return bills, 0
@@ -1091,118 +1122,138 @@ def normalize_bill(bill_data: Dict, congress: int) -> Optional[Dict]:
         return None
 
 
-def fetch_all_bills(api_key: str, congress: int, days_back: int = 30) -> List[Dict]:
+def fetch_all_bills(api_key: str, congress: int, days_back: int = DEFAULT_DAYS_BACK) -> List[Dict]:
     """
     Fetch bills from the Congress.gov API with pagination.
-    
-    Optimized to only fetch bills updated in the last N days to speed up execution.
-    Bills are typically sorted by latest action date, so we can stop early when we
-    encounter old bills.
-    
+
+    Uses fromDateTime + sort=updateDate+desc so the API returns bills updated in
+    the last N days (not a client-side scan of an unsorted list that can miss
+    quiet introductions once they age out of a short window).
+
     Args:
         api_key: Congress.gov API key
         congress: Congress number
-        days_back: Only fetch bills updated in the last N days (default: 30)
-                  Set to None or 0 to fetch all bills
-    
+        days_back: Only fetch bills updated in the last N days (default: 365).
+                   Set to None or 0 to fetch all bills.
+
     Returns:
         List of normalized bill dictionaries
     """
     all_bills = []
     offset = 0
     page = 1
-    
-    # Calculate cutoff date for recent bills
-    cutoff_date = None
+
+    from_datetime = None
     if days_back and days_back > 0:
         cutoff_date = datetime.now(timezone.utc) - timedelta(days=days_back)
-        print(f"Fetching bills from {congress}th Congress updated in the last {days_back} days...")
+        from_datetime = cutoff_date.strftime("%Y-%m-%dT00:00:00Z")
+        print(
+            f"Fetching bills from {congress}th Congress updated since {from_datetime} "
+            f"(last {days_back} days)..."
+        )
     else:
         print(f"Fetching all bills from {congress}th Congress...")
-    
+
     print(f"API Base URL: {API_BASE_URL}")
-    
-    # Track if we've found any recent bills
-    recent_bills_found = False
-    consecutive_old_bills = 0
-    max_consecutive_old = 3  # Stop after 3 pages of old bills
-    
+
     while True:
         print(f"Fetching page {page} (offset {offset})...")
-        
-        response_data = fetch_bills_page(api_key, congress, offset, ITEMS_PER_PAGE)
-        
+
+        response_data = fetch_bills_page(
+            api_key,
+            congress,
+            offset,
+            ITEMS_PER_PAGE,
+            from_datetime=from_datetime,
+            sort="updateDate+desc",
+        )
+
         if not response_data:
             print(f"Failed to fetch page {page}. Stopping.")
             break
-        
-        # Extract bills from response
+
         bills = response_data.get("bills", [])
-        
+
         if not bills or len(bills) == 0:
             print("No more bills found.")
             break
-        
-        # Normalize and filter bills
-        page_recent_count = 0
+
+        page_count = 0
         for bill_data in bills:
             normalized = normalize_bill(bill_data, congress)
             if normalized:
-                # If we're filtering by date, check if bill is recent
-                if cutoff_date:
-                    # Check latest_action_date or published date
-                    action_date_str = normalized.get("latest_action_date", normalized.get("published", ""))
-                    if action_date_str:
-                        try:
-                            action_date = datetime.fromisoformat(action_date_str.replace("Z", "+00:00"))
-                            if action_date.tzinfo is None:
-                                action_date = action_date.replace(tzinfo=timezone.utc)
-                            
-                            if action_date >= cutoff_date:
-                                all_bills.append(normalized)
-                                page_recent_count += 1
-                                recent_bills_found = True
-                                consecutive_old_bills = 0
-                            else:
-                                consecutive_old_bills += 1
-                        except (ValueError, AttributeError):
-                            # If date parsing fails, include it to be safe
-                            all_bills.append(normalized)
-                            page_recent_count += 1
-                else:
-                    # No date filtering, include all bills
-                    all_bills.append(normalized)
-                    page_recent_count += 1
-        
-        print(f"  Processed {len(bills)} bills from page {page}, {page_recent_count} recent (total: {len(all_bills)})")
-        
-        # If filtering by date and we've seen several pages of old bills, we can stop early
-        if cutoff_date and consecutive_old_bills >= len(bills) * max_consecutive_old:
-            print(f"  Stopping early: Found {max_consecutive_old} consecutive pages of old bills")
-            break
-        
-        # Check if there are more pages
+                all_bills.append(normalized)
+                page_count += 1
+
+        print(
+            f"  Processed {len(bills)} bills from page {page}, "
+            f"{page_count} normalized (total: {len(all_bills)})"
+        )
+
         pagination = response_data.get("pagination", {})
         total_count = pagination.get("count", 0)
         offset += len(bills)
-        
-        # Stop if we've fetched all items
+
         if offset >= total_count or len(bills) < ITEMS_PER_PAGE:
             break
-        
+
         page += 1
-        
-        # Safety limit: don't fetch more than 50 pages (12,500 bills) even if filtering
-        if page > 50:
-            print(f"  Reached safety limit of 50 pages. Stopping.")
+
+        # Safety limit: don't paginate forever if count is wrong/missing
+        if page > MAX_LIST_PAGES:
+            print(
+                f"  Reached safety limit of {MAX_LIST_PAGES} pages "
+                f"({MAX_LIST_PAGES * ITEMS_PER_PAGE} bills). Stopping."
+            )
             break
-    
+
     print(f"\nTotal bills fetched: {len(all_bills)}")
-    if cutoff_date and not recent_bills_found:
+    if from_datetime and not all_bills:
         print(f"Warning: No bills found updated in the last {days_back} days.")
         print("Consider increasing days_back or fetching all bills.")
-    
+
     return all_bills
+
+
+def parse_bill_ref(ref: str) -> Optional[Tuple[str, str]]:
+    """Parse 's-4877', 'S.4877', 'H.R.7976', 'hr 7976', etc. into (bill_type, number)."""
+    raw = re.sub(r"[^a-z0-9]", "", str(ref or "").strip().lower())
+    if not raw:
+        return None
+    m = re.match(r"^(hjres|sjres|hconres|sconres|hres|sres|hr|s)(\d+)$", raw)
+    if not m:
+        return None
+    return m.group(1), m.group(2)
+
+
+def fetch_bills_by_refs(
+    api_key: str,
+    congress: int,
+    refs: List[Tuple[str, str]],
+) -> List[Dict]:
+    """Fetch specific bills by (type, number); skip failures quietly."""
+    fetched: List[Dict] = []
+    for bill_type, number in refs:
+        detail = fetch_bill_detail(api_key, congress, bill_type, number)
+        if detail:
+            fetched.append(detail)
+            print(f"  Backfilled {bill_type.upper()}.{number}")
+        else:
+            print(f"  Could not fetch {bill_type.upper()}.{number} (missing or API error)")
+    return fetched
+
+
+def resolve_days_back(cli_value: Optional[int] = None) -> int:
+    """Resolve days_back from CLI, CONGRESS_DAYS_BACK env, or DEFAULT_DAYS_BACK."""
+    if cli_value is not None:
+        return max(0, int(cli_value))
+    env_val = os.environ.get("CONGRESS_DAYS_BACK")
+    if env_val is not None and str(env_val).strip() != "":
+        try:
+            return max(0, int(env_val))
+        except ValueError:
+            print(f"Warning: invalid CONGRESS_DAYS_BACK={env_val!r}; using {DEFAULT_DAYS_BACK}")
+    return DEFAULT_DAYS_BACK
 
 
 def load_existing_legislation() -> List[Dict]:
@@ -1312,32 +1363,80 @@ def deduplicate_bills(new_bills: List[Dict], existing_bills: List[Dict]) -> List
     return combined
 
 
-def main():
+def main(argv: Optional[List[str]] = None):
     """Main function to fetch and save legislation."""
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Fetch Congress.gov legislation")
+    parser.add_argument(
+        "--days-back",
+        type=int,
+        default=None,
+        help=f"Only fetch bills updated in the last N days (default: {DEFAULT_DAYS_BACK}, "
+        "or CONGRESS_DAYS_BACK; 0 = all)",
+    )
+    parser.add_argument(
+        "--backfill",
+        type=str,
+        default="",
+        help="Comma-separated bill refs to force-fetch (e.g. s-4877,s-4871,hr-7976)",
+    )
+    parser.add_argument(
+        "--backfill-only",
+        action="store_true",
+        help="Skip the rolling list fetch; only merge --backfill / priority IDs into legislation.json",
+    )
+    args = parser.parse_args(argv)
+
     try:
         api_key = get_api_key()
     except ValueError as e:
         print(f"Error: {e}")
         return
-    
+
     # Load existing legislation
     existing_bills = load_existing_legislation()
     print(f"Loaded {len(existing_bills)} existing bills from {LEGISLATION_FILE}")
-    
-    # Fetch recent bills from API (last 30 days for speed)
-    # Change days_back to None or 0 to fetch all bills
-    DAYS_BACK = 30  # Only fetch bills updated in last 30 days
-    new_bills = fetch_all_bills(api_key, CONGRESS_NUMBER, days_back=DAYS_BACK)
-    
+
+    days_back = resolve_days_back(args.days_back)
+    new_bills: List[Dict] = []
+    if not args.backfill_only:
+        # Fetch recent bills from API (fromDateTime + updateDate sort)
+        new_bills = fetch_all_bills(api_key, CONGRESS_NUMBER, days_back=days_back)
+
     if new_bills:
         all_bills = deduplicate_bills(new_bills, existing_bills)
     elif existing_bills:
-        print("No new bills fetched from API; continuing with existing legislation.")
+        if not args.backfill_only:
+            print("No new bills fetched from API; continuing with existing legislation.")
         all_bills = existing_bills
     else:
         print("No bills fetched and no existing legislation. Exiting.")
         return
-    
+
+    # Priority + optional CLI backfill (covers quiet bills that fell out of the window)
+    extra_refs: List[Tuple[str, str]] = list(PRIORITY_BACKFILL_BILLS)
+    for part in (args.backfill or "").split(","):
+        parsed = parse_bill_ref(part)
+        if parsed and parsed not in extra_refs:
+            extra_refs.append(parsed)
+    existing_ids = {
+        f"{b.get('bill_type', '')}-{b.get('bill_number', '')}".lower()
+        for b in all_bills
+        if b.get("bill_type") and b.get("bill_number")
+    }
+    missing_refs = [
+        (bt, num) for bt, num in extra_refs
+        if f"{bt}-{num}".lower() not in existing_ids
+    ]
+    if missing_refs:
+        print(f"\nBackfilling {len(missing_refs)} priority/CLI bill(s)...")
+        backfilled = fetch_bills_by_refs(api_key, CONGRESS_NUMBER, missing_refs)
+        if backfilled:
+            all_bills = deduplicate_bills(backfilled, all_bills)
+    else:
+        print("\nPriority backfill bills already present.")
+
     # Enrich bills with official titles (limit per run to avoid long execution)
     print("\nEnriching bills with official titles...")
     all_bills = enrich_bills_with_titles(api_key, all_bills, max_enrich=500)
