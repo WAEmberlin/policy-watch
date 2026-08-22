@@ -725,7 +725,10 @@ def resolve_veteran_impact_for_item(
         for key in keys:
             hit = lookup.get(key)
             if hit and lookup_entry_matches_item(hit, item):
-                return hit
+                if hit.get("source") == "csv":
+                    return hit
+                rescored = classify_veteran_impact(text, has_veteran_tagging=tagged)
+                return rescored or hit
 
     # Lookup miss or cross-session collision: re-score from this item's text.
     return classify_veteran_impact(text, has_veteran_tagging=tagged)

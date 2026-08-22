@@ -564,6 +564,29 @@ def test_state_veterans_committee_defaults_green():
     assert result["level"] == "green"
 
 
+def test_stale_rules_lookup_is_rescored_with_current_keywords():
+    """Rules lookup from before MST keywords should not keep an outdated green."""
+    key = build_bill_lookup_key(None, "S 4877")
+    stale = {
+        key: {
+            "level": "green",
+            "source": "rules",
+            "veteran_related": True,
+            "title": "Military Sexual Trauma Accountability Act",
+            "bill_number_norm": "S 4877",
+        }
+    }
+    item = {
+        "title": "S 4877: Military Sexual Trauma Accountability Act",
+        "bill_number": "S 4877",
+        "level": "federal",
+        "source": "Congress.gov API",
+    }
+    impact = resolve_veteran_impact_for_item(item, stale)
+    assert impact is not None
+    assert impact["level"] == "red"
+
+
 def test_committee_list_on_record_colors_card():
     record = {
         "title": "Procurement transparency amendments",

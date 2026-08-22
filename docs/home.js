@@ -814,7 +814,13 @@ const PolicyWatchHome = (() => {
             }
             for (const key of keys) {
                 const hit = key ? veteranImpactLookup[key] : null;
-                if (hit && lookupEntryMatchesItem(hit, item)) return hit;
+                if (hit && lookupEntryMatchesItem(hit, item)) {
+                    // CSV is source of truth; re-score rules hits so keyword updates
+                    // apply before the next pipeline rebuilds the lookup.
+                    if (hit.source === 'csv') return hit;
+                    const classified = classifyVeteranImpactFromText(itemText, classifyOpts);
+                    return classified || hit;
+                }
             }
         }
 
