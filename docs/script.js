@@ -279,17 +279,40 @@ function setSearchDateError(message) {
     }
 }
 
-function initSearchDateDefaults() {
+/** Default homepage search window: last N years through today (America/Chicago). */
+const SEARCH_DEFAULT_LOOKBACK_YEARS = 3;
+
+/** YYYY-MM-DD for N calendar years before today in America/Chicago. */
+function yearsAgoCentralYYYYMMDD(years) {
     const today = todayCentralYYYYMMDD();
-    const fromEl = document.getElementById("search-date-from");
-    const toEl = document.getElementById("search-date-to");
-    if (fromEl && !fromEl.value) fromEl.value = today;
-    if (toEl && !toEl.value) toEl.value = today;
+    const [y, m, d] = today.split("-").map((part) => Number.parseInt(part, 10));
+    const targetYear = y - Math.max(0, Number(years) || 0);
+    // Clamp Feb 29 → Feb 28 on non-leap years.
+    const dim = new Date(Date.UTC(targetYear, m, 0)).getUTCDate();
+    const day = Math.min(d, dim);
+    return `${targetYear}-${String(m).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
 }
 
 /**
- * Read From/To date inputs. Empty From means no lower bound.
- * To is required for search (enforced in performSearch).
+ * Apply default From/To: last SEARCH_DEFAULT_LOOKBACK_YEARS years → today CT.
+ * Empty dates mean "no date restriction" (full archive search).
+ */
+function applySearchDateDefaults({ force = false } = {}) {
+    const fromEl = document.getElementById("search-date-from");
+    const toEl = document.getElementById("search-date-to");
+    const fromDefault = yearsAgoCentralYYYYMMDD(SEARCH_DEFAULT_LOOKBACK_YEARS);
+    const toDefault = todayCentralYYYYMMDD();
+    if (fromEl && (force || !fromEl.value)) fromEl.value = fromDefault;
+    if (toEl && (force || !toEl.value)) toEl.value = toDefault;
+}
+
+function initSearchDateDefaults() {
+    applySearchDateDefaults({ force: false });
+}
+
+/**
+ * Read From/To date inputs.
+ * Empty From and/or To means no bound on that side (no forced today-only window).
  * If both set and from > to, swap input values and show a brief note.
  */
 function getSearchDateRange() {
@@ -300,11 +323,11 @@ function getSearchDateRange() {
 
     if (from && !isValidYYYYMMDD(from)) {
         setSearchDateError("From date must be a valid date.");
-        return { dateFrom: null, dateTo: null, invalid: true, missingTo: !to };
+        return { dateFrom: null, dateTo: null, invalid: true };
     }
     if (to && !isValidYYYYMMDD(to)) {
         setSearchDateError("To date must be a valid date.");
-        return { dateFrom: null, dateTo: null, invalid: true, missingTo: false };
+        return { dateFrom: null, dateTo: null, invalid: true };
     }
 
     if (from && to && from > to) {
@@ -314,7 +337,7 @@ function getSearchDateRange() {
         from = to;
         to = tmp;
         setSearchDateError("From was after To — dates were swapped.");
-    } else if (to) {
+    } else {
         setSearchDateError("");
     }
 
@@ -322,7 +345,6 @@ function getSearchDateRange() {
         dateFrom: from || null,
         dateTo: to || null,
         invalid: false,
-        missingTo: !to,
     };
 }
 
@@ -1265,7 +1287,7 @@ function runSearchAgainstLoadedData(queryLower, dateFrom = null, dateTo = null) 
 
 async function performSearch(query) {
     const trimmed = String(query || "").trim();
-    const { dateFrom, dateTo, invalid, missingTo } = getSearchDateRange();
+    const { dateFrom, dateTo, invalid } = getSearchDateRange();
     const hasDateFilter = Boolean(dateFrom || dateTo);
 
     // Empty query with no dates → leave search mode and show the feed.
@@ -1276,12 +1298,6 @@ async function performSearch(query) {
         if (currentYear) {
             displayUnifiedView(currentYear, 0);
         }
-        return;
-    }
-
-    // To is required before any API/fallback search.
-    if (missingTo) {
-        setSearchDateError("Enter an end date (To)");
         return;
     }
 
@@ -1655,19 +1671,12 @@ function setupSearch() {
         searchDebounce = setTimeout(handleSearch, 400);
     });
 
-    // Auto-run on date change only when both From and To are set (To required).
-    // Prefer the explicit "Update search" control when dates are incomplete.
+    // Auto-run on date change when there is a text query, active search, or any date bound.
     const onDateChange = () => {
         const q = searchInput.value.trim();
-        const { dateFrom, dateTo, invalid, missingTo } = getSearchDateRange();
+        const { dateFrom, dateTo, invalid } = getSearchDateRange();
         if (invalid) return;
-        if (missingTo || !dateFrom || !dateTo) {
-            if (missingTo && (q || dateFrom || searchMode)) {
-                setSearchDateError("Enter an end date (To)");
-            }
-            return;
-        }
-        if (q.length >= SEARCH_MIN_CHARS || searchMode || (dateFrom && dateTo)) {
+        if (q.length >= SEARCH_MIN_CHARS || searchMode || dateFrom || dateTo) {
             handleSearch();
         }
     };
@@ -1695,9 +1704,9 @@ function setupSearch() {
             if (sourceFilter) sourceFilter.value = "";
             if (categoryFilter) categoryFilter.value = "";
             if (stateFilter) stateFilter.value = "";
-            const today = todayCentralYYYYMMDD();
-            if (dateFromEl) dateFromEl.value = today;
-            if (dateToEl) dateToEl.value = today;
+            // Clear dates entirely: empty = no date restriction (not today-only).
+            if (dateFromEl) dateFromEl.value = "";
+            if (dateToEl) dateToEl.value = "";
             setSearchDateError("");
             if (typeof PolicyWatchHome !== "undefined") {
                 PolicyWatchHome.setSelectedState("");

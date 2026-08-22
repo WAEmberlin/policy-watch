@@ -275,3 +275,26 @@ def test_parse_bill_refs_from_hearing_bill_field():
         "bill": "HR 9022, HR 8595, HR 1181, HR 9237",
     })
     assert ("HR", "9237") in refs
+
+
+def test_parse_bill_ref_variants():
+    from processing.fetch_congress_api import parse_bill_ref
+
+    assert parse_bill_ref("s-4877") == ("s", "4877")
+    assert parse_bill_ref("S.4871") == ("s", "4871")
+    assert parse_bill_ref("H.R. 7976") == ("hr", "7976")
+    assert parse_bill_ref("hr7976") == ("hr", "7976")
+    assert parse_bill_ref("") is None
+    assert parse_bill_ref("not-a-bill") is None
+
+
+def test_resolve_days_back_default(monkeypatch):
+    from processing import fetch_congress_api as mod
+
+    monkeypatch.delenv("CONGRESS_DAYS_BACK", raising=False)
+    assert mod.DEFAULT_DAYS_BACK == 365
+    assert mod.MAX_LIST_PAGES >= 67  # year lookback needs >50 pages for 119th
+    assert mod.resolve_days_back(None) == mod.DEFAULT_DAYS_BACK
+    assert mod.resolve_days_back(45) == 45
+    monkeypatch.setenv("CONGRESS_DAYS_BACK", "120")
+    assert mod.resolve_days_back(None) == 120
