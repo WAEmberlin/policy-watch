@@ -38,6 +38,10 @@ const PolicyWatchHome = (() => {
     const VETERANS_STRONG_KEYWORDS = [
         'veteran', 'veterans', 'military', 'armed forces', 'armed services',
         'national guard', 'servicemember', 'service member', 'veterans affairs',
+        'military sexual trauma',
+        'committee on veterans', "veterans' affairs committee",
+        'veterans affairs committee', 'veterans and military affairs',
+        'military and veterans affairs', 'military affairs and veterans',
     ];
 
     const VETERANS_DEFENSE_PHRASES = [
@@ -557,16 +561,21 @@ const PolicyWatchHome = (() => {
     }
 
     // Keep in sync with src/processing/veteran_impact.py (Colorado tracker color rows).
-    // RED: benefits, disability ratings, VA healthcare, housing, survivor/burial, GI Bill
-    // YELLOW: employment preference, licensing, courts & diversion, mental health, military spouse
-    // GREEN: recognition, memorials, honor resolutions, indirect military references
+    // RED: benefits, disability ratings, VA healthcare, MST/IPV/suicide, housing, GI Bill
+    // YELLOW: employment preference, licensing, courts & diversion, generic mental health
+    // GREEN: recognition, memorials, honor resolutions, VA committee referrals with no
+    //        higher-impact keyword (default when veteran-related but unmatched).
     // Context-gated generics never establish veteran-relatedness alone; see CONTEXT_GATED.
     const VETERAN_IMPACT_RED_SIGNALS = [
         'gi bill', 'survivor benefit', 'burial benefit', 'va benefit', 'veterans benefit',
         'veteran pension', 'veterans pension', 'veteran compensation', 'veterans compensation',
         'compensation', 'pension', 'dependency indemnity', 'title 38',
         'va health', 'veterans health', 'va healthcare', 'veterans healthcare',
-        'veterans affairs', 'ptsd', 'tbi', 'suicide prevention', 'post-traumatic',
+        'military sexual trauma', 'ptsd', 'tbi', 'suicide prevention', 'post-traumatic',
+        'sexual trauma', 'intimate partner violence', 'domestic violence',
+        'suicidal ideation', 'suicide',
+        'retroactive payment', 'retroactive benefit', 'retroactive benefits',
+        'retroactive compensation',
         'veteran housing', 'homeless veteran', 'housing voucher', 'shelter veteran',
         'disability rating', 'service-connected', 'service connected', 'rating schedule',
         'survivor', 'burial',
@@ -601,6 +610,10 @@ const PolicyWatchHome = (() => {
         'compensation', 'pension', 'housing voucher',
         'disability rating', 'rating schedule', 'survivor', 'burial',
         'ptsd', 'tbi', 'suicide prevention', 'post-traumatic', 'mental health',
+        'sexual trauma', 'intimate partner violence', 'domestic violence',
+        'suicidal ideation', 'suicide',
+        'retroactive payment', 'retroactive benefit', 'retroactive benefits',
+        'retroactive compensation',
         'hiring preference', 'employment preference',
         'licensing', 'certification', 'apprenticeship',
         'diversion', 'treatment court', 'justice outreach',
@@ -1151,10 +1164,24 @@ const PolicyWatchHome = (() => {
         return VETERANS_DEFENSE_PHRASES.some((ph) => haystack.includes(ph));
     }
 
+    function flattenCommitteeText(value) {
+        if (!value) return '';
+        if (typeof value === 'string') return value;
+        if (Array.isArray(value)) {
+            return value.map(flattenCommitteeText).filter(Boolean).join(' ');
+        }
+        if (typeof value === 'object') {
+            return [value.name, value.committee, value.title, value.text].filter(Boolean).join(' ');
+        }
+        return String(value);
+    }
+
     function itemVeteransText(item) {
         const parts = [
-            item.title, item.short_title, item.summary, item.latest_action, item.bill_number,
-            item.link, item.url,
+            item.title, item.short_title, item.official_title, item.summary,
+            item.latest_action, item.last_action, item.bill_number,
+            item.link, item.url, item.committee,
+            flattenCommitteeText(item.committees),
         ];
         if (Array.isArray(item.classification)) parts.push(item.classification.join(' '));
         if (Array.isArray(item.ai_topics)) parts.push(item.ai_topics.join(' '));
