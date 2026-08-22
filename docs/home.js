@@ -866,7 +866,11 @@ const PolicyWatchHome = (() => {
             if (!btn) return;
             btn.addEventListener('click', () => {
                 const isActive = btn.getAttribute('aria-pressed') === 'true';
-                const next = isActive ? null : level;
+                let next = isActive ? null : level;
+                if (callbacks.veteransOnly) {
+                    // Stay on veteran bills: toggling a color off returns to all veteran bills.
+                    next = isActive ? 'all' : level;
+                }
                 setVeteransImpactFilter(next);
                 if (callbacks.onVeteransImpactFilter) callbacks.onVeteransImpactFilter(next);
             });
@@ -917,11 +921,14 @@ const PolicyWatchHome = (() => {
             pills.push({ key: 'search', label: `Search: "${filters.search}"`, value: filters.search });
         }
         if (filters.veteransImpact) {
-            pills.push({
-                key: 'veterans',
-                label: VETERANS_IMPACT_FILTER_LABELS[filters.veteransImpact] || 'Military / Veterans',
-                value: filters.veteransImpact,
-            });
+            const hideAllPill = callbacks.veteransOnly && filters.veteransImpact === 'all';
+            if (!hideAllPill) {
+                pills.push({
+                    key: 'veterans',
+                    label: VETERANS_IMPACT_FILTER_LABELS[filters.veteransImpact] || 'Military / Veterans',
+                    value: filters.veteransImpact,
+                });
+            }
         }
 
         if (pills.length === 0) {
@@ -1386,6 +1393,9 @@ const PolicyWatchHome = (() => {
         callbacks = options || {};
         initStateChips();
         initVeteransFilter();
+        if (callbacks.veteransOnly) {
+            setVeteransImpactFilter('all');
+        }
         initFilterDrawer();
         initJurisdictionsCollapse();
         loadLiveNowStrip();

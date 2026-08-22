@@ -14,7 +14,15 @@ let searchResults = [];
 let selectedSource = "";
 let selectedCategory = "";
 let selectedState = "";
-let veteransImpactFilter = null;
+function isVeteransOnlyPage() {
+    return typeof document !== "undefined"
+        && document.body
+        && document.body.getAttribute("data-veterans-only") === "true";
+}
+function defaultVeteransImpactFilter() {
+    return isVeteransOnlyPage() ? "all" : null;
+}
+let veteransImpactFilter = defaultVeteransImpactFilter();
 const DAYS_PER_CHUNK = 14;  // Show 2 weeks per "page" (full site_data only)
 const VETERANS_FEED_ITEM_LIMIT = 100;
 const SEARCH_MIN_CHARS = 3;
@@ -1708,7 +1716,7 @@ function setupSearch() {
             selectedState = "";
             selectedSource = "";
             selectedCategory = "";
-            veteransImpactFilter = null;
+            veteransImpactFilter = defaultVeteransImpactFilter();
             const sourceFilter = document.getElementById("source-filter");
             const categoryFilter = document.getElementById("category-filter");
             const stateFilter = document.getElementById("state-filter");
@@ -1721,7 +1729,7 @@ function setupSearch() {
             setSearchDateError("");
             if (typeof PolicyWatchHome !== "undefined") {
                 PolicyWatchHome.setSelectedState("");
-                PolicyWatchHome.setVeteransImpactFilter(null);
+                PolicyWatchHome.setVeteransImpactFilter(veteransImpactFilter);
             }
             searchMode = false;
             searchQuery = "";
@@ -1742,6 +1750,7 @@ function escapeHtmlText(text) {
 window.onload = () => {
     if (typeof PolicyWatchHome !== "undefined") {
         PolicyWatchHome.init({
+            veteransOnly: isVeteransOnlyPage(),
             onStateFilter: (state) => {
                 selectedState = state;
                 currentPage = 0;
@@ -1750,7 +1759,7 @@ window.onload = () => {
                 a11yAnnounce("State filter applied.");
             },
             onVeteransImpactFilter: (level) => {
-                veteransImpactFilter = level;
+                veteransImpactFilter = level || defaultVeteransImpactFilter();
                 currentPage = 0;
                 currentItemPage = 0;
                 refreshView();
@@ -1769,8 +1778,10 @@ window.onload = () => {
                     const stateFilter = document.getElementById("state-filter");
                     if (stateFilter) stateFilter.value = "";
                 } else if (key === "veterans") {
-                    veteransImpactFilter = null;
-                    if (typeof PolicyWatchHome !== "undefined") PolicyWatchHome.setVeteransImpactFilter(null);
+                    veteransImpactFilter = defaultVeteransImpactFilter();
+                    if (typeof PolicyWatchHome !== "undefined") {
+                        PolicyWatchHome.setVeteransImpactFilter(veteransImpactFilter);
+                    }
                 } else if (key === "source") {
                     selectedSource = "";
                     const sourceFilter = document.getElementById("source-filter");

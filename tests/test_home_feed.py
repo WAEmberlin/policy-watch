@@ -308,6 +308,17 @@ def test_r2_upload_list_includes_home_feed_and_day_glob():
     assert "search_shards/*.json" in DOCS_UPLOAD_GLOBS
 
 
+def test_veteran_legislation_page_is_in_nav_and_veterans_only():
+    root = Path(__file__).resolve().parents[1]
+    html = (root / "docs" / "veterans.html").read_text(encoding="utf-8")
+    shell = (root / "docs" / "shell.js").read_text(encoding="utf-8")
+    assert 'data-veterans-only="true"' in html
+    assert 'data-cw-page="veterans"' in html
+    assert "veterans.html" in shell
+    assert "Veteran Legislation" in shell
+    assert "index.html" in html  # homepage still linked for full bill list
+
+
 def test_write_home_feed_artifacts_writes_search_bills(tmp_path):
     site_years = _year({"2026-08-04": {"Federal": [{"title": "A"}]}})
     search_index = {
