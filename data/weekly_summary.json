@@ -1,9 +1,9 @@
 {
-  "week_start": "2026-08-09",
-  "week_end": "2026-08-16",
+  "week_start": "2026-08-16",
+  "week_end": "2026-08-23",
   "model": "phi-3:mini",
   "prompt_version": "v1",
-  "generated_at": "2026-08-16T06:31:36.866770+00:00",
+  "generated_at": "2026-08-23T06:32:07.978329+00:00",
   "jurisdictions": [
     {
       "name": "Kansas Legislature",
@@ -30,16 +30,33 @@
         {
           "title": "House of Representatives",
           "summary": [
-            "6 House of Representatives bills were message on senate action sent to the house.: HR 6500, HR 5334, HR 5366, HR 2069, HR 2196 and 1 more."
+            "HR 309 was placed on the union calendar, calendar no. 658. on 2026-08-20.",
+            "HR 2406 was placed on the union calendar, calendar no. 662. on 2026-08-20.",
+            "HR 6893 was placed on the union calendar, calendar no. 664. on 2026-08-20.",
+            "HR 2827 was placed on the union calendar, calendar no. 663. on 2026-08-20.",
+            "HR 3276 was placed on the union calendar, calendar no. 659. on 2026-08-20.",
+            "HR 3925 was placed on the union calendar, calendar no. 661. on 2026-08-20.",
+            "HR 8476 was placed on the union calendar, calendar no. 660. on 2026-08-20.",
+            "HR 7889 was placed on the union calendar, calendar no. 665. on 2026-08-20.",
+            "HR 10123 was referred to the house committee on transportation and infrastructure. on 2026-08-20.",
+            "2 House of Representatives bills were referred to the house committee on armed services.: HR 10130, HR 10137.",
+            "HR 10126 was referred to the committee on armed services, and in addition to the committee on foreign affairs, for a period to be subsequently determined by the speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned. on 2026-08-20.",
+            "HR 10133 was referred to the committee on energy and commerce, and in addition to the committees on ways and means, and education and workforce, for a period to be subsequently determined by the speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned. on 2026-08-20.",
+            "2 House of Representatives bills were referred to the house committee on natural resources.: HR 10136, HR 10128.",
+            "HRES 1485 was referred to the house committee on oversight and government reform. on 2026-08-20.",
+            "HR 10132 was referred to the committee on transportation and infrastructure, and in addition to the committees on foreign affairs, and rules, for a period to be subsequently determined by the speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned. on 2026-08-20.",
+            "HR 10125 was referred to the committee on financial services, and in addition to the committees on agriculture, and energy and commerce, for a period to be subsequently determined by the speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned. on 2026-08-20.",
+            "HR 10124 was referred to the house committee on the judiciary. on 2026-08-20.",
+            "HR 10119 was referred to the house committee on energy and commerce. on 2026-08-20."
           ],
-          "bill_count": 6
+          "bill_count": 39
         },
         {
           "title": "U.S. Senate",
           "summary": [
-            "11 U.S. Senate bills were held at the desk.: S 2542, S 1525, S 2677, S 3266, S 434 and 6 more."
+            "S 5123 was held at the desk. on 2026-08-20."
           ],
-          "bill_count": 11
+          "bill_count": 1
         }
       ]
     }
