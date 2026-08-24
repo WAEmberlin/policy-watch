@@ -36,9 +36,12 @@ function a11yAnnounce(message) {
     }
 }
 
-function setContentBusy(isBusy) {
+function setContentBusy(isBusy, message) {
     const content = document.getElementById("content");
     if (content) content.setAttribute("aria-busy", isBusy ? "true" : "false");
+    if (typeof PolicyWatchLoading === "undefined") return;
+    if (isBusy) PolicyWatchLoading.show(message || "Loading…");
+    else PolicyWatchLoading.hide();
 }
 
 const STATE_NAMES = {
@@ -475,7 +478,7 @@ function renderYearTabsAndShowDefault() {
 }
 
 async function loadData() {
-    setContentBusy(true);
+    setContentBusy(true, "Loading…");
     try {
         // Prefer slim home_feed.json so mobile Safari never parses ~100MB+ site_data on first paint.
         let loaded = false;
@@ -1094,7 +1097,7 @@ async function displayUnifiedView(year, chunkIndex) {
     const yearData = allData.years[year];
     if (!yearData && !homeFeedMode) return;
 
-    setContentBusy(true);
+    setContentBusy(true, "Loading…");
     const container = document.getElementById("content");
     container.innerHTML = "";
 
@@ -1470,7 +1473,7 @@ async function performSearch(query) {
         return;
     }
 
-    setContentBusy(true);
+    setContentBusy(true, "Searching…");
     searchMode = true;
     searchQuery = trimmed.toLowerCase();
 
@@ -1478,77 +1481,81 @@ async function performSearch(query) {
     let archiveError = null;
     let usedSearchApi = false;
 
-    if (homeFeedMode && policywatchApiBase()) {
-        displaySearchPrompt("Searching…");
-        try {
-            const apiData = await searchBillsViaApi(trimmed, selectedState, dateFrom, dateTo);
-            if (apiData) {
-                usedSearchApi = true;
-                archiveLoaded = true;
-                // Merge recent feed hits with API archive hits without replacing the
-                // lazy-loaded full archive cache (API returns only one page).
-                const savedArchive = homeSearchBills;
-                homeSearchBills = [];
-                runSearchAgainstLoadedData(searchQuery, dateFrom, dateTo);
-                homeSearchBills = savedArchive;
+    try {
+        if (homeFeedMode && policywatchApiBase()) {
+            displaySearchPrompt("Searching…", { keepBusy: true });
+            try {
+                const apiData = await searchBillsViaApi(trimmed, selectedState, dateFrom, dateTo);
+                if (apiData) {
+                    usedSearchApi = true;
+                    archiveLoaded = true;
+                    // Merge recent feed hits with API archive hits without replacing the
+                    // lazy-loaded full archive cache (API returns only one page).
+                    const savedArchive = homeSearchBills;
+                    homeSearchBills = [];
+                    runSearchAgainstLoadedData(searchQuery, dateFrom, dateTo);
+                    homeSearchBills = savedArchive;
 
-                const seen = new Set(searchResults.map((item) => searchResultKey(item)));
-                let capped = (apiData.total || 0) > (apiData.results || []).length;
-                for (const bill of apiData.results) {
-                    const item = mapApiBillToSearchResult(bill);
-                    if (!itemMatchesStateFilter(item)) continue;
-                    if (!itemMatchesVeteransFilter(item)) continue;
-                    if (!itemMatchesSearchDateRange(item, dateFrom, dateTo)) continue;
-                    if (addSearchResult(item, seen, searchResults)) {
-                        capped = true;
-                        break;
+                    const seen = new Set(searchResults.map((item) => searchResultKey(item)));
+                    let capped = (apiData.total || 0) > (apiData.results || []).length;
+                    for (const bill of apiData.results) {
+                        const item = mapApiBillToSearchResult(bill);
+                        if (!itemMatchesStateFilter(item)) continue;
+                        if (!itemMatchesVeteransFilter(item)) continue;
+                        if (!itemMatchesSearchDateRange(item, dateFrom, dateTo)) continue;
+                        if (addSearchResult(item, seen, searchResults)) {
+                            capped = true;
+                            break;
+                        }
                     }
+                    searchResults.sort((a, b) => {
+                        const dateA = a.published || a.date || "";
+                        const dateB = b.published || b.date || "";
+                        return dateB.localeCompare(dateA);
+                    });
+                    displaySearchResults({
+                        capped,
+                        homeFeedScoped: false,
+                        archiveError: false,
+                        viaApi: true,
+                        dateFrom,
+                        dateTo,
+                    });
+                    updateFilterPills();
+                    return;
                 }
-                searchResults.sort((a, b) => {
-                    const dateA = a.published || a.date || "";
-                    const dateB = b.published || b.date || "";
-                    return dateB.localeCompare(dateA);
-                });
-                displaySearchResults({
-                    capped,
-                    homeFeedScoped: false,
-                    archiveError: false,
-                    viaApi: true,
-                    dateFrom,
-                    dateTo,
-                });
-                updateFilterPills();
-                return;
+            } catch (err) {
+                console.warn("Search API unavailable, falling back to archive download:", err);
             }
-        } catch (err) {
-            console.warn("Search API unavailable, falling back to archive download:", err);
         }
-    }
 
-    if (homeFeedMode && !usedSearchApi) {
-        displaySearchPrompt("Loading bill archive for search…");
-        try {
-            await ensureHomeSearchBillsLoaded();
-            archiveLoaded = true;
-        } catch (err) {
-            console.error("Failed to load home_search_bills.json:", err);
-            archiveError = err;
-            archiveLoaded = false;
+        if (homeFeedMode && !usedSearchApi) {
+            displaySearchPrompt("Loading bill archive for search…", { keepBusy: true });
+            try {
+                await ensureHomeSearchBillsLoaded();
+                archiveLoaded = true;
+            } catch (err) {
+                console.error("Failed to load home_search_bills.json:", err);
+                archiveError = err;
+                archiveLoaded = false;
+            }
         }
-    }
 
-    const capped = runSearchAgainstLoadedData(searchQuery, dateFrom, dateTo);
-    displaySearchResults({
-        capped,
-        homeFeedScoped: homeFeedMode && !archiveLoaded,
-        archiveError: Boolean(archiveError),
-        dateFrom,
-        dateTo,
-    });
-    updateFilterPills();
+        const capped = runSearchAgainstLoadedData(searchQuery, dateFrom, dateTo);
+        displaySearchResults({
+            capped,
+            homeFeedScoped: homeFeedMode && !archiveLoaded,
+            archiveError: Boolean(archiveError),
+            dateFrom,
+            dateTo,
+        });
+        updateFilterPills();
+    } finally {
+        setContentBusy(false);
+    }
 }
 
-function displaySearchPrompt(message) {
+function displaySearchPrompt(message, options = {}) {
     const container = document.getElementById("content");
     container.innerHTML = "";
     document.querySelectorAll(".year-tab").forEach(btn => {
@@ -1558,7 +1565,11 @@ function displaySearchPrompt(message) {
     });
     document.getElementById("pagination").innerHTML = "";
     container.innerHTML = `<p class='text-slate-500 italic text-center py-8'>${escapeHtmlText(message)}</p>`;
-    setContentBusy(false);
+    if (options.keepBusy) {
+        setContentBusy(true, message);
+    } else {
+        setContentBusy(false);
+    }
 }
 
 function formatSearchDateRangeLabel(dateFrom, dateTo) {

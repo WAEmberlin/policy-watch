@@ -291,6 +291,8 @@ const PolicyWatchExpansion = (() => {
     }
 
     async function initLegislators() {
+        if (window.PolicyWatchLoading) PolicyWatchLoading.show('Loading…');
+        try {
         const [data] = await Promise.all([
             loadLegislatorsDirectory(),
             typeof PolicyWatchLegislatorVotes !== 'undefined' ? PolicyWatchLegislatorVotes.init() : Promise.resolve(),
@@ -500,6 +502,9 @@ const PolicyWatchExpansion = (() => {
         tabDirectory?.addEventListener('click', () => setActiveView('directory'));
         tabStats?.addEventListener('click', () => setActiveView('stats'));
         renderDirectory();
+        } finally {
+            if (window.PolicyWatchLoading) PolicyWatchLoading.hide();
+        }
     }
 
     return { initDashboards, initLegislators, loadSiteData };

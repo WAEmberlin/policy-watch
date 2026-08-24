@@ -336,6 +336,24 @@ def test_veterans_page_blank_dates_and_fifty_item_pages():
     assert "usesVeteransItemFeed" in script
 
 
+def test_loading_overlay_is_wired_for_search_and_first_paint():
+    root = Path(__file__).resolve().parents[1]
+    theme = (root / "docs" / "theme.css").read_text(encoding="utf-8")
+    shell = (root / "docs" / "shell.js").read_text(encoding="utf-8")
+    script = (root / "docs" / "script.js").read_text(encoding="utf-8")
+    home = (root / "docs" / "index.html").read_text(encoding="utf-8")
+    veterans = (root / "docs" / "veterans.html").read_text(encoding="utf-8")
+    assert ".cw-loading-overlay" in theme
+    assert "@keyframes cw-spin" in theme
+    assert "PolicyWatchLoading" in shell
+    assert "keepBusy" in script
+    assert 'setContentBusy(true, "Searching…")' in script
+    for html in (home, veterans):
+        assert 'id="cw-loading-overlay"' in html
+        assert "cw-loading-spinner" in html
+        assert 'class="cw-is-loading"' in html
+
+
 def test_write_home_feed_artifacts_writes_search_bills(tmp_path):
     site_years = _year({"2026-08-04": {"Federal": [{"title": "A"}]}})
     search_index = {
