@@ -210,13 +210,23 @@
 /**
  * Centered loading popup with spinner. Used by feed search, first paint, and
  * other data fetches. Safe to call show() repeatedly to update the label.
+ *
+ * Fast loads (< SHOW_DELAY_MS) never flash the overlay. Once shown, keep it
+ * up for MIN_VISIBLE_MS so a just-over-threshold fetch does not blink.
  */
 (function (global) {
   'use strict';
 
+  var SHOW_DELAY_MS = 500;
+  var MIN_VISIBLE_MS = 300;
   var overlay = null;
   var labelEl = null;
   var dialogEl = null;
+  var showTimer = null;
+  var hideTimer = null;
+  var wantVisible = false;
+  var visibleSince = 0;
+  var pendingMessage = 'Loading…';
 
   function overlayMarkup() {
     return (
@@ -244,17 +254,33 @@
     return overlay;
   }
 
-  function show(message) {
-    ensure();
-    if (labelEl) labelEl.textContent = message || 'Loading…';
+  function isOpen() {
+    return Boolean(
+      overlay
+      && overlay.classList.contains('cw-loading-overlay--open')
+      && !overlay.hasAttribute('hidden')
+    );
+  }
+
+  function applyMessage() {
+    if (labelEl) labelEl.textContent = pendingMessage;
     if (dialogEl) dialogEl.setAttribute('aria-busy', 'true');
+  }
+
+  function reveal() {
+    showTimer = null;
+    if (!wantVisible) return;
+    ensure();
+    applyMessage();
     overlay.classList.add('cw-loading-overlay--open');
     overlay.removeAttribute('hidden');
     document.documentElement.classList.add('cw-is-loading');
+    visibleSince = Date.now();
   }
 
-  function hide() {
-    ensure();
+  function conceal() {
+    hideTimer = null;
+    if (wantVisible) return;
     if (!overlay) {
       document.documentElement.classList.remove('cw-is-loading');
       return;
@@ -264,10 +290,45 @@
     overlay.setAttribute('hidden', '');
     if (dialogEl) dialogEl.setAttribute('aria-busy', 'false');
     document.documentElement.classList.remove('cw-is-loading');
+    visibleSince = 0;
+  }
+
+  function show(message) {
+    pendingMessage = message || 'Loading…';
+    wantVisible = true;
+    if (hideTimer) {
+      global.clearTimeout(hideTimer);
+      hideTimer = null;
+    }
+    ensure();
+    applyMessage();
+    if (isOpen()) return;
+    if (showTimer) return;
+    showTimer = global.setTimeout(reveal, SHOW_DELAY_MS);
+  }
+
+  function hide() {
+    wantVisible = false;
+    if (showTimer) {
+      global.clearTimeout(showTimer);
+      showTimer = null;
+    }
+    ensure();
+    if (!isOpen()) {
+      conceal();
+      return;
+    }
+    var remaining = MIN_VISIBLE_MS - (Date.now() - visibleSince);
+    if (remaining > 0) {
+      hideTimer = global.setTimeout(conceal, remaining);
+      return;
+    }
+    conceal();
   }
 
   global.PolicyWatchLoading = {
     show: show,
     hide: hide,
+    SHOW_DELAY_MS: SHOW_DELAY_MS,
   };
 })(window);
