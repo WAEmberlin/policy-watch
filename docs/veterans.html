@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" class="cw-is-loading">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -61,12 +61,21 @@ tailwind.config = {
 <body class="cw-page-bg" data-cw-page="veterans" data-veterans-only="true">
 <a href="#main-content" class="skip-link">Skip to main content</a>
 <div id="a11y-live-region" class="sr-only" aria-live="polite" aria-atomic="true" role="status"></div>
-<div id="cw-loading-overlay" class="cw-loading-overlay is-visible" role="presentation">
+<div id="cw-loading-overlay" class="cw-loading-overlay" hidden role="presentation">
     <div class="cw-loading-dialog" role="status" aria-live="polite" aria-busy="true">
         <div class="cw-loading-spinner" aria-hidden="true"></div>
         <p class="cw-loading-label">Loading…</p>
     </div>
 </div>
+<script>
+(function () {
+    var el = document.getElementById('cw-loading-overlay');
+    if (!el) return;
+    el.removeAttribute('hidden');
+    el.classList.add('cw-loading-overlay--open');
+    document.documentElement.classList.add('cw-is-loading');
+})();
+</script>
 <div class="max-w-6xl mx-auto px-4 py-8">
     <div class="cw-card rounded-2xl overflow-hidden">
         <!-- Header -->

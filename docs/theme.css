@@ -777,26 +777,33 @@ html.cw-is-loading {
 }
 
 .cw-loading-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  z-index: 2147483000;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  background: color-mix(in srgb, var(--cw-navy) 42%, transparent);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  margin: 0;
+  background: rgba(0, 31, 63, 0.42);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
-.cw-loading-overlay.is-visible {
+.cw-loading-overlay.cw-loading-overlay--open {
+  display: flex !important;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+}
+
+.cw-loading-overlay[hidden] {
+  display: none !important;
 }
 
 .cw-loading-dialog {

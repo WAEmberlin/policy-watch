@@ -425,7 +425,7 @@ function renderYearTabsAndShowDefault() {
         setContentBusy(false);
         document.getElementById("content").innerHTML =
             "<p class='text-slate-500 italic text-center py-8'>No data available. Run the backfill script to populate history.</p>";
-        return;
+        return Promise.resolve();
     }
 
     const currentYearNum = new Date().getFullYear();
@@ -442,12 +442,12 @@ function renderYearTabsAndShowDefault() {
         currentYear = sortedYears[0];
         currentPage = 0;
         currentItemPage = 0;
-        displayUnifiedView(currentYear, 0);
-        return;
+        return displayUnifiedView(currentYear, 0);
     }
 
     yearTabs.hidden = false;
     let defaultYearSet = false;
+    let defaultView = Promise.resolve();
     sortedYears.forEach((year) => {
         const btn = document.createElement("button");
         btn.type = "button";
@@ -470,11 +470,12 @@ function renderYearTabsAndShowDefault() {
         if (!defaultYearSet) {
             if (year === currentYearStr || sortedYears.indexOf(year) === 0) {
                 currentYear = year;
-                btn.click();
                 defaultYearSet = true;
+                defaultView = displayUnifiedView(year, 0);
             }
         }
     });
+    return defaultView;
 }
 
 async function loadData() {
@@ -500,43 +501,44 @@ async function loadData() {
             if (!res.ok) throw new Error(`site_data.json HTTP ${res.status}`);
             applyLoadedSitePayload(await res.json(), { isHomeFeed: false });
         }
-    } catch (error) {
-        setContentBusy(false);
-        document.getElementById("content").innerHTML =
-            "<div class='bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg text-red-700' role='alert'>Error loading data. Please try again later.</div>";
-        a11yAnnounce("Error loading data.");
-        return;
-    }
 
-    // Update last updated timestamp
-    const lastUpdatedEl = document.getElementById("last-updated");
-    if (lastUpdatedEl) {
-        const updatedDate = new Date(allData.last_updated);
-        lastUpdatedEl.textContent = "Last updated: " +
-            updatedDate.toLocaleString("en-US", {
-                timeZone: "America/Chicago",
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-                hour: "numeric",
-                minute: "2-digit",
-                hour12: true
+        const lastUpdatedEl = document.getElementById("last-updated");
+        if (lastUpdatedEl) {
+            const updatedDate = new Date(allData.last_updated);
+            lastUpdatedEl.textContent = "Last updated: " +
+                updatedDate.toLocaleString("en-US", {
+                    timeZone: "America/Chicago",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    hour: "numeric",
+                    minute: "2-digit",
+                    hour12: true
+                });
+        }
+
+        setupFilters();
+
+        if (typeof PolicyWatchHome !== "undefined") {
+            PolicyWatchHome.fetchWeeklyCounts().then((weeklyCounts) => {
+                PolicyWatchHome.renderStateSnapshots(allData, weeklyCounts);
             });
+            PolicyWatchHome.setSelectedState(selectedState);
+            if (veteransImpactFilter) PolicyWatchHome.setVeteransImpactFilter(veteransImpactFilter);
+        }
+        updateFilterPills();
+
+        await renderYearTabsAndShowDefault();
+    } catch (error) {
+        const content = document.getElementById("content");
+        if (content) {
+            content.innerHTML =
+                "<div class='bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg text-red-700' role='alert'>Error loading data. Please try again later.</div>";
+        }
+        a11yAnnounce("Error loading data.");
+    } finally {
+        setContentBusy(false);
     }
-
-    // Setup filters
-    setupFilters();
-
-    if (typeof PolicyWatchHome !== "undefined") {
-        PolicyWatchHome.fetchWeeklyCounts().then((weeklyCounts) => {
-            PolicyWatchHome.renderStateSnapshots(allData, weeklyCounts);
-        });
-        PolicyWatchHome.setSelectedState(selectedState);
-        if (veteransImpactFilter) PolicyWatchHome.setVeteransImpactFilter(veteransImpactFilter);
-    }
-    updateFilterPills();
-
-    renderYearTabsAndShowDefault();
 }
 
 function setupFilters() {
@@ -1095,10 +1097,15 @@ function collectHomeFeedItemsAcrossYears(dateRange) {
 
 async function displayUnifiedView(year, chunkIndex) {
     const yearData = allData.years[year];
-    if (!yearData && !homeFeedMode) return;
+    if (!yearData && !homeFeedMode) {
+        setContentBusy(false);
+        return;
+    }
 
     setContentBusy(true, "Loading…");
     const container = document.getElementById("content");
+    try {
+    if (!container) return;
     container.innerHTML = "";
 
     // Update active year tab
@@ -1284,6 +1291,15 @@ async function displayUnifiedView(year, chunkIndex) {
     updateFilterPills();
 
     renderPagination(year, effectiveChunkIndex, totalChunks, dateRange, pagination);
+    } catch (err) {
+        console.error("Failed to render feed:", err);
+        if (container) {
+            container.innerHTML =
+                "<div class='bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg text-red-700' role='alert'>Could not load activity. Please try again.</div>";
+        }
+    } finally {
+        setContentBusy(false);
+    }
 }
 
 function searchResultKey(item) {
