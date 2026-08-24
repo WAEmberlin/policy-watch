@@ -348,14 +348,16 @@ def test_loading_overlay_is_wired_for_search_and_first_paint():
     assert ".cw-loading-overlay[hidden]" in theme
     assert "@keyframes cw-spin" in theme
     assert "PolicyWatchLoading" in shell
+    assert "SHOW_DELAY_MS = 500" in shell
+    assert "MIN_VISIBLE_MS = 300" in shell
     assert "setAttribute('hidden'" in shell
     assert "keepBusy" in script
     assert 'setContentBusy(true, "Searching…")' in script
     for html in (home, veterans):
         assert 'id="cw-loading-overlay"' in html
         assert "cw-loading-spinner" in html
-        assert "cw-loading-overlay--open" in html
         assert 'class="cw-loading-overlay" hidden' in html
+        assert "cw-loading-overlay--open" not in html
 
 
 def test_write_home_feed_artifacts_writes_search_bills(tmp_path):
