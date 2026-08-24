@@ -688,6 +688,7 @@ async function loadHearingsPayload() {
 async function loadHearings() {
     const upcomingContainer = document.getElementById("upcoming-hearings-container");
     const historicalContainer = document.getElementById("historical-hearings-container");
+    if (window.PolicyWatchLoading) PolicyWatchLoading.show("Loading…");
     
     try {
         const data = await loadHearingsPayload();
@@ -720,6 +721,8 @@ async function loadHearings() {
             </div>
         `;
         historicalContainer.innerHTML = "";
+    } finally {
+        if (window.PolicyWatchLoading) PolicyWatchLoading.hide();
     }
 }
 

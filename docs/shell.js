@@ -206,3 +206,76 @@
     FOOTER_TEXT: FOOTER_TEXT,
   };
 })(window);
+
+/**
+ * Centered loading popup with spinner. Used by feed search, first paint, and
+ * other data fetches. Safe to call show() repeatedly to update the label.
+ */
+(function (global) {
+  'use strict';
+
+  var overlay = null;
+  var labelEl = null;
+  var dialogEl = null;
+  var hideTimer = null;
+  var shown = false;
+
+  function overlayMarkup() {
+    return (
+      '<div class="cw-loading-dialog" role="status" aria-live="polite" aria-busy="true">' +
+        '<div class="cw-loading-spinner" aria-hidden="true"></div>' +
+        '<p class="cw-loading-label">Loading…</p>' +
+      '</div>'
+    );
+  }
+
+  function ensure() {
+    overlay = document.getElementById('cw-loading-overlay');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.id = 'cw-loading-overlay';
+      overlay.className = 'cw-loading-overlay';
+      overlay.setAttribute('role', 'presentation');
+      overlay.innerHTML = overlayMarkup();
+      document.body.appendChild(overlay);
+    }
+    dialogEl = overlay.querySelector('.cw-loading-dialog');
+    labelEl = overlay.querySelector('.cw-loading-label');
+    shown = overlay.classList.contains('is-visible');
+    return overlay;
+  }
+
+  function show(message) {
+    if (hideTimer) {
+      global.clearTimeout(hideTimer);
+      hideTimer = null;
+    }
+    ensure();
+    if (labelEl) labelEl.textContent = message || 'Loading…';
+    if (dialogEl) dialogEl.setAttribute('aria-busy', 'true');
+    overlay.classList.add('is-visible');
+    document.documentElement.classList.add('cw-is-loading');
+    shown = true;
+  }
+
+  function hide() {
+    if (!overlay) ensure();
+    if (!overlay || !shown) {
+      if (overlay) overlay.classList.remove('is-visible');
+      document.documentElement.classList.remove('cw-is-loading');
+      return;
+    }
+    shown = false;
+    overlay.classList.remove('is-visible');
+    if (dialogEl) dialogEl.setAttribute('aria-busy', 'false');
+    document.documentElement.classList.remove('cw-is-loading');
+    hideTimer = global.setTimeout(function () {
+      hideTimer = null;
+    }, 220);
+  }
+
+  global.PolicyWatchLoading = {
+    show: show,
+    hide: hide,
+  };
+})(window);

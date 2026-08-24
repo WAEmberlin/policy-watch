@@ -770,3 +770,91 @@ mark {
     line-height: 1.25;
   }
 }
+
+/* Full-page loading popup — used during initial data fetch and bill search. */
+html.cw-is-loading {
+  overflow: hidden;
+}
+
+.cw-loading-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: color-mix(in srgb, var(--cw-navy) 42%, transparent);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.cw-loading-overlay.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.cw-loading-dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 10.5rem;
+  padding: 1.75rem 2rem;
+  border-radius: 1rem;
+  background: var(--cw-surface);
+  color: var(--cw-text);
+  border: 1px solid var(--cw-border);
+  box-shadow: 0 18px 40px var(--cw-shadow);
+  animation: cw-loading-pop 0.22s ease-out;
+}
+
+.cw-loading-label {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--cw-text);
+}
+
+.cw-loading-spinner {
+  width: 2.35rem;
+  height: 2.35rem;
+  border: 3px solid var(--cw-slate-200);
+  border-top-color: var(--cw-blue);
+  border-radius: 50%;
+  animation: cw-spin 0.75s linear infinite;
+}
+
+@keyframes cw-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes cw-loading-pop {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cw-loading-overlay {
+    transition: none;
+  }
+  .cw-loading-dialog {
+    animation: none;
+  }
+  .cw-loading-spinner {
+    animation: none;
+    border-top-color: var(--cw-blue);
+    border-right-color: var(--cw-blue);
+  }
+}
