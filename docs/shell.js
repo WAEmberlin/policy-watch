@@ -217,8 +217,6 @@
   var overlay = null;
   var labelEl = null;
   var dialogEl = null;
-  var hideTimer = null;
-  var shown = false;
 
   function overlayMarkup() {
     return (
@@ -236,42 +234,36 @@
       overlay.id = 'cw-loading-overlay';
       overlay.className = 'cw-loading-overlay';
       overlay.setAttribute('role', 'presentation');
+      overlay.setAttribute('hidden', '');
       overlay.innerHTML = overlayMarkup();
       document.body.appendChild(overlay);
     }
+    overlay.classList.remove('is-visible');
     dialogEl = overlay.querySelector('.cw-loading-dialog');
     labelEl = overlay.querySelector('.cw-loading-label');
-    shown = overlay.classList.contains('is-visible');
     return overlay;
   }
 
   function show(message) {
-    if (hideTimer) {
-      global.clearTimeout(hideTimer);
-      hideTimer = null;
-    }
     ensure();
     if (labelEl) labelEl.textContent = message || 'Loading…';
     if (dialogEl) dialogEl.setAttribute('aria-busy', 'true');
-    overlay.classList.add('is-visible');
+    overlay.classList.add('cw-loading-overlay--open');
+    overlay.removeAttribute('hidden');
     document.documentElement.classList.add('cw-is-loading');
-    shown = true;
   }
 
   function hide() {
-    if (!overlay) ensure();
-    if (!overlay || !shown) {
-      if (overlay) overlay.classList.remove('is-visible');
+    ensure();
+    if (!overlay) {
       document.documentElement.classList.remove('cw-is-loading');
       return;
     }
-    shown = false;
+    overlay.classList.remove('cw-loading-overlay--open');
     overlay.classList.remove('is-visible');
+    overlay.setAttribute('hidden', '');
     if (dialogEl) dialogEl.setAttribute('aria-busy', 'false');
     document.documentElement.classList.remove('cw-is-loading');
-    hideTimer = global.setTimeout(function () {
-      hideTimer = null;
-    }, 220);
   }
 
   global.PolicyWatchLoading = {
