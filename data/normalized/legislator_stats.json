@@ -326,6 +326,29 @@
       },
       "average_age": 59.8,
       "race_available": false
+    },
+    "WV": {
+      "total": 133,
+      "party": {
+        "Republican": 122,
+        "Democratic": 11
+      },
+      "gender": {
+        "Male": 117,
+        "Female": 16
+      },
+      "chamber": {
+        "House": 99,
+        "Senate": 34
+      },
+      "age_buckets": {
+        "under_40": 16,
+        "40_59": 43,
+        "60_plus": 33,
+        "unknown": 41
+      },
+      "average_age": 54.2,
+      "race_available": false
     }
   },
   "data_notes": {
