@@ -45,7 +45,7 @@ def parse_recipient_config() -> Dict[str, List[str]]:
     """
     Load recipient lists from EMAIL_DIGEST_RECIPIENTS (JSON secret).
 
-    Digest IDs come from config/email_digests.yaml (ks, co, az, ut, me, federal, all).
+    Digest IDs come from config/email_digests.yaml (each tracked state, federal, all).
     Also supports per-digest env vars: EMAIL_RECIPIENTS_KS, etc.
     """
     digest_cfg = load_digest_config()

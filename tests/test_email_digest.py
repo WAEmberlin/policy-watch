@@ -9,6 +9,7 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from processing.email_digest import (
     DIGEST_TITLE_MAX_LEN,
+    VETERAN_BILL_NUMBER_STYLES,
     build_digest_html,
     format_digest_title,
     hearing_scheduled_date,
@@ -16,9 +17,12 @@ from processing.email_digest import (
     is_hearing_within_lookahead,
     is_within_window,
     item_recency_ts,
+    load_digest_config,
+    load_state_names,
     partition_by_state,
     partition_hearings,
     render_hearing,
+    render_item,
     render_utah_hearing_update,
     split_omnibus_hearing_title,
     split_state_items,
@@ -260,3 +264,183 @@ def test_render_hearing_omnibus_state_titles_use_sub_bullets():
     assert "Committee: Veterans Affairs" in html
     assert "View details" in html
     assert 'href="https://example.state.ks.us/hearing"' in html
+
+
+def test_email_digests_cover_all_enabled_states():
+    digest_ids = {d["id"] for d in load_digest_config()["digests"]}
+    for code in load_state_names():
+        assert code.lower() in digest_ids, f"missing digest for enabled state {code}"
+    assert "federal" in digest_ids
+    assert "all" in digest_ids
+
+
+def test_veteran_section_at_top_and_not_repeated():
+    items = {
+        "KS": [
+            {
+                "title": "HB 9001: Veteran housing assistance",
+                "summary": "Expands homeless veteran housing.",
+                "source": "Kansas Legislature",
+                "link": "https://example.com/hb9001",
+                "bill_number": "HB 9001",
+                "state": "KS",
+                "published": "2026-03-15T10:00:00",
+            },
+            {
+                "title": "HB 42: Sales tax exemption for farm equipment",
+                "summary": "Exempts certain farm machinery from state sales tax.",
+                "source": "Kansas Legislature",
+                "link": "https://example.com/hb42",
+                "bill_number": "HB 42",
+                "state": "KS",
+                "published": "2026-03-15T11:00:00",
+            },
+        ],
+        "FEDERAL": [
+            {
+                "title": "H.R. 9003: Take Care of America's Veterans Act",
+                "summary": "Appropriations for veterans affairs healthcare.",
+                "source": "Congress.gov API",
+                "link": "https://example.com/hr9003",
+                "bill_number": "H.R. 9003",
+                "level": "federal",
+                "published": "2026-03-15T09:00:00",
+            },
+        ],
+    }
+    html, _, total = build_digest_html(
+        "ks", items, {"KS": [], "FEDERAL": []}, {"KS": "Kansas"}
+    )
+    assert total == 3
+    assert "Veteran Legislation" in html
+    assert html.index("Veteran Legislation") < html.index("Kansas — Updates")
+    assert html.index("Veteran Legislation") < html.index("Federal — Updates")
+
+    veteran_block = html[: html.index("Kansas — Updates")]
+    rest = html[html.index("Kansas — Updates"):]
+    assert "Veteran housing assistance" in veteran_block
+    assert "Take Care of America's Veterans Act" in veteran_block
+    assert "Veteran housing assistance" not in rest
+    assert "Take Care of America's Veterans Act" not in rest
+    assert "Sales tax exemption for farm equipment" in rest
+
+
+def test_no_veteran_section_without_veteran_bills():
+    items = {
+        "KS": [{"title": "KS Tax Bill", "link": "http://ks", "published": "2026-01-01"}],
+        "FEDERAL": [
+            {
+                "title": "HR 1",
+                "link": "http://congress",
+                "published": "2026-01-01",
+                "level": "federal",
+            }
+        ],
+    }
+    html, _, _ = build_digest_html(
+        "ks", items, {"KS": [], "FEDERAL": []}, {"KS": "Kansas"}
+    )
+    assert "Veteran Legislation" not in html
+
+
+def test_veteran_bill_numbers_use_site_impact_colors():
+    red_html = render_item({
+        "title": "HB 9001: Veteran housing assistance",
+        "bill_number": "HB 9001",
+        "link": "https://example.com/hb9001",
+        "veteran_impact": {"level": "red"},
+    })
+    yellow_html = render_item({
+        "title": "SB 9002: Establish a veterans court diversion program",
+        "bill_number": "SB 9002",
+        "link": "https://example.com/sb9002",
+        "veteran_impact": {"level": "yellow"},
+    })
+    green_html = render_item({
+        "title": "HR 9004: Honoring Post-9/11 Veterans memorial resolution",
+        "bill_number": "HR 9004",
+        "link": "https://example.com/hr9004",
+        "veteran_impact": {"level": "green"},
+    })
+    assert VETERAN_BILL_NUMBER_STYLES["red"] in red_html
+    assert "#fee2e2" in red_html and "#7f1d1d" in red_html
+    assert VETERAN_BILL_NUMBER_STYLES["yellow"] in yellow_html
+    assert "#fef3c7" in yellow_html and "#78350f" in yellow_html
+    assert VETERAN_BILL_NUMBER_STYLES["green"] in green_html
+    assert "#dcfce7" in green_html and "#14532d" in green_html
+    assert "<span style=" in red_html
+
+
+def test_classified_veteran_bill_number_is_colored_in_digest():
+    items = {
+        "KS": [
+            {
+                "title": "HB 9001: Veteran housing assistance",
+                "summary": "Expands homeless veteran housing.",
+                "source": "Kansas Legislature",
+                "link": "https://example.com/hb9001",
+                "bill_number": "HB 9001",
+                "state": "KS",
+                "published": "2026-03-15T10:00:00",
+            }
+        ],
+        "FEDERAL": [],
+    }
+    html, _, _ = build_digest_html("ks", items, {"KS": [], "FEDERAL": []}, {"KS": "Kansas"})
+    assert "Veteran Legislation" in html
+    assert "#fee2e2" in html
+    assert "HB 9001" in html
+
+
+def test_all_digest_puts_veteran_section_first():
+    items = {
+        "KS": [
+            {
+                "title": "HB 9001: Veteran housing assistance",
+                "summary": "Expands homeless veteran housing.",
+                "link": "https://example.com/hb9001",
+                "bill_number": "HB 9001",
+                "state": "KS",
+                "published": "2026-03-15T10:00:00",
+            }
+        ],
+        "CO": [{"title": "CO Tax", "link": "b", "published": "2026-01-01"}],
+        "FEDERAL": [{"title": "HR", "link": "c", "published": "2026-01-01", "level": "federal"}],
+    }
+    html, _, _ = build_digest_html(
+        "all",
+        items,
+        {"KS": [], "CO": [], "FEDERAL": []},
+        {"KS": "Kansas", "CO": "Colorado"},
+    )
+    assert html.index("Veteran Legislation") < html.index("<h2>Colorado</h2>")
+    assert html.index("Veteran Legislation") < html.index("<h2>Kansas</h2>")
+    assert html.index("Veteran Legislation") < html.index("Federal (U.S. Congress)")
+    rest = html[html.index("<h2>Kansas</h2>"):]
+    assert "Veteran housing assistance" not in rest
+
+
+def test_utah_hearing_stays_out_of_veteran_section():
+    hearing_day = datetime.now(timezone.utc).date() + timedelta(days=1)
+    notice_date = hearing_day.strftime("%A, %B %d, %Y")
+    items = {
+        "UT": [
+            {
+                "title": "HB 50: Veteran housing - House Floor",
+                "summary": "Homeless veteran housing hearing notice.",
+                "link": "http://le.utah.gov/hearing",
+                "published": "2026-01-01",
+                "state": "UT",
+                "feed": "utah_committee_rss",
+                "bill_number": "HB 50",
+                "notice_date": notice_date,
+                "notice_time": "4:00 p.m.",
+            }
+        ],
+        "FEDERAL": [],
+    }
+    html, _, total = build_digest_html("ut", items, {"UT": []}, {"UT": "Utah"})
+    assert total == 1
+    assert "Veteran Legislation" not in html
+    assert "Utah — Hearing Updates" in html
+    assert "Veteran housing" in html
