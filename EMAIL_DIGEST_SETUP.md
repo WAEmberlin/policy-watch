@@ -1,8 +1,12 @@
 ﻿# Email Digest Setup
 
-PolicyWatch can send **separate email digests** for each state plus federal and a combined all-states digest.
+PolicyWatch can send **separate email digests** for each tracked state plus federal and a combined all-states digest.
 
 **Recipient email addresses are never stored in the repository.** They live only in GitHub Secrets and are delivered via **BCC** so recipients cannot see each other.
+
+A digest is skipped until it has at least one recipient (`Skipping digest 'xx' — no recipients configured`).
+
+When a digest includes veteran-related bills, a **Veteran Legislation** section appears at the top. Those bills are not repeated in the Updates lists below. Veteran bill numbers are highlighted red / yellow / green to match the cards on the site.
 
 ---
 
@@ -14,12 +18,23 @@ PolicyWatch can send **separate email digests** for each state plus federal and 
 | `co` | Colorado PolicyWatch — … | Colorado first, then federal |
 | `az` | Arizona PolicyWatch — … | Arizona first, then federal |
 | `ut` | Utah PolicyWatch — … | Utah first, then federal |
+| `me` | Maine PolicyWatch — … | Maine first, then federal |
+| `ne` | Nebraska PolicyWatch — … | Nebraska first, then federal |
+| `md` | Maryland PolicyWatch — … | Maryland first, then federal |
+| `pa` | Pennsylvania PolicyWatch — … | Pennsylvania first, then federal |
+| `ma` | Massachusetts PolicyWatch — … | Massachusetts first, then federal |
+| `wv` | West Virginia PolicyWatch — … | West Virginia first, then federal |
+| `tn` | Tennessee PolicyWatch — … | Tennessee first, then federal |
+| `nc` | North Carolina PolicyWatch — … | North Carolina first, then federal |
+| `mo` | Missouri PolicyWatch — … | Missouri first, then federal |
+| `ia` | Iowa PolicyWatch — … | Iowa first, then federal |
 | `federal` | Federal PolicyWatch — … | U.S. Congress only |
-| `all` | PolicyWatch — All States — … | AZ, CO, KS, UT (alphabetical), then federal at bottom |
+| `all` | PolicyWatch — All States — … | All states (alphabetical), then federal at bottom |
 
 Each digest includes:
-- Bill/legislation updates from the **last 6 hours**
-- **Tomorrow's hearings** for that jurisdiction
+- Bill/legislation updates from the **last 24 hours**
+- Hearings scheduled **today and tomorrow** for that jurisdiction
+- **Veteran Legislation** at the top when any veteran bills are in that window (hearings stay in the hearing sections)
 
 ---
 
@@ -49,29 +64,47 @@ Paste JSON like this (use real addresses — this is an example only):
   "co": ["colorado-person@example.com"],
   "az": ["arizona-person@example.com"],
   "ut": ["utah-person@example.com"],
+  "me": ["maine-person@example.com"],
+  "ne": ["nebraska-person@example.com"],
+  "md": ["maryland-person@example.com"],
+  "pa": ["pennsylvania-person@example.com"],
+  "ma": ["massachusetts-person@example.com"],
+  "wv": ["west-virginia-person@example.com"],
+  "tn": ["tennessee-person@example.com"],
+  "nc": ["north-carolina-person@example.com"],
+  "mo": ["missouri-person@example.com"],
+  "ia": ["iowa-person@example.com"],
   "federal": ["congress-watcher@example.com"],
   "all": ["you@example.com", "team-lead@example.com"]
 }
 ```
 
 Rules:
-- Keys must be: `ks`, `co`, `az`, `ut`, `federal`, `all`
+- Keys must match digest IDs in `config/email_digests.yaml` (`ks`, `co`, `az`, `ut`, `me`, `ne`, `md`, `pa`, `ma`, `wv`, `tn`, `nc`, `mo`, `ia`, `federal`, `all`)
 - Values are arrays of email addresses (or a comma-separated string)
 - **Omit a key or use `[]`** to skip that digest entirely
 - Same person can appear on multiple lists
 
 ### Alternative: separate secrets per digest
 
-Instead of one JSON blob, you can set:
+Instead of one JSON blob, you can set `EMAIL_RECIPIENTS_<DIGEST>` (comma-separated addresses). These override the JSON for that digest:
 
 - `EMAIL_RECIPIENTS_KS`
 - `EMAIL_RECIPIENTS_CO`
 - `EMAIL_RECIPIENTS_AZ`
 - `EMAIL_RECIPIENTS_UT`
+- `EMAIL_RECIPIENTS_ME`
+- `EMAIL_RECIPIENTS_NE`
+- `EMAIL_RECIPIENTS_MD`
+- `EMAIL_RECIPIENTS_PA`
+- `EMAIL_RECIPIENTS_MA`
+- `EMAIL_RECIPIENTS_WV`
+- `EMAIL_RECIPIENTS_TN`
+- `EMAIL_RECIPIENTS_NC`
+- `EMAIL_RECIPIENTS_MO`
+- `EMAIL_RECIPIENTS_IA`
 - `EMAIL_RECIPIENTS_FEDERAL`
 - `EMAIL_RECIPIENTS_ALL`
-
-Each value is comma-separated addresses. These override the JSON for that digest.
 
 ### Legacy fallback
 
@@ -107,12 +140,13 @@ python src/processing/send_email.py --digest ks
 
 ## Schedule
 
-Emails run every **6 hours** via `.github/workflows/daily_email.yml`.
+Emails run **once daily** at 11:00 UTC (6:00 AM Central during CDT) via `.github/workflows/daily_email.yml`.
 
 ---
 
 ## Adding a new state later
 
-1. Add state to `config/states.yaml`
-2. Add digest entry to `config/email_digests.yaml`
-3. Add recipient key to `EMAIL_DIGEST_RECIPIENTS` JSON
+1. Add the state to `config/states.yaml`
+2. Add a digest entry to `config/email_digests.yaml`
+3. Add `EMAIL_RECIPIENTS_XX` to `.github/workflows/daily_email.yml` if you use per-digest secrets
+4. Add a recipient key to the `EMAIL_DIGEST_RECIPIENTS` JSON secret (or the per-digest secret)
