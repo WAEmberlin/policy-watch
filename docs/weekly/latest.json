@@ -1,8 +1,8 @@
 {
-  "week_start": "2026-08-20T17:45:56.299253-05:00",
-  "week_end": "2026-08-27T17:45:56.299253-05:00",
+  "week_start": "2026-08-25T19:39:20.117076-05:00",
+  "week_end": "2026-09-01T19:39:20.117076-05:00",
   "item_counts": {
-    "federal": 17,
+    "federal": 123,
     "ks": 0,
     "co": 0,
     "az": 0,
@@ -11,8 +11,8 @@
     "ne": 0,
     "md": 0,
     "pa": 0,
-    "ma": 49,
-    "wv": 1,
+    "ma": 94,
+    "wv": 0,
     "tn": 0,
     "nc": 0,
     "mo": 0,
@@ -24,16 +24,37 @@
       "label": "Congress / Federal",
       "recap_lines": [
         "Congress / Federal:",
-        "HR 10147: To amend the Harmonized Tariff Schedule for the United States to establish a new subheading in chapter 39 for silicone prosthetics for women who are breast cancer survivors and a new subheading in chapter 90 for mastectomy bras.",
-        "   Referred to the House Committee on Ways and Means.",
-        "HR 10148: To amend the Internal Revenue Code of 1986 to clarify that certain exemptions from Federal income tax are not treated as Federal financial assistance.",
-        "   Referred to the House Committee on Ways and Means.",
-        "HR 10140: To direct the National Park Service to pursue options for the provision of mineral-based, broad-spectrum sunscreen or other protective methods at low or no cost in national parks, and for other purposes.",
-        "   Referred to the House Committee on Natural Resources.",
-        "   Plus 2 education, 4 economic, 1 technology, 1 tax bills, and 5 others.",
-        "1 hearings scheduled."
+        "HR 9436: To amend the Consolidated Appropriations Act, 2023 to extend the time period for which certain regulations concerning the North Atlantic right whale are effective.",
+        "   Rules Committee Resolution H. Res. 1499 Reported to House. Rule provides for consideration of H.R.",
+        "HR 4795: Protect Economic and Academic Freedom Act of 2025",
+        "   Rules Committee Resolution H. Res. 1499 Reported to House. Rule provides for consideration of H.R.",
+        "HR 1869: Protecting American Industry and Labor from International Trade Crimes Act of 2025",
+        "   Motion to reconsider laid on the table Agreed to without objection.",
+        "   Plus 7 healthcare, 10 education, 18 economic, 3 defense, 11 technology, 7 tax, 1 infrastructure bills, and 41 others.",
+        "22 hearings scheduled."
       ],
-      "item_count": 17
+      "item_count": 123,
+      "veterans_highlight": {
+        "summary": "HR 10189: To amend title 10, United States Code, to direct the Secretary of Defense to establish an artificial intelligence incident and...; HR 10188: To restore press access to the Pentagon, and for other purposes.; HRES 1496: Commemorating the fifth anniversary of the evacuation of Afghanistan, the Gulf war era, and honoring Gulf war era veterans.; plus 8 more",
+        "items": [
+          {
+            "type": "bill",
+            "title": "HR 10189: To amend title 10, United States Code, to direct the Secretary of Defense to establish an artificial intelligence incident and...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10189"
+          },
+          {
+            "type": "bill",
+            "title": "HR 10188: To restore press access to the Pentagon, and for other purposes.",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10188"
+          },
+          {
+            "type": "bill",
+            "title": "HRES 1496: Commemorating the fifth anniversary of the evacuation of Afghanistan, the Gulf war era, and honoring Gulf war era veterans.",
+            "url": "https://www.congress.gov/bill/119th-congress/house-resolution/1496"
+          }
+        ],
+        "total_matches": 11
+      }
     },
     {
       "id": "ks",
@@ -104,18 +125,17 @@
       "label": "Massachusetts",
       "recap_lines": [
         "Massachusetts:",
-        "   5 committee actions, 11 hearings, 5 votes."
+        "   11 committee actions, 1 hearings, 9 votes."
       ],
-      "item_count": 49
+      "item_count": 94
     },
     {
       "id": "wv",
       "label": "West Virginia",
       "recap_lines": [
-        "West Virginia:",
-        "   1 bills updated."
+        "West Virginia: No new activity this week."
       ],
-      "item_count": 1
+      "item_count": 0
     },
     {
       "id": "tn",
@@ -150,8 +170,8 @@
       "item_count": 0
     }
   ],
-  "script": "PolicyWatch weekly overview for August 20 through August 27, 2026.\n\nCongress / Federal:\nHR 10147: To amend the Harmonized Tariff Schedule for the United States to establish a new subheading in chapter 39 for silicone prosthetics for women who are breast cancer survivors and a new subheading in chapter 90 for mastectomy bras.\n   Referred to the House Committee on Ways and Means.\nHR 10148: To amend the Internal Revenue Code of 1986 to clarify that certain exemptions from Federal income tax are not treated as Federal financial assistance.\n   Referred to the House Committee on Ways and Means.\nHR 10140: To direct the National Park Service to pursue options for the provision of mineral-based, broad-spectrum sunscreen or other protective methods at low or no cost in national parks, and for other purposes.\n   Referred to the House Committee on Natural Resources.\n   Plus 2 education, 4 economic, 1 technology, 1 tax bills, and 5 others.\n1 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   5 committee actions, 11 hearings, 5 votes.\n\nWest Virginia:\n   1 bills updated.\n\nTennessee: No new activity this week.\n\nNorth Carolina: No new activity this week.\n\nMissouri: No new activity this week.\n\nIowa: No new activity this week.\n\nExplore full details at PolicyWatch.",
-  "generated_at": "2026-08-27T17:45:56.299253-05:00",
+  "script": "PolicyWatch weekly overview for August 25 through September 01, 2026.\n\nCongress / Federal:\nHR 9436: To amend the Consolidated Appropriations Act, 2023 to extend the time period for which certain regulations concerning the North Atlantic right whale are effective.\nVeterans & Military highlight: HR 10189: To amend title 10, United States Code, to direct the Secretary of Defense to establish an artificial intelligence incident and...; HR 10188: To restore press access to the Pentagon, and for other purposes.;....\n   Rules Committee Resolution H. Res. 1499 Reported to House. Rule provides for consideration of H.R.\nHR 4795: Protect Economic and Academic Freedom Act of 2025\n   Rules Committee Resolution H. Res. 1499 Reported to House. Rule provides for consideration of H.R.\nHR 1869: Protecting American Industry and Labor from International Trade Crimes Act of 2025\n   Motion to reconsider laid on the table Agreed to without objection.\n   Plus 7 healthcare, 10 education, 18 economic, 3 defense, 11 technology, 7 tax, 1 infrastructure bills, and 41 others.\n22 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   11 committee actions, 1 hearings, 9 votes.\n\nWest Virginia: No new activity this week.\n\nTennessee: No new activity this week.\n\nNorth Carolina: No new activity this week.\n\nMissouri: No new activity this week.\n\nIowa: No new activity this week.\n\nExplore full details at PolicyWatch.",
+  "generated_at": "2026-09-01T19:39:20.117076-05:00",
   "audio_available": false,
   "audio_file": null
 }
