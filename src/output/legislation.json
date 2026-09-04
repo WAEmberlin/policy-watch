@@ -1,5 +1,31 @@
 [
   {
+    "bill_number": "9329",
+    "bill_type": "HR",
+    "title": "SEC Reform and Restructuring Act",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Placed on the Union Calendar, Calendar No. 694.",
+    "latest_action_date": "2026-09-03T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Placed on the Union Calendar, Calendar No. 694.",
+    "votes": [],
+    "introduced_date": "2026-06-18T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9329",
+    "published": "2026-06-18T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-09-04T09:56:53.982877+00:00",
+    "official_title": "To make improvements to the securities laws, and for other purposes.",
+    "short_title": "SEC Reform and Restructuring Act"
+  },
+  {
     "bill_number": "6500",
     "bill_type": "HR",
     "title": "Continuing Appropriations and Extensions Act, 2027",
@@ -447,7 +473,7 @@
         ]
       },
       {
-        "text": "Passed/agreed to in House: On passage Passed by the Yeas and Nays: 218 - 201 (Roll no. 294).",
+        "text": "Passed/agreed to in House: On passage Passed by the Yeas and Nays: 218 - 201 (Roll no. 294). (text: CR H5452)",
         "actionDate": "2026-09-02",
         "type": "Floor",
         "actionTime": "16:50:15",
@@ -2934,6 +2960,75 @@
     "latest_action_date": "2026-09-01T00:00:00",
     "actions": [
       {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-09-03",
+        "type": "Floor",
+        "actionTime": "10:25:43",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On passage Passed by the Yeas and Nays: 237 - 169 (Roll no. 295).",
+        "actionDate": "2026-09-03",
+        "type": "Floor",
+        "actionTime": "10:25:40",
+        "actionCode": "H37100",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2026-09-03T14:25:40Z",
+            "rollNumber": 295,
+            "sessionNumber": 2,
+            "url": "https://clerk.house.gov/evs/2026/roll295.xml"
+          }
+        ]
+      },
+      {
+        "text": "Passed/agreed to in House: On passage Passed by the Yeas and Nays: 237 - 169 (Roll no. 295).",
+        "actionDate": "2026-09-03",
+        "type": "Floor",
+        "actionTime": "10:25:40",
+        "actionCode": "8000",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2026-09-03T14:25:40Z",
+            "rollNumber": 295,
+            "sessionNumber": 2,
+            "url": "https://clerk.house.gov/evs/2026/roll295.xml"
+          }
+        ]
+      },
+      {
+        "text": "The previous question was ordered pursuant to the rule.",
+        "actionDate": "2026-09-03",
+        "type": "Floor",
+        "actionTime": "09:45:11",
+        "actionCode": "H35000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with one hour of debate on H.R. 4795.",
+        "actionDate": "2026-09-03",
+        "type": "Floor",
+        "actionTime": "09:16:21",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Rule provides for consideration of H.R. 1501, H.R. 9436, H. Res. 1490 and H.R. 4795. The resolution provides for consideration of H.R. 1501, H.R. 9436, H.Res. 1490, and H.R. 4795 under a closed rule with one hour of general debate on each measure. The resolution provides for a motion to recommit on H.R. 1501, H.R. 9436, and H.R. 4795.",
+        "actionDate": "2026-09-03",
+        "type": "Floor",
+        "actionTime": "09:14:57",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under the provisions of rule H. Res. 1499.",
+        "actionDate": "2026-09-03",
+        "type": "Floor",
+        "actionTime": "09:14:52",
+        "actionCode": "H30000"
+      },
+      {
         "text": "Rule H. Res. 1499 passed House.",
         "actionDate": "2026-09-01",
         "type": "Floor",
@@ -2999,7 +3094,18 @@
     "committees": [],
     "policy_areas": [],
     "status": "Rule H. Res. 1499 passed House.",
-    "votes": [],
+    "votes": [
+      {
+        "rollNumber": 295,
+        "chamber": "House",
+        "date": "2026-09-03",
+        "result": "Passed",
+        "yeas": 237,
+        "nays": 169,
+        "motion": "On Passage",
+        "tally_text": "Passed 237\u2013169"
+      }
+    ],
     "introduced_date": "2025-07-29T00:00:00",
     "url": "https://www.congress.gov/bill/119th-congress/house-bill/4795",
     "published": "2025-07-29T00:00:00",
@@ -74591,34 +74697,6 @@
     "votes": [],
     "introduced_date": "",
     "last_synced_at": "2026-07-01T10:56:07.692087+00:00"
-  },
-  {
-    "bill_number": "9329",
-    "bill_type": "HR",
-    "title": "SEC Reform and Restructuring Act",
-    "summary": "",
-    "sponsor_name": "Rep. Wagner, Ann [R-MO-2]",
-    "sponsor_party": "R",
-    "sponsor_state": "MO",
-    "sponsor_district": 2,
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 28 - 23.",
-    "latest_action_date": "2026-06-30T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [
-      "Finance and Financial Sector"
-    ],
-    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 28 - 23.",
-    "votes": [],
-    "introduced_date": "2026-06-18T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9329",
-    "published": "2026-06-18T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T08:30:59.738021+00:00",
-    "official_title": "To make improvements to the securities laws, and for other purposes.",
-    "short_title": "SEC Reform and Restructuring Act"
   },
   {
     "bill_number": "8552",
