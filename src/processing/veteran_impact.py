@@ -16,8 +16,10 @@ IMPACT_LEVELS = ("red", "yellow", "green")
 # Scoring factor keyword groups (ordered by priority for tie-breaking).
 # Color rows (Colorado tracker):
 #   RED — benefits, disability ratings, VA healthcare, MST/IPV/suicide,
-#         housing, survivor/burial, GI Bill, retroactive veteran benefits
-#   YELLOW — employment preference, licensing, courts & diversion, generic mental health, military spouse
+#         behavioral health crisis services, housing, survivor/burial,
+#         GI Bill, retroactive veteran benefits
+#   YELLOW — employment preference, licensing, courts & diversion, generic mental health,
+#            military spouse, VA study / report directives
 #   GREEN — recognition, memorials, honor resolutions, VA committee referrals
 #           with no higher-impact keyword (default for veteran-related unmatched bills)
 #
@@ -40,12 +42,9 @@ SCORING_FACTORS: Dict[str, List[str]] = {
         "military sexual trauma",
         # Gated clinical / mental-health terms:
         "ptsd", "tbi", "suicide prevention", "post-traumatic", "mental health",
-    "sexual trauma", "intimate partner violence", "domestic violence",
-    "suicidal ideation", "suicide",
-    "retroactive payment", "retroactive benefit", "retroactive benefits",
-    "retroactive compensation",
         "sexual trauma", "intimate partner violence", "domestic violence",
         "suicidal ideation", "suicide",
+        "behavioral health crisis", "crisis services expansion",
     ],
     "housing_homelessness": [
         "veteran housing", "homeless veteran", "shelter veteran",
@@ -73,6 +72,12 @@ SCORING_FACTORS: Dict[str, List[str]] = {
         # Gated:
         "diversion", "treatment court", "justice outreach",
     ],
+    "studies_reports": [
+        # Congressional titles that order a VA study — moderate, not a benefit change.
+        "secretary of veterans affairs to study",
+        "secretary of veterans affairs to conduct a study",
+        "secretary of veterans affairs shall study",
+    ],
     "appropriations_funding": [
         "take care of america",
         "military construction, veterans affairs",
@@ -92,6 +97,7 @@ CONTEXT_GATED_KEYWORDS = frozenset({
     "ptsd", "tbi", "suicide prevention", "post-traumatic", "mental health",
     "sexual trauma", "intimate partner violence", "domestic violence",
     "suicidal ideation", "suicide",
+    "behavioral health crisis", "crisis services expansion",
     "retroactive payment", "retroactive benefit", "retroactive benefits",
     "retroactive compensation",
     "hiring preference", "employment preference",
@@ -111,6 +117,7 @@ RED_HEALTHCARE_SIGNALS = [
     "ptsd", "tbi", "suicide prevention", "post-traumatic",
     "sexual trauma", "intimate partner violence", "domestic violence",
     "suicidal ideation", "suicide",
+    "behavioral health crisis", "crisis services expansion",
 ]
 
 RED_SIGNALS = [
@@ -126,6 +133,7 @@ RED_SIGNALS = [
 YELLOW_SIGNALS = [
     *SCORING_FACTORS["employment_education"],
     *SCORING_FACTORS["criminal_justice_courts"],
+    *SCORING_FACTORS["studies_reports"],
     "mental health",
 ]
 
@@ -333,6 +341,7 @@ def detect_scoring_factors(text: str) -> List[str]:
         "employment_education": "Employment & Education",
         "criminal_justice_courts": "Criminal Justice / Courts",
         "appropriations_funding": "Appropriations & Funding",
+        "studies_reports": "Studies & Reports",
     }
     matched: List[str] = []
     for key, keywords in SCORING_FACTORS.items():

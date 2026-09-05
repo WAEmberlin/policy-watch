@@ -110,6 +110,22 @@ def test_classify_yellow_from_generic_mental_health():
     assert "Healthcare & Mental Health" in result["factors"]
 
 
+def test_classify_red_from_veteran_behavioral_health_crisis_expansion():
+    result = classify_veteran_impact(
+        "Behavioral Health Crisis Services Expansion for veterans and military families"
+    )
+    assert result is not None
+    assert result["level"] == "red"
+    assert "behavioral health crisis" in result["reason"].lower()
+    assert "Healthcare & Mental Health" in result["factors"]
+
+
+def test_behavioral_health_crisis_without_veteran_context_is_not_flagged():
+    assert classify_veteran_impact(
+        "Behavioral Health Crisis Services Expansion for community clinics"
+    ) is None
+
+
 def test_classify_red_from_housing():
     result = classify_veteran_impact("Homeless veteran housing voucher program")
     assert result is not None
@@ -322,6 +338,39 @@ def test_classify_armed_forces_resolution_green():
     )
     assert result is not None
     assert result["level"] == "green"
+
+
+def test_classify_yellow_from_va_secretary_study_directive():
+    result = classify_veteran_impact(
+        "To direct the Secretary of Veterans Affairs to study wait times "
+        "for disability claims."
+    )
+    assert result is not None
+    assert result["level"] == "yellow"
+    assert "secretary of veterans affairs to study" in result["reason"].lower()
+    assert "Studies & Reports" in result["factors"]
+
+
+def test_classify_yellow_from_va_secretary_conduct_a_study():
+    result = classify_veteran_impact(
+        "A bill to direct the Secretary of Veterans Affairs to conduct a study "
+        "on rural veterans' access to care."
+    )
+    assert result is not None
+    assert result["level"] == "yellow"
+    assert "Studies & Reports" in result["factors"]
+
+
+def test_generic_study_without_va_secretary_is_not_yellow():
+    assert classify_veteran_impact("A bill to study water quality in state parks") is None
+
+
+def test_va_study_with_gi_bill_stays_red():
+    result = classify_veteran_impact(
+        "To direct the Secretary of Veterans Affairs to study GI Bill payment delays"
+    )
+    assert result is not None
+    assert result["level"] == "red"
 
 
 def test_build_lookup_ks_bill():
