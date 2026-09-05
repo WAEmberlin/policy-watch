@@ -324,6 +324,39 @@ def test_classify_armed_forces_resolution_green():
     assert result["level"] == "green"
 
 
+def test_classify_yellow_from_va_secretary_study_directive():
+    result = classify_veteran_impact(
+        "To direct the Secretary of Veterans Affairs to study wait times "
+        "for disability claims."
+    )
+    assert result is not None
+    assert result["level"] == "yellow"
+    assert "secretary of veterans affairs to study" in result["reason"].lower()
+    assert "Studies & Reports" in result["factors"]
+
+
+def test_classify_yellow_from_va_secretary_conduct_a_study():
+    result = classify_veteran_impact(
+        "A bill to direct the Secretary of Veterans Affairs to conduct a study "
+        "on rural veterans' access to care."
+    )
+    assert result is not None
+    assert result["level"] == "yellow"
+    assert "Studies & Reports" in result["factors"]
+
+
+def test_generic_study_without_va_secretary_is_not_yellow():
+    assert classify_veteran_impact("A bill to study water quality in state parks") is None
+
+
+def test_va_study_with_gi_bill_stays_red():
+    result = classify_veteran_impact(
+        "To direct the Secretary of Veterans Affairs to study GI Bill payment delays"
+    )
+    assert result is not None
+    assert result["level"] == "red"
+
+
 def test_build_lookup_ks_bill():
     lookup = build_veteran_impact_lookup(
         co_data={"bills": {}},

@@ -17,7 +17,8 @@ IMPACT_LEVELS = ("red", "yellow", "green")
 # Color rows (Colorado tracker):
 #   RED — benefits, disability ratings, VA healthcare, MST/IPV/suicide,
 #         housing, survivor/burial, GI Bill, retroactive veteran benefits
-#   YELLOW — employment preference, licensing, courts & diversion, generic mental health, military spouse
+#   YELLOW — employment preference, licensing, courts & diversion, generic mental health,
+#            military spouse, VA study / report directives
 #   GREEN — recognition, memorials, honor resolutions, VA committee referrals
 #           with no higher-impact keyword (default for veteran-related unmatched bills)
 #
@@ -73,6 +74,12 @@ SCORING_FACTORS: Dict[str, List[str]] = {
         # Gated:
         "diversion", "treatment court", "justice outreach",
     ],
+    "studies_reports": [
+        # Congressional titles that order a VA study — moderate, not a benefit change.
+        "secretary of veterans affairs to study",
+        "secretary of veterans affairs to conduct a study",
+        "secretary of veterans affairs shall study",
+    ],
     "appropriations_funding": [
         "take care of america",
         "military construction, veterans affairs",
@@ -126,6 +133,7 @@ RED_SIGNALS = [
 YELLOW_SIGNALS = [
     *SCORING_FACTORS["employment_education"],
     *SCORING_FACTORS["criminal_justice_courts"],
+    *SCORING_FACTORS["studies_reports"],
     "mental health",
 ]
 
@@ -333,6 +341,7 @@ def detect_scoring_factors(text: str) -> List[str]:
         "employment_education": "Employment & Education",
         "criminal_justice_courts": "Criminal Justice / Courts",
         "appropriations_funding": "Appropriations & Funding",
+        "studies_reports": "Studies & Reports",
     }
     matched: List[str] = []
     for key, keywords in SCORING_FACTORS.items():

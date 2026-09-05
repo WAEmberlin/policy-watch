@@ -562,7 +562,8 @@ const PolicyWatchHome = (() => {
 
     // Keep in sync with src/processing/veteran_impact.py (Colorado tracker color rows).
     // RED: benefits, disability ratings, VA healthcare, MST/IPV/suicide, housing, GI Bill
-    // YELLOW: employment preference, licensing, courts & diversion, generic mental health
+    // YELLOW: employment preference, licensing, courts & diversion, generic mental health,
+    //         VA study / report directives
     // GREEN: recognition, memorials, honor resolutions, VA committee referrals with no
     //        higher-impact keyword (default when veteran-related but unmatched).
     // Context-gated generics never establish veteran-relatedness alone; see CONTEXT_GATED.
@@ -599,6 +600,9 @@ const PolicyWatchHome = (() => {
         'diversion', 'treatment court',
         'veterans justice', 'justice outreach',
         'mental health',
+        'secretary of veterans affairs to study',
+        'secretary of veterans affairs to conduct a study',
+        'secretary of veterans affairs shall study',
     ];
     const VETERAN_IMPACT_GREEN_SIGNALS = [
         'recognition', 'memorial', 'honor', 'honoring', 'ceremonial', 'commemorative',
