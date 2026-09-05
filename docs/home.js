@@ -561,7 +561,8 @@ const PolicyWatchHome = (() => {
     }
 
     // Keep in sync with src/processing/veteran_impact.py (Colorado tracker color rows).
-    // RED: benefits, disability ratings, VA healthcare, MST/IPV/suicide, housing, GI Bill
+    // RED: benefits, disability ratings, VA healthcare, MST/IPV/suicide,
+    //      behavioral health crisis services, housing, GI Bill
     // YELLOW: employment preference, licensing, courts & diversion, generic mental health,
     //         VA study / report directives
     // GREEN: recognition, memorials, honor resolutions, VA committee referrals with no
@@ -575,6 +576,7 @@ const PolicyWatchHome = (() => {
         'military sexual trauma', 'ptsd', 'tbi', 'suicide prevention', 'post-traumatic',
         'sexual trauma', 'intimate partner violence', 'domestic violence',
         'suicidal ideation', 'suicide',
+        'behavioral health crisis', 'crisis services expansion',
         'retroactive payment', 'retroactive benefit', 'retroactive benefits',
         'retroactive compensation',
         'veteran housing', 'homeless veteran', 'housing voucher', 'shelter veteran',
@@ -616,6 +618,7 @@ const PolicyWatchHome = (() => {
         'ptsd', 'tbi', 'suicide prevention', 'post-traumatic', 'mental health',
         'sexual trauma', 'intimate partner violence', 'domestic violence',
         'suicidal ideation', 'suicide',
+        'behavioral health crisis', 'crisis services expansion',
         'retroactive payment', 'retroactive benefit', 'retroactive benefits',
         'retroactive compensation',
         'hiring preference', 'employment preference',

@@ -110,6 +110,22 @@ def test_classify_yellow_from_generic_mental_health():
     assert "Healthcare & Mental Health" in result["factors"]
 
 
+def test_classify_red_from_veteran_behavioral_health_crisis_expansion():
+    result = classify_veteran_impact(
+        "Behavioral Health Crisis Services Expansion for veterans and military families"
+    )
+    assert result is not None
+    assert result["level"] == "red"
+    assert "behavioral health crisis" in result["reason"].lower()
+    assert "Healthcare & Mental Health" in result["factors"]
+
+
+def test_behavioral_health_crisis_without_veteran_context_is_not_flagged():
+    assert classify_veteran_impact(
+        "Behavioral Health Crisis Services Expansion for community clinics"
+    ) is None
+
+
 def test_classify_red_from_housing():
     result = classify_veteran_impact("Homeless veteran housing voucher program")
     assert result is not None

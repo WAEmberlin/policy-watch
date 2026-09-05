@@ -16,7 +16,8 @@ IMPACT_LEVELS = ("red", "yellow", "green")
 # Scoring factor keyword groups (ordered by priority for tie-breaking).
 # Color rows (Colorado tracker):
 #   RED — benefits, disability ratings, VA healthcare, MST/IPV/suicide,
-#         housing, survivor/burial, GI Bill, retroactive veteran benefits
+#         behavioral health crisis services, housing, survivor/burial,
+#         GI Bill, retroactive veteran benefits
 #   YELLOW — employment preference, licensing, courts & diversion, generic mental health,
 #            military spouse, VA study / report directives
 #   GREEN — recognition, memorials, honor resolutions, VA committee referrals
@@ -41,12 +42,9 @@ SCORING_FACTORS: Dict[str, List[str]] = {
         "military sexual trauma",
         # Gated clinical / mental-health terms:
         "ptsd", "tbi", "suicide prevention", "post-traumatic", "mental health",
-    "sexual trauma", "intimate partner violence", "domestic violence",
-    "suicidal ideation", "suicide",
-    "retroactive payment", "retroactive benefit", "retroactive benefits",
-    "retroactive compensation",
         "sexual trauma", "intimate partner violence", "domestic violence",
         "suicidal ideation", "suicide",
+        "behavioral health crisis", "crisis services expansion",
     ],
     "housing_homelessness": [
         "veteran housing", "homeless veteran", "shelter veteran",
@@ -99,6 +97,7 @@ CONTEXT_GATED_KEYWORDS = frozenset({
     "ptsd", "tbi", "suicide prevention", "post-traumatic", "mental health",
     "sexual trauma", "intimate partner violence", "domestic violence",
     "suicidal ideation", "suicide",
+    "behavioral health crisis", "crisis services expansion",
     "retroactive payment", "retroactive benefit", "retroactive benefits",
     "retroactive compensation",
     "hiring preference", "employment preference",
@@ -118,6 +117,7 @@ RED_HEALTHCARE_SIGNALS = [
     "ptsd", "tbi", "suicide prevention", "post-traumatic",
     "sexual trauma", "intimate partner violence", "domestic violence",
     "suicidal ideation", "suicide",
+    "behavioral health crisis", "crisis services expansion",
 ]
 
 RED_SIGNALS = [
