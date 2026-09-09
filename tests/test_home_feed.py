@@ -318,6 +318,7 @@ def test_veteran_legislation_page_is_in_nav_and_veterans_only():
     assert "veterans.html" in shell
     assert "Veteran Legislation" in shell
     assert "index.html" in html  # homepage still linked for full bill list
+    assert ">Veteran Legislation</p>" not in html
 
 
 def test_veterans_page_blank_dates_and_fifty_item_pages():
