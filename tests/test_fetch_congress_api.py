@@ -107,7 +107,8 @@ def test_sum_house_vote_totals():
 
 def test_build_house_vote_public_url():
     url = build_house_vote_public_url(119, 1, 240)
-    assert url == "https://www.congress.gov/roll-call-vote/119th-congress/1st-session/house/240"
+    assert url == "https://www.congress.gov/votes/house/119-1/240"
+    assert build_house_vote_public_url(119, 2, 295) == "https://www.congress.gov/votes/house/119-2/295"
 
 
 @patch("processing.fetch_congress_api._congress_api_get")
@@ -241,6 +242,16 @@ def test_merge_congress_vote_feeds_deduplicates():
     merged = merge_congress_vote_feeds(feed_a, feed_b)
     assert len(merged) == 1
     assert merged[0]["yeas"] == 220
+
+
+def test_merge_congress_vote_feeds_rewrites_legacy_urls():
+    feed = [{
+        "congress": 119, "chamber": "House", "session": 2, "roll_number": 295,
+        "bill_type": "HR", "bill_number": "4795", "date": "2026-09-03",
+        "url": "https://www.congress.gov/roll-call-vote/119th-congress/2nd-session/house/295",
+    }]
+    merged = merge_congress_vote_feeds(feed)
+    assert merged[0]["url"] == "https://www.congress.gov/votes/house/119-2/295"
 
 
 def test_load_existing_congress_votes(tmp_path, monkeypatch):

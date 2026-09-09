@@ -8,10 +8,14 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Set, Tuple
 
-from processing.bill_urls import build_ks_bill_url, pick_best_bill_url
+from processing.bill_urls import build_ks_bill_url, pick_best_bill_url, rewrite_congress_vote_url
 
 # Signed/enacted patterns aligned with unified_search.py dashboards
-_ENACTED_KEYWORDS = ("signed", "became public law", "enacted")
+_ENACTED_KEYWORDS = ("signed", "became public law", "enacted", "chaptered")
+_ENACTED_RE = re.compile(
+    r"act no\.|chapter \d+|delivered to secretary of state",
+    re.I,
+)
 _VETOED_KEYWORDS = ("veto sustained", "vetoed", "veto override failed", "veto")
 _DIED_KEYWORDS = (
     "died in",
@@ -22,8 +26,58 @@ _DIED_KEYWORDS = (
     " died",
 )
 _WITHDRAWN_KEYWORDS = ("withdrawn",)
+_PRESENTED_KEYWORDS = ("presented to the president", "presented to president")
 _PASSED_KEYWORDS = ("passed", "adopted", "agreed to", "was adopted")
-_REFERRED_KEYWORDS = ("referred to", "referred")
+_CALENDAR_RE = re.compile(
+    r"placed on .{0,80}calendar"
+    r"|legislative calendar"
+    r"|under general orders"
+    r"|on the union calendar"
+    r"|placed on general orders"
+    r"|orders of the day"
+    r"|ordered to (?:a )?(?:second|third|2nd|3rd) reading"
+    r"|on (?:2nd|3rd|second|third) reading"
+    r"|calendar no\.?",
+    re.I,
+)
+_REPORTED_RE = re.compile(
+    r"ordered to be reported|ordered reported|re-?reported|"
+    r"reported favorably|reported adversely|"
+    r"reported with (?:an |a )?(?:amendment|substitute)",
+    re.I,
+)
+_STUDY_RE = re.compile(r"accompanied a study order|study order", re.I)
+_DRAFT_RE = re.compile(r"accompanied a new draft", re.I)
+_TABLED_RE = re.compile(r"laid (?:up )?on the table|\btabled\b", re.I)
+_HEARD_RE = re.compile(r"hearings?\s+held", re.I)
+_INTRODUCED_RE = re.compile(
+    r"\bintroduced\b|"
+    r"\ba petition\b|"
+    r"joint petition|"
+    r"by representative|"
+    r"by senator|"
+    r"read (?:for the )?first time|"
+    r"first reading|"
+    r"prefiled",
+    re.I,
+)
+_REFERRED_KEYWORDS = ("referred to", "referred", "re-committed", "recommitted")
+# WV journal style: "To House Education", "To Judiciary" (no "referred").
+_COMMITTEE_REFERRED_RE = re.compile(
+    r"^\s*to (?:(?:house|senate)\s+)?(?!the\b)[a-z]",
+    re.I,
+)
+_FILED_KEYWORDS = ("placed on file",)
+_HEARING_SCHEDULED_RE = re.compile(
+    r"hearing\s+scheduled|scheduled\s+(?:for\s+(?:a\s+)?)?hearing|"
+    r"hearing:|misc_he_\d+",
+    re.I,
+)
+# MA General Court files amendment vehicles as "Text of an amendment, see S1234".
+_AMENDMENT_TEXT_RE = re.compile(
+    r"text of (?:an |a further )?amendment",
+    re.I,
+)
 _VOTE_KEYWORDS = ("roll call", "recorded vote", "vote on", " rc ")
 
 _PASS_RESULT_KEYWORDS = ("pass", "passed", "adopted", "agreed", "yea", "yes")
@@ -37,6 +91,18 @@ ACTION_BADGES: Dict[str, Dict[str, str]] = {
     "enacted": {"label": "Enacted", "class": "bg-emerald-100 text-emerald-800"},
     "withdrawn": {"label": "Withdrawn", "class": "bg-slate-100 text-slate-600"},
     "referred": {"label": "Referred", "class": "bg-blue-100 text-blue-800"},
+    "presented": {"label": "Presented", "class": "bg-amber-100 text-amber-800"},
+    "calendar": {"label": "On Calendar", "class": "bg-amber-100 text-amber-800"},
+    "filed": {"label": "On File", "class": "bg-amber-100 text-amber-800"},
+    "scheduled": {"label": "Scheduled", "class": "bg-amber-100 text-amber-800"},
+    "amendment": {"label": "Amendment", "class": "bg-amber-100 text-amber-800"},
+    "reported": {"label": "Reported", "class": "bg-amber-100 text-amber-800"},
+    "study": {"label": "Study Order", "class": "bg-amber-100 text-amber-800"},
+    "draft": {"label": "New Draft", "class": "bg-amber-100 text-amber-800"},
+    "introduced": {"label": "Introduced", "class": "bg-amber-100 text-amber-800"},
+    "tabled": {"label": "Tabled", "class": "bg-amber-100 text-amber-800"},
+    "heard": {"label": "Heard", "class": "bg-amber-100 text-amber-800"},
+    "enrolled": {"label": "Enrolled", "class": "bg-amber-100 text-amber-800"},
     "vote": {"label": "Vote", "class": "bg-indigo-100 text-indigo-800"},
 }
 
@@ -47,23 +113,49 @@ VOTE_FEED_DAYS_BACK = 365
 
 
 def classify_action_type(text: str) -> str | None:
-    """Return: passed, vetoed, died, enacted, withdrawn, referred, vote, or None."""
+    """Return: passed, vetoed, died, enacted, withdrawn, presented, calendar, reported, filed, scheduled, amendment, study, introduced, referred, vote, or None."""
     lower = (text or "").lower()
     if not lower:
         return None
 
-    if any(kw in lower for kw in _ENACTED_KEYWORDS):
+    if any(kw in lower for kw in _ENACTED_KEYWORDS) or _ENACTED_RE.search(lower):
         return "enacted"
     if any(kw in lower for kw in _VETOED_KEYWORDS):
         return "vetoed"
-    if any(kw in lower for kw in _DIED_KEYWORDS):
+    if any(kw in lower for kw in _DIED_KEYWORDS) or "failed to pass" in lower:
         return "died"
+    if re.search(r"\bfailed\b", lower):
+        return "failed"
     if any(kw in lower for kw in _WITHDRAWN_KEYWORDS):
         return "withdrawn"
+    if any(kw in lower for kw in _PRESENTED_KEYWORDS):
+        return "presented"
+    if re.search(r"\benrolled\b", lower):
+        return "enrolled"
     if any(kw in lower for kw in _PASSED_KEYWORDS):
         return "passed"
-    if any(kw in lower for kw in _REFERRED_KEYWORDS):
+    if _CALENDAR_RE.search(lower):
+        return "calendar"
+    if _REPORTED_RE.search(lower):
+        return "reported"
+    if any(kw in lower for kw in _REFERRED_KEYWORDS) or _COMMITTEE_REFERRED_RE.search(lower):
         return "referred"
+    if any(kw in lower for kw in _FILED_KEYWORDS):
+        return "filed"
+    if _TABLED_RE.search(lower):
+        return "tabled"
+    if _HEARING_SCHEDULED_RE.search(lower):
+        return "scheduled"
+    if _AMENDMENT_TEXT_RE.search(lower):
+        return "amendment"
+    if _STUDY_RE.search(lower):
+        return "study"
+    if _DRAFT_RE.search(lower):
+        return "draft"
+    if _INTRODUCED_RE.search(lower):
+        return "introduced"
+    if _HEARD_RE.search(lower):
+        return "heard"
     if any(kw in lower for kw in _VOTE_KEYWORDS):
         return "vote"
     return None
@@ -200,7 +292,7 @@ def _vote_dedup_key(bill_number: str, date: str, motion: str) -> Tuple[str, str,
 
 def _resolve_vote_link(state: str, bill_number: str, url: str = "", bill_url_lookup: Dict[str, str] | None = None) -> str:
     if url:
-        return url
+        return rewrite_congress_vote_url(url)
     lookup = bill_url_lookup or {}
     normalized_number = re.sub(r"\s+", "", bill_number).upper()
     key = f"{state.upper()}:{normalized_number}"

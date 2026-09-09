@@ -23,6 +23,29 @@ _KS_LEGACY_MEASURES_RE = re.compile(
     r"https?://(?:www\.)?kslegislature\.(?:gov|org)/li/b\d{4}_\d{2}/measures/([a-z0-9]+)/?",
     re.I,
 )
+# Congress.gov used to publish House/Senate roll calls at /roll-call-vote/...;
+# live pages are now /votes/{chamber}/{congress}-{session}/{roll}.
+_LEGACY_CONGRESS_VOTE_RE = re.compile(
+    r"https?://www\.congress\.gov/roll-call-vote/"
+    r"(\d+)(?:st|nd|rd|th)-congress/"
+    r"(\d+)(?:st|nd|rd|th)-session/"
+    r"(house|senate)/(\d+)/?",
+    re.I,
+)
+
+
+def rewrite_congress_vote_url(url: str) -> str:
+    """Upgrade stale Congress.gov roll-call URLs to the current public path."""
+    if not url:
+        return url or ""
+    match = _LEGACY_CONGRESS_VOTE_RE.search(url)
+    if not match:
+        return url
+    congress, session, chamber, roll = match.groups()
+    return (
+        f"https://www.congress.gov/votes/{chamber.lower()}/"
+        f"{congress}-{session}/{roll}"
+    )
 
 
 def _is_official(url: str) -> bool:

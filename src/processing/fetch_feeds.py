@@ -1,7 +1,19 @@
 import feedparser
+import html
 import json
+import re
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+
+
+def strip_html(text: str) -> str:
+    """Convert RSS HTML summaries to plain text for safe display/storage."""
+    if not text:
+        return ""
+    text = html.unescape(str(text))
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = re.sub(r"\s+", " ", text)
+    return text.strip()
 
 OUTPUT_DIR = Path("src/output")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -70,7 +82,7 @@ for source, url in FEEDS.items():
             item = {
                 "title": entry.get("title", "").strip(),
                 "link": link,
-                "summary": entry.get("summary", "")[:2000],
+                "summary": strip_html(entry.get("summary", ""))[:2000],
                 "source": source,
                 "published": published.isoformat(),
             }
