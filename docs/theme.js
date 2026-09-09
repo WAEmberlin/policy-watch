@@ -18,11 +18,8 @@
     return VALID_THEMES.indexOf(name) !== -1 ? name : null;
   }
 
-  function getSystemTheme() {
-    if (global.matchMedia && global.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
-    }
-    return 'light';
+  function getDefaultTheme() {
+    return 'dark';
   }
 
   function getStoredTheme() {
@@ -34,11 +31,11 @@
   }
 
   function getTheme() {
-    return normalizeTheme(document.documentElement.getAttribute('data-theme')) || 'light';
+    return normalizeTheme(document.documentElement.getAttribute('data-theme')) || getDefaultTheme();
   }
 
   function applyTheme(name) {
-    var theme = normalizeTheme(name) || getSystemTheme();
+    var theme = normalizeTheme(name) || getDefaultTheme();
     document.documentElement.setAttribute('data-theme', theme);
     if (document.body) {
       document.body.classList.add('cw-themed');
@@ -66,7 +63,7 @@
   }
 
   function getPreferredTheme() {
-    return getStoredTheme() || getSystemTheme();
+    return getStoredTheme() || getDefaultTheme();
   }
 
   function syncToggleUI(theme) {
@@ -180,7 +177,7 @@
   }
 
   /* Apply before paint to reduce flash */
-  applyTheme(getStoredTheme() || getSystemTheme());
+  applyTheme(getStoredTheme() || getDefaultTheme());
 
   global.PolicyWatchTheme = {
     init: init,

@@ -7,7 +7,9 @@ let fullSiteDataPromise = null;
 let homeSearchBillsPromise = null;
 let homeSearchBills = null;  // compact archive bills lazy-loaded for homepage search
 let loadedHomeFeedDays = new Set();  // YYYY-MM-DD day files already merged
+let missingHomeFeedDays = new Set();  // listed dates with no day file (404)
 let homeFeedDayPromises = {};
+let homeFeedPacked = { key: "", olderPages: [], exhausted: false };
 let searchQuery = "";
 let searchMode = false;
 let searchResults = [];
@@ -27,6 +29,7 @@ const DAYS_PER_CHUNK = 14;  // Show 2 weeks per "page" (full site_data only)
 const VETERANS_PAGE_FEED_ITEM_LIMIT = 50;  // Veteran Legislation page
 const VETERANS_FEED_ITEM_LIMIT = 100;  // Homepage Military-Veterans chip (within a date window)
 const VETERANS_FEED_DAY_BATCH = 8;
+const HOME_FEED_MIN_PAGE_ITEMS = 50;  // Older activity packs dates until at least this many items
 const SEARCH_MIN_CHARS = 3;
 const SEARCH_MAX_RESULTS = 200;
 
@@ -91,22 +94,37 @@ function classifyActionType(text) {
     }
     const hay = String(text || "").toLowerCase();
     if (!hay.trim()) return null;
-    if (/signed|became (a )?law|enacted|chaptered/.test(hay)) return "enacted";
+    if (/signed|became (a )?law|enacted|chaptered|act no\.|chapter \d+|delivered to secretary of state/.test(hay)) return "enacted";
     if (/veto/.test(hay)) return "vetoed";
     if (/died|dead|pocket veto|failed to pass|defeated/.test(hay)) return "died";
     if (/\bfailed\b/.test(hay)) return "failed";
-    if (/referr?ed/.test(hay)) return "referred";
+    if (/withdrawn/.test(hay)) return "withdrawn";
+    if (/presented to (the )?president/.test(hay)) return "presented";
+    if (/\benrolled\b/.test(hay)) return "enrolled";
     if (/passed|adopted|approved|agreed to|concurred/.test(hay)) return "passed";
+    if (/placed on .{0,80}calendar|legislative calendar|under general orders|on the union calendar|placed on general orders|orders of the day|ordered to (a )?(second|third|2nd|3rd) reading|on (2nd|3rd|second|third) reading|calendar no\.?/.test(hay)) return "calendar";
+    if (/ordered to be reported|ordered reported|re-?reported|reported favorably|reported adversely|reported with (an |a )?(amendment|substitute)/.test(hay)) return "reported";
+    if (/referr?ed|re-?committed/.test(hay) || /^\s*to (?:(?:house|senate)\s+)?(?!the\b)[a-z]/i.test(hay)) return "referred";
+    if (/placed on file/.test(hay)) return "filed";
+    if (/laid (up )?on the table|\btabled\b/.test(hay)) return "tabled";
+    if (/hearing\s+scheduled|scheduled\s+(for\s+(a\s+)?)?hearing|hearing:|misc_he_\d+/.test(hay)) return "scheduled";
+    if (/text of (an |a further )?amendment/.test(hay)) return "amendment";
+    if (/accompanied a study order|study order/.test(hay)) return "study";
+    if (/accompanied a new draft/.test(hay)) return "draft";
+    if (/\bintroduced\b|\ba petition\b|joint petition|by representative|by senator|read (for the )?first time|first reading|prefiled/.test(hay)) return "introduced";
+    if (/hearings?\s+held/.test(hay)) return "heard";
     if (/vote|roll.?call|\byea\b|\bnay\b/.test(hay)) return "vote";
     return null;
 }
 
 function buildFeedSearchText(item) {
+    const billNumber = item.bill_number || "";
     const parts = [
         item.title,
         item.short_title,
         item.summary,
-        item.bill_number,
+        billNumber,
+        String(billNumber).replace(/\s+/g, ""),
         item.motion,
         item.vote_tally,
         item.latest_action,
@@ -114,6 +132,13 @@ function buildFeedSearchText(item) {
         item.sponsor_name,
     ];
     return parts.filter(Boolean).join(" ").toLowerCase();
+}
+
+function spacedBillNumberQuery(query) {
+    const raw = String(query || "").trim();
+    const m = raw.match(/^([A-Za-z]{1,8})\s*(\d{1,6}[A-Za-z]?)$/);
+    if (!m) return raw;
+    return `${m[1]} ${m[2]}`;
 }
 
 function itemMatchesVeteransFilter(item) {
@@ -184,7 +209,9 @@ function applyLoadedSitePayload(data, { isHomeFeed }) {
     allData = data;
     homeFeedMode = Boolean(isHomeFeed || data.home_feed);
     loadedHomeFeedDays = new Set();
+    missingHomeFeedDays = new Set();
     homeFeedDayPromises = {};
+    homeFeedPacked = { key: "", olderPages: [], exhausted: false };
     // Recent window days ship inside home_feed.json — mark them loaded.
     if (homeFeedMode) {
         const recent = ((allData.feed_window || {}).dates || []);
@@ -399,7 +426,7 @@ async function searchBillsViaApi(query, state, dateFrom, dateTo) {
         limit: String(Math.min(SEARCH_MAX_RESULTS, 50)),
         offset: "0",
     });
-    const q = String(query || "").trim();
+    const q = spacedBillNumberQuery(String(query || "").trim());
     if (q) params.set("q", q);
     if (state) params.set("state", state);
     if (dateFrom) params.set("date_from", dateFrom);
@@ -784,14 +811,14 @@ async function loadVeteransHomeFeedItems(neededCount) {
 
 function getHomeFeedAvailableDates() {
     const listed = (allData && allData.available_dates) || [];
-    if (listed.length) return listed.slice();
-    const recent = ((allData && allData.feed_window) || {}).dates || [];
-    if (recent.length) return recent.slice();
+    const windowDates = ((allData && allData.feed_window) || {}).dates || [];
+    if (listed.length) return listed.filter((d) => d && !missingHomeFeedDays.has(d));
+    if (windowDates.length) return windowDates.filter((d) => d && !missingHomeFeedDays.has(d));
     const fromGrouped = [];
     Object.values((allData && allData.years) || {}).forEach((yearData) => {
         Object.keys(yearData.grouped || {}).forEach((d) => fromGrouped.push(d));
     });
-    return fromGrouped.sort().reverse();
+    return fromGrouped.filter((d) => d && !missingHomeFeedDays.has(d)).sort().reverse();
 }
 
 function getHomeFeedRecentDates() {
@@ -802,12 +829,19 @@ function getHomeFeedRecentDates() {
     return available.slice(0, Math.max(0, maxDays));
 }
 
+function homeFeedPackFilterKey() {
+    return `${selectedState || ""}|${veteransImpactFilter || ""}`;
+}
+
 function getHomeFeedTotalPages() {
     const available = getHomeFeedAvailableDates();
     const recent = getHomeFeedRecentDates();
     if (!available.length) return 1;
-    // Page 0 = recent window (up to max_days). Pages 1+ = one older day each.
-    return Math.max(1, 1 + Math.max(0, available.length - recent.length));
+    const hasOlder = available.some((d) => !recent.includes(d));
+    if (homeFeedPacked.key === homeFeedPackFilterKey() && homeFeedPacked.olderPages.length) {
+        return 1 + homeFeedPacked.olderPages.length + (homeFeedPacked.exhausted ? 0 : 1);
+    }
+    return hasOlder ? 2 : 1;
 }
 
 function getHomeFeedPageDates(pageIndex) {
@@ -818,6 +852,127 @@ function getHomeFeedPageDates(pageIndex) {
     const olderOffset = recent.length + (pageIndex - 1);
     if (olderOffset >= available.length) return [];
     return [available[olderOffset]];
+}
+
+function firstHomeFeedOlderDate() {
+    const recent = new Set(getHomeFeedRecentDates());
+    return getHomeFeedAvailableDates().find((d) => d && !recent.has(d)) || null;
+}
+
+function resetHomeFeedPackedIfNeeded() {
+    const key = homeFeedPackFilterKey();
+    if (homeFeedPacked.key === key) return;
+    homeFeedPacked = { key, olderPages: [], exhausted: false };
+}
+
+/**
+ * Load older days (newest → oldest) until we have at least minItems after filters.
+ * Days that add no matching items are skipped.
+ */
+async function packHomeFeedDatesFrom(startDate, minItems) {
+    const dates = [];
+    let items = [];
+    let cursor = startDate;
+    for (let batch = 0; batch < 40 && cursor && items.length < minItems; batch += 1) {
+        const available = getHomeFeedAvailableDates();
+        let idx = available.indexOf(cursor);
+        if (idx < 0) idx = available.findIndex((d) => d <= cursor);
+        if (idx < 0) break;
+        const probe = available.slice(idx, idx + 32);
+        if (!probe.length) break;
+        await ensureHomeFeedDaysLoaded(probe);
+        const availableNow = getHomeFeedAvailableDates();
+        for (const date of probe) {
+            if (!availableNow.includes(date) || missingHomeFeedDays.has(date)) continue;
+            if (dates.includes(date)) continue;
+            const nextItems = collectHomeFeedItemsForDates(dates.concat(date));
+            if (nextItems.length === items.length) continue;
+            dates.push(date);
+            items = nextItems;
+            if (items.length >= minItems) break;
+        }
+        if (items.length >= minItems) break;
+        const lastAttempted = probe[probe.length - 1];
+        const nextIdx = availableNow.findIndex((d) => d < lastAttempted);
+        const nextDate = nextIdx < 0 ? null : availableNow[nextIdx];
+        if (!nextDate || nextDate === cursor) {
+            cursor = null;
+            break;
+        }
+        cursor = nextDate;
+    }
+    const available = getHomeFeedAvailableDates();
+    const oldest = dates.length ? [...dates].sort()[0] : null;
+    const hasMoreOlder = Boolean(oldest && available.some((d) => d < oldest));
+    return { dates, items, hasMoreOlder };
+}
+
+async function ensureHomeFeedOlderPacks(count) {
+    resetHomeFeedPackedIfNeeded();
+    const minItems = HOME_FEED_MIN_PAGE_ITEMS;
+    while (homeFeedPacked.olderPages.length < count && !homeFeedPacked.exhausted) {
+        let startDate = null;
+        if (!homeFeedPacked.olderPages.length) {
+            startDate = firstHomeFeedOlderDate();
+        } else {
+            const prev = homeFeedPacked.olderPages[homeFeedPacked.olderPages.length - 1];
+            const oldest = [...(prev.dates || [])].sort()[0];
+            const available = getHomeFeedAvailableDates();
+            const nextIdx = oldest ? available.findIndex((d) => d < oldest) : -1;
+            startDate = nextIdx < 0 ? null : available[nextIdx];
+        }
+        if (!startDate) {
+            homeFeedPacked.exhausted = true;
+            break;
+        }
+        const packed = await packHomeFeedDatesFrom(startDate, minItems);
+        if (!packed.dates.length) {
+            homeFeedPacked.exhausted = true;
+            break;
+        }
+        homeFeedPacked.olderPages.push({ dates: packed.dates });
+        if (!packed.hasMoreOlder) homeFeedPacked.exhausted = true;
+    }
+}
+
+async function loadHomeFeedActivityPage(pageIndex) {
+    const recent = getHomeFeedRecentDates();
+    if (pageIndex <= 0) {
+        await ensureHomeFeedDaysLoaded(recent);
+        const dates = getHomeFeedRecentDates();
+        const items = collectHomeFeedItemsForDates(dates);
+        const hasOlder = Boolean(firstHomeFeedOlderDate());
+        return {
+            pageIndex: 0,
+            dates,
+            items,
+            dateRange: dateRangeFromDates(dates),
+            hasMore: hasOlder,
+            totalPages: hasOlder ? 2 : 1,
+        };
+    }
+
+    await ensureHomeFeedOlderPacks(pageIndex);
+    let idx = pageIndex - 1;
+    if (idx >= homeFeedPacked.olderPages.length) {
+        idx = Math.max(0, homeFeedPacked.olderPages.length - 1);
+    }
+    const pack = homeFeedPacked.olderPages[idx];
+    if (!pack) {
+        return loadHomeFeedActivityPage(0);
+    }
+    await ensureHomeFeedDaysLoaded(pack.dates);
+    const items = collectHomeFeedItemsForDates(pack.dates);
+    const resolvedIndex = idx + 1;
+    const totalPages = 1 + homeFeedPacked.olderPages.length + (homeFeedPacked.exhausted ? 0 : 1);
+    return {
+        pageIndex: resolvedIndex,
+        dates: pack.dates,
+        items,
+        dateRange: dateRangeFromDates(pack.dates),
+        hasMore: !homeFeedPacked.exhausted,
+        totalPages,
+    };
 }
 
 function getHomeFeedDateRange() {
@@ -881,14 +1036,19 @@ function mergeHomeFeedDayPayload(dayData) {
 }
 
 async function ensureHomeFeedDaysLoaded(dates) {
-    const needed = (dates || []).filter((d) => d && !loadedHomeFeedDays.has(d));
+    const needed = (dates || []).filter((d) => d && !loadedHomeFeedDays.has(d) && !missingHomeFeedDays.has(d));
     if (!needed.length) return;
 
     await Promise.all(needed.map(async (date) => {
-        if (loadedHomeFeedDays.has(date)) return;
+        if (loadedHomeFeedDays.has(date) || missingHomeFeedDays.has(date)) return;
         if (!homeFeedDayPromises[date]) {
             homeFeedDayPromises[date] = (async () => {
                 const res = await policywatchFetch(`home_feed_days/${date}.json`);
+                if (res.status === 404) {
+                    missingHomeFeedDays.add(date);
+                    loadedHomeFeedDays.add(date);
+                    return null;
+                }
                 if (!res.ok) throw new Error(`home_feed_days/${date}.json HTTP ${res.status}`);
                 const dayData = await res.json();
                 mergeHomeFeedDayPayload(dayData);
@@ -902,13 +1062,47 @@ async function ensureHomeFeedDaysLoaded(dates) {
     }));
 }
 
+async function resolveHomeFeedPage(pageIndex) {
+    const probeSize = 32;
+    for (let round = 0; round < 24; round += 1) {
+        const total = getHomeFeedTotalPages();
+        const idx = Math.max(0, Math.min(pageIndex, Math.max(0, total - 1)));
+        const dates = getHomeFeedPageDates(idx);
+        if (!dates.length) return { pageIndex: idx, dates: [] };
+
+        if (idx <= 0) {
+            await ensureHomeFeedDaysLoaded(dates);
+            return { pageIndex: 0, dates: getHomeFeedPageDates(0) };
+        }
+
+        const available = getHomeFeedAvailableDates();
+        const recent = getHomeFeedRecentDates();
+        const start = recent.length + (idx - 1);
+        const probe = available.slice(Math.max(0, start), Math.max(0, start) + probeSize);
+        await ensureHomeFeedDaysLoaded(probe.length ? probe : dates);
+
+        const nextDates = getHomeFeedPageDates(idx);
+        await ensureHomeFeedDaysLoaded(nextDates);
+        const ready = getHomeFeedPageDates(idx);
+        if (ready.length && ready.every((d) => loadedHomeFeedDays.has(d) && !missingHomeFeedDays.has(d))) {
+            return { pageIndex: idx, dates: ready };
+        }
+        if (getHomeFeedTotalPages() <= 1) {
+            return { pageIndex: 0, dates: getHomeFeedPageDates(0) };
+        }
+        pageIndex = idx;
+    }
+    return { pageIndex, dates: getHomeFeedPageDates(pageIndex) };
+}
+
 function getDateRangeForChunk(chunkIndex) {
     /**
      * Calculate the date range for a 14-day chunk.
      * chunkIndex 0 = most recent 2 weeks
      * chunkIndex 1 = previous 2 weeks
      * etc.
-     * In home_feed mode, page 0 is the recent window; older pages are single days.
+     * In home_feed mode, page 0 is the recent window; older pages pack dates until
+     * at least HOME_FEED_MIN_PAGE_ITEMS results.
      */
     if (homeFeedMode) {
         return getHomeFeedDateRangeForPage(chunkIndex) || { start: "", end: "" };
@@ -1090,6 +1284,15 @@ function feedFallbackNotice(dateRange) {
     return `No activity in the last 2 weeks — showing ${rangeLabel}`;
 }
 
+function stateFeedFallbackNotice(dateRange) {
+    const stateLabel = STATE_NAMES[selectedState] || selectedState;
+    const sameDay = dateRange.start === dateRange.end;
+    const rangeLabel = sameDay
+        ? formatDate(dateRange.start)
+        : `${formatDate(dateRange.start)} – ${formatDate(dateRange.end)}`;
+    return `No ${stateLabel} activity in the latest window — showing ${rangeLabel}`;
+}
+
 function collectHomeFeedItemsAcrossYears(dateRange) {
     let allItems = [];
     Object.keys(allData.years || {}).forEach((year) => {
@@ -1130,6 +1333,7 @@ async function displayUnifiedView(year, chunkIndex) {
     let allItems;
     let totalChunks = 1;
     let veteransFeedUnknownTotal = false;
+    let skippedLatestWindow = false;
 
     if (usesVeteransItemFeed() && homeFeedMode) {
         totalChunks = 1;
@@ -1157,12 +1361,21 @@ async function displayUnifiedView(year, chunkIndex) {
         allItems = collectVeteransItemsFromFullSiteData();
         dateRange = dateRangeFromDates(allItems.map(feedItemDay));
     } else if (homeFeedMode) {
-        totalChunks = getHomeFeedTotalPages();
-        effectiveChunkIndex = Math.max(0, Math.min(chunkIndex, totalChunks - 1));
-        if (effectiveChunkIndex !== currentPage) currentPage = effectiveChunkIndex;
-        const pageDates = getHomeFeedPageDates(effectiveChunkIndex);
         try {
-            await ensureHomeFeedDaysLoaded(pageDates);
+            let packed = await loadHomeFeedActivityPage(Math.max(0, chunkIndex));
+            if ((selectedState || veteransImpactFilter) && packed.pageIndex === 0 && packed.items.length === 0) {
+                const label = selectedState
+                    ? (STATE_NAMES[selectedState] || selectedState)
+                    : "filtered";
+                setContentBusy(true, `Loading ${label} activity…`);
+                packed = await loadHomeFeedActivityPage(1);
+                skippedLatestWindow = packed.items.length > 0;
+            }
+            effectiveChunkIndex = packed.pageIndex;
+            currentPage = packed.pageIndex;
+            dateRange = packed.dateRange;
+            allItems = packed.items;
+            totalChunks = packed.totalPages || getHomeFeedTotalPages();
         } catch (err) {
             console.error("Failed to load older home feed day:", err);
             container.innerHTML =
@@ -1170,13 +1383,6 @@ async function displayUnifiedView(year, chunkIndex) {
             setContentBusy(false);
             renderPagination(year, effectiveChunkIndex, totalChunks, getHomeFeedDateRangeForPage(effectiveChunkIndex) || { start: "", end: "" }, { totalItemPages: 1 });
             return;
-        }
-        dateRange = getHomeFeedDateRangeForPage(effectiveChunkIndex) || { start: "", end: "" };
-        allItems = collectHomeFeedItemsAcrossYears(dateRange);
-        // Keep page scoped to the requested day(s) even if more days were previously merged.
-        if (pageDates.length) {
-            const allow = new Set(pageDates);
-            allItems = allItems.filter((item) => allow.has(feedItemDay(item)));
         }
     } else {
         const grouped = yearData.grouped || {};
@@ -1233,15 +1439,10 @@ async function displayUnifiedView(year, chunkIndex) {
         notice.className = "ledger-results-status";
         notice.setAttribute("role", "status");
         const sameDay = dateRange.start === dateRange.end;
-        if (effectiveChunkIndex === 0) {
-            notice.textContent = sameDay
-                ? `Showing results — ${formatShortLedgerDate(dateRange.start)}`
-                : `Showing results — ${formatShortLedgerDate(dateRange.start)} – ${formatShortLedgerDate(dateRange.end)}`;
-        } else {
-            notice.textContent = sameDay
-                ? `Showing results — ${formatShortLedgerDate(dateRange.start)}`
-                : `Showing results — ${formatShortLedgerDate(dateRange.start)} – ${formatShortLedgerDate(dateRange.end)}`;
-        }
+        const countLabel = `${pageItems.length} result${pageItems.length === 1 ? "" : "s"}`;
+        notice.textContent = sameDay
+            ? `Showing ${countLabel} — ${formatShortLedgerDate(dateRange.start)}`
+            : `Showing ${countLabel} — ${formatShortLedgerDate(dateRange.start)} – ${formatShortLedgerDate(dateRange.end)}`;
         container.appendChild(notice);
         const listedDates = (allData && allData.available_dates) || [];
         if (effectiveChunkIndex === 0 && getHomeFeedTotalPages() <= 1 && !listedDates.length) {
@@ -1258,6 +1459,14 @@ async function displayUnifiedView(year, chunkIndex) {
         notice.className = "text-sm text-slate-500 text-center mb-4 italic";
         notice.setAttribute("role", "status");
         notice.textContent = feedFallbackNotice(dateRange);
+        container.appendChild(notice);
+    }
+
+    if (skippedLatestWindow && selectedState && pageItems.length > 0 && dateRange.start) {
+        const notice = document.createElement("p");
+        notice.className = "text-sm text-slate-500 text-center mb-4 italic";
+        notice.setAttribute("role", "status");
+        notice.textContent = stateFeedFallbackNotice(dateRange);
         container.appendChild(notice);
     }
 
@@ -1746,7 +1955,9 @@ function renderPagination(year, current, total, dateRange, itemPagination) {
         const paginationInfo = document.createElement("div");
         paginationInfo.className = "text-center text-slate-600 mb-4 text-sm";
         if (homeFeedMode) {
-            paginationInfo.textContent = `Showing ${startFormatted}${dateRange.start !== dateRange.end ? ` - ${endFormatted}` : ""} (${current + 1} of ${total})`;
+            paginationInfo.textContent = dateRange.start !== dateRange.end
+                ? `Showing ${startFormatted} – ${endFormatted}`
+                : `Showing ${startFormatted}`;
         } else {
             paginationInfo.textContent = `Showing ${startFormatted} - ${endFormatted} (${current + 1} of ${total} periods)`;
         }
@@ -1792,7 +2003,9 @@ function renderPagination(year, current, total, dateRange, itemPagination) {
     }
 
     // Newer period / recent window (lower page index)
-    if (showPeriodNav && current > 0) {
+    const newerWouldBeEmpty = homeFeedMode && current === 1
+        && collectHomeFeedItemsForDates(getHomeFeedRecentDates()).length === 0;
+    if (showPeriodNav && current > 0 && !newerWouldBeEmpty) {
         const prevBtn = document.createElement("button");
         if (homeFeedMode) {
             prevBtn.innerHTML = `

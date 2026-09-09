@@ -11,6 +11,7 @@ from processing.bill_urls import (  # noqa: E402
     normalize_bill_url,
     pick_best_bill_url,
     resolve_official_bill_url,
+    rewrite_congress_vote_url,
 )
 
 
@@ -47,3 +48,10 @@ def test_pick_best_bill_url_prefers_current_session():
     current = "https://www.kslegislature.gov/b2025_26/resolutions/HCR5008/"
     chosen = pick_best_bill_url([stale, current], "KS", "HCR 5008")
     assert chosen == current
+
+
+def test_rewrite_legacy_congress_vote_url():
+    stale = "https://www.congress.gov/roll-call-vote/119th-congress/2nd-session/house/295"
+    assert rewrite_congress_vote_url(stale) == "https://www.congress.gov/votes/house/119-2/295"
+    current = "https://www.congress.gov/votes/house/119-2/295"
+    assert rewrite_congress_vote_url(current) == current

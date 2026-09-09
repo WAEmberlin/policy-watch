@@ -450,10 +450,29 @@ def build_bill_public_url(congress: int, bill_type: str, bill_number: str) -> st
 
 def build_house_vote_public_url(congress: int, session: int, roll_number: int) -> str:
     """Build public Congress.gov House roll call vote URL."""
-    session_suffix = "1st" if session == 1 else "2nd"
+    return f"https://www.congress.gov/votes/house/{int(congress)}-{int(session)}/{int(roll_number)}"
+
+
+_LEGACY_CONGRESS_VOTE_RE = re.compile(
+    r"https?://www\.congress\.gov/roll-call-vote/"
+    r"(\d+)(?:st|nd|rd|th)-congress/"
+    r"(\d+)(?:st|nd|rd|th)-session/"
+    r"(house|senate)/(\d+)/?",
+    re.I,
+)
+
+
+def _rewrite_congress_vote_url(url: str) -> str:
+    """Upgrade stale Congress.gov roll-call URLs stored from earlier fetches."""
+    if not url:
+        return url or ""
+    match = _LEGACY_CONGRESS_VOTE_RE.search(url)
+    if not match:
+        return url
+    congress, session, chamber, roll = match.groups()
     return (
-        f"https://www.congress.gov/roll-call-vote/{congress}th-congress/"
-        f"{session_suffix}-session/house/{roll_number}"
+        f"https://www.congress.gov/votes/{chamber.lower()}/"
+        f"{congress}-{session}/{roll}"
     )
 
 
@@ -907,6 +926,11 @@ def merge_congress_vote_feeds(*feeds: List[Dict]) -> List[Dict]:
     merged: Dict[str, Dict] = {}
     for feed in feeds:
         for vote in feed:
+            if not isinstance(vote, dict):
+                continue
+            url = vote.get("url")
+            if url:
+                vote["url"] = _rewrite_congress_vote_url(url)
             key = _vote_dedup_key(vote)
             merged[key] = vote
     return sorted(merged.values(), key=lambda v: v.get("date", ""), reverse=True)

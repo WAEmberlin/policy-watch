@@ -173,16 +173,17 @@
 }
 
 [data-theme="high-contrast"] {
-  --ink: #000000;
-  --ink-raised: #0D0D0D;
-  --ink-line: #FFFFFF;
-  --paper: #FFFFFF;
-  --paper-dim: #E8E8E8;
-  --slate: #C4C4C4;
-  --wire: #8FB4FF;
-  --red: #FF6B5C;
-  --green: #8FCB6C;
-  --amber: #F0C060;
+  /* Charcoal + cream: AAA text contrast without pure black/white glare. */
+  --ink: #16181F;
+  --ink-raised: #1E212A;
+  --ink-line: #C5C0B2;
+  --paper: #F3EFE4;
+  --paper-dim: #D4CFC3;
+  --slate: #B7B2A6;
+  --wire: #A7C2F2;
+  --red: #E07A6E;
+  --green: #93B56F;
+  --amber: #D4B06A;
 
   --font-display: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --font-data: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
@@ -191,15 +192,15 @@
   --cw-navy: var(--paper);
   --cw-gold: var(--amber);
   --cw-blue: var(--wire);
-  --cw-blue-dark: #A8C4FF;
+  --cw-blue-dark: #C5D6F7;
 
   --cw-white: var(--ink-raised);
   --cw-black: var(--paper);
 
   --cw-slate-50: var(--ink);
   --cw-slate-100: var(--ink-raised);
-  --cw-slate-200: #333333;
-  --cw-slate-300: #666666;
+  --cw-slate-200: #3A3E4A;
+  --cw-slate-300: #5C6170;
   --cw-slate-400: var(--slate);
   --cw-slate-500: var(--slate);
   --cw-slate-600: var(--paper-dim);
@@ -207,43 +208,43 @@
   --cw-slate-800: var(--paper);
 
   --cw-bg: var(--ink);
-  --cw-bg-gradient-end: var(--ink);
+  --cw-bg-gradient-end: #1A1D26;
   --cw-surface: var(--ink-raised);
-  --cw-surface-muted: #0D0D0D;
-  --cw-surface-hover: #1A1A1A;
+  --cw-surface-muted: #1A1C24;
+  --cw-surface-hover: #272B36;
   --cw-text: var(--paper);
   --cw-text-muted: var(--paper-dim);
   --cw-text-subtle: var(--slate);
   --cw-text-on-header: var(--paper);
   --cw-text-on-header-muted: var(--paper-dim);
   --cw-border: var(--ink-line);
-  --cw-border-strong: var(--ink-line);
-  --cw-header-gradient-end: var(--ink);
-  --cw-shadow: transparent;
-  --cw-mark-bg: #3D3D00;
-  --cw-scrollbar-track: var(--ink);
-  --cw-scrollbar-thumb: #666666;
+  --cw-border-strong: #E4DFD2;
+  --cw-header-gradient-end: var(--ink-raised);
+  --cw-shadow: rgba(0, 0, 0, 0.35);
+  --cw-mark-bg: #4A4020;
+  --cw-scrollbar-track: var(--ink-raised);
+  --cw-scrollbar-thumb: #5C6170;
   --cw-scrollbar-thumb-hover: var(--slate);
   --cw-danger: var(--red);
   --cw-success: var(--green);
   --cw-live: var(--red);
 
-  --cw-focus-color: var(--wire);
+  --cw-focus-color: var(--amber);
   --cw-focus-offset: 2px;
-  --cw-focus-width: 2px;
-  --cw-border-width: 2px;
+  --cw-focus-width: 3px;
+  --cw-border-width: 1px;
 
   --cw-theme-segment-bg: var(--ink);
   --cw-theme-segment-border: var(--ink-line);
-  --cw-theme-segment-active-bg: var(--wire);
-  --cw-theme-segment-active-text: #000000;
+  --cw-theme-segment-active-bg: var(--paper);
+  --cw-theme-segment-active-text: var(--ink);
   --cw-theme-segment-text: var(--paper-dim);
 
   --cw-state-ks: var(--green);
   --cw-state-co: var(--wire);
   --cw-state-az: var(--amber);
-  --cw-state-ut: #C4B0FF;
-  --cw-state-me: #7AD4B8;
+  --cw-state-ut: #C4B8E8;
+  --cw-state-me: #8FCBB8;
   --cw-state-federal: var(--wire);
 
   --bs-body-bg: var(--cw-bg);
@@ -276,7 +277,7 @@ body.cw-themed,
 
 [data-theme="high-contrast"] body.cw-themed,
 [data-theme="high-contrast"] .cw-page-bg {
-  background: var(--ink);
+  background: linear-gradient(180deg, var(--cw-bg) 0%, var(--cw-bg-gradient-end) 100%);
 }
 
 .cw-page-bg {
@@ -302,7 +303,7 @@ body.cw-themed,
 }
 
 [data-theme="high-contrast"] .cw-card {
-  border-width: 2px;
+  border-width: 1px;
   box-shadow: none;
 }
 
@@ -582,6 +583,28 @@ mark {
 .veteran-impact-card .veteran-impact-reason-body {
   color: #475569;
 }
+.veteran-impact-card .ledger-card__jurisdiction {
+  color: #0f172a;
+  border-color: #334155;
+  font-weight: 600;
+}
+.veteran-impact-card .ledger-card__billno {
+  color: #1e3a8a;
+  font-weight: 600;
+}
+.veteran-impact-card .ledger-card__action,
+.veteran-impact-card .ledger-card__date {
+  color: #0f172a;
+}
+.veteran-impact-card .ledger-card__summary {
+  color: #1e293b;
+}
+.veteran-impact-card .ledger-card__source a {
+  color: #1d4ed8;
+}
+.veteran-impact-card .veteran-impact-reason-toggle {
+  color: #1e293b;
+}
 [data-theme="dark"] .veteran-impact-card .veteran-impact-title,
 [data-theme="high-contrast"] .veteran-impact-card .veteran-impact-title {
   color: #0f172a !important;
@@ -597,11 +620,34 @@ mark {
 }
 [data-theme="dark"] .veteran-impact-card .veteran-impact-summary,
 [data-theme="high-contrast"] .veteran-impact-card .veteran-impact-summary {
-  color: #475569 !important;
+  color: #1e293b !important;
+}
+[data-theme="dark"] .veteran-impact-card .ledger-card__jurisdiction,
+[data-theme="high-contrast"] .veteran-impact-card .ledger-card__jurisdiction {
+  color: #0f172a !important;
+  border-color: #334155 !important;
+}
+[data-theme="dark"] .veteran-impact-card .ledger-card__billno,
+[data-theme="high-contrast"] .veteran-impact-card .ledger-card__billno {
+  color: #1e3a8a !important;
+}
+[data-theme="dark"] .veteran-impact-card .ledger-card__action,
+[data-theme="high-contrast"] .veteran-impact-card .ledger-card__action,
+[data-theme="dark"] .veteran-impact-card .ledger-card__date,
+[data-theme="high-contrast"] .veteran-impact-card .ledger-card__date {
+  color: #0f172a !important;
+}
+[data-theme="dark"] .veteran-impact-card .ledger-card__summary,
+[data-theme="high-contrast"] .veteran-impact-card .ledger-card__summary {
+  color: #1e293b !important;
+}
+[data-theme="dark"] .veteran-impact-card .ledger-card__source a,
+[data-theme="high-contrast"] .veteran-impact-card .ledger-card__source a {
+  color: #1d4ed8 !important;
 }
 [data-theme="dark"] .veteran-impact-card .veteran-impact-reason-toggle,
 [data-theme="high-contrast"] .veteran-impact-card .veteran-impact-reason-toggle {
-  color: #475569 !important;
+  color: #1e293b !important;
 }
 [data-theme="dark"] .veteran-impact-card .veteran-impact-reason-toggle:hover,
 [data-theme="high-contrast"] .veteran-impact-card .veteran-impact-reason-toggle:hover {
@@ -637,17 +683,20 @@ mark {
   color: #14532d !important;
   border-color: #bbf7d0 !important;
 }
-/* Preserve light card backgrounds for all impact levels in dark/high-contrast */
+/* Tinted card backgrounds in every theme — ledger-card white/ink would otherwise win */
+.veteran-impact-card--red,
 [data-theme="dark"] .veteran-impact-card--red,
 [data-theme="high-contrast"] .veteran-impact-card--red {
   background-color: #fef2f2 !important;
   border-color: #fecaca !important;
 }
+.veteran-impact-card--yellow,
 [data-theme="dark"] .veteran-impact-card--yellow,
 [data-theme="high-contrast"] .veteran-impact-card--yellow {
   background-color: #fffbeb !important;
   border-color: #fde68a !important;
 }
+.veteran-impact-card--green,
 [data-theme="dark"] .veteran-impact-card--green,
 [data-theme="high-contrast"] .veteran-impact-card--green {
   background-color: #f0fdf4 !important;
@@ -716,7 +765,7 @@ mark {
   border-color: var(--cw-border);
 }
 [data-theme="high-contrast"] .card {
-  border-width: 2px;
+  border-width: 1px;
 }
 [data-theme="dark"] .card-body,
 [data-theme="dark"] .bg-light,
@@ -816,18 +865,18 @@ mark {
   border-bottom-color: var(--cw-blue);
 }
 [data-theme="high-contrast"] #site-nav .site-nav-link {
-  color: var(--cw-gold);
+  color: var(--cw-text);
   border-bottom-width: 2px;
 }
 [data-theme="high-contrast"] #site-nav .site-nav-link:hover {
-  color: #f5c96a;
-  background: var(--cw-surface);
+  color: var(--cw-text);
+  background: var(--cw-surface-hover);
 }
 [data-theme="high-contrast"] #site-nav .site-nav-link--active,
 [data-theme="high-contrast"] #site-nav .site-nav-link[aria-current="page"] {
   color: var(--cw-text);
   font-weight: 700;
-  border-bottom-color: var(--cw-gold);
+  border-bottom-color: var(--amber);
 }
 
 /* Scrollable in-page tab rows (dashboard, legislators, year picker, etc.) */
@@ -882,8 +931,8 @@ mark {
 .ledger-mark {
   display: block;
   width: auto;
-  height: 2.75rem;
-  max-width: min(6.25rem, 38vw);
+  height: 3.4375rem;
+  max-width: min(7.8125rem, 42vw);
   flex-shrink: 0;
   object-fit: contain;
   object-position: left center;
@@ -892,8 +941,8 @@ mark {
 }
 @media (min-width: 640px) {
   .ledger-mark {
-    height: 3.125rem;
-    max-width: 7rem;
+    height: 3.90625rem;
+    max-width: 8.75rem;
   }
 }
 .ledger-wordmark,
@@ -935,7 +984,7 @@ h1.ledger-wordmark {
 }
 [data-theme="high-contrast"] .ledger-status-dot {
   box-shadow: none;
-  outline: 1px solid var(--paper);
+  outline: 1px solid var(--ink-line);
 }
 
 /* Jurisdiction ledger grid — 4-column mockup */
@@ -1039,6 +1088,11 @@ h1.ledger-wordmark {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
+  overflow: visible;
+  position: relative;
+}
+#state-chips:has(.ledger-states-menu[open]) {
+  z-index: 30;
 }
 .ledger-chip {
   appearance: none;
@@ -1115,6 +1169,10 @@ h1.ledger-wordmark {
 .ledger-states-menu {
   position: relative;
   display: inline-block;
+  z-index: 1;
+}
+.ledger-states-menu[open] {
+  z-index: 40;
 }
 .ledger-states-menu > summary {
   list-style: none;
@@ -1178,6 +1236,11 @@ h1.ledger-wordmark {
   padding: 0.1rem 0.35rem;
   border-radius: 0.125rem;
 }
+[data-theme="dark"] .ledger-card__jurisdiction {
+  color: var(--paper);
+  border-color: #8C93A3;
+  font-weight: 600;
+}
 .ledger-card__billno {
   font-family: var(--font-data);
   font-size: 0.75rem;
@@ -1213,6 +1276,10 @@ button.ledger-card__title {
   color: var(--paper-dim);
   margin-top: 0.5rem;
 }
+[data-theme="dark"] .ledger-card__action,
+[data-theme="dark"] .ledger-card__date {
+  color: var(--paper);
+}
 .ledger-card__date {
   font-family: var(--font-data);
   font-size: 0.75rem;
@@ -1247,8 +1314,46 @@ button.ledger-card__title {
   border-radius: 0.1rem;
   background: transparent;
   transform: rotate(8deg);
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: help;
   line-height: 1.2;
+}
+.ledger-stamp::after {
+  content: attr(data-tip);
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  right: 0;
+  z-index: 6;
+  width: 13.75rem;
+  padding: 0.45rem 0.55rem;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  line-height: 1.35;
+  color: var(--paper);
+  background: var(--ink-raised);
+  border: var(--cw-border-width) solid var(--ink-line);
+  border-radius: 0.2rem;
+  box-shadow: 0 8px 20px var(--cw-shadow);
+  transform: rotate(-8deg);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.12s ease, visibility 0.12s ease;
+}
+.ledger-stamp:hover::after,
+.ledger-stamp:focus::after,
+.ledger-stamp:focus-visible::after {
+  opacity: 1;
+  visibility: visible;
+}
+.bill-card.ledger-card:has(.ledger-stamp:hover),
+.bill-card.ledger-card:has(.ledger-stamp:focus),
+.bill-card.ledger-card:has(.ledger-stamp:focus-visible) {
+  overflow: visible;
+  z-index: 6;
 }
 .ledger-stamp--passed,
 .ledger-stamp--enacted { color: var(--green); }
@@ -1257,6 +1362,19 @@ button.ledger-card__title {
 .ledger-stamp--vetoed { color: var(--red); }
 .ledger-stamp--pending,
 .ledger-stamp--referred,
+.ledger-stamp--presented,
+.ledger-stamp--calendar,
+.ledger-stamp--filed,
+.ledger-stamp--scheduled,
+.ledger-stamp--amendment,
+.ledger-stamp--reported,
+.ledger-stamp--study,
+.ledger-stamp--draft,
+.ledger-stamp--introduced,
+.ledger-stamp--tabled,
+.ledger-stamp--heard,
+.ledger-stamp--enrolled,
+.ledger-stamp--withdrawn,
 .ledger-stamp--vote { color: var(--amber); }
 
 /* Vote tally bar */
@@ -1478,16 +1596,16 @@ button {
 [data-theme="high-contrast"] .bill-card.ledger-card,
 [data-theme="high-contrast"] .ledger-chip,
 [data-theme="high-contrast"] .ledger-stamp {
-  border-width: 2px;
+  border-width: 1px;
 }
 [data-theme="high-contrast"] .ledger-jurisdiction:hover,
 [data-theme="high-contrast"] .bill-card.ledger-card:hover,
 [data-theme="high-contrast"] .ledger-chip:hover {
-  outline: 2px solid var(--wire);
+  outline: 2px solid var(--amber);
   outline-offset: 1px;
 }
 [data-theme="high-contrast"] :focus-visible {
-  outline: 2px solid var(--wire);
+  outline: 3px solid var(--amber);
   outline-offset: 2px;
 }
 
@@ -1573,6 +1691,9 @@ html.cw-is-loading {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .ledger-stamp::after {
+    transition: none;
+  }
   .cw-loading-overlay {
     transition: none;
   }

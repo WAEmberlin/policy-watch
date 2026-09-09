@@ -83,8 +83,48 @@ const PolicyWatchHome = (() => {
         failed: 'Failed',
         vote: 'Vote',
         referred: 'Referred',
+        presented: 'Presented',
+        calendar: 'On Calendar',
+        filed: 'On File',
+        scheduled: 'Scheduled',
+        amendment: 'Amendment',
+        reported: 'Reported',
+        study: 'Study Order',
+        draft: 'New Draft',
+        introduced: 'Introduced',
+        tabled: 'Tabled',
+        heard: 'Heard',
+        enrolled: 'Enrolled',
         withdrawn: 'Withdrawn',
+        pending: 'Pending',
     };
+
+    const ACTION_BADGE_TIPS = {
+        enacted: 'Became law — signed, enacted, or chaptered.',
+        vetoed: 'Rejected by the governor or president, or a veto override failed.',
+        died: 'The bill died this session and is no longer moving.',
+        failed: 'A floor vote failed; the bill did not pass.',
+        referred: 'Sent to a committee. Still in process, not a final outcome.',
+        presented: 'Sent to the president for signature or veto. Not yet law.',
+        calendar: 'On the floor calendar for another reading or vote. Not yet passed.',
+        filed: 'Received and filed with the clerk. Not referred and not scheduled for the floor.',
+        scheduled: 'A committee hearing has been scheduled. Still in process, not a final outcome.',
+        amendment: 'Proposed amendment text was filed. Not adopted yet, and not a final outcome.',
+        reported: 'A committee ordered the bill reported. Still in process, not yet passed on the floor.',
+        study: 'Sent to a study order instead of being reported out. Not advancing unless the study comes back.',
+        draft: 'Replaced by a new draft. The original bill is no longer the vehicle.',
+        introduced: 'Newly filed or introduced. Not yet heard or passed.',
+        tabled: 'Laid on the table. Parked, not passed, and not a final death unless the chamber takes it up again.',
+        heard: 'A committee or subcommittee held a hearing. Still in process, not a final outcome.',
+        enrolled: 'Passed both chambers and enrolled. Waiting for the governor. Not yet law.',
+        passed: 'A chamber voted yes. Not the same as becoming law.',
+        vote: 'A recorded or roll-call vote, without a clear pass or fail in the latest action.',
+        withdrawn: 'The sponsor pulled the bill.',
+        pending: 'The latest action did not match a clear outcome.',
+    };
+
+    const OUTCOME_STAMPS = ['passed', 'enacted', 'failed', 'died', 'vetoed'];
+    const PROCESS_STAMPS = ['vote', 'referred', 'presented', 'calendar', 'filed', 'scheduled', 'amendment', 'reported', 'study', 'draft', 'introduced', 'tabled', 'heard', 'enrolled', 'withdrawn'];
 
     const VETERANS_IMPACT_FILTER_BUTTONS = {
         all: { id: 'veterans-filter-btn', active: [], inactive: [] },
@@ -160,12 +200,25 @@ const PolicyWatchHome = (() => {
     function classifyActionType(text) {
         const hay = String(text || '').toLowerCase();
         if (!hay.trim()) return null;
-        if (/signed|became (a )?law|enacted|chaptered/.test(hay)) return 'enacted';
+        if (/signed|became (a )?law|enacted|chaptered|act no\.|chapter \d+|delivered to secretary of state/.test(hay)) return 'enacted';
         if (/veto/.test(hay)) return 'vetoed';
         if (/died|dead|pocket veto|failed to pass|defeated/.test(hay)) return 'died';
         if (/\bfailed\b/.test(hay)) return 'failed';
-        if (/referr?ed/.test(hay)) return 'referred';
+        if (/withdrawn/.test(hay)) return 'withdrawn';
+        if (/presented to (the )?president/.test(hay)) return 'presented';
+        if (/\benrolled\b/.test(hay)) return 'enrolled';
         if (/passed|adopted|approved|agreed to|concurred/.test(hay)) return 'passed';
+        if (/placed on .{0,80}calendar|legislative calendar|under general orders|on the union calendar|placed on general orders|orders of the day|ordered to (a )?(second|third|2nd|3rd) reading|on (2nd|3rd|second|third) reading|calendar no\.?/.test(hay)) return 'calendar';
+        if (/ordered to be reported|ordered reported|re-?reported|reported favorably|reported adversely|reported with (an |a )?(amendment|substitute)/.test(hay)) return 'reported';
+        if (/referr?ed|re-?committed/.test(hay) || /^\s*to (?:(?:house|senate)\s+)?(?!the\b)[a-z]/i.test(hay)) return 'referred';
+        if (/placed on file/.test(hay)) return 'filed';
+        if (/laid (up )?on the table|\btabled\b/.test(hay)) return 'tabled';
+        if (/hearing\s+scheduled|scheduled\s+(for\s+(a\s+)?)?hearing|hearing:|misc_he_\d+/.test(hay)) return 'scheduled';
+        if (/text of (an |a further )?amendment/.test(hay)) return 'amendment';
+        if (/accompanied a study order|study order/.test(hay)) return 'study';
+        if (/accompanied a new draft/.test(hay)) return 'draft';
+        if (/\bintroduced\b|\ba petition\b|joint petition|by representative|by senator|read (for the )?first time|first reading|prefiled/.test(hay)) return 'introduced';
+        if (/hearings?\s+held/.test(hay)) return 'heard';
         if (/vote|roll.?call|\byea\b|\bnay\b/.test(hay)) return 'vote';
         return null;
     }
@@ -174,14 +227,24 @@ const PolicyWatchHome = (() => {
         return ACTION_BADGE_LABELS[actionType] || actionType;
     }
 
+    function actionBadgeTip(actionType) {
+        return ACTION_BADGE_TIPS[actionType] || ACTION_BADGE_TIPS.pending;
+    }
+
     function renderActionBadge(actionType) {
         if (!actionType) return null;
-        const stampType = ['passed', 'enacted', 'failed', 'died', 'vetoed'].includes(actionType)
+        const stampType = OUTCOME_STAMPS.includes(actionType)
             ? actionType
-            : (actionType === 'vote' || actionType === 'referred' ? actionType : 'pending');
+            : (PROCESS_STAMPS.includes(actionType) ? actionType : 'pending');
+        const label = actionBadgeLabel(actionType);
+        const tip = actionBadgeTip(actionType);
         const badge = document.createElement('span');
         badge.className = `ledger-stamp ledger-stamp--${stampType}`;
-        badge.textContent = String(actionBadgeLabel(actionType) || '').toUpperCase();
+        badge.textContent = String(label || '').toUpperCase();
+        badge.dataset.tip = tip;
+        badge.tabIndex = 0;
+        badge.setAttribute('role', 'img');
+        badge.setAttribute('aria-label', `${label}: ${tip}`);
         return badge;
     }
 
@@ -1077,7 +1140,12 @@ const PolicyWatchHome = (() => {
             : url;
         const redline = !voteEvent ? parseDraftRedline(item) : null;
 
-        const actionType = item.action_type || (voteEvent ? 'vote' : null);
+        const actionText = item.latest_action || item.last_action || item.motion || '';
+        const actionType = classifyActionType(actionText)
+            || (!actionText ? classifyActionType(item.summary || item.title || '') : null)
+            || item.action_type
+            || (redline ? 'draft' : null)
+            || (voteEvent ? 'vote' : null);
         if (actionType) {
             const actionBadge = renderActionBadge(actionType);
             if (actionBadge) card.appendChild(actionBadge);

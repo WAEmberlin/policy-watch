@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Veteran Legislation — PolicyWatch</title>
 <link rel="stylesheet" href="sr-only.css" />
-<link rel="stylesheet" href="theme.css?v=ledger8" />
-<script src="theme.js"></script>
+  <link rel="stylesheet" href="theme.css?v=ledger23" />
+<script src="theme.js?v=dark1"></script>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
@@ -73,7 +73,7 @@ tailwind.config = {
         <header class="cw-header px-6 md:px-8 py-6">
             <div class="flex items-center justify-between gap-4 flex-wrap">
             <div class="ledger-brand flex-1 min-w-0">
-                <img src="policywatch-logo.png" alt="PolicyWatch" class="ledger-mark" width="90" height="62" />
+                <img src="policywatch-logo.png" alt="PolicyWatch" class="ledger-mark" width="113" height="78" />
                 <h1 class="ledger-wordmark sr-only">PolicyWatch</h1>
                 <div id="last-updated" class="ledger-timestamp">
                     <span class="ledger-status-dot" aria-hidden="true"></span>
@@ -108,7 +108,7 @@ tailwind.config = {
             <!-- Feed Controls: chips, search, filters -->
             <section id="feed-controls" class="mb-6 pb-4 border-b border-slate-200">
                 <!-- State Filter Chips -->
-                <div id="state-chips" class="flex gap-2 overflow-x-auto pb-3 mb-4" role="group" aria-label="Filter by state"></div>
+                <div id="state-chips" class="flex gap-2 pb-3 mb-4" role="group" aria-label="Filter by state"></div>
 
                 <!-- Topic filters -->
                 <div class="flex flex-wrap items-center gap-2 mb-4">
@@ -222,10 +222,10 @@ tailwind.config = {
 <script src="data-config.js"></script>
 <script src="data-url.js"></script>
 <script src="shell.js"></script>
-<script src="bill-utils.js"></script>
+<script src="bill-utils.js?v=voteurl1"></script>
 <script src="bill-votes.js"></script>
-<script src="home.js"></script>
-<script src="script.js"></script>
+<script src="home.js?v=stamp11"></script>
+<script src="script.js?v=hearing1"></script>
 <script>PolicyWatchShell.init({ page: 'veterans' });</script>
 </body>
 </html>

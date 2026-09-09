@@ -144,7 +144,8 @@ function billMatchesState(bill: ShardBill, stateKey: string): boolean {
 }
 
 function billSearchText(bill: ShardBill): string {
-  return [bill.title || bill.t, bill.bill_number || bill.n, bill.latest_action || bill.a]
+  const num = bill.bill_number || bill.n || "";
+  return [bill.title || bill.t, num, num.replace(/\s+/g, ""), bill.latest_action || bill.a]
     .filter(Boolean)
     .join(" ")
     .toLowerCase();

@@ -3,6 +3,7 @@
  */
 const PolicyWatchBillUtils = (() => {
     const SKIP_DOMAINS = ["openstates.org", "open.pluralpolicy.com", "pluralpolicy.com"];
+    const LEGACY_CONGRESS_VOTE_RE = /https?:\/\/www\.congress\.gov\/roll-call-vote\/(\d+)(?:st|nd|rd|th)-congress\/(\d+)(?:st|nd|rd|th)-session\/(house|senate)\/(\d+)\/?/i;
 
     function isOfficialUrl(url) {
         if (!url) return false;
@@ -10,17 +11,26 @@ const PolicyWatchBillUtils = (() => {
         return !SKIP_DOMAINS.some((domain) => lower.includes(domain));
     }
 
+    function rewriteCongressVoteUrl(url) {
+        if (!url) return url || "";
+        const match = String(url).match(LEGACY_CONGRESS_VOTE_RE);
+        if (!match) return url;
+        return `https://www.congress.gov/votes/${match[3].toLowerCase()}/${match[1]}-${match[2]}/${match[4]}`;
+    }
+
     function resolveBillUrl(bill) {
         if (!bill) return "";
         const candidates = [
             bill.url,
+            bill.link,
             ...(bill.document_urls || []),
         ].filter(Boolean);
 
         for (const url of candidates) {
-            if (isOfficialUrl(url)) return url;
+            const rewritten = rewriteCongressVoteUrl(url);
+            if (isOfficialUrl(rewritten)) return rewritten;
         }
-        return bill.url || "";
+        return rewriteCongressVoteUrl(bill.url || bill.link || "");
     }
 
     function filterByStateAndLevel(items, filters, options = {}) {
@@ -51,5 +61,5 @@ const PolicyWatchBillUtils = (() => {
         });
     }
 
-    return { resolveBillUrl, filterByStateAndLevel, isOfficialUrl };
+    return { resolveBillUrl, filterByStateAndLevel, isOfficialUrl, rewriteCongressVoteUrl };
 })();
