@@ -873,30 +873,27 @@ mark {
 /* ── Legislative ledger components ─────────────────────────────── */
 
 .ledger-brand {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  column-gap: 0.75rem;
-  row-gap: 0.35rem;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-}
-@media (min-width: 640px) {
-  .ledger-brand {
-    column-gap: 0.9rem;
-  }
+  column-gap: 1rem;
+  row-gap: 0.4rem;
 }
 .ledger-mark {
-  grid-column: 1;
-  grid-row: 1;
-  width: 3.25rem;
-  height: 3.25rem;
+  display: block;
+  width: auto;
+  height: 2.75rem;
+  max-width: min(6.25rem, 38vw);
   flex-shrink: 0;
   object-fit: contain;
-  border-radius: 0.35rem;
+  object-position: left center;
+  border-radius: 0.25rem;
+  background: #041630;
 }
 @media (min-width: 640px) {
   .ledger-mark {
-    width: 3.75rem;
-    height: 3.75rem;
+    height: 3.125rem;
+    max-width: 7rem;
   }
 }
 .ledger-wordmark,
@@ -916,8 +913,6 @@ h1.ledger-wordmark {
   color: var(--wire);
 }
 .ledger-timestamp {
-  grid-column: 1 / -1;
-  grid-row: 2;
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
@@ -925,6 +920,7 @@ h1.ledger-wordmark {
   font-family: var(--font-data);
   font-size: 0.75rem;
   color: var(--slate);
+  flex: 1 1 12rem;
   justify-self: start;
 }
 .ledger-status-dot {
@@ -1493,4 +1489,99 @@ button {
 [data-theme="high-contrast"] :focus-visible {
   outline: 2px solid var(--wire);
   outline-offset: 2px;
+}
+
+/* Full-page loading popup — used during initial data fetch and bill search. */
+html.cw-is-loading {
+  overflow: hidden;
+}
+
+.cw-loading-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  z-index: 2147483000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  margin: 0;
+  background: rgba(0, 31, 63, 0.42);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.cw-loading-overlay.cw-loading-overlay--open {
+  display: flex !important;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.cw-loading-overlay[hidden] {
+  display: none !important;
+}
+
+.cw-loading-dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 10.5rem;
+  padding: 1.75rem 2rem;
+  border-radius: 1rem;
+  background: var(--cw-surface);
+  color: var(--cw-text);
+  border: 1px solid var(--cw-border);
+  box-shadow: 0 18px 40px var(--cw-shadow);
+  animation: cw-loading-pop 0.22s ease-out;
+}
+
+.cw-loading-label {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--cw-text);
+}
+
+.cw-loading-spinner {
+  width: 2.35rem;
+  height: 2.35rem;
+  border: 3px solid var(--cw-slate-200);
+  border-top-color: var(--cw-blue);
+  border-radius: 50%;
+  animation: cw-spin 0.75s linear infinite;
+}
+
+@keyframes cw-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes cw-loading-pop {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cw-loading-overlay {
+    transition: none;
+  }
+  .cw-loading-dialog {
+    animation: none;
+  }
+  .cw-loading-spinner {
+    animation: none;
+    border-top-color: var(--cw-blue);
+    border-right-color: var(--cw-blue);
+  }
 }

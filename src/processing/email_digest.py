@@ -6,11 +6,18 @@ import json
 import os
 import re
 from datetime import datetime, time, timedelta, timezone
+from html import escape as html_escape
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 from zoneinfo import ZoneInfo
 
 import yaml
+
+from processing.veteran_impact import (
+    IMPACT_LEVELS,
+    build_veteran_impact_lookup,
+    resolve_veteran_impact_for_item,
+)
 
 ROOT = Path(__file__).resolve().parents[2]
 CONFIG_PATH = ROOT / "config" / "email_digests.yaml"
@@ -22,6 +29,27 @@ HEARINGS_FILE = ROOT / "src" / "output" / "hearings.json"
 NORMALIZED_BILLS_FILE = ROOT / "data" / "normalized" / "bills.json"
 
 FEDERAL_CODE = "FEDERAL"
+
+# Inline bill-number pill styles matching docs/home.js VETERAN_IMPACT_BADGE
+# (red-100/900/200, amber-100/900/200, green-100/900/200). Email clients strip
+# most CSS, so these must stay inline.
+VETERAN_BILL_NUMBER_STYLES = {
+    "red": (
+        "display:inline-block;padding:1px 8px;border-radius:4px;"
+        "font-style:normal;font-weight:600;"
+        "background:#fee2e2;color:#7f1d1d;border:1px solid #fecaca;"
+    ),
+    "yellow": (
+        "display:inline-block;padding:1px 8px;border-radius:4px;"
+        "font-style:normal;font-weight:600;"
+        "background:#fef3c7;color:#78350f;border:1px solid #fde68a;"
+    ),
+    "green": (
+        "display:inline-block;padding:1px 8px;border-radius:4px;"
+        "font-style:normal;font-weight:600;"
+        "background:#dcfce7;color:#14532d;border:1px solid #bbf7d0;"
+    ),
+}
 
 # Email clients wrap poorly on multi-thousand-char omnibus hearing titles.
 DIGEST_TITLE_MAX_LEN = 160
@@ -432,8 +460,9 @@ def split_omnibus_hearing_title(title: str) -> Tuple[str, List[str]]:
 def render_item(item: Dict[str, Any]) -> str:
     display_title = format_digest_title(item.get("short_title") or item.get("title", "(no title)"))
     html = f"<li><strong>{display_title}</strong><br>"
-    if item.get("bill_number"):
-        html += f"<em>Bill: {item.get('bill_number')}</em><br>"
+    bill_number = item.get("bill_number")
+    if bill_number:
+        html += _render_bill_number_line(str(bill_number), item)
     action = item.get("latest_action") or item.get("ks_api_latest_action")
     if action:
         html += f"<em>Latest action: {action}</em><br>"
@@ -445,6 +474,124 @@ def render_item(item: Dict[str, Any]) -> str:
         )
     link = item.get("link") or item.get("url") or "#"
     html += f'<a href="{link}">{link}</a><br><p>{item.get("summary", "")}</p></li><hr>'
+    return html
+
+
+def _render_bill_number_line(bill_number: str, item: Dict[str, Any]) -> str:
+    escaped = html_escape(bill_number)
+    impact = item.get("veteran_impact") or {}
+    level = str(impact.get("level") or "").strip().lower()
+    style = VETERAN_BILL_NUMBER_STYLES.get(level)
+    if style:
+        return f'<em>Bill: <span style="{style}">{escaped}</span></em><br>'
+    return f"<em>Bill: {escaped}</em><br>"
+
+
+def _is_veteran_legislation_item(item: Dict[str, Any]) -> bool:
+    """True for veteran bills that belong in the top-of-email veteran section."""
+    if is_utah_hearing_feed_item(item):
+        return False
+    impact = item.get("veteran_impact") or {}
+    return str(impact.get("level") or "").strip().lower() in IMPACT_LEVELS
+
+
+def _split_veteran_legislation(
+    items: List[Dict[str, Any]],
+    lookup: Dict[str, Dict[str, Any]],
+) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
+    """Annotate items with veteran impact; veteran bills are not duplicated later."""
+    veteran_items: List[Dict[str, Any]] = []
+    other_items: List[Dict[str, Any]] = []
+    for item in items:
+        annotated = dict(item)
+        impact = resolve_veteran_impact_for_item(item, lookup)
+        if impact:
+            annotated["veteran_impact"] = impact
+        if _is_veteran_legislation_item(annotated):
+            veteran_items.append(annotated)
+        else:
+            other_items.append(annotated)
+    return veteran_items, other_items
+
+
+def _split_items_by_state(
+    items_by_state: Dict[str, List[Dict[str, Any]]],
+    lookup: Dict[str, Dict[str, Any]],
+) -> Tuple[Dict[str, List[Dict[str, Any]]], Dict[str, List[Dict[str, Any]]]]:
+    veteran_by_state: Dict[str, List[Dict[str, Any]]] = {}
+    other_by_state: Dict[str, List[Dict[str, Any]]] = {}
+    for code, items in items_by_state.items():
+        veteran_items, other_items = _split_veteran_legislation(items, lookup)
+        if veteran_items:
+            veteran_by_state[code] = veteran_items
+        other_by_state[code] = other_items
+    return veteran_by_state, other_by_state
+
+
+def _flatten_veteran_items(
+    veteran_by_state: Dict[str, List[Dict[str, Any]]],
+    codes_in_order: List[str],
+) -> List[Dict[str, Any]]:
+    flattened: List[Dict[str, Any]] = []
+    seen_codes = set()
+    for code in codes_in_order:
+        flattened.extend(veteran_by_state.get(code, []))
+        seen_codes.add(code)
+    for code, items in veteran_by_state.items():
+        if code not in seen_codes:
+            flattened.extend(items)
+    return flattened
+
+
+def _veteran_group_label(item: Dict[str, Any], state_names: Dict[str, str]) -> str:
+    code = infer_item_state(item)
+    if not code or code == FEDERAL_CODE:
+        return "Federal"
+    return state_names.get(code, code)
+
+
+def _render_veteran_section(
+    veteran_items: List[Dict[str, Any]],
+    state_names: Dict[str, str],
+) -> str:
+    if not veteran_items:
+        return ""
+
+    groups: Dict[str, List[Dict[str, Any]]] = {}
+    for item in veteran_items:
+        groups.setdefault(_veteran_group_label(item, state_names), []).append(item)
+
+    ordered_labels: List[str] = []
+    state_labels = sorted(
+        [label for label in groups if label != "Federal"],
+        key=lambda name: name.lower(),
+    )
+    ordered_labels.extend(state_labels)
+    if "Federal" in groups:
+        ordered_labels.append("Federal")
+    for label in groups:
+        if label not in ordered_labels:
+            ordered_labels.append(label)
+
+    html = (
+        '<div style="background:#f8fafc;border:1px solid #e2e8f0;'
+        'border-radius:8px;padding:12px 16px;margin:0 0 20px;">'
+        "<h2 style=\"margin-top:0;\">Veteran Legislation</h2>"
+        "<p style=\"color:#475569;font-size:14px;margin:0 0 12px;\">"
+        "Bills in this digest that may affect veterans. Bill numbers are highlighted "
+        "red (high impact), yellow (moderate), or green (ceremonial / general), "
+        "matching the Veteran Legislation cards on PolicyWatch."
+        "</p>"
+    )
+    show_subheads = len(ordered_labels) > 1
+    for label in ordered_labels:
+        if show_subheads:
+            html += f"<h3>{html_escape(label)}</h3>"
+        html += "<ul>"
+        for item in groups[label]:
+            html += render_item(item)
+        html += "</ul>"
+    html += "</div>"
     return html
 
 
@@ -563,9 +710,14 @@ def build_digest_html(
 ) -> Tuple[str, str, int]:
     """
     Build HTML body, subject line, and total item count for a digest.
-    digest_id: ks, co, az, ut, federal, all
+    digest_id: state codes from config/email_digests.yaml, plus federal and all.
+    Veteran legislation, when present, is listed in a section at the top and
+    omitted from the regular Updates lists below.
     """
-    federal_items = items_by_state.get(FEDERAL_CODE, [])
+    lookup = build_veteran_impact_lookup()
+    veteran_by_state, other_by_state = _split_items_by_state(items_by_state, lookup)
+
+    federal_items = other_by_state.get(FEDERAL_CODE, [])
     federal_hearings = hearings_by_state.get(FEDERAL_CODE, [])
     cfg = load_digest_config()
     digest_meta = next((d for d in cfg["digests"] if d["id"] == digest_id), None)
@@ -579,22 +731,34 @@ def build_digest_html(
         html += f"<h1>{display_name}</h1>"
         html += f"<p>Legislative updates from the last {window} hours.</p>"
 
-        total = 0
-        # Alphabetical by state name
         state_codes = sorted(
             [c for c in items_by_state if c not in (FEDERAL_CODE, "OTHER")],
             key=lambda c: state_names.get(c, c),
         )
+        veteran_items = _flatten_veteran_items(
+            veteran_by_state, state_codes + [FEDERAL_CODE],
+        )
+        html += _render_veteran_section(veteran_items, state_names)
+
+        total = 0
         for code in state_codes:
             name = state_names.get(code, code)
-            state_items = items_by_state.get(code, [])
+            state_items = other_by_state.get(code, [])
             state_hearings = hearings_by_state.get(code, [])
-            total += len(state_items) + len(state_hearings)
+            total += (
+                len(state_items)
+                + len(veteran_by_state.get(code, []))
+                + len(state_hearings)
+            )
             html += f"<h2>{name}</h2>"
             html += _render_state_sections(name, state_items)
             html += _render_hearings_section(f"{name} — Hearings Today & Tomorrow", state_hearings)
 
-        total += len(federal_items) + len(federal_hearings)
+        total += (
+            len(federal_items)
+            + len(veteran_by_state.get(FEDERAL_CODE, []))
+            + len(federal_hearings)
+        )
         html += "<h2>Federal (U.S. Congress)</h2>"
         html += _render_items_section("Federal — Updates", federal_items)
         html += _render_hearings_section("Federal — Hearings Today & Tomorrow", federal_hearings)
@@ -610,7 +774,9 @@ def build_digest_html(
         display_name = "Federal PolicyWatch"
         html += f"<h1>{display_name}</h1>"
         html += f"<p>U.S. Congress updates from the last {window} hours.</p>"
-        total = len(federal_items) + len(federal_hearings)
+        veteran_items = veteran_by_state.get(FEDERAL_CODE, [])
+        html += _render_veteran_section(veteran_items, state_names)
+        total = len(federal_items) + len(veteran_items) + len(federal_hearings)
         html += _render_items_section("Federal Legislation &amp; Congress Updates", federal_items)
         html += _render_hearings_section("Congressional Hearings Today & Tomorrow", federal_hearings)
         if total == 0:
@@ -619,15 +785,25 @@ def build_digest_html(
             subject = f"{prefix} — {total} update{'s' if total != 1 else ''}"
         return html, subject, total
 
-    # Per-state digest: state first, federal below
+    # Per-state digest: veteran bills first, then state, then federal
     code = digest_id.upper()
     name = state_names.get(code, digest_id.title())
-    state_items = items_by_state.get(code, [])
+    state_items = other_by_state.get(code, [])
+    state_veteran = veteran_by_state.get(code, [])
+    federal_veteran = veteran_by_state.get(FEDERAL_CODE, [])
     state_hearings = hearings_by_state.get(code, [])
-    total = len(state_items) + len(state_hearings) + len(federal_items) + len(federal_hearings)
+    total = (
+        len(state_items)
+        + len(state_veteran)
+        + len(state_hearings)
+        + len(federal_items)
+        + len(federal_veteran)
+        + len(federal_hearings)
+    )
 
     html += f"<h1>{name} PolicyWatch</h1>"
     html += f"<p>{name} legislative updates from the last {window} hours, plus relevant federal activity.</p>"
+    html += _render_veteran_section(state_veteran + federal_veteran, state_names)
 
     html += f"<h2>{name}</h2>"
     html += _render_state_sections(name, state_items)
@@ -641,7 +817,8 @@ def build_digest_html(
         subject = f"{prefix} — No new updates"
         html += f"<p>No new updates in the last {window} hours. Monitoring is active.</p>"
     else:
-        state_count = len(state_items) + len(state_hearings)
-        subject = f"{prefix} — {state_count} state + {len(federal_items) + len(federal_hearings)} federal update{'s' if total != 1 else ''}"
+        state_count = len(state_items) + len(state_veteran) + len(state_hearings)
+        federal_count = len(federal_items) + len(federal_veteran) + len(federal_hearings)
+        subject = f"{prefix} — {state_count} state + {federal_count} federal update{'s' if total != 1 else ''}"
 
     return html, subject, total

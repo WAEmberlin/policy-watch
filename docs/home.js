@@ -38,6 +38,10 @@ const PolicyWatchHome = (() => {
     const VETERANS_STRONG_KEYWORDS = [
         'veteran', 'veterans', 'military', 'armed forces', 'armed services',
         'national guard', 'servicemember', 'service member', 'veterans affairs',
+        'military sexual trauma',
+        'committee on veterans', "veterans' affairs committee",
+        'veterans affairs committee', 'veterans and military affairs',
+        'military and veterans affairs', 'military affairs and veterans',
     ];
 
     const VETERANS_DEFENSE_PHRASES = [
@@ -269,17 +273,29 @@ const PolicyWatchHome = (() => {
         return plain;
     }
 
-    function formatActionDate(item) {
-        const raw = item.published || item.date || '';
-        if (!raw) return '';
-        try {
-            const d = new Date(raw.includes('T') ? raw : `${raw}T00:00:00`);
-            return d.toLocaleDateString('en-US', {
-                month: 'short', day: 'numeric', year: 'numeric', timeZone: 'America/Chicago',
-            });
-        } catch {
-            return String(raw).slice(0, 10);
+    function actionDay(value) {
+        const day = String(value || '').trim().split('T')[0];
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(day)) return '';
+        const [y, m, d] = day.split('-').map((part) => Number.parseInt(part, 10));
+        const dt = new Date(Date.UTC(y, m - 1, d));
+        if (
+            dt.getUTCFullYear() !== y ||
+            dt.getUTCMonth() !== m - 1 ||
+            dt.getUTCDate() !== d
+        ) {
+            return '';
         }
+        return day;
+    }
+
+    function formatActionDate(item) {
+        const day = actionDay(item.published || item.date || '');
+        if (!day) return '';
+        const d = new Date(`${day}T00:00:00`);
+        if (Number.isNaN(d.getTime())) return '';
+        return d.toLocaleDateString('en-US', {
+            month: 'short', day: 'numeric', year: 'numeric', timeZone: 'America/Chicago',
+        });
     }
 
     function countBillsByState(siteData) {
@@ -643,16 +659,24 @@ const PolicyWatchHome = (() => {
     }
 
     // Keep in sync with src/processing/veteran_impact.py (Colorado tracker color rows).
-    // RED: benefits, disability ratings, VA healthcare, housing, survivor/burial, GI Bill
-    // YELLOW: employment preference, licensing, courts & diversion, mental health, military spouse
-    // GREEN: recognition, memorials, honor resolutions, indirect military references
+    // RED: benefits, disability ratings, VA healthcare, MST/IPV/suicide,
+    //      behavioral health crisis services, housing, GI Bill
+    // YELLOW: employment preference, licensing, courts & diversion, generic mental health,
+    //         VA study / report directives
+    // GREEN: recognition, memorials, honor resolutions, VA committee referrals with no
+    //        higher-impact keyword (default when veteran-related but unmatched).
     // Context-gated generics never establish veteran-relatedness alone; see CONTEXT_GATED.
     const VETERAN_IMPACT_RED_SIGNALS = [
         'gi bill', 'survivor benefit', 'burial benefit', 'va benefit', 'veterans benefit',
         'veteran pension', 'veterans pension', 'veteran compensation', 'veterans compensation',
         'compensation', 'pension', 'dependency indemnity', 'title 38',
         'va health', 'veterans health', 'va healthcare', 'veterans healthcare',
-        'veterans affairs', 'ptsd', 'tbi', 'suicide prevention', 'post-traumatic',
+        'military sexual trauma', 'ptsd', 'tbi', 'suicide prevention', 'post-traumatic',
+        'sexual trauma', 'intimate partner violence', 'domestic violence',
+        'suicidal ideation', 'suicide',
+        'behavioral health crisis', 'crisis services expansion',
+        'retroactive payment', 'retroactive benefit', 'retroactive benefits',
+        'retroactive compensation',
         'veteran housing', 'homeless veteran', 'housing voucher', 'shelter veteran',
         'disability rating', 'service-connected', 'service connected', 'rating schedule',
         'survivor', 'burial',
@@ -676,6 +700,9 @@ const PolicyWatchHome = (() => {
         'diversion', 'treatment court',
         'veterans justice', 'justice outreach',
         'mental health',
+        'secretary of veterans affairs to study',
+        'secretary of veterans affairs to conduct a study',
+        'secretary of veterans affairs shall study',
     ];
     const VETERAN_IMPACT_GREEN_SIGNALS = [
         'recognition', 'memorial', 'honor', 'honoring', 'ceremonial', 'commemorative',
@@ -687,6 +714,11 @@ const PolicyWatchHome = (() => {
         'compensation', 'pension', 'housing voucher',
         'disability rating', 'rating schedule', 'survivor', 'burial',
         'ptsd', 'tbi', 'suicide prevention', 'post-traumatic', 'mental health',
+        'sexual trauma', 'intimate partner violence', 'domestic violence',
+        'suicidal ideation', 'suicide',
+        'behavioral health crisis', 'crisis services expansion',
+        'retroactive payment', 'retroactive benefit', 'retroactive benefits',
+        'retroactive compensation',
         'hiring preference', 'employment preference',
         'licensing', 'certification', 'apprenticeship',
         'diversion', 'treatment court', 'justice outreach',
@@ -887,7 +919,13 @@ const PolicyWatchHome = (() => {
             }
             for (const key of keys) {
                 const hit = key ? veteranImpactLookup[key] : null;
-                if (hit && lookupEntryMatchesItem(hit, item)) return hit;
+                if (hit && lookupEntryMatchesItem(hit, item)) {
+                    // CSV is source of truth; re-score rules hits so keyword updates
+                    // apply before the next pipeline rebuilds the lookup.
+                    if (hit.source === 'csv') return hit;
+                    const classified = classifyVeteranImpactFromText(itemText, classifyOpts);
+                    return classified || hit;
+                }
             }
         }
 
@@ -933,7 +971,11 @@ const PolicyWatchHome = (() => {
             if (!btn) return;
             btn.addEventListener('click', () => {
                 const isActive = btn.getAttribute('aria-pressed') === 'true';
-                const next = isActive ? null : level;
+                let next = isActive ? null : level;
+                if (callbacks.veteransOnly) {
+                    // Stay on veteran bills: toggling a color off returns to all veteran bills.
+                    next = isActive ? 'all' : level;
+                }
                 setVeteransImpactFilter(next);
                 if (callbacks.onVeteransImpactFilter) callbacks.onVeteransImpactFilter(next);
             });
@@ -984,11 +1026,14 @@ const PolicyWatchHome = (() => {
             pills.push({ key: 'search', label: `Search: "${filters.search}"`, value: filters.search });
         }
         if (filters.veteransImpact) {
-            pills.push({
-                key: 'veterans',
-                label: VETERANS_IMPACT_FILTER_LABELS[filters.veteransImpact] || 'Military / Veterans',
-                value: filters.veteransImpact,
-            });
+            const hideAllPill = callbacks.veteransOnly && filters.veteransImpact === 'all';
+            if (!hideAllPill) {
+                pills.push({
+                    key: 'veterans',
+                    label: VETERANS_IMPACT_FILTER_LABELS[filters.veteransImpact] || 'Military / Veterans',
+                    value: filters.veteransImpact,
+                });
+            }
         }
 
         if (pills.length === 0) {
@@ -1262,10 +1307,24 @@ const PolicyWatchHome = (() => {
         return VETERANS_DEFENSE_PHRASES.some((ph) => haystack.includes(ph));
     }
 
+    function flattenCommitteeText(value) {
+        if (!value) return '';
+        if (typeof value === 'string') return value;
+        if (Array.isArray(value)) {
+            return value.map(flattenCommitteeText).filter(Boolean).join(' ');
+        }
+        if (typeof value === 'object') {
+            return [value.name, value.committee, value.title, value.text].filter(Boolean).join(' ');
+        }
+        return String(value);
+    }
+
     function itemVeteransText(item) {
         const parts = [
-            item.title, item.short_title, htmlToPlainText(item.summary), item.latest_action, item.bill_number,
-            item.link, item.url,
+            item.title, item.short_title, item.official_title, htmlToPlainText(item.summary),
+            item.latest_action, item.last_action, item.bill_number,
+            item.link, item.url, item.committee,
+            flattenCommitteeText(item.committees),
         ];
         if (Array.isArray(item.classification)) parts.push(item.classification.join(' '));
         if (Array.isArray(item.ai_topics)) parts.push(item.ai_topics.join(' '));
@@ -1278,7 +1337,9 @@ const PolicyWatchHome = (() => {
         if (level === 'red' || level === 'yellow' || level === 'green') {
             return Boolean(impact && impact.level === level);
         }
-        return itemMatchesVeteransFilter(item);
+        // 'all' (Veteran Legislation page / Military-Veterans chip): colored cards only.
+        // Broader topic hits like NDAA titles without veteran impact stay off this list.
+        return Boolean(impact);
     }
 
     function itemMatchesVeteransFilter(item) {
@@ -1357,7 +1418,7 @@ const PolicyWatchHome = (() => {
         const { searchQuery, veteransImpactFilter } = options;
         const section = document.createElement('section');
         section.className = 'feed-day mb-6';
-        section.setAttribute('aria-label', `Updates for ${date}`);
+        section.setAttribute('aria-label', `Updates for ${formatDate(date)}`);
 
         const card = document.createElement('div');
         card.className = 'feed-day-card';
@@ -1449,20 +1510,23 @@ const PolicyWatchHome = (() => {
     }
 
     function formatDate(dateStr) {
-        try {
-            const date = new Date(dateStr + 'T00:00:00');
-            return date.toLocaleDateString('en-US', {
-                year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/Chicago',
-            });
-        } catch {
-            return dateStr;
-        }
+        const day = actionDay(dateStr);
+        if (!day) return 'Date unavailable';
+        const date = new Date(`${day}T00:00:00`);
+        // Invalid Date does not throw; toLocaleDateString would otherwise render "Invalid Date".
+        if (Number.isNaN(date.getTime())) return 'Date unavailable';
+        return date.toLocaleDateString('en-US', {
+            year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/Chicago',
+        });
     }
 
     async function init(options) {
         callbacks = options || {};
         initStateChips();
         initVeteransFilter();
+        if (callbacks.veteransOnly) {
+            setVeteransImpactFilter('all');
+        }
         initFilterDrawer();
         initJurisdictionsCollapse();
         loadLiveNowStrip();

@@ -1,12 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>PolicyWatch — Legislative & Policy Updates</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&display=swap" rel="stylesheet" />
+<title>Veteran Legislation — PolicyWatch</title>
 <link rel="stylesheet" href="sr-only.css" />
 <link rel="stylesheet" href="theme.css?v=ledger8" />
 <script src="theme.js"></script>
@@ -61,7 +58,7 @@ tailwind.config = {
 }
 </style>
 </head>
-<body class="cw-page-bg" data-cw-page="home">
+<body class="cw-page-bg" data-cw-page="veterans" data-veterans-only="true">
 <a href="#main-content" class="skip-link">Skip to main content</a>
 <div id="a11y-live-region" class="sr-only" aria-live="polite" aria-atomic="true" role="status"></div>
 <div id="cw-loading-overlay" class="cw-loading-overlay" hidden role="presentation">
@@ -101,9 +98,9 @@ tailwind.config = {
                         Tracked jurisdictions
                         <span id="jurisdictions-arrow" class="text-slate-400 text-sm transition-transform duration-300" aria-hidden="true">▼</span>
                     </h2>
-                    <span class="jurisdictions-toggle-label ledger-hide-toggle whitespace-nowrap">Show ▾</span>
+                    <span class="jurisdictions-toggle-label text-sm font-medium text-civic-blue whitespace-nowrap">Show jurisdictions</span>
                 </button>
-                <div id="state-snapshots" class="ledger-grid" aria-label="State overview" aria-hidden="true">
+                <div id="state-snapshots" class="grid grid-cols-2 sm:grid-cols-4 gap-3" aria-label="State overview" aria-hidden="true">
                     <!-- Populated by home.js -->
                 </div>
             </section>
@@ -116,8 +113,8 @@ tailwind.config = {
                 <!-- Topic filters -->
                 <div class="flex flex-wrap items-center gap-2 mb-4">
                     <div role="group" aria-label="Military and veterans impact filters" class="flex flex-wrap gap-2">
-                        <button type="button" id="veterans-filter-btn" class="px-4 py-2 rounded-full text-sm font-medium border-2 border-slate-200 bg-white text-slate-700 hover:border-amber-500 transition-colors whitespace-nowrap" aria-pressed="false">
-                            Military / Veterans
+                        <button type="button" id="veterans-filter-btn" class="px-4 py-2 rounded-full text-sm font-medium border-2 border-amber-500 bg-amber-500 text-white hover:border-amber-600 transition-colors whitespace-nowrap" aria-pressed="true">
+                            All veteran bills
                         </button>
                         <button type="button" id="veterans-filter-red-btn" class="px-4 py-2 rounded-full text-sm font-medium border-2 border-red-200 bg-red-50 text-red-900 hover:border-red-400 transition-colors whitespace-nowrap" aria-pressed="false" title="High impact — benefits, healthcare, housing, disability">
                             Red
@@ -130,6 +127,7 @@ tailwind.config = {
                         </button>
                     </div>
                     <a href="veterans-impact.html" class="text-xs text-civic-blue hover:underline whitespace-nowrap">About Red / Yellow / Green impact levels</a>
+                    <span class="text-xs text-slate-500">All legislation remains on <a href="index.html" class="text-civic-blue hover:underline">Home</a>.</span>
                 </div>
 
                 <!-- Search Bar -->
@@ -138,35 +136,32 @@ tailwind.config = {
                         <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                         </svg>
-                        <input type="search" id="search-input" placeholder="Search bills (3+ characters). Dates optional — empty means all years…"
-                               class="w-full pl-12 pr-4 py-3 border-2 rounded-full focus:border-civic-blue focus:ring-4 focus:ring-civic-blue/10 outline-none transition-all"
-                               style="font-family: var(--font-ui); background: var(--ink-raised); border-color: var(--ink-line); color: var(--paper);"
+                        <input type="search" id="search-input" placeholder="Search veteran-related bills (3+ characters). Dates optional…"
+                               class="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-xl focus:border-civic-blue focus:ring-4 focus:ring-civic-blue/10 outline-none transition-all"
                                aria-label="Search bills" />
                     </div>
                     <div class="mt-3 flex flex-wrap items-end gap-3">
                         <div class="min-w-[140px]">
-                            <label for="search-date-from" class="block text-xs font-semibold mb-1" style="font-family: var(--font-data); color: var(--slate); letter-spacing: 0.04em; text-transform: uppercase;">From</label>
+                            <label for="search-date-from" class="block text-xs font-semibold text-slate-500 mb-1">From</label>
                             <input type="date" id="search-date-from"
-                                   class="w-full px-3 py-2 border-2 rounded-full focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all"
-                                   style="font-family: var(--font-data); background: var(--ink-raised); border-color: var(--ink-line); color: var(--paper);"
+                                   class="w-full px-3 py-2 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all"
                                    aria-label="Search date from" />
                         </div>
                         <div class="min-w-[140px]">
-                            <label for="search-date-to" class="block text-xs font-semibold mb-1" style="font-family: var(--font-data); color: var(--slate); letter-spacing: 0.04em; text-transform: uppercase;">To</label>
+                            <label for="search-date-to" class="block text-xs font-semibold text-slate-500 mb-1">To</label>
                             <input type="date" id="search-date-to"
-                                   class="w-full px-3 py-2 border-2 rounded-full focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all"
-                                   style="font-family: var(--font-data); background: var(--ink-raised); border-color: var(--ink-line); color: var(--paper);"
+                                   class="w-full px-3 py-2 border-2 border-slate-200 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all"
                                    aria-label="Search date to" />
                         </div>
                         <div class="flex flex-wrap items-center gap-3 pb-0.5">
-                            <button id="update-search" type="button" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-civic-blue hover:bg-civic-blue-dark rounded-full transition-colors">
+                            <button id="update-search" type="button" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-civic-blue hover:bg-civic-blue-dark rounded-lg transition-colors">
                                 Update search
                             </button>
-                            <button id="filters-toggle" type="button" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full transition-colors border-2" style="border-color: var(--ink-line); background: var(--ink-raised); color: var(--paper);" aria-expanded="false" aria-controls="filters-drawer">
+                            <button id="filters-toggle" type="button" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors" aria-expanded="false" aria-controls="filters-drawer">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/></svg>
                                 Filters
                             </button>
-                            <button id="clear-search" type="button" class="text-sm transition-colors" style="color: var(--slate); font-family: var(--font-ui);">Clear all</button>
+                            <button id="clear-search" type="button" class="text-sm text-slate-500 hover:text-slate-700 transition-colors">Clear all</button>
                         </div>
                         <p id="search-date-error" class="basis-full text-sm text-red-600" hidden role="alert"></p>
                     </div>
@@ -231,6 +226,6 @@ tailwind.config = {
 <script src="bill-votes.js"></script>
 <script src="home.js"></script>
 <script src="script.js"></script>
-<script>PolicyWatchShell.init({ page: 'home' });</script>
+<script>PolicyWatchShell.init({ page: 'veterans' });</script>
 </body>
 </html>

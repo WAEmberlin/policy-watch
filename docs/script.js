@@ -1,6 +1,6 @@
 ﻿let currentYear = null;
 let currentPage = 0;  // Time-chunk index (0 = most recent period)
-let currentItemPage = 0;  // Item page within a time chunk (veterans filters only)
+let currentItemPage = 0;  // Item page (veterans filters / Veteran Legislation page)
 let allData = null;
 let homeFeedMode = false;  // true when serving slim home_feed.json (not full site_data)
 let fullSiteDataPromise = null;
@@ -14,9 +14,19 @@ let searchResults = [];
 let selectedSource = "";
 let selectedCategory = "";
 let selectedState = "";
-let veteransImpactFilter = null;
+function isVeteransOnlyPage() {
+    return typeof document !== "undefined"
+        && document.body
+        && document.body.getAttribute("data-veterans-only") === "true";
+}
+function defaultVeteransImpactFilter() {
+    return isVeteransOnlyPage() ? "all" : null;
+}
+let veteransImpactFilter = defaultVeteransImpactFilter();
 const DAYS_PER_CHUNK = 14;  // Show 2 weeks per "page" (full site_data only)
-const VETERANS_FEED_ITEM_LIMIT = 100;
+const VETERANS_PAGE_FEED_ITEM_LIMIT = 50;  // Veteran Legislation page
+const VETERANS_FEED_ITEM_LIMIT = 100;  // Homepage Military-Veterans chip (within a date window)
+const VETERANS_FEED_DAY_BATCH = 8;
 const SEARCH_MIN_CHARS = 3;
 const SEARCH_MAX_RESULTS = 200;
 
@@ -26,9 +36,12 @@ function a11yAnnounce(message) {
     }
 }
 
-function setContentBusy(isBusy) {
+function setContentBusy(isBusy, message) {
     const content = document.getElementById("content");
     if (content) content.setAttribute("aria-busy", isBusy ? "true" : "false");
+    if (typeof PolicyWatchLoading === "undefined") return;
+    if (isBusy) PolicyWatchLoading.show(message || "Loading…");
+    else PolicyWatchLoading.hide();
 }
 
 const STATE_NAMES = {
@@ -112,6 +125,19 @@ function itemMatchesVeteransFilter(item) {
 }
 
 function feedEmptyMessage(dateRange) {
+    if (isVeteransOnlyPage()) {
+        const filterLabels = {
+            all: "military or veterans-related",
+            red: "high-impact veterans-related",
+            yellow: "moderate-impact veterans-related",
+            green: "ceremonial or general veterans-related",
+        };
+        const topicLabel = filterLabels[veteransImpactFilter] || "military or veterans-related";
+        const stateLabel = selectedState
+            ? (STATE_NAMES[selectedState] || selectedState)
+            : "any state";
+        return `No ${topicLabel} activity for ${stateLabel}. Try another filter, state, or search.`;
+    }
     const rangeLabel = `${formatDate(dateRange.start)} – ${formatDate(dateRange.end)}`;
     if (veteransImpactFilter) {
         const filterLabels = {
@@ -218,7 +244,13 @@ function policywatchApiBase() {
     return String(window.POLICYWATCH_API_BASE || "").replace(/\/+$/, "");
 }
 
+function billActionDay(value) {
+    const day = String(value || "").trim().split("T")[0];
+    return isValidYYYYMMDD(day) ? day : "";
+}
+
 function mapApiBillToSearchResult(bill) {
+    const day = billActionDay(bill.latest_action_date);
     return {
         title: `${bill.bill_number || ""}: ${bill.title || ""}`.replace(/^:\s*/, ""),
         link: (typeof PolicyWatchBillUtils !== "undefined" ? PolicyWatchBillUtils.resolveBillUrl(bill) : bill.url),
@@ -226,8 +258,8 @@ function mapApiBillToSearchResult(bill) {
         source: bill.level === "federal" ? "Federal (U.S. Congress)" : `State (${STATE_NAMES[bill.state] || bill.state})`,
         state: bill.state || (bill.level === "federal" ? "" : bill.state),
         level: bill.level,
-        published: bill.latest_action_date,
-        date: bill.latest_action_date ? String(bill.latest_action_date).split("T")[0] : "",
+        published: day,
+        date: day,
         bill_number: bill.bill_number,
         latest_action: bill.latest_action,
         item_type: bill.item_type || "bill_update",
@@ -298,6 +330,8 @@ function setSearchDateError(message) {
  * Empty dates mean "no date restriction" (full archive search).
  */
 function applySearchDateDefaults({ force = false } = {}) {
+    // Veteran Legislation page: leave From/To blank (no date restriction).
+    if (isVeteransOnlyPage()) return;
     const fromEl = document.getElementById("search-date-from");
     const toEl = document.getElementById("search-date-to");
     const fromDefault = yearsAgoCentralYYYYMMDD(SEARCH_DEFAULT_LOOKBACK_YEARS);
@@ -391,7 +425,7 @@ function renderYearTabsAndShowDefault() {
         setContentBusy(false);
         document.getElementById("content").innerHTML =
             "<p class='text-slate-500 italic text-center py-8'>No data available. Run the backfill script to populate history.</p>";
-        return;
+        return Promise.resolve();
     }
 
     const currentYearNum = new Date().getFullYear();
@@ -408,12 +442,12 @@ function renderYearTabsAndShowDefault() {
         currentYear = sortedYears[0];
         currentPage = 0;
         currentItemPage = 0;
-        displayUnifiedView(currentYear, 0);
-        return;
+        return displayUnifiedView(currentYear, 0);
     }
 
     yearTabs.hidden = false;
     let defaultYearSet = false;
+    let defaultView = Promise.resolve();
     sortedYears.forEach((year) => {
         const btn = document.createElement("button");
         btn.type = "button";
@@ -436,15 +470,16 @@ function renderYearTabsAndShowDefault() {
         if (!defaultYearSet) {
             if (year === currentYearStr || sortedYears.indexOf(year) === 0) {
                 currentYear = year;
-                btn.click();
                 defaultYearSet = true;
+                defaultView = displayUnifiedView(year, 0);
             }
         }
     });
+    return defaultView;
 }
 
 async function loadData() {
-    setContentBusy(true);
+    setContentBusy(true, "Loading…");
     try {
         // Prefer slim home_feed.json so mobile Safari never parses ~100MB+ site_data on first paint.
         let loaded = false;
@@ -466,49 +501,50 @@ async function loadData() {
             if (!res.ok) throw new Error(`site_data.json HTTP ${res.status}`);
             applyLoadedSitePayload(await res.json(), { isHomeFeed: false });
         }
-    } catch (error) {
-        setContentBusy(false);
-        document.getElementById("content").innerHTML =
-            "<div class='bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg text-red-700' role='alert'>Error loading data. Please try again later.</div>";
-        a11yAnnounce("Error loading data.");
-        return;
-    }
 
-    // Update last updated timestamp (preserve ledger status dot if present)
-    const lastUpdatedEl = document.getElementById("last-updated");
-    if (lastUpdatedEl) {
-        const updatedDate = new Date(allData.last_updated);
-        const stamp = "Last updated: " +
-            updatedDate.toLocaleString("en-US", {
-                timeZone: "America/Chicago",
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-                hour: "numeric",
-                minute: "2-digit",
-                hour12: true
-            });
-        const textSpan = lastUpdatedEl.querySelector("span:not(.ledger-status-dot)");
-        if (textSpan) {
-            textSpan.textContent = stamp;
-        } else {
-            lastUpdatedEl.textContent = stamp;
+        const lastUpdatedEl = document.getElementById("last-updated");
+        if (lastUpdatedEl) {
+            const updatedDate = new Date(allData.last_updated);
+            const stamp = "Last updated: " +
+                updatedDate.toLocaleString("en-US", {
+                    timeZone: "America/Chicago",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    hour: "numeric",
+                    minute: "2-digit",
+                    hour12: true
+                });
+            const textSpan = lastUpdatedEl.querySelector("span:not(.ledger-status-dot)");
+            if (textSpan) {
+                textSpan.textContent = stamp;
+            } else {
+                lastUpdatedEl.textContent = stamp;
+            }
         }
+
+        setupFilters();
+
+        if (typeof PolicyWatchHome !== "undefined") {
+            PolicyWatchHome.fetchWeeklyCounts().then((weeklyCounts) => {
+                PolicyWatchHome.renderStateSnapshots(allData, weeklyCounts);
+            });
+            PolicyWatchHome.setSelectedState(selectedState);
+            if (veteransImpactFilter) PolicyWatchHome.setVeteransImpactFilter(veteransImpactFilter);
+        }
+        updateFilterPills();
+
+        await renderYearTabsAndShowDefault();
+    } catch (error) {
+        const content = document.getElementById("content");
+        if (content) {
+            content.innerHTML =
+                "<div class='bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg text-red-700' role='alert'>Error loading data. Please try again later.</div>";
+        }
+        a11yAnnounce("Error loading data.");
+    } finally {
+        setContentBusy(false);
     }
-
-    // Setup filters
-    setupFilters();
-
-    if (typeof PolicyWatchHome !== "undefined") {
-        PolicyWatchHome.fetchWeeklyCounts().then((weeklyCounts) => {
-            PolicyWatchHome.renderStateSnapshots(allData, weeklyCounts);
-        });
-        PolicyWatchHome.setSelectedState(selectedState);
-        if (veteransImpactFilter) PolicyWatchHome.setVeteransImpactFilter(veteransImpactFilter);
-    }
-    updateFilterPills();
-
-    renderYearTabsAndShowDefault();
 }
 
 function setupFilters() {
@@ -642,16 +678,30 @@ function setupFilters() {
     }
 }
 
+function usesVeteransItemFeed() {
+    return isVeteransOnlyPage();
+}
+
 function getFeedItemLimit() {
+    if (isVeteransOnlyPage()) return VETERANS_PAGE_FEED_ITEM_LIMIT;
     return veteransImpactFilter ? VETERANS_FEED_ITEM_LIMIT : null;
 }
 
-function paginateFeedItems(items) {
+function paginateFeedItems(items, { unknownTotal = false } = {}) {
     const limit = getFeedItemLimit();
-    if (!limit || items.length <= limit) {
-        return { items, totalItems: items.length, totalItemPages: 1, startIndex: 0 };
+    if (!limit || (items.length <= limit && !unknownTotal)) {
+        return {
+            items,
+            totalItems: items.length,
+            totalItemPages: 1,
+            startIndex: 0,
+            unknownTotal: false,
+        };
     }
-    const totalItemPages = Math.ceil(items.length / limit);
+    const knownPages = Math.max(1, Math.ceil(items.length / limit));
+    const totalItemPages = unknownTotal
+        ? Math.max(knownPages, currentItemPage + 2)
+        : knownPages;
     const effectiveItemPage = Math.min(currentItemPage, totalItemPages - 1);
     if (effectiveItemPage !== currentItemPage) currentItemPage = effectiveItemPage;
     const startIndex = effectiveItemPage * limit;
@@ -660,6 +710,75 @@ function paginateFeedItems(items) {
         totalItems: items.length,
         totalItemPages,
         startIndex,
+        unknownTotal: Boolean(unknownTotal),
+    };
+}
+
+function feedItemDay(item) {
+    return (item && (item.date || (item.published ? String(item.published).split("T")[0] : ""))) || "";
+}
+
+function dateRangeFromDates(dates) {
+    const valid = (dates || []).filter((d) => isValidYYYYMMDD(d)).sort();
+    if (!valid.length) return { start: "", end: "" };
+    return { start: valid[0], end: valid[valid.length - 1] };
+}
+
+function collectHomeFeedItemsForDates(dates) {
+    const allow = new Set((dates || []).filter(Boolean));
+    if (!allow.size) return [];
+    const dateRange = dateRangeFromDates([...allow]);
+    let allItems = [];
+    Object.values(allData.years || {}).forEach((yearData) => {
+        if (!yearData) return;
+        allItems = allItems.concat(collectGroupedItems(yearData));
+    });
+    allItems = allItems.filter((item) => allow.has(feedItemDay(item)));
+    allItems = applyFeedFilters(allItems);
+    allItems = appendMultiStateBillsForRange(allItems, dateRange);
+    allItems = allItems.filter((item) => allow.has(feedItemDay(item)));
+    const seen = new Set();
+    const unique = [];
+    allItems.forEach((item) => {
+        const key = searchResultKey(item);
+        if (seen.has(key)) return;
+        seen.add(key);
+        unique.push(item);
+    });
+    unique.sort((a, b) => (b.published || b.date || "").localeCompare(a.published || a.date || ""));
+    return unique;
+}
+
+function collectVeteransItemsFromFullSiteData() {
+    const dates = getHomeFeedAvailableDates();
+    return collectHomeFeedItemsForDates(dates);
+}
+
+/**
+ * Load older home_feed days until we have enough veteran bills for the
+ * current item page (plus one extra to know whether another page exists).
+ */
+async function loadVeteransHomeFeedItems(neededCount) {
+    const available = getHomeFeedAvailableDates();
+    const loadedDates = [];
+    let items = [];
+    let i = 0;
+    while (i < available.length && loadedHomeFeedDays.has(available[i])) {
+        loadedDates.push(available[i]);
+        i += 1;
+    }
+    if (loadedDates.length) items = collectHomeFeedItemsForDates(loadedDates);
+    while (i < available.length && items.length < neededCount) {
+        const batch = available.slice(i, i + VETERANS_FEED_DAY_BATCH);
+        await ensureHomeFeedDaysLoaded(batch);
+        loadedDates.push(...batch);
+        i += batch.length;
+        items = collectHomeFeedItemsForDates(loadedDates);
+    }
+    return {
+        items,
+        hasMoreDates: i < available.length,
+        dateRange: dateRangeFromDates(loadedDates),
     };
 }
 
@@ -984,10 +1103,15 @@ function collectHomeFeedItemsAcrossYears(dateRange) {
 
 async function displayUnifiedView(year, chunkIndex) {
     const yearData = allData.years[year];
-    if (!yearData && !homeFeedMode) return;
+    if (!yearData && !homeFeedMode) {
+        setContentBusy(false);
+        return;
+    }
 
-    setContentBusy(true);
+    setContentBusy(true, "Loading…");
     const container = document.getElementById("content");
+    try {
+    if (!container) return;
     container.innerHTML = "";
 
     // Update active year tab
@@ -1005,8 +1129,34 @@ async function displayUnifiedView(year, chunkIndex) {
     let dateRange;
     let allItems;
     let totalChunks = 1;
+    let veteransFeedUnknownTotal = false;
 
-    if (homeFeedMode) {
+    if (usesVeteransItemFeed() && homeFeedMode) {
+        totalChunks = 1;
+        effectiveChunkIndex = 0;
+        currentPage = 0;
+        const limit = getFeedItemLimit() || VETERANS_PAGE_FEED_ITEM_LIMIT;
+        const needed = (currentItemPage + 1) * limit + 1;
+        try {
+            const loaded = await loadVeteransHomeFeedItems(needed);
+            allItems = loaded.items;
+            dateRange = loaded.dateRange;
+            veteransFeedUnknownTotal = loaded.hasMoreDates;
+        } catch (err) {
+            console.error("Failed to load veteran bills feed:", err);
+            container.innerHTML =
+                "<div class='bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg text-red-700' role='alert'>Could not load veteran legislation. Please try again.</div>";
+            setContentBusy(false);
+            renderPagination(year, 0, 1, { start: "", end: "" }, { totalItemPages: 1 });
+            return;
+        }
+    } else if (usesVeteransItemFeed()) {
+        totalChunks = 1;
+        effectiveChunkIndex = 0;
+        currentPage = 0;
+        allItems = collectVeteransItemsFromFullSiteData();
+        dateRange = dateRangeFromDates(allItems.map(feedItemDay));
+    } else if (homeFeedMode) {
         totalChunks = getHomeFeedTotalPages();
         effectiveChunkIndex = Math.max(0, Math.min(chunkIndex, totalChunks - 1));
         if (effectiveChunkIndex !== currentPage) currentPage = effectiveChunkIndex;
@@ -1026,10 +1176,7 @@ async function displayUnifiedView(year, chunkIndex) {
         // Keep page scoped to the requested day(s) even if more days were previously merged.
         if (pageDates.length) {
             const allow = new Set(pageDates);
-            allItems = allItems.filter((item) => {
-                const itemDate = item.date || (item.published ? item.published.split("T")[0] : "");
-                return allow.has(itemDate);
-            });
+            allItems = allItems.filter((item) => allow.has(feedItemDay(item)));
         }
     } else {
         const grouped = yearData.grouped || {};
@@ -1051,7 +1198,7 @@ async function displayUnifiedView(year, chunkIndex) {
         }
     }
 
-    const pagination = paginateFeedItems(allItems);
+    const pagination = paginateFeedItems(allItems, { unknownTotal: veteransFeedUnknownTotal });
     const pageItems = pagination.items;
 
     // Group by date (flat list per day)
@@ -1065,7 +1212,23 @@ async function displayUnifiedView(year, chunkIndex) {
 
     const chunkDates = Object.keys(itemsByDate).sort().reverse();
 
-    if (homeFeedMode && pageItems.length > 0 && dateRange.start) {
+    if (usesVeteransItemFeed() && pageItems.length > 0) {
+        const notice = document.createElement("p");
+        notice.className = "text-sm text-slate-500 text-center mb-4";
+        notice.setAttribute("role", "status");
+        const startNum = pagination.startIndex + 1;
+        const endNum = pagination.startIndex + pageItems.length;
+        if (pagination.totalItemPages > 1 || pagination.unknownTotal) {
+            notice.textContent = pagination.unknownTotal
+                ? `Showing ${startNum}–${endNum} of the most recent veteran bills`
+                : `Showing ${startNum}–${endNum} of ${pagination.totalItems} veteran bills`;
+        } else {
+            notice.textContent = pageItems.length === 1
+                ? "Showing the most recent veteran bill"
+                : `Showing the ${pageItems.length} most recent veteran bills`;
+        }
+        container.appendChild(notice);
+    } else if (homeFeedMode && pageItems.length > 0 && dateRange.start) {
         const notice = document.createElement("p");
         notice.className = "ledger-results-status";
         notice.setAttribute("role", "status");
@@ -1089,7 +1252,7 @@ async function displayUnifiedView(year, chunkIndex) {
         }
     }
 
-    const showFallbackNote = !homeFeedMode && recentWeekHasNoActivity(year) && pageItems.length > 0;
+    const showFallbackNote = !usesVeteransItemFeed() && !homeFeedMode && recentWeekHasNoActivity(year) && pageItems.length > 0;
     if (showFallbackNote) {
         const notice = document.createElement("p");
         notice.className = "text-sm text-slate-500 text-center mb-4 italic";
@@ -1098,7 +1261,7 @@ async function displayUnifiedView(year, chunkIndex) {
         container.appendChild(notice);
     }
 
-    if (pagination.totalItemPages > 1) {
+    if (!usesVeteransItemFeed() && pagination.totalItemPages > 1) {
         const startNum = pagination.startIndex + 1;
         const endNum = pagination.startIndex + pageItems.length;
         const itemNotice = document.createElement("p");
@@ -1134,6 +1297,15 @@ async function displayUnifiedView(year, chunkIndex) {
     updateFilterPills();
 
     renderPagination(year, effectiveChunkIndex, totalChunks, dateRange, pagination);
+    } catch (err) {
+        console.error("Failed to render feed:", err);
+        if (container) {
+            container.innerHTML =
+                "<div class='bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg text-red-700' role='alert'>Could not load activity. Please try again.</div>";
+        }
+    } finally {
+        setContentBusy(false);
+    }
 }
 
 function searchResultKey(item) {
@@ -1323,7 +1495,7 @@ async function performSearch(query) {
         return;
     }
 
-    setContentBusy(true);
+    setContentBusy(true, "Searching…");
     searchMode = true;
     searchQuery = trimmed.toLowerCase();
 
@@ -1331,77 +1503,81 @@ async function performSearch(query) {
     let archiveError = null;
     let usedSearchApi = false;
 
-    if (homeFeedMode && policywatchApiBase()) {
-        displaySearchPrompt("Searching…");
-        try {
-            const apiData = await searchBillsViaApi(trimmed, selectedState, dateFrom, dateTo);
-            if (apiData) {
-                usedSearchApi = true;
-                archiveLoaded = true;
-                // Merge recent feed hits with API archive hits without replacing the
-                // lazy-loaded full archive cache (API returns only one page).
-                const savedArchive = homeSearchBills;
-                homeSearchBills = [];
-                runSearchAgainstLoadedData(searchQuery, dateFrom, dateTo);
-                homeSearchBills = savedArchive;
+    try {
+        if (homeFeedMode && policywatchApiBase()) {
+            displaySearchPrompt("Searching…", { keepBusy: true });
+            try {
+                const apiData = await searchBillsViaApi(trimmed, selectedState, dateFrom, dateTo);
+                if (apiData) {
+                    usedSearchApi = true;
+                    archiveLoaded = true;
+                    // Merge recent feed hits with API archive hits without replacing the
+                    // lazy-loaded full archive cache (API returns only one page).
+                    const savedArchive = homeSearchBills;
+                    homeSearchBills = [];
+                    runSearchAgainstLoadedData(searchQuery, dateFrom, dateTo);
+                    homeSearchBills = savedArchive;
 
-                const seen = new Set(searchResults.map((item) => searchResultKey(item)));
-                let capped = (apiData.total || 0) > (apiData.results || []).length;
-                for (const bill of apiData.results) {
-                    const item = mapApiBillToSearchResult(bill);
-                    if (!itemMatchesStateFilter(item)) continue;
-                    if (!itemMatchesVeteransFilter(item)) continue;
-                    if (!itemMatchesSearchDateRange(item, dateFrom, dateTo)) continue;
-                    if (addSearchResult(item, seen, searchResults)) {
-                        capped = true;
-                        break;
+                    const seen = new Set(searchResults.map((item) => searchResultKey(item)));
+                    let capped = (apiData.total || 0) > (apiData.results || []).length;
+                    for (const bill of apiData.results) {
+                        const item = mapApiBillToSearchResult(bill);
+                        if (!itemMatchesStateFilter(item)) continue;
+                        if (!itemMatchesVeteransFilter(item)) continue;
+                        if (!itemMatchesSearchDateRange(item, dateFrom, dateTo)) continue;
+                        if (addSearchResult(item, seen, searchResults)) {
+                            capped = true;
+                            break;
+                        }
                     }
+                    searchResults.sort((a, b) => {
+                        const dateA = a.published || a.date || "";
+                        const dateB = b.published || b.date || "";
+                        return dateB.localeCompare(dateA);
+                    });
+                    displaySearchResults({
+                        capped,
+                        homeFeedScoped: false,
+                        archiveError: false,
+                        viaApi: true,
+                        dateFrom,
+                        dateTo,
+                    });
+                    updateFilterPills();
+                    return;
                 }
-                searchResults.sort((a, b) => {
-                    const dateA = a.published || a.date || "";
-                    const dateB = b.published || b.date || "";
-                    return dateB.localeCompare(dateA);
-                });
-                displaySearchResults({
-                    capped,
-                    homeFeedScoped: false,
-                    archiveError: false,
-                    viaApi: true,
-                    dateFrom,
-                    dateTo,
-                });
-                updateFilterPills();
-                return;
+            } catch (err) {
+                console.warn("Search API unavailable, falling back to archive download:", err);
             }
-        } catch (err) {
-            console.warn("Search API unavailable, falling back to archive download:", err);
         }
-    }
 
-    if (homeFeedMode && !usedSearchApi) {
-        displaySearchPrompt("Loading bill archive for search…");
-        try {
-            await ensureHomeSearchBillsLoaded();
-            archiveLoaded = true;
-        } catch (err) {
-            console.error("Failed to load home_search_bills.json:", err);
-            archiveError = err;
-            archiveLoaded = false;
+        if (homeFeedMode && !usedSearchApi) {
+            displaySearchPrompt("Loading bill archive for search…", { keepBusy: true });
+            try {
+                await ensureHomeSearchBillsLoaded();
+                archiveLoaded = true;
+            } catch (err) {
+                console.error("Failed to load home_search_bills.json:", err);
+                archiveError = err;
+                archiveLoaded = false;
+            }
         }
-    }
 
-    const capped = runSearchAgainstLoadedData(searchQuery, dateFrom, dateTo);
-    displaySearchResults({
-        capped,
-        homeFeedScoped: homeFeedMode && !archiveLoaded,
-        archiveError: Boolean(archiveError),
-        dateFrom,
-        dateTo,
-    });
-    updateFilterPills();
+        const capped = runSearchAgainstLoadedData(searchQuery, dateFrom, dateTo);
+        displaySearchResults({
+            capped,
+            homeFeedScoped: homeFeedMode && !archiveLoaded,
+            archiveError: Boolean(archiveError),
+            dateFrom,
+            dateTo,
+        });
+        updateFilterPills();
+    } finally {
+        setContentBusy(false);
+    }
 }
 
-function displaySearchPrompt(message) {
+function displaySearchPrompt(message, options = {}) {
     const container = document.getElementById("content");
     container.innerHTML = "";
     document.querySelectorAll(".year-tab").forEach(btn => {
@@ -1411,7 +1587,11 @@ function displaySearchPrompt(message) {
     });
     document.getElementById("pagination").innerHTML = "";
     container.innerHTML = `<p class='text-slate-500 italic text-center py-8'>${escapeHtmlText(message)}</p>`;
-    setContentBusy(false);
+    if (options.keepBusy) {
+        setContentBusy(true, message);
+    } else {
+        setContentBusy(false);
+    }
 }
 
 function formatSearchDateRangeLabel(dateFrom, dateTo) {
@@ -1485,15 +1665,23 @@ function displaySearchResults(options = {}) {
     `;
     container.appendChild(resultsHeader);
 
-    // Group results by date (flat list)
+    // Group results by date (flat list). Missing/unparseable dates share one
+    // bucket and sort last so they never render as "Invalid Date".
     const itemsByDate = {};
     searchResults.forEach(item => {
-        const date = item.date || "Unknown";
+        const date = billActionDay(item.date || item.published || item.latest_action_date);
         if (!itemsByDate[date]) itemsByDate[date] = [];
         itemsByDate[date].push(item);
     });
 
-    const dates = Object.keys(itemsByDate).sort().reverse();
+    const dates = Object.keys(itemsByDate).sort((a, b) => {
+        const aOk = isValidYYYYMMDD(a);
+        const bOk = isValidYYYYMMDD(b);
+        if (aOk && !bOk) return -1;
+        if (!aOk && bOk) return 1;
+        if (aOk && bOk) return b.localeCompare(a);
+        return 0;
+    });
     dates.forEach(date => {
         const daySection = typeof PolicyWatchHome !== "undefined"
             ? PolicyWatchHome.renderFeedDay(date, itemsByDate[date], {
@@ -1524,17 +1712,17 @@ function formatShortLedgerDate(dateStr) {
 }
 
 function formatDate(dateStr) {
-    try {
-        const date = new Date(dateStr + "T00:00:00");
-        return date.toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-            timeZone: "America/Chicago"
-        });
-    } catch {
-        return dateStr;
-    }
+    const day = billActionDay(dateStr);
+    if (!day) return "Date unavailable";
+    const date = new Date(`${day}T00:00:00`);
+    // Invalid Date does not throw; toLocaleDateString would otherwise render "Invalid Date".
+    if (Number.isNaN(date.getTime())) return "Date unavailable";
+    return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        timeZone: "America/Chicago"
+    });
 }
 
 function renderPagination(year, current, total, dateRange, itemPagination) {
@@ -1542,9 +1730,12 @@ function renderPagination(year, current, total, dateRange, itemPagination) {
     container.innerHTML = "";
 
     const itemPages = itemPagination?.totalItemPages || 1;
+    const unknownTotal = Boolean(itemPagination?.unknownTotal);
+    dateRange = dateRange || { start: "", end: "" };
     // Home feed: page through older activity days on demand. Full site_data: 14-day chunks.
-    const showPeriodNav = total > 1;
-    const showItemNav = itemPages > 1;
+    // Veteran Legislation page: item pages only (50 bills), not calendar periods.
+    const showPeriodNav = total > 1 && !usesVeteransItemFeed();
+    const showItemNav = itemPages > 1 || unknownTotal;
     if (!showPeriodNav && !showItemNav) return;
 
     // Format date range for display
@@ -1581,7 +1772,9 @@ function renderPagination(year, current, total, dateRange, itemPagination) {
 
         const itemPageInfo = document.createElement("span");
         itemPageInfo.className = "px-3 py-2 text-sm text-slate-600 self-center";
-        itemPageInfo.textContent = `Results page ${currentItemPage + 1} of ${itemPages}`;
+        itemPageInfo.textContent = unknownTotal
+            ? `Results page ${currentItemPage + 1}`
+            : `Results page ${currentItemPage + 1} of ${itemPages}`;
         btnContainer.appendChild(itemPageInfo);
 
         if (currentItemPage < itemPages - 1) {
@@ -1715,7 +1908,7 @@ function setupSearch() {
             selectedState = "";
             selectedSource = "";
             selectedCategory = "";
-            veteransImpactFilter = null;
+            veteransImpactFilter = defaultVeteransImpactFilter();
             const sourceFilter = document.getElementById("source-filter");
             const categoryFilter = document.getElementById("category-filter");
             const stateFilter = document.getElementById("state-filter");
@@ -1728,7 +1921,7 @@ function setupSearch() {
             setSearchDateError("");
             if (typeof PolicyWatchHome !== "undefined") {
                 PolicyWatchHome.setSelectedState("");
-                PolicyWatchHome.setVeteransImpactFilter(null);
+                PolicyWatchHome.setVeteransImpactFilter(veteransImpactFilter);
             }
             searchMode = false;
             searchQuery = "";
@@ -1749,6 +1942,7 @@ function escapeHtmlText(text) {
 window.onload = () => {
     if (typeof PolicyWatchHome !== "undefined") {
         PolicyWatchHome.init({
+            veteransOnly: isVeteransOnlyPage(),
             onStateFilter: (state) => {
                 selectedState = state;
                 currentPage = 0;
@@ -1757,7 +1951,7 @@ window.onload = () => {
                 a11yAnnounce("State filter applied.");
             },
             onVeteransImpactFilter: (level) => {
-                veteransImpactFilter = level;
+                veteransImpactFilter = level || defaultVeteransImpactFilter();
                 currentPage = 0;
                 currentItemPage = 0;
                 refreshView();
@@ -1776,8 +1970,10 @@ window.onload = () => {
                     const stateFilter = document.getElementById("state-filter");
                     if (stateFilter) stateFilter.value = "";
                 } else if (key === "veterans") {
-                    veteransImpactFilter = null;
-                    if (typeof PolicyWatchHome !== "undefined") PolicyWatchHome.setVeteransImpactFilter(null);
+                    veteransImpactFilter = defaultVeteransImpactFilter();
+                    if (typeof PolicyWatchHome !== "undefined") {
+                        PolicyWatchHome.setVeteransImpactFilter(veteransImpactFilter);
+                    }
                 } else if (key === "source") {
                     selectedSource = "";
                     const sourceFilter = document.getElementById("source-filter");

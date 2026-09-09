@@ -7,6 +7,7 @@
 
   var NAV_ITEMS = [
     { id: 'home', label: 'Home', href: 'index.html' },
+    { id: 'veterans', label: 'Veteran Legislation', shortLabel: 'Veterans', href: 'veterans.html' },
     { id: 'hearings', label: 'Hearings', href: 'hearings.html' },
     { id: 'live', label: 'Live', href: 'livestreams.html' },
     { id: 'dashboard', label: 'Elections', href: 'dashboard.html' },
@@ -203,5 +204,131 @@
     initStateChips: initStateChips,
     NAV_ITEMS: NAV_ITEMS,
     FOOTER_TEXT: FOOTER_TEXT,
+  };
+})(window);
+
+/**
+ * Centered loading popup with spinner. Used by feed search, first paint, and
+ * other data fetches. Safe to call show() repeatedly to update the label.
+ *
+ * Fast loads (< SHOW_DELAY_MS) never flash the overlay. Once shown, keep it
+ * up for MIN_VISIBLE_MS so a just-over-threshold fetch does not blink.
+ */
+(function (global) {
+  'use strict';
+
+  var SHOW_DELAY_MS = 500;
+  var MIN_VISIBLE_MS = 300;
+  var overlay = null;
+  var labelEl = null;
+  var dialogEl = null;
+  var showTimer = null;
+  var hideTimer = null;
+  var wantVisible = false;
+  var visibleSince = 0;
+  var pendingMessage = 'Loading…';
+
+  function overlayMarkup() {
+    return (
+      '<div class="cw-loading-dialog" role="status" aria-live="polite" aria-busy="true">' +
+        '<div class="cw-loading-spinner" aria-hidden="true"></div>' +
+        '<p class="cw-loading-label">Loading…</p>' +
+      '</div>'
+    );
+  }
+
+  function ensure() {
+    overlay = document.getElementById('cw-loading-overlay');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.id = 'cw-loading-overlay';
+      overlay.className = 'cw-loading-overlay';
+      overlay.setAttribute('role', 'presentation');
+      overlay.setAttribute('hidden', '');
+      overlay.innerHTML = overlayMarkup();
+      document.body.appendChild(overlay);
+    }
+    overlay.classList.remove('is-visible');
+    dialogEl = overlay.querySelector('.cw-loading-dialog');
+    labelEl = overlay.querySelector('.cw-loading-label');
+    return overlay;
+  }
+
+  function isOpen() {
+    return Boolean(
+      overlay
+      && overlay.classList.contains('cw-loading-overlay--open')
+      && !overlay.hasAttribute('hidden')
+    );
+  }
+
+  function applyMessage() {
+    if (labelEl) labelEl.textContent = pendingMessage;
+    if (dialogEl) dialogEl.setAttribute('aria-busy', 'true');
+  }
+
+  function reveal() {
+    showTimer = null;
+    if (!wantVisible) return;
+    ensure();
+    applyMessage();
+    overlay.classList.add('cw-loading-overlay--open');
+    overlay.removeAttribute('hidden');
+    document.documentElement.classList.add('cw-is-loading');
+    visibleSince = Date.now();
+  }
+
+  function conceal() {
+    hideTimer = null;
+    if (wantVisible) return;
+    if (!overlay) {
+      document.documentElement.classList.remove('cw-is-loading');
+      return;
+    }
+    overlay.classList.remove('cw-loading-overlay--open');
+    overlay.classList.remove('is-visible');
+    overlay.setAttribute('hidden', '');
+    if (dialogEl) dialogEl.setAttribute('aria-busy', 'false');
+    document.documentElement.classList.remove('cw-is-loading');
+    visibleSince = 0;
+  }
+
+  function show(message) {
+    pendingMessage = message || 'Loading…';
+    wantVisible = true;
+    if (hideTimer) {
+      global.clearTimeout(hideTimer);
+      hideTimer = null;
+    }
+    ensure();
+    applyMessage();
+    if (isOpen()) return;
+    if (showTimer) return;
+    showTimer = global.setTimeout(reveal, SHOW_DELAY_MS);
+  }
+
+  function hide() {
+    wantVisible = false;
+    if (showTimer) {
+      global.clearTimeout(showTimer);
+      showTimer = null;
+    }
+    ensure();
+    if (!isOpen()) {
+      conceal();
+      return;
+    }
+    var remaining = MIN_VISIBLE_MS - (Date.now() - visibleSince);
+    if (remaining > 0) {
+      hideTimer = global.setTimeout(conceal, remaining);
+      return;
+    }
+    conceal();
+  }
+
+  global.PolicyWatchLoading = {
+    show: show,
+    hide: hide,
+    SHOW_DELAY_MS: SHOW_DELAY_MS,
   };
 })(window);

@@ -1,6 +1,7 @@
 """Tests for slim homepage feed generation."""
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -306,6 +307,58 @@ def test_r2_upload_list_includes_home_feed_and_day_glob():
     assert "home_search_bills.json" in DOCS_UPLOAD_FILES
     assert "home_feed_days/*.json" in DOCS_UPLOAD_GLOBS
     assert "search_shards/*.json" in DOCS_UPLOAD_GLOBS
+
+
+def test_veteran_legislation_page_is_in_nav_and_veterans_only():
+    root = Path(__file__).resolve().parents[1]
+    html = (root / "docs" / "veterans.html").read_text(encoding="utf-8")
+    shell = (root / "docs" / "shell.js").read_text(encoding="utf-8")
+    assert 'data-veterans-only="true"' in html
+    assert 'data-cw-page="veterans"' in html
+    assert "veterans.html" in shell
+    assert "Veteran Legislation" in shell
+    assert "index.html" in html  # homepage still linked for full bill list
+    assert ">Veteran Legislation</p>" not in html
+
+
+def test_veterans_page_blank_dates_and_fifty_item_pages():
+    root = Path(__file__).resolve().parents[1]
+    html = (root / "docs" / "veterans.html").read_text(encoding="utf-8")
+    script = (root / "docs" / "script.js").read_text(encoding="utf-8")
+    from_input = re.search(r'<input type="date" id="search-date-from"[^>]*>', html)
+    to_input = re.search(r'<input type="date" id="search-date-to"[^>]*>', html)
+    assert from_input, "missing From date input"
+    assert to_input, "missing To date input"
+    assert "value=" not in from_input.group(0)
+    assert "value=" not in to_input.group(0)
+    assert "VETERANS_PAGE_FEED_ITEM_LIMIT = 50" in script
+    assert "if (isVeteransOnlyPage()) return;" in script
+    assert "loadVeteransHomeFeedItems" in script
+    assert "usesVeteransItemFeed" in script
+
+
+def test_loading_overlay_is_wired_for_search_and_first_paint():
+    root = Path(__file__).resolve().parents[1]
+    theme = (root / "docs" / "theme.css").read_text(encoding="utf-8")
+    shell = (root / "docs" / "shell.js").read_text(encoding="utf-8")
+    script = (root / "docs" / "script.js").read_text(encoding="utf-8")
+    home = (root / "docs" / "index.html").read_text(encoding="utf-8")
+    veterans = (root / "docs" / "veterans.html").read_text(encoding="utf-8")
+    assert ".cw-loading-overlay" in theme
+    assert ".cw-loading-overlay--open" in theme
+    assert ".cw-loading-overlay[hidden]" in theme
+    assert "@keyframes cw-spin" in theme
+    assert "PolicyWatchLoading" in shell
+    assert "SHOW_DELAY_MS = 500" in shell
+    assert "MIN_VISIBLE_MS = 300" in shell
+    assert "setAttribute('hidden'" in shell
+    assert "keepBusy" in script
+    assert 'setContentBusy(true, "Searching…")' in script
+    for html in (home, veterans):
+        assert 'id="cw-loading-overlay"' in html
+        assert "cw-loading-spinner" in html
+        assert 'class="cw-loading-overlay" hidden' in html
+        assert "cw-loading-overlay--open" not in html
 
 
 def test_write_home_feed_artifacts_writes_search_bills(tmp_path):

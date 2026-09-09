@@ -44,6 +44,15 @@ jobs:
           EMAIL_RECIPIENTS_AZ: ${{ secrets.EMAIL_RECIPIENTS_AZ }}
           EMAIL_RECIPIENTS_UT: ${{ secrets.EMAIL_RECIPIENTS_UT }}
           EMAIL_RECIPIENTS_ME: ${{ secrets.EMAIL_RECIPIENTS_ME }}
+          EMAIL_RECIPIENTS_NE: ${{ secrets.EMAIL_RECIPIENTS_NE }}
+          EMAIL_RECIPIENTS_MD: ${{ secrets.EMAIL_RECIPIENTS_MD }}
+          EMAIL_RECIPIENTS_PA: ${{ secrets.EMAIL_RECIPIENTS_PA }}
+          EMAIL_RECIPIENTS_MA: ${{ secrets.EMAIL_RECIPIENTS_MA }}
+          EMAIL_RECIPIENTS_WV: ${{ secrets.EMAIL_RECIPIENTS_WV }}
+          EMAIL_RECIPIENTS_TN: ${{ secrets.EMAIL_RECIPIENTS_TN }}
+          EMAIL_RECIPIENTS_NC: ${{ secrets.EMAIL_RECIPIENTS_NC }}
+          EMAIL_RECIPIENTS_MO: ${{ secrets.EMAIL_RECIPIENTS_MO }}
+          EMAIL_RECIPIENTS_IA: ${{ secrets.EMAIL_RECIPIENTS_IA }}
           EMAIL_RECIPIENTS_FEDERAL: ${{ secrets.EMAIL_RECIPIENTS_FEDERAL }}
           EMAIL_RECIPIENTS_ALL: ${{ secrets.EMAIL_RECIPIENTS_ALL }}
         run: |
