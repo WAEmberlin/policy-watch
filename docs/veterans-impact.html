@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>About - PolicyWatch</title>
-<link rel="stylesheet" href="theme.css?v=ledger23" />
+<link rel="stylesheet" href="theme.css?v=ledger26" />
 <link rel="stylesheet" href="sr-only.css" />
 <script src="theme.js?v=dark1"></script>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -42,13 +42,14 @@ tailwind.config = {
 <main id="cw-main-content">
     <div class="cw-card shadow-xl">
         <header class="cw-header cw-card-header">
-            <div class="flex flex-wrap items-center justify-between gap-4">
-                <div class="ledger-brand flex-1 min-w-0">
-                    <img src="policywatch-logo.png" alt="PolicyWatch" class="ledger-mark" width="113" height="78" />
-                    <h1 class="ledger-wordmark sr-only">PolicyWatch</h1>
+            <div class="ledger-header-bar">
+                <img src="policywatch-logo.png" alt="PolicyWatch" class="ledger-mark" width="113" height="78" />
+                <h1 class="ledger-wordmark sr-only">PolicyWatch</h1>
+                <div class="ledger-brand-copy">
+                    <p class="ledger-tagline">Legislative Activity Tracker</p>
                     <div class="ledger-timestamp">About PolicyWatch</div>
                 </div>
-                <div data-cw-theme-toggle></div>
+                <div class="ledger-theme-slot" data-cw-theme-toggle></div>
             </div>
         </header>
 
@@ -69,7 +70,7 @@ tailwind.config = {
                 </p>
                 <p class="text-slate-600 leading-relaxed mt-3">
                     PolicyWatch also highlights military- and veteran-related bills with a simple
-                    <strong>Red</strong>, <strong>Yellow</strong>, and <strong>Green</strong> impact system so you can
+                    <strong>High</strong>, <strong>Medium</strong>, and <strong>Low</strong> impact system so you can
                     quickly tell which measures may materially affect benefits and services versus ceremonial or general
                     mentions. That classification guide is explained in the sections below.
                 </p>
@@ -105,7 +106,7 @@ tailwind.config = {
                 <h2 class="text-2xl font-bold text-civic-navy mb-3">How PolicyWatch classifies veteran-related bills</h2>
                 <p class="text-slate-600 leading-relaxed">
                     PolicyWatch tags legislation that affects veterans, service members, or military families with a
-                    <strong>Red</strong>, <strong>Yellow</strong>, or <strong>Green</strong> impact level. Colored cards
+                    <strong>High</strong>, <strong>Medium</strong>, or <strong>Low</strong> impact level. Colored cards
                     on the homepage make it easier to spot bills that may materially change benefits, services, or rights
                     versus ceremonial or general military mentions.
                 </p>
@@ -118,7 +119,7 @@ tailwind.config = {
             <section class="grid gap-4 md:grid-cols-3">
                 <article class="veteran-impact-card veteran-impact-card--red rounded-xl border p-5">
                     <div class="flex items-center gap-2 mb-3">
-                        <span class="veteran-impact-badge inline-block px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide border bg-red-100 text-red-900 border-red-200">Red</span>
+                        <span class="veteran-impact-badge inline-block px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide border bg-red-100 text-red-900 border-red-200">High Impact</span>
                         <h3 class="veteran-impact-title text-lg font-bold">High impact</h3>
                     </div>
                     <p class="veteran-impact-summary text-sm leading-relaxed mb-3">
@@ -137,7 +138,7 @@ tailwind.config = {
 
                 <article class="veteran-impact-card veteran-impact-card--yellow rounded-xl border p-5">
                     <div class="flex items-center gap-2 mb-3">
-                        <span class="veteran-impact-badge inline-block px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide border bg-amber-100 text-amber-900 border-amber-200">Yellow</span>
+                        <span class="veteran-impact-badge inline-block px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide border bg-amber-100 text-amber-900 border-amber-200">Medium Impact</span>
                         <h3 class="veteran-impact-title text-lg font-bold">Moderate impact</h3>
                     </div>
                     <p class="veteran-impact-summary text-sm leading-relaxed mb-3">
@@ -157,7 +158,7 @@ tailwind.config = {
 
                 <article class="veteran-impact-card veteran-impact-card--green rounded-xl border p-5">
                     <div class="flex items-center gap-2 mb-3">
-                        <span class="veteran-impact-badge inline-block px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide border bg-green-100 text-green-900 border-green-200">Green</span>
+                        <span class="veteran-impact-badge inline-block px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide border bg-green-100 text-green-900 border-green-200">Low Impact</span>
                         <h3 class="veteran-impact-title text-lg font-bold">Ceremonial / general</h3>
                     </div>
                     <p class="veteran-impact-summary text-sm leading-relaxed mb-3">
@@ -191,16 +192,16 @@ tailwind.config = {
                         <dd class="text-slate-600 mt-1">Shows every veteran- or military-related item, regardless of impact color.</dd>
                     </div>
                     <div>
-                        <dt class="font-semibold text-red-900">Red</dt>
-                        <dd class="text-slate-600 mt-1">Only high-impact bills with a Red classification.</dd>
+                        <dt class="font-semibold text-red-900">High Impact</dt>
+                        <dd class="text-slate-600 mt-1">Only high-impact bills (red cards).</dd>
                     </div>
                     <div>
-                        <dt class="font-semibold text-amber-900">Yellow</dt>
-                        <dd class="text-slate-600 mt-1">Only moderate-impact bills with a Yellow classification.</dd>
+                        <dt class="font-semibold text-amber-900">Medium Impact</dt>
+                        <dd class="text-slate-600 mt-1">Only medium-impact bills (yellow cards).</dd>
                     </div>
                     <div>
-                        <dt class="font-semibold text-green-900">Green</dt>
-                        <dd class="text-slate-600 mt-1">Only ceremonial or general military bills with a Green classification.</dd>
+                        <dt class="font-semibold text-green-900">Low Impact</dt>
+                        <dd class="text-slate-600 mt-1">Only low-impact bills (green cards).</dd>
                     </div>
                 </dl>
                 <p class="mt-4">

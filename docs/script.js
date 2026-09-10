@@ -154,8 +154,8 @@ function feedEmptyMessage(dateRange) {
         const filterLabels = {
             all: "military or veterans-related",
             red: "high-impact veterans-related",
-            yellow: "moderate-impact veterans-related",
-            green: "ceremonial or general veterans-related",
+            yellow: "medium-impact veterans-related",
+            green: "low-impact veterans-related",
         };
         const topicLabel = filterLabels[veteransImpactFilter] || "military or veterans-related";
         const stateLabel = selectedState
@@ -168,8 +168,8 @@ function feedEmptyMessage(dateRange) {
         const filterLabels = {
             all: "military or veterans-related",
             red: "high-impact veterans-related",
-            yellow: "moderate-impact veterans-related",
-            green: "ceremonial or general veterans-related",
+            yellow: "medium-impact veterans-related",
+            green: "low-impact veterans-related",
         };
         const topicLabel = filterLabels[veteransImpactFilter] || "military or veterans-related";
         const stateLabel = selectedState

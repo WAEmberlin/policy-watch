@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Legislators - PolicyWatch</title>
-<link rel="stylesheet" href="theme.css?v=ledger23" />
+<link rel="stylesheet" href="theme.css?v=ledger26" />
 <link rel="stylesheet" href="sr-only.css" />
 <script src="theme.js?v=dark1"></script>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -42,13 +42,14 @@ tailwind.config = {
 <main id="cw-main-content">
     <div class="cw-card shadow-xl">
         <header class="cw-header cw-card-header">
-            <div class="flex flex-wrap items-center justify-between gap-4">
-                <div class="ledger-brand flex-1 min-w-0">
-                    <img src="policywatch-logo.png" alt="PolicyWatch" class="ledger-mark" width="113" height="78" />
-                    <h1 class="ledger-wordmark sr-only">PolicyWatch</h1>
+            <div class="ledger-header-bar">
+                <img src="policywatch-logo.png" alt="PolicyWatch" class="ledger-mark" width="113" height="78" />
+                <h1 class="ledger-wordmark sr-only">PolicyWatch</h1>
+                <div class="ledger-brand-copy">
+                    <p class="ledger-tagline">Legislative Activity Tracker</p>
                     <div class="ledger-timestamp">Legislators - All States</div>
                 </div>
-                <div data-cw-theme-toggle></div>
+                <div class="ledger-theme-slot" data-cw-theme-toggle></div>
             </div>
         </header>
         <div class="cw-card-body p-6 md:p-8">
