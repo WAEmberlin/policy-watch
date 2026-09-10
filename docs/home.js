@@ -135,9 +135,9 @@ const PolicyWatchHome = (() => {
 
     const VETERANS_IMPACT_FILTER_LABELS = {
         all: 'Military / Veterans',
-        red: 'Red — High impact',
-        yellow: 'Yellow — Moderate impact',
-        green: 'Green — Ceremonial / general',
+        red: 'High Impact',
+        yellow: 'Medium Impact',
+        green: 'Low Impact',
     };
 
     let callbacks = {};
@@ -1006,9 +1006,9 @@ const PolicyWatchHome = (() => {
     }
 
     function veteranImpactLabel(level) {
-        if (level === 'red') return 'High impact';
-        if (level === 'yellow') return 'Moderate impact';
-        if (level === 'green') return 'Ceremonial / general';
+        if (level === 'red') return 'High Impact';
+        if (level === 'yellow') return 'Medium Impact';
+        if (level === 'green') return 'Low Impact';
         return '';
     }
 
@@ -1179,7 +1179,7 @@ const PolicyWatchHome = (() => {
         if (impact) {
             const impactBadge = document.createElement('span');
             impactBadge.className = `veteran-impact-badge inline-block px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide border ${VETERAN_IMPACT_BADGE[impact.level] || 'bg-slate-100 text-slate-700 border-slate-200'}`;
-            impactBadge.textContent = impact.level;
+            impactBadge.textContent = veteranImpactLabel(impact.level) || impact.level;
             impactBadge.title = veteranImpactLabel(impact.level);
             header.appendChild(impactBadge);
         }

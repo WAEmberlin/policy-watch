@@ -373,7 +373,7 @@ mark {
 
 .cw-theme-segmented {
   display: inline-flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0;
   padding: 2px;
   border: var(--cw-border-width) solid var(--cw-theme-segment-border);
@@ -813,11 +813,8 @@ mark {
 /* Unified site nav — shell.js injects #site-nav (works with and without Tailwind) */
 #site-nav {
   display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
+  flex-wrap: wrap;
+  overflow-x: visible;
   border-bottom: 1px solid var(--cw-border);
   background: color-mix(in srgb, var(--cw-surface-muted) 85%, transparent);
 }
@@ -839,10 +836,10 @@ mark {
 #site-nav .site-nav-link__short {
   display: none;
 }
-@media (max-width: 480px) {
+@media (max-width: 839px) {
   #site-nav .site-nav-link {
-    padding: 0.65rem 0.7rem;
-    font-size: 0.8125rem;
+    padding: 0.5rem 0.55rem;
+    font-size: 0.75rem;
   }
   #site-nav .site-nav-link__long {
     display: none;
@@ -852,6 +849,13 @@ mark {
   }
   #site-nav .site-nav-link:not(:has(.site-nav-link__short)) .site-nav-link__long {
     display: inline;
+  }
+}
+@media (max-width: 479px) {
+  #site-nav .site-nav-link {
+    flex: 1 1 21%;
+    padding: 0.45rem 0.3rem;
+    font-size: 0.7rem;
   }
 }
 #site-nav .site-nav-link:hover {
@@ -920,6 +924,66 @@ mark {
 }
 
 /* ── Legislative ledger components ─────────────────────────────── */
+
+.ledger-header-bar {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas: "logo copy toggle";
+  align-items: center;
+  column-gap: 0.85rem;
+  row-gap: 0.35rem;
+}
+.ledger-header-bar .ledger-mark {
+  grid-area: logo;
+}
+.ledger-header-bar > .ledger-wordmark.sr-only {
+  position: fixed;
+  left: -10000px;
+}
+.ledger-brand-copy {
+  grid-area: copy;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+  min-width: 0;
+}
+.ledger-tagline {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  color: var(--paper);
+}
+.ledger-header-bar .ledger-timestamp {
+  justify-self: start;
+  text-align: left;
+  flex: none;
+}
+.ledger-theme-slot {
+  grid-area: toggle;
+  justify-self: end;
+  align-self: start;
+}
+@media (max-width: 479px) {
+  .ledger-header-bar {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "logo toggle"
+      "copy copy";
+    align-items: start;
+    column-gap: 0.65rem;
+  }
+  .ledger-tagline {
+    font-size: 0.95rem;
+  }
+  .cw-theme-segmented__option {
+    padding: 0.3rem 0.4rem;
+    font-size: 0.7rem;
+  }
+}
 
 .ledger-brand {
   display: flex;
