@@ -1539,12 +1539,6 @@ button.ledger-card__title {
   background: color-mix(in srgb, currentColor 8%, transparent);
 }
 
-/* Feed controls sticky */
-#feed-controls.is-sticky {
-  background: var(--ink-raised);
-  border-bottom: var(--cw-border-width) solid var(--ink-line);
-}
-
 /* Shared page typography / controls (all pages) */
 .cw-card.shadow-xl,
 .cw-card.shadow-sm,

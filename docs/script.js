@@ -2208,13 +2208,6 @@ window.onload = () => {
         });
     }
 
-    const feedControls = document.getElementById("feed-controls");
-    if (feedControls) {
-        window.addEventListener("scroll", () => {
-            feedControls.classList.toggle("is-sticky", window.scrollY > 400);
-        }, { passive: true });
-    }
-
     loadData();
     setupSearch();
 };
