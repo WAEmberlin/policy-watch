@@ -34,6 +34,7 @@ _STATE_PROFILE_DOMAINS = {
     "NC": ("ncleg.gov",),
     "MO": ("house.mo.gov", "senate.mo.gov", "mo.gov"),
     "IA": ("legis.iowa.gov",),
+    "GA": ("legis.ga.gov",),
     "FEDERAL": ("congress.gov", "house.gov", "senate.gov"),
 }
 

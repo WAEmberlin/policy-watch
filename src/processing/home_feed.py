@@ -27,6 +27,7 @@ from typing import Any, Dict, Iterable, List, Optional, Sequence, Set, Tuple
 from processing.bill_action_utils import classify_action_type
 
 HOME_FEED_MAX_DAYS = 2
+HOME_FEED_WEEKLY_DAYS = 7
 # Search-index-only days (no grouped history) are browsable only within this lookback.
 # Full grouped history remains available; avoids thousands of sparse day files from bill corpora.
 HOME_FEED_SEARCH_LOOKBACK_DAYS = 120
@@ -62,6 +63,7 @@ _STATE_NAMES = {
     "NC": "North Carolina",
     "MO": "Missouri",
     "IA": "Iowa",
+    "GA": "Georgia",
 }
 
 _BILL_COUNT_KEYS = (
@@ -80,6 +82,7 @@ _BILL_COUNT_KEYS = (
     "NC",
     "MO",
     "IA",
+    "GA",
 )
 
 _BILL_NUM_RE = re.compile(r"^([A-Za-z]+)\s*(\d+[A-Za-z]?)$")
@@ -193,6 +196,60 @@ def compute_bill_counts(search_index: Dict[str, Any]) -> Dict[str, int]:
         st = str(bill.get("state") or "").upper()
         if st in counts:
             counts[st] += 1
+    return counts
+
+
+def _weekly_count_key(item: Dict[str, Any], source: str = "") -> str:
+    if (item.get("level") or "") == "federal":
+        return "Federal"
+    state = str(item.get("state") or "").upper()
+    if state in _BILL_COUNT_KEYS:
+        return state
+    src = f"{source} {item.get('source') or ''}".lower()
+    if any(token in src for token in ("congress", "federal", "u.s.")):
+        return "Federal"
+    for code, name in _STATE_NAMES.items():
+        if name.lower() in src:
+            return code
+    return ""
+
+
+def compute_weekly_counts(
+    search_index: Optional[Dict[str, Any]] = None,
+    site_years: Optional[Dict[str, Any]] = None,
+    *,
+    today: Optional[str] = None,
+    days: int = HOME_FEED_WEEKLY_DAYS,
+) -> Dict[str, int]:
+    """Count bill updates in the last `days` calendar days (inclusive of today)."""
+    as_of = _today_central(today)
+    window = max(1, int(days))
+    start = (_parse_iso_date(as_of) - timedelta(days=window - 1)).isoformat()
+    counts = {key: 0 for key in _BILL_COUNT_KEYS}
+
+    bills = (search_index or {}).get("bills") or []
+    if bills:
+        for bill in bills:
+            date = _date_prefix(bill.get("latest_action_date") or "")
+            if not date or date < start or date > as_of:
+                continue
+            key = _weekly_count_key(bill)
+            if key:
+                counts[key] += 1
+        return counts
+
+    for year_data in (site_years or {}).values():
+        grouped = (year_data or {}).get("grouped") or {}
+        for date_str, sources in grouped.items():
+            if not date_str or date_str < start or date_str > as_of:
+                continue
+            for source, items in (sources or {}).items():
+                for item in items or []:
+                    if not isinstance(item, dict):
+                        continue
+                    key = _weekly_count_key(item, source)
+                    if key:
+                        counts[key] += 1
     return counts
 
 
@@ -440,6 +497,9 @@ def build_home_feed(
 
     sources, categories = _collect_sources_and_categories(slim_years)
     bill_counts = compute_bill_counts(search_index)
+    weekly_counts = compute_weekly_counts(
+        search_index, site_years, today=as_of
+    )
 
     return {
         "last_updated": last_updated,
@@ -459,6 +519,7 @@ def build_home_feed(
         # Full activity calendar for older-day pagination (filenames under home_feed_days/).
         "available_dates": available_dates,
         "bill_counts": bill_counts,
+        "weekly_counts": weekly_counts,
         "states": states or [],
         "sources": sources,
         "categories": categories,

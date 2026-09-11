@@ -100,6 +100,7 @@ const PolicyWatchExpansion = (() => {
         NE: 'Nebraska', MD: 'Maryland', PA: 'Pennsylvania', MA: 'Massachusetts',
         WV: 'West Virginia', TN: 'Tennessee', NC: 'North Carolina', MO: 'Missouri',
         IA: 'Iowa',
+        GA: 'Georgia',
     };
 
     /**

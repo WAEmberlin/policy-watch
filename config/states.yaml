@@ -131,6 +131,15 @@ states:
     enrichment: openstates_detail
     enabled: true
 
+  - code: ga
+    name: Georgia
+    level: state
+    sources:
+      - openstates
+    openstates_jurisdiction: ocd-jurisdiction/country:us/state:ga/government
+    enrichment: openstates_detail
+    enabled: true
+
 federal:
   sources:
     - congress
@@ -160,8 +169,8 @@ kansas_api:
 enrichment:
   # Kansas: official REST API (RSS stays primary ingest)
   kansas_api: ks
-  # CO/AZ/UT/ME/NE/MD/PA/MA/WV/TN/NC/MO/IA: Open States detail re-fetch for sponsors/votes
-  openstates_detail: [co, az, ut, me, ne, md, pa, ma, wv, tn, nc, mo, ia]
+  # CO/AZ/UT/ME/NE/MD/PA/MA/WV/TN/NC/MO/IA/GA: Open States detail re-fetch for sponsors/votes
+  openstates_detail: [co, az, ut, me, ne, md, pa, ma, wv, tn, nc, mo, ia, ga]
 
 topic_dashboards:
   - id: veterans

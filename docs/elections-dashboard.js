@@ -209,6 +209,20 @@ const PolicyWatchElections = (() => {
                 { date: '2026-11-03', label: 'General Election' },
             ],
         },
+        {
+            id: 'ga',
+            name: 'Georgia',
+            badgeClass: 'bg-red-100 text-red-800',
+            calendarUrl: 'https://sos.ga.gov/page/elections',
+            calendarLabel: 'Election information (Georgia SOS)',
+            resultsUrl: 'https://sos.ga.gov/page/current-and-past-election-results',
+            resultsLabel: 'Georgia election results',
+            dates: [
+                { date: '2026-05-19', label: 'Primary Election' },
+                { date: '2026-06-16', label: 'Primary runoff (if needed)' },
+                { date: '2026-11-03', label: 'General Election' },
+            ],
+        },
     ];
 
     function parseLocalDate(dateStr) {

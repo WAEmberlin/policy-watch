@@ -21,6 +21,7 @@ SOURCE_STATE_HINTS = {
     "north carolina": "NC",
     "missouri": "MO",
     "iowa": "IA",
+    "georgia": "GA",
 }
 
 _STREAM_NOTE_HINTS = ("stream", "video", "live", "watch", "broadcast", "webcast")

@@ -40,6 +40,7 @@ Mirror: [https://waemberlin.github.io/policy-watch/](https://waemberlin.github.i
 | NC | North Carolina |
 | MO | Missouri |
 | IA | Iowa |
+| GA | Georgia |
 
 Configured in [`config/states.yaml`](config/states.yaml).
 

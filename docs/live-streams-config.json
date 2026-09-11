@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-10T10:03:03.259567+00:00",
+  "generated_at": "2026-09-11T01:31:16.839171+00:00",
   "state_floor_stream": {
     "KS": "kansas-house-floor",
     "CO": "colorado-floor",
@@ -15,6 +15,7 @@
     "NC": "nc-senate-floor",
     "MO": "mo-senate-floor",
     "IA": "ia-senate-floor",
+    "GA": "ga-house-floor",
     "Federal": "us-house-floor"
   },
   "streams": [
@@ -628,6 +629,45 @@
       "youtubeUrl": "https://www.legis.iowa.gov/dashboard?view=video",
       "youtubeChannelId": "",
       "externalUrl": "https://www.legis.iowa.gov/dashboard?view=video"
+    },
+    {
+      "id": "ga-senate-floor",
+      "title": "Georgia Senate Floor",
+      "state": "GA",
+      "jurisdiction": "georgia",
+      "type": "floor",
+      "targetId": "ga-senate-floor",
+      "tabPane": "pane-georgia",
+      "embedUrl": "",
+      "youtubeUrl": "https://www.legis.ga.gov/video/all",
+      "youtubeChannelId": "",
+      "externalUrl": "https://www.legis.ga.gov/video/all"
+    },
+    {
+      "id": "ga-house-floor",
+      "title": "Georgia House Floor",
+      "state": "GA",
+      "jurisdiction": "georgia",
+      "type": "floor",
+      "targetId": "ga-house-floor",
+      "tabPane": "pane-georgia",
+      "embedUrl": "https://www.youtube.com/embed/live_stream?channel=UCv17R5VZDLw8m4QRWUjeP_g",
+      "youtubeUrl": "https://www.youtube.com/@georgiahouseofreps/streams",
+      "youtubeChannelId": "UCv17R5VZDLw8m4QRWUjeP_g",
+      "externalUrl": "https://www.legis.ga.gov/video/all"
+    },
+    {
+      "id": "ga-committees",
+      "title": "Georgia General Assembly Committees",
+      "state": "GA",
+      "jurisdiction": "georgia",
+      "type": "committee",
+      "targetId": "ga-committees",
+      "tabPane": "pane-georgia",
+      "embedUrl": "https://www.youtube.com/embed/live_stream?channel=UCv17R5VZDLw8m4QRWUjeP_g",
+      "youtubeUrl": "https://www.youtube.com/@georgiahouseofreps",
+      "youtubeChannelId": "UCv17R5VZDLw8m4QRWUjeP_g",
+      "externalUrl": "https://www.legis.ga.gov/schedule"
     },
     {
       "id": "us-house-floor",

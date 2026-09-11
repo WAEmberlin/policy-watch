@@ -29,11 +29,11 @@ def test_states_config_loads():
     assert "ut" in codes
     assert "me" in codes
     assert "pa" in codes
-    for code in ("ma", "wv", "tn", "nc", "mo", "ia"):
+    for code in ("ma", "wv", "tn", "nc", "mo", "ia", "ga"):
         assert code in codes
     detail = config.get("enrichment", {}).get("openstates_detail", [])
     assert "pa" in detail
-    for code in ("ma", "wv", "tn", "nc", "mo", "ia"):
+    for code in ("ma", "wv", "tn", "nc", "mo", "ia", "ga"):
         assert code in detail
 
 

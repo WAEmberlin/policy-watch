@@ -15,6 +15,7 @@ from processing.home_feed import (  # noqa: E402
     build_home_feed,
     collect_all_feed_dates,
     compute_bill_counts,
+    compute_weekly_counts,
     select_recent_feed_dates,
     write_home_feed_artifacts,
 )
@@ -298,6 +299,44 @@ def test_compute_bill_counts():
     assert counts["KS"] == 1
     assert counts["CO"] == 1
     assert "ZZ" not in counts
+
+
+def test_compute_weekly_counts_uses_last_seven_days():
+    counts = compute_weekly_counts(
+        {
+            "bills": [
+                {"level": "federal", "latest_action_date": "2026-09-10"},
+                {"level": "federal", "latest_action_date": "2026-09-04"},
+                {"level": "federal", "latest_action_date": "2026-08-01"},
+                {"state": "GA", "level": "state", "latest_action_date": "2026-09-08T12:00:00"},
+                {"state": "KS", "level": "state", "latest_action_date": "2026-09-03"},
+            ]
+        },
+        today="2026-09-10",
+    )
+    assert counts["Federal"] == 2
+    assert counts["GA"] == 1
+    assert counts["KS"] == 0
+
+
+def test_build_home_feed_includes_weekly_counts():
+    site_years = _year(
+        {"2026-09-09": {"Congress.gov API": [{"title": "A", "level": "federal"}]}}
+    )
+    feed = build_home_feed(
+        last_updated="2026-09-10T12:00:00",
+        site_years=site_years,
+        search_index={
+            "bills": [
+                {"level": "federal", "latest_action_date": "2026-09-09"},
+                {"state": "MA", "level": "state", "latest_action_date": "2026-09-09"},
+            ]
+        },
+        today="2026-09-10",
+    )
+    assert feed["weekly_counts"]["Federal"] == 1
+    assert feed["weekly_counts"]["MA"] == 1
+    assert feed["weekly_counts"]["GA"] == 0
 
 
 def test_r2_upload_list_includes_home_feed_and_day_glob():
