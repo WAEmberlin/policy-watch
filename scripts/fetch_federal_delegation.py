@@ -102,6 +102,32 @@ def normalize_delegation(raw_legislators: List[dict], states: Iterable[str]) -> 
     return delegation
 
 
+def _load_existing_delegation(path: Path) -> List[dict]:
+    if not path.exists():
+        return []
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return []
+    return data if isinstance(data, list) else []
+
+
+def merge_delegation(existing: List[dict], incoming: List[dict], states: Iterable[str]) -> List[dict]:
+    """Replace requested states in the combined file; keep everyone else."""
+    requested = {state.upper() for state in states}
+    kept = [member for member in existing if (member.get("state") or "").upper() not in requested]
+    merged = kept + list(incoming)
+    merged.sort(
+        key=lambda item: (
+            item.get("state") or "",
+            item.get("chamber") or "",
+            item.get("district") or "0",
+            item.get("name") or "",
+        )
+    )
+    return merged
+
+
 def write_outputs(delegation: List[dict], states: Iterable[str]) -> None:
     output_dirs = [
         ROOT / "data" / "federal",
@@ -110,11 +136,11 @@ def write_outputs(delegation: List[dict], states: Iterable[str]) -> None:
     for federal_dir in output_dirs:
         federal_dir.mkdir(parents=True, exist_ok=True)
 
-    payload = json.dumps(delegation, indent=2, ensure_ascii=False)
     for federal_dir in output_dirs:
         combined_path = federal_dir / "delegation.json"
-        combined_path.write_text(payload, encoding="utf-8")
-        print(f"Wrote {combined_path} ({len(delegation)} members)")
+        merged = merge_delegation(_load_existing_delegation(combined_path), delegation, states)
+        combined_path.write_text(json.dumps(merged, indent=2, ensure_ascii=False), encoding="utf-8")
+        print(f"Wrote {combined_path} ({len(merged)} members)")
 
     by_state: Dict[str, List[dict]] = {}
     for member in delegation:
