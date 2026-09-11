@@ -1,0 +1,28 @@
+{
+  "state": "GA",
+  "source": "bulk_import",
+  "fetched_at": "2026-09-11T01:19:38.983745+00:00",
+  "last_successful_fetch_at": "2026-09-11T01:19:38.983763+00:00",
+  "updated_since": null,
+  "import_mode": "full",
+  "backfill_complete": true,
+  "bulk_files": [
+    "GA_2023_24_json_4NW20gAERsOyg1dNDfjwKr/GA/2023_24/GA_2023_24_bills.json",
+    "GA_2023_ss_json_3XDczPGIabDN1oLcVqfwE7/GA/2023_ss/GA_2023_ss_bills.json",
+    "GA_2025_26_json_2zzX6MkiJ6EJoOKbWXrnCq/GA/2025_26/GA_2025_26_bills.json",
+    "GA_2026_ss_json_2FzY9wbjxCHCy7O8XPzuI2/GA/2026_ss/GA_2026_ss_bills.json"
+  ],
+  "bill_files": [
+    "bills_2023_24.json",
+    "bills_2023_ss.json",
+    "bills_2025_26.json",
+    "bills_2026_ss.json"
+  ],
+  "counts": {
+    "bills": 10446,
+    "events": 0,
+    "committees": 0,
+    "legislators": 235,
+    "votes": 5157
+  }
+}

@@ -201,6 +201,17 @@
         us_senate: { file: 'ia-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
       },
     },
+    GA: {
+      name: 'Georgia',
+      center: [32.7, -83.4],
+      zoom: 7,
+      chambers: {
+        house: { file: 'ga-sld-lower.geojson', chamber: 'house', label: 'Georgia House', note: '180 districts' },
+        senate: { file: 'ga-sld-upper.geojson', chamber: 'senate', label: 'Georgia Senate', note: '56 districts' },
+        us_house: { file: 'ga-cd119.geojson', chamber: 'us_house', label: 'U.S. House', note: '14 districts' },
+        us_senate: { file: 'ga-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
+      },
+    },
   };
 
   function normalizeChamber(chamber) {

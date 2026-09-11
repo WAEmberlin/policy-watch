@@ -62,6 +62,7 @@ _STATE_NAMES = {
     "NC": "North Carolina",
     "MO": "Missouri",
     "IA": "Iowa",
+    "GA": "Georgia",
 }
 
 _BILL_COUNT_KEYS = (
@@ -80,6 +81,7 @@ _BILL_COUNT_KEYS = (
     "NC",
     "MO",
     "IA",
+    "GA",
 )
 
 _BILL_NUM_RE = re.compile(r"^([A-Za-z]+)\s*(\d+[A-Za-z]?)$")

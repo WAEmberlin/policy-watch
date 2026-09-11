@@ -21,12 +21,13 @@ const PolicyWatchHome = (() => {
         { value: 'NC', label: 'NC' },
         { value: 'MO', label: 'MO' },
         { value: 'IA', label: 'IA' },
+        { value: 'GA', label: 'GA' },
     ];
 
     const STATE_NAMES = {
         KS: 'Kansas', CO: 'Colorado', AZ: 'Arizona', UT: 'Utah', ME: 'Maine', NE: 'Nebraska',
         MD: 'Maryland', PA: 'Pennsylvania', MA: 'Massachusetts', WV: 'West Virginia',
-        TN: 'Tennessee', NC: 'North Carolina', MO: 'Missouri', IA: 'Iowa', Federal: 'U.S. Congress',
+        TN: 'Tennessee', NC: 'North Carolina', MO: 'Missouri', IA: 'Iowa', GA: 'Georgia', Federal: 'U.S. Congress',
     };
 
     const JURISDICTIONS_STORAGE_KEY = 'policywatch.jurisdictionsExpanded';
@@ -173,6 +174,7 @@ const PolicyWatchHome = (() => {
         if (src.includes('north carolina')) return 'NC';
         if (src.includes('missouri')) return 'MO';
         if (src.includes('iowa')) return 'IA';
+        if (src.includes('georgia')) return 'GA';
         return '';
     }
 
@@ -193,6 +195,7 @@ const PolicyWatchHome = (() => {
             NC: 'bg-fuchsia-100 text-fuchsia-800',
             MO: 'bg-yellow-100 text-yellow-800',
             IA: 'bg-stone-100 text-stone-800',
+            GA: 'bg-red-100 text-red-800',
         };
         return map[state] || 'bg-slate-100 text-slate-700';
     }
@@ -364,7 +367,7 @@ const PolicyWatchHome = (() => {
     function countBillsByState(siteData) {
         const counts = {
             Federal: 0, KS: 0, CO: 0, AZ: 0, UT: 0, ME: 0, NE: 0, MD: 0, PA: 0,
-            MA: 0, WV: 0, TN: 0, NC: 0, MO: 0, IA: 0,
+            MA: 0, WV: 0, TN: 0, NC: 0, MO: 0, IA: 0, GA: 0,
         };
         // Prefer precomputed counts from home_feed.json (avoids shipping search_index).
         const precomputed = siteData && siteData.bill_counts;
@@ -551,6 +554,7 @@ const PolicyWatchHome = (() => {
             NC: weeklyCounts.nc || 0,
             MO: weeklyCounts.mo || 0,
             IA: weeklyCounts.ia || 0,
+            GA: weeklyCounts.ga || 0,
         };
 
         const cards = [
@@ -569,6 +573,7 @@ const PolicyWatchHome = (() => {
             { value: 'NC', label: 'North Carolina', sub: 'General Assembly' },
             { value: 'MO', label: 'Missouri', sub: 'General Assembly' },
             { value: 'IA', label: 'Iowa', sub: 'General Assembly' },
+            { value: 'GA', label: 'Georgia', sub: 'General Assembly' },
         ];
 
         row.innerHTML = '';
@@ -1513,7 +1518,7 @@ const PolicyWatchHome = (() => {
         });
 
         const stateKeys = Object.keys(byState).sort((a, b) => {
-            const order = ['Federal', 'KS', 'CO', 'AZ', 'UT', 'ME', 'NE', 'MD', 'PA', 'MA', 'WV', 'TN', 'NC', 'MO', 'IA', 'Other'];
+            const order = ['Federal', 'KS', 'CO', 'AZ', 'UT', 'ME', 'NE', 'MD', 'PA', 'MA', 'WV', 'TN', 'NC', 'MO', 'IA', 'GA', 'Other'];
             return order.indexOf(a) - order.indexOf(b);
         });
 

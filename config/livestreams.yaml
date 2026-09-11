@@ -498,6 +498,39 @@ streams:
     external_url: https://www.legis.iowa.gov/dashboard?view=video
     youtube_url: https://www.legis.iowa.gov/dashboard?view=video
 
+  # ——— Georgia ———
+  - id: ga-senate-floor
+    title: Georgia Senate Floor
+    state: GA
+    jurisdiction: georgia
+    type: floor
+    target_id: ga-senate-floor
+    tab_pane: pane-georgia
+    external_url: https://www.legis.ga.gov/video/all
+    youtube_url: https://www.legis.ga.gov/video/all
+
+  - id: ga-house-floor
+    title: Georgia House Floor
+    state: GA
+    jurisdiction: georgia
+    type: floor
+    target_id: ga-house-floor
+    tab_pane: pane-georgia
+    youtube_channel_id: UCv17R5VZDLw8m4QRWUjeP_g
+    youtube_url: https://www.youtube.com/@georgiahouseofreps/streams
+    external_url: https://www.legis.ga.gov/video/all
+
+  - id: ga-committees
+    title: Georgia General Assembly Committees
+    state: GA
+    jurisdiction: georgia
+    type: committee
+    target_id: ga-committees
+    tab_pane: pane-georgia
+    youtube_channel_id: UCv17R5VZDLw8m4QRWUjeP_g
+    youtube_url: https://www.youtube.com/@georgiahouseofreps
+    external_url: https://www.legis.ga.gov/schedule
+
   # ——— U.S. House ———
   - id: us-house-floor
     title: US House Floor
@@ -610,4 +643,5 @@ state_floor_stream:
   NC: nc-senate-floor
   MO: mo-senate-floor
   IA: ia-senate-floor
+  GA: ga-house-floor
   Federal: us-house-floor

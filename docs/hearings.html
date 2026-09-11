@@ -89,6 +89,7 @@ tailwind.config = {
                             <option value="NC">North Carolina</option>
                             <option value="MO">Missouri</option>
                             <option value="IA">Iowa</option>
+                            <option value="GA">Georgia</option>
                         </select>
                     </div>
                     <div class="flex items-center gap-2">
@@ -152,6 +153,7 @@ tailwind.config = {
                             <option value="NC">North Carolina</option>
                             <option value="MO">Missouri</option>
                             <option value="IA">Iowa</option>
+                            <option value="GA">Georgia</option>
                         </select>
                     </div>
                     <div class="flex items-center gap-2">
@@ -255,7 +257,7 @@ function getYearFromDate(dateStr) {
 const STATE_LABELS = {
     KS: "Kansas", CO: "Colorado", AZ: "Arizona", UT: "Utah", ME: "Maine", NE: "Nebraska",
     MD: "Maryland", PA: "Pennsylvania", MA: "Massachusetts", WV: "West Virginia",
-    TN: "Tennessee", NC: "North Carolina", MO: "Missouri", IA: "Iowa", Federal: "Federal",
+    TN: "Tennessee", NC: "North Carolina", MO: "Missouri", IA: "Iowa", GA: "Georgia", Federal: "Federal",
 };
 const STATE_BADGE_COLORS = {
     KS: "bg-emerald-500",
@@ -272,6 +274,7 @@ const STATE_BADGE_COLORS = {
     NC: "bg-fuchsia-600",
     MO: "bg-yellow-600",
     IA: "bg-stone-500",
+    GA: "bg-red-600",
     Federal: "bg-civic-blue",
 };
 
@@ -294,6 +297,7 @@ function inferHearingState(hearing) {
     if (source.includes("north carolina")) return "NC";
     if (source.includes("missouri")) return "MO";
     if (source.includes("iowa")) return "IA";
+    if (source.includes("georgia")) return "GA";
     return "";
 }
 

@@ -31,6 +31,7 @@ STATE_HEARING_LABELS = {
     "NC": "State (North Carolina)",
     "MO": "State (Missouri)",
     "IA": "State (Iowa)",
+    "GA": "State (Georgia)",
 }
 
 

@@ -22,7 +22,7 @@ from typing import Dict, Iterable, List
 
 ROOT = Path(__file__).resolve().parents[1]
 
-TARGET_STATES = ["KS", "CO", "AZ", "UT", "ME", "NE", "MD", "PA", "MA", "WV", "TN", "NC", "MO", "IA"]
+TARGET_STATES = ["KS", "CO", "AZ", "UT", "ME", "NE", "MD", "PA", "MA", "WV", "TN", "NC", "MO", "IA", "GA"]
 
 LEGISLATORS_URL = (
     "https://raw.githubusercontent.com/unitedstates/congress-legislators/"

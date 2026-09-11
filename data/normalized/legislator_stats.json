@@ -56,6 +56,29 @@
       "average_age": 53.8,
       "race_available": false
     },
+    "GA": {
+      "total": 235,
+      "party": {
+        "Democratic": 103,
+        "Republican": 132
+      },
+      "gender": {
+        "Female": 78,
+        "Male": 157
+      },
+      "chamber": {
+        "Senate": 55,
+        "House": 180
+      },
+      "age_buckets": {
+        "under_40": 14,
+        "40_59": 80,
+        "60_plus": 91,
+        "unknown": 50
+      },
+      "average_age": 58.7,
+      "race_available": false
+    },
     "IA": {
       "total": 149,
       "party": {
