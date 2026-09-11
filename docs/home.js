@@ -606,11 +606,11 @@ const PolicyWatchHome = (() => {
                 : '';
 
             el.innerHTML = `
-                ${delta}
                 <div class="ledger-jurisdiction__kind">${card.sub}</div>
                 <div class="ledger-jurisdiction__name">${card.label}</div>
                 <div class="ledger-jurisdiction__count">${billCounts[card.value].toLocaleString()}</div>
                 <div class="ledger-jurisdiction__meta">tracked bills</div>
+                ${delta}
             `;
 
             el.addEventListener('click', () => {
