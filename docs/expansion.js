@@ -122,7 +122,9 @@ const PolicyWatchExpansion = (() => {
             if (!code || code === 'FEDERAL' || byCode.has(code)) return;
             byCode.set(code, { code: code.toLowerCase(), name: STATE_NAMES[code] || code });
         });
-        return Array.from(byCode.values());
+        return Array.from(byCode.values()).sort((a, b) =>
+            String(a.name || '').localeCompare(String(b.name || ''), 'en', { sensitivity: 'base' })
+        );
     }
 
     function populateStateFilter(selectId, states) {

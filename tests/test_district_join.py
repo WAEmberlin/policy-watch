@@ -119,6 +119,7 @@ def test_geojson_join_coverage_report():
         ("ks", "sld-lower", "KS", "house"),
         ("ks", "sld-upper", "KS", "senate"),
         ("ks", "cd119", "KS", "us_house"),
+        ("ga", "cd119", "GA", "us_house"),
     ]
 
     for prefix, suffix, state, chamber in layers:

@@ -672,7 +672,11 @@
     }
 
     if (stateSelect) {
-      Object.keys(STATE_CONFIG).forEach(function (code) {
+      Object.keys(STATE_CONFIG)
+        .sort(function (a, b) {
+          return STATE_CONFIG[a].name.localeCompare(STATE_CONFIG[b].name, 'en', { sensitivity: 'base' });
+        })
+        .forEach(function (code) {
         var option = document.createElement('option');
         option.value = code;
         option.textContent = STATE_CONFIG[code].name;
@@ -694,7 +698,7 @@
     setStatus('Loading map data…');
     Promise.all([
       loadLegislatorsDirectory(),
-      loadJson('data/federal/delegation.json').catch(function () {
+      loadJson('data/federal/delegation.json?v=ga1').catch(function () {
         return [];
       }),
     ])
