@@ -2,8 +2,11 @@
 """
 Fetch legislative district boundaries from U.S. Census TIGER/Line.
 
-Layers (Legislative MapServer):
-  0 — Congressional districts (119th Congress, CD119)
+Legislative MapServer layer ids change when Census publishes a new Congress.
+As of 2026 the current (119th) congressional districts are layer 4 (CD119).
+Layer 0 is the 120th Congress (CD120) and cannot be queried with CD119.
+
+  4 — Congressional districts (119th Congress, CD119)
   1 — State legislative districts upper (SLDU)
   2 — State legislative districts lower (SLDL)
 
@@ -45,7 +48,7 @@ STATES: Dict[str, Dict[str, str]] = {
 LAYERS: Dict[str, Dict[str, object]] = {
     "cd119": {
         "server": "legislative",
-        "layer_id": 0,
+        "layer_id": 4,  # 119th Congressional Districts; layer 0 is now CD120
         "district_field": "CD119",
         "out_suffix": "cd119",
     },
@@ -97,7 +100,12 @@ def _build_query_url(layer_key: str, state_fips: str) -> str:
 def _fetch_geojson(url: str) -> dict:
     req = urllib.request.Request(url, headers={"User-Agent": "policy-watch/1.0"})
     with urllib.request.urlopen(req, timeout=120) as resp:
-        return json.loads(resp.read())
+        data = json.loads(resp.read())
+    if isinstance(data, dict) and data.get("error"):
+        err = data["error"]
+        message = err.get("message") if isinstance(err, dict) else str(err)
+        raise RuntimeError(f"Census query failed: {message}")
+    return data
 
 
 def _simplify_feature_collection(data: dict, district_field: str | None) -> dict:
