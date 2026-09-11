@@ -555,7 +555,10 @@ async function loadData() {
 
         if (typeof PolicyWatchHome !== "undefined") {
             PolicyWatchHome.fetchWeeklyCounts().then((weeklyCounts) => {
-                PolicyWatchHome.renderStateSnapshots(allData, weeklyCounts);
+                const counts = (allData && allData.weekly_counts && Object.keys(allData.weekly_counts).length)
+                    ? allData.weekly_counts
+                    : weeklyCounts;
+                PolicyWatchHome.renderStateSnapshots(allData, counts);
             });
             PolicyWatchHome.setSelectedState(selectedState);
             if (veteransImpactFilter) PolicyWatchHome.setVeteransImpactFilter(veteransImpactFilter);

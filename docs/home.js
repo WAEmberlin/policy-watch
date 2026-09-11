@@ -389,6 +389,21 @@ const PolicyWatchHome = (() => {
         return counts;
     }
 
+    function weeklyCountFor(weeklyCounts, cardValue) {
+        if (!weeklyCounts || typeof weeklyCounts !== 'object') return 0;
+        if (weeklyCounts[cardValue] != null) return Number(weeklyCounts[cardValue]) || 0;
+        const lower = cardValue === 'Federal' ? 'federal' : String(cardValue).toLowerCase();
+        return Number(weeklyCounts[lower]) || 0;
+    }
+
+    function resolveWeeklyCounts(siteData, fetchedCounts) {
+        const fromFeed = siteData && siteData.weekly_counts;
+        if (fromFeed && typeof fromFeed === 'object' && Object.keys(fromFeed).length) {
+            return fromFeed;
+        }
+        return fetchedCounts || {};
+    }
+
     async function fetchWeeklyCounts() {
         try {
             const res = await policywatchFetch('weekly/latest.json');
@@ -526,7 +541,7 @@ const PolicyWatchHome = (() => {
             const expanding = section.classList.contains('collapsed');
             setJurisdictionsExpanded(expanding, { persist: true });
             if (typeof a11yAnnounce === 'function') {
-                a11yAnnounce(expanding ? 'Tracked jurisdictions expanded.' : 'Tracked jurisdictions collapsed.');
+                a11yAnnounce(expanding ? 'Tracked Jurisdictions expanded.' : 'Tracked Jurisdictions collapsed.');
             }
         });
     }
@@ -539,22 +554,22 @@ const PolicyWatchHome = (() => {
 
         const billCounts = countBillsByState(siteData);
         const weekMap = {
-            Federal: weeklyCounts.federal || 0,
-            KS: weeklyCounts.ks || 0,
-            CO: weeklyCounts.co || 0,
-            AZ: weeklyCounts.az || 0,
-            UT: weeklyCounts.ut || 0,
-            ME: weeklyCounts.me || 0,
-            NE: weeklyCounts.ne || 0,
-            MD: weeklyCounts.md || 0,
-            PA: weeklyCounts.pa || 0,
-            MA: weeklyCounts.ma || 0,
-            WV: weeklyCounts.wv || 0,
-            TN: weeklyCounts.tn || 0,
-            NC: weeklyCounts.nc || 0,
-            MO: weeklyCounts.mo || 0,
-            IA: weeklyCounts.ia || 0,
-            GA: weeklyCounts.ga || 0,
+            Federal: weeklyCountFor(weeklyCounts, 'Federal'),
+            KS: weeklyCountFor(weeklyCounts, 'KS'),
+            CO: weeklyCountFor(weeklyCounts, 'CO'),
+            AZ: weeklyCountFor(weeklyCounts, 'AZ'),
+            UT: weeklyCountFor(weeklyCounts, 'UT'),
+            ME: weeklyCountFor(weeklyCounts, 'ME'),
+            NE: weeklyCountFor(weeklyCounts, 'NE'),
+            MD: weeklyCountFor(weeklyCounts, 'MD'),
+            PA: weeklyCountFor(weeklyCounts, 'PA'),
+            MA: weeklyCountFor(weeklyCounts, 'MA'),
+            WV: weeklyCountFor(weeklyCounts, 'WV'),
+            TN: weeklyCountFor(weeklyCounts, 'TN'),
+            NC: weeklyCountFor(weeklyCounts, 'NC'),
+            MO: weeklyCountFor(weeklyCounts, 'MO'),
+            IA: weeklyCountFor(weeklyCounts, 'IA'),
+            GA: weeklyCountFor(weeklyCounts, 'GA'),
         };
 
         const cards = [
@@ -587,7 +602,7 @@ const PolicyWatchHome = (() => {
 
             const weekCount = weekMap[card.value];
             const delta = weekCount > 0
-                ? `<span class="ledger-jurisdiction__delta" title="+${weekCount} this week">▲ ${weekCount} wk</span>`
+                ? `<span class="ledger-jurisdiction__delta" title="+${weekCount} bill updates in the last 7 days">▲ ${weekCount} wk</span>`
                 : '';
 
             el.innerHTML = `
@@ -1604,9 +1619,9 @@ const PolicyWatchHome = (() => {
         initJurisdictionsCollapse();
         loadLiveNowStrip();
 
-        const weeklyCounts = await fetchWeeklyCounts();
+        const fetchedCounts = await fetchWeeklyCounts();
         if (options?.siteData) {
-            renderStateSnapshots(options.siteData, weeklyCounts);
+            renderStateSnapshots(options.siteData, resolveWeeklyCounts(options.siteData, fetchedCounts));
         }
     }
 
