@@ -436,6 +436,10 @@ mark {
 }
 
 /* Homepage tracked-jurisdictions collapse (state snapshot grid) */
+#jurisdictions-section {
+  container-type: inline-size;
+  container-name: jurisdictions;
+}
 #jurisdictions-section .jurisdictions-header {
   border-bottom: 1px solid transparent;
   color: var(--cw-text);
@@ -1051,7 +1055,8 @@ h1.ledger-wordmark {
   outline: 1px solid var(--ink-line);
 }
 
-/* Jurisdiction ledger grid — 4-column mockup */
+/* Jurisdiction ledger grid — 2 / 3 / 4 columns by section width.
+   3-col is a short middle band; 4-col starts once cards would look sparse. */
 #state-snapshots.ledger-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1061,7 +1066,22 @@ h1.ledger-wordmark {
   overflow: hidden;
   background: var(--ink-raised);
 }
-@media (min-width: 768px) {
+@media (min-width: 560px) {
+  #state-snapshots.ledger-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 720px) {
+  #state-snapshots.ledger-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@container jurisdictions (min-width: 30rem) {
+  #state-snapshots.ledger-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@container jurisdictions (min-width: 38rem) {
   #state-snapshots.ledger-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -1070,8 +1090,9 @@ h1.ledger-wordmark {
   position: relative;
   display: block;
   width: 100%;
-  text-align: left;
-  padding: 1.1rem 1.15rem 1.2rem;
+  min-width: 0;
+  text-align: center;
+  padding: 1.1rem 0.75rem 1.2rem;
   border: 0;
   border-right: var(--cw-border-width) solid var(--ink-line);
   border-bottom: var(--cw-border-width) solid var(--ink-line);
@@ -1097,6 +1118,10 @@ h1.ledger-wordmark {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--slate);
+  width: 100%;
+  max-width: 100%;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 .ledger-jurisdiction__name {
   font-family: var(--font-display);
@@ -1105,6 +1130,9 @@ h1.ledger-wordmark {
   margin-top: 0.2rem;
   color: var(--paper);
   line-height: 1.2;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .ledger-jurisdiction__count {
   font-family: var(--font-ui);
@@ -1122,13 +1150,14 @@ h1.ledger-wordmark {
   margin-top: 0.2rem;
 }
 .ledger-jurisdiction__delta {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+  display: block;
+  margin-top: 0.45rem;
+  white-space: nowrap;
   font-family: var(--font-data);
   font-size: 0.7rem;
   font-weight: 500;
   color: var(--green);
+  line-height: 1.35;
 }
 .ledger-hide-toggle {
   font-family: var(--font-data);
