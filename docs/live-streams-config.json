@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T09:48:05.499727+00:00",
+  "generated_at": "2026-09-12T00:58:11.160945+00:00",
   "state_floor_stream": {
     "KS": "kansas-house-floor",
     "CO": "colorado-floor",
@@ -16,6 +16,7 @@
     "MO": "mo-senate-floor",
     "IA": "ia-senate-floor",
     "GA": "ga-house-floor",
+    "KY": "ky-house-floor",
     "Federal": "us-house-floor"
   },
   "streams": [
@@ -668,6 +669,45 @@
       "youtubeUrl": "https://www.youtube.com/@georgiahouseofreps",
       "youtubeChannelId": "UCv17R5VZDLw8m4QRWUjeP_g",
       "externalUrl": "https://www.legis.ga.gov/schedule"
+    },
+    {
+      "id": "ky-senate-floor",
+      "title": "Kentucky Senate Floor",
+      "state": "KY",
+      "jurisdiction": "kentucky",
+      "type": "floor",
+      "targetId": "ky-senate-floor",
+      "tabPane": "pane-kentucky",
+      "embedUrl": "",
+      "youtubeUrl": "https://www.ket.org/legislature",
+      "youtubeChannelId": "",
+      "externalUrl": "https://www.ket.org/legislature"
+    },
+    {
+      "id": "ky-house-floor",
+      "title": "Kentucky House Floor",
+      "state": "KY",
+      "jurisdiction": "kentucky",
+      "type": "floor",
+      "targetId": "ky-house-floor",
+      "tabPane": "pane-kentucky",
+      "embedUrl": "",
+      "youtubeUrl": "https://www.ket.org/legislature",
+      "youtubeChannelId": "",
+      "externalUrl": "https://www.ket.org/legislature"
+    },
+    {
+      "id": "ky-committees",
+      "title": "Kentucky General Assembly Committees",
+      "state": "KY",
+      "jurisdiction": "kentucky",
+      "type": "committee",
+      "targetId": "ky-committees",
+      "tabPane": "pane-kentucky",
+      "embedUrl": "https://www.youtube.com/embed/live_stream?channel=UCmnoJBrwFmd7JK0HA9KcPaw",
+      "youtubeUrl": "https://www.youtube.com/@KYLRCCommitteeMeetings",
+      "youtubeChannelId": "UCmnoJBrwFmd7JK0HA9KcPaw",
+      "externalUrl": "https://legislature.ky.gov/Legislative-Calendar"
     },
     {
       "id": "us-house-floor",

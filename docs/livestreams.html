@@ -135,6 +135,9 @@
             <button class="nav-link" id="tab-georgia" data-bs-toggle="tab" data-bs-target="#pane-georgia" type="button" role="tab">Georgia</button>
           </li>
           <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-kentucky" data-bs-toggle="tab" data-bs-target="#pane-kentucky" type="button" role="tab">Kentucky</button>
+          </li>
+          <li class="nav-item" role="presentation">
             <button class="nav-link" id="tab-house" data-bs-toggle="tab" data-bs-target="#pane-house" type="button" role="tab">US House</button>
           </li>
           <li class="nav-item" role="presentation">
@@ -931,6 +934,64 @@
                     <a href="https://www.youtube.com/@georgiahouseofreps" target="_blank" rel="noopener noreferrer" class="btn btn-danger btn-sm">Watch on YouTube – Georgia House</a>
                     <a href="https://www.legis.ga.gov/schedule" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">Georgia Legislature Schedule</a>
                     <a href="https://www.legis.ga.gov/video/all" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">Georgia Legislature Video</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---------- Kentucky ---------- -->
+          <div class="tab-pane fade" id="pane-kentucky" role="tabpanel">
+            <ul class="nav nav-tabs mb-3" id="kentuckySubTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#kentucky-senate-pane" type="button" role="tab">Senate Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#kentucky-house-pane" type="button" role="tab">House Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#kentucky-committees-pane" type="button" role="tab">Committees</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="kentuckySubTabContent">
+              <div class="tab-pane fade show active" id="kentucky-senate-pane" role="tabpanel">
+                <div id="ky-senate-floor">
+                  <h2 class="h5 fw-bold mb-2">Kentucky Senate Floor</h2>
+                  <p class="text-body-secondary mb-2">Kentucky Senate floor proceedings stream on KET when the chamber is in session.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://www.ket.org/legislature" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Watch on KET Legislature</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="ky-senate-floor" aria-label="Play Kentucky Senate floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light stream-embed-wrap">
+                    <div class="ratio ratio-16x9">
+                      <iframe loading="lazy" title="Kentucky Senate Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="kentucky-house-pane" role="tabpanel">
+                <div id="ky-house-floor">
+                  <h2 class="h5 fw-bold mb-2">Kentucky House Floor</h2>
+                  <p class="text-body-secondary mb-2">Kentucky House floor proceedings stream on KET when the chamber is in session.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://www.ket.org/legislature" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Watch on KET Legislature</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="ky-house-floor" aria-label="Play Kentucky House floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light stream-embed-wrap">
+                    <div class="ratio ratio-16x9">
+                      <iframe loading="lazy" title="Kentucky House Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="kentucky-committees-pane" role="tabpanel">
+                <div id="ky-committees">
+                  <h2 class="h5 fw-bold mb-2">Kentucky Committee Hearings</h2>
+                  <p class="text-body-secondary mb-2">Committee meetings often appear on the Legislative Research Commission YouTube channel. KET also carries many committee streams.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://www.youtube.com/@KYLRCCommitteeMeetings" target="_blank" rel="noopener noreferrer" class="btn btn-danger btn-sm">Watch on YouTube – KY LRC</a>
+                    <a href="https://www.ket.org/legislature" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">KET Legislature</a>
+                    <a href="https://legislature.ky.gov/Legislative-Calendar" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">Kentucky Legislative Calendar</a>
                   </div>
                 </div>
               </div>

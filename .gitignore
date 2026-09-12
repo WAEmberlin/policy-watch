@@ -25,6 +25,8 @@ data/iowa/*
 !data/iowa/README.md
 data/georgia/*
 !data/georgia/README.md
+data/kentucky/*
+!data/kentucky/README.md
 
 # Large generated artifacts live on Cloudflare R2 (not git)
 docs/site_data.json

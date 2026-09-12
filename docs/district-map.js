@@ -212,6 +212,17 @@
         us_senate: { file: 'ga-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
       },
     },
+    KY: {
+      name: 'Kentucky',
+      center: [37.8, -84.9],
+      zoom: 7,
+      chambers: {
+        house: { file: 'ky-sld-lower.geojson', chamber: 'house', label: 'Kentucky House', note: '100 districts' },
+        senate: { file: 'ky-sld-upper.geojson', chamber: 'senate', label: 'Kentucky Senate', note: '38 districts' },
+        us_house: { file: 'ky-cd119.geojson', chamber: 'us_house', label: 'U.S. House', note: '6 districts' },
+        us_senate: { file: 'ky-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
+      },
+    },
   };
 
   function normalizeChamber(chamber) {
@@ -698,7 +709,7 @@
     setStatus('Loading map data…');
     Promise.all([
       loadLegislatorsDirectory(),
-      loadJson('data/federal/delegation.json?v=ga1').catch(function () {
+      loadJson('data/federal/delegation.json?v=ky1').catch(function () {
         return [];
       }),
     ])

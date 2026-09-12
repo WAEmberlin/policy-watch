@@ -50,7 +50,7 @@ function setContentBusy(isBusy, message) {
 const STATE_NAMES = {
     KS: "Kansas", CO: "Colorado", AZ: "Arizona", UT: "Utah", ME: "Maine", NE: "Nebraska",
     MD: "Maryland", PA: "Pennsylvania", MA: "Massachusetts", WV: "West Virginia",
-    TN: "Tennessee", NC: "North Carolina", MO: "Missouri", IA: "Iowa", GA: "Georgia", Federal: "U.S. Congress",
+    TN: "Tennessee", NC: "North Carolina", MO: "Missouri", IA: "Iowa", GA: "Georgia", KY: "Kentucky", Federal: "U.S. Congress",
 };
 
 function inferItemState(item) {
@@ -74,6 +74,7 @@ function inferItemState(item) {
     if (src.includes("missouri")) return "MO";
     if (src.includes("iowa")) return "IA";
     if (src.includes("georgia")) return "GA";
+    if (src.includes("kentucky")) return "KY";
     return "";
 }
 

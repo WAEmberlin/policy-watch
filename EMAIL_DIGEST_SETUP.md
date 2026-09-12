@@ -29,6 +29,7 @@ When a digest includes veteran-related bills, a **Veteran Legislation** section 
 | `mo` | Missouri PolicyWatch — … | Missouri first, then federal |
 | `ia` | Iowa PolicyWatch — … | Iowa first, then federal |
 | `ga` | Georgia PolicyWatch — … | Georgia first, then federal |
+| `ky` | Kentucky PolicyWatch — … | Kentucky first, then federal |
 | `federal` | Federal PolicyWatch — … | U.S. Congress only |
 | `all` | PolicyWatch — All States — … | All states (alphabetical), then federal at bottom |
 
@@ -76,13 +77,14 @@ Paste JSON like this (use real addresses — this is an example only):
   "mo": ["missouri-person@example.com"],
   "ia": ["iowa-person@example.com"],
   "ga": ["georgia-person@example.com"],
+  "ky": ["kentucky-person@example.com"],
   "federal": ["congress-watcher@example.com"],
   "all": ["you@example.com", "team-lead@example.com"]
 }
 ```
 
 Rules:
-- Keys must match digest IDs in `config/email_digests.yaml` (`ks`, `co`, `az`, `ut`, `me`, `ne`, `md`, `pa`, `ma`, `wv`, `tn`, `nc`, `mo`, `ia`, `ga`, `federal`, `all`)
+- Keys must match digest IDs in `config/email_digests.yaml` (`ks`, `co`, `az`, `ut`, `me`, `ne`, `md`, `pa`, `ma`, `wv`, `tn`, `nc`, `mo`, `ia`, `ga`, `ky`, `federal`, `all`)
 - Values are arrays of email addresses (or a comma-separated string)
 - **Omit a key or use `[]`** to skip that digest entirely
 - Same person can appear on multiple lists
@@ -106,6 +108,7 @@ Instead of one JSON blob, you can set `EMAIL_RECIPIENTS_<DIGEST>` (comma-separat
 - `EMAIL_RECIPIENTS_MO`
 - `EMAIL_RECIPIENTS_IA`
 - `EMAIL_RECIPIENTS_GA`
+- `EMAIL_RECIPIENTS_KY`
 - `EMAIL_RECIPIENTS_FEDERAL`
 - `EMAIL_RECIPIENTS_ALL`
 

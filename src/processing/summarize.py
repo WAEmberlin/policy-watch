@@ -565,6 +565,7 @@ STATE_HEARING_LABELS = {
     "MO": "State (Missouri)",
     "IA": "State (Iowa)",
     "GA": "State (Georgia)",
+    "KY": "State (Kentucky)",
 }
 
 

@@ -101,6 +101,7 @@ const PolicyWatchExpansion = (() => {
         WV: 'West Virginia', TN: 'Tennessee', NC: 'North Carolina', MO: 'Missouri',
         IA: 'Iowa',
         GA: 'Georgia',
+        KY: 'Kentucky',
     };
 
     /**
