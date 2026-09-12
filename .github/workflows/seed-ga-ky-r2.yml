@@ -101,7 +101,8 @@ jobs:
           python src/processing/r2_sync.py rebuild-home-feeds
           python src/processing/r2_sync.py rebuild-legislators-directory
           python src/processing/r2_sync.py rebuild-hearings-feed
-          python src/processing/r2_sync.py rebuild-vote-docs
+          python src/processing/r2_sync.py rebuild-vote-docs \
+            || echo "WARN: vote docs incomplete (missing some openstates votes on R2); continuing upload"
           test -f docs/home_feed.json
           test -f docs/home_search_bills.json
           PYTHONPATH=src python - <<'PY'
