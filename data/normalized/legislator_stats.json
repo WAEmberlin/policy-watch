@@ -130,6 +130,30 @@
       "average_age": 63.9,
       "race_available": false
     },
+    "KY": {
+      "total": 138,
+      "party": {
+        "Republican": 112,
+        "Democratic": 26
+      },
+      "gender": {
+        "Male": 97,
+        "Female": 40,
+        "X": 1
+      },
+      "chamber": {
+        "Senate": 38,
+        "House": 100
+      },
+      "age_buckets": {
+        "under_40": 14,
+        "40_59": 69,
+        "60_plus": 48,
+        "unknown": 7
+      },
+      "average_age": 54.8,
+      "race_available": false
+    },
     "MA": {
       "total": 197,
       "party": {
