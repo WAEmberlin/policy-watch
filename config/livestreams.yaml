@@ -531,6 +531,38 @@ streams:
     youtube_url: https://www.youtube.com/@georgiahouseofreps
     external_url: https://www.legis.ga.gov/schedule
 
+  # ——— Kentucky ———
+  - id: ky-senate-floor
+    title: Kentucky Senate Floor
+    state: KY
+    jurisdiction: kentucky
+    type: floor
+    target_id: ky-senate-floor
+    tab_pane: pane-kentucky
+    external_url: https://www.ket.org/legislature
+    youtube_url: https://www.ket.org/legislature
+
+  - id: ky-house-floor
+    title: Kentucky House Floor
+    state: KY
+    jurisdiction: kentucky
+    type: floor
+    target_id: ky-house-floor
+    tab_pane: pane-kentucky
+    external_url: https://www.ket.org/legislature
+    youtube_url: https://www.ket.org/legislature
+
+  - id: ky-committees
+    title: Kentucky General Assembly Committees
+    state: KY
+    jurisdiction: kentucky
+    type: committee
+    target_id: ky-committees
+    tab_pane: pane-kentucky
+    youtube_channel_id: UCmnoJBrwFmd7JK0HA9KcPaw
+    youtube_url: https://www.youtube.com/@KYLRCCommitteeMeetings
+    external_url: https://legislature.ky.gov/Legislative-Calendar
+
   # ——— U.S. House ———
   - id: us-house-floor
     title: US House Floor
@@ -644,4 +676,5 @@ state_floor_stream:
   MO: mo-senate-floor
   IA: ia-senate-floor
   GA: ga-house-floor
+  KY: ky-house-floor
   Federal: us-house-floor

@@ -223,6 +223,19 @@ const PolicyWatchElections = (() => {
                 { date: '2026-11-03', label: 'General Election' },
             ],
         },
+        {
+            id: 'ky',
+            name: 'Kentucky',
+            badgeClass: 'bg-green-100 text-green-800',
+            calendarUrl: 'https://elect.ky.gov/Resources/Pages/Election-Calendar.aspx',
+            calendarLabel: 'Election information (Kentucky SBE)',
+            resultsUrl: 'https://elect.ky.gov/',
+            resultsLabel: 'Kentucky election results',
+            dates: [
+                { date: '2026-05-19', label: 'Primary Election' },
+                { date: '2026-11-03', label: 'General Election' },
+            ],
+        },
     ];
 
     function parseLocalDate(dateStr) {

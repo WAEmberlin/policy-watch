@@ -34,6 +34,7 @@ DEFAULT_BULK_DIRS = [
     ROOT / "data" / "missouri",
     ROOT / "data" / "iowa",
     ROOT / "data" / "georgia",
+    ROOT / "data" / "kentucky",
 ]
 OUTPUT_DIR = ROOT / "data" / "openstates"
 SKIP_STATE_CODES = {"US"}

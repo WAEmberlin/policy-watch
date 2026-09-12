@@ -337,6 +337,7 @@ def test_build_home_feed_includes_weekly_counts():
     assert feed["weekly_counts"]["Federal"] == 1
     assert feed["weekly_counts"]["MA"] == 1
     assert feed["weekly_counts"]["GA"] == 0
+    assert feed["weekly_counts"]["KY"] == 0
 
 
 def test_r2_upload_list_includes_home_feed_and_day_glob():
