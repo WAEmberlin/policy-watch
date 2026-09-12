@@ -8374,5 +8374,52 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-09-11": {
+    "date": "2026-09-11",
+    "generated_at": "2026-09-12T05:03:30.463080+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "Total:\n\n- Kansas: 0 bills\n\n- US Congress: 4 bills\n\n\nKansas Legislature Activity:\n\n- The Kansas Legislature had no activity on this date.\n\n\nUS Congress Activity:\n\n- President signed HR 5366, the Federal Disaster Tax Relief Act of 2025.\n\n- President signed HR 2069, the Stop Secret Spending Act of 2025.\n\n- President signed HR 2196, establishing a commemorative work for National \u001b[K\nEmergency Medical Services Memorial Foundation.\n\n- President signed HR 1276, removing restrictions from land in Paducah, Ken\u001b[3D\u001b[K\nKentucky.",
+    "counts": {
+      "total": 4,
+      "kansas_house": 0,
+      "kansas_senate": 0,
+      "congress_house": 4,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [],
+      "senate": []
+    },
+    "congress": {
+      "house": [
+        {
+          "bill": "HR 5366",
+          "short_title": "Federal Disaster Tax Relief Act of 2025",
+          "action": "Signed by President.",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/5366"
+        },
+        {
+          "bill": "HR 2069",
+          "short_title": "Stop Secret Spending Act of 2025",
+          "action": "Signed by President.",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/2069"
+        },
+        {
+          "bill": "HR 2196",
+          "short_title": "To provide for an extension of the legislative authority of the National Emergency Medical Services Memorial Foundation to establish a commemorative work in the District of Columbia and its environs.",
+          "action": "Signed by President.",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/2196"
+        },
+        {
+          "bill": "HR 1276",
+          "short_title": "To remove restrictions from a parcel of land in Paducah, Kentucky.",
+          "action": "Signed by President.",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/1276"
+        }
+      ],
+      "senate": []
+    }
   }
 }
