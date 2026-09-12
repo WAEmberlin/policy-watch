@@ -1,22 +1,24 @@
 {
-  "week_start": "2026-08-31T05:47:34.108228-05:00",
-  "week_end": "2026-09-07T05:47:34.108228-05:00",
+  "week_start": "2026-09-05T08:58:38.534198-05:00",
+  "week_end": "2026-09-12T08:58:38.534198-05:00",
   "item_counts": {
-    "federal": 188,
+    "federal": 107,
     "ks": 0,
-    "co": 1,
+    "co": 0,
     "az": 0,
     "ut": 0,
     "me": 0,
     "ne": 0,
     "md": 0,
     "pa": 0,
-    "ma": 53,
+    "ma": 97,
     "wv": 0,
     "tn": 0,
     "nc": 0,
     "mo": 0,
-    "ia": 0
+    "ia": 0,
+    "ga": 0,
+    "ky": 0
   },
   "sections": [
     {
@@ -24,36 +26,30 @@
       "label": "Congress / Federal",
       "recap_lines": [
         "Congress / Federal:",
-        "HR 10299: To designate the facility of the United States Postal Service located at 83 East Park Street in Alamo, Tennessee, as the \"Kenneth Nolen Davis Post Office\".",
-        "   Referred to the House Committee on Oversight and Government Reform.",
-        "HR 10301: To award a Congressional Gold Medal to Peter McGuire in recognition of his contributions to the American Labor Movement.",
-        "   Referred to the Committee on Financial Services, and in addition to the Committee on House...",
-        "HRES 1512: Celebrating the 50th anniversary of the admission of women to the United States service academies and honoring the pioneering women of the Class of 1980.",
-        "   Referred to the House Committee on Armed Services.",
-        "   Plus 3 immigration, 10 healthcare, 20 education, 33 economic, 5 defense, 1 environmental, 2 technology, 8 tax, 11 infrastructure bills, and 70 others.",
-        "22 hearings scheduled."
+        "HR 5366: Federal Disaster Tax Relief Act of 2025",
+        "   Signed by President.",
+        "HR 2069: Stop Secret Spending Act of 2025",
+        "   Signed by President.",
+        "HR 2196: To provide for an extension of the legislative authority of the National Emergency Medical Services Memorial Foundation to establish a commemorative work in the District of Columbia and its environs.",
+        "   Signed by President.",
+        "   Plus 1 immigration, 7 healthcare, 9 education, 22 economic, 1 defense, 4 technology, 9 tax, 4 infrastructure bills, and 47 others."
       ],
-      "item_count": 188,
+      "item_count": 107,
       "veterans_highlight": {
-        "summary": "HRES 1512: Celebrating the 50th anniversary of the admission of women to the United States service academies and honoring the pioneering...; HR 10280: 9\u20138\u20138 Implementation Act of 2026; HR 10260: Reducing Arbitrary Barriers to Apprenticeship Act of 2026; plus 9 more",
+        "summary": "HRES 1522: Recognizing the 30th anniversary of the Missouri-Panama State Partnership Program and celebrating the enduring partnership...; HR 5634: Veterans Flight Training Responsibility Act of 2025",
         "items": [
           {
             "type": "bill",
-            "title": "HRES 1512: Celebrating the 50th anniversary of the admission of women to the United States service academies and honoring the pioneering...",
-            "url": "https://www.congress.gov/bill/119th-congress/house-resolution/1512"
+            "title": "HRES 1522: Recognizing the 30th anniversary of the Missouri-Panama State Partnership Program and celebrating the enduring partnership...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-resolution/1522"
           },
           {
             "type": "bill",
-            "title": "HR 10280: 9\u20138\u20138 Implementation Act of 2026",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10280"
-          },
-          {
-            "type": "bill",
-            "title": "HR 10260: Reducing Arbitrary Barriers to Apprenticeship Act of 2026",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10260"
+            "title": "HR 5634: Veterans Flight Training Responsibility Act of 2025",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/5634"
           }
         ],
-        "total_matches": 12
+        "total_matches": 2
       }
     },
     {
@@ -68,10 +64,9 @@
       "id": "co",
       "label": "Colorado",
       "recap_lines": [
-        "Colorado:",
-        "   1 hearings."
+        "Colorado: No new activity this week."
       ],
-      "item_count": 1
+      "item_count": 0
     },
     {
       "id": "az",
@@ -126,9 +121,9 @@
       "label": "Massachusetts",
       "recap_lines": [
         "Massachusetts:",
-        "   8 committee actions, 3 hearings, 3 votes."
+        "   13 committee actions, 21 hearings, 5 votes."
       ],
-      "item_count": 53
+      "item_count": 97
     },
     {
       "id": "wv",
@@ -169,10 +164,26 @@
         "Iowa: No new activity this week."
       ],
       "item_count": 0
+    },
+    {
+      "id": "ga",
+      "label": "Georgia",
+      "recap_lines": [
+        "Georgia: No new activity this week."
+      ],
+      "item_count": 0
+    },
+    {
+      "id": "ky",
+      "label": "Kentucky",
+      "recap_lines": [
+        "Kentucky: No new activity this week."
+      ],
+      "item_count": 0
     }
   ],
-  "script": "PolicyWatch weekly overview for August 31 through September 07, 2026.\n\nCongress / Federal:\nHR 10299: To designate the facility of the United States Postal Service located at 83 East Park Street in Alamo, Tennessee, as the \"Kenneth Nolen Davis Post Office\".\nVeterans & Military highlight: HRES 1512: Celebrating the 50th anniversary of the admission of women to the United States service academies and honoring the pioneering...; HR 10280: 9\u20138\u20138 Implementation Act of 2026; HR 10260: Reducing Arbitrary....\n   Referred to the House Committee on Oversight and Government Reform.\nHR 10301: To award a Congressional Gold Medal to Peter McGuire in recognition of his contributions to the American Labor Movement.\n   Referred to the Committee on Financial Services, and in addition to the Committee on House...\nHRES 1512: Celebrating the 50th anniversary of the admission of women to the United States service academies and honoring the pioneering women of the Class of 1980.\n   Referred to the House Committee on Armed Services.\n   Plus 3 immigration, 10 healthcare, 20 education, 33 economic, 5 defense, 1 environmental, 2 technology, 8 tax, 11 infrastructure bills, and 70 others.\n22 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado:\n   1 hearings.\n\nArizona: No new activity this week.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   8 committee actions, 3 hearings, 3 votes.\n\nWest Virginia: No new activity this week.\n\nTennessee: No new activity this week.\n\nNorth Carolina: No new activity this week.\n\nMissouri: No new activity this week.\n\nIowa: No new activity this week.\n\nExplore full details at PolicyWatch.",
-  "generated_at": "2026-09-07T05:47:34.108228-05:00",
+  "script": "PolicyWatch weekly overview for September 05 through September 12, 2026.\n\nCongress / Federal:\nHR 5366: Federal Disaster Tax Relief Act of 2025\nVeterans & Military highlight: HRES 1522: Recognizing the 30th anniversary of the Missouri-Panama State Partnership Program and celebrating the enduring partnership...; HR 5634: Veterans Flight Training Responsibility Act of 2025.\n   Signed by President.\nHR 2069: Stop Secret Spending Act of 2025\n   Signed by President.\nHR 2196: To provide for an extension of the legislative authority of the National Emergency Medical Services Memorial Foundation to establish a commemorative work in the District of Columbia and its environs.\n   Signed by President.\n   Plus 1 immigration, 7 healthcare, 9 education, 22 economic, 1 defense, 4 technology, 9 tax, 4 infrastructure bills, and 47 others.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   13 committee actions, 21 hearings, 5 votes.\n\nWest Virginia: No new activity this week.\n\nTennessee: No new activity this week.\n\nNorth Carolina: No new activity this week.\n\nMissouri: No new activity this week.\n\nIowa: No new activity this week.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nExplore full details at PolicyWatch.",
+  "generated_at": "2026-09-12T08:58:38.534198-05:00",
   "audio_available": false,
   "audio_file": null
 }
