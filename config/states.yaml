@@ -140,6 +140,15 @@ states:
     enrichment: openstates_detail
     enabled: true
 
+  - code: ky
+    name: Kentucky
+    level: state
+    sources:
+      - openstates
+    openstates_jurisdiction: ocd-jurisdiction/country:us/state:ky/government
+    enrichment: openstates_detail
+    enabled: true
+
 federal:
   sources:
     - congress
@@ -169,8 +178,8 @@ kansas_api:
 enrichment:
   # Kansas: official REST API (RSS stays primary ingest)
   kansas_api: ks
-  # CO/AZ/UT/ME/NE/MD/PA/MA/WV/TN/NC/MO/IA/GA: Open States detail re-fetch for sponsors/votes
-  openstates_detail: [co, az, ut, me, ne, md, pa, ma, wv, tn, nc, mo, ia, ga]
+  # CO/AZ/UT/ME/NE/MD/PA/MA/WV/TN/NC/MO/IA/GA/KY: Open States detail re-fetch for sponsors/votes
+  openstates_detail: [co, az, ut, me, ne, md, pa, ma, wv, tn, nc, mo, ia, ga, ky]
 
 topic_dashboards:
   - id: veterans
