@@ -41,6 +41,7 @@ Mirror: [https://waemberlin.github.io/policy-watch/](https://waemberlin.github.i
 | MO | Missouri |
 | IA | Iowa |
 | GA | Georgia |
+| KY | Kentucky |
 
 Configured in [`config/states.yaml`](config/states.yaml).
 
@@ -207,6 +208,17 @@ Used by daily / Open States / upload workflows via `src/processing/r2_sync.py`.
 | SMTP credentials | Email digest delivery (see `daily_email.yml`) |
 
 Workflows degrade gracefully when optional secrets are unset; R2 secrets are required for production data publish.
+
+### Seeding new Open States bulk states (GA, KY, etc.)
+
+Large state corpora are imported locally from Open States bulk exports (see `data/georgia/README.md`, `data/kentucky/README.md`), then published to R2:
+
+1. Import + normalize + summarize locally.
+2. `python scripts/package_ga_ky_r2_seed.py --output openstates-ga-ky.zip`
+3. Create a GitHub Release with that zip asset.
+4. Run **Seed GA + KY cache to R2** (`.github/workflows/seed-ga-ky-r2.yml`) with the release tag.
+
+After seeding, daily Open States sync restores GA/KY from R2 and keeps them updated incrementally.
 
 ### Worker
 
