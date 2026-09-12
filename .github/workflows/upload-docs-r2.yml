@@ -57,7 +57,7 @@ jobs:
             exit 1
           }
           # Roll-call voter arrays live in openstates caches (normalized votes are slimmed).
-          for st in ks co az ut me ne md pa ma wv tn nc mo ia; do
+          for st in ks co az ut me ne md pa ma wv tn nc mo ia ga ky; do
             python src/processing/r2_sync.py download "data/openstates/${st}/votes.json" \
               || echo "WARN: missing openstates votes for ${st}"
           done

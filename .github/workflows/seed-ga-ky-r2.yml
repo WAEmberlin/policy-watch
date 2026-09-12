@@ -1,0 +1,131 @@
+name: Seed GA + KY cache to R2
+
+# One-shot: download a GitHub Release zip and publish Georgia + Kentucky to R2.
+#
+# Prepare locally (after bulk import):
+#   python src/processing/import_openstates_bulk.py --states ga,ky
+#   python src/processing/normalize_data.py --skip-ai
+#   python src/processing/summarize.py
+#   python scripts/package_ga_ky_r2_seed.py --output openstates-ga-ky.zip
+#   gh release create openstates-ga-ky-YYYY-MM-DD openstates-ga-ky.zip
+#
+# Then workflow_dispatch with that release tag.
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Release tag containing openstates-ga-ky.zip"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install boto3 pyyaml
+
+      - name: Download and extract GA/KY cache from release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          TAG="${{ github.event.inputs.release_tag }}"
+          gh release download "$TAG" --pattern "openstates-ga-ky.zip" --dir /tmp
+          unzip -o /tmp/openstates-ga-ky.zip -d .
+          for s in ga ky; do
+            ls -lah "data/openstates/$s/"
+            test -f "data/openstates/$s/meta.json"
+            test -f "data/openstates/$s/votes.json"
+            bill_count=$(find "data/openstates/$s" -maxdepth 1 -name 'bills_*.json' | wc -l)
+            test "$bill_count" -ge 1
+          done
+          test -f data/normalized/bills.json
+          test -f data/normalized/search_index.json
+          test -f data/normalized/meta.json
+          PYTHONPATH=src python - <<'PY'
+          import json
+          from pathlib import Path
+
+          meta = json.load(open("data/normalized/meta.json", encoding="utf-8"))
+          print("normalized meta:", meta)
+          total = int((meta.get("counts") or {}).get("bills") or 0)
+          assert total >= 200_000, f"normalized corpus too small ({total})"
+
+          si = json.load(open("data/normalized/search_index.json", encoding="utf-8"))
+          bills = si.get("bills") or []
+          ga = sum(1 for b in bills if (b.get("state") or "").upper() == "GA")
+          ky = sum(1 for b in bills if (b.get("state") or "").upper() == "KY")
+          print(f"search_index GA={ga} KY={ky} total={len(bills)}")
+          assert ga >= 8_000, f"GA bills missing from normalized search_index ({ga})"
+          assert ky >= 4_000, f"KY bills missing from normalized search_index ({ky})"
+
+          for st, min_bytes in (("ga", 1_000_000), ("ky", 1_000_000)):
+              votes = Path(f"data/openstates/{st}/votes.json")
+              assert votes.is_file() and votes.stat().st_size >= min_bytes, (
+                  f"missing or tiny votes.json for {st}"
+              )
+          PY
+
+      - name: Rebuild docs and upload pipeline + docs to Cloudflare R2
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+          R2_PUBLIC_BASE_URL: ${{ secrets.R2_PUBLIC_BASE_URL }}
+          PYTHONPATH: src
+        run: |
+          if [ -z "$R2_ACCOUNT_ID" ] || [ -z "$R2_ACCESS_KEY_ID" ] || [ -z "$R2_PUBLIC_BASE_URL" ]; then
+            echo "ERROR: R2 secrets are required"
+            exit 1
+          fi
+          mkdir -p docs
+          python src/processing/r2_sync.py download site_data.json || true
+          test -f docs/site_data.json || {
+            echo "WARN: site_data.json not on R2; rebuild will use normalized + states.yaml only"
+            echo '{"last_updated":"","search_index":{"bills":[]},"years":{}}' > docs/site_data.json
+          }
+          python src/processing/r2_sync.py rebuild-home-feeds
+          python src/processing/r2_sync.py rebuild-legislators-directory
+          python src/processing/r2_sync.py rebuild-hearings-feed
+          python src/processing/r2_sync.py rebuild-vote-docs
+          test -f docs/home_feed.json
+          test -f docs/home_search_bills.json
+          PYTHONPATH=src python - <<'PY'
+          import json
+          from pathlib import Path
+
+          feed = json.load(open("docs/home_feed.json", encoding="utf-8"))
+          counts = feed.get("bill_counts") or {}
+          ga = int(counts.get("GA") or 0)
+          ky = int(counts.get("KY") or 0)
+          print(f"home_feed bill_counts GA={ga} KY={ky}")
+          assert ga >= 8_000, f"home_feed GA count too low ({ga})"
+          assert ky >= 4_000, f"home_feed KY count too low ({ky})"
+
+          search = json.load(open("docs/home_search_bills.json", encoding="utf-8"))
+          rows = search if isinstance(search, list) else (search.get("bills") or [])
+          ga_s = sum(1 for b in rows if (b.get("state") or "").upper() == "GA")
+          ky_s = sum(1 for b in rows if (b.get("state") or "").upper() == "KY")
+          print(f"home_search_bills GA={ga_s} KY={ky_s} total={len(rows)}")
+          assert ga_s >= 8_000 and ky_s >= 4_000
+
+          shard = Path("docs/search_shards/GA.json")
+          assert shard.is_file() and shard.stat().st_size > 10_000, "missing GA search shard"
+          shard = Path("docs/search_shards/KY.json")
+          assert shard.is_file() and shard.stat().st_size > 10_000, "missing KY search shard"
+          PY
+          python src/processing/r2_sync.py upload
