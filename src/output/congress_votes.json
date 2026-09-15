@@ -1,6 +1,36 @@
 [
   {
     "bill_type": "HR",
+    "bill_number": "4219",
+    "congress": 119,
+    "date": "2026-09-14",
+    "chamber": "House",
+    "result": "Passed",
+    "yeas": 371,
+    "nays": 33,
+    "tally_text": "Passed 371\u201333",
+    "motion": "On Motion to Suspend the Rules and Pass, as Amended",
+    "url": "https://www.congress.gov/votes/house/119-2/296",
+    "roll_number": 296,
+    "session": 2
+  },
+  {
+    "bill_type": "HR",
+    "bill_number": "3276",
+    "congress": 119,
+    "date": "2026-09-14",
+    "chamber": "House",
+    "result": "Passed",
+    "yeas": 345,
+    "nays": 60,
+    "tally_text": "Passed 345\u201360",
+    "motion": "On Motion to Suspend the Rules and Pass, as Amended",
+    "url": "https://www.congress.gov/votes/house/119-2/297",
+    "roll_number": 297,
+    "session": 2
+  },
+  {
+    "bill_type": "HR",
     "bill_number": "4795",
     "congress": 119,
     "date": "2026-09-03",
