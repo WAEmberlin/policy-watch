@@ -361,6 +361,16 @@ def test_veteran_legislation_page_is_in_nav_and_veterans_only():
     assert ">Veteran Legislation</p>" not in html
 
 
+def test_cloudflare_web_analytics_beacon_is_wired_in_shared_shell():
+    root = Path(__file__).resolve().parents[1]
+    shell = (root / "docs" / "shell.js").read_text(encoding="utf-8")
+    assert "CLOUDFLARE_WEB_ANALYTICS_TOKEN" in shell
+    assert "https://static.cloudflareinsights.com/beacon.min.js" in shell
+    assert "injectCloudflareWebAnalytics" in shell
+    assert "google-analytics" not in shell.lower()
+    assert "gtag(" not in shell
+
+
 def test_veterans_page_blank_dates_and_fifty_item_pages():
     root = Path(__file__).resolve().parents[1]
     html = (root / "docs" / "veterans.html").read_text(encoding="utf-8")

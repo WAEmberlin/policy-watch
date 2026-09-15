@@ -5,6 +5,22 @@
 (function (global) {
   'use strict';
 
+  // Cloudflare Web Analytics (cookieless). Paste the site token from
+  // Cloudflare Dashboard → Analytics & logs → Web Analytics → Manage site.
+  // Leave empty until you have a token; the beacon will not load without one.
+  var CLOUDFLARE_WEB_ANALYTICS_TOKEN = 'ca693bb029c84047b9b4c35292c88286';
+
+  function injectCloudflareWebAnalytics() {
+    var token = String(CLOUDFLARE_WEB_ANALYTICS_TOKEN || '').trim();
+    if (!token) return;
+    if (document.querySelector('script[src*="static.cloudflareinsights.com/beacon.min.js"]')) return;
+    var script = document.createElement('script');
+    script.type = 'module';
+    script.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+    script.setAttribute('data-cf-beacon', JSON.stringify({ token: token }));
+    document.body.appendChild(script);
+  }
+
   var NAV_ITEMS = [
     { id: 'home', label: 'Home', href: 'index.html' },
     { id: 'veterans', label: 'Veteran Legislation', shortLabel: 'Veterans', href: 'veterans.html' },
@@ -186,6 +202,7 @@
     wrapMainContent();
     injectNav(page);
     injectFooter();
+    injectCloudflareWebAnalytics();
 
     if (global.PolicyWatchTheme && typeof global.PolicyWatchTheme.init === 'function') {
       global.PolicyWatchTheme.init();
