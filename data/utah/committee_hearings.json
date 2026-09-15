@@ -1,5 +1,5 @@
 {
-  "last_fetched": "2026-09-14T23:22:25.130042+00:00",
+  "last_fetched": "2026-09-15T01:47:33.789991+00:00",
   "feed_url": "https://le.utah.gov/asp/billtrack/comrssfeed.asp?com=INTBUS|SPECWL|APPCRI|APPECD|INTEDW|INTEDU|SPEEJC|APPEXE|SPEFFO|SPEFED|APPGEN|SPEADM|INTGOC|INTHHS|APPHED|HSTBUS|HSTEDW|HSTEDU|HSTETH|HSTGOC|HSTHHS|HSTJUD|HSTLAW|SPEHEO|HSTNAE|HSTPOL|HSTPUT|HSTREV|HSTRUL|HSTTRA|INTJUD|INTLAW|SPEAUD|SPEMAN|SPELPC|SPELRD|SPESWD|SPEMCG|SPENAL|INTNAE|APPNAE|SPEOLY|INTPOL|APPPED|INTPUT|INTRIE|INTREV|SPERZC|SSTBUS|SPEBUS|SSTEDW|SPEEDW|SSTEDU|SPEEDU|SSTETH|SSTGOP|SPEGOV|SSTHHS|SPEHHS|SPESJC|SPEJUD|SSTJLC|SPELEC|SPESEO|SSTNAE|SPENAT|SPEPOL|SPERET|SSTREV|SPEREV|SSTRUL|SSTTPT|SPETRA|APPSOC|SUBOVE|APPTIF|INTTRA|TSKBHL|SPEUSL|SPEVMA",
   "entry_count": 71,
   "hearing_count": 554,
@@ -10385,19 +10385,29 @@
       "committee": "Revenue and Taxation Interim Committee",
       "committee_code": "INTREV",
       "committee_link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=INTREV",
-      "link": "http://le.utah.gov/Interim/2026/html/00002195.htm",
-      "url": "http://le.utah.gov/Interim/2026/html/00002195.htm",
-      "stream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=INTREV",
+      "link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=INTREV",
+      "url": "http://le.utah.gov/committee/committee.jsp?year=2026&com=INTREV",
+      "stream_url": "",
       "source": "State (Utah)",
       "state": "UT",
       "level": "state",
-      "description": "Committee meeting scheduled",
-      "agenda_items": [],
+      "description": "1. Committee Business; 2. General Fund Earmarks; 3. Effectiveness and Utilization of Tax Credits",
+      "agenda_items": [
+        "1. Committee Business",
+        "2. General Fund Earmarks",
+        "3. Effectiveness and Utilization of Tax Credits",
+        "4. Municipal Incorporation Feasibility Studies",
+        "5. Resort Community Report",
+        "6. Performance Audit of Oil, Gas, and Related Taxes and Incentives",
+        "7. Taxpayer Receipt",
+        "8. Farm Hand Tools",
+        "9. Other Items/Adjourn"
+      ],
       "feed": "utah_committee_rss",
       "notice_date": "",
       "notice_time": "",
       "notice_place": "",
-      "livestream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=INTREV"
+      "livestream_url": ""
     },
     {
       "title": "Revenue and Taxation Interim Committee — 8/19/2026",
