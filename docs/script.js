@@ -27,7 +27,8 @@ function defaultVeteransImpactFilter() {
 let veteransImpactFilter = defaultVeteransImpactFilter();
 const DAYS_PER_CHUNK = 14;  // Show 2 weeks per "page" (full site_data only)
 const VETERANS_PAGE_FEED_ITEM_LIMIT = 50;  // Veteran Legislation page
-const VETERANS_FEED_ITEM_LIMIT = 100;  // Homepage Military-Veterans chip (within a date window)
+const HOME_FEED_PAGE_ITEM_LIMIT = 50;  // Homepage feed pages
+const VETERANS_FEED_ITEM_LIMIT = 50;  // Homepage Military-Veterans chip
 const VETERANS_FEED_DAY_BATCH = 8;
 const HOME_FEED_MIN_PAGE_ITEMS = 50;  // Older activity packs dates until at least this many items
 const SEARCH_MIN_CHARS = 3;
@@ -716,7 +717,8 @@ function usesVeteransItemFeed() {
 
 function getFeedItemLimit() {
     if (isVeteransOnlyPage()) return VETERANS_PAGE_FEED_ITEM_LIMIT;
-    return veteransImpactFilter ? VETERANS_FEED_ITEM_LIMIT : null;
+    if (veteransImpactFilter) return VETERANS_FEED_ITEM_LIMIT;
+    return HOME_FEED_PAGE_ITEM_LIMIT;
 }
 
 function paginateFeedItems(items, { unknownTotal = false } = {}) {
@@ -787,8 +789,9 @@ function collectVeteransItemsFromFullSiteData() {
 }
 
 /**
- * Load older home_feed days until we have enough veteran bills for the
- * current item page (plus one extra to know whether another page exists).
+ * Load home_feed days until we have enough bills for the current item page
+ * (plus one extra to know whether another page exists). Used by the homepage
+ * and Veteran Legislation page (50 bills per page).
  */
 async function loadVeteransHomeFeedItems(neededCount) {
     const available = getHomeFeedAvailableDates();
@@ -1289,15 +1292,6 @@ function feedFallbackNotice(dateRange) {
     return `No activity in the last 2 weeks — showing ${rangeLabel}`;
 }
 
-function stateFeedFallbackNotice(dateRange) {
-    const stateLabel = STATE_NAMES[selectedState] || selectedState;
-    const sameDay = dateRange.start === dateRange.end;
-    const rangeLabel = sameDay
-        ? formatDate(dateRange.start)
-        : `${formatDate(dateRange.start)} – ${formatDate(dateRange.end)}`;
-    return `No ${stateLabel} activity in the latest window — showing ${rangeLabel}`;
-}
-
 function collectHomeFeedItemsAcrossYears(dateRange) {
     let allItems = [];
     Object.keys(allData.years || {}).forEach((year) => {
@@ -1338,13 +1332,12 @@ async function displayUnifiedView(year, chunkIndex) {
     let allItems;
     let totalChunks = 1;
     let veteransFeedUnknownTotal = false;
-    let skippedLatestWindow = false;
 
-    if (usesVeteransItemFeed() && homeFeedMode) {
+    if (homeFeedMode) {
         totalChunks = 1;
         effectiveChunkIndex = 0;
         currentPage = 0;
-        const limit = getFeedItemLimit() || VETERANS_PAGE_FEED_ITEM_LIMIT;
+        const limit = getFeedItemLimit() || HOME_FEED_PAGE_ITEM_LIMIT;
         const needed = (currentItemPage + 1) * limit + 1;
         try {
             const loaded = await loadVeteransHomeFeedItems(needed);
@@ -1352,9 +1345,9 @@ async function displayUnifiedView(year, chunkIndex) {
             dateRange = loaded.dateRange;
             veteransFeedUnknownTotal = loaded.hasMoreDates;
         } catch (err) {
-            console.error("Failed to load veteran bills feed:", err);
+            console.error("Failed to load home feed page:", err);
             container.innerHTML =
-                "<div class='bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg text-red-700' role='alert'>Could not load veteran legislation. Please try again.</div>";
+                "<div class='bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg text-red-700' role='alert'>Could not load activity. Please try again.</div>";
             setContentBusy(false);
             renderPagination(year, 0, 1, { start: "", end: "" }, { totalItemPages: 1 });
             return;
@@ -1365,30 +1358,6 @@ async function displayUnifiedView(year, chunkIndex) {
         currentPage = 0;
         allItems = collectVeteransItemsFromFullSiteData();
         dateRange = dateRangeFromDates(allItems.map(feedItemDay));
-    } else if (homeFeedMode) {
-        try {
-            let packed = await loadHomeFeedActivityPage(Math.max(0, chunkIndex));
-            if ((selectedState || veteransImpactFilter) && packed.pageIndex === 0 && packed.items.length === 0) {
-                const label = selectedState
-                    ? (STATE_NAMES[selectedState] || selectedState)
-                    : "filtered";
-                setContentBusy(true, `Loading ${label} activity…`);
-                packed = await loadHomeFeedActivityPage(1);
-                skippedLatestWindow = packed.items.length > 0;
-            }
-            effectiveChunkIndex = packed.pageIndex;
-            currentPage = packed.pageIndex;
-            dateRange = packed.dateRange;
-            allItems = packed.items;
-            totalChunks = packed.totalPages || getHomeFeedTotalPages();
-        } catch (err) {
-            console.error("Failed to load older home feed day:", err);
-            container.innerHTML =
-                "<div class='bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg text-red-700' role='alert'>Could not load older activity. Please try again.</div>";
-            setContentBusy(false);
-            renderPagination(year, effectiveChunkIndex, totalChunks, getHomeFeedDateRangeForPage(effectiveChunkIndex) || { start: "", end: "" }, { totalItemPages: 1 });
-            return;
-        }
     } else {
         const grouped = yearData.grouped || {};
         const allDatesInYear = Object.keys(grouped).sort().reverse();
@@ -1411,6 +1380,10 @@ async function displayUnifiedView(year, chunkIndex) {
 
     const pagination = paginateFeedItems(allItems, { unknownTotal: veteransFeedUnknownTotal });
     const pageItems = pagination.items;
+    if (pageItems.length) {
+        const pageDates = dateRangeFromDates(pageItems.map(feedItemDay));
+        if (pageDates.start) dateRange = pageDates;
+    }
 
     // Group by date (flat list per day)
     const itemsByDate = {};
@@ -1444,13 +1417,22 @@ async function displayUnifiedView(year, chunkIndex) {
         notice.className = "ledger-results-status";
         notice.setAttribute("role", "status");
         const sameDay = dateRange.start === dateRange.end;
-        const countLabel = `${pageItems.length} result${pageItems.length === 1 ? "" : "s"}`;
-        notice.textContent = sameDay
-            ? `Showing ${countLabel} — ${formatShortLedgerDate(dateRange.start)}`
-            : `Showing ${countLabel} — ${formatShortLedgerDate(dateRange.start)} – ${formatShortLedgerDate(dateRange.end)}`;
+        const dateLabel = sameDay
+            ? formatShortLedgerDate(dateRange.start)
+            : `${formatShortLedgerDate(dateRange.start)} – ${formatShortLedgerDate(dateRange.end)}`;
+        const startNum = pagination.startIndex + 1;
+        const endNum = pagination.startIndex + pageItems.length;
+        if (pagination.totalItemPages > 1 || pagination.unknownTotal) {
+            notice.textContent = pagination.unknownTotal
+                ? `Showing ${startNum}–${endNum} of the most recent results — ${dateLabel}`
+                : `Showing ${startNum}–${endNum} of ${pagination.totalItems} results — ${dateLabel}`;
+        } else {
+            const countLabel = `${pageItems.length} result${pageItems.length === 1 ? "" : "s"}`;
+            notice.textContent = `Showing ${countLabel} — ${dateLabel}`;
+        }
         container.appendChild(notice);
         const listedDates = (allData && allData.available_dates) || [];
-        if (effectiveChunkIndex === 0 && getHomeFeedTotalPages() <= 1 && !listedDates.length) {
+        if (!pagination.unknownTotal && pagination.totalItemPages <= 1 && !listedDates.length) {
             const hint = document.createElement("p");
             hint.className = "text-xs text-slate-400 text-center mb-4";
             hint.textContent = "Older activity paging is unavailable for this feed snapshot.";
@@ -1467,15 +1449,7 @@ async function displayUnifiedView(year, chunkIndex) {
         container.appendChild(notice);
     }
 
-    if (skippedLatestWindow && selectedState && pageItems.length > 0 && dateRange.start) {
-        const notice = document.createElement("p");
-        notice.className = "text-sm text-slate-500 text-center mb-4 italic";
-        notice.setAttribute("role", "status");
-        notice.textContent = stateFeedFallbackNotice(dateRange);
-        container.appendChild(notice);
-    }
-
-    if (!usesVeteransItemFeed() && pagination.totalItemPages > 1) {
+    if (!usesVeteransItemFeed() && !homeFeedMode && pagination.totalItemPages > 1) {
         const startNum = pagination.startIndex + 1;
         const endNum = pagination.startIndex + pageItems.length;
         const itemNotice = document.createElement("p");
@@ -1946,9 +1920,8 @@ function renderPagination(year, current, total, dateRange, itemPagination) {
     const itemPages = itemPagination?.totalItemPages || 1;
     const unknownTotal = Boolean(itemPagination?.unknownTotal);
     dateRange = dateRange || { start: "", end: "" };
-    // Home feed: page through older activity days on demand. Full site_data: 14-day chunks.
-    // Veteran Legislation page: item pages only (50 bills), not calendar periods.
-    const showPeriodNav = total > 1 && !usesVeteransItemFeed();
+    // Home feed and Veteran Legislation: 50-bill item pages. Full site_data: 14-day chunks.
+    const showPeriodNav = total > 1 && !usesVeteransItemFeed() && !homeFeedMode;
     const showItemNav = itemPages > 1 || unknownTotal;
     if (!showPeriodNav && !showItemNav) return;
 

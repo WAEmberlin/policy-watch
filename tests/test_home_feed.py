@@ -372,9 +372,12 @@ def test_veterans_page_blank_dates_and_fifty_item_pages():
     assert "value=" not in from_input.group(0)
     assert "value=" not in to_input.group(0)
     assert "VETERANS_PAGE_FEED_ITEM_LIMIT = 50" in script
+    assert "HOME_FEED_PAGE_ITEM_LIMIT = 50" in script
+    assert "VETERANS_FEED_ITEM_LIMIT = 50" in script
     assert "if (isVeteransOnlyPage()) return;" in script
     assert "loadVeteransHomeFeedItems" in script
     assert "usesVeteransItemFeed" in script
+    assert "return HOME_FEED_PAGE_ITEM_LIMIT;" in script
 
 
 def test_loading_overlay_is_wired_for_search_and_first_paint():
