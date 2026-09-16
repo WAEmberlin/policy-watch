@@ -1,5 +1,5 @@
 {
-  "last_fetched": "2026-09-15T21:40:58.183819+00:00",
+  "last_fetched": "2026-09-16T00:43:44.620913+00:00",
   "feed_url": "https://le.utah.gov/asp/billtrack/comrssfeed.asp?com=INTBUS|SPECWL|APPCRI|APPECD|INTEDW|INTEDU|SPEEJC|APPEXE|SPEFFO|SPEFED|APPGEN|SPEADM|INTGOC|INTHHS|APPHED|HSTBUS|HSTEDW|HSTEDU|HSTETH|HSTGOC|HSTHHS|HSTJUD|HSTLAW|SPEHEO|HSTNAE|HSTPOL|HSTPUT|HSTREV|HSTRUL|HSTTRA|INTJUD|INTLAW|SPEAUD|SPEMAN|SPELPC|SPELRD|SPESWD|SPEMCG|SPENAL|INTNAE|APPNAE|SPEOLY|INTPOL|APPPED|INTPUT|INTRIE|INTREV|SPERZC|SSTBUS|SPEBUS|SSTEDW|SPEEDW|SSTEDU|SPEEDU|SSTETH|SSTGOP|SPEGOV|SSTHHS|SPEHHS|SPESJC|SPEJUD|SSTJLC|SPELEC|SPESEO|SSTNAE|SPENAT|SPEPOL|SPERET|SSTREV|SPEREV|SSTRUL|SSTTPT|SPETRA|APPSOC|SUBOVE|APPTIF|INTTRA|TSKBHL|SPEUSL|SPEVMA",
   "entry_count": 71,
   "hearing_count": 554,
@@ -1775,19 +1775,28 @@
       "committee": "Federalism Commission",
       "committee_code": "SPEFED",
       "committee_link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=SPEFED",
-      "link": "http://le.utah.gov/Interim/2026/html/00002218.htm",
-      "url": "http://le.utah.gov/Interim/2026/html/00002218.htm",
-      "stream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=SPEFED",
+      "link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=SPEFED",
+      "url": "http://le.utah.gov/committee/committee.jsp?year=2026&com=SPEFED",
+      "stream_url": "",
       "source": "State (Utah)",
       "state": "UT",
       "level": "state",
-      "description": "Committee meeting scheduled",
-      "agenda_items": [],
+      "description": "1. Committee Business; 2. General Federalism Issues and Reports; 3. Department of Environmental Quality",
+      "agenda_items": [
+        "1. Committee Business",
+        "2. General Federalism Issues and Reports",
+        "3. Department of Environmental Quality",
+        "4. Law Enforcement Protocols Discussion",
+        "5. Eisenhower Jurisdiction Study",
+        "6. H.B. 546 Implementation",
+        "7. Public Lands Issues",
+        "8. Other Business/Adjourn"
+      ],
       "feed": "utah_committee_rss",
       "notice_date": "",
       "notice_time": "",
       "notice_place": "",
-      "livestream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=SPEFED"
+      "livestream_url": ""
     },
     {
       "title": "Federalism Commission — 8/20/2026",
