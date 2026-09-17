@@ -1,5 +1,5 @@
 {
-  "last_fetched": "2026-09-16T23:24:49.968379+00:00",
+  "last_fetched": "2026-09-17T02:21:31.649912+00:00",
   "feed_url": "https://le.utah.gov/asp/billtrack/comrssfeed.asp?com=INTBUS|SPECWL|APPCRI|APPECD|INTEDW|INTEDU|SPEEJC|APPEXE|SPEFFO|SPEFED|APPGEN|SPEADM|INTGOC|INTHHS|APPHED|HSTBUS|HSTEDW|HSTEDU|HSTETH|HSTGOC|HSTHHS|HSTJUD|HSTLAW|SPEHEO|HSTNAE|HSTPOL|HSTPUT|HSTREV|HSTRUL|HSTTRA|INTJUD|INTLAW|SPEAUD|SPEMAN|SPELPC|SPELRD|SPESWD|SPEMCG|SPENAL|INTNAE|APPNAE|SPEOLY|INTPOL|APPPED|INTPUT|INTRIE|INTREV|SPERZC|SSTBUS|SPEBUS|SSTEDW|SPEEDW|SSTEDU|SPEEDU|SSTETH|SSTGOP|SPEGOV|SSTHHS|SPEHHS|SPESJC|SPEJUD|SSTJLC|SPELEC|SPESEO|SSTNAE|SPENAT|SPEPOL|SPERET|SSTREV|SPEREV|SSTRUL|SSTTPT|SPETRA|APPSOC|SUBOVE|APPTIF|INTTRA|TSKBHL|SPEUSL|SPEVMA",
   "entry_count": 71,
   "hearing_count": 554,
@@ -16346,8 +16346,10 @@
       "source": "State (Utah)",
       "state": "UT",
       "level": "state",
-      "description": "Committee meeting scheduled",
-      "agenda_items": [],
+      "description": "AGENDA",
+      "agenda_items": [
+        "AGENDA"
+      ],
       "feed": "utah_committee_rss",
       "notice_date": "Friday, September",
       "notice_time": "2:30 p.m.",
