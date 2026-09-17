@@ -332,12 +332,13 @@ def test_ai_veteran_tagging_gates_generic_keywords():
     assert result["level"] in ("red", "yellow")
 
 
-def test_classify_armed_forces_resolution_green():
+def test_classify_armed_forces_hostilities_resolution_red():
     result = classify_veteran_impact(
         "HCONRES 68: To direct the removal of United States Armed Forces from hostilities"
     )
     assert result is not None
-    assert result["level"] == "green"
+    assert result["level"] == "red"
+    assert "from hostilities" in result["reason"].lower()
 
 
 def test_classify_yellow_from_va_secretary_study_directive():
@@ -608,6 +609,25 @@ def test_state_veterans_committee_defaults_green():
     result = classify_veteran_impact(
         "An act concerning procurement of office supplies. "
         "Assigned to the State, Veterans, and Military Affairs Committee.",
+    )
+    assert result is not None
+    assert result["level"] == "green"
+
+
+def test_war_powers_hostilities_resolution_is_red_not_green():
+    result = classify_veteran_impact(
+        "Directing the President, pursuant to section 5(c) of the War Powers "
+        "Resolution, to remove United States Armed Forces from hostilities with Iran."
+    )
+    assert result is not None
+    assert result["level"] == "red"
+    assert "Combat & War Powers" in result["factors"]
+    assert "war powers" in result["reason"].lower()
+
+
+def test_generic_armed_forces_mention_stays_green():
+    result = classify_veteran_impact(
+        "A bill to update procurement rules for the Department of the Armed Forces."
     )
     assert result is not None
     assert result["level"] == "green"

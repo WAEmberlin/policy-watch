@@ -759,7 +759,7 @@ const PolicyWatchHome = (() => {
 
     // Keep in sync with src/processing/veteran_impact.py (Colorado tracker color rows).
     // RED: benefits, disability ratings, VA healthcare, MST/IPV/suicide,
-    //      behavioral health crisis services, housing, GI Bill
+    //      behavioral health crisis services, housing, GI Bill, combat / war powers
     // YELLOW: employment preference, licensing, courts & diversion, generic mental health,
     //         VA study / report directives
     // GREEN: recognition, memorials, honor resolutions, VA committee referrals with no
@@ -787,6 +787,10 @@ const PolicyWatchHome = (() => {
         'milcon-va',
         'appropriations for the department of veterans affairs',
         'appropriations for veterans affairs',
+        'war powers',
+        'from hostilities',
+        'authorization for use of military force',
+        'aumf',
     ];
     const VETERAN_IMPACT_YELLOW_SIGNALS = [
         'veteran preference', 'veterans preference',

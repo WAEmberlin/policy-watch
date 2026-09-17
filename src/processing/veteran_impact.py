@@ -17,7 +17,7 @@ IMPACT_LEVELS = ("red", "yellow", "green")
 # Color rows (Colorado tracker):
 #   RED — benefits, disability ratings, VA healthcare, MST/IPV/suicide,
 #         behavioral health crisis services, housing, survivor/burial,
-#         GI Bill, retroactive veteran benefits
+#         GI Bill, retroactive veteran benefits, combat / war powers
 #   YELLOW — employment preference, licensing, courts & diversion, generic mental health,
 #            military spouse, VA study / report directives
 #   GREEN — recognition, memorials, honor resolutions, VA committee referrals
@@ -88,6 +88,12 @@ SCORING_FACTORS: Dict[str, List[str]] = {
         "appropriations for the department of veterans affairs",
         "appropriations for veterans affairs",
     ],
+    "combat_war_powers": [
+        "war powers",
+        "from hostilities",
+        "authorization for use of military force",
+        "aumf",
+    ],
 }
 
 # Ambiguous color keywords — must NOT establish veteran-relatedness by themselves.
@@ -126,6 +132,7 @@ RED_SIGNALS = [
     *SCORING_FACTORS["housing_homelessness"],
     *SCORING_FACTORS["disability_ratings"],
     *SCORING_FACTORS["appropriations_funding"],
+    *SCORING_FACTORS["combat_war_powers"],
     "survivor",
     "burial",
 ]
@@ -344,6 +351,7 @@ def detect_scoring_factors(text: str) -> List[str]:
         "criminal_justice_courts": "Criminal Justice / Courts",
         "appropriations_funding": "Appropriations & Funding",
         "studies_reports": "Studies & Reports",
+        "combat_war_powers": "Combat & War Powers",
     }
     matched: List[str] = []
     for key, keywords in SCORING_FACTORS.items():
