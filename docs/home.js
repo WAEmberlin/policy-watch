@@ -156,6 +156,17 @@ const PolicyWatchHome = (() => {
         return !item.bill_number && !item.short_title;
     }
 
+    function isHearingNotice(item) {
+        if (!item) return false;
+        if (item.type === 'state_hearing') return true;
+        const feed = item.feed || '';
+        if (feed === 'utah_committee_rss' || feed === 'conference_committees') return true;
+        if ((item.category || '') === 'Committee' && !item.bill_number) return true;
+        if (item.bill_number) return false;
+        const summary = String(item.summary || item.latest_action || '').trim();
+        return /^(notice|committee meeting scheduled)$/i.test(summary);
+    }
+
     function inferItemState(item) {
         if (item.level === 'federal') return 'Federal';
         if (item.state) return String(item.state).toUpperCase();
@@ -219,7 +230,7 @@ const PolicyWatchHome = (() => {
         if (/referr?ed|re-?committed/.test(hay) || /^\s*to (?:(?:house|senate)\s+)?(?!the\b)[a-z]/i.test(hay)) return 'referred';
         if (/placed on file/.test(hay)) return 'filed';
         if (/laid (up )?on the table|\btabled\b/.test(hay)) return 'tabled';
-        if (/hearing\s+scheduled|scheduled\s+(for\s+(a\s+)?)?hearing|hearing:|misc_he_\d+/.test(hay)) return 'scheduled';
+        if (/hearing\s+scheduled|scheduled\s+(for\s+(a\s+)?)?hearing|hearing:|misc_he_\d+|committee meeting scheduled|meeting scheduled|^\s*notice\s*$/.test(hay)) return 'scheduled';
         if (/text of (an |a further )?amendment/.test(hay)) return 'amendment';
         if (/accompanied a study order|study order/.test(hay)) return 'study';
         if (/accompanied a new draft/.test(hay)) return 'draft';
@@ -1522,8 +1533,8 @@ const PolicyWatchHome = (() => {
         header.textContent = formatDate(date);
         card.appendChild(header);
 
-        const legislative = items.filter((i) => !isMetaItem(i));
-        const meta = items.filter((i) => isMetaItem(i));
+        const legislative = items.filter((i) => !isMetaItem(i) && !isHearingNotice(i));
+        const meta = items.filter((i) => isMetaItem(i) && !isHearingNotice(i));
 
         if (legislative.length === 0 && meta.length === 0) return null;
 
@@ -1643,6 +1654,7 @@ const PolicyWatchHome = (() => {
         loadLiveNowStrip,
         inferItemState,
         isMetaItem,
+        isHearingNotice,
         isVoteEvent,
         classifyActionType,
         renderActionBadge,

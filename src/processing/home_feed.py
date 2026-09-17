@@ -24,7 +24,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Set, Tuple
 
-from processing.bill_action_utils import classify_action_type
+from processing.bill_action_utils import classify_action_type, is_hearing_notice_item
 
 HOME_FEED_MAX_DAYS = 2
 HOME_FEED_WEEKLY_DAYS = 7
@@ -106,6 +106,20 @@ def _today_central(today: Optional[str] = None) -> str:
     return now.date().isoformat()
 
 
+def _homepage_sources(sources: Dict[str, Any]) -> Dict[str, Any]:
+    """Drop hearing notices so they stay on the Hearings page only."""
+    cleaned: Dict[str, Any] = {}
+    for src, items in (sources or {}).items():
+        kept = [
+            item
+            for item in (items or [])
+            if not (isinstance(item, dict) and is_hearing_notice_item(item))
+        ]
+        if kept:
+            cleaned[src] = kept
+    return cleaned
+
+
 def _collect_grouped_dates(site_years: Dict[str, Any], *, on_or_before: str) -> Set[str]:
     dates: Set[str] = set()
     for year_data in (site_years or {}).values():
@@ -113,9 +127,7 @@ def _collect_grouped_dates(site_years: Dict[str, Any], *, on_or_before: str) -> 
         for date_str, sources in grouped.items():
             if not date_str or date_str > on_or_before:
                 continue
-            if not sources:
-                continue
-            if any(items for items in sources.values()):
+            if _homepage_sources(sources):
                 dates.add(date_str)
     return dates
 
@@ -410,7 +422,9 @@ def _slim_years_for_dates(site_years: Dict[str, Any], feed_dates: Sequence[str])
             if date_str not in feed_set:
                 continue
             # Deep copy so later multi-state injection cannot mutate site_data structures.
-            copied = {src: deepcopy(items) for src, items in (sources or {}).items()}
+            copied = _homepage_sources(
+                {src: deepcopy(items) for src, items in (sources or {}).items()}
+            )
             count = sum(len(items or []) for items in copied.values())
             if count == 0:
                 continue

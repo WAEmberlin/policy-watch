@@ -1148,6 +1148,20 @@ function isDateInRange(dateStr, startDate, endDate) {
     }
 }
 
+function isHearingNotice(item) {
+    if (typeof PolicyWatchHome !== "undefined" && PolicyWatchHome.isHearingNotice) {
+        return PolicyWatchHome.isHearingNotice(item);
+    }
+    if (!item) return false;
+    if (item.type === "state_hearing") return true;
+    const feed = item.feed || "";
+    if (feed === "utah_committee_rss" || feed === "conference_committees") return true;
+    if ((item.category || "") === "Committee" && !item.bill_number) return true;
+    if (item.bill_number) return false;
+    const summary = String(item.summary || item.latest_action || "").trim();
+    return /^(notice|committee meeting scheduled)$/i.test(summary);
+}
+
 function collectGroupedItems(yearData) {
     const grouped = yearData.grouped || {};
     let allItems = [];
@@ -1166,11 +1180,11 @@ function collectGroupedItems(yearData) {
             })));
         });
     });
-    return allItems;
+    return allItems.filter((item) => !isHearingNotice(item));
 }
 
 function applyFeedFilters(allItems) {
-    let filtered = allItems;
+    let filtered = (allItems || []).filter((item) => !isHearingNotice(item));
     if (selectedSource) {
         filtered = filtered.filter(item => item.source === selectedSource || isVoteFeedItem(item));
     }
@@ -1538,6 +1552,7 @@ function runSearchAgainstLoadedData(queryLower, dateFrom = null, dateTo = null) 
             for (const source of Object.keys(dateData)) {
                 const items = dateData[source];
                 for (const item of items) {
+                    if (isHearingNotice(item)) continue;
                     if (textMatches(buildFeedSearchText(item))) {
                         if (tryAdd({
                             ...item,

@@ -75,6 +75,8 @@ def test_parse_committee_entry():
     assert len(history) == 1
     assert history[0]["feed"] == "utah_committee_rss"
     assert history[0]["summary"] != "NOTICE"
+    assert history[0]["action_type"] == "scheduled"
+    assert history[0]["latest_action"] == history[0]["summary"]
 
 
 def test_parse_notice_html_extracts_meeting_details():

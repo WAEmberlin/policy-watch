@@ -358,10 +358,14 @@ def parse_committee_entry(entry: Dict[str, Any]) -> Tuple[List[Dict[str, Any]], 
 
         digest = md5(f"{committee_code}|{scheduled_iso}|{description}".encode()).hexdigest()[:12]
         item_id = f"ut-rss:{committee_code}:{scheduled_iso}:{digest}"
+        stamp_action = (
+            description if description and description.strip().upper() != "NOTICE"
+            else "Committee meeting scheduled"
+        )
         history_item = {
             "id": item_id,
             "title": title,
-            "summary": description,
+            "summary": stamp_action,
             "link": notice_url or committee_link,
             "published": scheduled_iso or datetime.now(timezone.utc).isoformat(),
             "source": "State (Utah)",
@@ -372,6 +376,8 @@ def parse_committee_entry(entry: Dict[str, Any]) -> Tuple[List[Dict[str, Any]], 
             "committee": committee,
             "location": location,
             "agenda_items": agenda_items,
+            "latest_action": stamp_action,
+            "action_type": "scheduled",
         }
         history_items.append(history_item)
 

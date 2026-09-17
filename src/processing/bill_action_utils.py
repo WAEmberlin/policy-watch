@@ -70,7 +70,8 @@ _COMMITTEE_REFERRED_RE = re.compile(
 _FILED_KEYWORDS = ("placed on file",)
 _HEARING_SCHEDULED_RE = re.compile(
     r"hearing\s+scheduled|scheduled\s+(?:for\s+(?:a\s+)?)?hearing|"
-    r"hearing:|misc_he_\d+",
+    r"hearing:|misc_he_\d+|"
+    r"committee meeting scheduled|meeting scheduled",
     re.I,
 )
 # MA General Court files amendment vehicles as "Text of an amendment, see S1234".
@@ -79,6 +80,10 @@ _AMENDMENT_TEXT_RE = re.compile(
     re.I,
 )
 _VOTE_KEYWORDS = ("roll call", "recorded vote", "vote on", " rc ")
+_HEARING_NOTICE_SUMMARY_RE = re.compile(
+    r"^(notice|committee meeting scheduled)$",
+    re.I,
+)
 
 _PASS_RESULT_KEYWORDS = ("pass", "passed", "adopted", "agreed", "yea", "yes")
 _FAIL_RESULT_KEYWORDS = ("fail", "failed", "reject", "lost", "nay", "no")
@@ -144,7 +149,7 @@ def classify_action_type(text: str) -> str | None:
         return "filed"
     if _TABLED_RE.search(lower):
         return "tabled"
-    if _HEARING_SCHEDULED_RE.search(lower):
+    if _HEARING_SCHEDULED_RE.search(lower) or lower.strip() == "notice":
         return "scheduled"
     if _AMENDMENT_TEXT_RE.search(lower):
         return "amendment"
@@ -216,13 +221,28 @@ def enrich_bill_feed_item(item: Dict[str, Any]) -> Dict[str, Any]:
     return item
 
 
-def is_bill_feed_item(item: Dict[str, Any]) -> bool:
-    """True when a grouped feed row represents bill activity (not hearings)."""
-    if item.get("item_type") == "vote_event":
+def is_hearing_notice_item(item: Dict[str, Any]) -> bool:
+    """True for committee hearing notices that belong on Hearings, not Home."""
+    if not item:
         return False
     if item.get("type") == "state_hearing":
+        return True
+    feed = item.get("feed") or ""
+    if feed in ("utah_committee_rss", "conference_committees"):
+        return True
+    if (item.get("category") or "") == "Committee" and not item.get("bill_number"):
+        return True
+    if item.get("bill_number"):
         return False
-    if item.get("feed") == "conference_committees":
+    summary = str(item.get("summary") or item.get("latest_action") or "").strip()
+    return bool(_HEARING_NOTICE_SUMMARY_RE.match(summary))
+
+
+def is_bill_feed_item(item: Dict[str, Any]) -> bool:
+    """True when a grouped feed row represents bill activity (not hearings)."""
+    if is_hearing_notice_item(item):
+        return False
+    if item.get("item_type") == "vote_event":
         return False
     return bool(
         item.get("bill_number")
