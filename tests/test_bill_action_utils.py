@@ -18,6 +18,7 @@ from processing.bill_action_utils import (  # noqa: E402
     format_vote_tally,
     inject_vote_events_into_grouped,
     is_bill_feed_item,
+    is_hearing_notice_item,
 )
 
 
@@ -54,6 +55,8 @@ def test_classify_passed_adopted_referred_died():
     assert classify_action_type("Placed on file") == "filed"
     assert classify_action_type("Hearing scheduled for 09/15/2026 from 01:00 PM-05:00 PM in A-2") == "scheduled"
     assert classify_action_type("Scheduled for hearing") == "scheduled"
+    assert classify_action_type("Committee meeting scheduled") == "scheduled"
+    assert classify_action_type("NOTICE") == "scheduled"
     assert classify_action_type(
         "House: HB2036: Hearing: Thursday, March 12, 2026, 3:30 PM Room 346-S"
     ) == "scheduled"
@@ -143,6 +146,32 @@ def test_enrich_bill_feed_item_sets_fields():
 def test_is_bill_feed_item_skips_hearings():
     assert is_bill_feed_item({"type": "state_hearing", "title": "Committee"}) is False
     assert is_bill_feed_item({"bill_number": "HB 1", "latest_action": "Introduced"}) is True
+
+
+def test_is_hearing_notice_item_matches_utah_rss_and_notice_text():
+    assert is_hearing_notice_item(
+        {
+            "type": "state_hearing",
+            "feed": "utah_committee_rss",
+            "title": "Revenue and Taxation — 9/15/2026",
+            "summary": "NOTICE",
+        }
+    )
+    assert is_hearing_notice_item(
+        {
+            "source": "State (Utah)",
+            "summary": "Committee meeting scheduled",
+            "category": "Committee",
+        }
+    )
+    assert is_hearing_notice_item({"feed": "conference_committees", "title": "Conference"})
+    assert not is_hearing_notice_item(
+        {
+            "bill_number": "HB 1",
+            "latest_action": "Hearing scheduled for 09/15/2026",
+            "title": "HB 1: Education",
+        }
+    )
 
 
 def test_format_bill_display_number():

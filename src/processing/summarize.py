@@ -14,6 +14,7 @@ from processing.bill_action_utils import (  # noqa: E402
     enrich_bill_feed_item,
     inject_vote_events_into_grouped,
     is_bill_feed_item,
+    is_hearing_notice_item,
 )
 from processing.hearing_stream_utils import enrich_hearing_stream  # noqa: E402
 from processing.home_feed import write_home_feed_artifacts  # noqa: E402
@@ -147,8 +148,8 @@ for item in history:
         date_str = dt.strftime("%Y-%m-%d")
         source = item.get("source", "Unknown")
         
-        # Skip conference committee items - they go to hearings page only
-        if item.get("feed") == "conference_committees":
+        # Hearing notices belong on the Hearings page, not the homepage ledger.
+        if is_hearing_notice_item(item):
             continue
         
         # For Kansas items, include category in source for better grouping

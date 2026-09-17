@@ -388,6 +388,10 @@ def test_veterans_page_blank_dates_and_fifty_item_pages():
     assert "loadVeteransHomeFeedItems" in script
     assert "usesVeteransItemFeed" in script
     assert "return HOME_FEED_PAGE_ITEM_LIMIT;" in script
+    assert "function isHearingNotice(item)" in script
+    home_js = (root / "docs" / "home.js").read_text(encoding="utf-8")
+    assert "function isHearingNotice(item)" in home_js
+    assert "hearings.html" in (root / "docs" / "shell.js").read_text(encoding="utf-8")
 
 
 def test_loading_overlay_is_wired_for_search_and_first_paint():
@@ -453,3 +457,51 @@ def test_write_home_feed_artifacts_writes_search_bills(tmp_path):
     shard = json.loads((tmp_path / "search_shards" / "CO.json").read_text(encoding="utf-8"))
     assert shard["bills"][0]["n"] == "HB 10"
     assert shard["bills"][0]["t"] == "Colorado update"
+
+
+def test_home_feed_drops_hearing_notices_and_hearing_only_days():
+    site_years = _year(
+        {
+            "2026-09-15": {
+                "State (Utah)": [
+                    {
+                        "title": "Revenue and Taxation — 9/15/2026",
+                        "summary": "NOTICE",
+                        "type": "state_hearing",
+                        "feed": "utah_committee_rss",
+                        "source": "State (Utah)",
+                        "state": "UT",
+                    }
+                ]
+            },
+            "2026-09-14": {
+                "Congress.gov API": [
+                    {
+                        "title": "Federal bill",
+                        "bill_number": "HR 1",
+                        "level": "federal",
+                        "published": "2026-09-14T10:00:00",
+                        "latest_action": "Passed House",
+                        "item_type": "bill_update",
+                    }
+                ]
+            },
+        }
+    )
+    dates = select_recent_feed_dates(site_years, {}, max_days=2, today="2026-09-15")
+    assert "2026-09-15" not in dates
+    assert dates[0] == "2026-09-14"
+
+    payload = build_home_feed(
+        last_updated="2026-09-15T12:00:00",
+        site_years=site_years,
+        search_index={},
+        today="2026-09-15",
+    )
+    grouped = ((payload.get("years") or {}).get("2026") or {}).get("grouped") or {}
+    assert "2026-09-15" not in grouped
+    assert "2026-09-14" in grouped
+    assert "2026-09-15" not in payload["available_dates"]
+
+    day = build_day_feed(date="2026-09-15", site_years=site_years, search_index={})
+    assert day["stats"]["feed_item_count"] == 0
