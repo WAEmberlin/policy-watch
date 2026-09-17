@@ -1,21 +1,21 @@
 {
-  "week_start": "2026-09-05T08:58:38.534198-05:00",
-  "week_end": "2026-09-12T08:58:38.534198-05:00",
+  "week_start": "2026-09-10T08:59:43.119407-05:00",
+  "week_end": "2026-09-17T08:59:43.119407-05:00",
   "item_counts": {
-    "federal": 107,
+    "federal": 511,
     "ks": 0,
     "co": 0,
     "az": 0,
-    "ut": 0,
+    "ut": 14,
     "me": 0,
     "ne": 0,
     "md": 0,
     "pa": 0,
-    "ma": 97,
+    "ma": 90,
     "wv": 0,
     "tn": 0,
     "nc": 0,
-    "mo": 0,
+    "mo": 3,
     "ia": 0,
     "ga": 0,
     "ky": 0
@@ -26,30 +26,36 @@
       "label": "Congress / Federal",
       "recap_lines": [
         "Congress / Federal:",
-        "HR 5366: Federal Disaster Tax Relief Act of 2025",
-        "   Signed by President.",
-        "HR 2069: Stop Secret Spending Act of 2025",
-        "   Signed by President.",
-        "HR 2196: To provide for an extension of the legislative authority of the National Emergency Medical Services Memorial Foundation to establish a commemorative work in the District of Columbia and its environs.",
-        "   Signed by President.",
-        "   Plus 1 immigration, 7 healthcare, 9 education, 22 economic, 1 defense, 4 technology, 9 tax, 4 infrastructure bills, and 47 others."
+        "HJRES 213: Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule issued by the Environmental Protection Agency relating to the \"California State Nonroad Engine Pollution Control Standards; Commercial Harbor Craft Regulations; Notice of Decision\".",
+        "   Motion to reconsider laid on the table Agreed to without objection.",
+        "HR 9340: Ratepayer Protection Act",
+        "   Motion to reconsider laid on the table Agreed to without objection.",
+        "HR 5109: To require the Administrator of the Transportation Security Administration of the United States to develop guidelines to improve returning citizens' access to the Transportation Worker Identification Credential program, to assist individuals in custody of Federal, State, and local prisons in pre-applying or preparing applications for Transportation Worker Identification Credential cards, and to assist individuals requesting an appeal or waiver of preliminary determination of ineligibility, and for other purposes.",
+        "   The title of the measure was amended. Agreed to without objection.",
+        "   Plus 9 immigration, 41 healthcare, 32 education, 57 economic, 17 defense, 43 environmental, 21 technology, 25 tax, 25 infrastructure bills, and 182 others.",
+        "56 hearings scheduled."
       ],
-      "item_count": 107,
+      "item_count": 511,
       "veterans_highlight": {
-        "summary": "HRES 1522: Recognizing the 30th anniversary of the Missouri-Panama State Partnership Program and celebrating the enduring partnership...; HR 5634: Veterans Flight Training Responsibility Act of 2025",
+        "summary": "HR 10371: To direct the Associate Administrator for Veterans Business Development of the Small Business Administration to ensure compliance...; HR 10439: To amend the Truth in Lending Act to extend the consumer credit protections provided to members of the Armed Forces and their...; HRES 1556: To honor and recognize Mr. Ahmad Shah Massoud, the former military leader of Afghanistan's Northern Alliance who was tragically...; plus 23 more",
         "items": [
           {
             "type": "bill",
-            "title": "HRES 1522: Recognizing the 30th anniversary of the Missouri-Panama State Partnership Program and celebrating the enduring partnership...",
-            "url": "https://www.congress.gov/bill/119th-congress/house-resolution/1522"
+            "title": "HR 10371: To direct the Associate Administrator for Veterans Business Development of the Small Business Administration to ensure compliance...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10371"
           },
           {
             "type": "bill",
-            "title": "HR 5634: Veterans Flight Training Responsibility Act of 2025",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/5634"
+            "title": "HR 10439: To amend the Truth in Lending Act to extend the consumer credit protections provided to members of the Armed Forces and their...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10439"
+          },
+          {
+            "type": "bill",
+            "title": "HRES 1556: To honor and recognize Mr. Ahmad Shah Massoud, the former military leader of Afghanistan's Northern Alliance who was tragically...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-resolution/1556"
           }
         ],
-        "total_matches": 2
+        "total_matches": 26
       }
     },
     {
@@ -80,9 +86,10 @@
       "id": "ut",
       "label": "Utah",
       "recap_lines": [
-        "Utah: No new activity this week."
+        "Utah:",
+        "   14 hearings."
       ],
-      "item_count": 0
+      "item_count": 14
     },
     {
       "id": "me",
@@ -121,9 +128,20 @@
       "label": "Massachusetts",
       "recap_lines": [
         "Massachusetts:",
-        "   13 committee actions, 21 hearings, 5 votes."
+        "   15 committee actions, 13 hearings, 8 votes."
       ],
-      "item_count": 97
+      "item_count": 90,
+      "veterans_highlight": {
+        "summary": "SD 4235: Office of the Veteran Advocate Annual Report (FY2026)",
+        "items": [
+          {
+            "type": "bill",
+            "title": "SD 4235: Office of the Veteran Advocate Annual Report (FY2026)",
+            "url": "https://malegislature.gov/Bills/194/SD4235.pdf"
+          }
+        ],
+        "total_matches": 1
+      }
     },
     {
       "id": "wv",
@@ -153,9 +171,10 @@
       "id": "mo",
       "label": "Missouri",
       "recap_lines": [
-        "Missouri: No new activity this week."
+        "Missouri:",
+        "   3 bills updated."
       ],
-      "item_count": 0
+      "item_count": 3
     },
     {
       "id": "ia",
@@ -182,8 +201,8 @@
       "item_count": 0
     }
   ],
-  "script": "PolicyWatch weekly overview for September 05 through September 12, 2026.\n\nCongress / Federal:\nHR 5366: Federal Disaster Tax Relief Act of 2025\nVeterans & Military highlight: HRES 1522: Recognizing the 30th anniversary of the Missouri-Panama State Partnership Program and celebrating the enduring partnership...; HR 5634: Veterans Flight Training Responsibility Act of 2025.\n   Signed by President.\nHR 2069: Stop Secret Spending Act of 2025\n   Signed by President.\nHR 2196: To provide for an extension of the legislative authority of the National Emergency Medical Services Memorial Foundation to establish a commemorative work in the District of Columbia and its environs.\n   Signed by President.\n   Plus 1 immigration, 7 healthcare, 9 education, 22 economic, 1 defense, 4 technology, 9 tax, 4 infrastructure bills, and 47 others.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   13 committee actions, 21 hearings, 5 votes.\n\nWest Virginia: No new activity this week.\n\nTennessee: No new activity this week.\n\nNorth Carolina: No new activity this week.\n\nMissouri: No new activity this week.\n\nIowa: No new activity this week.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nExplore full details at PolicyWatch.",
-  "generated_at": "2026-09-12T08:58:38.534198-05:00",
+  "script": "PolicyWatch weekly overview for September 10 through September 17, 2026.\n\nCongress / Federal:\nHJRES 213: Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule issued by the Environmental Protection Agency relating to the \"California State Nonroad Engine Pollution Control Standards; Commercial Harbor Craft Regulations; Notice of Decision\".\nVeterans & Military highlight: HR 10371: To direct the Associate Administrator for Veterans Business Development of the Small Business Administration to ensure compliance...; HR 10439: To amend the Truth in Lending Act to extend the consumer credit....\n   Motion to reconsider laid on the table Agreed to without objection.\nHR 9340: Ratepayer Protection Act\n   Motion to reconsider laid on the table Agreed to without objection.\nHR 5109: To require the Administrator of the Transportation Security Administration of the United States to develop guidelines to improve returning citizens' access to the Transportation Worker Identification Credential program, to assist individuals in custody of Federal, State, and local prisons in pre-applying or preparing applications for Transportation Worker Identification Credential cards, and to assist individuals requesting an appeal or waiver of preliminary determination of ineligibility, and for other purposes.\n   The title of the measure was amended. Agreed to without objection.\n   Plus 9 immigration, 41 healthcare, 32 education, 57 economic, 17 defense, 43 environmental, 21 technology, 25 tax, 25 infrastructure bills, and 182 others.\n56 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah:\n   14 hearings.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   15 committee actions, 13 hearings, 8 votes.\nVeterans & Military highlight: SD 4235: Office of the Veteran Advocate Annual Report (FY2026).\n\nWest Virginia: No new activity this week.\n\nTennessee: No new activity this week.\n\nNorth Carolina: No new activity this week.\n\nMissouri:\n   3 bills updated.\n\nIowa: No new activity this week.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nExplore full details at PolicyWatch.",
+  "generated_at": "2026-09-17T08:59:43.119407-05:00",
   "audio_available": false,
   "audio_file": null
 }
