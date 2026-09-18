@@ -568,6 +568,55 @@ mark {
   color: #14532d !important;
   border-color: #bbf7d0 !important;
 }
+
+.veterans-day-callout ul {
+  display: table;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.4rem;
+}
+.veterans-day-callout li {
+  display: contents;
+}
+.veteran-callout-row {
+  display: table-row;
+}
+.veteran-callout-billno {
+  display: table-cell;
+  vertical-align: top;
+  width: 1%;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  padding: 0.12rem 0.4rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--cw-border);
+  color: var(--cw-text);
+  background: color-mix(in srgb, var(--cw-surface) 80%, var(--cw-border));
+  white-space: nowrap;
+  text-align: center;
+}
+.veteran-callout-title {
+  display: table-cell;
+  vertical-align: top;
+  padding-left: 0.4rem;
+}
+.veteran-callout-billno--red {
+  background: #fee2e2;
+  color: #7f1d1d;
+  border-color: #fecaca;
+}
+.veteran-callout-billno--yellow {
+  background: #fef3c7;
+  color: #78350f;
+  border-color: #fde68a;
+}
+.veteran-callout-billno--green {
+  background: #dcfce7;
+  color: #14532d;
+  border-color: #bbf7d0;
+}
 .veteran-impact-reason-toggle {
   background: transparent;
   border: 0;

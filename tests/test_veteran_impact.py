@@ -537,6 +537,22 @@ def test_classify_red_from_military_sexual_trauma():
     assert "military sexual trauma" in result["reason"].lower()
 
 
+def test_medal_of_honor_access_act_is_red():
+    result = classify_veteran_impact("HR 10480: Medal of Honor Access and Liaison Act")
+    assert result is not None
+    assert result["level"] == "red"
+    assert "medal of honor" in result["reason"].lower()
+
+
+def test_mst_awareness_day_resolution_is_green():
+    result = classify_veteran_impact(
+        'Expressing support for "Military Sexual Trauma Awareness Day".'
+    )
+    assert result is not None
+    assert result["level"] == "green"
+    assert "awareness-day" in result["reason"].lower() or "honor" in result["reason"].lower()
+
+
 def test_classify_red_from_mst_mental_health_retroactive_benefits():
     result = classify_veteran_impact(
         "A bill to provide for the retroactive payment of benefits for veterans "

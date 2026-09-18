@@ -768,7 +768,7 @@ const PolicyWatchHome = (() => {
     const VETERAN_IMPACT_RED_SIGNALS = [
         'gi bill', 'survivor benefit', 'burial benefit', 'va benefit', 'veterans benefit',
         'veteran pension', 'veterans pension', 'veteran compensation', 'veterans compensation',
-        'compensation', 'pension', 'dependency indemnity', 'title 38',
+        'compensation', 'pension', 'dependency indemnity', 'title 38', 'medal of honor',
         'va health', 'veterans health', 'va healthcare', 'veterans healthcare',
         'military sexual trauma', 'ptsd', 'tbi', 'suicide prevention', 'post-traumatic',
         'sexual trauma', 'intimate partner violence', 'domestic violence',
@@ -810,8 +810,10 @@ const PolicyWatchHome = (() => {
     const VETERAN_IMPACT_GREEN_SIGNALS = [
         'recognition', 'memorial', 'honor', 'honoring', 'ceremonial', 'commemorative',
         'designate', 'memorial highway', 'memorial day', 'purple heart day',
-        'resolution honoring', 'honor resolution',
+        'resolution honoring', 'honor resolution', 'awareness day',
+        'expressing support for',
     ];
+    const CEREMONIAL_RECOGNITION_RE = /awareness day|expressing support for|recognizing (?:the )?(?:week|day|month) of|designat(?:e|ing)\s.{0,80}\b(?:as|day|week|month)\b/i;
     // Ambiguous terms — only score after a veteran marker / inherent phrase / AI tag.
     const VETERAN_IMPACT_CONTEXT_GATED = new Set([
         'compensation', 'pension', 'housing voucher',
@@ -838,6 +840,10 @@ const PolicyWatchHome = (() => {
     function isVaFacilityNaming(text) {
         const hay = String(text || '');
         return VA_FACILITY_NAMING_PATTERNS.some((pattern) => pattern.test(hay));
+    }
+
+    function isCeremonialRecognition(text) {
+        return CEREMONIAL_RECOGNITION_RE.test(String(text || ''));
     }
 
     function itemHasVeteranTagging(item) {
@@ -896,6 +902,9 @@ const PolicyWatchHome = (() => {
         if (opts.special === 'facility_naming') {
             return 'Classified green because this bill names or renames a VA clinic or outpatient facility.';
         }
+        if (opts.special === 'ceremonial_recognition') {
+            return 'Classified green because this is an awareness-day or honor resolution, not a benefits or care change.';
+        }
         if (opts.special === 'veteran_marker') {
             const markerNote = matched.length ? ` Matched markers: ${matched.join(', ')}.` : '';
             return `Classified ${label} as veteran-related without high or moderate impact keyword signals.${markerNote}`;
@@ -945,6 +954,17 @@ const PolicyWatchHome = (() => {
                 veteran_related: true,
                 factors,
                 reason: buildClientImpactReason('green', { special: 'facility_naming', factors }),
+            };
+        }
+
+        if (isCeremonialRecognition(hay)) {
+            const factors = ['Recognition'];
+            return {
+                level: 'green',
+                source: 'rules',
+                veteran_related: true,
+                factors,
+                reason: buildClientImpactReason('green', { special: 'ceremonial_recognition', factors }),
             };
         }
 
@@ -1465,9 +1485,39 @@ const PolicyWatchHome = (() => {
         return matchesVeteransTopic(itemVeteransText(item));
     }
 
+    function impactSortRank(level) {
+        if (level === 'red') return 0;
+        if (level === 'yellow') return 1;
+        if (level === 'green') return 2;
+        return 3;
+    }
+
+    function calloutBillParts(item) {
+        const rawNumber = String(item.bill_number || '').trim();
+        let title = String(item.short_title || item.title || 'Bill').trim();
+        let code = rawNumber;
+        if (code && title.toLowerCase().startsWith(code.toLowerCase())) {
+            title = title.slice(code.length).replace(/^[\s:–-]+/, '');
+        } else if (!code) {
+            const match = title.match(/^([A-Za-z]+(?:\s*\d+[A-Za-z]?)?)\s*:\s*(.+)$/);
+            if (match) {
+                code = match[1];
+                title = match[2];
+            }
+        }
+        return { code, title: title || (item.title || 'Bill') };
+    }
+
     function renderVeteransCallout(items) {
         const matches = items.filter((item) => matchesVeteransTopic(itemVeteransText(item)));
         if (matches.length === 0) return null;
+
+        const ranked = matches.map((item) => ({
+            item,
+            impact: resolveVeteranImpact(item),
+        })).sort((a, b) => (
+            impactSortRank(a.impact && a.impact.level) - impactSortRank(b.impact && b.impact.level)
+        ));
 
         const box = document.createElement('div');
         box.className = 'veterans-day-callout mb-4 p-3 rounded-lg border';
@@ -1480,44 +1530,53 @@ const PolicyWatchHome = (() => {
         badge.style.cssText = 'background: color-mix(in srgb, var(--cw-accent-warn, #f59e0b) 18%, var(--cw-surface)); color: var(--cw-text);';
         badge.textContent = 'Veterans & Military';
         labelRow.appendChild(badge);
-        if (matches.length > 1) {
+        if (ranked.length > 1) {
             const count = document.createElement('span');
             count.className = 'text-xs text-slate-500';
-            count.textContent = `${matches.length} items`;
+            count.textContent = `${ranked.length} items`;
             labelRow.appendChild(count);
         }
         box.appendChild(labelRow);
 
         const list = document.createElement('ul');
-        list.className = 'space-y-1 text-sm';
-        matches.slice(0, 5).forEach((item) => {
+        list.className = 'space-y-1.5 text-sm';
+        ranked.forEach(({ item, impact }) => {
             const li = document.createElement('li');
+            const level = impact && impact.level;
+            const impactLabel = veteranImpactLabel(level);
+            const parts = calloutBillParts(item);
             const url = (typeof PolicyWatchBillUtils !== 'undefined')
                 ? PolicyWatchBillUtils.resolveBillUrl(item)
                 : (item.link || item.url);
-            const displayTitle = item.short_title || item.title || 'Bill';
-            const label = (item.bill_number && !displayTitle.startsWith(item.bill_number))
-                ? `${item.bill_number}: ${displayTitle}`
-                : displayTitle;
+
+            const row = url ? document.createElement('a') : document.createElement('span');
+            row.className = url
+                ? 'veteran-callout-row text-civic-blue hover:underline font-medium'
+                : 'veteran-callout-row font-medium';
             if (url) {
-                const a = document.createElement('a');
-                a.href = url;
-                a.target = '_blank';
-                a.rel = 'noopener noreferrer';
-                a.className = 'text-civic-blue hover:underline font-medium';
-                a.textContent = label;
-                li.appendChild(a);
-            } else {
-                li.textContent = label;
+                row.href = url;
+                row.target = '_blank';
+                row.rel = 'noopener noreferrer';
             }
+
+            if (parts.code) {
+                const code = document.createElement('span');
+                code.className = `veteran-callout-billno${level ? ` veteran-callout-billno--${level}` : ''}`;
+                code.textContent = parts.code;
+                if (impactLabel) {
+                    code.title = impactLabel;
+                    code.setAttribute('aria-label', `${parts.code}, ${impactLabel}`);
+                }
+                row.appendChild(code);
+                row.appendChild(document.createTextNode(' '));
+            }
+            const title = document.createElement('span');
+            title.className = 'veteran-callout-title';
+            title.textContent = parts.title;
+            row.appendChild(title);
+            li.appendChild(row);
             list.appendChild(li);
         });
-        if (matches.length > 5) {
-            const more = document.createElement('li');
-            more.className = 'text-xs text-slate-500';
-            more.textContent = `Plus ${matches.length - 5} more`;
-            list.appendChild(more);
-        }
         box.appendChild(list);
         return box;
     }
