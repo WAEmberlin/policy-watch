@@ -30,7 +30,7 @@ SCORING_FACTORS: Dict[str, List[str]] = {
     "benefits_compensation": [
         "gi bill", "survivor benefit", "burial benefit", "va benefit", "veterans benefit",
         "veteran pension", "veterans pension", "veteran compensation", "veterans compensation",
-        "dependency indemnity", "title 38",
+        "dependency indemnity", "title 38", "medal of honor",
         # Gated when used alone — require veteran context first:
         "compensation", "pension",
         "retroactive payment", "retroactive benefit", "retroactive benefits",
@@ -147,8 +147,17 @@ YELLOW_SIGNALS = [
 GREEN_SIGNALS = [
     "recognition", "memorial", "honor", "honoring", "ceremonial", "commemorative",
     "designate", "memorial highway", "memorial day", "purple heart day",
-    "resolution honoring", "honor resolution",
+    "resolution honoring", "honor resolution", "awareness day",
+    "expressing support for",
 ]
+
+CEREMONIAL_RECOGNITION_RE = re.compile(
+    r"awareness day"
+    r"|expressing support for"
+    r"|recognizing (?:the )?(?:week|day|month) of"
+    r"|designat(?:e|ing)\s.{0,80}\b(?:as|day|week|month)\b",
+    re.I,
+)
 
 # Phrases that are inherently veteran/military (establish relatedness without generic terms).
 INHERENT_VETERAN_SIGNALS = [
@@ -339,6 +348,14 @@ def is_va_facility_naming(text: str) -> bool:
     return any(pattern.search(hay) for pattern in VA_FACILITY_NAMING_RES)
 
 
+def is_ceremonial_recognition(text: str) -> bool:
+    """True for awareness-day / honor resolutions, even if a red topic is named."""
+    hay = (text or "").lower()
+    if not hay.strip():
+        return False
+    return bool(CEREMONIAL_RECOGNITION_RE.search(hay))
+
+
 def detect_scoring_factors(text: str) -> List[str]:
     """Return human-readable scoring factor labels matched in text."""
     text_lower = text.lower()
@@ -403,6 +420,12 @@ def build_impact_reason(
             "or outpatient facility."
         )
 
+    if special == "ceremonial_recognition":
+        return (
+            "Classified green because this is an awareness-day or honor "
+            "resolution, not a benefits or care change."
+        )
+
     if special == "veteran_marker":
         marker_note = ""
         if matched_keywords:
@@ -465,6 +488,18 @@ def classify_veteran_impact(
             "veteran_related": True,
             "reason": build_impact_reason(
                 "green", factors=factors, special="facility_naming",
+            ),
+        }
+
+    if is_ceremonial_recognition(text_lower):
+        factors = ["Recognition"]
+        return {
+            "level": "green",
+            "factors": factors,
+            "source": "rules",
+            "veteran_related": True,
+            "reason": build_impact_reason(
+                "green", factors=factors, special="ceremonial_recognition",
             ),
         }
 

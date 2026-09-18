@@ -394,6 +394,26 @@ def test_veterans_page_blank_dates_and_fifty_item_pages():
     assert "hearings.html" in (root / "docs" / "shell.js").read_text(encoding="utf-8")
 
 
+def test_homepage_veterans_callout_lists_all_items_with_impact():
+    root = Path(__file__).resolve().parents[1]
+    home = (root / "docs" / "home.js").read_text(encoding="utf-8")
+    assert "function renderVeteransCallout" in home
+    assert "matches.slice(0, 5)" not in home
+    assert "Plus ${matches.length - 5} more" not in home
+    assert "veteran-callout-billno" in home
+    assert "function calloutBillParts" in home
+    assert "veteranImpactLabel(level)" in home
+    assert "veteran-callout-row" in home
+    assert "inline-flex flex-wrap items-baseline gap-2 text-civic-blue" not in home
+    theme = (root / "docs" / "theme.css").read_text(encoding="utf-8")
+    assert ".veteran-callout-billno--red" in theme
+    assert ".veteran-callout-billno--yellow" in theme
+    assert ".veteran-callout-billno--green" in theme
+    assert "display: table" in theme
+    assert "display: table-cell" in theme
+    assert ".veteran-callout-title" in theme
+
+
 def test_loading_overlay_is_wired_for_search_and_first_paint():
     root = Path(__file__).resolve().parents[1]
     theme = (root / "docs" / "theme.css").read_text(encoding="utf-8")
