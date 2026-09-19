@@ -27,6 +27,8 @@ HISTORY_FILE = ROOT / "src" / "output" / "history.json"
 LEGISLATION_FILE = ROOT / "src" / "output" / "legislation.json"
 HEARINGS_FILE = ROOT / "src" / "output" / "hearings.json"
 NORMALIZED_BILLS_FILE = ROOT / "data" / "normalized" / "bills.json"
+SEARCH_INDEX_FILE = ROOT / "data" / "normalized" / "search_index.json"
+HOME_FEED_FILE = ROOT / "docs" / "home_feed.json"
 
 FEDERAL_CODE = "FEDERAL"
 
@@ -245,33 +247,124 @@ def is_hearing_within_lookahead(item: Dict[str, Any], days: int = 1) -> bool:
     return today <= hdate <= today + timedelta(days=days)
 
 
+def _item_url(item: Dict[str, Any]) -> str:
+    return str(item.get("link") or item.get("url") or "").strip()
+
+
+def _remember_url(seen_links: set, url: str) -> bool:
+    if url and url in seen_links:
+        return False
+    if url:
+        seen_links.add(url)
+    return True
+
+
+def _digest_item_from_normalized_bill(bill: Dict[str, Any], ts: Optional[datetime]) -> Dict[str, Any]:
+    display_title = bill.get("title", "")
+    bill_num = bill.get("bill_number", "")
+    return {
+        "title": f"{bill_num}: {display_title}" if bill_num else display_title,
+        "summary": bill.get("summary") or bill.get("ai_summary_short", ""),
+        "source": bill.get("source", "openstates"),
+        "published": ts.isoformat() if ts else bill.get("latest_action_date", ""),
+        "link": bill.get("url", ""),
+        "bill_number": bill_num,
+        "latest_action": bill.get("latest_action", ""),
+        "level": bill.get("level", ""),
+        "state": bill.get("state"),
+        "short_title": display_title,
+        "latest_action_date": bill.get("latest_action_date", ""),
+    }
+
+
+def _load_json(path: Path) -> Any:
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def load_normalized_bills_for_email() -> List[Dict[str, Any]]:
+    """Open States / normalized bills. Prefer bills.json; fall back to search_index."""
+    if NORMALIZED_BILLS_FILE.exists():
+        data = _load_json(NORMALIZED_BILLS_FILE)
+        if isinstance(data, list):
+            return data
+    if SEARCH_INDEX_FILE.exists():
+        data = _load_json(SEARCH_INDEX_FILE)
+        bills = (data or {}).get("bills") if isinstance(data, dict) else None
+        if isinstance(bills, list):
+            print(f"Using {SEARCH_INDEX_FILE} because {NORMALIZED_BILLS_FILE} is missing")
+            return bills
+    print(
+        f"WARNING: {NORMALIZED_BILLS_FILE} and {SEARCH_INDEX_FILE} are missing — "
+        "Open States state bills will only appear if they are already on the home feed"
+    )
+    return []
+
+
+def iter_home_feed_items(payload: Optional[Dict[str, Any]] = None) -> List[Dict[str, Any]]:
+    """Flatten homepage grouped items so email can include the same state updates."""
+    if payload is None:
+        if not HOME_FEED_FILE.exists():
+            return []
+        raw = _load_json(HOME_FEED_FILE)
+        payload = raw if isinstance(raw, dict) else {}
+    items: List[Dict[str, Any]] = []
+    for year_data in (payload.get("years") or {}).values():
+        grouped = (year_data or {}).get("grouped") or {}
+        for date, sources in grouped.items():
+            for _source, rows in (sources or {}).items():
+                for row in rows or []:
+                    if not isinstance(row, dict):
+                        continue
+                    entry = dict(row)
+                    entry.setdefault("published", entry.get("latest_action_date") or date)
+                    items.append(entry)
+    return items
+
+
+def _append_recent_item(
+    item: Dict[str, Any],
+    now: datetime,
+    window_hours: int,
+    hearing_lookahead_days: int,
+    recent: List[Dict[str, Any]],
+    seen_links: set,
+) -> None:
+    if is_utah_hearing_feed_item(item):
+        if not is_hearing_within_lookahead(item, hearing_lookahead_days):
+            return
+    elif not is_within_window(item, now, window_hours):
+        return
+    if not _remember_url(seen_links, _item_url(item)):
+        return
+    entry = dict(item)
+    ts = item_recency_ts(item)
+    if ts:
+        entry["published"] = ts.isoformat()
+    recent.append(entry)
+
+
 def load_recent_items(window_hours: int = 24, hearing_lookahead_days: int = 1) -> List[Dict[str, Any]]:
     now = datetime.now(timezone.utc)
     recent: List[Dict[str, Any]] = []
     seen_links: set = set()
 
     if HISTORY_FILE.exists():
-        with open(HISTORY_FILE, encoding="utf-8") as f:
-            history = json.load(f)
+        history = _load_json(HISTORY_FILE)
         if isinstance(history, list):
             for item in history:
-                if is_utah_hearing_feed_item(item):
-                    if not is_hearing_within_lookahead(item, hearing_lookahead_days):
-                        continue
-                elif not is_within_window(item, now, window_hours):
-                    continue
-                entry = dict(item)
-                ts = item_recency_ts(item)
-                if ts:
-                    entry["published"] = ts.isoformat()
-                recent.append(entry)
+                _append_recent_item(
+                    dict(item), now, window_hours, hearing_lookahead_days, recent, seen_links
+                )
 
     if LEGISLATION_FILE.exists():
-        with open(LEGISLATION_FILE, encoding="utf-8") as f:
-            legislation = json.load(f)
+        legislation = _load_json(LEGISLATION_FILE)
         if isinstance(legislation, list):
             for bill in legislation:
                 if not is_within_window(bill, now, window_hours):
+                    continue
+                url = str(bill.get("url") or "").strip()
+                if not _remember_url(seen_links, url):
                     continue
                 ts = item_recency_ts(bill)
                 display_title = bill.get("short_title") or bill.get("title", "")
@@ -280,7 +373,7 @@ def load_recent_items(window_hours: int = 24, hearing_lookahead_days: int = 1) -
                     "summary": bill.get("summary", ""),
                     "source": bill.get("source", "Congress.gov API"),
                     "published": ts.isoformat() if ts else bill.get("latest_action_date", ""),
-                    "link": bill.get("url", ""),
+                    "link": url,
                     "bill_number": f"{bill.get('bill_type', '')} {bill.get('bill_number', '')}".strip(),
                     "official_title": bill.get("official_title", ""),
                     "short_title": bill.get("short_title", ""),
@@ -288,33 +381,18 @@ def load_recent_items(window_hours: int = 24, hearing_lookahead_days: int = 1) -
                     "level": "federal",
                 })
 
-    if NORMALIZED_BILLS_FILE.exists():
-        with open(NORMALIZED_BILLS_FILE, encoding="utf-8") as f:
-            normalized_bills = json.load(f)
-        if isinstance(normalized_bills, list):
-            for bill in normalized_bills:
-                if not is_within_window(bill, now, window_hours):
-                    continue
-                url = bill.get("url", "")
-                if url and url in seen_links:
-                    continue
-                if url:
-                    seen_links.add(url)
-                ts = item_recency_ts(bill)
-                display_title = bill.get("title", "")
-                bill_num = bill.get("bill_number", "")
-                recent.append({
-                    "title": f"{bill_num}: {display_title}" if bill_num else display_title,
-                    "summary": bill.get("summary") or bill.get("ai_summary_short", ""),
-                    "source": bill.get("source", "openstates"),
-                    "published": ts.isoformat() if ts else bill.get("latest_action_date", ""),
-                    "link": url,
-                    "bill_number": bill_num,
-                    "latest_action": bill.get("latest_action", ""),
-                    "level": bill.get("level", ""),
-                    "state": bill.get("state"),
-                    "short_title": display_title,
-                })
+    for bill in load_normalized_bills_for_email():
+        if not is_within_window(bill, now, window_hours):
+            continue
+        url = str(bill.get("url") or "").strip()
+        if not _remember_url(seen_links, url):
+            continue
+        recent.append(_digest_item_from_normalized_bill(bill, item_recency_ts(bill)))
+
+    for item in iter_home_feed_items():
+        _append_recent_item(
+            item, now, window_hours, hearing_lookahead_days, recent, seen_links
+        )
 
     recent.sort(key=lambda x: x.get("published", ""), reverse=True)
     return recent

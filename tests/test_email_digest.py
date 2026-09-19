@@ -1,5 +1,6 @@
 ﻿"""Tests for email digest building."""
 
+import json
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -7,6 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
+from processing import email_digest
 from processing.email_digest import (
     DIGEST_TITLE_MAX_LEN,
     VETERAN_BILL_NUMBER_STYLES,
@@ -17,7 +19,9 @@ from processing.email_digest import (
     is_hearing_within_lookahead,
     is_within_window,
     item_recency_ts,
+    iter_home_feed_items,
     load_digest_config,
+    load_recent_items,
     load_state_names,
     partition_by_state,
     partition_hearings,
@@ -444,3 +448,128 @@ def test_utah_hearing_stays_out_of_veteran_section():
     assert "Veteran Legislation" not in html
     assert "Utah — Hearing Updates" in html
     assert "Veteran housing" in html
+
+
+def test_email_workflow_restores_openstates_bills_from_r2():
+    workflow = (ROOT / ".github" / "workflows" / "daily_email.yml").read_text(encoding="utf-8")
+    assert "boto3" in workflow
+    assert "r2_sync.py download data/normalized/bills.json" in workflow
+    assert "R2_ACCOUNT_ID" in workflow
+    assert "R2_BUCKET_NAME" in workflow
+    assert "continue-on-error: true" in workflow
+    assert "--ops-alert" in workflow
+    assert "wesley.a.emberlin@gmail.com" in workflow
+    assert "EMAIL_OPS_ALERT" in workflow
+    assert "R2 pipeline restore skipped/failed, continuing" not in workflow
+
+
+def test_ops_alert_defaults_to_wesley(monkeypatch, capsys):
+    from processing.send_email import DEFAULT_OPS_ALERT, ops_alert_recipients, send_ops_alert
+
+    monkeypatch.delenv("EMAIL_OPS_ALERT", raising=False)
+    assert DEFAULT_OPS_ALERT == "wesley.a.emberlin@gmail.com"
+    assert ops_alert_recipients() == ["wesley.a.emberlin@gmail.com"]
+    send_ops_alert("restore failed in test", dry_run=True)
+    captured = capsys.readouterr().out
+    assert "wesley.a.emberlin@gmail.com" in captured
+    assert "restore failed in test" in captured
+
+
+def test_iter_home_feed_items_flattens_state_updates():
+    items = iter_home_feed_items({
+        "years": {
+            "2026": {
+                "grouped": {
+                    "2026-09-17": {
+                        "State (Massachusetts)": [
+                            {
+                                "title": "H 5507: Fire district",
+                                "bill_number": "H 5507",
+                                "state": "MA",
+                                "link": "https://example.com/h5507",
+                            }
+                        ],
+                        "State (Iowa)": [
+                            {
+                                "title": "SJR 11: Constitutional amendment",
+                                "bill_number": "SJR 11",
+                                "state": "IA",
+                                "published": "2026-09-17",
+                            }
+                        ],
+                    }
+                }
+            }
+        }
+    })
+    assert [item.get("state") for item in items] == ["MA", "IA"]
+    assert items[0]["published"] == "2026-09-17"
+
+
+def test_load_recent_items_includes_home_feed_when_bills_json_lacks_states(monkeypatch, tmp_path):
+    now = datetime.now(timezone.utc)
+    home_path = tmp_path / "home_feed.json"
+    home_path.write_text(json.dumps({
+        "years": {
+            str(now.year): {
+                "grouped": {
+                    now.date().isoformat(): {
+                        "State (Massachusetts)": [{
+                            "title": "H 1: Test MA bill",
+                            "bill_number": "H 1",
+                            "state": "MA",
+                            "level": "state",
+                            "link": "https://example.com/ma-h1",
+                            "published": now.isoformat(),
+                            "latest_action_date": now.isoformat(),
+                        }],
+                        "State (Missouri)": [{
+                            "title": "HR 2: Veto session",
+                            "bill_number": "HR 2",
+                            "state": "MO",
+                            "level": "state",
+                            "link": "https://example.com/mo-hr2",
+                            "published": now.isoformat(),
+                            "latest_action_date": now.isoformat(),
+                        }],
+                    }
+                }
+            }
+        }
+    }), encoding="utf-8")
+    (tmp_path / "bills.json").write_text("[]", encoding="utf-8")
+    monkeypatch.setattr(email_digest, "HOME_FEED_FILE", home_path)
+    monkeypatch.setattr(email_digest, "NORMALIZED_BILLS_FILE", tmp_path / "bills.json")
+    monkeypatch.setattr(email_digest, "SEARCH_INDEX_FILE", tmp_path / "missing_search.json")
+    monkeypatch.setattr(email_digest, "HISTORY_FILE", tmp_path / "missing_history.json")
+    monkeypatch.setattr(email_digest, "LEGISLATION_FILE", tmp_path / "missing_leg.json")
+
+    items = load_recent_items(window_hours=24)
+    states = {item.get("state") for item in items}
+    assert states == {"MA", "MO"}
+
+
+def test_load_recent_items_uses_search_index_when_bills_json_missing(monkeypatch, tmp_path):
+    now = datetime.now(timezone.utc)
+    search_path = tmp_path / "search_index.json"
+    search_path.write_text(json.dumps({
+        "bills": [{
+            "title": "Medal of Honor Access and Liaison Act",
+            "bill_number": "SJR 11",
+            "state": "IA",
+            "level": "state",
+            "url": "https://example.com/ia-sjr11",
+            "latest_action_date": now.isoformat(),
+            "latest_action": "Introduced",
+        }]
+    }), encoding="utf-8")
+    monkeypatch.setattr(email_digest, "NORMALIZED_BILLS_FILE", tmp_path / "missing_bills.json")
+    monkeypatch.setattr(email_digest, "SEARCH_INDEX_FILE", search_path)
+    monkeypatch.setattr(email_digest, "HOME_FEED_FILE", tmp_path / "missing_home.json")
+    monkeypatch.setattr(email_digest, "HISTORY_FILE", tmp_path / "missing_history.json")
+    monkeypatch.setattr(email_digest, "LEGISLATION_FILE", tmp_path / "missing_leg.json")
+
+    items = load_recent_items(window_hours=24)
+    assert len(items) == 1
+    assert items[0]["state"] == "IA"
+    assert items[0]["bill_number"] == "SJR 11"

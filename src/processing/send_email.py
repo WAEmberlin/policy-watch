@@ -15,6 +15,7 @@ import json
 import os
 import smtplib
 import sys
+from collections import Counter
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pathlib import Path
@@ -24,6 +25,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from processing.email_digest import (  # noqa: E402
     build_digest_html,
+    infer_item_state,
     load_digest_config,
     load_recent_items,
     load_state_names,
@@ -39,6 +41,7 @@ EMAIL_USER = os.environ.get("EMAIL_USER")
 EMAIL_PASS = os.environ.get("EMAIL_PASS")
 EMAIL_FROM = os.environ.get("EMAIL_FROM") or EMAIL_USER
 EMAIL_TO = os.environ.get("EMAIL_TO")  # legacy fallback for "all" digest
+DEFAULT_OPS_ALERT = "wesley.a.emberlin@gmail.com"
 
 
 def parse_recipient_config() -> Dict[str, List[str]]:
@@ -87,6 +90,39 @@ def parse_recipient_config() -> Dict[str, List[str]]:
     return recipients
 
 
+def ops_alert_recipients() -> List[str]:
+    raw = (os.environ.get("EMAIL_OPS_ALERT") or DEFAULT_OPS_ALERT).strip()
+    return [addr.strip() for addr in raw.split(",") if addr.strip()]
+
+
+def send_ops_alert(
+    body: str,
+    *,
+    subject: str = "PolicyWatch email job: Open States restore failed",
+    dry_run: bool = False,
+) -> None:
+    """Send a plain-text ops alert. Used when R2 restore fails but digests still send."""
+    to_addrs = ops_alert_recipients()
+    if not to_addrs:
+        raise ValueError("No ops alert recipient (set EMAIL_OPS_ALERT)")
+    if dry_run:
+        print(f"[DRY RUN] Would send ops alert to {', '.join(to_addrs)}: {subject}")
+        print(body)
+        return
+    if not all([EMAIL_HOST, EMAIL_USER, EMAIL_PASS, EMAIL_FROM]):
+        raise ValueError("Missing SMTP configuration for ops alert")
+
+    msg = MIMEText(body, "plain", "utf-8")
+    msg["From"] = EMAIL_FROM
+    msg["To"] = ", ".join(to_addrs)
+    msg["Subject"] = subject
+    with smtplib.SMTP(EMAIL_HOST, EMAIL_PORT) as server:
+        server.starttls()
+        server.login(EMAIL_USER, EMAIL_PASS)
+        server.sendmail(EMAIL_FROM, to_addrs, msg.as_string())
+    print(f"Sent ops alert to {len(to_addrs)} recipient(s) — subject: {subject}")
+
+
 def send_digest_bcc(subject: str, html_body: str, bcc_recipients: List[str]) -> None:
     """Send email using BCC so recipients cannot see each other's addresses."""
     if not bcc_recipients:
@@ -130,6 +166,11 @@ def send_all_digests(digest_filter: str | None = None, dry_run: bool = False) ->
     hearings = load_tomorrow_hearings()
     items_by_state = partition_by_state(items)
     hearings_by_state = partition_hearings(hearings)
+    jurisdiction_counts = Counter(infer_item_state(item) or "OTHER" for item in items)
+    print(
+        f"Loaded {len(items)} recent items by jurisdiction: "
+        + ", ".join(f"{code}={count}" for code, count in sorted(jurisdiction_counts.items()))
+    )
 
     sent_count = 0
     digest_ids = [d["id"] for d in cfg.get("digests", [])]
@@ -179,7 +220,36 @@ def main() -> None:
         help="Send only one digest type (default: send all configured digests)",
     )
     parser.add_argument("--dry-run", action="store_true", help="Print what would be sent without emailing")
+    parser.add_argument(
+        "--ops-alert",
+        action="store_true",
+        help="Send an ops alert email instead of digests (used when R2 restore fails)",
+    )
+    parser.add_argument(
+        "--ops-alert-file",
+        help="Optional file whose contents are included in the ops alert body",
+    )
+    parser.add_argument(
+        "--ops-alert-message",
+        default="",
+        help="Optional extra message for the ops alert body",
+    )
     args = parser.parse_args()
+
+    if args.ops_alert:
+        parts = [
+            args.ops_alert_message.strip(),
+            "Open States bills.json could not be restored from R2.",
+            "Digest email still ran using committed history/legislation/home_feed.",
+            "State updates (MA/MO/IA and other Open States jurisdictions) may be missing.",
+        ]
+        if args.ops_alert_file:
+            path = Path(args.ops_alert_file)
+            if path.is_file():
+                parts.append("Restore log:")
+                parts.append(path.read_text(encoding="utf-8", errors="replace")[:4000])
+        send_ops_alert("\n\n".join(part for part in parts if part), dry_run=args.dry_run)
+        return
 
     sent = send_all_digests(digest_filter=args.digest, dry_run=args.dry_run)
     if sent == 0 and not args.dry_run:
