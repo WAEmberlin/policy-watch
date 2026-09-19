@@ -105,7 +105,7 @@ jobs:
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
           EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
-          EMAIL_OPS_ALERT: wesley.a.emberlin@gmail.com
+          EMAIL_OPS_ALERT: policywatchadmin@gmail.com
         run: |
           python src/processing/send_email.py --ops-alert --ops-alert-file r2-restore-error.txt
           echo "Open States restore failed; ops alert sent. Digests still ran."

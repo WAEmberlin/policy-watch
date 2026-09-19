@@ -3,7 +3,7 @@
 Send Policy Watch email digests.
 
 Recipients are assigned via GitHub secret EMAIL_DIGEST_RECIPIENTS (JSON).
-wesley.a.emberlin@gmail.com is always BCC'd on every digest.
+policywatchadmin@gmail.com is always BCC'd on every digest.
 Addresses are sent using BCC so recipients cannot see each other.
 
 Legacy: EMAIL_TO still works as the recipient list for the "all" digest only.
@@ -42,7 +42,7 @@ EMAIL_USER = os.environ.get("EMAIL_USER")
 EMAIL_PASS = os.environ.get("EMAIL_PASS")
 EMAIL_FROM = os.environ.get("EMAIL_FROM") or EMAIL_USER
 EMAIL_TO = os.environ.get("EMAIL_TO")  # legacy fallback for "all" digest
-DEFAULT_OPS_ALERT = "wesley.a.emberlin@gmail.com"
+DEFAULT_OPS_ALERT = "policywatchadmin@gmail.com"
 DEFAULT_DIGEST_RECIPIENT = DEFAULT_OPS_ALERT
 
 
@@ -71,7 +71,7 @@ def parse_recipient_config() -> Dict[str, List[str]]:
 
     Digest IDs come from config/email_digests.yaml (each tracked state, federal, all).
     Also supports per-digest env vars: EMAIL_RECIPIENTS_KS, etc.
-    wesley.a.emberlin@gmail.com is always included on every digest.
+    policywatchadmin@gmail.com is always included on every digest.
     """
     digest_cfg = load_digest_config()
     recipients: Dict[str, List[str]] = {
