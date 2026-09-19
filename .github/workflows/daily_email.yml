@@ -5,7 +5,12 @@ on:
     # Once daily at 6:00 AM Central during CDT (Mar–Nov): 11:00 UTC
     # During CST (Nov–Mar) this runs at 5:00 AM Central.
     - cron: "0 11 * * *"
-  workflow_dispatch:  # Allow manual trigger
+  workflow_dispatch:
+    inputs:
+      digest:
+        description: "Optional digest id (e.g. all_vets). Leave empty to send all."
+        required: false
+        type: string
 
 permissions:
   contents: read  # Only need read access for email
@@ -85,7 +90,12 @@ jobs:
             echo "Set EMAIL_DIGEST_RECIPIENTS or see EMAIL_DIGEST_SETUP.md"
           fi
           echo "Sending email digests at $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
-          python src/processing/send_email.py
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ github.event.inputs.digest }}" ]; then
+            echo "Sending single digest: ${{ github.event.inputs.digest }}"
+            python src/processing/send_email.py --digest "${{ github.event.inputs.digest }}"
+          else
+            python src/processing/send_email.py
+          fi
 
       - name: Alert if Open States restore failed
         if: always() && steps.restore-bills.outcome == 'failure'
