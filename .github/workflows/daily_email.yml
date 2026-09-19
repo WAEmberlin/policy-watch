@@ -25,8 +25,25 @@ jobs:
       
       - name: Install dependencies
         run: |
-          pip install pyyaml requests beautifulsoup4 feedparser
-      
+          pip install pyyaml requests beautifulsoup4 feedparser boto3
+
+      - name: Restore Open States bills from R2
+        id: restore-bills
+        continue-on-error: true
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+        run: |
+          set -euo pipefail
+          if [ -z "$R2_ACCOUNT_ID" ] || [ -z "$R2_ACCESS_KEY_ID" ] || [ -z "$R2_SECRET_ACCESS_KEY" ] || [ -z "$R2_BUCKET_NAME" ]; then
+            echo "ERROR: R2 secrets are required so email can include Open States bills (MA/MO/IA and other states)." | tee r2-restore-error.txt
+            exit 1
+          fi
+          python src/processing/r2_sync.py download data/normalized/bills.json 2>&1 | tee r2-restore-error.txt
+          test -s data/normalized/bills.json
+
       - name: Send email digests
         env:
           EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
@@ -67,13 +84,17 @@ jobs:
           fi
           echo "Sending email digests at $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
           python src/processing/send_email.py
-      
-      - name: Email status
-        if: always()
+
+      - name: Alert if Open States restore failed
+        if: always() && steps.restore-bills.outcome == 'failure'
+        env:
+          EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
+          EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_OPS_ALERT: wesley.a.emberlin@gmail.com
         run: |
-          if [ $? -eq 0 ]; then
-            echo "Email digest job completed"
-          else
-            echo "Email failed - check logs above"
-            exit 1
-          fi
+          python src/processing/send_email.py --ops-alert --ops-alert-file r2-restore-error.txt
+          echo "Open States restore failed; ops alert sent. Digests still ran."
+          exit 1

@@ -144,6 +144,30 @@ function spacedBillNumberQuery(query) {
     return `${m[1]} ${m[2]}`;
 }
 
+/** Digits, or a chamber prefix plus digits: 147, HR 147, H.R.147, SJR11. */
+function isBillNumberQuery(query) {
+    const raw = String(query || "").trim();
+    return /^\d{2,6}[A-Za-z]?$/i.test(raw) || /^[A-Za-z.]{1,10}\s*\d{1,6}[A-Za-z]?$/i.test(raw);
+}
+
+function normalizeBillNumberText(value) {
+    return String(value || "").toLowerCase().replace(/\./g, "").replace(/\s+/g, " ").trim();
+}
+
+function billNumberSearchText(billNumber) {
+    const spaced = normalizeBillNumberText(billNumber);
+    const compact = spaced.replace(/\s+/g, "");
+    return compact && compact !== spaced ? `${spaced} ${compact}` : spaced;
+}
+
+function billNumberQueryMatches(billNumber, query) {
+    const numberQuery = normalizeBillNumberText(query);
+    if (!numberQuery) return false;
+    const hay = billNumberSearchText(billNumber);
+    const compact = numberQuery.replace(/\s+/g, "");
+    return hay.includes(numberQuery) || (compact !== numberQuery && hay.includes(compact));
+}
+
 function itemMatchesVeteransFilter(item) {
     if (!veteransImpactFilter) return true;
     if (typeof PolicyWatchHome !== "undefined" && PolicyWatchHome.itemMatchesVeteransImpactFilter) {
@@ -1532,7 +1556,13 @@ function runSearchAgainstLoadedData(queryLower, dateFrom = null, dateTo = null) 
     let capped = false;
     const hasTextQuery = Boolean(queryLower);
 
-    const textMatches = (text) => !hasTextQuery || text.includes(queryLower);
+    const numberOnly = hasTextQuery && isBillNumberQuery(queryLower);
+    const itemMatchesQuery = (item, extraBillNumber) => {
+        if (!hasTextQuery) return true;
+        const billNumber = extraBillNumber || item.bill_number || "";
+        if (numberOnly) return billNumberQueryMatches(billNumber, queryLower);
+        return buildFeedSearchText({ ...item, bill_number: billNumber }).includes(queryLower);
+    };
 
     const tryAdd = (item) => {
         if (!itemMatchesSearchDateRange(item, dateFrom, dateTo)) return capped;
@@ -1553,7 +1583,7 @@ function runSearchAgainstLoadedData(queryLower, dateFrom = null, dateTo = null) 
                 const items = dateData[source];
                 for (const item of items) {
                     if (isHearingNotice(item)) continue;
-                    if (textMatches(buildFeedSearchText(item))) {
+                    if (itemMatchesQuery(item)) {
                         if (tryAdd({
                             ...item,
                             date: date,
@@ -1582,18 +1612,8 @@ function runSearchAgainstLoadedData(queryLower, dateFrom = null, dateTo = null) 
         }
 
         legLoop: for (const bill of legislationItems) {
-            const searchText = buildFeedSearchText({
-                title: bill.title,
-                short_title: bill.short_title,
-                summary: bill.summary,
-                bill_number: `${bill.bill_type || ""} ${bill.bill_number || ""}`.trim(),
-                latest_action: bill.latest_action,
-                motion: bill.motion,
-                vote_tally: bill.vote_tally,
-            });
-
-            if (textMatches(searchText)) {
-                const billNumber = `${bill.bill_type || ""} ${bill.bill_number || ""}`.trim();
+            const billNumber = `${bill.bill_type || ""} ${bill.bill_number || ""}`.trim();
+            if (itemMatchesQuery(bill, billNumber)) {
                 if (tryAdd({
                     ...bill,
                     date: bill.latest_action_date ? bill.latest_action_date.split("T")[0] : bill.published ? bill.published.split("T")[0] : "",
@@ -1613,15 +1633,7 @@ function runSearchAgainstLoadedData(queryLower, dateFrom = null, dateTo = null) 
         || ((allData.search_index || {}).bills || []);
     if (!capped && indexBills.length) {
         indexLoop: for (const bill of indexBills) {
-            const searchText = buildFeedSearchText({
-                title: bill.title,
-                summary: bill.summary,
-                bill_number: bill.bill_number,
-                latest_action: bill.latest_action,
-                motion: bill.motion,
-                vote_tally: bill.vote_tally,
-            });
-            if (textMatches(searchText)) {
+            if (itemMatchesQuery(bill)) {
                 if (tryAdd({
                     title: `${bill.bill_number}: ${bill.title}`,
                     link: (typeof PolicyWatchBillUtils !== "undefined" ? PolicyWatchBillUtils.resolveBillUrl(bill) : bill.url),

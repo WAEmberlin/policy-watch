@@ -146,7 +146,7 @@ python src/processing/send_email.py --digest ks
 
 ## Schedule
 
-Emails run **once daily** at 11:00 UTC (6:00 AM Central during CDT) via `.github/workflows/daily_email.yml`.
+Emails run **once daily** at 11:00 UTC (6:00 AM Central during CDT) via `.github/workflows/daily_email.yml`. That job restores `data/normalized/bills.json` from R2 before sending so Open States state updates (Massachusetts, Missouri, Iowa, and the other tracked states) are included. Federal bills and Utah committee hearings still come from the committed `src/output/` files. If the R2 restore fails, digests still send from the checkout, and an ops alert goes to `wesley.a.emberlin@gmail.com` (`EMAIL_OPS_ALERT`).
 
 ---
 

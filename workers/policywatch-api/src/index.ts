@@ -151,6 +151,33 @@ function billSearchText(bill: ShardBill): string {
     .toLowerCase();
 }
 
+/** Digits, or a chamber prefix plus digits: 147, HR 147, H.R.147, SJR11. */
+function isBillNumberQuery(q: string): boolean {
+  const raw = q.trim();
+  return /^\d{2,6}[A-Za-z]?$/i.test(raw) || /^[A-Za-z.]{1,10}\s*\d{1,6}[A-Za-z]?$/i.test(raw);
+}
+
+function normalizeBillNumberText(value: string): string {
+  return value.toLowerCase().replace(/\./g, "").replace(/\s+/g, " ").trim();
+}
+
+function billNumberSearchText(bill: ShardBill): string {
+  const spaced = normalizeBillNumberText(bill.bill_number || bill.n || "");
+  const compact = spaced.replace(/\s+/g, "");
+  return compact && compact !== spaced ? `${spaced} ${compact}` : spaced;
+}
+
+function billMatchesQuery(bill: ShardBill, query: string): boolean {
+  if (!query) return true;
+  if (isBillNumberQuery(query)) {
+    const numberQuery = normalizeBillNumberText(query);
+    const compact = numberQuery.replace(/\s+/g, "");
+    const hay = billNumberSearchText(bill);
+    return hay.includes(numberQuery) || (compact !== numberQuery && hay.includes(compact));
+  }
+  return billSearchText(bill).includes(query.toLowerCase());
+}
+
 function clampInt(value: string | null, fallback: number, min: number, max: number): number {
   const n = Number.parseInt(value || "", 10);
   if (!Number.isFinite(n)) return fallback;
@@ -242,8 +269,7 @@ async function searchBills(
   dateTo: string | null = null
 ): Promise<{ results: SearchBill[]; total: number }> {
   const meta = await loadShardMeta(env);
-  const query = q.toLowerCase();
-  const hasTextQuery = query.length > 0;
+  const hasTextQuery = q.trim().length > 0;
   const shardKeys =
     stateKey && meta.shards.includes(stateKey) ? [stateKey] : meta.shards;
 
@@ -254,7 +280,7 @@ async function searchBills(
     for (const bill of bills) {
       if (!billMatchesState(bill, stateKey)) continue;
       if (!billMatchesDateRange(bill, dateFrom, dateTo)) continue;
-      if (hasTextQuery && !billSearchText(bill).includes(query)) continue;
+      if (hasTextQuery && !billMatchesQuery(bill, q)) continue;
       total += 1;
       if (matched.length < MATCH_COLLECT_CAP) {
         matched.push(expandShardBill(bill));

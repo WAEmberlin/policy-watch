@@ -129,7 +129,7 @@ Example response:
 
 ### `GET /api/search`
 
-Full-text substring search over bill shards in R2 (`search_shards/*.json`). Matching is case-insensitive against concatenated **title**, **bill number**, and **latest action** text.
+Substring search over bill shards in R2 (`search_shards/*.json`). Queries that look like a bill number (`147`, `HR 147`, `H.R.147`, `SJR11`) match the **bill number** field only. Other queries are case-insensitive against concatenated **title**, **bill number**, and **latest action** text.
 
 Results are sorted by `latest_action_date` descending (date portion `YYYY-MM-DD`), then paginated with `offset` / `limit`.
 
