@@ -4,7 +4,7 @@ PolicyWatch can send **separate email digests** for each tracked state plus fede
 
 **Recipient email addresses are never stored in the repository.** They live only in GitHub Secrets and are delivered via **BCC** so recipients cannot see each other.
 
-`wesley.a.emberlin@gmail.com` is always BCC'd on every digest. Other addresses come from `EMAIL_DIGEST_RECIPIENTS`. A digest with no extra recipients still goes to that operator address when it has items; empty windows are skipped (`Skipping digest 'xx' — no items in window`).
+`policywatchadmin@gmail.com` is always BCC'd on every digest. Other addresses come from `EMAIL_DIGEST_RECIPIENTS`. A digest with no extra recipients still goes to that operator address when it has items; empty windows are skipped (`Skipping digest 'xx' — no items in window`).
 
 When a digest includes veteran-related bills, a **Veteran Legislation** section appears at the top. Those bills are not repeated in the Updates lists below. Veteran bill numbers are highlighted red / yellow / green to match the cards on the site.
 
@@ -40,7 +40,7 @@ Each digest includes:
 - Bill/legislation updates from the **last 24 hours**
 - Hearings scheduled **today and tomorrow** for that jurisdiction
 - **Veteran Legislation** at the top when any veteran bills are in that window (hearings stay in the hearing sections)
-- Veteran-only digests (`federal_vets`, `all_vets`, `ks_vets`, …) list veteran bills only (no hearings, no non-veteran updates). Assign extra people in the same `EMAIL_DIGEST_RECIPIENTS` JSON as the regular digests. `wesley.a.emberlin@gmail.com` is already on every list.
+- Veteran-only digests (`federal_vets`, `all_vets`, `ks_vets`, …) list veteran bills only (no hearings, no non-veteran updates). Assign extra people in the same `EMAIL_DIGEST_RECIPIENTS` JSON as the regular digests. `policywatchadmin@gmail.com` is already on every list.
 
 ---
 
@@ -129,7 +129,7 @@ If only `EMAIL_TO` is set (old setup), it receives the **`all`** digest only.
 
 ## Privacy
 
-- Other recipients are **not** in config files; they live in GitHub Secrets. The operator copy (`wesley.a.emberlin@gmail.com`) is always added in code.
+- Other recipients are **not** in config files; they live in GitHub Secrets. The operator copy (`policywatchadmin@gmail.com`) is always added in code.
 - Emails are sent with **BCC** — each recipient only sees the From address
 - GitHub Actions logs show **recipient counts**, not addresses
 - Only GitHub repo admins can view secret values
@@ -155,7 +155,7 @@ python src/processing/send_email.py --digest ks
 
 ## Schedule
 
-Emails run **once daily** at 11:00 UTC (6:00 AM Central during CDT) via `.github/workflows/daily_email.yml`. That job restores `data/normalized/bills.json` from R2 before sending so Open States state updates (Massachusetts, Missouri, Iowa, and the other tracked states) are included. Federal bills and Utah committee hearings still come from the committed `src/output/` files. If the R2 restore fails, digests still send from the checkout, and an ops alert goes to `wesley.a.emberlin@gmail.com` (`EMAIL_OPS_ALERT`).
+Emails run **once daily** at 11:00 UTC (6:00 AM Central during CDT) via `.github/workflows/daily_email.yml`. That job restores `data/normalized/bills.json` from R2 before sending so Open States state updates (Massachusetts, Missouri, Iowa, and the other tracked states) are included. Federal bills and Utah committee hearings still come from the committed `src/output/` files. If the R2 restore fails, digests still send from the checkout, and an ops alert goes to `policywatchadmin@gmail.com` (`EMAIL_OPS_ALERT`).
 
 ---
 

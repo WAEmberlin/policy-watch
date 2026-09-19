@@ -605,7 +605,7 @@ def test_email_workflow_restores_openstates_bills_from_r2():
     assert "R2_BUCKET_NAME" in workflow
     assert "continue-on-error: true" in workflow
     assert "--ops-alert" in workflow
-    assert "wesley.a.emberlin@gmail.com" in workflow
+    assert "policywatchadmin@gmail.com" in workflow
     assert "EMAIL_OPS_ALERT" in workflow
     assert "R2 pipeline restore skipped/failed, continuing" not in workflow
 
@@ -624,11 +624,11 @@ def test_veteran_digest_recipients_come_from_json(monkeypatch):
     monkeypatch.delenv("EMAIL_RECIPIENTS_KS_VETS", raising=False)
     monkeypatch.delenv("EMAIL_TO", raising=False)
     recipients = parse_recipient_config()
-    assert recipients["federal"] == ["congress@example.com", "wesley.a.emberlin@gmail.com"]
-    assert recipients["federal_vets"] == ["fed-vets@example.com", "wesley.a.emberlin@gmail.com"]
-    assert recipients["all_vets"] == ["all-vets@example.com", "wesley.a.emberlin@gmail.com"]
-    assert recipients["ks_vets"] == ["kansas-vets@example.com", "wesley.a.emberlin@gmail.com"]
-    assert recipients["ma_vets"] == ["wesley.a.emberlin@gmail.com"]
+    assert recipients["federal"] == ["congress@example.com", "policywatchadmin@gmail.com"]
+    assert recipients["federal_vets"] == ["fed-vets@example.com", "policywatchadmin@gmail.com"]
+    assert recipients["all_vets"] == ["all-vets@example.com", "policywatchadmin@gmail.com"]
+    assert recipients["ks_vets"] == ["kansas-vets@example.com", "policywatchadmin@gmail.com"]
+    assert recipients["ma_vets"] == ["policywatchadmin@gmail.com"]
 
 
 def test_veteran_digest_recipient_override(monkeypatch):
@@ -641,7 +641,7 @@ def test_veteran_digest_recipient_override(monkeypatch):
     monkeypatch.delenv("EMAIL_RECIPIENTS_FEDERAL_VETS", raising=False)
     monkeypatch.delenv("EMAIL_TO", raising=False)
     recipients = parse_recipient_config()
-    assert recipients["federal_vets"] == ["vets@example.com", "wesley.a.emberlin@gmail.com"]
+    assert recipients["federal_vets"] == ["vets@example.com", "policywatchadmin@gmail.com"]
 
 
 def test_operator_email_is_on_every_digest(monkeypatch):
@@ -650,7 +650,7 @@ def test_operator_email_is_on_every_digest(monkeypatch):
     monkeypatch.setenv("EMAIL_DIGEST_RECIPIENTS", '{"federal":["congress@example.com"]}')
     monkeypatch.delenv("EMAIL_TO", raising=False)
     recipients = parse_recipient_config()
-    assert DEFAULT_DIGEST_RECIPIENT == "wesley.a.emberlin@gmail.com"
+    assert DEFAULT_DIGEST_RECIPIENT == "policywatchadmin@gmail.com"
     assert recipients
     for digest_id, addrs in recipients.items():
         assert DEFAULT_DIGEST_RECIPIENT in addrs, digest_id
@@ -665,11 +665,11 @@ def test_ops_alert_defaults_to_wesley(monkeypatch, capsys):
     )
 
     monkeypatch.delenv("EMAIL_OPS_ALERT", raising=False)
-    assert DEFAULT_OPS_ALERT == DEFAULT_DIGEST_RECIPIENT == "wesley.a.emberlin@gmail.com"
-    assert ops_alert_recipients() == ["wesley.a.emberlin@gmail.com"]
+    assert DEFAULT_OPS_ALERT == DEFAULT_DIGEST_RECIPIENT == "policywatchadmin@gmail.com"
+    assert ops_alert_recipients() == ["policywatchadmin@gmail.com"]
     send_ops_alert("restore failed in test", dry_run=True)
     captured = capsys.readouterr().out
-    assert "wesley.a.emberlin@gmail.com" in captured
+    assert "policywatchadmin@gmail.com" in captured
     assert "restore failed in test" in captured
 
 
