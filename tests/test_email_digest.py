@@ -276,6 +276,13 @@ def test_email_digests_cover_all_enabled_states():
         assert code.lower() in digest_ids, f"missing digest for enabled state {code}"
     assert "federal" in digest_ids
     assert "all" in digest_ids
+    assert "federal_vets" in digest_ids
+    assert "all_vets" in digest_ids
+    vets_meta = {d["id"]: d for d in load_digest_config()["digests"]}
+    assert vets_meta["federal_vets"].get("veterans_only") is True
+    assert vets_meta["all_vets"].get("veterans_only") is True
+    for code in load_state_names():
+        assert f"{code.lower()}_vets" in digest_ids, f"missing veteran digest for {code}"
 
 
 def test_veteran_section_at_top_and_not_repeated():
@@ -327,6 +334,146 @@ def test_veteran_section_at_top_and_not_repeated():
     assert "Veteran housing assistance" not in rest
     assert "Take Care of America's Veterans Act" not in rest
     assert "Sales tax exemption for farm equipment" in rest
+
+
+def test_veteran_only_federal_digest_excludes_other_bills():
+    items = {
+        "KS": [
+            {
+                "title": "HB 9001: Veteran housing assistance",
+                "summary": "Expands homeless veteran housing.",
+                "link": "https://example.com/hb9001",
+                "bill_number": "HB 9001",
+                "state": "KS",
+                "published": "2026-03-15T10:00:00",
+            }
+        ],
+        "FEDERAL": [
+            {
+                "title": "H.R. 9003: Take Care of America's Veterans Act",
+                "summary": "Appropriations for veterans affairs healthcare.",
+                "link": "https://example.com/hr9003",
+                "bill_number": "H.R. 9003",
+                "level": "federal",
+                "published": "2026-03-15T09:00:00",
+            },
+            {
+                "title": "HR 1: Tax reform",
+                "link": "https://example.com/hr1",
+                "bill_number": "HR 1",
+                "level": "federal",
+                "published": "2026-03-15T08:00:00",
+            },
+        ],
+    }
+    html, subject, total = build_digest_html(
+        "federal_vets", items, {"FEDERAL": [{"title": "Armed Services hearing"}]}, {"KS": "Kansas"}
+    )
+    assert total == 1
+    assert "Federal Veteran PolicyWatch" in html
+    assert "Take Care of America's Veterans Act" in html
+    assert "Veteran housing assistance" not in html
+    assert "Tax reform" not in html
+    assert "Armed Services hearing" not in html
+    assert "Federal — Updates" not in html
+    assert "1 update" in subject
+
+
+def test_veteran_only_all_states_digest_excludes_non_veteran_and_hearings():
+    items = {
+        "KS": [
+            {
+                "title": "HB 9001: Veteran housing assistance",
+                "summary": "Expands homeless veteran housing.",
+                "link": "https://example.com/hb9001",
+                "bill_number": "HB 9001",
+                "state": "KS",
+                "published": "2026-03-15T10:00:00",
+            },
+            {
+                "title": "HB 42: Sales tax exemption for farm equipment",
+                "link": "https://example.com/hb42",
+                "bill_number": "HB 42",
+                "state": "KS",
+                "published": "2026-03-15T11:00:00",
+            },
+        ],
+        "FEDERAL": [
+            {
+                "title": "H.R. 9003: Take Care of America's Veterans Act",
+                "summary": "Appropriations for veterans affairs healthcare.",
+                "link": "https://example.com/hr9003",
+                "bill_number": "H.R. 9003",
+                "level": "federal",
+                "published": "2026-03-15T09:00:00",
+            },
+        ],
+    }
+    html, subject, total = build_digest_html(
+        "all_vets",
+        items,
+        {"KS": [{"title": "Tax committee"}], "FEDERAL": []},
+        {"KS": "Kansas"},
+    )
+    assert total == 2
+    assert "Veteran PolicyWatch" in subject or "Veteran Legislation" in html
+    assert "Veteran housing assistance" in html
+    assert "Take Care of America's Veterans Act" in html
+    assert "Sales tax exemption" not in html
+    assert "Tax committee" not in html
+    assert "Kansas — Updates" not in html
+    assert html.index("Kansas") < html.index("Federal")
+
+
+def test_veteran_only_state_digest_is_that_state_only():
+    items = {
+        "KS": [
+            {
+                "title": "HB 9001: Veteran housing assistance",
+                "summary": "Expands homeless veteran housing.",
+                "link": "https://example.com/hb9001",
+                "bill_number": "HB 9001",
+                "state": "KS",
+                "published": "2026-03-15T10:00:00",
+            },
+            {
+                "title": "HB 42: Sales tax exemption for farm equipment",
+                "link": "https://example.com/hb42",
+                "bill_number": "HB 42",
+                "state": "KS",
+                "published": "2026-03-15T11:00:00",
+            },
+        ],
+        "MA": [
+            {
+                "title": "H 1: Veteran pension update",
+                "link": "https://example.com/h1",
+                "bill_number": "H 1",
+                "state": "MA",
+                "published": "2026-03-15T10:00:00",
+            }
+        ],
+        "FEDERAL": [
+            {
+                "title": "H.R. 9003: Take Care of America's Veterans Act",
+                "summary": "Appropriations for veterans affairs healthcare.",
+                "link": "https://example.com/hr9003",
+                "bill_number": "H.R. 9003",
+                "level": "federal",
+                "published": "2026-03-15T09:00:00",
+            },
+        ],
+    }
+    html, subject, total = build_digest_html(
+        "ks_vets", items, {"KS": [], "FEDERAL": []}, {"KS": "Kansas", "MA": "Massachusetts"}
+    )
+    assert total == 1
+    assert "Kansas Veteran PolicyWatch" in html
+    assert "Veteran housing assistance" in html
+    assert "Sales tax exemption" not in html
+    assert "Veteran pension update" not in html
+    assert "Take Care of America's Veterans Act" not in html
+    assert "1 update" in subject
 
 
 def test_no_veteran_section_without_veteran_bills():
@@ -463,11 +610,62 @@ def test_email_workflow_restores_openstates_bills_from_r2():
     assert "R2 pipeline restore skipped/failed, continuing" not in workflow
 
 
+def test_veteran_digest_recipients_come_from_json(monkeypatch):
+    from processing.send_email import parse_recipient_config
+
+    monkeypatch.setenv(
+        "EMAIL_DIGEST_RECIPIENTS",
+        '{"federal":["congress@example.com"],"all":["all@example.com"],'
+        '"federal_vets":["fed-vets@example.com"],"all_vets":["all-vets@example.com"],'
+        '"ks_vets":["kansas-vets@example.com"]}',
+    )
+    monkeypatch.delenv("EMAIL_RECIPIENTS_FEDERAL_VETS", raising=False)
+    monkeypatch.delenv("EMAIL_RECIPIENTS_ALL_VETS", raising=False)
+    monkeypatch.delenv("EMAIL_RECIPIENTS_KS_VETS", raising=False)
+    monkeypatch.delenv("EMAIL_TO", raising=False)
+    recipients = parse_recipient_config()
+    assert recipients["federal"] == ["congress@example.com", "wesley.a.emberlin@gmail.com"]
+    assert recipients["federal_vets"] == ["fed-vets@example.com", "wesley.a.emberlin@gmail.com"]
+    assert recipients["all_vets"] == ["all-vets@example.com", "wesley.a.emberlin@gmail.com"]
+    assert recipients["ks_vets"] == ["kansas-vets@example.com", "wesley.a.emberlin@gmail.com"]
+    assert recipients["ma_vets"] == ["wesley.a.emberlin@gmail.com"]
+
+
+def test_veteran_digest_recipient_override(monkeypatch):
+    from processing.send_email import parse_recipient_config
+
+    monkeypatch.setenv(
+        "EMAIL_DIGEST_RECIPIENTS",
+        '{"federal":["congress@example.com"],"federal_vets":["vets@example.com"]}',
+    )
+    monkeypatch.delenv("EMAIL_RECIPIENTS_FEDERAL_VETS", raising=False)
+    monkeypatch.delenv("EMAIL_TO", raising=False)
+    recipients = parse_recipient_config()
+    assert recipients["federal_vets"] == ["vets@example.com", "wesley.a.emberlin@gmail.com"]
+
+
+def test_operator_email_is_on_every_digest(monkeypatch):
+    from processing.send_email import DEFAULT_DIGEST_RECIPIENT, parse_recipient_config
+
+    monkeypatch.setenv("EMAIL_DIGEST_RECIPIENTS", '{"federal":["congress@example.com"]}')
+    monkeypatch.delenv("EMAIL_TO", raising=False)
+    recipients = parse_recipient_config()
+    assert DEFAULT_DIGEST_RECIPIENT == "wesley.a.emberlin@gmail.com"
+    assert recipients
+    for digest_id, addrs in recipients.items():
+        assert DEFAULT_DIGEST_RECIPIENT in addrs, digest_id
+
+
 def test_ops_alert_defaults_to_wesley(monkeypatch, capsys):
-    from processing.send_email import DEFAULT_OPS_ALERT, ops_alert_recipients, send_ops_alert
+    from processing.send_email import (
+        DEFAULT_DIGEST_RECIPIENT,
+        DEFAULT_OPS_ALERT,
+        ops_alert_recipients,
+        send_ops_alert,
+    )
 
     monkeypatch.delenv("EMAIL_OPS_ALERT", raising=False)
-    assert DEFAULT_OPS_ALERT == "wesley.a.emberlin@gmail.com"
+    assert DEFAULT_OPS_ALERT == DEFAULT_DIGEST_RECIPIENT == "wesley.a.emberlin@gmail.com"
     assert ops_alert_recipients() == ["wesley.a.emberlin@gmail.com"]
     send_ops_alert("restore failed in test", dry_run=True)
     captured = capsys.readouterr().out

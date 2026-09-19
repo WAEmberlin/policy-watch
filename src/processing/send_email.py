@@ -3,6 +3,7 @@
 Send Policy Watch email digests.
 
 Recipients are assigned via GitHub secret EMAIL_DIGEST_RECIPIENTS (JSON).
+wesley.a.emberlin@gmail.com is always BCC'd on every digest.
 Addresses are sent using BCC so recipients cannot see each other.
 
 Legacy: EMAIL_TO still works as the recipient list for the "all" digest only.
@@ -42,6 +43,26 @@ EMAIL_PASS = os.environ.get("EMAIL_PASS")
 EMAIL_FROM = os.environ.get("EMAIL_FROM") or EMAIL_USER
 EMAIL_TO = os.environ.get("EMAIL_TO")  # legacy fallback for "all" digest
 DEFAULT_OPS_ALERT = "wesley.a.emberlin@gmail.com"
+DEFAULT_DIGEST_RECIPIENT = DEFAULT_OPS_ALERT
+
+
+def _dedupe_addresses(addrs: List[str]) -> List[str]:
+    seen = set()
+    unique: List[str] = []
+    for addr in addrs:
+        key = addr.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        unique.append(addr)
+    return unique
+
+
+def _with_default_digest_recipient(addrs: List[str]) -> List[str]:
+    merged = list(addrs)
+    if not any(addr.lower() == DEFAULT_DIGEST_RECIPIENT.lower() for addr in merged):
+        merged.append(DEFAULT_DIGEST_RECIPIENT)
+    return _dedupe_addresses(merged)
 
 
 def parse_recipient_config() -> Dict[str, List[str]]:
@@ -50,6 +71,7 @@ def parse_recipient_config() -> Dict[str, List[str]]:
 
     Digest IDs come from config/email_digests.yaml (each tracked state, federal, all).
     Also supports per-digest env vars: EMAIL_RECIPIENTS_KS, etc.
+    wesley.a.emberlin@gmail.com is always included on every digest.
     """
     digest_cfg = load_digest_config()
     recipients: Dict[str, List[str]] = {
@@ -87,7 +109,10 @@ def parse_recipient_config() -> Dict[str, List[str]]:
     if EMAIL_TO and not recipients["all"]:
         recipients["all"] = [a.strip() for a in EMAIL_TO.split(",") if a.strip()]
 
-    return recipients
+    return {
+        digest_id: _with_default_digest_recipient(addrs)
+        for digest_id, addrs in recipients.items()
+    }
 
 
 def ops_alert_recipients() -> List[str]:
@@ -186,6 +211,9 @@ def send_all_digests(digest_filter: str | None = None, dry_run: bool = False) ->
         html, subject, total = build_digest_html(
             digest_id, items_by_state, hearings_by_state, state_names
         )
+        if total == 0:
+            print(f"Skipping digest '{digest_id}' — no items in window")
+            continue
 
         if dry_run:
             print(f"[DRY RUN] Would send '{digest_id}' to {len(bcc)} recipient(s): subject={subject}")

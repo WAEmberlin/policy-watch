@@ -79,3 +79,17 @@ digests:
     name: All States
     subject_prefix: "PolicyWatch"
     description: "All states (alphabetical) plus federal at the bottom"
+
+  - id: federal_vets
+    name: Federal Veterans
+    subject_prefix: "Federal Veteran PolicyWatch"
+    description: "U.S. Congress veteran legislation only"
+    veterans_only: true
+    scope: federal
+
+  - id: all_vets
+    name: Veteran Legislation
+    subject_prefix: "Veteran PolicyWatch"
+    description: "Veteran legislation from all states plus Congress"
+    veterans_only: true
+    scope: all
