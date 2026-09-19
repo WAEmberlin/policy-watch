@@ -72,7 +72,23 @@ _OMNIBUS_PREFIX_SPLIT_RE = re.compile(
 
 def load_digest_config() -> Dict[str, Any]:
     with open(CONFIG_PATH, encoding="utf-8") as f:
-        return yaml.safe_load(f)
+        cfg = yaml.safe_load(f) or {}
+    digests = list(cfg.get("digests") or [])
+    existing = {str(entry.get("id") or "") for entry in digests}
+    for code, name in load_state_names().items():
+        digest_id = f"{code.lower()}_vets"
+        if digest_id in existing:
+            continue
+        digests.append({
+            "id": digest_id,
+            "name": f"{name} Veterans",
+            "subject_prefix": f"{name} Veteran PolicyWatch",
+            "description": f"{name} veteran legislation only",
+            "veterans_only": True,
+            "scope": code.lower(),
+        })
+    cfg["digests"] = digests
+    return cfg
 
 
 def load_state_names() -> Dict[str, str]:
@@ -865,6 +881,42 @@ def build_digest_html(
         total = len(federal_items) + len(veteran_items) + len(federal_hearings)
         html += _render_items_section("Federal Legislation &amp; Congress Updates", federal_items)
         html += _render_hearings_section("Congressional Hearings Today & Tomorrow", federal_hearings)
+        if total == 0:
+            subject = f"{prefix} — No new updates"
+        else:
+            subject = f"{prefix} — {total} update{'s' if total != 1 else ''}"
+        return html, subject, total
+
+    if digest_meta and digest_meta.get("veterans_only"):
+        scope = str(digest_meta.get("scope") or "").strip().lower()
+        state_codes = sorted(
+            [c for c in items_by_state if c not in (FEDERAL_CODE, "OTHER")],
+            key=lambda c: state_names.get(c, c),
+        )
+        if scope == "federal":
+            display_name = "Federal Veteran PolicyWatch"
+            intro = f"U.S. Congress veteran legislation from the last {window} hours."
+            veteran_items = veteran_by_state.get(FEDERAL_CODE, [])
+        elif scope == "all":
+            display_name = "PolicyWatch — Veteran Legislation"
+            intro = (
+                f"Veteran legislation from tracked states and U.S. Congress "
+                f"in the last {window} hours."
+            )
+            veteran_items = _flatten_veteran_items(
+                veteran_by_state, state_codes + [FEDERAL_CODE],
+            )
+        else:
+            code = scope.upper()
+            name = state_names.get(code, code)
+            display_name = f"{name} Veteran PolicyWatch"
+            intro = f"{name} veteran legislation from the last {window} hours."
+            veteran_items = veteran_by_state.get(code, [])
+        html += f"<h1>{display_name}</h1>"
+        html += f"<p>{intro} This digest lists veteran bills only.</p>"
+        section = _render_veteran_section(veteran_items, state_names)
+        html += section or "<p><em>No veteran legislation in this period.</em></p>"
+        total = len(veteran_items)
         if total == 0:
             subject = f"{prefix} — No new updates"
         else:

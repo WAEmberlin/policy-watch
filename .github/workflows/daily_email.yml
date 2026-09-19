@@ -72,6 +72,8 @@ jobs:
           EMAIL_RECIPIENTS_IA: ${{ secrets.EMAIL_RECIPIENTS_IA }}
           EMAIL_RECIPIENTS_FEDERAL: ${{ secrets.EMAIL_RECIPIENTS_FEDERAL }}
           EMAIL_RECIPIENTS_ALL: ${{ secrets.EMAIL_RECIPIENTS_ALL }}
+          EMAIL_RECIPIENTS_FEDERAL_VETS: ${{ secrets.EMAIL_RECIPIENTS_FEDERAL_VETS }}
+          EMAIL_RECIPIENTS_ALL_VETS: ${{ secrets.EMAIL_RECIPIENTS_ALL_VETS }}
         run: |
           if [ -z "$EMAIL_HOST" ] || [ -z "$EMAIL_USER" ] || [ -z "$EMAIL_PASS" ]; then
             echo "ERROR: Missing SMTP secrets (EMAIL_HOST, EMAIL_USER, EMAIL_PASS)"

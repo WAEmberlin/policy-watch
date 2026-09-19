@@ -4,7 +4,7 @@ PolicyWatch can send **separate email digests** for each tracked state plus fede
 
 **Recipient email addresses are never stored in the repository.** They live only in GitHub Secrets and are delivered via **BCC** so recipients cannot see each other.
 
-A digest is skipped until it has at least one recipient (`Skipping digest 'xx' — no recipients configured`).
+`wesley.a.emberlin@gmail.com` is always BCC'd on every digest. Other addresses come from `EMAIL_DIGEST_RECIPIENTS`. A digest with no extra recipients still goes to that operator address when it has items; empty windows are skipped (`Skipping digest 'xx' — no items in window`).
 
 When a digest includes veteran-related bills, a **Veteran Legislation** section appears at the top. Those bills are not repeated in the Updates lists below. Veteran bill numbers are highlighted red / yellow / green to match the cards on the site.
 
@@ -32,11 +32,15 @@ When a digest includes veteran-related bills, a **Veteran Legislation** section 
 | `ky` | Kentucky PolicyWatch — … | Kentucky first, then federal |
 | `federal` | Federal PolicyWatch — … | U.S. Congress only |
 | `all` | PolicyWatch — All States — … | All states (alphabetical), then federal at bottom |
+| `federal_vets` | Federal Veteran PolicyWatch — … | U.S. Congress **veteran bills only** |
+| `all_vets` | Veteran PolicyWatch — … | Veteran bills from all states plus Congress |
+| `ks_vets`, `ma_vets`, … | Kansas Veteran PolicyWatch — … | That state's **veteran bills only** |
 
 Each digest includes:
 - Bill/legislation updates from the **last 24 hours**
 - Hearings scheduled **today and tomorrow** for that jurisdiction
 - **Veteran Legislation** at the top when any veteran bills are in that window (hearings stay in the hearing sections)
+- Veteran-only digests (`federal_vets`, `all_vets`, `ks_vets`, …) list veteran bills only (no hearings, no non-veteran updates). Assign extra people in the same `EMAIL_DIGEST_RECIPIENTS` JSON as the regular digests. `wesley.a.emberlin@gmail.com` is already on every list.
 
 ---
 
@@ -79,14 +83,17 @@ Paste JSON like this (use real addresses — this is an example only):
   "ga": ["georgia-person@example.com"],
   "ky": ["kentucky-person@example.com"],
   "federal": ["congress-watcher@example.com"],
-  "all": ["you@example.com", "team-lead@example.com"]
+  "all": ["you@example.com", "team-lead@example.com"],
+  "federal_vets": ["veteran-congress@example.com"],
+  "all_vets": ["veteran-all-states@example.com"],
+  "ks_vets": ["kansas-veterans@example.com"]
 }
 ```
 
 Rules:
-- Keys must match digest IDs in `config/email_digests.yaml` (`ks`, `co`, `az`, `ut`, `me`, `ne`, `md`, `pa`, `ma`, `wv`, `tn`, `nc`, `mo`, `ia`, `ga`, `ky`, `federal`, `all`)
+- Keys must match digest IDs: regular (`ks`, `federal`, `all`, …) or veteran-only (`federal_vets`, `all_vets`, `ks_vets`, `ma_vets`, …)
 - Values are arrays of email addresses (or a comma-separated string)
-- **Omit a key or use `[]`** to skip that digest entirely
+- **Omit a key or use `[]`** if only the operator copy should go out for that digest
 - Same person can appear on multiple lists
 
 ### Alternative: separate secrets per digest
@@ -111,6 +118,8 @@ Instead of one JSON blob, you can set `EMAIL_RECIPIENTS_<DIGEST>` (comma-separat
 - `EMAIL_RECIPIENTS_KY`
 - `EMAIL_RECIPIENTS_FEDERAL`
 - `EMAIL_RECIPIENTS_ALL`
+- `EMAIL_RECIPIENTS_FEDERAL_VETS`
+- `EMAIL_RECIPIENTS_ALL_VETS`
 
 ### Legacy fallback
 
@@ -120,7 +129,7 @@ If only `EMAIL_TO` is set (old setup), it receives the **`all`** digest only.
 
 ## Privacy
 
-- Addresses are **not** in code or config files committed to GitHub
+- Other recipients are **not** in config files; they live in GitHub Secrets. The operator copy (`wesley.a.emberlin@gmail.com`) is always added in code.
 - Emails are sent with **BCC** — each recipient only sees the From address
 - GitHub Actions logs show **recipient counts**, not addresses
 - Only GitHub repo admins can view secret values
