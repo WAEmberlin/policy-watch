@@ -232,27 +232,27 @@
       "race_available": false
     },
     "MO": {
-      "total": 191,
+      "total": 188,
       "party": {
-        "Democratic": 62,
-        "Republican": 129
+        "Republican": 128,
+        "Democratic": 60
       },
       "gender": {
-        "Male": 133,
+        "Male": 130,
         "Female": 57,
         "X": 1
       },
       "chamber": {
-        "House": 158,
-        "Senate": 33
+        "Senate": 33,
+        "House": 155
       },
       "age_buckets": {
-        "under_40": 6,
+        "under_40": 4,
         "40_59": 19,
         "60_plus": 19,
-        "unknown": 147
+        "unknown": 146
       },
-      "average_age": 54.7,
+      "average_age": 55.6,
       "race_available": false
     },
     "NC": {
@@ -375,24 +375,24 @@
       "race_available": false
     },
     "WV": {
-      "total": 133,
+      "total": 134,
       "party": {
-        "Republican": 122,
+        "Republican": 123,
         "Democratic": 11
       },
       "gender": {
-        "Male": 117,
+        "Male": 118,
         "Female": 16
       },
       "chamber": {
-        "House": 99,
+        "House": 100,
         "Senate": 34
       },
       "age_buckets": {
         "under_40": 16,
         "40_59": 43,
         "60_plus": 33,
-        "unknown": 41
+        "unknown": 42
       },
       "average_age": 54.3,
       "race_available": false
