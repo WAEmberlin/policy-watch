@@ -1,8 +1,8 @@
 {
-  "last_fetched": "2026-09-24T15:27:00.026520+00:00",
+  "last_fetched": "2026-09-24T19:27:08.926486+00:00",
   "feed_url": "https://le.utah.gov/asp/billtrack/comrssfeed.asp?com=INTBUS|SPECWL|APPCRI|APPECD|INTEDW|INTEDU|SPEEJC|APPEXE|SPEFFO|SPEFED|APPGEN|SPEADM|INTGOC|INTHHS|APPHED|HSTBUS|HSTEDW|HSTEDU|HSTETH|HSTGOC|HSTHHS|HSTJUD|HSTLAW|SPEHEO|HSTNAE|HSTPOL|HSTPUT|HSTREV|HSTRUL|HSTTRA|INTJUD|INTLAW|SPEAUD|SPEMAN|SPELPC|SPELRD|SPESWD|SPEMCG|SPENAL|INTNAE|APPNAE|SPEOLY|INTPOL|APPPED|INTPUT|INTRIE|INTREV|SPERZC|SSTBUS|SPEBUS|SSTEDW|SPEEDW|SSTEDU|SPEEDU|SSTETH|SSTGOP|SPEGOV|SSTHHS|SPEHHS|SPESJC|SPEJUD|SSTJLC|SPELEC|SPESEO|SSTNAE|SPENAT|SPEPOL|SPERET|SSTREV|SPEREV|SSTRUL|SSTTPT|SPETRA|APPSOC|SUBOVE|APPTIF|INTTRA|TSKBHL|SPEUSL|SPEVMA",
   "entry_count": 71,
-  "hearing_count": 556,
+  "hearing_count": 557,
   "items": [
     {
       "title": "Business and Labor Interim Committee — 11/18/2026",
@@ -8306,19 +8306,23 @@
       "committee": "Legislative Audit Subcommittee",
       "committee_code": "SPEAUD",
       "committee_link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=SPEAUD",
-      "link": "http://le.utah.gov/Interim/2026/html/00002523.htm",
-      "url": "http://le.utah.gov/Interim/2026/html/00002523.htm",
-      "stream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=SPEAUD",
+      "link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=SPEAUD",
+      "url": "http://le.utah.gov/committee/committee.jsp?year=2026&com=SPEAUD",
+      "stream_url": "",
       "source": "State (Utah)",
       "state": "UT",
       "level": "state",
-      "description": "Committee meeting scheduled",
-      "agenda_items": [],
+      "description": "1. Committee Business; 2. Audit Report Presentations; 3. Adjourn",
+      "agenda_items": [
+        "1. Committee Business",
+        "2. Audit Report Presentations",
+        "3. Adjourn"
+      ],
       "feed": "utah_committee_rss",
       "notice_date": "",
       "notice_time": "",
       "notice_place": "",
-      "livestream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=SPEAUD"
+      "livestream_url": ""
     },
     {
       "title": "Legislative Audit Subcommittee — 9/15/2026",
@@ -8465,6 +8469,30 @@
       "notice_time": "",
       "notice_place": "",
       "livestream_url": ""
+    },
+    {
+      "title": "Legislative Management Committee — 12/8/2026",
+      "scheduled_date": "2026-12-08T13:00:00+00:00",
+      "scheduled_time": "",
+      "location": "445 State Capitol",
+      "committees": "Legislative Management Committee",
+      "committee": "Legislative Management Committee",
+      "committee_code": "SPEMAN",
+      "committee_link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=SPEMAN",
+      "link": "http://le.utah.gov/Interim/2026/html/00003552.htm",
+      "url": "http://le.utah.gov/Interim/2026/html/00003552.htm",
+      "stream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=SPEMAN",
+      "source": "State (Utah)",
+      "state": "UT",
+      "level": "state",
+      "description": "Committee meeting scheduled",
+      "agenda_items": [],
+      "feed": "utah_committee_rss",
+      "notice_date": "Tuesday, December 8, 2026",
+      "notice_time": "1:00 p.m.",
+      "notice_place": "Room 445 State Capitol",
+      "livestream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=SPEMAN",
+      "notice_enriched_at": "2026-09-24T19:27:08.146538+00:00"
     },
     {
       "title": "Legislative Management Committee — 8/19/2026",
