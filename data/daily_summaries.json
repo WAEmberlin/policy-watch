@@ -8707,5 +8707,65 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-09-25": {
+    "date": "2026-09-25",
+    "generated_at": "2026-09-26T05:31:17.563565+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "6 legislative items recorded. U.S. Congress: 2 House bills and 4 Senate bills.",
+    "counts": {
+      "total": 6,
+      "kansas_house": 0,
+      "kansas_senate": 0,
+      "congress_house": 2,
+      "congress_senate": 4
+    },
+    "kansas": {
+      "house": [],
+      "senate": []
+    },
+    "congress": {
+      "house": [
+        {
+          "bill": "HR 7250",
+          "short_title": "To reauthorize the Fort Peck Reservation Rural Water System Act of 2000.",
+          "action": "Signed by President.",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/7250"
+        },
+        {
+          "bill": "HR 3657",
+          "short_title": "Hydropower Licensing Transparency Act",
+          "action": "Signed by President.",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/3657"
+        }
+      ],
+      "senate": [
+        {
+          "bill": "S 790",
+          "short_title": "A bill to redesignate the National Historic Trails Interpretive Center in Casper, Wyoming, as the \"Barbara L. Cubin National Historic Trails Interpretive Center\".",
+          "action": "Signed by President.",
+          "url": "https://www.congress.gov/bill/119th-congress/senate-bill/790"
+        },
+        {
+          "bill": "S 603",
+          "short_title": "A bill to designate the General George C. Marshall House in the Commonwealth of Virginia, as an affiliated area of the National Park System, and for other purposes.",
+          "action": "Signed by President.",
+          "url": "https://www.congress.gov/bill/119th-congress/senate-bill/603"
+        },
+        {
+          "bill": "S 550",
+          "short_title": "A bill to provide for the equitable settlement of certain Indian land disputes regarding land in Illinois, and for other purposes.",
+          "action": "Signed by President.",
+          "url": "https://www.congress.gov/bill/119th-congress/senate-bill/550"
+        },
+        {
+          "bill": "S 759",
+          "short_title": "Modernizing Access to Our Public Oceans Act",
+          "action": "Signed by President.",
+          "url": "https://www.congress.gov/bill/119th-congress/senate-bill/759"
+        }
+      ]
+    }
   }
 }
