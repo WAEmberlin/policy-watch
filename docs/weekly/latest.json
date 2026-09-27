@@ -1,21 +1,21 @@
 {
-  "week_start": "2026-09-15T13:27:28.924889-05:00",
-  "week_end": "2026-09-22T13:27:28.924889-05:00",
+  "week_start": "2026-09-20T13:52:08.980452-05:00",
+  "week_end": "2026-09-27T13:52:08.980452-05:00",
   "item_counts": {
-    "federal": 432,
+    "federal": 352,
     "ks": 0,
     "co": 0,
     "az": 0,
-    "ut": 17,
+    "ut": 0,
     "me": 0,
     "ne": 0,
     "md": 0,
     "pa": 0,
-    "ma": 82,
+    "ma": 83,
     "wv": 0,
     "tn": 0,
     "nc": 0,
-    "mo": 2,
+    "mo": 0,
     "ia": 1,
     "ga": 0,
     "ky": 0
@@ -26,36 +26,36 @@
       "label": "Congress / Federal",
       "recap_lines": [
         "Congress / Federal:",
-        "HR 10524: To amend the National Housing Act to establish a mortgage insurance program for first responders, 911 call center operators and dispatchers, child care workers, and correctional officers or prison guards, and for other purposes.",
-        "   Referred to the House Committee on Financial Services.",
-        "HRES 1570: Marking the eighth anniversary of the unjust imprisonment of Dr. Gulshan Abbas by the Government of the People's Republic of China, condemning the use of transnational repression to retaliate against the exercise of free speech in the United States, and calling for her immediate and unconditional release.",
-        "   Referred to the House Committee on Foreign Affairs.",
-        "HR 10521: To direct the Secretary of Health and Human Services to revise the regulations implementing the 5-star rating system under Medicare Advantage.",
-        "   Referred to the Committee on Ways and Means, and in addition to the Committee on Energy and...",
-        "   Plus 11 immigration, 41 healthcare, 30 education, 55 economic, 16 defense, 39 environmental, 9 technology, 34 tax, 11 infrastructure bills, and 150 others.",
-        "33 hearings scheduled."
+        "S 790: A bill to redesignate the National Historic Trails Interpretive Center in Casper, Wyoming, as the \"Barbara L. Cubin National Historic Trails Interpretive Center\".",
+        "   Signed by President.",
+        "S 603: A bill to designate the General George C. Marshall House in the Commonwealth of Virginia, as an affiliated area of the National Park System, and for other purposes.",
+        "   Signed by President.",
+        "S 550: A bill to provide for the equitable settlement of certain Indian land disputes regarding land in Illinois, and for other purposes.",
+        "   Signed by President.",
+        "   Plus 3 immigration, 50 healthcare, 39 education, 50 economic, 15 defense, 10 environmental, 13 technology, 32 tax, 11 infrastructure bills, and 109 others.",
+        "17 hearings scheduled."
       ],
-      "item_count": 432,
+      "item_count": 352,
       "veterans_highlight": {
-        "summary": "HRES 1572: Encouraging the recognition of a \"National LGBTQ+ Servicemembers and Veterans Day\".; HR 10485: Minuteman III Health and Safety Act; HR 10484: Covered AI Prohibition Act; plus 29 more",
+        "summary": "HR 8052: Veteran Infection Prevention Act; HR 10590: To establish a pilot program under which the Secretary of Veterans Affairs makes direct housing loans to veterans in rural areas...; HR 10577: To prioritize the finalization of design requirements for new Ready Reserve Force vessels, and for other purposes.; plus 28 more",
         "items": [
           {
             "type": "bill",
-            "title": "HRES 1572: Encouraging the recognition of a \"National LGBTQ+ Servicemembers and Veterans Day\".",
-            "url": "https://www.congress.gov/bill/119th-congress/house-resolution/1572"
+            "title": "HR 8052: Veteran Infection Prevention Act",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/8052"
           },
           {
             "type": "bill",
-            "title": "HR 10485: Minuteman III Health and Safety Act",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10485"
+            "title": "HR 10590: To establish a pilot program under which the Secretary of Veterans Affairs makes direct housing loans to veterans in rural areas...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10590"
           },
           {
             "type": "bill",
-            "title": "HR 10484: Covered AI Prohibition Act",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10484"
+            "title": "HR 10577: To prioritize the finalization of design requirements for new Ready Reserve Force vessels, and for other purposes.",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10577"
           }
         ],
-        "total_matches": 32
+        "total_matches": 31
       }
     },
     {
@@ -86,10 +86,9 @@
       "id": "ut",
       "label": "Utah",
       "recap_lines": [
-        "Utah:",
-        "   17 hearings."
+        "Utah: No new activity this week."
       ],
-      "item_count": 17
+      "item_count": 0
     },
     {
       "id": "me",
@@ -128,9 +127,20 @@
       "label": "Massachusetts",
       "recap_lines": [
         "Massachusetts:",
-        "   8 committee actions, 3 hearings, 9 votes."
+        "   13 committee actions, 3 hearings, 3 votes."
       ],
-      "item_count": 82
+      "item_count": 83,
+      "veterans_highlight": {
+        "summary": "HD 5971: A communication from the Office of the Veteran Advocate (see Section 4 of Chapter 115B of the General Laws) submitting its annual...",
+        "items": [
+          {
+            "type": "bill",
+            "title": "HD 5971: A communication from the Office of the Veteran Advocate (see Section 4 of Chapter 115B of the General Laws) submitting its annual...",
+            "url": "https://malegislature.gov/Bills/194/HD5971.pdf"
+          }
+        ],
+        "total_matches": 1
+      }
     },
     {
       "id": "wv",
@@ -160,10 +170,9 @@
       "id": "mo",
       "label": "Missouri",
       "recap_lines": [
-        "Missouri:",
-        "   2 bills updated."
+        "Missouri: No new activity this week."
       ],
-      "item_count": 2
+      "item_count": 0
     },
     {
       "id": "ia",
@@ -191,8 +200,8 @@
       "item_count": 0
     }
   ],
-  "script": "PolicyWatch weekly overview for September 15 through September 22, 2026.\n\nCongress / Federal:\nHR 10524: To amend the National Housing Act to establish a mortgage insurance program for first responders, 911 call center operators and dispatchers, child care workers, and correctional officers or prison guards, and for other purposes.\nVeterans & Military highlight: HRES 1572: Encouraging the recognition of a \"National LGBTQ+ Servicemembers and Veterans Day\".; HR 10485: Minuteman III Health and Safety Act; HR 10484: Covered AI Prohibition Act; plus 29 more.\n   Referred to the House Committee on Financial Services.\nHRES 1570: Marking the eighth anniversary of the unjust imprisonment of Dr. Gulshan Abbas by the Government of the People's Republic of China, condemning the use of transnational repression to retaliate against the exercise of free speech in the United States, and calling for her immediate and unconditional release.\n   Referred to the House Committee on Foreign Affairs.\nHR 10521: To direct the Secretary of Health and Human Services to revise the regulations implementing the 5-star rating system under Medicare Advantage.\n   Referred to the Committee on Ways and Means, and in addition to the Committee on Energy and...\n   Plus 11 immigration, 41 healthcare, 30 education, 55 economic, 16 defense, 39 environmental, 9 technology, 34 tax, 11 infrastructure bills, and 150 others.\n33 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah:\n   17 hearings.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   8 committee actions, 3 hearings, 9 votes.\n\nWest Virginia: No new activity this week.\n\nTennessee: No new activity this week.\n\nNorth Carolina: No new activity this week.\n\nMissouri:\n   2 bills updated.\n\nIowa:\n   1 bills updated.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nExplore full details at PolicyWatch.",
-  "generated_at": "2026-09-22T13:27:28.924889-05:00",
+  "script": "PolicyWatch weekly overview for September 20 through September 27, 2026.\n\nCongress / Federal:\nS 790: A bill to redesignate the National Historic Trails Interpretive Center in Casper, Wyoming, as the \"Barbara L. Cubin National Historic Trails Interpretive Center\".\nVeterans & Military highlight: HR 8052: Veteran Infection Prevention Act; HR 10590: To establish a pilot program under which the Secretary of Veterans Affairs makes direct housing loans to veterans in rural areas...; HR 10577: To prioritize the....\n   Signed by President.\nS 603: A bill to designate the General George C. Marshall House in the Commonwealth of Virginia, as an affiliated area of the National Park System, and for other purposes.\n   Signed by President.\nS 550: A bill to provide for the equitable settlement of certain Indian land disputes regarding land in Illinois, and for other purposes.\n   Signed by President.\n   Plus 3 immigration, 50 healthcare, 39 education, 50 economic, 15 defense, 10 environmental, 13 technology, 32 tax, 11 infrastructure bills, and 109 others.\n17 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   13 committee actions, 3 hearings, 3 votes.\nVeterans & Military highlight: HD 5971: A communication from the Office of the Veteran Advocate (see Section 4 of Chapter 115B of the General Laws) submitting its annual....\n\nWest Virginia: No new activity this week.\n\nTennessee: No new activity this week.\n\nNorth Carolina: No new activity this week.\n\nMissouri: No new activity this week.\n\nIowa:\n   1 bills updated.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nExplore full details at PolicyWatch.",
+  "generated_at": "2026-09-27T13:52:08.980452-05:00",
   "audio_available": false,
   "audio_file": null
 }
