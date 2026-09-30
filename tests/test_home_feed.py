@@ -381,10 +381,18 @@ def test_veterans_page_blank_dates_and_fifty_item_pages():
     assert to_input, "missing To date input"
     assert "value=" not in from_input.group(0)
     assert "value=" not in to_input.group(0)
+    assert "autocomplete=\"off\"" in from_input.group(0)
+    home_html = (root / "docs" / "index.html").read_text(encoding="utf-8")
+    home_from = re.search(r'<input type="date" id="search-date-from"[^>]*>', home_html)
+    home_to = re.search(r'<input type="date" id="search-date-to"[^>]*>', home_html)
+    assert home_from and home_to
+    assert "value=" not in home_from.group(0)
+    assert "value=" not in home_to.group(0)
+    assert "fromEl.value = fromDefault" not in script
+    assert "toEl.value = toDefault" not in script
     assert "VETERANS_PAGE_FEED_ITEM_LIMIT = 50" in script
     assert "HOME_FEED_PAGE_ITEM_LIMIT = 50" in script
     assert "VETERANS_FEED_ITEM_LIMIT = 50" in script
-    assert "if (isVeteransOnlyPage()) return;" in script
     assert "loadVeteransHomeFeedItems" in script
     assert "usesVeteransItemFeed" in script
     assert "return HOME_FEED_PAGE_ITEM_LIMIT;" in script

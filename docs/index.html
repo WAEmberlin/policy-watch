@@ -136,6 +136,7 @@ tailwind.config = {
                         <div class="min-w-[140px]">
                             <label for="search-date-from" class="block text-xs font-semibold mb-1" style="font-family: var(--font-data); color: var(--slate); letter-spacing: 0.04em; text-transform: uppercase;">From</label>
                             <input type="date" id="search-date-from"
+                                   autocomplete="off"
                                    class="w-full px-3 py-2 border-2 rounded-full focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all"
                                    style="font-family: var(--font-data); background: var(--ink-raised); border-color: var(--ink-line); color: var(--paper);"
                                    aria-label="Search date from" />
@@ -143,6 +144,7 @@ tailwind.config = {
                         <div class="min-w-[140px]">
                             <label for="search-date-to" class="block text-xs font-semibold mb-1" style="font-family: var(--font-data); color: var(--slate); letter-spacing: 0.04em; text-transform: uppercase;">To</label>
                             <input type="date" id="search-date-to"
+                                   autocomplete="off"
                                    class="w-full px-3 py-2 border-2 rounded-full focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all"
                                    style="font-family: var(--font-data); background: var(--ink-raised); border-color: var(--ink-line); color: var(--paper);"
                                    aria-label="Search date to" />
@@ -219,7 +221,7 @@ tailwind.config = {
 <script src="bill-utils.js?v=voteurl1"></script>
 <script src="bill-votes.js"></script>
 <script src="home.js?v=vetsnum5"></script>
-<script src="script.js?v=billnum1"></script>
+<script src="script.js?v=datesempty1"></script>
 <script>PolicyWatchShell.init({ page: 'home' });</script>
 </body>
 </html>

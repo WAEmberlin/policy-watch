@@ -380,18 +380,11 @@ function setSearchDateError(message) {
 }
 
 /**
- * Apply default From/To: last SEARCH_DEFAULT_LOOKBACK_YEARS years → today CT.
- * Empty dates mean "no date restriction" (full archive search).
+ * Leave From/To blank. Empty means no date restriction (full archive search).
+ * Do not autofill today — that made homepage search look like a one-day window.
  */
-function applySearchDateDefaults({ force = false } = {}) {
-    // Veteran Legislation page: leave From/To blank (no date restriction).
-    if (isVeteransOnlyPage()) return;
-    const fromEl = document.getElementById("search-date-from");
-    const toEl = document.getElementById("search-date-to");
-    const fromDefault = yearsAgoCentralYYYYMMDD(SEARCH_DEFAULT_LOOKBACK_YEARS);
-    const toDefault = todayCentralYYYYMMDD();
-    if (fromEl && (force || !fromEl.value)) fromEl.value = fromDefault;
-    if (toEl && (force || !toEl.value)) toEl.value = toDefault;
+function applySearchDateDefaults() {
+    return;
 }
 
 function initSearchDateDefaults() {
