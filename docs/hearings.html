@@ -69,6 +69,12 @@ tailwind.config = {
                 <!-- Filters -->
                 <div id="upcoming-filters" class="flex flex-col gap-3 mb-6 p-4 rounded-xl border border-slate-200" style="background: var(--cw-surface-muted); border-color: var(--cw-border);">
                     <div id="upcoming-state-chips"></div>
+                    <div class="w-full">
+                        <label for="upcoming-search-filter" class="sr-only">Search upcoming hearings</label>
+                        <input type="search" id="upcoming-search-filter" placeholder="Search upcoming hearings (committee, bill, keyword)…"
+                            class="w-full px-3 py-2 border-2 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all text-sm"
+                            style="border-color: var(--cw-border); background: var(--cw-surface); color: var(--cw-text);">
+                    </div>
                     <div class="flex flex-wrap gap-3 items-center">
                     <div class="flex items-center gap-2">
                         <label for="upcoming-state-filter" class="text-sm font-semibold text-slate-600">State:</label>
@@ -98,6 +104,14 @@ tailwind.config = {
                         <select id="upcoming-year-filter" class="px-3 py-2 border-2 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm" style="border-color: var(--cw-border); background: var(--cw-surface);">
                             <option value="">All Years</option>
                         </select>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <label for="upcoming-date-from" class="text-sm font-semibold text-slate-600">From:</label>
+                        <input type="date" id="upcoming-date-from" autocomplete="off" class="px-3 py-2 border-2 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all text-sm" style="border-color: var(--cw-border); background: var(--cw-surface); color: var(--cw-text);">
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <label for="upcoming-date-to" class="text-sm font-semibold text-slate-600">To:</label>
+                        <input type="date" id="upcoming-date-to" autocomplete="off" class="px-3 py-2 border-2 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all text-sm" style="border-color: var(--cw-border); background: var(--cw-surface); color: var(--cw-text);">
                     </div>
                     <div class="flex items-center gap-2">
                         <label for="upcoming-committee-filter" class="text-sm font-semibold text-slate-600">Committee:</label>
@@ -134,6 +148,12 @@ tailwind.config = {
                 <!-- Filters -->
                 <div id="historical-filters" class="flex flex-col gap-3 mb-6 p-4 rounded-xl border border-slate-200" style="background: var(--cw-surface-muted); border-color: var(--cw-border);">
                     <div id="historical-state-chips"></div>
+                    <div class="w-full">
+                        <label for="historical-search-filter" class="sr-only">Search historical hearings</label>
+                        <input type="search" id="historical-search-filter" placeholder="Search historical hearings (committee, bill, keyword)…"
+                            class="w-full px-3 py-2 border-2 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all text-sm"
+                            style="border-color: var(--cw-border); background: var(--cw-surface); color: var(--cw-text);">
+                    </div>
                     <div class="flex flex-wrap gap-3 items-center">
                     <div class="flex items-center gap-2">
                         <label for="historical-state-filter" class="text-sm font-semibold text-slate-600">State:</label>
@@ -163,6 +183,14 @@ tailwind.config = {
                         <select id="historical-year-filter" class="px-3 py-2 border-2 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all cursor-pointer text-sm" style="border-color: var(--cw-border); background: var(--cw-surface);">
                             <option value="">All Years</option>
                         </select>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <label for="historical-date-from" class="text-sm font-semibold text-slate-600">From:</label>
+                        <input type="date" id="historical-date-from" autocomplete="off" class="px-3 py-2 border-2 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all text-sm" style="border-color: var(--cw-border); background: var(--cw-surface); color: var(--cw-text);">
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <label for="historical-date-to" class="text-sm font-semibold text-slate-600">To:</label>
+                        <input type="date" id="historical-date-to" autocomplete="off" class="px-3 py-2 border-2 rounded-lg bg-white focus:border-civic-blue focus:ring-2 focus:ring-civic-blue/10 outline-none transition-all text-sm" style="border-color: var(--cw-border); background: var(--cw-surface); color: var(--cw-text);">
                     </div>
                     <div class="flex items-center gap-2">
                         <label for="historical-committee-filter" class="text-sm font-semibold text-slate-600">Committee:</label>
@@ -305,7 +333,41 @@ function inferHearingState(hearing) {
     return "";
 }
 
-function filterHearings(hearings, stateFilter, yearFilter, committeeFilter) {
+function hearingSearchText(hearing) {
+    return [
+        hearing.title,
+        hearing.summary,
+        hearing.bill,
+        hearing.committee,
+        hearing.committees,
+        hearing.location,
+        hearing.source,
+        hearing.chamber,
+        hearing.scheduled_time,
+    ].filter(Boolean).join(" ").toLowerCase();
+}
+
+function isHearingDateKey(value) {
+    return /^\d{4}-\d{2}-\d{2}$/.test(String(value || ""));
+}
+
+function readHearingDateRange(prefix) {
+    const fromEl = document.getElementById(prefix + "-date-from");
+    const toEl = document.getElementById(prefix + "-date-to");
+    let from = fromEl ? String(fromEl.value || "").trim() : "";
+    let to = toEl ? String(toEl.value || "").trim() : "";
+    if (from && to && from > to) {
+        if (fromEl) fromEl.value = to;
+        if (toEl) toEl.value = from;
+        const tmp = from;
+        from = to;
+        to = tmp;
+    }
+    return { dateFrom: from, dateTo: to };
+}
+
+function filterHearings(hearings, stateFilter, yearFilter, committeeFilter, searchQuery, dateFrom, dateTo) {
+    const terms = String(searchQuery || "").toLowerCase().trim().split(/\s+/).filter(Boolean);
     return hearings.filter(hearing => {
         // Filter by state
         if (stateFilter) {
@@ -320,6 +382,13 @@ function filterHearings(hearings, stateFilter, yearFilter, committeeFilter) {
                 return false;
             }
         }
+
+        if (dateFrom || dateTo) {
+            const day = hearingDateKey(hearing);
+            if (!isHearingDateKey(day)) return false;
+            if (dateFrom && day < dateFrom) return false;
+            if (dateTo && day > dateTo) return false;
+        }
         
         // Filter by committee (House/Senate committee name)
         if (committeeFilter) {
@@ -330,6 +399,11 @@ function filterHearings(hearings, stateFilter, yearFilter, committeeFilter) {
             const allCommittees = committee ? [committee, ...committeeList] : committeeList;
             const match = allCommittees.some(c => c === committeeFilter);
             if (!match) return false;
+        }
+
+        if (terms.length) {
+            const haystack = hearingSearchText(hearing);
+            if (!terms.every((term) => haystack.includes(term))) return false;
         }
         
         return true;
@@ -394,8 +468,27 @@ function populateCommitteeFilters(hearings, filterId) {
     });
 }
 
-function renderHearings(hearings, container, emptyMessage, stateFilter = "", yearFilter = "", committeeFilter = "") {
-    const filtered = filterHearings(hearings, stateFilter, yearFilter, committeeFilter);
+function escapeHearingHtml(value) {
+    return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+}
+
+function highlightHearingText(value, searchQuery) {
+    const escaped = escapeHearingHtml(value);
+    const terms = String(searchQuery || "").trim().split(/\s+/).filter(Boolean);
+    if (!terms.length) return escaped;
+    const unique = Array.from(new Set(terms.map((term) => term.toLowerCase())));
+    unique.sort((a, b) => b.length - a.length);
+    const pattern = unique.map((term) => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|");
+    if (!pattern) return escaped;
+    return escaped.replace(new RegExp(`(${pattern})`, "gi"), "<mark>$1</mark>");
+}
+
+function renderHearings(hearings, container, emptyMessage, stateFilter = "", yearFilter = "", committeeFilter = "", searchQuery = "", dateFrom = "", dateTo = "") {
+    const filtered = filterHearings(hearings, stateFilter, yearFilter, committeeFilter, searchQuery, dateFrom, dateTo);
     
     if (filtered.length === 0) {
         container.innerHTML = `
@@ -404,7 +497,7 @@ function renderHearings(hearings, container, emptyMessage, stateFilter = "", yea
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                 </svg>
                 <p class="text-slate-500 font-medium">${emptyMessage}</p>
-                ${(stateFilter || yearFilter || committeeFilter) ? '<p class="text-slate-400 text-sm mt-1">Try adjusting your filters.</p>' : '<p class="text-slate-400 text-sm mt-1">Open States hearings appear after the daily sync runs with OPENSTATES_API_KEY set.</p>'}
+                ${(stateFilter || yearFilter || committeeFilter || searchQuery || dateFrom || dateTo) ? '<p class="text-slate-400 text-sm mt-1">Try adjusting your filters.</p>' : '<p class="text-slate-400 text-sm mt-1">Open States hearings appear after the daily sync runs with OPENSTATES_API_KEY set.</p>'}
             </div>
         `;
         return;
@@ -482,6 +575,7 @@ function renderHearings(hearings, container, emptyMessage, stateFilter = "", yea
             const titleWithTime = hearing.scheduled_time 
                 ? `${title} - ${hearing.scheduled_time}`
                 : title;
+            const titleHtml = highlightHearingText(titleWithTime, searchQuery);
             
             // Show state badge
             const hearingState = inferHearingState(hearing);
@@ -502,7 +596,7 @@ function renderHearings(hearings, container, emptyMessage, stateFilter = "", yea
                         ${badgeLabel}
                     </span>
                     <h4 class="text-lg font-semibold ${isCanceled ? 'text-red-600 line-through' : 'text-civic-navy'}">
-                        ${titleWithTime}
+                        ${titleHtml}
                     </h4>
                 </div>
                 
@@ -510,19 +604,19 @@ function renderHearings(hearings, container, emptyMessage, stateFilter = "", yea
                     ${hearing.location ? `
                     <div>
                         <span class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Location</span>
-                        <span class="text-slate-700">${hearing.location}</span>
+                        <span class="text-slate-700">${highlightHearingText(hearing.location, searchQuery)}</span>
                     </div>
                     ` : ''}
                     ${hearing.bill ? `
                     <div>
                         <span class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Bill</span>
-                        <span class="text-civic-blue font-semibold">${hearing.bill}</span>
+                        <span class="text-civic-blue font-semibold">${highlightHearingText(hearing.bill, searchQuery)}</span>
                     </div>
                     ` : ''}
                     ${(hearing.committees || hearing.committee) ? `
                     <div class="sm:col-span-2 lg:col-span-1">
                         <span class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">${hearing.chamber ? hearing.chamber + ' ' : ''}Committee${hearing.committees && hearing.committees.includes(',') ? 's' : ''}</span>
-                        <span class="text-slate-700">${hearing.committees || hearing.committee}</span>
+                        <span class="text-slate-700">${highlightHearingText(hearing.committees || hearing.committee, searchQuery)}</span>
                     </div>
                     ` : ''}
                 </div>
@@ -589,16 +683,20 @@ function setupFilters() {
         const stateFilter = document.getElementById("upcoming-state-filter").value;
         const yearFilter = document.getElementById("upcoming-year-filter").value;
         const committeeFilter = document.getElementById("upcoming-committee-filter").value;
+        const searchQuery = document.getElementById("upcoming-search-filter").value;
+        const { dateFrom, dateTo } = readHearingDateRange("upcoming");
         renderHearings(allUpcomingHearings, upcomingContainer, "No upcoming hearings scheduled",
-                      stateFilter, yearFilter, committeeFilter);
+                      stateFilter, yearFilter, committeeFilter, searchQuery, dateFrom, dateTo);
     }
     
     function applyHistoricalFilters() {
         const stateFilter = document.getElementById("historical-state-filter").value;
         const yearFilter = document.getElementById("historical-year-filter").value;
         const committeeFilter = document.getElementById("historical-committee-filter").value;
+        const searchQuery = document.getElementById("historical-search-filter").value;
+        const { dateFrom, dateTo } = readHearingDateRange("historical");
         renderHearings(allHistoricalHearings, historicalContainer, "No historical hearings available",
-                      stateFilter, yearFilter, committeeFilter);
+                      stateFilter, yearFilter, committeeFilter, searchQuery, dateFrom, dateTo);
     }
     
     // Upcoming filters
@@ -608,6 +706,9 @@ function setupFilters() {
     });
     document.getElementById("upcoming-year-filter").addEventListener("change", applyUpcomingFilters);
     document.getElementById("upcoming-committee-filter").addEventListener("change", applyUpcomingFilters);
+    document.getElementById("upcoming-search-filter").addEventListener("input", applyUpcomingFilters);
+    document.getElementById("upcoming-date-from").addEventListener("change", applyUpcomingFilters);
+    document.getElementById("upcoming-date-to").addEventListener("change", applyUpcomingFilters);
     
     // Historical filters
     document.getElementById("historical-state-filter").addEventListener("change", function () {
@@ -616,6 +717,9 @@ function setupFilters() {
     });
     document.getElementById("historical-year-filter").addEventListener("change", applyHistoricalFilters);
     document.getElementById("historical-committee-filter").addEventListener("change", applyHistoricalFilters);
+    document.getElementById("historical-search-filter").addEventListener("input", applyHistoricalFilters);
+    document.getElementById("historical-date-from").addEventListener("change", applyHistoricalFilters);
+    document.getElementById("historical-date-to").addEventListener("change", applyHistoricalFilters);
 }
 
 function clearFilters(type) {
@@ -623,16 +727,22 @@ function clearFilters(type) {
         document.getElementById("upcoming-state-filter").value = "";
         document.getElementById("upcoming-year-filter").value = "";
         document.getElementById("upcoming-committee-filter").value = "";
+        document.getElementById("upcoming-search-filter").value = "";
+        document.getElementById("upcoming-date-from").value = "";
+        document.getElementById("upcoming-date-to").value = "";
         syncStateChips('upcoming');
         renderHearings(allUpcomingHearings, document.getElementById("upcoming-hearings-container"), 
-                      "No upcoming hearings scheduled", "", "", "");
+                      "No upcoming hearings scheduled", "", "", "", "", "", "");
     } else if (type === "historical") {
         document.getElementById("historical-state-filter").value = "";
         document.getElementById("historical-year-filter").value = "";
         document.getElementById("historical-committee-filter").value = "";
+        document.getElementById("historical-search-filter").value = "";
+        document.getElementById("historical-date-from").value = "";
+        document.getElementById("historical-date-to").value = "";
         syncStateChips('historical');
         renderHearings(allHistoricalHearings, document.getElementById("historical-hearings-container"), 
-                      "No historical hearings available", "", "", "");
+                      "No historical hearings available", "", "", "", "", "", "");
     }
 }
 
