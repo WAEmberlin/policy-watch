@@ -51,6 +51,25 @@ def test_classify_red_from_gi_bill():
     assert "red" in result["reason"].lower()
 
 
+def test_classify_red_from_va_second_opinion_healthcare():
+    result = classify_veteran_impact(
+        "S.5629 - A bill to require the Secretary of Veterans Affairs to permit "
+        "veterans to seek a second opinion after the receipt of health care under "
+        "the laws administered by the Secretary, and for other purposes."
+    )
+    assert result is not None
+    assert result["level"] == "red"
+    assert "Healthcare & Mental Health" in result["factors"]
+    assert "second opinion" in result["reason"].lower()
+
+
+def test_generic_second_opinion_not_veteran():
+    """Second-opinion language is red only after veteran/VA context."""
+    assert classify_veteran_impact(
+        "Require insurers to cover a second opinion after the receipt of health care"
+    ) is None
+
+
 def test_classify_red_from_va_appropriations_title():
     result = classify_veteran_impact("Take Care of America's Veterans Act")
     assert result is not None
@@ -154,6 +173,43 @@ def test_classify_yellow_from_military_spouse():
     assert result is not None
     assert result["level"] == "yellow"
     assert "military spouse" in result["reason"].lower()
+
+
+def test_generic_awareness_resolutions_not_veteran():
+    """Congress awareness-week resolutions are not veteran bills without VA language."""
+    titles = [
+        'S.Res.941 - A resolution expressing support for the designation of the '
+        'week of October 24, 2026, to October 31, 2026, as "Bat Week".',
+        'S.Res.930 - A resolution expressing support for the recognition of October '
+        '2026, as "World Menopause Awareness Month" and for global awareness and '
+        "access to care during menopausal transition and post-menopause.",
+        'S.Res.940 - A resolution expressing support for the designation of September '
+        '2026 as "Sickle Cell Disease Awareness Month" in order to educate communities '
+        "across the United States about sickle cell disease and the need for research, "
+        "early detection methods, effective treatments, and preventative care programs "
+        "with respect to complications from sickle cell disease and conditions related "
+        "to sickle cell disease.",
+    ]
+    for title in titles:
+        assert classify_veteran_impact(title) is None, title
+
+
+def test_mst_awareness_day_stays_green():
+    result = classify_veteran_impact(
+        'A resolution expressing support for the designation of MST Awareness Day '
+        "to recognize survivors of military sexual trauma."
+    )
+    assert result is not None
+    assert result["level"] == "green"
+
+
+def test_expressing_support_does_not_override_va_healthcare_red():
+    result = classify_veteran_impact(
+        "A resolution expressing support for veterans to seek a second opinion "
+        "after the receipt of VA health care."
+    )
+    assert result is not None
+    assert result["level"] == "red"
 
 
 def test_classify_green_from_memorial():

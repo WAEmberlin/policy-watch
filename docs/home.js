@@ -770,6 +770,8 @@ const PolicyWatchHome = (() => {
         'veteran pension', 'veterans pension', 'veteran compensation', 'veterans compensation',
         'compensation', 'pension', 'dependency indemnity', 'title 38', 'medal of honor',
         'va health', 'veterans health', 'va healthcare', 'veterans healthcare',
+        'va health care', 'veterans health care',
+        'second opinion', 'second medical opinion', 'independent medical opinion',
         'military sexual trauma', 'ptsd', 'tbi', 'suicide prevention', 'post-traumatic',
         'sexual trauma', 'intimate partner violence', 'domestic violence',
         'suicidal ideation', 'suicide',
@@ -813,7 +815,7 @@ const PolicyWatchHome = (() => {
         'resolution honoring', 'honor resolution', 'awareness day',
         'expressing support for',
     ];
-    const CEREMONIAL_RECOGNITION_RE = /awareness day|expressing support for|recognizing (?:the )?(?:week|day|month) of|designat(?:e|ing)\s.{0,80}\b(?:as|day|week|month)\b/i;
+    const CEREMONIAL_RECOGNITION_RE = /awareness (?:day|week|month)|expressing support for the (?:designation|recognition)|recognizing (?:the )?(?:week|day|month) of|designat(?:e|ing)\s.{0,80}\b(?:as|day|week|month)\b/i;
     // Ambiguous terms — only score after a veteran marker / inherent phrase / AI tag.
     const VETERAN_IMPACT_CONTEXT_GATED = new Set([
         'compensation', 'pension', 'housing voucher',
@@ -822,6 +824,7 @@ const PolicyWatchHome = (() => {
         'sexual trauma', 'intimate partner violence', 'domestic violence',
         'suicidal ideation', 'suicide',
         'behavioral health crisis', 'crisis services expansion',
+        'second opinion', 'second medical opinion', 'independent medical opinion',
         'retroactive payment', 'retroactive benefit', 'retroactive benefits',
         'retroactive compensation',
         'hiring preference', 'employment preference',
@@ -830,6 +833,7 @@ const PolicyWatchHome = (() => {
         'recognition', 'memorial', 'honor', 'honoring', 'ceremonial', 'commemorative',
         'designate', 'memorial highway', 'memorial day',
         'resolution honoring', 'honor resolution',
+        'awareness day', 'expressing support for',
     ]);
     const VA_FACILITY_NAMING_PATTERNS = [
         /\b(to\s+)?(designate|name|rename|redesignate)\b.{0,160}\b(community-based outpatient clinic|outpatient clinic|multispecialty clinic|va clinic|veterans affairs clinic|va medical center|veterans affairs medical center|veterans affairs multispecialty clinic)\b/i,
