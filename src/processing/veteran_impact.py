@@ -39,6 +39,8 @@ SCORING_FACTORS: Dict[str, List[str]] = {
     "healthcare_mental_health": [
         # VA clinical / veteran-specific conditions → RED; generic mental health → YELLOW.
         "va health", "veterans health", "va healthcare", "veterans healthcare",
+        "va health care", "veterans health care",
+        "second opinion", "second medical opinion", "independent medical opinion",
         "military sexual trauma",
         # Gated clinical / mental-health terms:
         "ptsd", "tbi", "suicide prevention", "post-traumatic", "mental health",
@@ -104,6 +106,7 @@ CONTEXT_GATED_KEYWORDS = frozenset({
     "sexual trauma", "intimate partner violence", "domestic violence",
     "suicidal ideation", "suicide",
     "behavioral health crisis", "crisis services expansion",
+    "second opinion", "second medical opinion", "independent medical opinion",
     "retroactive payment", "retroactive benefit", "retroactive benefits",
     "retroactive compensation",
     "hiring preference", "employment preference",
@@ -112,6 +115,7 @@ CONTEXT_GATED_KEYWORDS = frozenset({
     "recognition", "memorial", "honor", "honoring", "ceremonial", "commemorative",
     "designate", "memorial highway", "memorial day",
     "resolution honoring", "honor resolution",
+    "awareness day", "expressing support for",
 })
 
 # Veteran-specific clinical / VA healthcare signals (RED). Generic "mental health" stays YELLOW.
@@ -119,6 +123,8 @@ CONTEXT_GATED_KEYWORDS = frozenset({
 # (default green) unless a more specific high-impact keyword matches.
 RED_HEALTHCARE_SIGNALS = [
     "va health", "veterans health", "va healthcare", "veterans healthcare",
+    "va health care", "veterans health care",
+    "second opinion", "second medical opinion", "independent medical opinion",
     "military sexual trauma",
     "ptsd", "tbi", "suicide prevention", "post-traumatic",
     "sexual trauma", "intimate partner violence", "domestic violence",
@@ -152,8 +158,8 @@ GREEN_SIGNALS = [
 ]
 
 CEREMONIAL_RECOGNITION_RE = re.compile(
-    r"awareness day"
-    r"|expressing support for"
+    r"awareness (?:day|week|month)"
+    r"|expressing support for the (?:designation|recognition)"
     r"|recognizing (?:the )?(?:week|day|month) of"
     r"|designat(?:e|ing)\s.{0,80}\b(?:as|day|week|month)\b",
     re.I,
