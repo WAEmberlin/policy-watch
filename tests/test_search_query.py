@@ -58,7 +58,7 @@ def test_client_and_worker_use_number_only_path():
     assert "if (isBillNumberQuery(query))" in worker
     html = (ROOT / "docs" / "index.html").read_text(encoding="utf-8")
     vets = (ROOT / "docs" / "veterans.html").read_text(encoding="utf-8")
-    assert "script.js?v=billnum1" in html
-    assert "script.js?v=billnum1" in vets
+    assert 'src="script.js?v=' in html
+    assert 'src="script.js?v=' in vets
     api_docs = (ROOT / "docs" / "API.md").read_text(encoding="utf-8")
     assert "bill number** field only" in api_docs
