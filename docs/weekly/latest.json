@@ -1,22 +1,22 @@
 {
-  "week_start": "2026-09-25T13:53:30.802900-05:00",
-  "week_end": "2026-10-02T13:53:30.802900-05:00",
+  "week_start": "2026-09-30T17:26:47.750182-05:00",
+  "week_end": "2026-10-07T17:26:47.750182-05:00",
   "item_counts": {
-    "federal": 384,
+    "federal": 194,
     "ks": 0,
     "co": 0,
     "az": 0,
-    "ut": 1,
+    "ut": 0,
     "me": 0,
     "ne": 0,
     "md": 0,
     "pa": 0,
-    "ma": 104,
+    "ma": 80,
     "wv": 0,
     "tn": 0,
     "nc": 0,
-    "mo": 0,
-    "ia": 0,
+    "mo": 1,
+    "ia": 12,
     "ga": 0,
     "ky": 0
   },
@@ -26,36 +26,36 @@
       "label": "Congress / Federal",
       "recap_lines": [
         "Congress / Federal:",
-        "S 3258: Aviation Medication Transparency Act of 2025",
-        "   Held at the desk.",
-        "S 3257: Mental Health in Aviation Act of 2025",
-        "   Held at the desk.",
-        "HR 6993: BEACON Act of 2026",
-        "   Placed on the Union Calendar, Calendar No. 735.",
-        "   Plus 12 immigration, 56 healthcare, 33 education, 47 economic, 15 defense, 40 environmental, 3 technology, 24 tax, 7 infrastructure bills, and 131 others.",
-        "13 hearings scheduled."
+        "HR 6698: Board of Veterans Appeals Annual Report Transparency Act of 2025",
+        "   Placed on the Union Calendar, Calendar No. 737.",
+        "HR 7260: National Cemetery Administration Annual Report Act of 2026",
+        "   Placed on the Union Calendar, Calendar No. 738.",
+        "HR 10757: To provide for a limitation on contributions to the United Nations.",
+        "   Referred to the House Committee on Foreign Affairs.",
+        "   Plus 9 immigration, 29 healthcare, 29 education, 30 economic, 8 defense, 5 environmental, 4 technology, 13 tax, 7 infrastructure bills, and 55 others.",
+        "2 hearings scheduled."
       ],
-      "item_count": 384,
+      "item_count": 194,
       "veterans_highlight": {
-        "summary": "HR 10654: To ensure that a member separated from an Armed Force, solely on the basis that the member has pseudofolliculitis barbae,...; HR 10697: To amend titles 18 and 10, United States Code, to provide for congressional authority to terminate exceptions authorized to the...; HR 10717: To amend title 10, United States Code, to provide wigs to TRICARE beneficiaries with alopecia, including alopecia caused by...; plus 28 more",
+        "summary": "HR 6698: Board of Veterans Appeals Annual Report Transparency Act of 2025; HR 10766: To direct the Secretary of Defense to update the Critical Asset List of the Department of Defense to incorporate assets critical...; HR 10758: To require the Secretary of Veterans Affairs to establish a program under which the Secretary shall award grants to certain State...; plus 13 more",
         "items": [
           {
             "type": "bill",
-            "title": "HR 10654: To ensure that a member separated from an Armed Force, solely on the basis that the member has pseudofolliculitis barbae,...",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10654"
+            "title": "HR 6698: Board of Veterans Appeals Annual Report Transparency Act of 2025",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/6698"
           },
           {
             "type": "bill",
-            "title": "HR 10697: To amend titles 18 and 10, United States Code, to provide for congressional authority to terminate exceptions authorized to the...",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10697"
+            "title": "HR 10766: To direct the Secretary of Defense to update the Critical Asset List of the Department of Defense to incorporate assets critical...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10766"
           },
           {
             "type": "bill",
-            "title": "HR 10717: To amend title 10, United States Code, to provide wigs to TRICARE beneficiaries with alopecia, including alopecia caused by...",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10717"
+            "title": "HR 10758: To require the Secretary of Veterans Affairs to establish a program under which the Secretary shall award grants to certain State...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10758"
           }
         ],
-        "total_matches": 31
+        "total_matches": 16
       }
     },
     {
@@ -86,10 +86,9 @@
       "id": "ut",
       "label": "Utah",
       "recap_lines": [
-        "Utah:",
-        "   1 hearings."
+        "Utah: No new activity this week."
       ],
-      "item_count": 1
+      "item_count": 0
     },
     {
       "id": "me",
@@ -128,9 +127,9 @@
       "label": "Massachusetts",
       "recap_lines": [
         "Massachusetts:",
-        "   32 committee actions, 7 votes."
+        "   27 committee actions, 7 votes."
       ],
-      "item_count": 104,
+      "item_count": 80,
       "veterans_highlight": {
         "summary": "SD 4275: Veterans Homes Council Annual Report 2026",
         "items": [
@@ -171,17 +170,19 @@
       "id": "mo",
       "label": "Missouri",
       "recap_lines": [
-        "Missouri: No new activity this week."
+        "Missouri:",
+        "   1 bills updated."
       ],
-      "item_count": 0
+      "item_count": 1
     },
     {
       "id": "ia",
       "label": "Iowa",
       "recap_lines": [
-        "Iowa: No new activity this week."
+        "Iowa:",
+        "   1 committee actions, 4 votes."
       ],
-      "item_count": 0
+      "item_count": 12
     },
     {
       "id": "ga",
@@ -200,8 +201,8 @@
       "item_count": 0
     }
   ],
-  "script": "PolicyWatch weekly overview for September 25 through October 02, 2026.\n\nCongress / Federal:\nS 3258: Aviation Medication Transparency Act of 2025\nVeterans & Military highlight: HR 10654: To ensure that a member separated from an Armed Force, solely on the basis that the member has pseudofolliculitis barbae,...; HR 10697: To amend titles 18 and 10, United States Code, to provide for....\n   Held at the desk.\nS 3257: Mental Health in Aviation Act of 2025\n   Held at the desk.\nHR 6993: BEACON Act of 2026\n   Placed on the Union Calendar, Calendar No. 735.\n   Plus 12 immigration, 56 healthcare, 33 education, 47 economic, 15 defense, 40 environmental, 3 technology, 24 tax, 7 infrastructure bills, and 131 others.\n13 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah:\n   1 hearings.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   32 committee actions, 7 votes.\nVeterans & Military highlight: SD 4275: Veterans Homes Council Annual Report 2026.\n\nWest Virginia: No new activity this week.\n\nTennessee: No new activity this week.\n\nNorth Carolina: No new activity this week.\n\nMissouri: No new activity this week.\n\nIowa: No new activity this week.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nExplore full details at PolicyWatch.",
-  "generated_at": "2026-10-02T13:53:30.802900-05:00",
+  "script": "PolicyWatch weekly overview for September 30 through October 07, 2026.\n\nCongress / Federal:\nHR 6698: Board of Veterans Appeals Annual Report Transparency Act of 2025\nVeterans & Military highlight: HR 6698: Board of Veterans Appeals Annual Report Transparency Act of 2025; HR 10766: To direct the Secretary of Defense to update the Critical Asset List of the Department of Defense to incorporate assets critical...;....\n   Placed on the Union Calendar, Calendar No. 737.\nHR 7260: National Cemetery Administration Annual Report Act of 2026\n   Placed on the Union Calendar, Calendar No. 738.\nHR 10757: To provide for a limitation on contributions to the United Nations.\n   Referred to the House Committee on Foreign Affairs.\n   Plus 9 immigration, 29 healthcare, 29 education, 30 economic, 8 defense, 5 environmental, 4 technology, 13 tax, 7 infrastructure bills, and 55 others.\n2 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   27 committee actions, 7 votes.\nVeterans & Military highlight: SD 4275: Veterans Homes Council Annual Report 2026.\n\nWest Virginia: No new activity this week.\n\nTennessee: No new activity this week.\n\nNorth Carolina: No new activity this week.\n\nMissouri:\n   1 bills updated.\n\nIowa:\n   1 committee actions, 4 votes.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nExplore full details at PolicyWatch.",
+  "generated_at": "2026-10-07T17:26:47.750182-05:00",
   "audio_available": false,
   "audio_file": null
 }
