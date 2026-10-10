@@ -32,7 +32,8 @@ SCORING_FACTORS: Dict[str, List[str]] = {
         "veteran pension", "veterans pension", "veteran compensation", "veterans compensation",
         "dependency indemnity", "title 38", "medal of honor",
         # Gated when used alone — require veteran context first:
-        "compensation", "pension",
+        "compensation", "pension", "annuity", "annuities",
+        "eligibility date", "eligibility dates", "amending the eligibility",
         "retroactive payment", "retroactive benefit", "retroactive benefits",
         "retroactive compensation",
     ],
@@ -100,7 +101,9 @@ SCORING_FACTORS: Dict[str, List[str]] = {
 
 # Ambiguous color keywords — must NOT establish veteran-relatedness by themselves.
 CONTEXT_GATED_KEYWORDS = frozenset({
-    "compensation", "pension", "housing voucher",
+    "compensation", "pension", "annuity", "annuities",
+    "eligibility date", "eligibility dates", "amending the eligibility",
+    "housing voucher",
     "disability rating", "rating schedule", "survivor", "burial",
     "ptsd", "tbi", "suicide prevention", "post-traumatic", "mental health",
     "sexual trauma", "intimate partner violence", "domestic violence",
