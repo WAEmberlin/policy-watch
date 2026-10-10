@@ -152,6 +152,29 @@ def test_classify_red_from_housing():
     assert "Housing & Homelessness" in result["factors"]
 
 
+def test_classify_red_from_veteran_eligibility_date_change():
+    result = classify_veteran_impact(
+        "An Act amending the eligibility date for annuities for blind veterans, "
+        "paraplegic veterans or veterans with disabilities"
+    )
+    assert result is not None
+    assert result["level"] == "red"
+    assert "Benefits & Compensation" in result["factors"]
+    assert "eligibility date" in result["reason"].lower()
+
+
+def test_generic_eligibility_date_not_veteran():
+    assert classify_veteran_impact(
+        "An Act amending the eligibility date for state employee annuities"
+    ) is None
+
+
+def test_blind_veterans_mention_without_eligibility_change_stays_green():
+    result = classify_veteran_impact("A bill relating to outreach for blind veterans")
+    assert result is not None
+    assert result["level"] == "green"
+
+
 def test_classify_red_from_disability_rating():
     result = classify_veteran_impact(
         "Adjust service-connected disability rating schedule for veterans"

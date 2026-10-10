@@ -768,7 +768,9 @@ const PolicyWatchHome = (() => {
     const VETERAN_IMPACT_RED_SIGNALS = [
         'gi bill', 'survivor benefit', 'burial benefit', 'va benefit', 'veterans benefit',
         'veteran pension', 'veterans pension', 'veteran compensation', 'veterans compensation',
-        'compensation', 'pension', 'dependency indemnity', 'title 38', 'medal of honor',
+        'compensation', 'pension', 'annuity', 'annuities',
+        'eligibility date', 'eligibility dates', 'amending the eligibility',
+        'dependency indemnity', 'title 38', 'medal of honor',
         'va health', 'veterans health', 'va healthcare', 'veterans healthcare',
         'va health care', 'veterans health care',
         'second opinion', 'second medical opinion', 'independent medical opinion',
@@ -818,7 +820,9 @@ const PolicyWatchHome = (() => {
     const CEREMONIAL_RECOGNITION_RE = /awareness (?:day|week|month)|expressing support for the (?:designation|recognition)|recognizing (?:the )?(?:week|day|month) of|designat(?:e|ing)\s.{0,80}\b(?:as|day|week|month)\b/i;
     // Ambiguous terms — only score after a veteran marker / inherent phrase / AI tag.
     const VETERAN_IMPACT_CONTEXT_GATED = new Set([
-        'compensation', 'pension', 'housing voucher',
+        'compensation', 'pension', 'annuity', 'annuities',
+        'eligibility date', 'eligibility dates', 'amending the eligibility',
+        'housing voucher',
         'disability rating', 'rating schedule', 'survivor', 'burial',
         'ptsd', 'tbi', 'suicide prevention', 'post-traumatic', 'mental health',
         'sexual trauma', 'intimate partner violence', 'domestic violence',
