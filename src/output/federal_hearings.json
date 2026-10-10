@@ -6,28 +6,6 @@
     "location": "",
     "committee": "House Committee",
     "chamber": "House",
-    "url": "https://api.congress.gov/v3/hearing/119/house/64573",
-    "source": "Federal (US Congress)",
-    "congress": 119
-  },
-  {
-    "title": "Congressional Hearing",
-    "scheduled_date": "",
-    "scheduled_time": "",
-    "location": "",
-    "committee": "House Committee",
-    "chamber": "House",
-    "url": "https://api.congress.gov/v3/hearing/119/house/63968",
-    "source": "Federal (US Congress)",
-    "congress": 119
-  },
-  {
-    "title": "Congressional Hearing",
-    "scheduled_date": "",
-    "scheduled_time": "",
-    "location": "",
-    "committee": "House Committee",
-    "chamber": "House",
     "url": "https://api.congress.gov/v3/hearing/119/house/64229",
     "source": "Federal (US Congress)",
     "congress": 119
@@ -39,18 +17,7 @@
     "location": "",
     "committee": "House Committee",
     "chamber": "House",
-    "url": "https://api.congress.gov/v3/hearing/119/house/64581",
-    "source": "Federal (US Congress)",
-    "congress": 119
-  },
-  {
-    "title": "Congressional Hearing",
-    "scheduled_date": "",
-    "scheduled_time": "",
-    "location": "",
-    "committee": "House Committee",
-    "chamber": "House",
-    "url": "https://api.congress.gov/v3/hearing/118/house/64154",
+    "url": "https://api.congress.gov/v3/hearing/119/house/64573",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -72,7 +39,51 @@
     "location": "",
     "committee": "House Committee",
     "chamber": "House",
-    "url": "https://api.congress.gov/v3/hearing/118/house/64599",
+    "url": "https://api.congress.gov/v3/hearing/118/house/64154",
+    "source": "Federal (US Congress)",
+    "congress": 119
+  },
+  {
+    "title": "Congressional Hearing",
+    "scheduled_date": "",
+    "scheduled_time": "",
+    "location": "",
+    "committee": "House Committee",
+    "chamber": "House",
+    "url": "https://api.congress.gov/v3/hearing/119/house/64581",
+    "source": "Federal (US Congress)",
+    "congress": 119
+  },
+  {
+    "title": "Congressional Hearing",
+    "scheduled_date": "",
+    "scheduled_time": "",
+    "location": "",
+    "committee": "House Committee",
+    "chamber": "House",
+    "url": "https://api.congress.gov/v3/hearing/119/house/63968",
+    "source": "Federal (US Congress)",
+    "congress": 119
+  },
+  {
+    "title": "Congressional Hearing",
+    "scheduled_date": "",
+    "scheduled_time": "",
+    "location": "",
+    "committee": "House Committee",
+    "chamber": "House",
+    "url": "https://api.congress.gov/v3/hearing/119/house/64107",
+    "source": "Federal (US Congress)",
+    "congress": 119
+  },
+  {
+    "title": "Congressional Hearing",
+    "scheduled_date": "",
+    "scheduled_time": "",
+    "location": "",
+    "committee": "House Committee",
+    "chamber": "House",
+    "url": "https://api.congress.gov/v3/hearing/119/house/64202",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -105,7 +116,7 @@
     "location": "",
     "committee": "House Committee",
     "chamber": "House",
-    "url": "https://api.congress.gov/v3/hearing/119/house/64107",
+    "url": "https://api.congress.gov/v3/hearing/118/house/64599",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -117,17 +128,6 @@
     "committee": "House Committee",
     "chamber": "House",
     "url": "https://api.congress.gov/v3/hearing/118/house/63968",
-    "source": "Federal (US Congress)",
-    "congress": 119
-  },
-  {
-    "title": "Congressional Hearing",
-    "scheduled_date": "",
-    "scheduled_time": "",
-    "location": "",
-    "committee": "House Committee",
-    "chamber": "House",
-    "url": "https://api.congress.gov/v3/hearing/119/house/64202",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -160,7 +160,7 @@
     "location": "",
     "committee": "Nochamber Committee",
     "chamber": "Nochamber",
-    "url": "https://api.congress.gov/v3/hearing/119/nochamber/64204",
+    "url": "https://api.congress.gov/v3/hearing/119/nochamber/64365",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -171,7 +171,7 @@
     "location": "",
     "committee": "Nochamber Committee",
     "chamber": "Nochamber",
-    "url": "https://api.congress.gov/v3/hearing/119/nochamber/64365",
+    "url": "https://api.congress.gov/v3/hearing/119/nochamber/64204",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -182,7 +182,7 @@
     "location": "",
     "committee": "Senate Committee",
     "chamber": "Senate",
-    "url": "https://api.congress.gov/v3/hearing/119/senate/61880",
+    "url": "https://api.congress.gov/v3/hearing/119/senate/1",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -194,6 +194,17 @@
     "committee": "Senate Committee",
     "chamber": "Senate",
     "url": "https://api.congress.gov/v3/hearing/119/senate/64122",
+    "source": "Federal (US Congress)",
+    "congress": 119
+  },
+  {
+    "title": "Congressional Hearing",
+    "scheduled_date": "",
+    "scheduled_time": "",
+    "location": "",
+    "committee": "Senate Committee",
+    "chamber": "Senate",
+    "url": "https://api.congress.gov/v3/hearing/119/senate/61880",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -215,7 +226,7 @@
     "location": "",
     "committee": "Senate Committee",
     "chamber": "Senate",
-    "url": "https://api.congress.gov/v3/hearing/119/senate/1",
+    "url": "https://api.congress.gov/v3/hearing/118/senate/57030",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -237,40 +248,7 @@
     "location": "",
     "committee": "Senate Committee",
     "chamber": "Senate",
-    "url": "https://api.congress.gov/v3/hearing/118/senate/57030",
-    "source": "Federal (US Congress)",
-    "congress": 119
-  },
-  {
-    "title": "Congressional Hearing",
-    "scheduled_date": "",
-    "scheduled_time": "",
-    "location": "",
-    "committee": "Senate Committee",
-    "chamber": "Senate",
     "url": "https://api.congress.gov/v3/hearing/119/senate/64123",
-    "source": "Federal (US Congress)",
-    "congress": 119
-  },
-  {
-    "title": "Congressional Hearing",
-    "scheduled_date": "",
-    "scheduled_time": "",
-    "location": "",
-    "committee": "Senate Committee",
-    "chamber": "Senate",
-    "url": "https://api.congress.gov/v3/hearing/119/senate/65509",
-    "source": "Federal (US Congress)",
-    "congress": 119
-  },
-  {
-    "title": "Congressional Hearing",
-    "scheduled_date": "",
-    "scheduled_time": "",
-    "location": "",
-    "committee": "Senate Committee",
-    "chamber": "Senate",
-    "url": "https://api.congress.gov/v3/hearing/118/senate/64439",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -303,6 +281,28 @@
     "location": "",
     "committee": "Senate Committee",
     "chamber": "Senate",
+    "url": "https://api.congress.gov/v3/hearing/119/senate/65509",
+    "source": "Federal (US Congress)",
+    "congress": 119
+  },
+  {
+    "title": "Congressional Hearing",
+    "scheduled_date": "",
+    "scheduled_time": "",
+    "location": "",
+    "committee": "Senate Committee",
+    "chamber": "Senate",
+    "url": "https://api.congress.gov/v3/hearing/118/senate/64439",
+    "source": "Federal (US Congress)",
+    "congress": 119
+  },
+  {
+    "title": "Congressional Hearing",
+    "scheduled_date": "",
+    "scheduled_time": "",
+    "location": "",
+    "committee": "Senate Committee",
+    "chamber": "Senate",
     "url": "https://api.congress.gov/v3/hearing/119/senate/61837",
     "source": "Federal (US Congress)",
     "congress": 119
@@ -315,6 +315,17 @@
     "committee": "Senate Committee",
     "chamber": "Senate",
     "url": "https://api.congress.gov/v3/hearing/118/senate/55392",
+    "source": "Federal (US Congress)",
+    "congress": 119
+  },
+  {
+    "title": "Congressional Hearing",
+    "scheduled_date": "",
+    "scheduled_time": "",
+    "location": "",
+    "committee": "House Committee",
+    "chamber": "House",
+    "url": "https://api.congress.gov/v3/hearing/119/house/63911",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -347,7 +358,7 @@
     "location": "",
     "committee": "House Committee",
     "chamber": "House",
-    "url": "https://api.congress.gov/v3/hearing/119/house/63911",
+    "url": "https://api.congress.gov/v3/hearing/119/house/64482",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -359,28 +370,6 @@
     "committee": "Senate Committee",
     "chamber": "Senate",
     "url": "https://api.congress.gov/v3/hearing/118/senate/56047",
-    "source": "Federal (US Congress)",
-    "congress": 119
-  },
-  {
-    "title": "Congressional Hearing",
-    "scheduled_date": "",
-    "scheduled_time": "",
-    "location": "",
-    "committee": "House Committee",
-    "chamber": "House",
-    "url": "https://api.congress.gov/v3/hearing/119/house/64483",
-    "source": "Federal (US Congress)",
-    "congress": 119
-  },
-  {
-    "title": "Congressional Hearing",
-    "scheduled_date": "",
-    "scheduled_time": "",
-    "location": "",
-    "committee": "House Committee",
-    "chamber": "House",
-    "url": "https://api.congress.gov/v3/hearing/119/house/64482",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -402,6 +391,17 @@
     "location": "",
     "committee": "House Committee",
     "chamber": "House",
+    "url": "https://api.congress.gov/v3/hearing/119/house/64470",
+    "source": "Federal (US Congress)",
+    "congress": 119
+  },
+  {
+    "title": "Congressional Hearing",
+    "scheduled_date": "",
+    "scheduled_time": "",
+    "location": "",
+    "committee": "House Committee",
+    "chamber": "House",
     "url": "https://api.congress.gov/v3/hearing/119/house/64469",
     "source": "Federal (US Congress)",
     "congress": 119
@@ -413,7 +413,7 @@
     "location": "",
     "committee": "House Committee",
     "chamber": "House",
-    "url": "https://api.congress.gov/v3/hearing/119/house/64470",
+    "url": "https://api.congress.gov/v3/hearing/119/house/64483",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -435,7 +435,7 @@
     "location": "",
     "committee": "House Committee",
     "chamber": "House",
-    "url": "https://api.congress.gov/v3/hearing/110/house/35427",
+    "url": "https://api.congress.gov/v3/hearing/119/house/64274",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -446,7 +446,7 @@
     "location": "",
     "committee": "House Committee",
     "chamber": "House",
-    "url": "https://api.congress.gov/v3/hearing/119/house/64274",
+    "url": "https://api.congress.gov/v3/hearing/110/house/35427",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -466,9 +466,9 @@
     "scheduled_date": "",
     "scheduled_time": "",
     "location": "",
-    "committee": "Senate Committee",
-    "chamber": "Senate",
-    "url": "https://api.congress.gov/v3/hearing/118/senate/55525",
+    "committee": "House Committee",
+    "chamber": "House",
+    "url": "https://api.congress.gov/v3/hearing/119/house/63978",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -477,9 +477,9 @@
     "scheduled_date": "",
     "scheduled_time": "",
     "location": "",
-    "committee": "House Committee",
-    "chamber": "House",
-    "url": "https://api.congress.gov/v3/hearing/119/house/63978",
+    "committee": "Senate Committee",
+    "chamber": "Senate",
+    "url": "https://api.congress.gov/v3/hearing/118/senate/55525",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -510,9 +510,9 @@
     "scheduled_date": "",
     "scheduled_time": "",
     "location": "",
-    "committee": "House Committee",
-    "chamber": "House",
-    "url": "https://api.congress.gov/v3/hearing/119/house/64241",
+    "committee": "Senate Committee",
+    "chamber": "Senate",
+    "url": "https://api.congress.gov/v3/hearing/119/senate/64163",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -521,9 +521,9 @@
     "scheduled_date": "",
     "scheduled_time": "",
     "location": "",
-    "committee": "Senate Committee",
-    "chamber": "Senate",
-    "url": "https://api.congress.gov/v3/hearing/119/senate/64163",
+    "committee": "House Committee",
+    "chamber": "House",
+    "url": "https://api.congress.gov/v3/hearing/119/house/64241",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -543,9 +543,9 @@
     "scheduled_date": "",
     "scheduled_time": "",
     "location": "",
-    "committee": "Senate Committee",
-    "chamber": "Senate",
-    "url": "https://api.congress.gov/v3/hearing/119/senate/64619",
+    "committee": "House Committee",
+    "chamber": "House",
+    "url": "https://api.congress.gov/v3/hearing/119/house/64648",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -554,9 +554,9 @@
     "scheduled_date": "",
     "scheduled_time": "",
     "location": "",
-    "committee": "House Committee",
-    "chamber": "House",
-    "url": "https://api.congress.gov/v3/hearing/119/house/64648",
+    "committee": "Senate Committee",
+    "chamber": "Senate",
+    "url": "https://api.congress.gov/v3/hearing/107/senate/72497",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -578,17 +578,6 @@
     "location": "",
     "committee": "Senate Committee",
     "chamber": "Senate",
-    "url": "https://api.congress.gov/v3/hearing/119/senate/64582",
-    "source": "Federal (US Congress)",
-    "congress": 119
-  },
-  {
-    "title": "Congressional Hearing",
-    "scheduled_date": "",
-    "scheduled_time": "",
-    "location": "",
-    "committee": "Senate Committee",
-    "chamber": "Senate",
     "url": "https://api.congress.gov/v3/hearing/119/senate/64622",
     "source": "Federal (US Congress)",
     "congress": 119
@@ -600,7 +589,7 @@
     "location": "",
     "committee": "Senate Committee",
     "chamber": "Senate",
-    "url": "https://api.congress.gov/v3/hearing/107/senate/72497",
+    "url": "https://api.congress.gov/v3/hearing/119/senate/64619",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -612,6 +601,17 @@
     "committee": "Senate Committee",
     "chamber": "Senate",
     "url": "https://api.congress.gov/v3/hearing/119/senate/64617",
+    "source": "Federal (US Congress)",
+    "congress": 119
+  },
+  {
+    "title": "Congressional Hearing",
+    "scheduled_date": "",
+    "scheduled_time": "",
+    "location": "",
+    "committee": "Senate Committee",
+    "chamber": "Senate",
+    "url": "https://api.congress.gov/v3/hearing/119/senate/64582",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -1018,7 +1018,7 @@
     "location": "",
     "committee": "Senate Committee",
     "chamber": "Senate",
-    "url": "https://api.congress.gov/v3/hearing/119/senate/62251",
+    "url": "https://api.congress.gov/v3/hearing/118/senate/60420",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -1040,7 +1040,7 @@
     "location": "",
     "committee": "Senate Committee",
     "chamber": "Senate",
-    "url": "https://api.congress.gov/v3/hearing/118/senate/60420",
+    "url": "https://api.congress.gov/v3/hearing/119/senate/62251",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -1227,6 +1227,17 @@
     "location": "",
     "committee": "Senate Committee",
     "chamber": "Senate",
+    "url": "https://api.congress.gov/v3/hearing/119/senate/63269",
+    "source": "Federal (US Congress)",
+    "congress": 119
+  },
+  {
+    "title": "Congressional Hearing",
+    "scheduled_date": "",
+    "scheduled_time": "",
+    "location": "",
+    "committee": "Senate Committee",
+    "chamber": "Senate",
     "url": "https://api.congress.gov/v3/hearing/119/senate/63623",
     "source": "Federal (US Congress)",
     "congress": 119
@@ -1238,7 +1249,7 @@
     "location": "",
     "committee": "Senate Committee",
     "chamber": "Senate",
-    "url": "https://api.congress.gov/v3/hearing/119/senate/63269",
+    "url": "https://api.congress.gov/v3/hearing/119/senate/63135",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -1261,17 +1272,6 @@
     "committee": "Senate Committee",
     "chamber": "Senate",
     "url": "https://api.congress.gov/v3/hearing/119/senate/62895",
-    "source": "Federal (US Congress)",
-    "congress": 119
-  },
-  {
-    "title": "Congressional Hearing",
-    "scheduled_date": "",
-    "scheduled_time": "",
-    "location": "",
-    "committee": "Senate Committee",
-    "chamber": "Senate",
-    "url": "https://api.congress.gov/v3/hearing/119/senate/63135",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -1568,6 +1568,17 @@
     "location": "",
     "committee": "Senate Committee",
     "chamber": "Senate",
+    "url": "https://api.congress.gov/v3/hearing/119/senate/64328",
+    "source": "Federal (US Congress)",
+    "congress": 119
+  },
+  {
+    "title": "Congressional Hearing",
+    "scheduled_date": "",
+    "scheduled_time": "",
+    "location": "",
+    "committee": "Senate Committee",
+    "chamber": "Senate",
     "url": "https://api.congress.gov/v3/hearing/119/senate/64385",
     "source": "Federal (US Congress)",
     "congress": 119
@@ -1580,17 +1591,6 @@
     "committee": "House Committee",
     "chamber": "House",
     "url": "https://api.congress.gov/v3/hearing/119/house/61488",
-    "source": "Federal (US Congress)",
-    "congress": 119
-  },
-  {
-    "title": "Congressional Hearing",
-    "scheduled_date": "",
-    "scheduled_time": "",
-    "location": "",
-    "committee": "Senate Committee",
-    "chamber": "Senate",
-    "url": "https://api.congress.gov/v3/hearing/119/senate/64328",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -1832,28 +1832,6 @@
     "location": "",
     "committee": "House Committee",
     "chamber": "House",
-    "url": "https://api.congress.gov/v3/hearing/119/house/60898",
-    "source": "Federal (US Congress)",
-    "congress": 119
-  },
-  {
-    "title": "Congressional Hearing",
-    "scheduled_date": "",
-    "scheduled_time": "",
-    "location": "",
-    "committee": "House Committee",
-    "chamber": "House",
-    "url": "https://api.congress.gov/v3/hearing/119/house/60746",
-    "source": "Federal (US Congress)",
-    "congress": 119
-  },
-  {
-    "title": "Congressional Hearing",
-    "scheduled_date": "",
-    "scheduled_time": "",
-    "location": "",
-    "committee": "House Committee",
-    "chamber": "House",
     "url": "https://api.congress.gov/v3/hearing/119/house/62443",
     "source": "Federal (US Congress)",
     "congress": 119
@@ -1866,6 +1844,17 @@
     "committee": "Senate Committee",
     "chamber": "Senate",
     "url": "https://api.congress.gov/v3/hearing/119/senate/61839",
+    "source": "Federal (US Congress)",
+    "congress": 119
+  },
+  {
+    "title": "Congressional Hearing",
+    "scheduled_date": "",
+    "scheduled_time": "",
+    "location": "",
+    "committee": "House Committee",
+    "chamber": "House",
+    "url": "https://api.congress.gov/v3/hearing/119/house/60746",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -1899,6 +1888,17 @@
     "committee": "House Committee",
     "chamber": "House",
     "url": "https://api.congress.gov/v3/hearing/119/house/63503",
+    "source": "Federal (US Congress)",
+    "congress": 119
+  },
+  {
+    "title": "Congressional Hearing",
+    "scheduled_date": "",
+    "scheduled_time": "",
+    "location": "",
+    "committee": "House Committee",
+    "chamber": "House",
+    "url": "https://api.congress.gov/v3/hearing/119/house/60898",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -2184,7 +2184,7 @@
     "location": "",
     "committee": "House Committee",
     "chamber": "House",
-    "url": "https://api.congress.gov/v3/hearing/119/house/64404",
+    "url": "https://api.congress.gov/v3/hearing/119/house/63127",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -2195,7 +2195,7 @@
     "location": "",
     "committee": "House Committee",
     "chamber": "House",
-    "url": "https://api.congress.gov/v3/hearing/119/house/63127",
+    "url": "https://api.congress.gov/v3/hearing/119/house/64404",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -2228,7 +2228,7 @@
     "location": "",
     "committee": "House Committee",
     "chamber": "House",
-    "url": "https://api.congress.gov/v3/hearing/118/house/58134",
+    "url": "https://api.congress.gov/v3/hearing/119/house/64108",
     "source": "Federal (US Congress)",
     "congress": 119
   },
@@ -2239,7 +2239,7 @@
     "location": "",
     "committee": "House Committee",
     "chamber": "House",
-    "url": "https://api.congress.gov/v3/hearing/119/house/64108",
+    "url": "https://api.congress.gov/v3/hearing/118/house/58134",
     "source": "Federal (US Congress)",
     "congress": 119
   },
