@@ -1,8 +1,8 @@
 {
-  "week_start": "2026-09-30T17:26:47.750182-05:00",
-  "week_end": "2026-10-07T17:26:47.750182-05:00",
+  "week_start": "2026-10-05T18:23:10.076387-05:00",
+  "week_end": "2026-10-12T18:23:10.076387-05:00",
   "item_counts": {
-    "federal": 194,
+    "federal": 67,
     "ks": 0,
     "co": 0,
     "az": 0,
@@ -11,12 +11,12 @@
     "ne": 0,
     "md": 0,
     "pa": 0,
-    "ma": 80,
+    "ma": 32,
     "wv": 0,
     "tn": 0,
-    "nc": 0,
-    "mo": 1,
-    "ia": 12,
+    "nc": 12,
+    "mo": 0,
+    "ia": 1,
     "ga": 0,
     "ky": 0
   },
@@ -26,36 +26,36 @@
       "label": "Congress / Federal",
       "recap_lines": [
         "Congress / Federal:",
-        "HR 6698: Board of Veterans Appeals Annual Report Transparency Act of 2025",
-        "   Placed on the Union Calendar, Calendar No. 737.",
-        "HR 7260: National Cemetery Administration Annual Report Act of 2026",
-        "   Placed on the Union Calendar, Calendar No. 738.",
-        "HR 10757: To provide for a limitation on contributions to the United Nations.",
-        "   Referred to the House Committee on Foreign Affairs.",
-        "   Plus 9 immigration, 29 healthcare, 29 education, 30 economic, 8 defense, 5 environmental, 4 technology, 13 tax, 7 infrastructure bills, and 55 others.",
-        "2 hearings scheduled."
+        "HR 10375: To amend the Small Business Investment Act of 1958 to improve the loan guaranty program, enhance the ability of small manufacturers to access affordable capital, and for other purposes.",
+        "   Placed on the Union Calendar, Calendar No. 745.",
+        "HR 10352: 504 Program Level Flexibility Act",
+        "   Placed on the Union Calendar, Calendar No. 747.",
+        "HR 10355: Disaster Loan Outreach Consistency Act",
+        "   Placed on the Union Calendar, Calendar No. 743.",
+        "   Plus 6 healthcare, 11 education, 12 economic, 6 defense, 2 technology, 3 tax, 2 infrastructure bills, and 21 others.",
+        "1 hearings scheduled."
       ],
-      "item_count": 194,
+      "item_count": 67,
       "veterans_highlight": {
-        "summary": "HR 6698: Board of Veterans Appeals Annual Report Transparency Act of 2025; HR 10766: To direct the Secretary of Defense to update the Critical Asset List of the Department of Defense to incorporate assets critical...; HR 10758: To require the Secretary of Veterans Affairs to establish a program under which the Secretary shall award grants to certain State...; plus 13 more",
+        "summary": "HR 10371: To direct the Associate Administrator for Veterans Business Development of the Small Business Administration to ensure compliance...; HR 7683: VA Fiscal Management Modernization Act; HR 10793: To modify the authority of Department of Defense for installation support services and intergovernmental support agreements, and...; plus 5 more",
         "items": [
           {
             "type": "bill",
-            "title": "HR 6698: Board of Veterans Appeals Annual Report Transparency Act of 2025",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/6698"
+            "title": "HR 10371: To direct the Associate Administrator for Veterans Business Development of the Small Business Administration to ensure compliance...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10371"
           },
           {
             "type": "bill",
-            "title": "HR 10766: To direct the Secretary of Defense to update the Critical Asset List of the Department of Defense to incorporate assets critical...",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10766"
+            "title": "HR 7683: VA Fiscal Management Modernization Act",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/7683"
           },
           {
             "type": "bill",
-            "title": "HR 10758: To require the Secretary of Veterans Affairs to establish a program under which the Secretary shall award grants to certain State...",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10758"
+            "title": "HR 10793: To modify the authority of Department of Defense for installation support services and intergovernmental support agreements, and...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10793"
           }
         ],
-        "total_matches": 16
+        "total_matches": 8
       }
     },
     {
@@ -127,19 +127,24 @@
       "label": "Massachusetts",
       "recap_lines": [
         "Massachusetts:",
-        "   27 committee actions, 7 votes."
+        "   3 committee actions, 5 votes."
       ],
-      "item_count": 80,
+      "item_count": 32,
       "veterans_highlight": {
-        "summary": "SD 4275: Veterans Homes Council Annual Report 2026",
+        "summary": "SD 3836: An Act amending the eligibility date for annuities for blind veterans, paraplegic veterans or veterans with disabilities; HD 6375: An Act tax exemption for veteran organizations",
         "items": [
           {
             "type": "bill",
-            "title": "SD 4275: Veterans Homes Council Annual Report 2026",
-            "url": "https://malegislature.gov/Bills/194/SD4275.pdf"
+            "title": "SD 3836: An Act amending the eligibility date for annuities for blind veterans, paraplegic veterans or veterans with disabilities",
+            "url": "https://malegislature.gov/Bills/194/SD3836.pdf"
+          },
+          {
+            "type": "bill",
+            "title": "HD 6375: An Act tax exemption for veteran organizations",
+            "url": "https://malegislature.gov/Bills/194/HD6375.pdf"
           }
         ],
-        "total_matches": 1
+        "total_matches": 2
       }
     },
     {
@@ -162,27 +167,27 @@
       "id": "nc",
       "label": "North Carolina",
       "recap_lines": [
-        "North Carolina: No new activity this week."
+        "North Carolina:",
+        "   5 bills updated, 7 votes."
       ],
-      "item_count": 0
+      "item_count": 12
     },
     {
       "id": "mo",
       "label": "Missouri",
       "recap_lines": [
-        "Missouri:",
-        "   1 bills updated."
+        "Missouri: No new activity this week."
       ],
-      "item_count": 1
+      "item_count": 0
     },
     {
       "id": "ia",
       "label": "Iowa",
       "recap_lines": [
         "Iowa:",
-        "   1 committee actions, 4 votes."
+        "   1 bills updated."
       ],
-      "item_count": 12
+      "item_count": 1
     },
     {
       "id": "ga",
@@ -201,8 +206,8 @@
       "item_count": 0
     }
   ],
-  "script": "PolicyWatch weekly overview for September 30 through October 07, 2026.\n\nCongress / Federal:\nHR 6698: Board of Veterans Appeals Annual Report Transparency Act of 2025\nVeterans & Military highlight: HR 6698: Board of Veterans Appeals Annual Report Transparency Act of 2025; HR 10766: To direct the Secretary of Defense to update the Critical Asset List of the Department of Defense to incorporate assets critical...;....\n   Placed on the Union Calendar, Calendar No. 737.\nHR 7260: National Cemetery Administration Annual Report Act of 2026\n   Placed on the Union Calendar, Calendar No. 738.\nHR 10757: To provide for a limitation on contributions to the United Nations.\n   Referred to the House Committee on Foreign Affairs.\n   Plus 9 immigration, 29 healthcare, 29 education, 30 economic, 8 defense, 5 environmental, 4 technology, 13 tax, 7 infrastructure bills, and 55 others.\n2 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   27 committee actions, 7 votes.\nVeterans & Military highlight: SD 4275: Veterans Homes Council Annual Report 2026.\n\nWest Virginia: No new activity this week.\n\nTennessee: No new activity this week.\n\nNorth Carolina: No new activity this week.\n\nMissouri:\n   1 bills updated.\n\nIowa:\n   1 committee actions, 4 votes.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nExplore full details at PolicyWatch.",
-  "generated_at": "2026-10-07T17:26:47.750182-05:00",
+  "script": "PolicyWatch weekly overview for October 05 through October 12, 2026.\n\nCongress / Federal:\nHR 10375: To amend the Small Business Investment Act of 1958 to improve the loan guaranty program, enhance the ability of small manufacturers to access affordable capital, and for other purposes.\nVeterans & Military highlight: HR 10371: To direct the Associate Administrator for Veterans Business Development of the Small Business Administration to ensure compliance...; HR 7683: VA Fiscal Management Modernization Act; HR 10793: To modify the....\n   Placed on the Union Calendar, Calendar No. 745.\nHR 10352: 504 Program Level Flexibility Act\n   Placed on the Union Calendar, Calendar No. 747.\nHR 10355: Disaster Loan Outreach Consistency Act\n   Placed on the Union Calendar, Calendar No. 743.\n   Plus 6 healthcare, 11 education, 12 economic, 6 defense, 2 technology, 3 tax, 2 infrastructure bills, and 21 others.\n1 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   3 committee actions, 5 votes.\nVeterans & Military highlight: SD 3836: An Act amending the eligibility date for annuities for blind veterans, paraplegic veterans or veterans with disabilities; HD 6375: An Act tax exemption for veteran organizations.\n\nWest Virginia: No new activity this week.\n\nTennessee: No new activity this week.\n\nNorth Carolina:\n   5 bills updated, 7 votes.\n\nMissouri: No new activity this week.\n\nIowa:\n   1 bills updated.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nExplore full details at PolicyWatch.",
+  "generated_at": "2026-10-12T18:23:10.076387-05:00",
   "audio_available": false,
   "audio_file": null
 }
