@@ -1,8 +1,8 @@
 {
-  "last_fetched": "2026-10-02T18:38:26.589193+00:00",
+  "last_fetched": "2026-10-13T19:29:33.548407+00:00",
   "feed_url": "https://le.utah.gov/asp/billtrack/comrssfeed.asp?com=INTBUS|SPECWL|APPCRI|APPECD|INTEDW|INTEDU|SPEEJC|APPEXE|SPEFFO|SPEFED|APPGEN|SPEADM|INTGOC|INTHHS|APPHED|HSTBUS|HSTEDW|HSTEDU|HSTETH|HSTGOC|HSTHHS|HSTJUD|HSTLAW|SPEHEO|HSTNAE|HSTPOL|HSTPUT|HSTREV|HSTRUL|HSTTRA|INTJUD|INTLAW|SPEAUD|SPEMAN|SPELPC|SPELRD|SPESWD|SPEMCG|SPENAL|INTNAE|APPNAE|SPEOLY|INTPOL|APPPED|INTPUT|INTRIE|INTREV|SPERZC|SSTBUS|SPEBUS|SSTEDW|SPEEDW|SSTEDU|SPEEDU|SSTETH|SSTGOP|SPEGOV|SSTHHS|SPEHHS|SPESJC|SPEJUD|SSTJLC|SPELEC|SPESEO|SSTNAE|SPENAT|SPEPOL|SPERET|SSTREV|SPEREV|SSTRUL|SSTTPT|SPETRA|APPSOC|SUBOVE|APPTIF|INTTRA|TSKBHL|SPEUSL|SPEVMA",
-  "entry_count": 71,
-  "hearing_count": 559,
+  "entry_count": 72,
+  "hearing_count": 560,
   "items": [
     {
       "title": "Business and Labor Interim Committee — 11/18/2026",
@@ -12054,20 +12054,23 @@
       "committee": "Senate Education Confirmation Committee",
       "committee_code": "SPEEDU",
       "committee_link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=SPEEDU",
-      "link": "http://le.utah.gov/Interim/2026/html/00003568.htm",
-      "url": "http://le.utah.gov/Interim/2026/html/00003568.htm",
-      "stream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=SPEEDU",
+      "link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=SPEEDU",
+      "url": "http://le.utah.gov/committee/committee.jsp?year=2026&com=SPEEDU",
+      "stream_url": "",
       "source": "State (Utah)",
       "state": "UT",
       "level": "state",
-      "description": "Committee meeting scheduled",
-      "agenda_items": [],
+      "description": "1. Committee Business; 2. Review the Proposed Appointment of Travis Lish as a member of the Utah State University Board of Trustees; 3. Other Items/Adjourn",
+      "agenda_items": [
+        "1. Committee Business",
+        "2. Review the Proposed Appointment of Travis Lish as a member of the Utah State University Board of Trustees",
+        "3. Other Items/Adjourn"
+      ],
       "feed": "utah_committee_rss",
-      "notice_date": "Thursday, October 8, 2026",
-      "notice_time": "10:00 a.m.",
-      "notice_place": "Room 450 State Capitol",
-      "livestream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=SPEEDU",
-      "notice_enriched_at": "2026-09-29T16:06:48.035476+00:00"
+      "notice_date": "",
+      "notice_time": "",
+      "notice_place": "",
+      "livestream_url": ""
     },
     {
       "title": "Senate Education Confirmation Committee — 8/17/2026",
@@ -13829,6 +13832,33 @@
       "livestream_url": ""
     },
     {
+      "title": "Senate Law Enforcement and Criminal Justice Confirmation Committee — 10/19/2026",
+      "scheduled_date": "2026-10-19T14:00:00+00:00",
+      "scheduled_time": "",
+      "location": "450 State Capitol",
+      "committees": "Senate Law Enforcement and Criminal Justice Confirmation Committee",
+      "committee": "Senate Law Enforcement and Criminal Justice Confirmation Committee",
+      "committee_code": "SPELEC",
+      "committee_link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=SPELEC",
+      "link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=SPELEC",
+      "url": "http://le.utah.gov/committee/committee.jsp?year=2026&com=SPELEC",
+      "stream_url": "",
+      "source": "State (Utah)",
+      "state": "UT",
+      "level": "state",
+      "description": "1. Committee Business; 2. Review the Proposed Appointment of Lisa Crawford as a full-time member of the Board of Pardons and Parole; 3. Other Items/Adjourn",
+      "agenda_items": [
+        "1. Committee Business",
+        "2. Review the Proposed Appointment of Lisa Crawford as a full-time member of the Board of Pardons and Parole",
+        "3. Other Items/Adjourn"
+      ],
+      "feed": "utah_committee_rss",
+      "notice_date": "",
+      "notice_time": "",
+      "notice_place": "",
+      "livestream_url": ""
+    },
+    {
       "title": "Senate Natural Resources, Agriculture, and Environment Committee — 3/3/2026",
       "scheduled_date": "2026-03-03T14:00:00+00:00",
       "scheduled_time": "",
@@ -14225,11 +14255,12 @@
       "source": "State (Utah)",
       "state": "UT",
       "level": "state",
-      "description": "1. Committee Business; 2. Consideration of the Appointment of Brian Martinez to the Water Quality Board; 3. Other Items/Adjourn",
+      "description": "1. Committee Business; 2. Consideration of the Appointment of Brian Martinez to the Water Quality Board; 3. Consideration of the Appointment of Annalise Keen to the Compassionate Use Board",
       "agenda_items": [
         "1. Committee Business",
         "2. Consideration of the Appointment of Brian Martinez to the Water Quality Board",
-        "3. Other Items/Adjourn"
+        "3. Consideration of the Appointment of Annalise Keen to the Compassionate Use Board",
+        "4. Other Items/Adjourn"
       ],
       "feed": "utah_committee_rss",
       "notice_date": "",
@@ -14456,20 +14487,25 @@
       "committee": "Senate Retirement and Independent Entities Confirmation Committee",
       "committee_code": "SPERET",
       "committee_link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=SPERET",
-      "link": "http://le.utah.gov/Interim/2026/html/00003571.htm",
-      "url": "http://le.utah.gov/Interim/2026/html/00003571.htm",
-      "stream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=SPERET",
+      "link": "http://le.utah.gov/committee/committee.jsp?year=2026&com=SPERET",
+      "url": "http://le.utah.gov/committee/committee.jsp?year=2026&com=SPERET",
+      "stream_url": "",
       "source": "State (Utah)",
       "state": "UT",
       "level": "state",
-      "description": "Committee meeting scheduled",
-      "agenda_items": [],
+      "description": "1. Committee Business; 2. Review of Gubernatorial Nomination of Richard Nielsen as a member for the Heber Valley Historic Railroad Authority; 3. Review of Gubernatorial Nomination of Dallin Koecher as a member for the Heber Valley Historic Railroad Authority",
+      "agenda_items": [
+        "1. Committee Business",
+        "2. Review of Gubernatorial Nomination of Richard Nielsen as a member for the Heber Valley Historic Railroad Authority",
+        "3. Review of Gubernatorial Nomination of Dallin Koecher as a member for the Heber Valley Historic Railroad Authority",
+        "4. Review of Gubernatorial Nomination of Thomas Jacobsonas as a member for the Heber Valley Historic Railroad Authority",
+        "5. Other Items/Adjourn"
+      ],
       "feed": "utah_committee_rss",
-      "notice_date": "Friday, October 16, 2026",
-      "notice_time": "9:00 a.m.",
-      "notice_place": "Room 210 Senate Building",
-      "livestream_url": "https://le.utah.gov/committee/committee.jsp?year=2026&com=SPERET",
-      "notice_enriched_at": "2026-09-30T19:36:45.865871+00:00"
+      "notice_date": "",
+      "notice_time": "",
+      "notice_place": "",
+      "livestream_url": ""
     },
     {
       "title": "Senate Retirement and Independent Entities Confirmation Committee — 6/8/2026",
