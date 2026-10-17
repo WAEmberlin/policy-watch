@@ -1,8 +1,8 @@
 {
-  "week_start": "2026-10-05T18:23:10.076387-05:00",
-  "week_end": "2026-10-12T18:23:10.076387-05:00",
+  "week_start": "2026-10-10T01:18:01.414527-05:00",
+  "week_end": "2026-10-17T01:18:01.414527-05:00",
   "item_counts": {
-    "federal": 67,
+    "federal": 93,
     "ks": 0,
     "co": 0,
     "az": 0,
@@ -11,10 +11,10 @@
     "ne": 0,
     "md": 0,
     "pa": 0,
-    "ma": 32,
+    "ma": 94,
     "wv": 0,
     "tn": 0,
-    "nc": 12,
+    "nc": 0,
     "mo": 0,
     "ia": 1,
     "ga": 0,
@@ -26,36 +26,35 @@
       "label": "Congress / Federal",
       "recap_lines": [
         "Congress / Federal:",
-        "HR 10375: To amend the Small Business Investment Act of 1958 to improve the loan guaranty program, enhance the ability of small manufacturers to access affordable capital, and for other purposes.",
-        "   Placed on the Union Calendar, Calendar No. 745.",
-        "HR 10352: 504 Program Level Flexibility Act",
-        "   Placed on the Union Calendar, Calendar No. 747.",
-        "HR 10355: Disaster Loan Outreach Consistency Act",
-        "   Placed on the Union Calendar, Calendar No. 743.",
-        "   Plus 6 healthcare, 11 education, 12 economic, 6 defense, 2 technology, 3 tax, 2 infrastructure bills, and 21 others.",
-        "1 hearings scheduled."
+        "HR 7022: To provide for the transmission of emergency alerts by satellite, and for other purposes.",
+        "   Presented to President.",
+        "HR 6380: Chiricahua National Park Act",
+        "   Presented to President.",
+        "HR 4307: Enhancing Detection of Human Trafficking Act",
+        "   Presented to President.",
+        "   Plus 3 immigration, 3 healthcare, 5 education, 17 economic, 7 defense, 5 environmental, 3 technology, 8 tax, 1 infrastructure bills, and 38 others."
       ],
-      "item_count": 67,
+      "item_count": 93,
       "veterans_highlight": {
-        "summary": "HR 10371: To direct the Associate Administrator for Veterans Business Development of the Small Business Administration to ensure compliance...; HR 7683: VA Fiscal Management Modernization Act; HR 10793: To modify the authority of Department of Defense for installation support services and intergovernmental support agreements, and...; plus 5 more",
+        "summary": "HR 10817: To express the sense of Congress regarding the naming of a naval aircraft carrier for Mess Attendant Third Class Doris \"Dorie\"...; HR 10816: To amend title 10, United States Code, to prohibit the naming of Department of Defense assets for sitting Presidents, and for...; HR 10810: To establish the National Patient Safety Board, and for other purposes.; plus 9 more",
         "items": [
           {
             "type": "bill",
-            "title": "HR 10371: To direct the Associate Administrator for Veterans Business Development of the Small Business Administration to ensure compliance...",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10371"
+            "title": "HR 10817: To express the sense of Congress regarding the naming of a naval aircraft carrier for Mess Attendant Third Class Doris \"Dorie\"...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10817"
           },
           {
             "type": "bill",
-            "title": "HR 7683: VA Fiscal Management Modernization Act",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/7683"
+            "title": "HR 10816: To amend title 10, United States Code, to prohibit the naming of Department of Defense assets for sitting Presidents, and for...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10816"
           },
           {
             "type": "bill",
-            "title": "HR 10793: To modify the authority of Department of Defense for installation support services and intergovernmental support agreements, and...",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10793"
+            "title": "HR 10810: To establish the National Patient Safety Board, and for other purposes.",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10810"
           }
         ],
-        "total_matches": 8
+        "total_matches": 12
       }
     },
     {
@@ -127,21 +126,21 @@
       "label": "Massachusetts",
       "recap_lines": [
         "Massachusetts:",
-        "   3 committee actions, 5 votes."
+        "   15 committee actions, 11 votes."
       ],
-      "item_count": 32,
+      "item_count": 94,
       "veterans_highlight": {
-        "summary": "SD 3836: An Act amending the eligibility date for annuities for blind veterans, paraplegic veterans or veterans with disabilities; HD 6375: An Act tax exemption for veteran organizations",
+        "summary": "HD 6375: An Act tax exemption for veteran organizations; HD 6394: An annual report of the Executive Office of Veterans Services (under Section 41 of Chapter 6 of the General Laws) submitting its...",
         "items": [
-          {
-            "type": "bill",
-            "title": "SD 3836: An Act amending the eligibility date for annuities for blind veterans, paraplegic veterans or veterans with disabilities",
-            "url": "https://malegislature.gov/Bills/194/SD3836.pdf"
-          },
           {
             "type": "bill",
             "title": "HD 6375: An Act tax exemption for veteran organizations",
             "url": "https://malegislature.gov/Bills/194/HD6375.pdf"
+          },
+          {
+            "type": "bill",
+            "title": "HD 6394: An annual report of the Executive Office of Veterans Services (under Section 41 of Chapter 6 of the General Laws) submitting its...",
+            "url": "https://malegislature.gov/Bills/194/HD6394.pdf"
           }
         ],
         "total_matches": 2
@@ -167,10 +166,9 @@
       "id": "nc",
       "label": "North Carolina",
       "recap_lines": [
-        "North Carolina:",
-        "   5 bills updated, 7 votes."
+        "North Carolina: No new activity this week."
       ],
-      "item_count": 12
+      "item_count": 0
     },
     {
       "id": "mo",
@@ -206,8 +204,8 @@
       "item_count": 0
     }
   ],
-  "script": "PolicyWatch weekly overview for October 05 through October 12, 2026.\n\nCongress / Federal:\nHR 10375: To amend the Small Business Investment Act of 1958 to improve the loan guaranty program, enhance the ability of small manufacturers to access affordable capital, and for other purposes.\nVeterans & Military highlight: HR 10371: To direct the Associate Administrator for Veterans Business Development of the Small Business Administration to ensure compliance...; HR 7683: VA Fiscal Management Modernization Act; HR 10793: To modify the....\n   Placed on the Union Calendar, Calendar No. 745.\nHR 10352: 504 Program Level Flexibility Act\n   Placed on the Union Calendar, Calendar No. 747.\nHR 10355: Disaster Loan Outreach Consistency Act\n   Placed on the Union Calendar, Calendar No. 743.\n   Plus 6 healthcare, 11 education, 12 economic, 6 defense, 2 technology, 3 tax, 2 infrastructure bills, and 21 others.\n1 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   3 committee actions, 5 votes.\nVeterans & Military highlight: SD 3836: An Act amending the eligibility date for annuities for blind veterans, paraplegic veterans or veterans with disabilities; HD 6375: An Act tax exemption for veteran organizations.\n\nWest Virginia: No new activity this week.\n\nTennessee: No new activity this week.\n\nNorth Carolina:\n   5 bills updated, 7 votes.\n\nMissouri: No new activity this week.\n\nIowa:\n   1 bills updated.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nExplore full details at PolicyWatch.",
-  "generated_at": "2026-10-12T18:23:10.076387-05:00",
+  "script": "PolicyWatch weekly overview for October 10 through October 17, 2026.\n\nCongress / Federal:\nHR 7022: To provide for the transmission of emergency alerts by satellite, and for other purposes.\nVeterans & Military highlight: HR 10817: To express the sense of Congress regarding the naming of a naval aircraft carrier for Mess Attendant Third Class Doris \"Dorie\"...; HR 10816: To amend title 10, United States Code, to prohibit the naming of....\n   Presented to President.\nHR 6380: Chiricahua National Park Act\n   Presented to President.\nHR 4307: Enhancing Detection of Human Trafficking Act\n   Presented to President.\n   Plus 3 immigration, 3 healthcare, 5 education, 17 economic, 7 defense, 5 environmental, 3 technology, 8 tax, 1 infrastructure bills, and 38 others.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   15 committee actions, 11 votes.\nVeterans & Military highlight: HD 6375: An Act tax exemption for veteran organizations; HD 6394: An annual report of the Executive Office of Veterans Services (under Section 41 of Chapter 6 of the General Laws) submitting its....\n\nWest Virginia: No new activity this week.\n\nTennessee: No new activity this week.\n\nNorth Carolina: No new activity this week.\n\nMissouri: No new activity this week.\n\nIowa:\n   1 bills updated.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nExplore full details at PolicyWatch.",
+  "generated_at": "2026-10-17T01:18:01.414527-05:00",
   "audio_available": false,
   "audio_file": null
 }
