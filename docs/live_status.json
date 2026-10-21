@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T10:26:11.163982+00:00",
+  "generated_at": "2026-10-21T10:32:19.172082+00:00",
   "streams": {
     "kansas-house-floor": {
       "isLive": false
@@ -98,7 +98,10 @@
       "isLive": false
     },
     "wv-senate-floor": {
-      "isLive": false
+      "isLive": true,
+      "videoId": "9RRI5ljIMgc",
+      "title": "West Virginia Senate Live Stream",
+      "embedUrl": "https://www.youtube.com/embed/9RRI5ljIMgc"
     },
     "wv-house-floor": {
       "isLive": false
@@ -110,7 +113,10 @@
       "isLive": false
     },
     "tn-house-floor": {
-      "isLive": false
+      "isLive": true,
+      "videoId": "asX9Xkt2HOM",
+      "title": "Government Operations Subcommittee Commerce, Labor, Transportation and Agriculture- 10/20/26- HHR1",
+      "embedUrl": "https://www.youtube.com/embed/asX9Xkt2HOM"
     },
     "tn-committees": {
       "isLive": false
