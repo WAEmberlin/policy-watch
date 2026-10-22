@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T10:32:19.172082+00:00",
+  "generated_at": "2026-10-22T10:52:50.065367+00:00",
   "streams": {
     "kansas-house-floor": {
       "isLive": false
@@ -104,7 +104,10 @@
       "embedUrl": "https://www.youtube.com/embed/9RRI5ljIMgc"
     },
     "wv-house-floor": {
-      "isLive": false
+      "isLive": true,
+      "videoId": "1TpZlINclnY",
+      "title": "WV House of Delegates",
+      "embedUrl": "https://www.youtube.com/embed/1TpZlINclnY"
     },
     "wv-committees": {
       "isLive": false
