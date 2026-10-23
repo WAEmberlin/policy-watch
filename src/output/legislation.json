@@ -3137,6 +3137,18 @@
     "latest_action_date": "2026-10-22T00:00:00",
     "actions": [
       {
+        "text": "Signed by President.",
+        "actionDate": "2026-10-22",
+        "type": "President",
+        "actionCode": "E30000"
+      },
+      {
+        "text": "Signed by President.",
+        "actionDate": "2026-10-22",
+        "type": "BecameLaw",
+        "actionCode": "36000"
+      },
+      {
         "text": "Presented to President.",
         "actionDate": "2026-10-14",
         "type": "Floor",
@@ -3186,7 +3198,7 @@
         "type": "Committee"
       },
       {
-        "text": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+        "text": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held. With printed Hearing: S.Hrg. 119-305.",
         "actionDate": "2026-02-12",
         "type": "Committee"
       },
