@@ -29,13 +29,13 @@
       "race_available": false
     },
     "CO": {
-      "total": 105,
+      "total": 104,
       "party": {
-        "Democratic": 71,
+        "Democratic": 70,
         "Republican": 34
       },
       "gender": {
-        "Female": 53,
+        "Female": 52,
         "Male": 48,
         "Unknown": 4
       },
@@ -45,14 +45,13 @@
         "Lt_Governor": 1,
         "Governor": 1,
         "Secretary Of State": 1,
-        "Attorney General": 1,
-        "House": 1
+        "Attorney General": 1
       },
       "age_buckets": {
         "under_40": 5,
         "40_59": 15,
         "60_plus": 15,
-        "unknown": 70
+        "unknown": 69
       },
       "average_age": 53.9,
       "race_available": false
