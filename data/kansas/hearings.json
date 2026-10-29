@@ -1,9 +1,9 @@
 {
   "_meta": {
-    "fetched_at": "2026-10-27T10:55:31.044545+00:00",
+    "fetched_at": "2026-10-29T11:43:22.833819+00:00",
     "source": "kansas_api",
-    "upcoming_count": 21,
-    "live_synthetic_count": 1,
+    "upcoming_count": 20,
+    "live_synthetic_count": 0,
     "interim_on_call_count": 20
   },
   "items": [
@@ -386,28 +386,6 @@
       "status": "interim_on_call",
       "committee_kpid": "ctte_spc_senate_select_committee_on_veterans_aff_1",
       "interim_placeholder": true
-    },
-    {
-      "title": "Legislative Budget Committee 10/26/2026",
-      "scheduled_date": "2026-10-27",
-      "scheduled_time": "Live now",
-      "location": "",
-      "committees": "Kansas House Judiciary",
-      "committee": "Kansas House Judiciary",
-      "bill": "",
-      "link": "https://www.youtube.com/watch?v=t81CQsxWUSo",
-      "url": "https://www.kslegislature.gov/b2025_26/committees/ctte_h_jud_1/",
-      "stream_url": "https://www.youtube.com/watch?v=t81CQsxWUSo",
-      "embed_url": "https://www.youtube.com/embed/t81CQsxWUSo",
-      "youtube_video_id": "t81CQsxWUSo",
-      "livestream_id": "ks-house-judiciary",
-      "source": "State (Kansas Legislature)",
-      "state": "KS",
-      "level": "state",
-      "chamber": "",
-      "status": "live_now",
-      "committee_kpid": "ctte_h_jud_1",
-      "is_live_synthetic": true
     }
   ]
 }
