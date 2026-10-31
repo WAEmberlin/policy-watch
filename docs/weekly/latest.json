@@ -1,22 +1,22 @@
 {
-  "week_start": "2026-10-20T21:43:44.071213-05:00",
-  "week_end": "2026-10-27T21:43:44.071213-05:00",
+  "week_start": "2026-10-24T01:24:07.179975-05:00",
+  "week_end": "2026-10-31T01:24:07.179975-05:00",
   "item_counts": {
-    "federal": 78,
+    "federal": 68,
     "ks": 0,
     "co": 0,
     "az": 0,
-    "ut": 14,
+    "ut": 0,
     "me": 0,
     "ne": 0,
     "md": 0,
     "pa": 0,
-    "ma": 64,
+    "ma": 72,
     "wv": 0,
     "tn": 0,
     "nc": 0,
-    "mo": 1,
-    "ia": 0,
+    "mo": 0,
+    "ia": 1,
     "ga": 0,
     "ky": 0
   },
@@ -26,36 +26,35 @@
       "label": "Congress / Federal",
       "recap_lines": [
         "Congress / Federal:",
-        "HR 1744: United States Commission on International Religious Freedom Reauthorization Act of 2025",
-        "   Presented to President.",
-        "HR 8205: Accelerating Access to Critical Therapies for ALS Reauthorization Act of 2026",
-        "   Presented to President.",
-        "HRES 1640: Expressing support for the designation of October 2026, as \"National Financial Planning Month\".",
-        "   Referred to the House Committee on Financial Services.",
-        "   Plus 1 immigration, 6 healthcare, 5 education, 16 economic, 7 defense, 1 environmental, 4 technology, 6 tax, 2 infrastructure bills, and 26 others.",
-        "1 hearings scheduled."
+        "HR 10306: Technical Correction to the Shoshone-Paiute Tribes of the Duck Valley Reservation Water Rights Settlement Act of 2025",
+        "   Placed on the Union Calendar, Calendar No. 762.",
+        "S 675: Theodore Roosevelt Presidential Library Act",
+        "   Placed on the Union Calendar, Calendar No. 763.",
+        "HR 10136: To require the Secretary of Agriculture to convey the Crossett Experimental Forest to the State of Arkansas, and for other purposes.",
+        "   Placed on the Union Calendar, Calendar No. 761.",
+        "   Plus 1 immigration, 10 healthcare, 7 education, 12 economic, 3 defense, 4 technology, 2 tax, 2 infrastructure bills, and 24 others."
       ],
-      "item_count": 78,
+      "item_count": 68,
       "veterans_highlight": {
-        "summary": "HRES 1639: Supporting the designation of October 26, 2026, as the \"Day of the Deployed\".; HR 10914: To amend the Food, Agriculture, Conservation, and Trade Act of 1990 to improve assistance for socially disadvantaged farmers and...; HR 10906: To strengthen American wood, and for other purposes.; plus 10 more",
+        "summary": "HRES 1643: Recognizing the contributions of Hispanic and Latino servicemembers in the United States Armed Forces and promoting Hispanic and...; HR 10949: To direct the Secretary of Defense to expand the priority list for the Public Schools on Military Installations Program of the...; HR 10938: To amend title 38, United States Code, to increase the maximum amount of a home health service benefit available to certain...; plus 3 more",
         "items": [
           {
             "type": "bill",
-            "title": "HRES 1639: Supporting the designation of October 26, 2026, as the \"Day of the Deployed\".",
-            "url": "https://www.congress.gov/bill/119th-congress/house-resolution/1639"
+            "title": "HRES 1643: Recognizing the contributions of Hispanic and Latino servicemembers in the United States Armed Forces and promoting Hispanic and...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-resolution/1643"
           },
           {
             "type": "bill",
-            "title": "HR 10914: To amend the Food, Agriculture, Conservation, and Trade Act of 1990 to improve assistance for socially disadvantaged farmers and...",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10914"
+            "title": "HR 10949: To direct the Secretary of Defense to expand the priority list for the Public Schools on Military Installations Program of the...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10949"
           },
           {
             "type": "bill",
-            "title": "HR 10906: To strengthen American wood, and for other purposes.",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10906"
+            "title": "HR 10938: To amend title 38, United States Code, to increase the maximum amount of a home health service benefit available to certain...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10938"
           }
         ],
-        "total_matches": 13
+        "total_matches": 6
       }
     },
     {
@@ -86,10 +85,9 @@
       "id": "ut",
       "label": "Utah",
       "recap_lines": [
-        "Utah:",
-        "   14 hearings."
+        "Utah: No new activity this week."
       ],
-      "item_count": 14
+      "item_count": 0
     },
     {
       "id": "me",
@@ -128,9 +126,20 @@
       "label": "Massachusetts",
       "recap_lines": [
         "Massachusetts:",
-        "   21 committee actions, 3 votes."
+        "   19 committee actions, 6 votes."
       ],
-      "item_count": 64
+      "item_count": 72,
+      "veterans_highlight": {
+        "summary": "SD 4323: Communication from the Office of Veteran Advocate (pursuant to Section 2 of Chapter 115B of the General Laws) submitting written...",
+        "items": [
+          {
+            "type": "bill",
+            "title": "SD 4323: Communication from the Office of Veteran Advocate (pursuant to Section 2 of Chapter 115B of the General Laws) submitting written...",
+            "url": "https://malegislature.gov/Bills/194/SD4323.pdf"
+          }
+        ],
+        "total_matches": 1
+      }
     },
     {
       "id": "wv",
@@ -160,18 +169,18 @@
       "id": "mo",
       "label": "Missouri",
       "recap_lines": [
-        "Missouri:",
-        "   1 committee actions."
+        "Missouri: No new activity this week."
       ],
-      "item_count": 1
+      "item_count": 0
     },
     {
       "id": "ia",
       "label": "Iowa",
       "recap_lines": [
-        "Iowa: No new activity this week."
+        "Iowa:",
+        "   1 bills updated."
       ],
-      "item_count": 0
+      "item_count": 1
     },
     {
       "id": "ga",
@@ -190,8 +199,8 @@
       "item_count": 0
     }
   ],
-  "script": "PolicyWatch weekly overview for October 20 through October 27, 2026.\n\nCongress / Federal:\nHR 1744: United States Commission on International Religious Freedom Reauthorization Act of 2025\nVeterans & Military highlight: HRES 1639: Supporting the designation of October 26, 2026, as the \"Day of the Deployed\".; HR 10914: To amend the Food, Agriculture, Conservation, and Trade Act of 1990 to improve assistance for socially disadvantaged....\n   Presented to President.\nHR 8205: Accelerating Access to Critical Therapies for ALS Reauthorization Act of 2026\n   Presented to President.\nHRES 1640: Expressing support for the designation of October 2026, as \"National Financial Planning Month\".\n   Referred to the House Committee on Financial Services.\n   Plus 1 immigration, 6 healthcare, 5 education, 16 economic, 7 defense, 1 environmental, 4 technology, 6 tax, 2 infrastructure bills, and 26 others.\n1 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah:\n   14 hearings.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   21 committee actions, 3 votes.\n\nWest Virginia: No new activity this week.\n\nTennessee: No new activity this week.\n\nNorth Carolina: No new activity this week.\n\nMissouri:\n   1 committee actions.\n\nIowa: No new activity this week.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nExplore full details at PolicyWatch.",
-  "generated_at": "2026-10-27T21:43:44.071213-05:00",
+  "script": "PolicyWatch weekly overview for October 24 through October 31, 2026.\n\nCongress / Federal:\nHR 10306: Technical Correction to the Shoshone-Paiute Tribes of the Duck Valley Reservation Water Rights Settlement Act of 2025\nVeterans & Military highlight: HRES 1643: Recognizing the contributions of Hispanic and Latino servicemembers in the United States Armed Forces and promoting Hispanic and...; HR 10949: To direct the Secretary of Defense to expand the priority list....\n   Placed on the Union Calendar, Calendar No. 762.\nS 675: Theodore Roosevelt Presidential Library Act\n   Placed on the Union Calendar, Calendar No. 763.\nHR 10136: To require the Secretary of Agriculture to convey the Crossett Experimental Forest to the State of Arkansas, and for other purposes.\n   Placed on the Union Calendar, Calendar No. 761.\n   Plus 1 immigration, 10 healthcare, 7 education, 12 economic, 3 defense, 4 technology, 2 tax, 2 infrastructure bills, and 24 others.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   19 committee actions, 6 votes.\nVeterans & Military highlight: SD 4323: Communication from the Office of Veteran Advocate (pursuant to Section 2 of Chapter 115B of the General Laws) submitting written....\n\nWest Virginia: No new activity this week.\n\nTennessee: No new activity this week.\n\nNorth Carolina: No new activity this week.\n\nMissouri: No new activity this week.\n\nIowa:\n   1 bills updated.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nExplore full details at PolicyWatch.",
+  "generated_at": "2026-10-31T01:24:07.179975-05:00",
   "audio_available": false,
   "audio_file": null
 }
