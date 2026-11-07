@@ -1,8 +1,8 @@
 {
-  "week_start": "2026-10-31T04:52:56.026202-05:00",
-  "week_end": "2026-11-07T04:52:56.026202-06:00",
+  "week_start": "2026-10-26T00:53:38.932707-05:00",
+  "week_end": "2026-11-02T00:53:38.932707-06:00",
   "item_counts": {
-    "federal": 29,
+    "federal": 53,
     "ks": 0,
     "co": 0,
     "az": 0,
@@ -11,7 +11,7 @@
     "ne": 0,
     "md": 0,
     "pa": 0,
-    "ma": 0,
+    "ma": 47,
     "wv": 0,
     "tn": 0,
     "nc": 0,
@@ -26,25 +26,35 @@
       "label": "Congress / Federal",
       "recap_lines": [
         "Congress / Federal:",
-        "HR 1945: America's National Churchill Museum National Historic Landmark Act",
-        "   Presented to President.",
-        "HR 7730: Bankruptcy Threshold Adjustment Act of 2026",
-        "   Presented to President.",
-        "HR 3100: To amend the National Child Protection Act of 1993 to ensure that businesses and organizations that work with vulnerable populations are able to request background checks for their contractors who work with those populations, as well as for individuals that the businesses or organizations license or certify to provide care for those populations.",
-        "   Placed on the Union Calendar, Calendar No. 770.",
-        "   Plus 5 healthcare, 1 education, 4 economic, 1 environmental, 2 tax, 1 infrastructure bills, and 12 others."
+        "HR 10306: Technical Correction to the Shoshone-Paiute Tribes of the Duck Valley Reservation Water Rights Settlement Act of 2025",
+        "   Placed on the Union Calendar, Calendar No. 762.",
+        "S 675: Theodore Roosevelt Presidential Library Act",
+        "   Placed on the Union Calendar, Calendar No. 763.",
+        "HR 10136: To require the Secretary of Agriculture to convey the Crossett Experimental Forest to the State of Arkansas, and for other purposes.",
+        "   Placed on the Union Calendar, Calendar No. 761.",
+        "   Plus 1 immigration, 8 healthcare, 6 education, 8 economic, 2 defense, 3 technology, 2 tax, 2 infrastructure bills, and 18 others."
       ],
-      "item_count": 29,
+      "item_count": 53,
       "veterans_highlight": {
-        "summary": "HR 5723: Fraud Reduction And Uncovering Deception (FRAUD) in VA Disability Exams Act",
+        "summary": "HRES 1643: Recognizing the contributions of Hispanic and Latino servicemembers in the United States Armed Forces and promoting Hispanic and...; HR 10949: To direct the Secretary of Defense to expand the priority list for the Public Schools on Military Installations Program of the...; HR 10938: To amend title 38, United States Code, to increase the maximum amount of a home health service benefit available to certain...; plus 1 more",
         "items": [
           {
             "type": "bill",
-            "title": "HR 5723: Fraud Reduction And Uncovering Deception (FRAUD) in VA Disability Exams Act",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/5723"
+            "title": "HRES 1643: Recognizing the contributions of Hispanic and Latino servicemembers in the United States Armed Forces and promoting Hispanic and...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-resolution/1643"
+          },
+          {
+            "type": "bill",
+            "title": "HR 10949: To direct the Secretary of Defense to expand the priority list for the Public Schools on Military Installations Program of the...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10949"
+          },
+          {
+            "type": "bill",
+            "title": "HR 10938: To amend title 38, United States Code, to increase the maximum amount of a home health service benefit available to certain...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10938"
           }
         ],
-        "total_matches": 1
+        "total_matches": 4
       }
     },
     {
@@ -115,9 +125,21 @@
       "id": "ma",
       "label": "Massachusetts",
       "recap_lines": [
-        "Massachusetts: No new activity this week."
+        "Massachusetts:",
+        "   8 committee actions, 6 votes."
       ],
-      "item_count": 0
+      "item_count": 47,
+      "veterans_highlight": {
+        "summary": "SD 4323: Communication from the Office of Veteran Advocate (pursuant to Section 2 of Chapter 115B of the General Laws) submitting written...",
+        "items": [
+          {
+            "type": "bill",
+            "title": "SD 4323: Communication from the Office of Veteran Advocate (pursuant to Section 2 of Chapter 115B of the General Laws) submitting written...",
+            "url": "https://malegislature.gov/Bills/194/SD4323.pdf"
+          }
+        ],
+        "total_matches": 1
+      }
     },
     {
       "id": "wv",
@@ -177,8 +199,8 @@
       "item_count": 0
     }
   ],
-  "script": "PolicyWatch weekly overview for October 31 through November 07, 2026.\n\nCongress / Federal:\nHR 1945: America's National Churchill Museum National Historic Landmark Act\nVeterans & Military highlight: HR 5723: Fraud Reduction And Uncovering Deception (FRAUD) in VA Disability Exams Act.\n   Presented to President.\nHR 7730: Bankruptcy Threshold Adjustment Act of 2026\n   Presented to President.\nHR 3100: To amend the National Child Protection Act of 1993 to ensure that businesses and organizations that work with vulnerable populations are able to request background checks for their contractors who work with those populations, as well as for individuals that the businesses or organizations license or certify to provide care for those populations.\n   Placed on the Union Calendar, Calendar No. 770.\n   Plus 5 healthcare, 1 education, 4 economic, 1 environmental, 2 tax, 1 infrastructure bills, and 12 others.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts: No new activity this week.\n\nWest Virginia: No new activity this week.\n\nTennessee: No new activity this week.\n\nNorth Carolina: No new activity this week.\n\nMissouri: No new activity this week.\n\nIowa:\n   1 bills updated.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nExplore full details at PolicyWatch.",
-  "generated_at": "2026-11-07T04:52:56.026202-06:00",
+  "script": "PolicyWatch weekly overview for October 26 through November 02, 2026.\n\nCongress / Federal:\nHR 10306: Technical Correction to the Shoshone-Paiute Tribes of the Duck Valley Reservation Water Rights Settlement Act of 2025\nVeterans & Military highlight: HRES 1643: Recognizing the contributions of Hispanic and Latino servicemembers in the United States Armed Forces and promoting Hispanic and...; HR 10949: To direct the Secretary of Defense to expand the priority list....\n   Placed on the Union Calendar, Calendar No. 762.\nS 675: Theodore Roosevelt Presidential Library Act\n   Placed on the Union Calendar, Calendar No. 763.\nHR 10136: To require the Secretary of Agriculture to convey the Crossett Experimental Forest to the State of Arkansas, and for other purposes.\n   Placed on the Union Calendar, Calendar No. 761.\n   Plus 1 immigration, 8 healthcare, 6 education, 8 economic, 2 defense, 3 technology, 2 tax, 2 infrastructure bills, and 18 others.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   8 committee actions, 6 votes.\nVeterans & Military highlight: SD 4323: Communication from the Office of Veteran Advocate (pursuant to Section 2 of Chapter 115B of the General Laws) submitting written....\n\nWest Virginia: No new activity this week.\n\nTennessee: No new activity this week.\n\nNorth Carolina: No new activity this week.\n\nMissouri: No new activity this week.\n\nIowa:\n   1 bills updated.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nExplore full details at PolicyWatch.",
+  "generated_at": "2026-11-02T00:53:38.932707-06:00",
   "audio_available": false,
   "audio_file": null
 }
