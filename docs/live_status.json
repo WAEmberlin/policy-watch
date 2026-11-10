@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T12:30:54.141637+00:00",
+  "generated_at": "2026-11-10T12:59:17.788624+00:00",
   "streams": {
     "kansas-house-floor": {
       "isLive": false
@@ -98,13 +98,13 @@
       "isLive": false
     },
     "wv-senate-floor": {
-      "isLive": false
+      "isLive": true,
+      "videoId": "MTfK1srwQB8",
+      "title": "West Virginia Senate Live Stream",
+      "embedUrl": "https://www.youtube.com/embed/MTfK1srwQB8"
     },
     "wv-house-floor": {
-      "isLive": true,
-      "videoId": "BKj7NKoIsYM",
-      "title": "WV House of Delegates",
-      "embedUrl": "https://www.youtube.com/embed/BKj7NKoIsYM"
+      "isLive": false
     },
     "wv-committees": {
       "isLive": false
