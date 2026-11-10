@@ -13,12 +13,32 @@
     "latest_action_date": "2026-11-09T00:00:00",
     "actions": [
       {
-        "text": "Cloture motion on the motion to proceed to the measure presented in Senate.",
+        "text": "Cloture on the motion to proceed to the measure invoked in Senate by Yea-Nay Vote. 73 - 25. Record Vote Number: 257.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "recordedVotes": [
+          {
+            "chamber": "Senate",
+            "congress": 119,
+            "date": "2026-11-09T23:32:31Z",
+            "rollNumber": 257,
+            "sessionNumber": 2,
+            "url": "https://www.senate.gov/legislative/LIS/roll_call_votes/vote1192/vote_119_2_00257.xml"
+          }
+        ]
+      },
+      {
+        "text": "Motion to proceed to measure considered in Senate.",
+        "actionDate": "2026-11-09",
+        "type": "Floor"
+      },
+      {
+        "text": "Cloture motion on the motion to proceed to the measure presented in Senate. (CR S5241)",
         "actionDate": "2026-09-30",
         "type": "Floor"
       },
       {
-        "text": "Motion to proceed to consideration of measure made in Senate.",
+        "text": "Motion to proceed to consideration of measure made in Senate. (CR S5241)",
         "actionDate": "2026-09-30",
         "type": "Floor"
       },
@@ -131,7 +151,18 @@
     "committees": [],
     "policy_areas": [],
     "status": "Cloture on the motion to proceed to the measure invoked in Senate by Yea-Nay Vote. 73 - 25. Record Vote Number: 257.",
-    "votes": [],
+    "votes": [
+      {
+        "rollNumber": 257,
+        "chamber": "Senate",
+        "date": "2026-11-09",
+        "result": "",
+        "yeas": 73,
+        "nays": 25,
+        "motion": "Cloture on the motion to proceed to the measure invoked in Senate by Yea-Nay Vote. 73 - 25. Record Vote Number: 257.",
+        "tally_text": " 73\u201325"
+      }
+    ],
     "introduced_date": "2025-03-25T00:00:00",
     "url": "https://www.congress.gov/bill/119th-congress/house-bill/2347",
     "published": "2025-03-25T00:00:00",
@@ -160,6 +191,22 @@
     "sponsor_district": "",
     "cosponsors": [],
     "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 693.",
+        "actionDate": "2026-11-09",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Reported by Senator Paul with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-09",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Reported by Senator Paul with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-09",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
       {
         "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported with an amendment in the nature of a substitute favorably.",
         "actionDate": "2026-08-06",
@@ -197,6 +244,17 @@
     "latest_action": "Passed Senate with an amendment by Voice Vote.",
     "latest_action_date": "2026-11-09T00:00:00",
     "actions": [
+      {
+        "text": "Passed Senate with an amendment by Voice Vote.",
+        "actionDate": "2026-11-09",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate with an amendment by Voice Vote.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
       {
         "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 543.",
         "actionDate": "2026-08-05",
@@ -255,7 +313,40 @@
     "cosponsors": [],
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 692.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 692.",
+        "actionDate": "2026-11-09",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Reported by Senator Cruz without amendment. With written report No. 119-159.",
+        "actionDate": "2026-11-09",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Reported by Senator Cruz without amendment. With written report No. 119-159.",
+        "actionDate": "2026-11-09",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-07-22",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+        "actionDate": "2026-06-04",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2026-06-04",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 692.",
@@ -281,7 +372,40 @@
     "cosponsors": [],
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 691.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 691.",
+        "actionDate": "2026-11-09",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Reported by Senator Cruz with an amendment in the nature of a substitute. With written report No. 119-158.",
+        "actionDate": "2026-11-09",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Reported by Senator Cruz with an amendment in the nature of a substitute. With written report No. 119-158.",
+        "actionDate": "2026-11-09",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-07-22",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Commerce, Science, and Transportation. (text: CR S2173)",
+        "actionDate": "2026-04-30",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2026-04-30",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 691.",
@@ -307,7 +431,40 @@
     "cosponsors": [],
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 690.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 690.",
+        "actionDate": "2026-11-09",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Reported by Senator Cruz with an amendment in the nature of a substitute. With written report No. 119-157.",
+        "actionDate": "2026-11-09",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Reported by Senator Cruz with an amendment in the nature of a substitute. With written report No. 119-157.",
+        "actionDate": "2026-11-09",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-04-14",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+        "actionDate": "2025-07-22",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-07-22",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 690.",
@@ -333,7 +490,40 @@
     "cosponsors": [],
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 689.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 689.",
+        "actionDate": "2026-11-09",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Reported by Senator Cruz with an amendment in the nature of a substitute. With written report No. 119-156.",
+        "actionDate": "2026-11-09",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Reported by Senator Cruz with an amendment in the nature of a substitute. With written report No. 119-156.",
+        "actionDate": "2026-11-09",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-03-04",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+        "actionDate": "2025-03-11",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-03-11",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 689.",
@@ -359,7 +549,19 @@
     "cosponsors": [],
     "latest_action": "Read twice and referred to the Committee on Armed Services.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Read twice and referred to the Committee on Armed Services.",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Read twice and referred to the Committee on Armed Services.",
@@ -385,7 +587,19 @@
     "cosponsors": [],
     "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
+        "actionDate": "2026-11-09",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionCode": "17000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
@@ -411,7 +625,19 @@
     "cosponsors": [],
     "latest_action": "Read twice and referred to the Committee on Indian Affairs.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Read twice and referred to the Committee on Indian Affairs.",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Read twice and referred to the Committee on Indian Affairs.",
@@ -437,7 +663,19 @@
     "cosponsors": [],
     "latest_action": "Read twice and referred to the Committee on Foreign Relations.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Read twice and referred to the Committee on Foreign Relations.",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Read twice and referred to the Committee on Foreign Relations.",
@@ -463,7 +701,19 @@
     "cosponsors": [],
     "latest_action": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
@@ -489,7 +739,19 @@
     "cosponsors": [],
     "latest_action": "Referred to the Committee on Health, Education, Labor, and Pensions.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the Committee on Health, Education, Labor, and Pensions.",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Submitted in Senate",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "10025"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the Committee on Health, Education, Labor, and Pensions.",
@@ -515,7 +777,19 @@
     "cosponsors": [],
     "latest_action": "Read twice and referred to the Committee on Finance.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Read twice and referred to the Committee on Finance.",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Read twice and referred to the Committee on Finance.",
@@ -1017,6 +1291,34 @@
     "cosponsors": [],
     "actions": [
       {
+        "text": "At the conclusion of debate, the chair put the question on the motion to suspend the rules. Mr. Latta objected to the vote on the grounds that a quorum was not present. Further proceedings on the motion were postponed. The point of no quorum was considered as withdrawn.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:41:38",
+        "actionCode": "H37210"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 5549.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:28:53",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:28:51",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Latta moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:28:42",
+        "actionCode": "H30300"
+      },
+      {
         "text": "Placed on the Union Calendar, Calendar No. 769.",
         "actionDate": "2026-11-05",
         "type": "Calendars",
@@ -1092,6 +1394,82 @@
     "latest_action_date": "2026-11-05T00:00:00",
     "actions": [
       {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "19:00:03",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by the Yeas and Nays: (2/3 required): 397 - 2 (Roll no. 315).",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "19:00:01",
+        "actionCode": "H37300",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2026-11-10T00:00:01Z",
+            "rollNumber": 315,
+            "sessionNumber": 2,
+            "url": "https://clerk.house.gov/evs/2026/roll315.xml"
+          }
+        ]
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by the Yeas and Nays: (2/3 required): 397 - 2 (Roll no. 315).",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "19:00:01",
+        "actionCode": "8000",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2026-11-10T00:00:01Z",
+            "rollNumber": 315,
+            "sessionNumber": 2,
+            "url": "https://clerk.house.gov/evs/2026/roll315.xml"
+          }
+        ]
+      },
+      {
+        "text": "Considered as unfinished business.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "18:31:21",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "At the conclusion of debate, the Yeas and Nays were demanded and ordered. Pursuant to the provisions of clause 8, rule XX, the Chair announced that further proceedings on the motion would be postponed.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:28:17",
+        "actionCode": "H37220"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 3978.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:22:54",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:22:53",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Latta moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:22:34",
+        "actionCode": "H30300"
+      },
+      {
         "text": "Placed on the Union Calendar, Calendar No. 768.",
         "actionDate": "2026-11-05",
         "type": "Calendars",
@@ -1149,7 +1527,18 @@
     "committees": [],
     "policy_areas": [],
     "status": "Placed on the Union Calendar, Calendar No. 768.",
-    "votes": [],
+    "votes": [
+      {
+        "rollNumber": 315,
+        "chamber": "House",
+        "date": "2026-11-10",
+        "result": "Passed",
+        "yeas": 397,
+        "nays": 2,
+        "motion": "On Motion to Suspend the Rules and Pass, as Amended",
+        "tally_text": "Passed 397\u20132"
+      }
+    ],
     "introduced_date": "2025-06-12T00:00:00",
     "url": "https://www.congress.gov/bill/119th-congress/house-bill/3978",
     "published": "2025-06-12T00:00:00",
@@ -1172,6 +1561,82 @@
     "latest_action": "Placed on the Union Calendar, Calendar No. 772.",
     "latest_action_date": "2026-11-05T00:00:00",
     "actions": [
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "19:07:47",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by the Yeas and Nays: (2/3 required): 394 - 3 (Roll no. 316).",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "19:07:45",
+        "actionCode": "H37300",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2026-11-10T00:07:45Z",
+            "rollNumber": 316,
+            "sessionNumber": 2,
+            "url": "https://clerk.house.gov/evs/2026/roll316.xml"
+          }
+        ]
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by the Yeas and Nays: (2/3 required): 394 - 3 (Roll no. 316).",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "19:07:45",
+        "actionCode": "8000",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2026-11-10T00:07:45Z",
+            "rollNumber": 316,
+            "sessionNumber": 2,
+            "url": "https://clerk.house.gov/evs/2026/roll316.xml"
+          }
+        ]
+      },
+      {
+        "text": "Considered as unfinished business.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "19:00:10",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "At the conclusion of debate, the Yeas and Nays were demanded and ordered. Pursuant to the provisions of clause 8, rule XX, the Chair announced that further proceedings on the motion would be postponed.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:07:27",
+        "actionCode": "H37220"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 9612.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:53:27",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:53:26",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Latta moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:53:14",
+        "actionCode": "H30300"
+      },
       {
         "text": "Placed on the Union Calendar, Calendar No. 772.",
         "actionDate": "2026-11-05",
@@ -1230,7 +1695,18 @@
     "committees": [],
     "policy_areas": [],
     "status": "Placed on the Union Calendar, Calendar No. 772.",
-    "votes": [],
+    "votes": [
+      {
+        "rollNumber": 316,
+        "chamber": "House",
+        "date": "2026-11-10",
+        "result": "Passed",
+        "yeas": 394,
+        "nays": 3,
+        "motion": "On Motion to Suspend the Rules and Pass, as Amended",
+        "tally_text": "Passed 394\u20133"
+      }
+    ],
     "introduced_date": "2026-07-09T00:00:00",
     "url": "https://www.congress.gov/bill/119th-congress/house-bill/9612",
     "published": "2026-07-09T00:00:00",
@@ -1253,6 +1729,34 @@
     "latest_action": "Placed on the Union Calendar, Calendar No. 771.",
     "latest_action_date": "2026-11-05T00:00:00",
     "actions": [
+      {
+        "text": "At the conclusion of debate, the chair put the question on the motion to suspend the rules. Mr. Latta objected to the vote on the grounds that a quorum was not present. Further proceedings on the motion were postponed. The point of no quorum was considered as withdrawn.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:53:01",
+        "actionCode": "H37210"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 9084.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:42:01",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:42:00",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Latta moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:41:49",
+        "actionCode": "H30300"
+      },
       {
         "text": "Placed on the Union Calendar, Calendar No. 771.",
         "actionDate": "2026-11-05",
@@ -1335,6 +1839,48 @@
     "latest_action_date": "2026-11-05T00:00:00",
     "actions": [
       {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:27:57",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:27:53",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:27:53",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 9614.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:18:14",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:18:12",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Latta moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:17:52",
+        "actionCode": "H30300"
+      },
+      {
         "text": "Placed on the Union Calendar, Calendar No. 773.",
         "actionDate": "2026-11-05",
         "type": "Calendars",
@@ -1415,6 +1961,48 @@
     "latest_action": "Placed on the Union Calendar, Calendar No. 774.",
     "latest_action_date": "2026-11-05T00:00:00",
     "actions": [
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:17:50",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:17:46",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:17:46",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 9613.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:08:08",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:08:06",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Latta moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:07:54",
+        "actionCode": "H30300"
+      },
       {
         "text": "Placed on the Union Calendar, Calendar No. 774.",
         "actionDate": "2026-11-05",
