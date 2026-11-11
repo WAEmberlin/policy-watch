@@ -1,6 +1,21 @@
 [
   {
     "bill_type": "HR",
+    "bill_number": "2347",
+    "congress": 119,
+    "date": "2026-11-11",
+    "chamber": "Senate",
+    "result": "Passed",
+    "yeas": 62,
+    "nays": 21,
+    "tally_text": "Passed 62\u201321",
+    "motion": "Motion to proceed to consideration of measure agreed to in Senate by Yea-Nay Vote. 62 - 21. Record Vote Number: 258.",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/2347",
+    "roll_number": 258,
+    "session": 2
+  },
+  {
+    "bill_type": "HR",
     "bill_number": "3978",
     "congress": 119,
     "date": "2026-11-10",
@@ -57,6 +72,21 @@
     "motion": "On Ordering the Previous Question",
     "url": "https://www.congress.gov/votes/house/119-2/318",
     "roll_number": 318,
+    "session": 2
+  },
+  {
+    "bill_type": "HRES",
+    "bill_number": "1655",
+    "congress": 119,
+    "date": "2026-11-10",
+    "chamber": "House",
+    "result": "Passed",
+    "yeas": 211,
+    "nays": 204,
+    "tally_text": "Passed 211\u2013204",
+    "motion": "On Motion to Refer",
+    "url": "https://www.congress.gov/votes/house/119-2/317",
+    "roll_number": 317,
     "session": 2
   },
   {
