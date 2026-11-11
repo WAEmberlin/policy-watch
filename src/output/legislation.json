@@ -1617,6 +1617,18 @@
     "latest_action_date": "2026-11-09T00:00:00",
     "actions": [
       {
+        "text": "Presented to President.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionCode": "E20000"
+      },
+      {
+        "text": "Presented to President.",
+        "actionDate": "2026-11-09",
+        "type": "President",
+        "actionCode": "28000"
+      },
+      {
         "text": "Message on Senate action sent to the House.",
         "actionDate": "2026-10-14",
         "type": "Floor"
@@ -1802,6 +1814,18 @@
     "latest_action_date": "2026-11-09T00:00:00",
     "actions": [
       {
+        "text": "Presented to President.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionCode": "E20000"
+      },
+      {
+        "text": "Presented to President.",
+        "actionDate": "2026-11-09",
+        "type": "President",
+        "actionCode": "28000"
+      },
+      {
         "text": "Message on Senate action sent to the House.",
         "actionDate": "2026-10-14",
         "type": "Floor"
@@ -1858,7 +1882,7 @@
         ]
       },
       {
-        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by the Yeas and Nays: (2/3 required): 385 - 0 (Roll no. 85).",
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by the Yeas and Nays: (2/3 required): 385 - 0 (Roll no. 85). (text: CR H1349-1350)",
         "actionDate": "2025-03-31",
         "type": "Floor",
         "actionTime": "19:03:39",
@@ -1996,6 +2020,12 @@
     "latest_action_date": "2026-11-09T00:00:00",
     "actions": [
       {
+        "text": "Motion to Discharge Committee filed by Mr. Crow. Petition No: 119-28.",
+        "actionDate": "2026-11-09",
+        "type": "Discharge",
+        "actionCode": "H17000"
+      },
+      {
         "text": "Referred to the House Committee on Rules.",
         "actionDate": "2026-10-01",
         "type": "IntroReferral",
@@ -2041,6 +2071,13 @@
     "latest_action_date": "2026-11-09T00:00:00",
     "actions": [
       {
+        "text": "NOTIFICATION OF INTENT TO OFFER MOTION TO DISCHARGE - Mr. Takano notified the House of his intent to offer a motion to discharge the Committee on Rules from further consideration of H. Res. 1247 pursuant to clause 2(c) of rule XV. The Chair announced that the House will entertain the gentleman's motion within two legislative days.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "14:03:49",
+        "actionCode": "H8D000"
+      },
+      {
         "text": "Motion to discharge the Committee on Rules filed by Mr. Takano. Assigned to the Discharge Calendar, Calendar No. 8.",
         "actionDate": "2026-09-15",
         "type": "Discharge",
@@ -2057,12 +2094,6 @@
         "actionDate": "2026-04-30",
         "type": "IntroReferral",
         "actionCode": "H11100"
-      },
-      {
-        "text": "Submitted in House",
-        "actionDate": "2026-04-30",
-        "type": "IntroReferral",
-        "actionCode": "1025"
       },
       {
         "text": "Submitted in House",
@@ -2102,7 +2133,92 @@
     "cosponsors": [],
     "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:40:06",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H6105-6106)",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:40:01",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:40:01",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 8552.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:28:57",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H6105-6107)",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:28:55",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Hamadeh (AZ) moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:28:42",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
+        "actionDate": "2026-06-30",
+        "type": "Committee",
+        "actionCode": "H23000"
+      },
+      {
+        "text": "Subcommittee Consideration and Mark-up Session Held",
+        "actionDate": "2026-06-30",
+        "type": "Committee",
+        "actionCode": "H22000"
+      },
+      {
+        "text": "Subcommittee Hearings Held",
+        "actionDate": "2026-06-25",
+        "type": "Committee",
+        "actionCode": "H21000"
+      },
+      {
+        "text": "Referred to the Subcommittee on Disability Assistance and Memorial Affairs.",
+        "actionDate": "2026-06-22",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
+        "text": "Referred to the House Committee on Veterans' Affairs.",
+        "actionDate": "2026-04-28",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-04-28",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-04-28",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Motion to reconsider laid on the table Agreed to without objection.",
@@ -2134,7 +2250,63 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Rules Committee Resolution H. Res. 1650 Reported to House. Rule provides for consideration of H.R. 1013 with 1 hour of general debate. Previous question shall be considered as ordered except motion to recommit. Bill is closed to amendments.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "17:18:35",
+        "actionCode": "H1L210"
+      },
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 340.",
+        "actionDate": "2025-11-28",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Financial Services. H. Rept. 119-390.",
+        "actionDate": "2025-11-28",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Financial Services. H. Rept. 119-390.",
+        "actionDate": "2025-11-28",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported (Amended) by the Yeas and Nays: 43 - 8.",
+        "actionDate": "2025-05-20",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-05-20",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Financial Services.",
+        "actionDate": "2025-02-05",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-02-05",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-02-05",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Rules Committee Resolution H. Res. 1650 Reported to House. Rule provides for consideration of H.R. 1013 with 1 hour of general debate. Previous question shall be considered as ordered except motion to recommit. Bill is closed to amendments.",
@@ -2154,7 +2326,33 @@
     "cosponsors": [],
     "latest_action": "Placed on the House Calendar, Calendar No. 92.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on the House Calendar, Calendar No. 92.",
+        "actionDate": "2026-11-09",
+        "type": "Calendars",
+        "actionCode": "H12420"
+      },
+      {
+        "text": "Rule provides for consideration of H.R. 1013 with 1 hour of general debate. Previous question shall be considered as ordered except motion to recommit. Bill is closed to amendments.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "17:18:35",
+        "actionCode": "H12700"
+      },
+      {
+        "text": "The House Committee on Rules reported an original measure, H. Rept. 119-878, by Mr. Griffith.",
+        "actionDate": "2026-11-09",
+        "type": "Committee",
+        "actionCode": "H12100"
+      },
+      {
+        "text": "The House Committee on Rules reported an original measure, H. Rept. 119-878, by Mr. Griffith.",
+        "actionDate": "2026-11-09",
+        "type": "Committee",
+        "actionCode": "1010"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on the House Calendar, Calendar No. 92.",
@@ -2180,7 +2378,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Oversight and Government Reform.",
@@ -2206,7 +2423,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Small Business.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Small Business.",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Small Business.",
@@ -2232,7 +2468,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on the Judiciary.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on the Judiciary.",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on the Judiciary.",
@@ -2258,7 +2513,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Veterans' Affairs.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Veterans' Affairs.",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Veterans' Affairs.",
@@ -2284,7 +2558,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Veterans' Affairs.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Veterans' Affairs.",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Veterans' Affairs.",
@@ -2310,7 +2603,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Education and Workforce.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Education and Workforce.",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Education and Workforce.",
@@ -2336,7 +2648,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Education and Workforce.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Education and Workforce.",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Education and Workforce.",
@@ -2362,7 +2693,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Veterans' Affairs.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Veterans' Affairs.",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Veterans' Affairs.",
@@ -2388,7 +2738,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Veterans' Affairs.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Veterans' Affairs.",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Veterans' Affairs.",
@@ -2414,7 +2783,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Education and Workforce.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Education and Workforce.",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Education and Workforce.",
@@ -2440,7 +2828,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Armed Services.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Armed Services.",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Armed Services.",
@@ -2466,7 +2873,32 @@
     "cosponsors": [],
     "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
@@ -2492,7 +2924,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Oversight and Government Reform.",
@@ -2518,7 +2969,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
     "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-09",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Oversight and Government Reform.",
