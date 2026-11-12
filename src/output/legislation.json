@@ -9,9 +9,19 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "latest_action": "Motion by Senator Thune to commit to Senate Committee on Finance with instructions to report back forthwith with the following amendment (SA 6888) made in Senate.",
-    "latest_action_date": "2026-11-10T00:00:00",
+    "latest_action": "Cloture motion on the measure presented in Senate.",
+    "latest_action_date": "2026-11-11T00:00:00",
     "actions": [
+      {
+        "text": "Cloture motion on the measure presented in Senate.",
+        "actionDate": "2026-11-11",
+        "type": "Floor"
+      },
+      {
+        "text": "Considered by Senate.",
+        "actionDate": "2026-11-11",
+        "type": "Floor"
+      },
       {
         "text": "Motion by Senator Thune to commit to Senate Committee on Finance with instructions to report back forthwith with the following amendment (SA 6888) made in Senate.",
         "actionDate": "2026-11-10",
@@ -175,7 +185,7 @@
     ],
     "committees": [],
     "policy_areas": [],
-    "status": "Motion by Senator Thune to commit to Senate Committee on Finance with instructions to report back forthwith with the following amendment (SA 6888) made in Senate.",
+    "status": "Cloture motion on the measure presented in Senate.",
     "votes": [
       {
         "rollNumber": 257,
@@ -205,7 +215,2074 @@
     "congress": 119,
     "official_title": "To amend the Internal Revenue Code of 1986 to exclude from gross income any damages, other than punitive damages, received on account of any sexual acts or sexual contact.",
     "short_title": "Survivor Justice Tax Prevention Act",
-    "last_synced_at": "2026-11-11T12:21:18.147405+00:00"
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00"
+  },
+  {
+    "bill_number": "8552",
+    "bill_type": "HR",
+    "title": "Veterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Passed Senate without amendment by Voice Vote.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [
+      {
+        "text": "Passed Senate without amendment by Voice Vote.",
+        "actionDate": "2026-11-11",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Voice Vote.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Received in the Senate, read twice.",
+        "actionDate": "2026-11-10",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:40:06",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H6105-6106)",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:40:01",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H6105-6106)",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:40:01",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 8552.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:28:57",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H6105-6107)",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:28:55",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Hamadeh (AZ) moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "16:28:42",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
+        "actionDate": "2026-06-30",
+        "type": "Committee",
+        "actionCode": "H23000"
+      },
+      {
+        "text": "Subcommittee Consideration and Mark-up Session Held",
+        "actionDate": "2026-06-30",
+        "type": "Committee",
+        "actionCode": "H22000"
+      },
+      {
+        "text": "Subcommittee Hearings Held",
+        "actionDate": "2026-06-25",
+        "type": "Committee",
+        "actionCode": "H21000"
+      },
+      {
+        "text": "Referred to the Subcommittee on Disability Assistance and Memorial Affairs.",
+        "actionDate": "2026-06-22",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
+        "text": "Referred to the House Committee on Veterans' Affairs.",
+        "actionDate": "2026-04-28",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-04-28",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-04-28",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Passed Senate without amendment by Voice Vote.",
+    "votes": [],
+    "introduced_date": "2026-04-28T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8552",
+    "published": "2026-04-28T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To increase, effective as of December 1, 2026, the rates of compensation for veterans with service-connected disabilities and the rates of dependency and indemnity compensation for the survivors of certain disabled veterans, and for other purposes.",
+    "short_title": "Veterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026"
+  },
+  {
+    "bill_number": "1013",
+    "bill_type": "HR",
+    "title": "Retirement Fairness for Charities and Educational Institutions Act of 2025",
+    "summary": "",
+    "sponsor_name": "",
+    "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/1013",
+    "published": "2025-02-05T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "official_title": "To amend the Federal securities laws to enhance 403(b) plans, and for other purposes.",
+    "short_title": "Retirement Fairness for Charities and Educational Institutions Act of 2025",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "actions": [
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "14:43:59",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On passage Passed by the Yeas and Nays: 295 - 128 (Roll no. 321).",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "14:43:57",
+        "actionCode": "H37100",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2026-11-11T19:43:57Z",
+            "rollNumber": 321,
+            "sessionNumber": 2,
+            "url": "https://clerk.house.gov/evs/2026/roll321.xml"
+          }
+        ]
+      },
+      {
+        "text": "Passed/agreed to in House: On passage Passed by the Yeas and Nays: 295 - 128 (Roll no. 321).",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "14:43:57",
+        "actionCode": "8000",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2026-11-11T19:43:57Z",
+            "rollNumber": 321,
+            "sessionNumber": 2,
+            "url": "https://clerk.house.gov/evs/2026/roll321.xml"
+          }
+        ]
+      },
+      {
+        "text": "DEBATE - The House proceeded with one hour of debate on H.R. 1013.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "13:34:45",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Rule provides for consideration of H.R. 1013 with 1 hour of general debate. Previous question shall be considered as ordered except motion to recommit. Bill is closed to amendments.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "13:33:58",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under the provisions of rule H. Res. 1650.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "13:33:53",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Rule H. Res. 1650 passed House.",
+        "actionDate": "2026-11-10",
+        "type": "Floor",
+        "actionTime": "18:20:54",
+        "actionCode": "H1L220"
+      },
+      {
+        "text": "Rules Committee Resolution H. Res. 1650 Reported to House. Rule provides for consideration of H.R. 1013 with 1 hour of general debate. Previous question shall be considered as ordered except motion to recommit. Bill is closed to amendments.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "17:18:35",
+        "actionCode": "H1L210"
+      },
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 340.",
+        "actionDate": "2025-11-28",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Financial Services. H. Rept. 119-390.",
+        "actionDate": "2025-11-28",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Financial Services. H. Rept. 119-390.",
+        "actionDate": "2025-11-28",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported (Amended) by the Yeas and Nays: 43 - 8.",
+        "actionDate": "2025-05-20",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-05-20",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Financial Services.",
+        "actionDate": "2025-02-05",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-02-05",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-02-05",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Motion to reconsider laid on the table Agreed to without objection.",
+    "votes": [
+      {
+        "rollNumber": 321,
+        "chamber": "House",
+        "date": "2026-11-11",
+        "result": "Passed",
+        "yeas": 295,
+        "nays": 128,
+        "motion": "On Passage",
+        "tally_text": "Passed 295\u2013128"
+      }
+    ],
+    "introduced_date": "2025-02-05T00:00:00",
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00"
+  },
+  {
+    "bill_number": "5549",
+    "bill_type": "HR",
+    "title": "Efficient Nuclear Licensing Hearings Act",
+    "summary": "",
+    "sponsor_name": "",
+    "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/5549",
+    "published": "2025-09-23T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "official_title": "To amend the Atomic Energy Act of 1954 to provide for more efficient hearings on nuclear facility construction applications, and for other purposes.",
+    "short_title": "Efficient Nuclear Licensing Hearings Act",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "actions": [
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "17:15:56",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "17:15:49",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "17:15:49",
+        "actionCode": "8000"
+      },
+      {
+        "text": "Considered as unfinished business.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "17:15:18",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "At the conclusion of debate, the chair put the question on the motion to suspend the rules. Mr. Latta objected to the vote on the grounds that a quorum was not present. Further proceedings on the motion were postponed. The point of no quorum was considered as withdrawn.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:41:38",
+        "actionCode": "H37210"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 5549.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:28:53",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H6097-6099; text: CR H6097)",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:28:51",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Latta moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:28:42",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 769.",
+        "actionDate": "2026-11-05",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported by the Committee on Energy and Commerce. H. Rept. 119-872.",
+        "actionDate": "2026-11-05",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported by the Committee on Energy and Commerce. H. Rept. 119-872.",
+        "actionDate": "2026-11-05",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
+        "actionDate": "2026-07-14",
+        "type": "Committee",
+        "actionCode": "H23000"
+      },
+      {
+        "text": "Subcommittee Consideration and Mark-up Session Held",
+        "actionDate": "2026-07-14",
+        "type": "Committee",
+        "actionCode": "H22000"
+      },
+      {
+        "text": "Referred to the Subcommittee on Energy.",
+        "actionDate": "2025-09-23",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
+        "text": "Referred to the House Committee on Energy and Commerce.",
+        "actionDate": "2025-09-23",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-09-23",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-09-23",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Motion to reconsider laid on the table Agreed to without objection.",
+    "votes": [],
+    "introduced_date": "2025-09-23T00:00:00",
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00"
+  },
+  {
+    "bill_number": "9084",
+    "bill_type": "HR",
+    "title": "Department of Energy Nuclear Transparency Act",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "17:16:42",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "17:16:34",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "17:16:34",
+        "actionCode": "8000"
+      },
+      {
+        "text": "Considered as unfinished business.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "17:16:11",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "At the conclusion of debate, the chair put the question on the motion to suspend the rules. Mr. Latta objected to the vote on the grounds that a quorum was not present. Further proceedings on the motion were postponed. The point of no quorum was considered as withdrawn.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:53:01",
+        "actionCode": "H37210"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 9084.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:42:01",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H6099-6100; text: CR H6099)",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:42:00",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Latta moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "15:41:49",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 771.",
+        "actionDate": "2026-11-05",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Energy and Commerce. H. Rept. 119-874.",
+        "actionDate": "2026-11-05",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Energy and Commerce. H. Rept. 119-874.",
+        "actionDate": "2026-11-05",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
+        "actionDate": "2026-07-14",
+        "type": "Committee",
+        "actionCode": "H23000"
+      },
+      {
+        "text": "Subcommittee Consideration and Mark-up Session Held",
+        "actionDate": "2026-07-14",
+        "type": "Committee",
+        "actionCode": "H22000"
+      },
+      {
+        "text": "Referred to the Subcommittee on Energy.",
+        "actionDate": "2026-06-02",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
+        "text": "Referred to the House Committee on Energy and Commerce.",
+        "actionDate": "2026-06-02",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-06-02",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-06-02",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Motion to reconsider laid on the table Agreed to without objection.",
+    "votes": [],
+    "introduced_date": "2026-06-02T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9084",
+    "published": "2026-06-02T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To increase transparency relating to the Department of Energy's authorizations of certain nuclear facilities.",
+    "short_title": "Department of Energy Nuclear Transparency Act"
+  },
+  {
+    "bill_number": "1247",
+    "bill_type": "HRES",
+    "title": "Providing for consideration of the bill (H.R. 2102) to amend title 10, United States Code, to provide for concurrent receipt of veterans' disability compensation and retired pay for disability retirees with combat-related disabilities, and for other purposes.",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "POSTPONED PROCEEDINGS - At the conclusion of debate on H. Res. 1247, the Chair put the question on agreeing to the resolution and by voice vote, announced that the noes had prevailed. Mr. Takano demanded the yeas and nays and the Chair postponed further proceedings until a time to be announced.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [
+      {
+        "text": "POSTPONED PROCEEDINGS - At the conclusion of debate on H. Res. 1247, the Chair put the question on agreeing to the resolution and by voice vote, announced that the noes had prevailed. Mr. Takano demanded the yeas and nays and the Chair postponed further proceedings until a time to be announced.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "13:32:25",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "The previous question was ordered without objection.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "13:32:20",
+        "actionCode": "H35000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with one hour of debate on H. Res. 1247.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "13:05:33",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered from the Discharge Calendar.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "13:05:31",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Consideration initiated from the Discharge Calendar.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "13:05:27",
+        "actionCode": "H30800"
+      },
+      {
+        "text": "On motion to discharge Agreed to by the Yeas and Nays: 245 - 175 (Roll no. 320).",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:36:31",
+        "actionCode": "H36610",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2026-11-11T17:36:31Z",
+            "rollNumber": 320,
+            "sessionNumber": 2,
+            "url": "https://clerk.house.gov/evs/2026/roll320.xml"
+          }
+        ]
+      },
+      {
+        "text": "Mr. Takano moved to discharge.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:35:32",
+        "actionCode": "H36600"
+      },
+      {
+        "text": "DEBATE - Pursuant to the rule, the House proceeded with 20 minutes of debate on the Takano motion to discharge.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:34:31",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "MOTION TO DISCHARGE COMMITTEE - Pursuant to clause 2 of rule XV, Mr. Takano called up motion No. 8, to discharge the Committee on Rules from further consideration of H. Res. 1247.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:33:31",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "NOTIFICATION OF INTENT TO OFFER MOTION TO DISCHARGE - Mr. Takano notified the House of his intent to offer a motion to discharge the Committee on Rules from further consideration of H. Res. 1247 pursuant to clause 2(c) of rule XV. The Chair announced that the House will entertain the gentleman's motion within two legislative days.",
+        "actionDate": "2026-11-09",
+        "type": "Floor",
+        "actionTime": "14:03:49",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Motion to discharge the Committee on Rules filed by Mr. Takano. Assigned to the Discharge Calendar, Calendar No. 8.",
+        "actionDate": "2026-09-15",
+        "type": "Discharge",
+        "actionCode": "H12450"
+      },
+      {
+        "text": "Motion to Discharge Committee filed by Mr. Takano. Petition No: 119-22. (<a href=\"https://clerk.house.gov/DischargePetition/2026052122\">Discharge petition</a> text with signatures.)",
+        "actionDate": "2026-05-21",
+        "type": "Discharge",
+        "actionCode": "H17000"
+      },
+      {
+        "text": "Referred to the House Committee on Rules.",
+        "actionDate": "2026-04-30",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-04-30",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-04-30",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "POSTPONED PROCEEDINGS - At the conclusion of debate on H. Res. 1247, the Chair put the question on agreeing to the resolution and by voice vote, announced that the noes had prevailed. Mr. Takano demanded the yeas and nays and the Chair postponed further proceedings until a time to be announced.",
+    "votes": [
+      {
+        "rollNumber": 320,
+        "chamber": "House",
+        "date": "2026-11-11",
+        "result": "Passed",
+        "yeas": 245,
+        "nays": 175,
+        "motion": "On Motion to Discharge",
+        "tally_text": "Passed 245\u2013175"
+      }
+    ],
+    "introduced_date": "2026-04-30T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-resolution/1247",
+    "published": "2026-04-30T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "Providing for consideration of the bill (H.R. 2102) to amend title 10, United States Code, to provide for concurrent receipt of veterans' disability compensation and retired pay for disability retirees with combat-related disabilities, and for other purposes.",
+    "short_title": "Providing for consideration of the bill (H.R. 2102) to amend title 10, United States Code, to provide for concurrent receipt of veterans' disability compensation and retired pay for disability retirees with combat-related disabilities, and for other purposes."
+  },
+  {
+    "bill_number": "10238",
+    "bill_type": "HR",
+    "title": "Cybersecurity for Small Businesses Act of 2026",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 748.",
+        "actionDate": "2026-10-13",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Small Business. H. Rept. 119-851.",
+        "actionDate": "2026-10-13",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Small Business. H. Rept. 119-851.",
+        "actionDate": "2026-10-13",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported in the Nature of a Substitute by the Yeas and Nays: 23 - 0.",
+        "actionDate": "2026-09-16",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2026-09-16",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Small Business.",
+        "actionDate": "2026-09-02",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-09-02",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-09-02",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Motion to reconsider laid on the table Agreed to without objection.",
+    "votes": [],
+    "introduced_date": "2026-09-02T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/10238",
+    "published": "2026-09-02T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To require the Administrator of the Small Business Administration to disseminate to small business concerns certain information and resources relating to cybersecurity matters, and for other purposes.",
+    "short_title": "To require the Administrator of the Small Business Administration to disseminate to small business concerns certain information and resources relating to cybersecurity matters, and for other purposes."
+  },
+  {
+    "bill_number": "10375",
+    "bill_type": "HR",
+    "title": "504 Modernization and Small Manufacturer Enhancement Act of 2026",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 745.",
+        "actionDate": "2026-10-09",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported by the Committee on Small Business. H. Rept. 119-848.",
+        "actionDate": "2026-10-09",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported by the Committee on Small Business. H. Rept. 119-848.",
+        "actionDate": "2026-10-09",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported by the Yeas and Nays: 23 - 0.",
+        "actionDate": "2026-09-16",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2026-09-16",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Small Business.",
+        "actionDate": "2026-09-14",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-09-14",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-09-14",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Motion to reconsider laid on the table Agreed to without objection.",
+    "votes": [],
+    "introduced_date": "2026-09-14T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/10375",
+    "published": "2026-09-14T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To amend the Small Business Investment Act of 1958 to improve the loan guaranty program, enhance the ability of small manufacturers to access affordable capital, and for other purposes.",
+    "short_title": "To amend the Small Business Investment Act of 1958 to improve the loan guaranty program, enhance the ability of small manufacturers to access affordable capital, and for other purposes."
+  },
+  {
+    "bill_number": "10355",
+    "bill_type": "HR",
+    "title": "Disaster Loan Outreach Consistency Act",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 743.",
+        "actionDate": "2026-10-09",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported by the Committee on Small Business. H. Rept. 119-846.",
+        "actionDate": "2026-10-09",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported by the Committee on Small Business. H. Rept. 119-846.",
+        "actionDate": "2026-10-09",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported by the Yeas and Nays: 23 - 0.",
+        "actionDate": "2026-09-16",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2026-09-16",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Small Business.",
+        "actionDate": "2026-09-14",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-09-14",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-09-14",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Motion to reconsider laid on the table Agreed to without objection.",
+    "votes": [],
+    "introduced_date": "2026-09-14T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/10355",
+    "published": "2026-09-14T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To require the Administrator of the Small Business Administration to establish procedures for consistency of certain disaster loan outreach materials, and for other purposes.",
+    "short_title": "Disaster Loan Outreach Consistency Act"
+  },
+  {
+    "bill_number": "10353",
+    "bill_type": "HR",
+    "title": "SBIC Reporting Modernization Act of 2026",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 742.",
+        "actionDate": "2026-10-09",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported by the Committee on Small Business. H. Rept. 119-845.",
+        "actionDate": "2026-10-09",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported by the Committee on Small Business. H. Rept. 119-845.",
+        "actionDate": "2026-10-09",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported by the Yeas and Nays: 23 - 0.",
+        "actionDate": "2026-09-16",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2026-09-16",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Small Business.",
+        "actionDate": "2026-09-14",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-09-14",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-09-14",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Motion to reconsider laid on the table Agreed to without objection.",
+    "votes": [],
+    "introduced_date": "2026-09-14T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/10353",
+    "published": "2026-09-14T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To amend the Small Business Investment Act of 1958 to require a quarterly report on small business investment companies, and for other purposes.",
+    "short_title": "SBIC Reporting Modernization Act of 2026"
+  },
+  {
+    "bill_number": "10371",
+    "bill_type": "HR",
+    "title": "Ensuring SBA Implementation of GAO Recommendations Act of 2026",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 744.",
+        "actionDate": "2026-10-09",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported by the Committee on Small Business. H. Rept. 119-847.",
+        "actionDate": "2026-10-09",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported by the Committee on Small Business. H. Rept. 119-847.",
+        "actionDate": "2026-10-09",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported by the Yeas and Nays: 22 - 0.",
+        "actionDate": "2026-09-16",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2026-09-16",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Small Business.",
+        "actionDate": "2026-09-14",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-09-14",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-09-14",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Motion to reconsider laid on the table Agreed to without objection.",
+    "votes": [],
+    "introduced_date": "2026-09-14T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/10371",
+    "published": "2026-09-14T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To direct the Associate Administrator for Veterans Business Development of the Small Business Administration to ensure compliance with certain reporting requirements, and for other purposes.",
+    "short_title": "To direct the Associate Administrator for Veterans Business Development of the Small Business Administration to ensure compliance with certain reporting requirements, and for other purposes."
+  },
+  {
+    "bill_number": "10329",
+    "bill_type": "HR",
+    "title": "Combating Foreign Threats to Main Street Act of 2026",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 741.",
+        "actionDate": "2026-10-09",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported by the Committee on Small Business. H. Rept. 119-844.",
+        "actionDate": "2026-10-09",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported by the Committee on Small Business. H. Rept. 119-844.",
+        "actionDate": "2026-10-09",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported by the Yeas and Nays: 22 - 0.",
+        "actionDate": "2026-09-16",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2026-09-16",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Small Business.",
+        "actionDate": "2026-09-10",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-09-10",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-09-10",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Motion to reconsider laid on the table Agreed to without objection.",
+    "votes": [],
+    "introduced_date": "2026-09-10T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/10329",
+    "published": "2026-09-10T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To require the Administrator of the Small Business Administration to disseminate information on foreign adversary conduct that poses material harm to small business concerns, and for other purposes.",
+    "short_title": "To require the Administrator of the Small Business Administration to disseminate information on foreign adversary conduct that poses material harm to small business concerns, and for other purposes."
+  },
+  {
+    "bill_number": "9718",
+    "bill_type": "HR",
+    "title": "Reshoring American Manufacturing Act of 2026",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 740.",
+        "actionDate": "2026-10-09",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Small Business. H. Rept. 119-843.",
+        "actionDate": "2026-10-09",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Small Business. H. Rept. 119-843.",
+        "actionDate": "2026-10-09",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported in the Nature of a Substitute by the Yeas and Nays: 23 - 0.",
+        "actionDate": "2026-09-16",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2026-09-16",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Small Business.",
+        "actionDate": "2026-07-15",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-07-15",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-07-15",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Motion to reconsider laid on the table Agreed to without objection.",
+    "votes": [],
+    "introduced_date": "2026-07-15T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9718",
+    "published": "2026-07-15T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To require the Administrator of the Small Business Administration to maintain a website for small business concerns relating to onshoring manufacturing capacity, and for other purposes.",
+    "short_title": "Reshoring American Manufacturing Act of 2026"
+  },
+  {
+    "bill_number": "1430",
+    "bill_type": "HRES",
+    "title": "Providing for consideration of the bill (H.R.185) to advance responsible policies.",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Motion to discharge the Committee on Rules filed by Mr. Massie. Assigned to the Discharge Calendar, Calendar No. 9.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [
+      {
+        "text": "Motion to Discharge Committee filed by Mr. Massie. Petition No: 119-27. (<a href=\"https://clerk.house.gov/DischargePetition/2026083127\">Discharge petition</a> text with signatures.)",
+        "actionDate": "2026-08-31",
+        "type": "Discharge",
+        "actionCode": "H17000"
+      },
+      {
+        "text": "Referred to the House Committee on Rules.",
+        "actionDate": "2026-07-15",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-07-15",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-07-15",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Motion to discharge the Committee on Rules filed by Mr. Massie. Assigned to the Discharge Calendar, Calendar No. 9.",
+    "votes": [],
+    "introduced_date": "2026-07-15T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-resolution/1430",
+    "published": "2026-07-15T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "Providing for consideration of the bill (H.R.185) to advance responsible policies.",
+    "short_title": "Providing for consideration of the bill (H.R.185) to advance responsible policies."
+  },
+  {
+    "bill_number": "9237",
+    "bill_type": "HR",
+    "title": "Take Care of America\u2019s Veterans Act",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [
+      {
+        "text": "POSTPONED PROCEEDINGS - Pursuant to clause 1(c) of rule XIX, the Chair announced further proceedings on H.R. 9237 is postponed.",
+        "actionDate": "2026-07-16",
+        "type": "Floor",
+        "actionTime": "11:16:45",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "On motion to recommit Failed by the Yeas and Nays: 210 - 211 (Roll no. 249).",
+        "actionDate": "2026-07-16",
+        "type": "Floor",
+        "actionTime": "11:16:29",
+        "actionCode": "H36210",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2026-07-16T15:16:29Z",
+            "rollNumber": 249,
+            "sessionNumber": 2,
+            "url": "https://clerk.house.gov/evs/2026/roll249.xml"
+          }
+        ]
+      },
+      {
+        "text": "Considered as unfinished business. (consideration: CR H4614-4615)",
+        "actionDate": "2026-07-16",
+        "type": "Floor",
+        "actionTime": "10:51:22",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "POSTPONED PROCEEDINGS - At the conclusion of debate on H.R. 9237, the Chair put the question on motion to recommit and by voice vote, announced the noes had prevailed. Mr. Deluzio demanded the yeas and nays and the Chair postponed further proceedings until a time to be announced.",
+        "actionDate": "2026-07-16",
+        "type": "Floor",
+        "actionTime": "10:16:38",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "The previous question on the motion to recommit was ordered pursuant to clause 2(b) of rule XIX.",
+        "actionDate": "2026-07-16",
+        "type": "Floor",
+        "actionTime": "10:16:14",
+        "actionCode": "H8A000"
+      },
+      {
+        "text": "Mr. Deluzio moved to recommit to the Committee on Veterans' Affairs. (CR H4613)",
+        "actionDate": "2026-07-16",
+        "type": "Floor",
+        "actionTime": "10:16:01",
+        "actionCode": "H36200"
+      },
+      {
+        "text": "The previous question was ordered pursuant to the rule.",
+        "actionDate": "2026-07-16",
+        "type": "Floor",
+        "actionTime": "10:15:28",
+        "actionCode": "H35000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with one hour of debate on H.R. 9237.",
+        "actionDate": "2026-07-16",
+        "type": "Floor",
+        "actionTime": "09:12:36",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Rule provides for consideration of H.R. 139, H.R. 8595, H.R. 9237 and H.R. 1181. The resolution provides for consideration of H.R. 139, H.R. 9237, and H.R. 1181 under a closed rule, and H.R. 8595 under a structured rule with one hour of debate and one motion to reconsider on each bill.",
+        "actionDate": "2026-07-16",
+        "type": "Floor",
+        "actionTime": "09:11:48",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under the provisions of rule H. Res. 1423. (consideration: CR H4548-4613; text: CR H4548-4613)",
+        "actionDate": "2026-07-16",
+        "type": "Floor",
+        "actionTime": "09:11:43",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Rules Committee Resolution H. Res. 1423 Reported to House. Rule provides for consideration of H.R. 139, H.R. 8595, H.R. 9237 and H.R. 1181. The resolution provides for consideration of H.R. 139, H.R. 9237, and H.R. 1181 under a closed rule, and H.R. 8595 under a structured rule with one hour of debate and one motion to reconsider on each bill.",
+        "actionDate": "2026-07-13",
+        "type": "Floor",
+        "actionTime": "17:59:05",
+        "actionCode": "H1L210"
+      },
+      {
+        "text": "Rules Committee Resolution H. Res. 1377 Reported to House. Rule provides for consideration of H.R. 1181, H.R. 9022, H.R. 8595 and H.R. 9237. The resolution provides for consideration of H.R. 1181 and H.R. 9237 under a closed rule and H.R. 9022 and H.R. 8595 under a structured rule. The resolution provides for one hour of general debate and one motion to recommit on each bill.",
+        "actionDate": "2026-06-23",
+        "type": "Floor",
+        "actionTime": "19:18:06",
+        "actionCode": "H1L210"
+      },
+      {
+        "text": "Referred to the Committee on Veterans' Affairs, and in addition to the Committee on Armed Services, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-06-10",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Committee on Veterans' Affairs, and in addition to the Committee on Armed Services, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-06-10",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-06-10",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-06-10",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Motion to reconsider laid on the table Agreed to without objection.",
+    "votes": [
+      {
+        "rollNumber": 249,
+        "chamber": "House",
+        "date": "2026-07-16",
+        "result": "Failed",
+        "yeas": 210,
+        "nays": 211,
+        "motion": "On Motion to Recommit",
+        "tally_text": "Failed 210\u2013211"
+      }
+    ],
+    "introduced_date": "2026-06-10T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9237",
+    "published": "2026-06-10T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To amend titles 10 and 38, United States Code, and other Federal laws, to improve benefits for veterans and the administration of the Department of Veterans Affairs.",
+    "short_title": "Take Care of America\u2019s Veterans Act"
+  },
+  {
+    "bill_number": "1658",
+    "bill_type": "HRES",
+    "title": "Recognizing Operation Green Light for Veterans for supporting veterans and raising awareness about important county resources available to help veterans transition to civilian life.",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on Veterans' Affairs.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on Veterans' Affairs.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-resolution/1658",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "Recognizing Operation Green Light for Veterans for supporting veterans and raising awareness about important county resources available to help veterans transition to civilian life.",
+    "short_title": "Recognizing Operation Green Light for Veterans for supporting veterans and raising awareness about important county resources available to help veterans transition to civilian life."
+  },
+  {
+    "bill_number": "11007",
+    "bill_type": "HR",
+    "title": "To amend title 38, United States Code, to prohibit certain conflicts of interest in the Department of Veterans Affairs, and for other purposes.",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on Veterans' Affairs.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on Veterans' Affairs.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/11007",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To amend title 38, United States Code, to prohibit certain conflicts of interest in the Department of Veterans Affairs, and for other purposes.",
+    "short_title": "To amend title 38, United States Code, to prohibit certain conflicts of interest in the Department of Veterans Affairs, and for other purposes."
+  },
+  {
+    "bill_number": "10994",
+    "bill_type": "HR",
+    "title": "To reauthorize the Rural Business Development Grant Program.",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on Agriculture.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on Agriculture.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/10994",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To reauthorize the Rural Business Development Grant Program.",
+    "short_title": "To reauthorize the Rural Business Development Grant Program."
+  },
+  {
+    "bill_number": "10996",
+    "bill_type": "HR",
+    "title": "Streamlining Government Programs for Rural Businesses Act",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on Agriculture.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on Agriculture.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/10996",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To reauthorize the Rural Business-Cooperative Service Programs and Technical Assistance and Training Program.",
+    "short_title": "Streamlining Government Programs for Rural Businesses Act"
+  },
+  {
+    "bill_number": "1657",
+    "bill_type": "HRES",
+    "title": "Condemning the Taliban's systematic erasure of women and girls from public life in Afghanistan, and calling for United States leadership in response.",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on Foreign Affairs.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on Foreign Affairs.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-resolution/1657",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "Condemning the Taliban's systematic erasure of women and girls from public life in Afghanistan, and calling for United States leadership in response.",
+    "short_title": "Condemning the Taliban's systematic erasure of women and girls from public life in Afghanistan, and calling for United States leadership in response."
+  },
+  {
+    "bill_number": "11003",
+    "bill_type": "HR",
+    "title": "To provide increased oversight of certain pardons, to clarify the applicability of bribery prohibitions to pardons and commutations, and for other purposes.",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on the Judiciary.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on the Judiciary.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/11003",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To provide increased oversight of certain pardons, to clarify the applicability of bribery prohibitions to pardons and commutations, and for other purposes.",
+    "short_title": "To provide increased oversight of certain pardons, to clarify the applicability of bribery prohibitions to pardons and commutations, and for other purposes."
+  },
+  {
+    "bill_number": "11004",
+    "bill_type": "HR",
+    "title": "To authorize the use of off-highway vehicles in certain areas of the Capitol Reef National Park, Utah.",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on Natural Resources.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on Natural Resources.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/11004",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To authorize the use of off-highway vehicles in certain areas of the Capitol Reef National Park, Utah.",
+    "short_title": "To authorize the use of off-highway vehicles in certain areas of the Capitol Reef National Park, Utah."
+  },
+  {
+    "bill_number": "10993",
+    "bill_type": "HR",
+    "title": "To reauthorize the Solid Waste Management Grants Program.",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on Agriculture.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on Agriculture.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/10993",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To reauthorize the Solid Waste Management Grants Program.",
+    "short_title": "To reauthorize the Solid Waste Management Grants Program."
+  },
+  {
+    "bill_number": "10992",
+    "bill_type": "HR",
+    "title": "To reauthorize the Tribal College Initiative Grants Program.",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on Agriculture.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on Agriculture.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/10992",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To reauthorize the Tribal College Initiative Grants Program.",
+    "short_title": "To reauthorize the Tribal College Initiative Grants Program."
+  },
+  {
+    "bill_number": "11008",
+    "bill_type": "HR",
+    "title": "To require U.S. Citizenship and Immigration Services to facilitate naturalization services for noncitizen veterans who have been removed from the United States or are inadmissible.",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on the Judiciary.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on the Judiciary.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/11008",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To require U.S. Citizenship and Immigration Services to facilitate naturalization services for noncitizen veterans who have been removed from the United States or are inadmissible.",
+    "short_title": "To require U.S. Citizenship and Immigration Services to facilitate naturalization services for noncitizen veterans who have been removed from the United States or are inadmissible."
+  },
+  {
+    "bill_number": "10999",
+    "bill_type": "HR",
+    "title": "To reauthorize the Expansion of 911 Access Program.",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the Committee on Agriculture, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the Committee on Agriculture, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/10999",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To reauthorize the Expansion of 911 Access Program.",
+    "short_title": "To reauthorize the Expansion of 911 Access Program."
+  },
+  {
+    "bill_number": "10995",
+    "bill_type": "HR",
+    "title": "Rural Borrowing Improvement Act",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on Agriculture.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on Agriculture.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/10995",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To reauthorize the Intermediary Relending Program.",
+    "short_title": "Rural Borrowing Improvement Act"
+  },
+  {
+    "bill_number": "10997",
+    "bill_type": "HR",
+    "title": "Connecting Rural Stakeholders Act",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on Agriculture.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on Agriculture.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/10997",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To reauthorize the National Rural Development Partnership.",
+    "short_title": "Connecting Rural Stakeholders Act"
+  },
+  {
+    "bill_number": "10998",
+    "bill_type": "HR",
+    "title": "To reauthorize USDA guarantees for Bonds and Notes issued for utility infrastructure purposes.",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on Agriculture.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on Agriculture.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/10998",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To reauthorize USDA guarantees for Bonds and Notes issued for utility infrastructure purposes.",
+    "short_title": "To reauthorize USDA guarantees for Bonds and Notes issued for utility infrastructure purposes."
+  },
+  {
+    "bill_number": "11005",
+    "bill_type": "HR",
+    "title": "To encourage, enhance, and integrate Green Alert plans throughout the United States, and for other purposes.",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on the Judiciary.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on the Judiciary.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/11005",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To encourage, enhance, and integrate Green Alert plans throughout the United States, and for other purposes.",
+    "short_title": "To encourage, enhance, and integrate Green Alert plans throughout the United States, and for other purposes."
+  },
+  {
+    "bill_number": "10991",
+    "bill_type": "HR",
+    "title": "SPARKS Act",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on Energy and Commerce.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on Energy and Commerce.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/10991",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To amend the Public Health Service Act to authorize the Secretary of Health and Human Services to award grants to local educational agencies for the implementation of culturally responsive youth suicide prevention programs, and for other purposes.",
+    "short_title": "SPARKS Act"
+  },
+  {
+    "bill_number": "11002",
+    "bill_type": "HR",
+    "title": "To prohibit the construction of data centers on Federal land, and for other purposes.",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the Committee on Natural Resources, and in addition to the Committee on Agriculture, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the Committee on Natural Resources, and in addition to the Committee on Agriculture, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/11002",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To prohibit the construction of data centers on Federal land, and for other purposes.",
+    "short_title": "To prohibit the construction of data centers on Federal land, and for other purposes."
+  },
+  {
+    "bill_number": "11000",
+    "bill_type": "HR",
+    "title": "To amend title 38, United States Code, to promote the establishment of veterans cemeteries, and for other purposes.",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on Veterans' Affairs.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on Veterans' Affairs.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/11000",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To amend title 38, United States Code, to promote the establishment of veterans cemeteries, and for other purposes.",
+    "short_title": "To amend title 38, United States Code, to promote the establishment of veterans cemeteries, and for other purposes."
+  },
+  {
+    "bill_number": "11001",
+    "bill_type": "HR",
+    "title": "To require the United States Postal Service to notify postal customers and certain officials if a post office in a leased facility is at risk of closure and seek to relocate such post office to a new facility within the same ZIP code, and for other purposes.",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on Oversight and Government Reform.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/11001",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To require the United States Postal Service to notify postal customers and certain officials if a post office in a leased facility is at risk of closure and seek to relocate such post office to a new facility within the same ZIP code, and for other purposes.",
+    "short_title": "To require the United States Postal Service to notify postal customers and certain officials if a post office in a leased facility is at risk of closure and seek to relocate such post office to a new facility within the same ZIP code, and for other purposes."
+  },
+  {
+    "bill_number": "11006",
+    "bill_type": "HR",
+    "title": "Sergeant Sam Wybenga Housing Fairness for Veteran Families Act",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on Veterans' Affairs.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on Veterans' Affairs.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/11006",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "To direct the Secretary of Veterans Affairs to establish a program to provide grants to certain surviving spouses of veterans to pay for housing.",
+    "short_title": "Sergeant Sam Wybenga Housing Fairness for Veteran Families Act"
+  },
+  {
+    "bill_number": "956",
+    "bill_type": "SRES",
+    "title": "A resolution honoring the service and sacrifice of the veterans of the United States on Veterans Day, 2026.",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/senate-resolution/956",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "A resolution honoring the service and sacrifice of the veterans of the United States on Veterans Day, 2026.",
+    "short_title": "A resolution honoring the service and sacrifice of the veterans of the United States on Veterans Day, 2026."
+  },
+  {
+    "bill_number": "957",
+    "bill_type": "SRES",
+    "title": "A resolution expressing support for the designation of November 15, 2026, as \"National Warrior Call Day\" and recognizing the importance of connecting members of the Armed Forces and veterans in the United States to support structures necessary to transition from the battlefield, especially peer-to-peer connection.",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/senate-resolution/957",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "A resolution expressing support for the designation of November 15, 2026, as \"National Warrior Call Day\" and recognizing the importance of connecting members of the Armed Forces and veterans in the United States to support structures necessary to transition from the battlefield, especially peer-to-peer connection.",
+    "short_title": "A resolution expressing support for the designation of November 15, 2026, as \"National Warrior Call Day\" and recognizing the importance of connecting members of the Armed Forces and veterans in the United States to support structures necessary to transition from the battlefield, especially peer-to-peer connection."
+  },
+  {
+    "bill_number": "958",
+    "bill_type": "SRES",
+    "title": "A resolution recognizing the week of November 9 through November 13, 2026, as \"National Veterans Small Business Week\".",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/senate-resolution/958",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "A resolution recognizing the week of November 9 through November 13, 2026, as \"National Veterans Small Business Week\".",
+    "short_title": "A resolution recognizing the week of November 9 through November 13, 2026, as \"National Veterans Small Business Week\"."
+  },
+  {
+    "bill_number": "5716",
+    "bill_type": "S",
+    "title": "A bill to amend the Homeland Security Act of 2002 and titles 10 and 32, United States Code, to authorize the National Guard to protect certain facilities and assets from unmanned aircraft, and for other purposes.",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Read twice and referred to the Committee on Armed Services.",
+    "latest_action_date": "2026-11-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Read twice and referred to the Committee on Armed Services.",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/senate-bill/5716",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-12T13:15:00.712471+00:00",
+    "official_title": "A bill to amend the Homeland Security Act of 2002 and titles 10 and 32, United States Code, to authorize the National Guard to protect certain facilities and assets from unmanned aircraft, and for other purposes.",
+    "short_title": "A bill to amend the Homeland Security Act of 2002 and titles 10 and 32, United States Code, to authorize the National Guard to protect certain facilities and assets from unmanned aircraft, and for other purposes."
   },
   {
     "bill_number": "3978",
@@ -808,211 +2885,6 @@
     "last_synced_at": "2026-11-11T12:21:18.147405+00:00",
     "official_title": "To update the role of the Advisory Committee on Reactor Safeguards in the licensing and oversight of nuclear reactor facilities, and for other purposes.",
     "short_title": "Nuclear Advisory Committee Reform Act"
-  },
-  {
-    "bill_number": "8552",
-    "bill_type": "HR",
-    "title": "Veterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026",
-    "summary": "",
-    "sponsor_name": "",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "latest_action": "Received in the Senate.",
-    "latest_action_date": "2026-11-10T00:00:00",
-    "actions": [
-      {
-        "text": "Received in the Senate.",
-        "actionDate": "2026-11-10",
-        "type": "IntroReferral"
-      },
-      {
-        "text": "Motion to reconsider laid on the table Agreed to without objection.",
-        "actionDate": "2026-11-09",
-        "type": "Floor",
-        "actionTime": "16:40:06",
-        "actionCode": "H38310"
-      },
-      {
-        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H6105-6106)",
-        "actionDate": "2026-11-09",
-        "type": "Floor",
-        "actionTime": "16:40:01",
-        "actionCode": "H37300"
-      },
-      {
-        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H6105-6106)",
-        "actionDate": "2026-11-09",
-        "type": "Floor",
-        "actionTime": "16:40:01",
-        "actionCode": "8000"
-      },
-      {
-        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 8552.",
-        "actionDate": "2026-11-09",
-        "type": "Floor",
-        "actionTime": "16:28:57",
-        "actionCode": "H8D000"
-      },
-      {
-        "text": "Considered under suspension of the rules. (consideration: CR H6105-6107)",
-        "actionDate": "2026-11-09",
-        "type": "Floor",
-        "actionTime": "16:28:55",
-        "actionCode": "H30000"
-      },
-      {
-        "text": "Mr. Hamadeh (AZ) moved to suspend the rules and pass the bill.",
-        "actionDate": "2026-11-09",
-        "type": "Floor",
-        "actionTime": "16:28:42",
-        "actionCode": "H30300"
-      },
-      {
-        "text": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
-        "actionDate": "2026-06-30",
-        "type": "Committee",
-        "actionCode": "H23000"
-      },
-      {
-        "text": "Subcommittee Consideration and Mark-up Session Held",
-        "actionDate": "2026-06-30",
-        "type": "Committee",
-        "actionCode": "H22000"
-      },
-      {
-        "text": "Subcommittee Hearings Held",
-        "actionDate": "2026-06-25",
-        "type": "Committee",
-        "actionCode": "H21000"
-      },
-      {
-        "text": "Referred to the Subcommittee on Disability Assistance and Memorial Affairs.",
-        "actionDate": "2026-06-22",
-        "type": "Committee",
-        "actionCode": "H11000"
-      },
-      {
-        "text": "Referred to the House Committee on Veterans' Affairs.",
-        "actionDate": "2026-04-28",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-04-28",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-04-28",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Received in the Senate.",
-    "votes": [],
-    "introduced_date": "2026-04-28T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8552",
-    "published": "2026-04-28T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-11-11T12:21:18.147405+00:00",
-    "official_title": "To increase, effective as of December 1, 2026, the rates of compensation for veterans with service-connected disabilities and the rates of dependency and indemnity compensation for the survivors of certain disabled veterans, and for other purposes.",
-    "short_title": "Veterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026"
-  },
-  {
-    "bill_number": "1013",
-    "bill_type": "HR",
-    "title": "Retirement Fairness for Charities and Educational Institutions Act of 2025",
-    "summary": "",
-    "sponsor_name": "",
-    "latest_action": "Rule H. Res. 1650 passed House.",
-    "latest_action_date": "2026-11-10T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/1013",
-    "published": "2025-02-05T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "official_title": "To amend the Federal securities laws to enhance 403(b) plans, and for other purposes.",
-    "short_title": "Retirement Fairness for Charities and Educational Institutions Act of 2025",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "actions": [
-      {
-        "text": "Rule H. Res. 1650 passed House.",
-        "actionDate": "2026-11-10",
-        "type": "Floor",
-        "actionTime": "18:20:54",
-        "actionCode": "H1L220"
-      },
-      {
-        "text": "Rules Committee Resolution H. Res. 1650 Reported to House. Rule provides for consideration of H.R. 1013 with 1 hour of general debate. Previous question shall be considered as ordered except motion to recommit. Bill is closed to amendments.",
-        "actionDate": "2026-11-09",
-        "type": "Floor",
-        "actionTime": "17:18:35",
-        "actionCode": "H1L210"
-      },
-      {
-        "text": "Placed on the Union Calendar, Calendar No. 340.",
-        "actionDate": "2025-11-28",
-        "type": "Calendars",
-        "actionCode": "H12410"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Financial Services. H. Rept. 119-390.",
-        "actionDate": "2025-11-28",
-        "type": "Committee",
-        "actionCode": "H12200"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Financial Services. H. Rept. 119-390.",
-        "actionDate": "2025-11-28",
-        "type": "Committee",
-        "actionCode": "5000"
-      },
-      {
-        "text": "Ordered to be Reported (Amended) by the Yeas and Nays: 43 - 8.",
-        "actionDate": "2025-05-20",
-        "type": "Committee",
-        "actionCode": "H19000"
-      },
-      {
-        "text": "Committee Consideration and Mark-up Session Held",
-        "actionDate": "2025-05-20",
-        "type": "Committee",
-        "actionCode": "H15001"
-      },
-      {
-        "text": "Referred to the House Committee on Financial Services.",
-        "actionDate": "2025-02-05",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2025-02-05",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2025-02-05",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Rule H. Res. 1650 passed House.",
-    "votes": [],
-    "introduced_date": "2025-02-05T00:00:00",
-    "last_synced_at": "2026-11-11T12:21:18.147405+00:00"
   },
   {
     "bill_number": "1650",
@@ -5011,224 +6883,6 @@
     "short_title": "A bill to amend the Internal Revenue Code of 1986 to eliminate duplicative and misguided enforcement units of the Internal Revenue Service."
   },
   {
-    "bill_number": "5549",
-    "bill_type": "HR",
-    "title": "Efficient Nuclear Licensing Hearings Act",
-    "summary": "",
-    "sponsor_name": "",
-    "latest_action": "At the conclusion of debate, the chair put the question on the motion to suspend the rules. Mr. Latta objected to the vote on the grounds that a quorum was not present. Further proceedings on the motion were postponed. The point of no quorum was considered as withdrawn.",
-    "latest_action_date": "2026-11-09T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/5549",
-    "published": "2025-09-23T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "official_title": "To amend the Atomic Energy Act of 1954 to provide for more efficient hearings on nuclear facility construction applications, and for other purposes.",
-    "short_title": "Efficient Nuclear Licensing Hearings Act",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "actions": [
-      {
-        "text": "At the conclusion of debate, the chair put the question on the motion to suspend the rules. Mr. Latta objected to the vote on the grounds that a quorum was not present. Further proceedings on the motion were postponed. The point of no quorum was considered as withdrawn.",
-        "actionDate": "2026-11-09",
-        "type": "Floor",
-        "actionTime": "15:41:38",
-        "actionCode": "H37210"
-      },
-      {
-        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 5549.",
-        "actionDate": "2026-11-09",
-        "type": "Floor",
-        "actionTime": "15:28:53",
-        "actionCode": "H8D000"
-      },
-      {
-        "text": "Considered under suspension of the rules. (consideration: CR H6097-6099; text: CR H6097)",
-        "actionDate": "2026-11-09",
-        "type": "Floor",
-        "actionTime": "15:28:51",
-        "actionCode": "H30000"
-      },
-      {
-        "text": "Mr. Latta moved to suspend the rules and pass the bill.",
-        "actionDate": "2026-11-09",
-        "type": "Floor",
-        "actionTime": "15:28:42",
-        "actionCode": "H30300"
-      },
-      {
-        "text": "Placed on the Union Calendar, Calendar No. 769.",
-        "actionDate": "2026-11-05",
-        "type": "Calendars",
-        "actionCode": "H12410"
-      },
-      {
-        "text": "Reported by the Committee on Energy and Commerce. H. Rept. 119-872.",
-        "actionDate": "2026-11-05",
-        "type": "Committee",
-        "actionCode": "H12200"
-      },
-      {
-        "text": "Reported by the Committee on Energy and Commerce. H. Rept. 119-872.",
-        "actionDate": "2026-11-05",
-        "type": "Committee",
-        "actionCode": "5000"
-      },
-      {
-        "text": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
-        "actionDate": "2026-07-14",
-        "type": "Committee",
-        "actionCode": "H23000"
-      },
-      {
-        "text": "Subcommittee Consideration and Mark-up Session Held",
-        "actionDate": "2026-07-14",
-        "type": "Committee",
-        "actionCode": "H22000"
-      },
-      {
-        "text": "Referred to the Subcommittee on Energy.",
-        "actionDate": "2025-09-23",
-        "type": "Committee",
-        "actionCode": "H11000"
-      },
-      {
-        "text": "Referred to the House Committee on Energy and Commerce.",
-        "actionDate": "2025-09-23",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2025-09-23",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2025-09-23",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "At the conclusion of debate, the chair put the question on the motion to suspend the rules. Mr. Latta objected to the vote on the grounds that a quorum was not present. Further proceedings on the motion were postponed. The point of no quorum was considered as withdrawn.",
-    "votes": [],
-    "introduced_date": "2025-09-23T00:00:00",
-    "last_synced_at": "2026-11-10T23:48:17.483644+00:00"
-  },
-  {
-    "bill_number": "9084",
-    "bill_type": "HR",
-    "title": "Department of Energy Nuclear Transparency Act",
-    "summary": "",
-    "sponsor_name": "",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "latest_action": "At the conclusion of debate, the chair put the question on the motion to suspend the rules. Mr. Latta objected to the vote on the grounds that a quorum was not present. Further proceedings on the motion were postponed. The point of no quorum was considered as withdrawn.",
-    "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [
-      {
-        "text": "At the conclusion of debate, the chair put the question on the motion to suspend the rules. Mr. Latta objected to the vote on the grounds that a quorum was not present. Further proceedings on the motion were postponed. The point of no quorum was considered as withdrawn.",
-        "actionDate": "2026-11-09",
-        "type": "Floor",
-        "actionTime": "15:53:01",
-        "actionCode": "H37210"
-      },
-      {
-        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 9084.",
-        "actionDate": "2026-11-09",
-        "type": "Floor",
-        "actionTime": "15:42:01",
-        "actionCode": "H8D000"
-      },
-      {
-        "text": "Considered under suspension of the rules. (consideration: CR H6099-6100; text: CR H6099)",
-        "actionDate": "2026-11-09",
-        "type": "Floor",
-        "actionTime": "15:42:00",
-        "actionCode": "H30000"
-      },
-      {
-        "text": "Mr. Latta moved to suspend the rules and pass the bill, as amended.",
-        "actionDate": "2026-11-09",
-        "type": "Floor",
-        "actionTime": "15:41:49",
-        "actionCode": "H30300"
-      },
-      {
-        "text": "Placed on the Union Calendar, Calendar No. 771.",
-        "actionDate": "2026-11-05",
-        "type": "Calendars",
-        "actionCode": "H12410"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Energy and Commerce. H. Rept. 119-874.",
-        "actionDate": "2026-11-05",
-        "type": "Committee",
-        "actionCode": "H12200"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Energy and Commerce. H. Rept. 119-874.",
-        "actionDate": "2026-11-05",
-        "type": "Committee",
-        "actionCode": "5000"
-      },
-      {
-        "text": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
-        "actionDate": "2026-07-14",
-        "type": "Committee",
-        "actionCode": "H23000"
-      },
-      {
-        "text": "Subcommittee Consideration and Mark-up Session Held",
-        "actionDate": "2026-07-14",
-        "type": "Committee",
-        "actionCode": "H22000"
-      },
-      {
-        "text": "Referred to the Subcommittee on Energy.",
-        "actionDate": "2026-06-02",
-        "type": "Committee",
-        "actionCode": "H11000"
-      },
-      {
-        "text": "Referred to the House Committee on Energy and Commerce.",
-        "actionDate": "2026-06-02",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-06-02",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-06-02",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "At the conclusion of debate, the chair put the question on the motion to suspend the rules. Mr. Latta objected to the vote on the grounds that a quorum was not present. Further proceedings on the motion were postponed. The point of no quorum was considered as withdrawn.",
-    "votes": [],
-    "introduced_date": "2026-06-02T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9084",
-    "published": "2026-06-02T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-11-10T23:48:17.483644+00:00",
-    "official_title": "To increase transparency relating to the Department of Energy's authorizations of certain nuclear facilities.",
-    "short_title": "Department of Energy Nuclear Transparency Act"
-  },
-  {
     "bill_number": "1703",
     "bill_type": "HR",
     "title": "Choices for Increased Mobility Act of 2026",
@@ -5681,70 +7335,6 @@
     "last_synced_at": "2026-11-10T23:48:17.483644+00:00",
     "official_title": "Providing for consideration of the bill (H.R. 9899) to designate Afghanistan under section 244 of the Immigration and Nationality Act to permit nationals of Afghanistan to be eligible for temporary protected status under such section, and for other purposes.",
     "short_title": "Providing for consideration of the bill (H.R. 9899) to designate Afghanistan under section 244 of the Immigration and Nationality Act to permit nationals of Afghanistan to be eligible for temporary protected status under such section, and for other purposes."
-  },
-  {
-    "bill_number": "1247",
-    "bill_type": "HRES",
-    "title": "Providing for consideration of the bill (H.R. 2102) to amend title 10, United States Code, to provide for concurrent receipt of veterans' disability compensation and retired pay for disability retirees with combat-related disabilities, and for other purposes.",
-    "summary": "",
-    "sponsor_name": "",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "latest_action": "NOTIFICATION OF INTENT TO OFFER MOTION TO DISCHARGE - Mr. Takano notified the House of his intent to offer a motion to discharge the Committee on Rules from further consideration of H. Res. 1247 pursuant to clause 2(c) of rule XV. The Chair announced that the House will entertain the gentleman's motion within two legislative days.",
-    "latest_action_date": "2026-11-09T00:00:00",
-    "actions": [
-      {
-        "text": "NOTIFICATION OF INTENT TO OFFER MOTION TO DISCHARGE - Mr. Takano notified the House of his intent to offer a motion to discharge the Committee on Rules from further consideration of H. Res. 1247 pursuant to clause 2(c) of rule XV. The Chair announced that the House will entertain the gentleman's motion within two legislative days.",
-        "actionDate": "2026-11-09",
-        "type": "Floor",
-        "actionTime": "14:03:49",
-        "actionCode": "H8D000"
-      },
-      {
-        "text": "Motion to discharge the Committee on Rules filed by Mr. Takano. Assigned to the Discharge Calendar, Calendar No. 8.",
-        "actionDate": "2026-09-15",
-        "type": "Discharge",
-        "actionCode": "H12450"
-      },
-      {
-        "text": "Motion to Discharge Committee filed by Mr. Takano. Petition No: 119-22. (<a href=\"https://clerk.house.gov/DischargePetition/2026052122\">Discharge petition</a> text with signatures.)",
-        "actionDate": "2026-05-21",
-        "type": "Discharge",
-        "actionCode": "H17000"
-      },
-      {
-        "text": "Referred to the House Committee on Rules.",
-        "actionDate": "2026-04-30",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Submitted in House",
-        "actionDate": "2026-04-30",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Submitted in House",
-        "actionDate": "2026-04-30",
-        "type": "IntroReferral",
-        "actionCode": "1025"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "NOTIFICATION OF INTENT TO OFFER MOTION TO DISCHARGE - Mr. Takano notified the House of his intent to offer a motion to discharge the Committee on Rules from further consideration of H. Res. 1247 pursuant to clause 2(c) of rule XV. The Chair announced that the House will entertain the gentleman's motion within two legislative days.",
-    "votes": [],
-    "introduced_date": "2026-04-30T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-resolution/1247",
-    "published": "2026-04-30T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-11-10T23:48:17.483644+00:00",
-    "official_title": "Providing for consideration of the bill (H.R. 2102) to amend title 10, United States Code, to provide for concurrent receipt of veterans' disability compensation and retired pay for disability retirees with combat-related disabilities, and for other purposes.",
-    "short_title": "Providing for consideration of the bill (H.R. 2102) to amend title 10, United States Code, to provide for concurrent receipt of veterans' disability compensation and retired pay for disability retirees with combat-related disabilities, and for other purposes."
   },
   {
     "bill_number": "1654",
@@ -22150,81 +23740,6 @@
     "short_title": "To require the Secretary of the Army to place in Arlington National Cemetery a monument honoring the crew members of Zeus 95 who were killed in action on March 12, 2026, in support of Operation Epic Fury, and for other purposes."
   },
   {
-    "bill_number": "10238",
-    "bill_type": "HR",
-    "title": "Cybersecurity for Small Businesses Act of 2026",
-    "summary": "",
-    "sponsor_name": "",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "latest_action": "Placed on the Union Calendar, Calendar No. 748.",
-    "latest_action_date": "2026-10-13T00:00:00",
-    "actions": [
-      {
-        "text": "Placed on the Union Calendar, Calendar No. 748.",
-        "actionDate": "2026-10-13",
-        "type": "Calendars",
-        "actionCode": "H12410"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Small Business. H. Rept. 119-851.",
-        "actionDate": "2026-10-13",
-        "type": "Committee",
-        "actionCode": "H12200"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Small Business. H. Rept. 119-851.",
-        "actionDate": "2026-10-13",
-        "type": "Committee",
-        "actionCode": "5000"
-      },
-      {
-        "text": "Ordered to be Reported in the Nature of a Substitute by the Yeas and Nays: 23 - 0.",
-        "actionDate": "2026-09-16",
-        "type": "Committee",
-        "actionCode": "H19000"
-      },
-      {
-        "text": "Committee Consideration and Mark-up Session Held",
-        "actionDate": "2026-09-16",
-        "type": "Committee",
-        "actionCode": "H15001"
-      },
-      {
-        "text": "Referred to the House Committee on Small Business.",
-        "actionDate": "2026-09-02",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-09-02",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-09-02",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Placed on the Union Calendar, Calendar No. 748.",
-    "votes": [],
-    "introduced_date": "2026-09-02T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/10238",
-    "published": "2026-09-02T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-10-14T10:31:10.389624+00:00",
-    "official_title": "To require the Administrator of the Small Business Administration to disseminate to small business concerns certain information and resources relating to cybersecurity matters, and for other purposes.",
-    "short_title": "To require the Administrator of the Small Business Administration to disseminate to small business concerns certain information and resources relating to cybersecurity matters, and for other purposes."
-  },
-  {
     "bill_number": "10797",
     "bill_type": "HR",
     "title": "Aerial Transport and High Consequence Infectious Diseases Act",
@@ -23071,81 +24586,6 @@
     "short_title": "Make Data Centers Pay Act"
   },
   {
-    "bill_number": "10375",
-    "bill_type": "HR",
-    "title": "504 Modernization and Small Manufacturer Enhancement Act of 2026",
-    "summary": "",
-    "sponsor_name": "",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "latest_action": "Placed on the Union Calendar, Calendar No. 745.",
-    "latest_action_date": "2026-10-09T00:00:00",
-    "actions": [
-      {
-        "text": "Placed on the Union Calendar, Calendar No. 745.",
-        "actionDate": "2026-10-09",
-        "type": "Calendars",
-        "actionCode": "H12410"
-      },
-      {
-        "text": "Reported by the Committee on Small Business. H. Rept. 119-848.",
-        "actionDate": "2026-10-09",
-        "type": "Committee",
-        "actionCode": "H12200"
-      },
-      {
-        "text": "Reported by the Committee on Small Business. H. Rept. 119-848.",
-        "actionDate": "2026-10-09",
-        "type": "Committee",
-        "actionCode": "5000"
-      },
-      {
-        "text": "Ordered to be Reported by the Yeas and Nays: 23 - 0.",
-        "actionDate": "2026-09-16",
-        "type": "Committee",
-        "actionCode": "H19000"
-      },
-      {
-        "text": "Committee Consideration and Mark-up Session Held",
-        "actionDate": "2026-09-16",
-        "type": "Committee",
-        "actionCode": "H15001"
-      },
-      {
-        "text": "Referred to the House Committee on Small Business.",
-        "actionDate": "2026-09-14",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-09-14",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-09-14",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Placed on the Union Calendar, Calendar No. 745.",
-    "votes": [],
-    "introduced_date": "2026-09-14T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/10375",
-    "published": "2026-09-14T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-10-10T11:37:30.514071+00:00",
-    "official_title": "To amend the Small Business Investment Act of 1958 to improve the loan guaranty program, enhance the ability of small manufacturers to access affordable capital, and for other purposes.",
-    "short_title": "To amend the Small Business Investment Act of 1958 to improve the loan guaranty program, enhance the ability of small manufacturers to access affordable capital, and for other purposes."
-  },
-  {
     "bill_number": "10352",
     "bill_type": "HR",
     "title": "504 Program Level Flexibility Act",
@@ -23219,381 +24659,6 @@
     "last_synced_at": "2026-10-10T11:37:30.514071+00:00",
     "official_title": "To amend the Small Business Investment Act of 1958 to allow the Administrator of the Small Business Administration the authority to increase amount of commitments to qualified State or local development companies, and for other purposes.",
     "short_title": "504 Program Level Flexibility Act"
-  },
-  {
-    "bill_number": "10355",
-    "bill_type": "HR",
-    "title": "Disaster Loan Outreach Consistency Act",
-    "summary": "",
-    "sponsor_name": "",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "latest_action": "Placed on the Union Calendar, Calendar No. 743.",
-    "latest_action_date": "2026-10-09T00:00:00",
-    "actions": [
-      {
-        "text": "Placed on the Union Calendar, Calendar No. 743.",
-        "actionDate": "2026-10-09",
-        "type": "Calendars",
-        "actionCode": "H12410"
-      },
-      {
-        "text": "Reported by the Committee on Small Business. H. Rept. 119-846.",
-        "actionDate": "2026-10-09",
-        "type": "Committee",
-        "actionCode": "H12200"
-      },
-      {
-        "text": "Reported by the Committee on Small Business. H. Rept. 119-846.",
-        "actionDate": "2026-10-09",
-        "type": "Committee",
-        "actionCode": "5000"
-      },
-      {
-        "text": "Ordered to be Reported by the Yeas and Nays: 23 - 0.",
-        "actionDate": "2026-09-16",
-        "type": "Committee",
-        "actionCode": "H19000"
-      },
-      {
-        "text": "Committee Consideration and Mark-up Session Held",
-        "actionDate": "2026-09-16",
-        "type": "Committee",
-        "actionCode": "H15001"
-      },
-      {
-        "text": "Referred to the House Committee on Small Business.",
-        "actionDate": "2026-09-14",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-09-14",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-09-14",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Placed on the Union Calendar, Calendar No. 743.",
-    "votes": [],
-    "introduced_date": "2026-09-14T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/10355",
-    "published": "2026-09-14T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-10-10T11:37:30.514071+00:00",
-    "official_title": "To require the Administrator of the Small Business Administration to establish procedures for consistency of certain disaster loan outreach materials, and for other purposes.",
-    "short_title": "Disaster Loan Outreach Consistency Act"
-  },
-  {
-    "bill_number": "10353",
-    "bill_type": "HR",
-    "title": "SBIC Reporting Modernization Act of 2026",
-    "summary": "",
-    "sponsor_name": "",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "latest_action": "Placed on the Union Calendar, Calendar No. 742.",
-    "latest_action_date": "2026-10-09T00:00:00",
-    "actions": [
-      {
-        "text": "Placed on the Union Calendar, Calendar No. 742.",
-        "actionDate": "2026-10-09",
-        "type": "Calendars",
-        "actionCode": "H12410"
-      },
-      {
-        "text": "Reported by the Committee on Small Business. H. Rept. 119-845.",
-        "actionDate": "2026-10-09",
-        "type": "Committee",
-        "actionCode": "H12200"
-      },
-      {
-        "text": "Reported by the Committee on Small Business. H. Rept. 119-845.",
-        "actionDate": "2026-10-09",
-        "type": "Committee",
-        "actionCode": "5000"
-      },
-      {
-        "text": "Ordered to be Reported by the Yeas and Nays: 23 - 0.",
-        "actionDate": "2026-09-16",
-        "type": "Committee",
-        "actionCode": "H19000"
-      },
-      {
-        "text": "Committee Consideration and Mark-up Session Held",
-        "actionDate": "2026-09-16",
-        "type": "Committee",
-        "actionCode": "H15001"
-      },
-      {
-        "text": "Referred to the House Committee on Small Business.",
-        "actionDate": "2026-09-14",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-09-14",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-09-14",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Placed on the Union Calendar, Calendar No. 742.",
-    "votes": [],
-    "introduced_date": "2026-09-14T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/10353",
-    "published": "2026-09-14T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-10-10T11:37:30.514071+00:00",
-    "official_title": "To amend the Small Business Investment Act of 1958 to require a quarterly report on small business investment companies, and for other purposes.",
-    "short_title": "SBIC Reporting Modernization Act of 2026"
-  },
-  {
-    "bill_number": "10371",
-    "bill_type": "HR",
-    "title": "Ensuring SBA Implementation of GAO Recommendations Act of 2026",
-    "summary": "",
-    "sponsor_name": "",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "latest_action": "Placed on the Union Calendar, Calendar No. 744.",
-    "latest_action_date": "2026-10-09T00:00:00",
-    "actions": [
-      {
-        "text": "Placed on the Union Calendar, Calendar No. 744.",
-        "actionDate": "2026-10-09",
-        "type": "Calendars",
-        "actionCode": "H12410"
-      },
-      {
-        "text": "Reported by the Committee on Small Business. H. Rept. 119-847.",
-        "actionDate": "2026-10-09",
-        "type": "Committee",
-        "actionCode": "H12200"
-      },
-      {
-        "text": "Reported by the Committee on Small Business. H. Rept. 119-847.",
-        "actionDate": "2026-10-09",
-        "type": "Committee",
-        "actionCode": "5000"
-      },
-      {
-        "text": "Ordered to be Reported by the Yeas and Nays: 22 - 0.",
-        "actionDate": "2026-09-16",
-        "type": "Committee",
-        "actionCode": "H19000"
-      },
-      {
-        "text": "Committee Consideration and Mark-up Session Held",
-        "actionDate": "2026-09-16",
-        "type": "Committee",
-        "actionCode": "H15001"
-      },
-      {
-        "text": "Referred to the House Committee on Small Business.",
-        "actionDate": "2026-09-14",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-09-14",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-09-14",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Placed on the Union Calendar, Calendar No. 744.",
-    "votes": [],
-    "introduced_date": "2026-09-14T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/10371",
-    "published": "2026-09-14T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-10-10T11:37:30.514071+00:00",
-    "official_title": "To direct the Associate Administrator for Veterans Business Development of the Small Business Administration to ensure compliance with certain reporting requirements, and for other purposes.",
-    "short_title": "To direct the Associate Administrator for Veterans Business Development of the Small Business Administration to ensure compliance with certain reporting requirements, and for other purposes."
-  },
-  {
-    "bill_number": "10329",
-    "bill_type": "HR",
-    "title": "Combating Foreign Threats to Main Street Act of 2026",
-    "summary": "",
-    "sponsor_name": "",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "latest_action": "Placed on the Union Calendar, Calendar No. 741.",
-    "latest_action_date": "2026-10-09T00:00:00",
-    "actions": [
-      {
-        "text": "Placed on the Union Calendar, Calendar No. 741.",
-        "actionDate": "2026-10-09",
-        "type": "Calendars",
-        "actionCode": "H12410"
-      },
-      {
-        "text": "Reported by the Committee on Small Business. H. Rept. 119-844.",
-        "actionDate": "2026-10-09",
-        "type": "Committee",
-        "actionCode": "H12200"
-      },
-      {
-        "text": "Reported by the Committee on Small Business. H. Rept. 119-844.",
-        "actionDate": "2026-10-09",
-        "type": "Committee",
-        "actionCode": "5000"
-      },
-      {
-        "text": "Ordered to be Reported by the Yeas and Nays: 22 - 0.",
-        "actionDate": "2026-09-16",
-        "type": "Committee",
-        "actionCode": "H19000"
-      },
-      {
-        "text": "Committee Consideration and Mark-up Session Held",
-        "actionDate": "2026-09-16",
-        "type": "Committee",
-        "actionCode": "H15001"
-      },
-      {
-        "text": "Referred to the House Committee on Small Business.",
-        "actionDate": "2026-09-10",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-09-10",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-09-10",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Placed on the Union Calendar, Calendar No. 741.",
-    "votes": [],
-    "introduced_date": "2026-09-10T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/10329",
-    "published": "2026-09-10T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-10-10T11:37:30.514071+00:00",
-    "official_title": "To require the Administrator of the Small Business Administration to disseminate information on foreign adversary conduct that poses material harm to small business concerns, and for other purposes.",
-    "short_title": "To require the Administrator of the Small Business Administration to disseminate information on foreign adversary conduct that poses material harm to small business concerns, and for other purposes."
-  },
-  {
-    "bill_number": "9718",
-    "bill_type": "HR",
-    "title": "Reshoring American Manufacturing Act of 2026",
-    "summary": "",
-    "sponsor_name": "",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "latest_action": "Placed on the Union Calendar, Calendar No. 740.",
-    "latest_action_date": "2026-10-09T00:00:00",
-    "actions": [
-      {
-        "text": "Placed on the Union Calendar, Calendar No. 740.",
-        "actionDate": "2026-10-09",
-        "type": "Calendars",
-        "actionCode": "H12410"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Small Business. H. Rept. 119-843.",
-        "actionDate": "2026-10-09",
-        "type": "Committee",
-        "actionCode": "H12200"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Small Business. H. Rept. 119-843.",
-        "actionDate": "2026-10-09",
-        "type": "Committee",
-        "actionCode": "5000"
-      },
-      {
-        "text": "Ordered to be Reported in the Nature of a Substitute by the Yeas and Nays: 23 - 0.",
-        "actionDate": "2026-09-16",
-        "type": "Committee",
-        "actionCode": "H19000"
-      },
-      {
-        "text": "Committee Consideration and Mark-up Session Held",
-        "actionDate": "2026-09-16",
-        "type": "Committee",
-        "actionCode": "H15001"
-      },
-      {
-        "text": "Referred to the House Committee on Small Business.",
-        "actionDate": "2026-07-15",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-07-15",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-07-15",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Placed on the Union Calendar, Calendar No. 740.",
-    "votes": [],
-    "introduced_date": "2026-07-15T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9718",
-    "published": "2026-07-15T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-10-10T11:37:30.514071+00:00",
-    "official_title": "To require the Administrator of the Small Business Administration to maintain a website for small business concerns relating to onshoring manufacturing capacity, and for other purposes.",
-    "short_title": "Reshoring American Manufacturing Act of 2026"
   },
   {
     "bill_number": "4615",
@@ -103718,57 +104783,6 @@
     "last_synced_at": "2026-09-03T09:56:38.687356+00:00"
   },
   {
-    "bill_number": "1430",
-    "bill_type": "HRES",
-    "title": "Providing for consideration of the bill (H.R.185) to advance responsible policies.",
-    "summary": "",
-    "sponsor_name": "",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "latest_action": "Motion to Discharge Committee filed by Mr. Massie. Petition No: 119-27.",
-    "latest_action_date": "2026-08-31T00:00:00",
-    "actions": [
-      {
-        "text": "Motion to Discharge Committee filed by Mr. Massie. Petition No: 119-27. (<a href=\"https://clerk.house.gov/DischargePetition/2026083127\">Discharge petition</a> text with signatures.)",
-        "actionDate": "2026-08-31",
-        "type": "Discharge",
-        "actionCode": "H17000"
-      },
-      {
-        "text": "Referred to the House Committee on Rules.",
-        "actionDate": "2026-07-15",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Submitted in House",
-        "actionDate": "2026-07-15",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Submitted in House",
-        "actionDate": "2026-07-15",
-        "type": "IntroReferral",
-        "actionCode": "1025"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Motion to Discharge Committee filed by Mr. Massie. Petition No: 119-27.",
-    "votes": [],
-    "introduced_date": "2026-07-15T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-resolution/1430",
-    "published": "2026-07-15T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-09-01T10:41:43.056488+00:00",
-    "official_title": "Providing for consideration of the bill (H.R.185) to advance responsible policies.",
-    "short_title": "Providing for consideration of the bill (H.R.185) to advance responsible policies."
-  },
-  {
     "bill_number": "10197",
     "bill_type": "HR",
     "title": "To improve the security of nucleic acid synthesis in interstate and foreign commerce, and for other purposes.",
@@ -142026,164 +143040,6 @@
     "last_synced_at": "2026-07-18T02:20:25.008096+00:00",
     "official_title": "To name the District of Columbia tuition assistance grant program the \"Eleanor Holmes Norton District of Columbia Tuition Assistance Grant Program\".",
     "short_title": "To name the District of Columbia tuition assistance grant program the \"Eleanor Holmes Norton District of Columbia Tuition Assistance Grant Program\"."
-  },
-  {
-    "bill_number": "9237",
-    "bill_type": "HR",
-    "title": "Take Care of America\u2019s Veterans Act",
-    "summary": "",
-    "sponsor_name": "Rep. Bost, Mike [R-IL-12]",
-    "sponsor_party": "R",
-    "sponsor_state": "IL",
-    "sponsor_district": 12,
-    "cosponsors": [],
-    "latest_action": "POSTPONED PROCEEDINGS - Pursuant to clause 1(c) of rule XIX, the Chair announced further proceedings on H.R. 9237 is postponed.",
-    "latest_action_date": "2026-07-16T00:00:00",
-    "actions": [
-      {
-        "text": "POSTPONED PROCEEDINGS - Pursuant to clause 1(c) of rule XIX, the Chair announced further proceedings on H.R. 9237 is postponed.",
-        "actionDate": "2026-07-16",
-        "type": "Floor",
-        "actionTime": "11:16:45",
-        "actionCode": "H8D000"
-      },
-      {
-        "text": "On motion to recommit Failed by the Yeas and Nays: 210 - 211 (Roll no. 249).",
-        "actionDate": "2026-07-16",
-        "type": "Floor",
-        "actionTime": "11:16:29",
-        "actionCode": "H36210",
-        "recordedVotes": [
-          {
-            "chamber": "House",
-            "congress": 119,
-            "date": "2026-07-16T15:16:29Z",
-            "rollNumber": 249,
-            "sessionNumber": 2,
-            "url": "https://clerk.house.gov/evs/2026/roll249.xml"
-          }
-        ]
-      },
-      {
-        "text": "Considered as unfinished business. (consideration: CR H4614-4615)",
-        "actionDate": "2026-07-16",
-        "type": "Floor",
-        "actionTime": "10:51:22",
-        "actionCode": "H30000"
-      },
-      {
-        "text": "POSTPONED PROCEEDINGS - At the conclusion of debate on H.R. 9237, the Chair put the question on motion to recommit and by voice vote, announced the noes had prevailed. Mr. Deluzio demanded the yeas and nays and the Chair postponed further proceedings until a time to be announced.",
-        "actionDate": "2026-07-16",
-        "type": "Floor",
-        "actionTime": "10:16:38",
-        "actionCode": "H8D000"
-      },
-      {
-        "text": "The previous question on the motion to recommit was ordered pursuant to clause 2(b) of rule XIX.",
-        "actionDate": "2026-07-16",
-        "type": "Floor",
-        "actionTime": "10:16:14",
-        "actionCode": "H8A000"
-      },
-      {
-        "text": "Mr. Deluzio moved to recommit to the Committee on Veterans' Affairs. (CR H4613)",
-        "actionDate": "2026-07-16",
-        "type": "Floor",
-        "actionTime": "10:16:01",
-        "actionCode": "H36200"
-      },
-      {
-        "text": "The previous question was ordered pursuant to the rule.",
-        "actionDate": "2026-07-16",
-        "type": "Floor",
-        "actionTime": "10:15:28",
-        "actionCode": "H35000"
-      },
-      {
-        "text": "DEBATE - The House proceeded with one hour of debate on H.R. 9237.",
-        "actionDate": "2026-07-16",
-        "type": "Floor",
-        "actionTime": "09:12:36",
-        "actionCode": "H8D000"
-      },
-      {
-        "text": "Rule provides for consideration of H.R. 139, H.R. 8595, H.R. 9237 and H.R. 1181. The resolution provides for consideration of H.R. 139, H.R. 9237, and H.R. 1181 under a closed rule, and H.R. 8595 under a structured rule with one hour of debate and one motion to reconsider on each bill.",
-        "actionDate": "2026-07-16",
-        "type": "Floor",
-        "actionTime": "09:11:48",
-        "actionCode": "H8D000"
-      },
-      {
-        "text": "Considered under the provisions of rule H. Res. 1423. (consideration: CR H4548-4613; text: CR H4548-4613)",
-        "actionDate": "2026-07-16",
-        "type": "Floor",
-        "actionTime": "09:11:43",
-        "actionCode": "H30000"
-      },
-      {
-        "text": "Rules Committee Resolution H. Res. 1423 Reported to House. Rule provides for consideration of H.R. 139, H.R. 8595, H.R. 9237 and H.R. 1181. The resolution provides for consideration of H.R. 139, H.R. 9237, and H.R. 1181 under a closed rule, and H.R. 8595 under a structured rule with one hour of debate and one motion to reconsider on each bill.",
-        "actionDate": "2026-07-13",
-        "type": "Floor",
-        "actionTime": "17:59:05",
-        "actionCode": "H1L210"
-      },
-      {
-        "text": "Rules Committee Resolution H. Res. 1377 Reported to House. Rule provides for consideration of H.R. 1181, H.R. 9022, H.R. 8595 and H.R. 9237. The resolution provides for consideration of H.R. 1181 and H.R. 9237 under a closed rule and H.R. 9022 and H.R. 8595 under a structured rule. The resolution provides for one hour of general debate and one motion to recommit on each bill.",
-        "actionDate": "2026-06-23",
-        "type": "Floor",
-        "actionTime": "19:18:06",
-        "actionCode": "H1L210"
-      },
-      {
-        "text": "Referred to the Committee on Veterans' Affairs, and in addition to the Committee on Armed Services, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-        "actionDate": "2026-06-10",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Referred to the Committee on Veterans' Affairs, and in addition to the Committee on Armed Services, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-        "actionDate": "2026-06-10",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-06-10",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-06-10",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [
-      "Armed Forces and National Security"
-    ],
-    "status": "POSTPONED PROCEEDINGS - Pursuant to clause 1(c) of rule XIX, the Chair announced further proceedings on H.R. 9237 is postponed.",
-    "votes": [
-      {
-        "rollNumber": 249,
-        "chamber": "House",
-        "date": "2026-07-16",
-        "result": "Failed",
-        "yeas": 210,
-        "nays": 211,
-        "motion": "On Motion to Recommit",
-        "tally_text": "Failed 210\u2013211"
-      }
-    ],
-    "introduced_date": "2026-06-10T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/9237",
-    "published": "2026-06-10T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-07-18T08:30:54.351898+00:00",
-    "official_title": "To amend titles 10 and 38, United States Code, and other Federal laws, to improve benefits for veterans and the administration of the Department of Veterans Affairs.",
-    "short_title": "Take Care of America\u2019s Veterans Act"
   },
   {
     "bill_number": "9744",
