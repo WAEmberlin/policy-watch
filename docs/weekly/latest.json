@@ -1,8 +1,8 @@
 {
-  "week_start": "2026-10-31T11:13:51.956952-05:00",
-  "week_end": "2026-11-07T11:13:51.956952-06:00",
+  "week_start": "2026-11-05T15:17:12.415729-06:00",
+  "week_end": "2026-11-12T15:17:12.415729-06:00",
   "item_counts": {
-    "federal": 29,
+    "federal": 143,
     "ks": 0,
     "co": 0,
     "az": 0,
@@ -11,12 +11,12 @@
     "ne": 0,
     "md": 0,
     "pa": 0,
-    "ma": 47,
+    "ma": 3,
     "wv": 0,
-    "tn": 0,
+    "tn": 6,
     "nc": 0,
     "mo": 0,
-    "ia": 1,
+    "ia": 0,
     "ga": 0,
     "ky": 0
   },
@@ -26,25 +26,36 @@
       "label": "Congress / Federal",
       "recap_lines": [
         "Congress / Federal:",
-        "HR 1945: America's National Churchill Museum National Historic Landmark Act",
-        "   Presented to President.",
-        "HR 7730: Bankruptcy Threshold Adjustment Act of 2026",
-        "   Presented to President.",
-        "HR 3100: To amend the National Child Protection Act of 1993 to ensure that businesses and organizations that work with vulnerable populations are able to request background checks for their contractors who work with those populations, as well as for individuals that the businesses or organizations license or certify to provide care for those populations.",
-        "   Placed on the Union Calendar, Calendar No. 770.",
-        "   Plus 5 healthcare, 1 education, 4 economic, 1 environmental, 2 tax, 1 infrastructure bills, and 12 others."
+        "HR 2347: Survivor Justice Tax Prevention Act",
+        "   Cloture motion on the measure presented in Senate.",
+        "HR 8552: Veterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026",
+        "   Passed Senate without amendment by Voice Vote.",
+        "HR 1013: Retirement Fairness for Charities and Educational Institutions Act of 2025",
+        "   Motion to reconsider laid on the table Agreed to without objection.",
+        "   Plus 3 immigration, 11 healthcare, 6 education, 23 economic, 21 defense, 5 environmental, 2 technology, 9 tax, 6 infrastructure bills, and 44 others.",
+        "10 hearings scheduled."
       ],
-      "item_count": 29,
+      "item_count": 143,
       "veterans_highlight": {
-        "summary": "HR 5723: Fraud Reduction And Uncovering Deception (FRAUD) in VA Disability Exams Act",
+        "summary": "HR 8552: Veterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026; HRES 1247: Providing for consideration of the bill (H.R. 2102) to amend title 10, United States Code, to provide for concurrent receipt of...; HR 10371: To direct the Associate Administrator for Veterans Business Development of the Small Business Administration to ensure compliance...; plus 29 more",
         "items": [
           {
             "type": "bill",
-            "title": "HR 5723: Fraud Reduction And Uncovering Deception (FRAUD) in VA Disability Exams Act",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/5723"
+            "title": "HR 8552: Veterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/8552"
+          },
+          {
+            "type": "bill",
+            "title": "HRES 1247: Providing for consideration of the bill (H.R. 2102) to amend title 10, United States Code, to provide for concurrent receipt of...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-resolution/1247"
+          },
+          {
+            "type": "bill",
+            "title": "HR 10371: To direct the Associate Administrator for Veterans Business Development of the Small Business Administration to ensure compliance...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10371"
           }
         ],
-        "total_matches": 1
+        "total_matches": 32
       }
     },
     {
@@ -116,30 +127,9 @@
       "label": "Massachusetts",
       "recap_lines": [
         "Massachusetts:",
-        "   8 committee actions, 3 votes."
+        "   2 votes."
       ],
-      "item_count": 47,
-      "veterans_highlight": {
-        "summary": "SD 4332: Executive Office of Veterans Services Fiscal Year 2026 Annual Report; SD 4337: Women Veterans Network 2026 Annual Report; SD 4331: Veterans Homes and Housing 2026 Annual Report",
-        "items": [
-          {
-            "type": "bill",
-            "title": "SD 4332: Executive Office of Veterans Services Fiscal Year 2026 Annual Report",
-            "url": "https://malegislature.gov/Bills/194/SD4332.pdf"
-          },
-          {
-            "type": "bill",
-            "title": "SD 4337: Women Veterans Network 2026 Annual Report",
-            "url": "https://malegislature.gov/Bills/194/SD4337.pdf"
-          },
-          {
-            "type": "bill",
-            "title": "SD 4331: Veterans Homes and Housing 2026 Annual Report",
-            "url": "https://malegislature.gov/Bills/194/SD4331.pdf"
-          }
-        ],
-        "total_matches": 3
-      }
+      "item_count": 3
     },
     {
       "id": "wv",
@@ -153,9 +143,10 @@
       "id": "tn",
       "label": "Tennessee",
       "recap_lines": [
-        "Tennessee: No new activity this week."
+        "Tennessee:",
+        "   6 bills introduced."
       ],
-      "item_count": 0
+      "item_count": 6
     },
     {
       "id": "nc",
@@ -177,10 +168,9 @@
       "id": "ia",
       "label": "Iowa",
       "recap_lines": [
-        "Iowa:",
-        "   1 bills updated."
+        "Iowa: No new activity this week."
       ],
-      "item_count": 1
+      "item_count": 0
     },
     {
       "id": "ga",
@@ -199,8 +189,8 @@
       "item_count": 0
     }
   ],
-  "script": "PolicyWatch weekly overview for October 31 through November 07, 2026.\n\nCongress / Federal:\nHR 1945: America's National Churchill Museum National Historic Landmark Act\nVeterans & Military highlight: HR 5723: Fraud Reduction And Uncovering Deception (FRAUD) in VA Disability Exams Act.\n   Presented to President.\nHR 7730: Bankruptcy Threshold Adjustment Act of 2026\n   Presented to President.\nHR 3100: To amend the National Child Protection Act of 1993 to ensure that businesses and organizations that work with vulnerable populations are able to request background checks for their contractors who work with those populations, as well as for individuals that the businesses or organizations license or certify to provide care for those populations.\n   Placed on the Union Calendar, Calendar No. 770.\n   Plus 5 healthcare, 1 education, 4 economic, 1 environmental, 2 tax, 1 infrastructure bills, and 12 others.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   8 committee actions, 3 votes.\nVeterans & Military highlight: SD 4332: Executive Office of Veterans Services Fiscal Year 2026 Annual Report; SD 4337: Women Veterans Network 2026 Annual Report; SD 4331: Veterans Homes and Housing 2026 Annual Report.\n\nWest Virginia: No new activity this week.\n\nTennessee: No new activity this week.\n\nNorth Carolina: No new activity this week.\n\nMissouri: No new activity this week.\n\nIowa:\n   1 bills updated.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nExplore full details at PolicyWatch.",
-  "generated_at": "2026-11-07T11:13:51.956952-06:00",
+  "script": "PolicyWatch weekly overview for November 05 through November 12, 2026.\n\nCongress / Federal:\nHR 2347: Survivor Justice Tax Prevention Act\nVeterans & Military highlight: HR 8552: Veterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026; HRES 1247: Providing for consideration of the bill (H.R..\n   Cloture motion on the measure presented in Senate.\nHR 8552: Veterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026\n   Passed Senate without amendment by Voice Vote.\nHR 1013: Retirement Fairness for Charities and Educational Institutions Act of 2025\n   Motion to reconsider laid on the table Agreed to without objection.\n   Plus 3 immigration, 11 healthcare, 6 education, 23 economic, 21 defense, 5 environmental, 2 technology, 9 tax, 6 infrastructure bills, and 44 others.\n10 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   2 votes.\n\nWest Virginia: No new activity this week.\n\nTennessee:\n   6 bills introduced.\n\nNorth Carolina: No new activity this week.\n\nMissouri: No new activity this week.\n\nIowa: No new activity this week.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nExplore full details at PolicyWatch.",
+  "generated_at": "2026-11-12T15:17:12.415729-06:00",
   "audio_available": false,
   "audio_file": null
 }

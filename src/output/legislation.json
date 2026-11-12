@@ -13,12 +13,12 @@
     "latest_action_date": "2026-11-11T00:00:00",
     "actions": [
       {
-        "text": "Cloture motion on the measure presented in Senate.",
+        "text": "Cloture motion on the measure presented in Senate. (CR S5568)",
         "actionDate": "2026-11-11",
         "type": "Floor"
       },
       {
-        "text": "Considered by Senate.",
+        "text": "Considered by Senate. (consideration: CR S5567-5568)",
         "actionDate": "2026-11-11",
         "type": "Floor"
       },
@@ -28,12 +28,12 @@
         "type": "Floor"
       },
       {
-        "text": "Measure laid before Senate by motion.",
+        "text": "Measure laid before Senate by motion. (CR S5383-5393)",
         "actionDate": "2026-11-10",
         "type": "Floor"
       },
       {
-        "text": "Motion to proceed to consideration of measure agreed to in Senate by Yea-Nay Vote. 62 - 21. Record Vote Number: 258.",
+        "text": "Motion to proceed to consideration of measure agreed to in Senate by Yea-Nay Vote. 62 - 21. Record Vote Number: 258. (CR S5383-5393)",
         "actionDate": "2026-11-10",
         "type": "Floor",
         "recordedVotes": [
@@ -204,7 +204,7 @@
         "result": "Passed",
         "yeas": 62,
         "nays": 21,
-        "motion": "Motion to proceed to consideration of measure agreed to in Senate by Yea-Nay Vote. 62 - 21. Record Vote Number: 258.",
+        "motion": "Motion to proceed to consideration of measure agreed to in Senate by Yea-Nay Vote. 62 - 21. Record Vote Number: 258. (CR S5383-5393)",
         "tally_text": "Passed 62\u201321"
       }
     ],
@@ -231,7 +231,7 @@
     "latest_action_date": "2026-11-11T00:00:00",
     "actions": [
       {
-        "text": "Passed Senate without amendment by Voice Vote.",
+        "text": "Passed Senate without amendment by Voice Vote. (consideration: CR S5572)",
         "actionDate": "2026-11-11",
         "type": "Floor"
       },
@@ -371,7 +371,7 @@
         "actionCode": "H38310"
       },
       {
-        "text": "On passage Passed by the Yeas and Nays: 295 - 128 (Roll no. 321).",
+        "text": "On passage Passed by the Yeas and Nays: 295 - 128 (Roll no. 321). (text of amendment in the nature of a substitute: CR H6166)",
         "actionDate": "2026-11-11",
         "type": "Floor",
         "actionTime": "14:43:57",
@@ -419,7 +419,7 @@
         "actionCode": "H8D000"
       },
       {
-        "text": "Considered under the provisions of rule H. Res. 1650.",
+        "text": "Considered under the provisions of rule H. Res. 1650. (consideration: CR H6166-6171)",
         "actionDate": "2026-11-11",
         "type": "Floor",
         "actionTime": "13:33:53",
@@ -547,7 +547,7 @@
         "actionCode": "8000"
       },
       {
-        "text": "Considered as unfinished business.",
+        "text": "Considered as unfinished business. (consideration: CR H6171)",
         "actionDate": "2026-11-11",
         "type": "Floor",
         "actionTime": "17:15:18",
@@ -678,7 +678,7 @@
         "actionCode": "8000"
       },
       {
-        "text": "Considered as unfinished business.",
+        "text": "Considered as unfinished business. (consideration: CR H6171)",
         "actionDate": "2026-11-11",
         "type": "Floor",
         "actionTime": "17:16:11",
@@ -815,7 +815,7 @@
         "actionCode": "H8D000"
       },
       {
-        "text": "Considered from the Discharge Calendar.",
+        "text": "Considered from the Discharge Calendar. (consideration: CR H6162-6166)",
         "actionDate": "2026-11-11",
         "type": "Floor",
         "actionTime": "13:05:31",
@@ -942,6 +942,48 @@
     "latest_action_date": "2026-11-11T00:00:00",
     "actions": [
       {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:13:00",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:12:57",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:12:57",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 10238.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:05:22",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:05:21",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Williams (TX) moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:05:04",
+        "actionCode": "H30300"
+      },
+      {
         "text": "Placed on the Union Calendar, Calendar No. 748.",
         "actionDate": "2026-10-13",
         "type": "Calendars",
@@ -1016,6 +1058,48 @@
     "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
     "latest_action_date": "2026-11-11T00:00:00",
     "actions": [
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:33:30",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:33:25",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:33:25",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 10375.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:23:49",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:23:48",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Williams (TX) moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:23:32",
+        "actionCode": "H30300"
+      },
       {
         "text": "Placed on the Union Calendar, Calendar No. 745.",
         "actionDate": "2026-10-09",
@@ -1092,6 +1176,48 @@
     "latest_action_date": "2026-11-11T00:00:00",
     "actions": [
       {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "11:48:16",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "11:48:10",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "11:48:10",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 10355.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "11:37:51",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "11:37:49",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Williams (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "11:37:37",
+        "actionCode": "H30300"
+      },
+      {
         "text": "Placed on the Union Calendar, Calendar No. 743.",
         "actionDate": "2026-10-09",
         "type": "Calendars",
@@ -1166,6 +1292,48 @@
     "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
     "latest_action_date": "2026-11-11T00:00:00",
     "actions": [
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:04:55",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:04:53",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:04:53",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 10353.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "11:57:44",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "11:57:41",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Williams (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "11:57:26",
+        "actionCode": "H30300"
+      },
       {
         "text": "Placed on the Union Calendar, Calendar No. 742.",
         "actionDate": "2026-10-09",
@@ -1242,6 +1410,48 @@
     "latest_action_date": "2026-11-11T00:00:00",
     "actions": [
       {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "11:57:17",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "11:57:13",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "11:57:13",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 10371.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "11:48:46",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "11:48:43",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Williams (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "11:48:28",
+        "actionCode": "H30300"
+      },
+      {
         "text": "Placed on the Union Calendar, Calendar No. 744.",
         "actionDate": "2026-10-09",
         "type": "Calendars",
@@ -1316,6 +1526,48 @@
     "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
     "latest_action_date": "2026-11-11T00:00:00",
     "actions": [
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "11:37:35",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "11:37:32",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "11:37:32",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 10329.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "11:27:47",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "11:27:45",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Williams (TX) moved to suspend the rules and pass the bill.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "11:27:29",
+        "actionCode": "H30300"
+      },
       {
         "text": "Placed on the Union Calendar, Calendar No. 741.",
         "actionDate": "2026-10-09",
@@ -1392,6 +1644,48 @@
     "latest_action_date": "2026-11-11T00:00:00",
     "actions": [
       {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:23:31",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:23:27",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:23:27",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 9718.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:13:22",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:13:19",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Williams (TX) moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "12:13:01",
+        "actionCode": "H30300"
+      },
+      {
         "text": "Placed on the Union Calendar, Calendar No. 740.",
         "actionDate": "2026-10-09",
         "type": "Calendars",
@@ -1467,6 +1761,12 @@
     "latest_action_date": "2026-11-11T00:00:00",
     "actions": [
       {
+        "text": "Motion to discharge the Committee on Rules filed by Mr. Massie. Assigned to the Discharge Calendar, Calendar No. 9.",
+        "actionDate": "2026-11-11",
+        "type": "Discharge",
+        "actionCode": "H12450"
+      },
+      {
         "text": "Motion to Discharge Committee filed by Mr. Massie. Petition No: 119-27. (<a href=\"https://clerk.house.gov/DischargePetition/2026083127\">Discharge petition</a> text with signatures.)",
         "actionDate": "2026-08-31",
         "type": "Discharge",
@@ -1517,6 +1817,41 @@
     "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
     "latest_action_date": "2026-11-11T00:00:00",
     "actions": [
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "14:46:12",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On passage Passed by voice vote.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "14:46:08",
+        "actionCode": "H37100"
+      },
+      {
+        "text": "Passed/agreed to in House: On passage Passed by voice vote.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "14:46:08",
+        "actionCode": "8000"
+      },
+      {
+        "text": "Considered as unfinished business. (consideration: CR H6171)",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "14:44:08",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Pursuant to clause 1(c) of rule XIX, the House resumed consideration on HR 9237.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionTime": "14:44:02",
+        "actionCode": "H8D000"
+      },
       {
         "text": "POSTPONED PROCEEDINGS - Pursuant to clause 1(c) of rule XIX, the Chair announced further proceedings on H.R. 9237 is postponed.",
         "actionDate": "2026-07-16",
@@ -1672,7 +2007,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Veterans' Affairs.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Veterans' Affairs.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Veterans' Affairs.",
@@ -1698,7 +2052,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Veterans' Affairs.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Veterans' Affairs.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Veterans' Affairs.",
@@ -1724,7 +2097,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Agriculture.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Agriculture.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Agriculture.",
@@ -1750,7 +2142,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Agriculture.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Agriculture.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Agriculture.",
@@ -1776,7 +2187,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Foreign Affairs.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Foreign Affairs.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Foreign Affairs.",
@@ -1802,7 +2232,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on the Judiciary.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on the Judiciary.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on the Judiciary.",
@@ -1828,7 +2277,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Natural Resources.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Natural Resources.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Natural Resources.",
@@ -1854,7 +2322,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Agriculture.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Agriculture.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Agriculture.",
@@ -1880,7 +2367,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Agriculture.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Agriculture.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Agriculture.",
@@ -1906,7 +2412,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on the Judiciary.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on the Judiciary.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on the Judiciary.",
@@ -1932,7 +2457,32 @@
     "cosponsors": [],
     "latest_action": "Referred to the Committee on Agriculture, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the Committee on Agriculture, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Committee on Agriculture, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the Committee on Agriculture, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
@@ -1958,7 +2508,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Agriculture.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Agriculture.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Agriculture.",
@@ -1984,7 +2553,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Agriculture.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Agriculture.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Agriculture.",
@@ -2010,7 +2598,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Agriculture.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Agriculture.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Agriculture.",
@@ -2036,7 +2643,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on the Judiciary.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on the Judiciary.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on the Judiciary.",
@@ -2062,7 +2688,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Energy and Commerce.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Energy and Commerce.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Energy and Commerce.",
@@ -2088,7 +2733,32 @@
     "cosponsors": [],
     "latest_action": "Referred to the Committee on Natural Resources, and in addition to the Committee on Agriculture, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the Committee on Natural Resources, and in addition to the Committee on Agriculture, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Committee on Natural Resources, and in addition to the Committee on Agriculture, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the Committee on Natural Resources, and in addition to the Committee on Agriculture, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
@@ -2114,7 +2784,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Veterans' Affairs.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Veterans' Affairs.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Veterans' Affairs.",
@@ -2140,7 +2829,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Oversight and Government Reform.",
@@ -2166,7 +2874,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Veterans' Affairs.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Veterans' Affairs.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Veterans' Affairs.",
@@ -2192,7 +2919,19 @@
     "cosponsors": [],
     "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S5572-5573; text: CR S5575)",
+        "actionDate": "2026-11-11",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionCode": "17000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
@@ -2218,7 +2957,19 @@
     "cosponsors": [],
     "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S5572-5573; text: CR S5575-5576)",
+        "actionDate": "2026-11-11",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionCode": "17000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
@@ -2244,7 +2995,19 @@
     "cosponsors": [],
     "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S5572-5573; text: CR S5576)",
+        "actionDate": "2026-11-11",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
+        "actionDate": "2026-11-11",
+        "type": "Floor",
+        "actionCode": "17000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
@@ -2270,7 +3033,19 @@
     "cosponsors": [],
     "latest_action": "Read twice and referred to the Committee on Armed Services.",
     "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Read twice and referred to the Committee on Armed Services.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Read twice and referred to the Committee on Armed Services.",
@@ -2907,7 +3682,7 @@
         "actionCode": "H38310"
       },
       {
-        "text": "On agreeing to the resolution Agreed to by recorded vote: 215 - 209 (Roll no. 319).",
+        "text": "On agreeing to the resolution Agreed to by recorded vote: 215 - 209 (Roll no. 319). (text: CR H6122-6123)",
         "actionDate": "2026-11-10",
         "type": "Floor",
         "actionTime": "18:20:53",
@@ -2941,7 +3716,7 @@
         ]
       },
       {
-        "text": "On ordering the previous question Agreed to by the Yeas and Nays: 213 - 207 (Roll no. 318).",
+        "text": "On ordering the previous question Agreed to by the Yeas and Nays: 213 - 207 (Roll no. 318). (consideration: CR H6133)",
         "actionDate": "2026-11-10",
         "type": "Floor",
         "actionTime": "18:10:37",
@@ -2958,7 +3733,7 @@
         ]
       },
       {
-        "text": "Considered as unfinished business.",
+        "text": "Considered as unfinished business. (consideration: CR H6133-6134)",
         "actionDate": "2026-11-10",
         "type": "Floor",
         "actionTime": "18:03:00",
@@ -2979,7 +3754,7 @@
         "actionCode": "H8D000"
       },
       {
-        "text": "Considered as privileged matter.",
+        "text": "Considered as privileged matter. (consideration: CR H6122-6126)",
         "actionDate": "2026-11-10",
         "type": "Floor",
         "actionTime": "12:11:21",
@@ -3059,7 +3834,7 @@
     "latest_action_date": "2026-11-10T00:00:00",
     "actions": [
       {
-        "text": "Resolution agreed to in Senate without amendment and with a preamble by Unanimous Consent.",
+        "text": "Resolution agreed to in Senate without amendment and with a preamble by Unanimous Consent. (consideration: CR S5525)",
         "actionDate": "2026-11-10",
         "type": "Floor"
       },
@@ -3119,7 +3894,7 @@
     "latest_action_date": "2026-11-10T00:00:00",
     "actions": [
       {
-        "text": "Resolution agreed to in Senate without amendment and with a preamble by Unanimous Consent.",
+        "text": "Resolution agreed to in Senate without amendment and with a preamble by Unanimous Consent. (consideration: CR S5525)",
         "actionDate": "2026-11-10",
         "type": "Floor"
       },
@@ -3179,7 +3954,7 @@
     "latest_action_date": "2026-11-10T00:00:00",
     "actions": [
       {
-        "text": "Passed Senate with an amendment by Unanimous Consent.",
+        "text": "Passed Senate with an amendment by Unanimous Consent. (text: CR S5525-5562)",
         "actionDate": "2026-11-10",
         "type": "Floor"
       },
@@ -3195,7 +3970,7 @@
         "type": "Floor"
       },
       {
-        "text": "Measure laid before Senate by unanimous consent.",
+        "text": "Measure laid before Senate by unanimous consent. (consideration: CR S5525-5562)",
         "actionDate": "2026-11-10",
         "type": "Floor"
       },
@@ -3601,7 +4376,7 @@
     "latest_action_date": "2026-11-10T00:00:00",
     "actions": [
       {
-        "text": "Passed Senate with an amendment by Unanimous Consent.",
+        "text": "Passed Senate with an amendment by Unanimous Consent. (consideration: CR S5562; text: CR S5562)",
         "actionDate": "2026-11-10",
         "type": "Floor"
       },
@@ -3920,7 +4695,7 @@
     "latest_action_date": "2026-11-10T00:00:00",
     "actions": [
       {
-        "text": "Motion to Discharge Committee filed by Mrs. Luna. Petition No: 119-30.",
+        "text": "Motion to Discharge Committee filed by Mrs. Luna. Petition No: 119-30. (<a href=\"https://clerk.house.gov/DischargePetition/2026111030\">Discharge petition</a> text with signatures.)",
         "actionDate": "2026-11-10",
         "type": "Discharge",
         "actionCode": "H17000"
@@ -3971,7 +4746,7 @@
     "cosponsors": [],
     "actions": [
       {
-        "text": "Passed Senate without amendment by Unanimous Consent.",
+        "text": "Passed Senate without amendment by Unanimous Consent. (consideration: CR S5525)",
         "actionDate": "2026-11-10",
         "type": "Floor"
       },
@@ -4115,7 +4890,7 @@
     "cosponsors": [],
     "actions": [
       {
-        "text": "Resolution agreed to in Senate without amendment and with a preamble by Unanimous Consent.",
+        "text": "Resolution agreed to in Senate without amendment and with a preamble by Unanimous Consent. (consideration: CR S5525)",
         "actionDate": "2026-11-10",
         "type": "Floor"
       },
@@ -4175,7 +4950,7 @@
     "cosponsors": [],
     "actions": [
       {
-        "text": "Motion to Discharge Committee filed by Mrs. Luna. Petition No: 119-29.",
+        "text": "Motion to Discharge Committee filed by Mrs. Luna. Petition No: 119-29. (<a href=\"https://clerk.house.gov/DischargePetition/2026111029\">Discharge petition</a> text with signatures.)",
         "actionDate": "2026-11-10",
         "type": "Discharge",
         "actionCode": "H17000"
@@ -4220,7 +4995,7 @@
     "latest_action_date": "2026-11-10T00:00:00",
     "actions": [
       {
-        "text": "Passed Senate without amendment by Unanimous Consent.",
+        "text": "Passed Senate without amendment by Unanimous Consent. (consideration: CR S5562; text: CR S5562)",
         "actionDate": "2026-11-10",
         "type": "Floor"
       },
@@ -4876,14 +5651,14 @@
         "actionCode": "H8D000"
       },
       {
-        "text": "Mr. Issa moved to refer to the Judiciary.",
+        "text": "Mr. Issa moved to refer to the Judiciary. (CR H6132)",
         "actionDate": "2026-11-10",
         "type": "Floor",
         "actionTime": "17:34:11",
         "actionCode": "H36700"
       },
       {
-        "text": "Considered as privileged matter.",
+        "text": "Considered as privileged matter. (consideration: CR H6126-6133; text: CR H6126-6132)",
         "actionDate": "2026-11-10",
         "type": "Floor",
         "actionTime": "17:33:54",
@@ -5726,7 +6501,7 @@
     "latest_action_date": "2026-11-10T00:00:00",
     "actions": [
       {
-        "text": "Submitted in the Senate, considered, and agreed to without amendment by Unanimous Consent.",
+        "text": "Submitted in the Senate, considered, and agreed to without amendment by Unanimous Consent. (consideration: CR S5524; text: CR S5416)",
         "actionDate": "2026-11-10",
         "type": "Floor"
       },
@@ -5764,7 +6539,7 @@
     "latest_action_date": "2026-11-10T00:00:00",
     "actions": [
       {
-        "text": "Referred to the Committee on Veterans' Affairs.",
+        "text": "Referred to the Committee on Veterans' Affairs. (text: CR S5416)",
         "actionDate": "2026-11-10",
         "type": "IntroReferral"
       },
@@ -5802,7 +6577,7 @@
     "latest_action_date": "2026-11-10T00:00:00",
     "actions": [
       {
-        "text": "Referred to the Committee on the Judiciary.",
+        "text": "Referred to the Committee on the Judiciary. (text: CR S5415-5416)",
         "actionDate": "2026-11-10",
         "type": "IntroReferral"
       },
@@ -5878,7 +6653,7 @@
     "latest_action_date": "2026-11-10T00:00:00",
     "actions": [
       {
-        "text": "Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
+        "text": "Read twice and referred to the Committee on Banking, Housing, and Urban Affairs. (Sponsor introductory remarks on measure: CR S5415)",
         "actionDate": "2026-11-10",
         "type": "IntroReferral"
       },
@@ -6075,7 +6850,7 @@
     "latest_action_date": "2026-11-10T00:00:00",
     "actions": [
       {
-        "text": "Read twice and referred to the Committee on the Judiciary.",
+        "text": "Read twice and referred to the Committee on the Judiciary. (text: CR S5415)",
         "actionDate": "2026-11-10",
         "type": "IntroReferral"
       },
