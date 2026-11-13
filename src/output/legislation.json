@@ -13,6 +13,11 @@
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
       {
+        "text": "Message on Senate action sent to the House.",
+        "actionDate": "2026-11-12",
+        "type": "Floor"
+      },
+      {
         "text": "Passed Senate without amendment by Voice Vote. (consideration: CR S5572)",
         "actionDate": "2026-11-11",
         "type": "Floor"
@@ -313,6 +318,11 @@
     "cosponsors": [],
     "actions": [
       {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Environment and Public Works.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral"
+      },
+      {
         "text": "Motion to reconsider laid on the table Agreed to without objection.",
         "actionDate": "2026-11-11",
         "type": "Floor",
@@ -443,6 +453,11 @@
     "latest_action": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral"
+      },
       {
         "text": "Motion to reconsider laid on the table Agreed to without objection.",
         "actionDate": "2026-11-11",
@@ -622,7 +637,7 @@
         ]
       },
       {
-        "text": "Considered as unfinished business.",
+        "text": "Considered as unfinished business. (consideration: CR H6194-6195)",
         "actionDate": "2026-11-12",
         "type": "Floor",
         "actionTime": "09:14:01",
@@ -786,6 +801,11 @@
     "latest_action": "Received in the Senate and Read twice and referred to the Committee on Small Business and Entrepreneurship.",
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Small Business and Entrepreneurship.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral"
+      },
       {
         "text": "Motion to reconsider laid on the table Agreed to without objection.",
         "actionDate": "2026-11-11",
@@ -1148,6 +1168,11 @@
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
       {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Small Business and Entrepreneurship.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral"
+      },
+      {
         "text": "Motion to reconsider laid on the table Agreed to without objection.",
         "actionDate": "2026-11-11",
         "type": "Floor",
@@ -1508,6 +1533,11 @@
     "latest_action": "Received in the Senate and Read twice and referred to the Committee on Small Business and Entrepreneurship.",
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Small Business and Entrepreneurship.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral"
+      },
       {
         "text": "Motion to reconsider laid on the table Agreed to without objection.",
         "actionDate": "2026-11-11",
@@ -2047,6 +2077,25 @@
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
       {
+        "text": "Held at the desk.",
+        "actionDate": "2026-11-12",
+        "type": "Floor",
+        "actionTime": "13:42:39",
+        "actionCode": "H15000"
+      },
+      {
+        "text": "Message on Senate action sent to the House.",
+        "actionDate": "2026-11-12",
+        "type": "Floor"
+      },
+      {
+        "text": "Received in the House.",
+        "actionDate": "2026-11-12",
+        "type": "Floor",
+        "actionTime": "13:12:59",
+        "actionCode": "H14000"
+      },
+      {
         "text": "Passed Senate with an amendment by Voice Vote. (consideration: CR S5376-5377; text: CR S5376-5377)",
         "actionDate": "2026-11-09",
         "type": "Floor"
@@ -2117,6 +2166,12 @@
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
       {
+        "text": "Referred to the Subcommittee on Indian and Insular Affairs.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
         "text": "Referred to the Committee on Natural Resources, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
         "actionDate": "2026-11-05",
         "type": "IntroReferral",
@@ -2167,6 +2222,18 @@
     "latest_action": "Presented to President.",
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
+      {
+        "text": "Presented to President.",
+        "actionDate": "2026-11-12",
+        "type": "Floor",
+        "actionCode": "E20000"
+      },
+      {
+        "text": "Presented to President.",
+        "actionDate": "2026-11-12",
+        "type": "President",
+        "actionCode": "28000"
+      },
       {
         "text": "Message on Senate action sent to the House.",
         "actionDate": "2026-10-14",
@@ -2302,6 +2369,18 @@
     "sponsor_district": "",
     "cosponsors": [],
     "actions": [
+      {
+        "text": "Presented to President.",
+        "actionDate": "2026-11-12",
+        "type": "Floor",
+        "actionCode": "E20000"
+      },
+      {
+        "text": "Presented to President.",
+        "actionDate": "2026-11-12",
+        "type": "President",
+        "actionCode": "28000"
+      },
       {
         "text": "Message on Senate action sent to the House.",
         "actionDate": "2026-10-14",
@@ -2446,6 +2525,18 @@
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
       {
+        "text": "Presented to President.",
+        "actionDate": "2026-11-12",
+        "type": "Floor",
+        "actionCode": "E20000"
+      },
+      {
+        "text": "Presented to President.",
+        "actionDate": "2026-11-12",
+        "type": "President",
+        "actionCode": "28000"
+      },
+      {
         "text": "Message on Senate action sent to the House.",
         "actionDate": "2026-10-14",
         "type": "Floor"
@@ -2492,7 +2583,7 @@
         "actionCode": "H37300"
       },
       {
-        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote.",
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H5599-5601)",
         "actionDate": "2026-09-14",
         "type": "Floor",
         "actionTime": "19:27:13",
@@ -2565,6 +2656,12 @@
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
       {
+        "text": "Referred to the Subcommittee on Indian and Insular Affairs.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
         "text": "Referred to the Committee on Natural Resources, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
         "actionDate": "2026-10-06",
         "type": "IntroReferral",
@@ -2616,6 +2713,22 @@
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
       {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 711.",
+        "actionDate": "2026-11-12",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
         "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment in the nature of a substitute favorably.",
         "actionDate": "2026-09-30",
         "type": "Committee"
@@ -2663,6 +2776,22 @@
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 710.",
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 710.",
+        "actionDate": "2026-11-12",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
       {
         "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment in the nature of a substitute favorably.",
         "actionDate": "2026-09-30",
@@ -2712,6 +2841,22 @@
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
       {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 709.",
+        "actionDate": "2026-11-12",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
         "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment in the nature of a substitute favorably.",
         "actionDate": "2026-09-30",
         "type": "Committee"
@@ -2760,6 +2905,22 @@
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
       {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 708.",
+        "actionDate": "2026-11-12",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
         "text": "Committee on Energy and Natural Resources. Ordered to be reported without amendment favorably.",
         "actionDate": "2026-09-30",
         "type": "Committee"
@@ -2807,6 +2968,22 @@
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 706.",
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 706.",
+        "actionDate": "2026-11-12",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
       {
         "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment favorably.",
         "actionDate": "2026-09-30",
@@ -2861,6 +3038,22 @@
     "sponsor_district": "",
     "cosponsors": [],
     "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 713.",
+        "actionDate": "2026-11-12",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
       {
         "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment in the nature of a substitute favorably.",
         "actionDate": "2026-09-30",
@@ -3017,6 +3210,22 @@
     "cosponsors": [],
     "actions": [
       {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 714.",
+        "actionDate": "2026-11-12",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
         "text": "Committee on Energy and Natural Resources. Ordered to be reported without amendment favorably.",
         "actionDate": "2026-09-30",
         "type": "Committee"
@@ -3167,6 +3376,22 @@
     "cosponsors": [],
     "actions": [
       {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 704.",
+        "actionDate": "2026-11-12",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
         "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment in the nature of a substitute favorably.",
         "actionDate": "2026-09-30",
         "type": "Committee"
@@ -3215,6 +3440,22 @@
     "cosponsors": [],
     "actions": [
       {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 703.",
+        "actionDate": "2026-11-12",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
         "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment favorably.",
         "actionDate": "2026-09-30",
         "type": "Committee"
@@ -3256,6 +3497,22 @@
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 715.",
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 715.",
+        "actionDate": "2026-11-12",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
       {
         "text": "Committee on Energy and Natural Resources. Ordered to be reported without amendment favorably.",
         "actionDate": "2026-09-30",
@@ -3452,6 +3709,22 @@
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
       {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 698.",
+        "actionDate": "2026-11-12",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
         "text": "Committee on Energy and Natural Resources. Ordered to be reported without amendment favorably.",
         "actionDate": "2026-09-30",
         "type": "Committee"
@@ -3506,6 +3779,22 @@
     "cosponsors": [],
     "actions": [
       {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 702.",
+        "actionDate": "2026-11-12",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
         "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment in the nature of a substitute favorably.",
         "actionDate": "2026-09-30",
         "type": "Committee"
@@ -3547,6 +3836,22 @@
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 712.",
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 712.",
+        "actionDate": "2026-11-12",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
       {
         "text": "Committee on Energy and Natural Resources. Ordered to be reported without amendment favorably.",
         "actionDate": "2026-09-30",
@@ -3693,6 +3998,22 @@
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
       {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 700.",
+        "actionDate": "2026-11-12",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
         "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment in the nature of a substitute favorably.",
         "actionDate": "2026-09-30",
         "type": "Committee"
@@ -3741,6 +4062,17 @@
     "sponsor_district": "",
     "cosponsors": [],
     "actions": [
+      {
+        "text": "Passed Senate without amendment by Unanimous Consent. (consideration: CR S5668; text: CR S5668-5669)",
+        "actionDate": "2026-11-12",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent.",
+        "actionDate": "2026-11-12",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
       {
         "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 644.",
         "actionDate": "2026-09-17",
@@ -3800,6 +4132,12 @@
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
       {
+        "text": "Referred to the Subcommittee on Indian and Insular Affairs.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
         "text": "Referred to the House Committee on Natural Resources.",
         "actionDate": "2026-09-16",
         "type": "IntroReferral",
@@ -3845,6 +4183,12 @@
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
       {
+        "text": "Referred to the Subcommittee on Indian and Insular Affairs.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
         "text": "Referred to the House Committee on Natural Resources.",
         "actionDate": "2026-09-08",
         "type": "IntroReferral",
@@ -3888,7 +4232,41 @@
     "cosponsors": [],
     "latest_action": "Resolution agreed to in Senate without amendment and with a preamble by Unanimous Consent.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Resolution agreed to in Senate without amendment and with a preamble by Unanimous Consent. (consideration: CR S5666)",
+        "actionDate": "2026-11-12",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Resolution agreed to in Senate without amendment and with a preamble by Unanimous Consent.",
+        "actionDate": "2026-11-12",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Senate Committee on the Judiciary discharged by Unanimous Consent.",
+        "actionDate": "2026-11-12",
+        "type": "Discharge"
+      },
+      {
+        "text": "Senate Committee on the Judiciary discharged by Unanimous Consent.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "14500"
+      },
+      {
+        "text": "Referred to the Committee on the Judiciary. (text: CR S4523)",
+        "actionDate": "2026-08-06",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Submitted in Senate",
+        "actionDate": "2026-08-06",
+        "type": "IntroReferral",
+        "actionCode": "10025"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Resolution agreed to in Senate without amendment and with a preamble by Unanimous Consent.",
@@ -3915,6 +4293,27 @@
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 707.",
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 707.",
+        "actionDate": "2026-11-12",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee without amendment. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported without amendment favorably.",
+        "actionDate": "2026-07-29",
+        "type": "Committee"
+      },
       {
         "text": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
         "actionDate": "2026-07-15",
@@ -3965,6 +4364,17 @@
     "cosponsors": [],
     "actions": [
       {
+        "text": "Passed Senate with an amendment by Unanimous Consent. (consideration: CR S5666-5667; text: CR S5667-5668)",
+        "actionDate": "2026-11-12",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate with an amendment by Unanimous Consent.",
+        "actionDate": "2026-11-12",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
         "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 488.",
         "actionDate": "2026-07-23",
         "type": "Calendars"
@@ -3986,7 +4396,7 @@
         "type": "Committee"
       },
       {
-        "text": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held.",
+        "text": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held. With printed Hearing: S.Hrg. 119-305.",
         "actionDate": "2026-02-12",
         "type": "Committee"
       },
@@ -4029,6 +4439,17 @@
     "cosponsors": [],
     "actions": [
       {
+        "text": "Passed Senate with an amendment by Unanimous Consent. (consideration: CR S5666-5667; text: CR S5667)",
+        "actionDate": "2026-11-12",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate with an amendment by Unanimous Consent.",
+        "actionDate": "2026-11-12",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
         "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 475.",
         "actionDate": "2026-07-23",
         "type": "Calendars"
@@ -4050,7 +4471,7 @@
         "type": "Committee"
       },
       {
-        "text": "Committee on Energy and Natural Resources Subcommittee on National Parks. Hearings held.",
+        "text": "Committee on Energy and Natural Resources Subcommittee on National Parks. Hearings held. With printed Hearing: S.Hrg. 119-238.",
         "actionDate": "2025-12-09",
         "type": "Committee"
       },
@@ -4091,7 +4512,45 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 697.",
+        "actionDate": "2026-11-12",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-06-10",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held. With printed Hearing: S.Hrg. 119-237.",
+        "actionDate": "2025-12-02",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources. (text: CR S228-231)",
+        "actionDate": "2025-01-16",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-01-16",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 697.",
@@ -4111,7 +4570,45 @@
     "cosponsors": [],
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 699.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 699.",
+        "actionDate": "2026-11-12",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-06-10",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Hearings held. Hearings printed: S.Hrg. 119-46.",
+        "actionDate": "2025-03-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-02-27",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-02-27",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 699.",
@@ -4143,7 +4640,45 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 705.",
+        "actionDate": "2026-11-12",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-03-04",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held. With printed Hearing: S.Hrg. 119-305.",
+        "actionDate": "2026-02-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-12-17",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-12-17",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 705.",
@@ -4169,7 +4704,45 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 696.",
+        "actionDate": "2026-11-12",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-02-04",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held. With printed Hearing: S.Hrg. 119-237.",
+        "actionDate": "2025-12-02",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-01-14",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-01-14",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 696.",
@@ -4195,7 +4768,45 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 701.",
+        "actionDate": "2026-11-12",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Reported by Senator Lee with an amendment in the nature of a substitute. Without written report.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2025-12-17",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Energy and Natural Resources Subcommittee on Public Lands, Forests, and Mining. Hearings held. With printed Hearing: S.Hrg. 119-237.",
+        "actionDate": "2025-12-02",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources. (text: CR S4317-4318)",
+        "actionDate": "2025-07-10",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-07-10",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 701.",
@@ -4215,11 +4826,120 @@
     "cosponsors": [],
     "latest_action": "Received in the Senate and Read twice and referred to the Committee on Armed Services.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Armed Services.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-11-12",
+        "type": "Floor",
+        "actionTime": "10:59:31",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On passage Passed by the Yeas and Nays: 392 - 18 (Roll no. 323). (text: CR H6195)",
+        "actionDate": "2026-11-12",
+        "type": "Floor",
+        "actionTime": "10:59:28",
+        "actionCode": "H37100",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2026-11-12T15:59:28Z",
+            "rollNumber": 323,
+            "sessionNumber": 2,
+            "url": "https://clerk.house.gov/evs/2026/roll323.xml"
+          }
+        ]
+      },
+      {
+        "text": "Passed/agreed to in House: On passage Passed by the Yeas and Nays: 392 - 18 (Roll no. 323).",
+        "actionDate": "2026-11-12",
+        "type": "Floor",
+        "actionTime": "10:59:28",
+        "actionCode": "8000",
+        "recordedVotes": [
+          {
+            "chamber": "House",
+            "congress": 119,
+            "date": "2026-11-12T15:59:28Z",
+            "rollNumber": 323,
+            "sessionNumber": 2,
+            "url": "https://clerk.house.gov/evs/2026/roll323.xml"
+          }
+        ]
+      },
+      {
+        "text": "The previous question was ordered pursuant to the rule.",
+        "actionDate": "2026-11-12",
+        "type": "Floor",
+        "actionTime": "10:25:17",
+        "actionCode": "H35000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with one hour of debate on H.R. 2102.",
+        "actionDate": "2026-11-12",
+        "type": "Floor",
+        "actionTime": "09:48:52",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under the provisions of rule H. Res. 1247. (consideration: CR H6195-6201)",
+        "actionDate": "2026-11-12",
+        "type": "Floor",
+        "actionTime": "09:47:57",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Referred to the Subcommittee on Disability Assistance and Memorial Affairs.",
+        "actionDate": "2025-04-04",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
+        "text": "Referred to the Committee on Armed Services, and in addition to the Committee on Veterans' Affairs, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2025-03-14",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Committee on Armed Services, and in addition to the Committee on Veterans' Affairs, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2025-03-14",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-03-14",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-03-14",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Received in the Senate and Read twice and referred to the Committee on Armed Services.",
-    "votes": [],
+    "votes": [
+      {
+        "rollNumber": 323,
+        "chamber": "House",
+        "date": "2026-11-12",
+        "result": "Passed",
+        "yeas": 392,
+        "nays": 18,
+        "motion": "On Passage",
+        "tally_text": "Passed 392\u201318"
+      }
+    ],
     "introduced_date": "2025-03-14T00:00:00",
     "url": "https://www.congress.gov/bill/119th-congress/house-bill/2102",
     "published": "2025-03-14T00:00:00",
@@ -4241,7 +4961,41 @@
     "cosponsors": [],
     "latest_action": "Passed Senate without amendment by Unanimous Consent.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Passed Senate without amendment by Unanimous Consent. (consideration: CR S5668; text: CR S5669)",
+        "actionDate": "2026-11-12",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent.",
+        "actionDate": "2026-11-12",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Senate Committee on Energy and Natural Resources discharged by Unanimous Consent.",
+        "actionDate": "2026-11-12",
+        "type": "Discharge"
+      },
+      {
+        "text": "Senate Committee on Energy and Natural Resources discharged by Unanimous Consent.",
+        "actionDate": "2026-11-12",
+        "type": "Committee",
+        "actionCode": "14500"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Energy and Natural Resources.",
+        "actionDate": "2025-02-05",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-02-05",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Passed Senate without amendment by Unanimous Consent.",
@@ -4267,7 +5021,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Ways and Means.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Ways and Means.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Ways and Means.",
@@ -4293,7 +5066,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Agriculture.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Agriculture.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Agriculture.",
@@ -4319,7 +5111,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Agriculture.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Agriculture.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Agriculture.",
@@ -4345,7 +5156,32 @@
     "cosponsors": [],
     "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Science, Space, and Technology, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Science, Space, and Technology, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Science, Space, and Technology, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Science, Space, and Technology, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
@@ -4371,7 +5207,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on the Judiciary.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on the Judiciary.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on the Judiciary.",
@@ -4397,7 +5252,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Education and Workforce.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Education and Workforce.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Education and Workforce.",
@@ -4423,7 +5297,32 @@
     "cosponsors": [],
     "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
@@ -4449,7 +5348,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Veterans' Affairs.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Veterans' Affairs.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Veterans' Affairs.",
@@ -4475,7 +5393,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Foreign Affairs.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Foreign Affairs.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Foreign Affairs.",
@@ -4501,7 +5438,32 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Energy and Commerce.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Energy and Commerce.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Sponsor introductory remarks on measure. (CR E1206-1207)",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "B00100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Energy and Commerce.",
@@ -4527,7 +5489,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Energy and Commerce.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Energy and Commerce.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Energy and Commerce.",
@@ -4553,7 +5534,32 @@
     "cosponsors": [],
     "latest_action": "Referred to the Committee on the Judiciary, and in addition to the Committee on Homeland Security, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the Committee on the Judiciary, and in addition to the Committee on Homeland Security, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Committee on the Judiciary, and in addition to the Committee on Homeland Security, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the Committee on the Judiciary, and in addition to the Committee on Homeland Security, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
@@ -4579,7 +5585,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Energy and Commerce.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Energy and Commerce.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Energy and Commerce.",
@@ -4605,7 +5630,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Veterans' Affairs.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Veterans' Affairs.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Veterans' Affairs.",
@@ -4631,7 +5675,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Transportation and Infrastructure.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Transportation and Infrastructure.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Transportation and Infrastructure.",
@@ -4657,7 +5720,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Energy and Commerce.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Energy and Commerce.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Energy and Commerce.",
@@ -4683,7 +5765,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Small Business.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Small Business.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Small Business.",
@@ -4709,7 +5810,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Energy and Commerce.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Energy and Commerce.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Energy and Commerce.",
@@ -4735,7 +5855,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Education and Workforce.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Education and Workforce.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Education and Workforce.",
@@ -4761,7 +5900,32 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Energy and Commerce.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Energy and Commerce.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      },
+      {
+        "text": "Sponsor introductory remarks on measure. (CR H6203)",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "B00100"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Energy and Commerce.",
@@ -4787,7 +5951,50 @@
     "cosponsors": [],
     "latest_action": "Referred to the Committee on the Judiciary, and in addition to the Committees on Agriculture, Energy and Commerce, Ways and Means, and Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the Committee on the Judiciary, and in addition to the Committees on Agriculture, Energy and Commerce, Ways and Means, and Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Committee on the Judiciary, and in addition to the Committees on Agriculture, Energy and Commerce, Ways and Means, and Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Committee on the Judiciary, and in addition to the Committees on Agriculture, Energy and Commerce, Ways and Means, and Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Committee on the Judiciary, and in addition to the Committees on Agriculture, Energy and Commerce, Ways and Means, and Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Committee on the Judiciary, and in addition to the Committees on Agriculture, Energy and Commerce, Ways and Means, and Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the Committee on the Judiciary, and in addition to the Committees on Agriculture, Energy and Commerce, Ways and Means, and Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
@@ -4813,7 +6020,32 @@
     "cosponsors": [],
     "latest_action": "Referred to the Committee on Armed Services, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the Committee on Armed Services, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Committee on Armed Services, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the Committee on Armed Services, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
@@ -4839,7 +6071,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Agriculture.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Agriculture.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Agriculture.",
@@ -4865,7 +6116,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Oversight and Government Reform.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Oversight and Government Reform.",
@@ -4891,7 +6161,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on the Judiciary.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on the Judiciary.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on the Judiciary.",
@@ -4917,7 +6206,32 @@
     "cosponsors": [],
     "latest_action": "Referred to the Committee on Homeland Security, and in addition to the Committee on Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the Committee on Homeland Security, and in addition to the Committee on Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Committee on Homeland Security, and in addition to the Committee on Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the Committee on Homeland Security, and in addition to the Committee on Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
@@ -4943,7 +6257,32 @@
     "cosponsors": [],
     "latest_action": "Referred to the Committee on Ways and Means, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the Committee on Ways and Means, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Committee on Ways and Means, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the Committee on Ways and Means, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
@@ -4969,7 +6308,26 @@
     "cosponsors": [],
     "latest_action": "Referred to the House Committee on Education and Workforce.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the House Committee on Education and Workforce.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      },
+      {
+        "text": "Submitted in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1025"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the House Committee on Education and Workforce.",
@@ -4995,7 +6353,38 @@
     "cosponsors": [],
     "latest_action": "Referred to the Committee on Education and Workforce, and in addition to the Committees on Oversight and Government Reform, and House Administration, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Referred to the Committee on Education and Workforce, and in addition to the Committees on Oversight and Government Reform, and House Administration, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Committee on Education and Workforce, and in addition to the Committees on Oversight and Government Reform, and House Administration, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Committee on Education and Workforce, and in addition to the Committees on Oversight and Government Reform, and House Administration, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Referred to the Committee on Education and Workforce, and in addition to the Committees on Oversight and Government Reform, and House Administration, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
@@ -5021,7 +6410,19 @@
     "cosponsors": [],
     "latest_action": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
@@ -5047,7 +6448,19 @@
     "cosponsors": [],
     "latest_action": "Read twice and referred to the Committee on the Judiciary.",
     "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Read twice and referred to the Committee on the Judiciary.",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Read twice and referred to the Committee on the Judiciary.",
@@ -5060,6 +6473,57 @@
     "last_synced_at": "2026-11-13T12:29:59.857798+00:00",
     "official_title": "A bill to amend title 36, United States Code, to move the place of incorporation and domicile of the National Woman's Relief Corps to Illinois, to move the principal office of such Corps to Murphysboro, Illinois, and for other purposes.",
     "short_title": "A bill to amend title 36, United States Code, to move the place of incorporation and domicile of the National Woman's Relief Corps to Illinois, to move the principal office of such Corps to Murphysboro, Illinois, and for other purposes."
+  },
+  {
+    "bill_number": "11002",
+    "bill_type": "HR",
+    "title": "Protecting Our Public Lands from Data Centers Act of 2026",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Sponsor introductory remarks on measure. (CR H6202)",
+    "latest_action_date": "2026-11-12T00:00:00",
+    "actions": [
+      {
+        "text": "Referred to the Committee on Natural Resources, and in addition to the Committee on Agriculture, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Referred to the Committee on Natural Resources, and in addition to the Committee on Agriculture, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-11-11",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Sponsor introductory remarks on measure. (CR H6202)",
+    "votes": [],
+    "introduced_date": "2026-11-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/11002",
+    "published": "2026-11-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-13T18:07:38.101815+00:00",
+    "official_title": "To prohibit the construction of data centers on Federal land, and for other purposes.",
+    "short_title": "To prohibit the construction of data centers on Federal land, and for other purposes."
   },
   {
     "bill_number": "2347",
@@ -6252,57 +7716,6 @@
     "last_synced_at": "2026-11-12T13:15:00.709924+00:00",
     "official_title": "To amend the Public Health Service Act to authorize the Secretary of Health and Human Services to award grants to local educational agencies for the implementation of culturally responsive youth suicide prevention programs, and for other purposes.",
     "short_title": "SPARKS Act"
-  },
-  {
-    "bill_number": "11002",
-    "bill_type": "HR",
-    "title": "To prohibit the construction of data centers on Federal land, and for other purposes.",
-    "summary": "",
-    "sponsor_name": "",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "latest_action": "Referred to the Committee on Natural Resources, and in addition to the Committee on Agriculture, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-    "latest_action_date": "2026-11-11T00:00:00",
-    "actions": [
-      {
-        "text": "Referred to the Committee on Natural Resources, and in addition to the Committee on Agriculture, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-        "actionDate": "2026-11-11",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Referred to the Committee on Natural Resources, and in addition to the Committee on Agriculture, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-        "actionDate": "2026-11-11",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-11-11",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-11-11",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Referred to the Committee on Natural Resources, and in addition to the Committee on Agriculture, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-    "votes": [],
-    "introduced_date": "2026-11-11T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/11002",
-    "published": "2026-11-11T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-11-12T13:15:00.709924+00:00",
-    "official_title": "To prohibit the construction of data centers on Federal land, and for other purposes.",
-    "short_title": "To prohibit the construction of data centers on Federal land, and for other purposes."
   },
   {
     "bill_number": "11000",
