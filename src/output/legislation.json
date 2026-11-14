@@ -6488,6 +6488,12 @@
     "latest_action_date": "2026-11-12T00:00:00",
     "actions": [
       {
+        "text": "Sponsor introductory remarks on measure. (CR H6202)",
+        "actionDate": "2026-11-12",
+        "type": "IntroReferral",
+        "actionCode": "B00100"
+      },
+      {
         "text": "Referred to the Committee on Natural Resources, and in addition to the Committee on Agriculture, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
         "actionDate": "2026-11-11",
         "type": "IntroReferral",
@@ -6524,6 +6530,155 @@
     "last_synced_at": "2026-11-13T18:07:38.101815+00:00",
     "official_title": "To prohibit the construction of data centers on Federal land, and for other purposes.",
     "short_title": "To prohibit the construction of data centers on Federal land, and for other purposes."
+  },
+  {
+    "bill_number": "8352",
+    "bill_type": "HR",
+    "title": "Criminal History Access Act of 2026",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Presented to President.",
+    "latest_action_date": "2026-11-12T00:00:00",
+    "actions": [
+      {
+        "text": "Message on Senate action sent to the House.",
+        "actionDate": "2026-10-14",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed Senate without amendment by Unanimous Consent. (consideration: CR S5299)",
+        "actionDate": "2026-09-30",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent.",
+        "actionDate": "2026-09-30",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Senate Committee on the Judiciary discharged by Unanimous Consent.",
+        "actionDate": "2026-09-30",
+        "type": "Discharge"
+      },
+      {
+        "text": "Senate Committee on the Judiciary discharged by Unanimous Consent.",
+        "actionDate": "2026-09-30",
+        "type": "Committee",
+        "actionCode": "14500"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on the Judiciary.",
+        "actionDate": "2026-05-13",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-05-12",
+        "type": "Floor",
+        "actionTime": "17:03:46",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H3370-3371)",
+        "actionDate": "2026-05-12",
+        "type": "Floor",
+        "actionTime": "17:03:09",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H3370-3371)",
+        "actionDate": "2026-05-12",
+        "type": "Floor",
+        "actionTime": "17:03:09",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 8352.",
+        "actionDate": "2026-05-12",
+        "type": "Floor",
+        "actionTime": "16:53:39",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H3370-3372)",
+        "actionDate": "2026-05-12",
+        "type": "Floor",
+        "actionTime": "16:53:37",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Schmidt moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2026-05-12",
+        "type": "Floor",
+        "actionTime": "16:53:18",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 553.",
+        "actionDate": "2026-05-04",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Judiciary. H. Rept. 119-636.",
+        "actionDate": "2026-05-04",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Judiciary. H. Rept. 119-636.",
+        "actionDate": "2026-05-04",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported (Amended) by Voice Vote.",
+        "actionDate": "2026-04-22",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2026-04-22",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on the Judiciary.",
+        "actionDate": "2026-04-16",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-04-16",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-04-16",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Presented to President.",
+    "votes": [],
+    "introduced_date": "2026-04-16T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8352",
+    "published": "2026-04-16T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-13T23:53:48.305749+00:00",
+    "official_title": "To authorize peace officer standards and training agencies to access criminal history records, and for other purposes.",
+    "short_title": "Criminal History Access Act of 2026"
   },
   {
     "bill_number": "2347",
@@ -27927,155 +28082,6 @@
     "votes": [],
     "introduced_date": "2025-09-09T00:00:00",
     "last_synced_at": "2026-10-15T18:38:59.224770+00:00"
-  },
-  {
-    "bill_number": "8352",
-    "bill_type": "HR",
-    "title": "Criminal History Access Act of 2026",
-    "summary": "",
-    "sponsor_name": "",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "latest_action": "Message on Senate action sent to the House.",
-    "latest_action_date": "2026-10-14T00:00:00",
-    "actions": [
-      {
-        "text": "Message on Senate action sent to the House.",
-        "actionDate": "2026-10-14",
-        "type": "Floor"
-      },
-      {
-        "text": "Passed Senate without amendment by Unanimous Consent. (consideration: CR S5299)",
-        "actionDate": "2026-09-30",
-        "type": "Floor"
-      },
-      {
-        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent.",
-        "actionDate": "2026-09-30",
-        "type": "Floor",
-        "actionCode": "17000"
-      },
-      {
-        "text": "Senate Committee on the Judiciary discharged by Unanimous Consent.",
-        "actionDate": "2026-09-30",
-        "type": "Discharge"
-      },
-      {
-        "text": "Senate Committee on the Judiciary discharged by Unanimous Consent.",
-        "actionDate": "2026-09-30",
-        "type": "Committee",
-        "actionCode": "14500"
-      },
-      {
-        "text": "Received in the Senate and Read twice and referred to the Committee on the Judiciary.",
-        "actionDate": "2026-05-13",
-        "type": "IntroReferral"
-      },
-      {
-        "text": "Motion to reconsider laid on the table Agreed to without objection.",
-        "actionDate": "2026-05-12",
-        "type": "Floor",
-        "actionTime": "17:03:46",
-        "actionCode": "H38310"
-      },
-      {
-        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H3370-3371)",
-        "actionDate": "2026-05-12",
-        "type": "Floor",
-        "actionTime": "17:03:09",
-        "actionCode": "H37300"
-      },
-      {
-        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H3370-3371)",
-        "actionDate": "2026-05-12",
-        "type": "Floor",
-        "actionTime": "17:03:09",
-        "actionCode": "8000"
-      },
-      {
-        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 8352.",
-        "actionDate": "2026-05-12",
-        "type": "Floor",
-        "actionTime": "16:53:39",
-        "actionCode": "H8D000"
-      },
-      {
-        "text": "Considered under suspension of the rules. (consideration: CR H3370-3372)",
-        "actionDate": "2026-05-12",
-        "type": "Floor",
-        "actionTime": "16:53:37",
-        "actionCode": "H30000"
-      },
-      {
-        "text": "Mr. Schmidt moved to suspend the rules and pass the bill, as amended.",
-        "actionDate": "2026-05-12",
-        "type": "Floor",
-        "actionTime": "16:53:18",
-        "actionCode": "H30300"
-      },
-      {
-        "text": "Placed on the Union Calendar, Calendar No. 553.",
-        "actionDate": "2026-05-04",
-        "type": "Calendars",
-        "actionCode": "H12410"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Judiciary. H. Rept. 119-636.",
-        "actionDate": "2026-05-04",
-        "type": "Committee",
-        "actionCode": "H12200"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Judiciary. H. Rept. 119-636.",
-        "actionDate": "2026-05-04",
-        "type": "Committee",
-        "actionCode": "5000"
-      },
-      {
-        "text": "Ordered to be Reported (Amended) by Voice Vote.",
-        "actionDate": "2026-04-22",
-        "type": "Committee",
-        "actionCode": "H19000"
-      },
-      {
-        "text": "Committee Consideration and Mark-up Session Held",
-        "actionDate": "2026-04-22",
-        "type": "Committee",
-        "actionCode": "H15001"
-      },
-      {
-        "text": "Referred to the House Committee on the Judiciary.",
-        "actionDate": "2026-04-16",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-04-16",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-04-16",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Message on Senate action sent to the House.",
-    "votes": [],
-    "introduced_date": "2026-04-16T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8352",
-    "published": "2026-04-16T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-10-15T18:38:59.224770+00:00",
-    "official_title": "To authorize peace officer standards and training agencies to access criminal history records, and for other purposes.",
-    "short_title": "Criminal History Access Act of 2026"
   },
   {
     "bill_number": "10159",
@@ -445891,6 +445897,32 @@
     "short_title": "Transportation Assistance for Olympic and World Cup Cities Act of 2025"
   },
   {
+    "bill_number": "1265",
+    "bill_type": "HR",
+    "title": "To amend the Save Our Seas 2.0 Act to expand eligibility for certain wastewater infrastructure grants, and for other purposes.",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the Subcommittee on Water Resources and Environment.",
+    "latest_action_date": "2025-04-01T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the Subcommittee on Water Resources and Environment.",
+    "votes": [],
+    "introduced_date": "2025-02-12T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/1265",
+    "published": "2025-02-12T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-13T23:53:48.305749+00:00",
+    "official_title": "To amend the Save Our Seas 2.0 Act to expand eligibility for certain wastewater infrastructure grants, and for other purposes.",
+    "short_title": "To amend the Save Our Seas 2.0 Act to expand eligibility for certain wastewater infrastructure grants, and for other purposes."
+  },
+  {
     "bill_number": "2510",
     "bill_type": "HR",
     "title": "American-Hellenic-Israeli Eastern Mediterranean Counterterrorism and Maritime Security Partnership Act of 2025",
@@ -486589,6 +486621,58 @@
     "short_title": "Hire Veterans Act"
   },
   {
+    "bill_number": "1233",
+    "bill_type": "HR",
+    "title": "To prohibit the obligation or expenditure of Federal funds for disinformation research grants, and for other purposes.",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on Science, Space, and Technology.",
+    "latest_action_date": "2025-02-12T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on Science, Space, and Technology.",
+    "votes": [],
+    "introduced_date": "2025-02-12T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/1233",
+    "published": "2025-02-12T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-13T23:53:48.305749+00:00",
+    "official_title": "To prohibit the obligation or expenditure of Federal funds for disinformation research grants, and for other purposes.",
+    "short_title": "To prohibit the obligation or expenditure of Federal funds for disinformation research grants, and for other purposes."
+  },
+  {
+    "bill_number": "1239",
+    "bill_type": "HR",
+    "title": "Voluntary Sustainable Apparel Labeling Act",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on Energy and Commerce.",
+    "latest_action_date": "2025-02-12T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on Energy and Commerce.",
+    "votes": [],
+    "introduced_date": "2025-02-12T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/1239",
+    "published": "2025-02-12T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-13T23:53:48.305749+00:00",
+    "official_title": "To direct the Administrator of the Environmental Protection Agency to establish a voluntary sustainable apparel labeling program, and for other purposes.",
+    "short_title": "Voluntary Sustainable Apparel Labeling Act"
+  },
+  {
     "bill_number": "303",
     "bill_type": "HR",
     "title": "Retired Pay Restoration Act",
@@ -488355,6 +488439,58 @@
     "last_synced_at": "2026-09-25T18:56:33.169955+00:00",
     "official_title": "Congratulating the Philadelphia Eagles on their victory in Super Bowl LIX.",
     "short_title": "Congratulating the Philadelphia Eagles on their victory in Super Bowl LIX."
+  },
+  {
+    "bill_number": "1205",
+    "bill_type": "HR",
+    "title": "Safe Shelters Act of 2025",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the Subcommittee on Economic Development, Public Buildings, and Emergency Management.",
+    "latest_action_date": "2025-02-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the Subcommittee on Economic Development, Public Buildings, and Emergency Management.",
+    "votes": [],
+    "introduced_date": "2025-02-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/1205",
+    "published": "2025-02-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-13T23:53:48.305749+00:00",
+    "official_title": "To prohibit certain sex offenders from entering or using the services of certain emergency shelters, to authorize the Administrator of the Federal Emergency Management Agency to designate emergency shelters for such sex offenders, and for other purposes.",
+    "short_title": "Safe Shelters Act of 2025"
+  },
+  {
+    "bill_number": "1203",
+    "bill_type": "HR",
+    "title": "Stop VOYEURS Act of 2025",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on the Judiciary.",
+    "latest_action_date": "2025-02-11T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on the Judiciary.",
+    "votes": [],
+    "introduced_date": "2025-02-11T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/1203",
+    "published": "2025-02-11T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-13T23:53:48.305749+00:00",
+    "official_title": "To amend title 18, United States Code, to expand the scope of the prohibition against video voyeurism.",
+    "short_title": "Stop VOYEURS Act of 2025"
   },
   {
     "bill_number": "500",
@@ -517611,6 +517747,32 @@
     "last_synced_at": "2026-11-10T23:48:17.483644+00:00",
     "official_title": "To prohibit the use of forfeited funds made available to certain State or local law enforcement agencies pursuant to equitable sharing for certain purposes.",
     "short_title": "No Federal Funds for Political Prosecutions Act"
+  },
+  {
+    "bill_number": "123",
+    "bill_type": "HR",
+    "title": "Improving Science in Chemical Assessments Act",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the Committee on Science, Space, and Technology, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+    "latest_action_date": "2025-01-03T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the Committee on Science, Space, and Technology, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+    "votes": [],
+    "introduced_date": "2025-01-03T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/123",
+    "published": "2025-01-03T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-13T23:53:48.305749+00:00",
+    "official_title": "To direct that certain assessments with respect to toxicity of chemicals be carried out by the program offices of the Environmental Protection Agency, and for other purposes.",
+    "short_title": "Improving Science in Chemical Assessments Act"
   },
   {
     "bill_number": "9",
