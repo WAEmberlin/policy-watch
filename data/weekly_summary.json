@@ -1,9 +1,9 @@
 {
-  "week_start": "2026-11-01",
-  "week_end": "2026-11-08",
+  "week_start": "2026-11-08",
+  "week_end": "2026-11-15",
   "model": "phi-3:mini",
   "prompt_version": "v1",
-  "generated_at": "2026-11-08T12:39:07.782369+00:00",
+  "generated_at": "2026-11-15T13:19:58.220409+00:00",
   "jurisdictions": [
     {
       "name": "Kansas Legislature",
@@ -30,32 +30,42 @@
         {
           "title": "House of Representatives",
           "summary": [
-            "2 House of Representatives bills were presented to president.: HR 1945, HR 7730.",
-            "HR 3100 was placed on the union calendar, calendar no. 770. on 2026-11-05.",
-            "HR 9605 was placed on the union calendar, calendar no. 767. on 2026-11-05.",
-            "HR 5549 was placed on the union calendar, calendar no. 769. on 2026-11-05.",
-            "HR 3978 was placed on the union calendar, calendar no. 768. on 2026-11-05.",
-            "HR 9612 was placed on the union calendar, calendar no. 772. on 2026-11-05.",
-            "HR 9084 was placed on the union calendar, calendar no. 771. on 2026-11-05.",
-            "HR 9614 was placed on the union calendar, calendar no. 773. on 2026-11-05.",
-            "HR 9613 was placed on the union calendar, calendar no. 774. on 2026-11-05.",
-            "HR 5723 was placed on the union calendar, calendar no. 766. on 2026-11-05.",
-            "HR 10960 was referred to the house committee on oversight and government reform. on 2026-11-05.",
-            "HR 10956 was referred to the committee on natural resources, and in addition to the committee on energy and commerce, for a period to be subsequently determined by the speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned. on 2026-11-05.",
-            "HRES 1649 was referred to the house committee on agriculture. on 2026-11-05.",
-            "HRES 1648 was referred to the house committee on house administration. on 2026-11-05.",
-            "HR 10957 was referred to the committee on energy and commerce, and in addition to the committees on transportation and infrastructure, and science, space, and technology, for a period to be subsequently determined by the speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned. on 2026-11-05.",
-            "3 House of Representatives bills were referred to the house committee on energy and commerce.: HR 10959, HR 10954, HR 10958.",
-            "HR 10955 was referred to the house committee on ways and means. on 2026-11-05."
+            "HR 11035 was referred to the house committee on energy and commerce. on 2026-11-13.",
+            "HR 11036 was referred to the house committee on oversight and government reform. on 2026-11-13.",
+            "HR 11034 was referred to the house committee on natural resources. on 2026-11-13.",
+            "HR 11033 was referred to the house committee on ways and means. on 2026-11-13.",
+            "2 House of Representatives bills were message on senate action sent to the house.: HR 8552, HR 4930.",
+            "HR 1013 was received in the senate and read twice and referred to the committee on banking, housing, and urban affairs. on 2026-11-12.",
+            "HR 5549 was received in the senate and read twice and referred to the committee on environment and public works. on 2026-11-12.",
+            "HR 9084 was received in the senate and read twice and referred to the committee on energy and natural resources. on 2026-11-12.",
+            "HRES 1247 was motion to reconsider laid on the table agreed to without objection. on 2026-11-12.",
+            "7 House of Representatives bills were received in the senate and read twice and referred to the committee on small business and entrepreneurship.: HR 10238, HR 10375, HR 10355, HR 10353, HR 10371 and 2 more.",
+            "HR 10956 was referred to the subcommittee on indian and insular affairs. on 2026-11-12.",
+            "2 House of Representatives bills were presented to president.: HR 1550, HR 5284."
           ],
-          "bill_count": 29
+          "bill_count": 134
         },
         {
           "title": "U.S. Senate",
           "summary": [
-            "No U.S. Senate bills with activity this week."
+            "4 U.S. Senate bills were held at the desk.: S 3923, S 3720, S 2434, S 3589.",
+            "S 5359 was placed on senate legislative calendar under general orders. calendar no. 711. on 2026-11-12.",
+            "S 5352 was placed on senate legislative calendar under general orders. calendar no. 710. on 2026-11-12.",
+            "S 4870 was placed on senate legislative calendar under general orders. calendar no. 709. on 2026-11-12.",
+            "S 4846 was placed on senate legislative calendar under general orders. calendar no. 708. on 2026-11-12.",
+            "S 4116 was placed on senate legislative calendar under general orders. calendar no. 706. on 2026-11-12.",
+            "S 3524 was placed on senate legislative calendar under general orders. calendar no. 704. on 2026-11-12.",
+            "S 3371 was placed on senate legislative calendar under general orders. calendar no. 703. on 2026-11-12.",
+            "S 465 was placed on senate legislative calendar under general orders. calendar no. 698. on 2026-11-12.",
+            "S 2970 was placed on senate legislative calendar under general orders. calendar no. 702. on 2026-11-12.",
+            "S 1254 was placed on senate legislative calendar under general orders. calendar no. 700. on 2026-11-12.",
+            "S 2887 was passed senate without amendment by unanimous consent. on 2026-11-12.",
+            "SRES 834 was resolution agreed to in senate without amendment and with a preamble by unanimous consent. on 2026-11-12.",
+            "S 4410 was placed on senate legislative calendar under general orders. calendar no. 707. on 2026-11-12.",
+            "2 U.S. Senate bills were passed senate with an amendment by unanimous consent.: S 3493, S 1353.",
+            "S 140 was placed on senate legislative calendar under general orders. calendar no. 697. on 2026-11-12."
           ],
-          "bill_count": 0
+          "bill_count": 70
         }
       ]
     }
