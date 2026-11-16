@@ -17180,7 +17180,7 @@
     "enriched_at": "2026-11-16T09:01:15.420973+00:00"
   },
   "_meta": {
-    "updated_at": "2026-11-16T09:01:15.421008+00:00",
+    "updated_at": "2026-11-16T22:28:58.440259+00:00",
     "total_bills": 899,
     "enriched_this_run": 75,
     "errors": 0
@@ -30222,7 +30222,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2455/hb2455_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:37.800485+00:00"
+    "enriched_at": "2026-11-16T22:27:52.125708+00:00"
   },
   "HB2456": {
     "bill_number": "HB2456",
@@ -30284,10 +30284,11 @@
     "votes": [],
     "hearings": [],
     "document_urls": [
-      "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2456/hb2456_00_0000.pdf"
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2456/hb2456_00_0000.pdf",
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2456_00_0000/fisc_note_hb2456_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:38.691256+00:00"
+    "enriched_at": "2026-11-16T22:27:53.016750+00:00"
   },
   "HB2457": {
     "bill_number": "HB2457",
@@ -30361,7 +30362,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2457_00_0000/fisc_note_hb2457_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:39.591300+00:00"
+    "enriched_at": "2026-11-16T22:27:53.912662+00:00"
   },
   "HB2458": {
     "bill_number": "HB2458",
@@ -30419,7 +30420,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2458_00_0000/fisc_note_hb2458_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:40.467199+00:00"
+    "enriched_at": "2026-11-16T22:27:54.830931+00:00"
   },
   "HB2459": {
     "bill_number": "HB2459",
@@ -30477,15 +30478,15 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2459_00_0000/fisc_note_hb2459_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:41.362034+00:00"
+    "enriched_at": "2026-11-16T22:27:55.712607+00:00"
   },
   "HB2460": {
     "bill_number": "HB2460",
     "short_title": "Modifying an exception to the Kansas open records act that authorizes certain individuals to have identifying information restricted from public access on public websites that identify home addresses or home ownership by providing that certain individuals who were employed for five or more years, certain elected officials and persons who reside at an address that is subject to restriction from public access may request to have such information restricted and removing an exception related to information or reports obtained and prepared by the office of the state bank commissioner.",
     "long_title": "AN ACT concerning the Kansas open records act (KORA); relating to permissible exceptions to disclosure; modifying an exception to KORA that authorizes certain individuals to have identifying information restricted from public access on public websites that identify home addresses or home ownership; providing that certain individuals who were employed for five or more years may request to have such information restricted; authorizing members of the legislature, state officers elected on a statewide basis, members of the state board of education and elected members of the governing body of any municipality to request to have such information restricted; authorizing any other person who resides at an address that is subject to restriction from public access to request to have such information restricted; removing an exception to KORA related to information or reports obtained and prepared by the office of the state bank commissioner; amending K.S.A. 2025 Supp. 45-221 and repealing the existing section.",
     "summary": "Modifying an exception to the Kansas open records act that authorizes certain individuals to have identifying information restricted from public access on public websites that identify home addresses or home ownership by providing that certain individuals who were employed for five or more years, certain elected officials and persons who reside at an address that is subject to restriction from public access may request to have such information restricted and removing an exception related to information or reports obtained and prepared by the office of the state bank commissioner.",
-    "status": "Dead / Failed",
-    "measure_state": "dead",
+    "status": "Introduced",
+    "measure_state": "introduced",
     "sponsors": [
       {
         "name": "House Committee on Judiciary",
@@ -30575,7 +30576,7 @@
         "occurred_datetime": "2026-02-16T13:04:40",
         "session_date": "2026-02-16",
         "status": "Committee Report recommending bill be passed as amended by",
-        "amendment_report": "/bills/download/?apn=b2023_24/year2/ready_for_publication/floor_amendments/3704/fa_2024_hb2460_h_3704.pdf"
+        "amendment_report": "/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2460/cr_2026_hb2460_h_3670.pdf"
       },
       {
         "action_code": "cref_cref_316",
@@ -30595,7 +30596,7 @@
         "occurred_datetime": "2026-02-09T12:40:49",
         "session_date": "2026-02-09",
         "status": "Committee Report recommending bill be passed as amended by",
-        "amendment_report": "/bills/download/?apn=b2023_24/year2/ready_for_publication/floor_amendments/3704/fa_2024_hb2460_h_3704.pdf"
+        "amendment_report": "/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2460/cr_2026_hb2460_h_3670.pdf"
       },
       {
         "action_code": "misc_he_200",
@@ -30654,10 +30655,11 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2460_02_0000.pdf",
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2460/hb2460_01_0000.pdf",
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2460_01_0000.pdf",
-      "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2460/hb2460_00_0000.pdf"
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2460/hb2460_00_0000.pdf",
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2460_00_0000/fisc_note_hb2460_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:42.285036+00:00"
+    "enriched_at": "2026-11-16T22:27:56.595481+00:00"
   },
   "HB2461": {
     "bill_number": "HB2461",
@@ -30719,10 +30721,11 @@
     "votes": [],
     "hearings": [],
     "document_urls": [
-      "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2461/hb2461_00_0000.pdf"
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2461/hb2461_00_0000.pdf",
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2461_00_0000/fisc_note_hb2461_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:43.155682+00:00"
+    "enriched_at": "2026-11-16T22:27:57.479710+00:00"
   },
   "HB2462": {
     "bill_number": "HB2462",
@@ -31053,10 +31056,11 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2462/hb2462_01_0000.pdf",
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2462_01_0000.pdf",
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2462/hb2462_00_0000.pdf",
-      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2462_00_0000.pdf"
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2462_00_0000.pdf",
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2462_00_0000/fisc_note_hb2462_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:44.096506+00:00"
+    "enriched_at": "2026-11-16T22:27:58.384813+00:00"
   },
   "HB2463": {
     "bill_number": "HB2463",
@@ -31122,7 +31126,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2463_00_0000/fisc_note_hb2463_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:45.007454+00:00"
+    "enriched_at": "2026-11-16T22:27:59.271672+00:00"
   },
   "HB2464": {
     "bill_number": "HB2464",
@@ -31327,7 +31331,7 @@
         "occurred_datetime": "2026-01-30T09:05:14",
         "session_date": "2026-01-30",
         "status": "Committee Report recommending bill be passed by",
-        "amendment_report": "/bills/download/?apn=b2023_24/year2/ready_for_publication/hb_2464/cr_2024_hb2464_h_3761.pdf"
+        "amendment_report": "/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2464/cr_2026_hb2464_h_3293.pdf"
       },
       {
         "action_code": "misc_he_200",
@@ -31433,10 +31437,11 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2464/hb2464_01_0000.pdf",
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2464_01_0000.pdf",
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2464/hb2464_00_0000.pdf",
-      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2464_00_0000.pdf"
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2464_00_0000.pdf",
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2464_00_0000/fisc_note_hb2464_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:45.933855+00:00"
+    "enriched_at": "2026-11-16T22:28:00.174218+00:00"
   },
   "HB2465": {
     "bill_number": "HB2465",
@@ -31513,7 +31518,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2465_00_0000/fisc_note_hb2465_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:46.808154+00:00"
+    "enriched_at": "2026-11-16T22:28:01.077958+00:00"
   },
   "HB2466": {
     "bill_number": "HB2466",
@@ -31818,7 +31823,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2466_00_0000/fisc_note_hb2466_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:47.720890+00:00"
+    "enriched_at": "2026-11-16T22:28:01.990552+00:00"
   },
   "HB2467": {
     "bill_number": "HB2467",
@@ -32033,7 +32038,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2467_00_0000/fisc_note_hb2467_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:48.612142+00:00"
+    "enriched_at": "2026-11-16T22:28:02.926683+00:00"
   },
   "HB2468": {
     "bill_number": "HB2468",
@@ -32504,18 +32509,19 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2468_02_0000.pdf",
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2468/hb2468_01_0000.pdf",
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2468_01_0000.pdf",
-      "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2468/hb2468_00_0000.pdf"
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2468/hb2468_00_0000.pdf",
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2468_00_0000/fisc_note_hb2468_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:49.536153+00:00"
+    "enriched_at": "2026-11-16T22:28:03.859582+00:00"
   },
   "HB2469": {
     "bill_number": "HB2469",
     "short_title": "Expanding the income tax credit for qualified railroad track maintenance expenditures to allow credits against certain premium taxes, privilege fees and privilege taxes and allowing the transfer of unused credits to any individual or entity subject to such taxes.",
     "long_title": "AN ACT concerning taxation; relating to credits; expanding the income tax credit for qualified railroad track maintenance expenditures to include credits against certain premium taxes, privilege fees and privilege taxes; allowing the transfer of unused credits to any individual or entity subject to such taxes; amending K.S.A. 2025 Supp. 79-32,297 and repealing the existing section.",
     "summary": "Expanding the income tax credit for qualified railroad track maintenance expenditures to allow credits against certain premium taxes, privilege fees and privilege taxes and allowing the transfer of unused credits to any individual or entity subject to such taxes.",
-    "status": "Dead / Failed",
-    "measure_state": "dead",
+    "status": "Introduced",
+    "measure_state": "introduced",
     "sponsors": [
       {
         "name": "House Committee on Taxation",
@@ -32583,7 +32589,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2469_00_0000/fisc_note_hb2469_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:50.408104+00:00"
+    "enriched_at": "2026-11-16T22:28:04.757499+00:00"
   },
   "HB2470": {
     "bill_number": "HB2470",
@@ -32784,15 +32790,15 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2470_00_0000/fisc_note_hb2470_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:51.521899+00:00"
+    "enriched_at": "2026-11-16T22:28:05.654899+00:00"
   },
   "HB2471": {
     "bill_number": "HB2471",
     "short_title": "Designating a portion of I-35 as the deputy Sam Smith memorial highway and redesignating a current portion of the 35th infantry division memorial highway for I-35.",
     "long_title": "AN ACT concerning roads and highways; designating a portion of interstate 35 as the deputy Sam Smith memorial highway; redesignating a current portion of the 35th infantry division memorial highway for interstate 35; amending K.S.A. 68-1013 and repealing the existing section.",
     "summary": "Designating a portion of I-35 as the deputy Sam Smith memorial highway and redesignating a current portion of the 35th infantry division memorial highway for I-35.",
-    "status": "Dead / Failed",
-    "measure_state": "dead",
+    "status": "Introduced",
+    "measure_state": "introduced",
     "sponsors": [
       {
         "name": "House Committee on Transportation",
@@ -33009,7 +33015,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2471_00_0000/fisc_note_hb2471_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:52.419459+00:00"
+    "enriched_at": "2026-11-16T22:28:06.550996+00:00"
   },
   "HB2472": {
     "bill_number": "HB2472",
@@ -33067,7 +33073,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2472_00_0000/fisc_note_hb2472_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:53.283351+00:00"
+    "enriched_at": "2026-11-16T22:28:07.438612+00:00"
   },
   "HB2473": {
     "bill_number": "HB2473",
@@ -33177,7 +33183,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2473_00_0000/fisc_note_hb2473_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:54.157182+00:00"
+    "enriched_at": "2026-11-16T22:28:08.321688+00:00"
   },
   "HB2474": {
     "bill_number": "HB2474",
@@ -33243,15 +33249,15 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2474_00_0000/fisc_note_hb2474_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:55.045151+00:00"
+    "enriched_at": "2026-11-16T22:28:09.192097+00:00"
   },
   "HB2475": {
     "bill_number": "HB2475",
     "short_title": "Providing a sales tax exemption for purchases made by radical life inc.",
     "long_title": "AN ACT concerning sales taxation; relating to exemptions; providing a sales tax exemption for purchases made by radical life inc; amending K.S.A. 2025 Supp. 79-3606 and repealing the existing section.",
     "summary": "Providing a sales tax exemption for purchases made by radical life inc.",
-    "status": "Dead / Failed",
-    "measure_state": "dead",
+    "status": "Introduced",
+    "measure_state": "introduced",
     "sponsors": [
       {
         "name": "House Committee on Taxation",
@@ -33316,18 +33322,19 @@
     "document_urls": [
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2475/hb2475_01_0000.pdf",
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2475_01_0000.pdf",
-      "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2475/hb2475_00_0000.pdf"
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2475/hb2475_00_0000.pdf",
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2475_00_0000/fisc_note_hb2475_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:55.928592+00:00"
+    "enriched_at": "2026-11-16T22:28:10.085119+00:00"
   },
   "HB2476": {
     "bill_number": "HB2476",
     "short_title": "Permitting federal pesticide warning or labeling requirements to satisfy any state pesticide warning or labeling requirements. ",
     "long_title": "AN ACT concerning agriculture; relating to pesticides; permitting federal pesticide warning or labeling requirements to satisfy any state pesticide warning or labeling requirements.",
     "summary": "Permitting federal pesticide warning or labeling requirements to satisfy any state pesticide warning or labeling requirements. ",
-    "status": "Dead / Failed",
-    "measure_state": "dead",
+    "status": "Introduced",
+    "measure_state": "introduced",
     "sponsors": [
       {
         "name": "House Committee on Agriculture and Natural Resources",
@@ -33508,7 +33515,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2476_00_0000/fisc_note_hb2476_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:56.830417+00:00"
+    "enriched_at": "2026-11-16T22:28:10.981236+00:00"
   },
   "HB2477": {
     "bill_number": "HB2477",
@@ -33562,8 +33569,7 @@
         "journal_page_number": "1592",
         "occurred_datetime": "2026-03-04T16:00:32",
         "session_date": "2026-03-04",
-        "status": "Committee Report recommending bill be passed and placed on Consent Calendar by",
-        "amendment_report": "/bills/download/?apn=b2023_24/year2/ready_for_publication/hb_2477/cr_2024_hb2477_s_3674.pdf"
+        "status": "Committee Report recommending bill be passed and placed on Consent Calendar by"
       },
       {
         "action_code": "misc_he_200",
@@ -33697,10 +33703,11 @@
     "document_urls": [
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2477/hb2477_enrolled.pdf",
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2477/hb2477_00_0000.pdf",
-      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2477_00_0000.pdf"
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2477_00_0000.pdf",
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2477_00_0000/fisc_note_hb2477_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:57.756597+00:00"
+    "enriched_at": "2026-11-16T22:28:11.902530+00:00"
   },
   "HB2478": {
     "bill_number": "HB2478",
@@ -33897,10 +33904,11 @@
     "document_urls": [
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2478/hb2478_enrolled.pdf",
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2478/hb2478_00_0000.pdf",
-      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2478_00_0000.pdf"
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2478_00_0000.pdf",
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2478_00_0000/fisc_note_hb2478_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:58.663793+00:00"
+    "enriched_at": "2026-11-16T22:28:12.817170+00:00"
   },
   "HB2479": {
     "bill_number": "HB2479",
@@ -34211,7 +34219,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2479_00_0000/fisc_note_hb2479_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:57:59.569451+00:00"
+    "enriched_at": "2026-11-16T22:28:13.729865+00:00"
   },
   "HB2480": {
     "bill_number": "HB2480",
@@ -34285,7 +34293,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2480_00_0000/fisc_note_hb2480_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:00.440305+00:00"
+    "enriched_at": "2026-11-16T22:28:14.625201+00:00"
   },
   "HB2481": {
     "bill_number": "HB2481",
@@ -34625,7 +34633,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2481_00_0000/fisc_note_hb2481_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:01.351209+00:00"
+    "enriched_at": "2026-11-16T22:28:15.545139+00:00"
   },
   "HB2482": {
     "bill_number": "HB2482",
@@ -34917,7 +34925,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2482_00_0000/fisc_note_hb2482_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:02.310432+00:00"
+    "enriched_at": "2026-11-16T22:28:16.471232+00:00"
   },
   "HB2483": {
     "bill_number": "HB2483",
@@ -34973,16 +34981,16 @@
         "chamber": "House",
         "journal_page_number": "",
         "occurred_datetime": "2026-01-21T14:26:38",
-        "session_date": "2026-01-29",
-        "status": "Hearing: Thursday, January 29, 2026, 9:00 AM — Room 582-N — CANCELED"
+        "session_date": "2026-01-27",
+        "status": "Hearing: Tuesday, January 27, 2026, 9:00 AM — Room 582-N — CANCELED"
       },
       {
         "action_code": "misc_he_200",
         "chamber": "House",
         "journal_page_number": "",
         "occurred_datetime": "2026-01-21T14:26:38",
-        "session_date": "2026-01-27",
-        "status": "Hearing: Tuesday, January 27, 2026, 9:00 AM — Room 582-N — CANCELED"
+        "session_date": "2026-01-29",
+        "status": "Hearing: Thursday, January 29, 2026, 9:00 AM — Room 582-N — CANCELED"
       },
       {
         "action_code": "intro_ibc_157",
@@ -35007,7 +35015,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2483_00_0000/fisc_note_hb2483_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:03.201234+00:00"
+    "enriched_at": "2026-11-16T22:28:17.351016+00:00"
   },
   "HB2484": {
     "bill_number": "HB2484",
@@ -35065,7 +35073,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2484_00_0000/fisc_note_hb2484_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:04.087087+00:00"
+    "enriched_at": "2026-11-16T22:28:18.238362+00:00"
   },
   "HB2485": {
     "bill_number": "HB2485",
@@ -35278,7 +35286,7 @@
         "occurred_datetime": "2026-02-06T11:39:14",
         "session_date": "2026-02-06",
         "status": "Committee Report recommending bill be passed by",
-        "amendment_report": "/bills/download/?apn=b2023_24/year2/ready_for_publication/hb_2485/cr_2024_hb2485_h_3401.pdf"
+        "amendment_report": "/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2485/cr_2026_hb2485_h_3452.pdf"
       },
       {
         "action_code": "misc_he_200",
@@ -35391,7 +35399,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2485_00_0000/fisc_note_hb2485_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:05.031226+00:00"
+    "enriched_at": "2026-11-16T22:28:19.140828+00:00"
   },
   "HB2486": {
     "bill_number": "HB2486",
@@ -35468,7 +35476,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2486_00_0000/fisc_note_hb2486_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:05.924613+00:00"
+    "enriched_at": "2026-11-16T22:28:20.020053+00:00"
   },
   "HB2487": {
     "bill_number": "HB2487",
@@ -35674,7 +35682,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2487_00_0000/fisc_note_hb2487_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:06.817824+00:00"
+    "enriched_at": "2026-11-16T22:28:20.934913+00:00"
   },
   "HB2488": {
     "bill_number": "HB2488",
@@ -35740,15 +35748,15 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2488_00_0000/fisc_note_hb2488_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:07.686482+00:00"
+    "enriched_at": "2026-11-16T22:28:21.811162+00:00"
   },
   "HB2489": {
     "bill_number": "HB2489",
     "short_title": "Requiring school districts to provide fentanyl abuse education programs and maintain supplies of naloxone in each school.",
     "long_title": "AN ACT concerning school districts; relating to drug abuse education programs; requiring school districts to provide fentanyl abuse education programs; mandating school districts to maintain a supply of naloxone in all schools.",
     "summary": "Requiring school districts to provide fentanyl abuse education programs and maintain supplies of naloxone in each school.",
-    "status": "Dead / Failed",
-    "measure_state": "dead",
+    "status": "Introduced",
+    "measure_state": "introduced",
     "sponsors": [
       {
         "name": "Representative Proctor",
@@ -35899,7 +35907,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2489_00_0000/fisc_note_hb2489_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:08.588612+00:00"
+    "enriched_at": "2026-11-16T22:28:22.694411+00:00"
   },
   "HB2490": {
     "bill_number": "HB2490",
@@ -35957,15 +35965,15 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2490_00_0000/fisc_note_hb2490_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:09.467584+00:00"
+    "enriched_at": "2026-11-16T22:28:23.601640+00:00"
   },
   "HB2491": {
     "bill_number": "HB2491",
     "short_title": "Requiring state agencies to make quarterly reports to the secretary of state with the names and addresses of noncitizens receiving public benefits.",
     "long_title": "AN ACT concerning state agencies; requiring quarterly reports to the secretary of state of the names and addresses of noncitizens receiving public-funded benefits.",
     "summary": "Requiring state agencies to make quarterly reports to the secretary of state with the names and addresses of noncitizens receiving public benefits.",
-    "status": "Dead / Failed",
-    "measure_state": "dead",
+    "status": "Introduced",
+    "measure_state": "introduced",
     "sponsors": [
       {
         "name": "House Committee on Elections",
@@ -36047,7 +36055,7 @@
         "occurred_datetime": "2026-02-16T12:58:18",
         "session_date": "2026-02-16",
         "status": "Committee Report recommending bill be passed as amended by",
-        "amendment_report": "/bills/download/?apn=b2023_24/year2/ready_for_publication/hb_2491/cr_2024_hb2491_h_3039.pdf"
+        "amendment_report": "/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2491/cr_2026_hb2491_h_3669.pdf"
       },
       {
         "action_code": "misc_he_200",
@@ -36107,10 +36115,11 @@
     "document_urls": [
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2491/hb2491_01_0000.pdf",
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2491_01_0000.pdf",
-      "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2491/hb2491_00_0000.pdf"
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2491/hb2491_00_0000.pdf",
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2491_00_0000/fisc_note_hb2491_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:10.373224+00:00"
+    "enriched_at": "2026-11-16T22:28:24.494671+00:00"
   },
   "HB2492": {
     "bill_number": "HB2492",
@@ -36168,7 +36177,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2492_00_0000/fisc_note_hb2492_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:11.252074+00:00"
+    "enriched_at": "2026-11-16T22:28:25.400235+00:00"
   },
   "HB2493": {
     "bill_number": "HB2493",
@@ -36199,7 +36208,7 @@
         "occurred_datetime": "2026-02-04T11:45:32",
         "session_date": "2026-02-04",
         "status": "Committee Report recommending bill be passed by",
-        "amendment_report": "/bills/download/?apn=b2023_24/year2/ready_for_publication/hb_2493/cr_2024_hb2493_h_3225.pdf"
+        "amendment_report": "/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2493/cr_2026_hb2493_h_3413.pdf"
       },
       {
         "action_code": "ref_rbc_310",
@@ -36244,7 +36253,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2493_00_0000/fisc_note_hb2493_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:12.150054+00:00"
+    "enriched_at": "2026-11-16T22:28:26.286873+00:00"
   },
   "HB2494": {
     "bill_number": "HB2494",
@@ -36302,7 +36311,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2494_00_0000/fisc_note_hb2494_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:13.031517+00:00"
+    "enriched_at": "2026-11-16T22:28:27.164912+00:00"
   },
   "HB2495": {
     "bill_number": "HB2495",
@@ -36368,7 +36377,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2495_00_0000/fisc_note_hb2495_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:13.911673+00:00"
+    "enriched_at": "2026-11-16T22:28:28.050572+00:00"
   },
   "HB2496": {
     "bill_number": "HB2496",
@@ -36426,7 +36435,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2496_00_0000/fisc_note_hb2496_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:14.793694+00:00"
+    "enriched_at": "2026-11-16T22:28:28.930397+00:00"
   },
   "HB2497": {
     "bill_number": "HB2497",
@@ -36723,7 +36732,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2497_00_0000/fisc_note_hb2497_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:15.733447+00:00"
+    "enriched_at": "2026-11-16T22:28:29.825087+00:00"
   },
   "HB2498": {
     "bill_number": "HB2498",
@@ -36781,7 +36790,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2498_00_0000/fisc_note_hb2498_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:16.611564+00:00"
+    "enriched_at": "2026-11-16T22:28:30.703529+00:00"
   },
   "HB2499": {
     "bill_number": "HB2499",
@@ -36839,7 +36848,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2499_00_0000/fisc_note_hb2499_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:17.487336+00:00"
+    "enriched_at": "2026-11-16T22:28:31.580758+00:00"
   },
   "HB2500": {
     "bill_number": "HB2500",
@@ -36897,7 +36906,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2500_00_0000/fisc_note_hb2500_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:18.369655+00:00"
+    "enriched_at": "2026-11-16T22:28:32.475002+00:00"
   },
   "HB2501": {
     "bill_number": "HB2501",
@@ -37192,15 +37201,15 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2501_00_0000/fisc_note_hb2501_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:19.295979+00:00"
+    "enriched_at": "2026-11-16T22:28:33.383916+00:00"
   },
   "HB2502": {
     "bill_number": "HB2502",
     "short_title": "Requiring the Kansas department of wildlife and parks to offer discounted resident senior combination hunting and fishing passes to residents of this state who are 65 years of age or older and removing the expiration date for Kansas kids lifetime combination hunting and fishing licenses.",
     "long_title": "AN ACT concerning wildlife; requiring the Kansas department of wildlife and parks to offer discounted resident senior combination hunting and fishing passes to residents of this state who are 65 years of age or older; increasing the maximum age to qualify for Kansas kids lifetime combination hunting and fishing licenses and removing the expiration date for such licenses; amending K.S.A. 2025 Supp. 32-9,101 and repealing the existing section; reviving and amending K.S.A. 32-9,100 and repealing the revived section; also repealing K.S.A. 32-9,100, as amended by section 64 of chapter 7 of the 2023 Session Laws of Kansas.",
     "summary": "Requiring the Kansas department of wildlife and parks to offer discounted resident senior combination hunting and fishing passes to residents of this state who are 65 years of age or older and removing the expiration date for Kansas kids lifetime combination hunting and fishing licenses.",
-    "status": "Dead / Failed",
-    "measure_state": "dead",
+    "status": "Introduced",
+    "measure_state": "introduced",
     "sponsors": [
       {
         "name": "House Committee on Federal and State Affairs",
@@ -37346,15 +37355,15 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2502_00_0000/fisc_note_hb2502_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:20.180606+00:00"
+    "enriched_at": "2026-11-16T22:28:34.276823+00:00"
   },
   "HB2503": {
     "bill_number": "HB2503",
     "short_title": "Repealing the mail ballot election act.",
     "long_title": "AN ACT concerning elections; repealing the mail ballot election act; amending K.S.A. 2-610, 2-611, 10-1116c, 12-195, 12-195b, 12-352, 12-362, 12-521, 12-12,102, 12-17,103, 12-17,151, 12-6003, 12-6005, 13-13a38, 25-2709, 42-706, 72-9939, 82a-626, 82a-649, 82a-650 and 82a-2205 and K.S.A. 2025 Supp. 25-1122, 25-2812, 25-3002 and 79-2925c and repealing the existing sections; also repealing K.S.A. 25-431, 25-433a, 25-434, 25-435, 25-436, 25-437, 25-438, 25-439, 25-440 and 82a-648 and K.S.A. 2025 Supp. 25-432 and 25-433.",
     "summary": "Repealing the mail ballot election act.",
-    "status": "Dead / Failed",
-    "measure_state": "dead",
+    "status": "Introduced",
+    "measure_state": "introduced",
     "sponsors": [
       {
         "name": "Representative Reavis",
@@ -37559,15 +37568,15 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2503_00_0000/fisc_note_hb2503_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:21.079433+00:00"
+    "enriched_at": "2026-11-16T22:28:35.166636+00:00"
   },
   "HB2504": {
     "bill_number": "HB2504",
     "short_title": "Prohibiting cities and counties from restricting the discretion of landlords not to rent residential or commercial property on grounds including prospective tenants receipt of housing assistance or eviction or criminal history, and permitting cities and counties to prohibit discrimination by landlords on the basis of receipt of veterans benefits.",
     "long_title": "AN ACT concerning housing; relating to landlords and tenants; prohibiting cities and counties from restricting a landlord's discretion to not rent residential housing or commercial rental property to a prospective tenant on grounds that the prospective tenant's income source includes housing assistance program funds or consideration of the tenant's credit reports or other income-qualifying information or eviction, criminal or property damage history; permitting a landlord to set the amount of a security deposit or refuse to extend a right of first refusal; permitting cities or counties to prohibit discrimination by a landlord against a tenant or prospective tenant solely on the basis that the tenant or prospective tenant receives veterans benefits.",
     "summary": "Prohibiting cities and counties from restricting the discretion of landlords not to rent residential or commercial property on grounds including prospective tenants receipt of housing assistance or eviction or criminal history, and permitting cities and counties to prohibit discrimination by landlords on the basis of receipt of veterans benefits.",
-    "status": "Dead / Failed",
-    "measure_state": "dead",
+    "status": "Introduced",
+    "measure_state": "introduced",
     "sponsors": [
       {
         "name": "House Committee on Commerce, Labor and Economic Development",
@@ -37704,15 +37713,15 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2504_00_0000/fisc_note_hb2504_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:21.980692+00:00"
+    "enriched_at": "2026-11-16T22:28:36.068114+00:00"
   },
   "HB2505": {
     "bill_number": "HB2505",
     "short_title": "Providing an exception for Kansas department of wildlife and parks records regarding the location of any species that is threatened, endangered or in need of conservation from the disclosure requirements of the Kansas open records act. ",
     "long_title": "AN ACT concerning public records; providing an exception for Kansas department of wildlife and parks records regarding the location of any species that is threatened, endangered or in need of conservation from the disclosure requirements of the Kansas open records act; amending K.S.A. 2025 Supp. 45-221 and repealing the existing section.",
     "summary": "Providing an exception for Kansas department of wildlife and parks records regarding the location of any species that is threatened, endangered or in need of conservation from the disclosure requirements of the Kansas open records act. ",
-    "status": "Dead / Failed",
-    "measure_state": "dead",
+    "status": "Introduced",
+    "measure_state": "introduced",
     "sponsors": [
       {
         "name": "Representative Carpenter",
@@ -38014,7 +38023,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2505_00_0000/fisc_note_hb2505_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:22.886683+00:00"
+    "enriched_at": "2026-11-16T22:28:36.969001+00:00"
   },
   "HB2506": {
     "bill_number": "HB2506",
@@ -38096,7 +38105,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2506_00_0000/fisc_note_hb2506_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:23.744821+00:00"
+    "enriched_at": "2026-11-16T22:28:37.847328+00:00"
   },
   "HB2507": {
     "bill_number": "HB2507",
@@ -38401,7 +38410,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2507_00_0000/fisc_note_hb2507_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:24.653164+00:00"
+    "enriched_at": "2026-11-16T22:28:38.770442+00:00"
   },
   "HB2508": {
     "bill_number": "HB2508",
@@ -38459,7 +38468,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2508_00_0000/fisc_note_hb2508_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:25.525359+00:00"
+    "enriched_at": "2026-11-16T22:28:39.658647+00:00"
   },
   "HB2509": {
     "bill_number": "HB2509",
@@ -38772,7 +38781,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2509/hb2509_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:26.431896+00:00"
+    "enriched_at": "2026-11-16T22:28:40.557663+00:00"
   },
   "HB2510": {
     "bill_number": "HB2510",
@@ -38838,7 +38847,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2510_00_0000/fisc_note_hb2510_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:27.312847+00:00"
+    "enriched_at": "2026-11-16T22:28:41.428867+00:00"
   },
   "HB2511": {
     "bill_number": "HB2511",
@@ -39058,7 +39067,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2511_00_0000/fisc_note_hb2511_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:28.198378+00:00"
+    "enriched_at": "2026-11-16T22:28:42.320562+00:00"
   },
   "HB2512": {
     "bill_number": "HB2512",
@@ -39116,7 +39125,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2512_00_0000/fisc_note_hb2512_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:29.079837+00:00"
+    "enriched_at": "2026-11-16T22:28:43.197655+00:00"
   },
   "HB2513": {
     "bill_number": "HB2513",
@@ -39691,7 +39700,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2513_00_0000/fisc_note_hb2513_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:30.003552+00:00"
+    "enriched_at": "2026-11-16T22:28:44.146803+00:00"
   },
   "HB2514": {
     "bill_number": "HB2514",
@@ -39749,7 +39758,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2514_00_0000/fisc_note_hb2514_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:30.887487+00:00"
+    "enriched_at": "2026-11-16T22:28:45.033091+00:00"
   },
   "HB2515": {
     "bill_number": "HB2515",
@@ -40099,7 +40108,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2515_00_0000/fisc_note_hb2515_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:31.807653+00:00"
+    "enriched_at": "2026-11-16T22:28:45.932766+00:00"
   },
   "HB2516": {
     "bill_number": "HB2516",
@@ -40157,7 +40166,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2516_00_0000/fisc_note_hb2516_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:32.707681+00:00"
+    "enriched_at": "2026-11-16T22:28:46.807748+00:00"
   },
   "HB2517": {
     "bill_number": "HB2517",
@@ -40215,7 +40224,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2517_00_0000/fisc_note_hb2517_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:33.584725+00:00"
+    "enriched_at": "2026-11-16T22:28:47.683143+00:00"
   },
   "HB2518": {
     "bill_number": "HB2518",
@@ -40544,7 +40553,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2518_00_0000/fisc_note_hb2518_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:34.491395+00:00"
+    "enriched_at": "2026-11-16T22:28:48.585660+00:00"
   },
   "HB2519": {
     "bill_number": "HB2519",
@@ -40658,7 +40667,7 @@
         "occurred_datetime": "2026-02-10T11:58:00",
         "session_date": "2026-02-10",
         "status": "Committee Report recommending bill be passed by",
-        "amendment_report": "/bills/download/?apn=b2023_24/year2/ready_for_publication/hb_2519/cr_2024_hb2519_h_3303.pdf"
+        "amendment_report": "/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2519/cr_2026_hb2519_h_3526.pdf"
       },
       {
         "action_code": "misc_he_200",
@@ -40729,10 +40738,11 @@
     "document_urls": [
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2519/hb2519_enrolled.pdf",
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2519/hb2519_00_0000.pdf",
-      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2519_00_0000.pdf"
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2519_00_0000.pdf",
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2519_00_0000/fisc_note_hb2519_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:35.377624+00:00"
+    "enriched_at": "2026-11-16T22:28:49.495945+00:00"
   },
   "HB2520": {
     "bill_number": "HB2520",
@@ -40966,7 +40976,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2520_00_0000/fisc_note_hb2520_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:36.264671+00:00"
+    "enriched_at": "2026-11-16T22:28:50.380041+00:00"
   },
   "HB2521": {
     "bill_number": "HB2521",
@@ -41245,7 +41255,7 @@
         "occurred_datetime": "2026-02-13T11:08:08",
         "session_date": "2026-02-13",
         "status": "Committee Report recommending bill be passed as amended by",
-        "amendment_report": "/bills/download/?apn=b2023_24/year2/ready_for_publication/hb_2521/cr_2024_hb2521_h_3421.pdf"
+        "amendment_report": "/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2521/cr_2026_hb2521_h_3639.pdf"
       },
       {
         "action_code": "misc_he_200",
@@ -41377,18 +41387,19 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2521_02_0000.pdf",
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2521/hb2521_01_0000.pdf",
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2521_01_0000.pdf",
-      "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2521/hb2521_00_0000.pdf"
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2521/hb2521_00_0000.pdf",
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2521_00_0000/fisc_note_hb2521_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:37.174334+00:00"
+    "enriched_at": "2026-11-16T22:28:51.302496+00:00"
   },
   "HB2522": {
     "bill_number": "HB2522",
     "short_title": "Permitting highway construction and maintenance vehicles in road construction zones to display flashing amber, white or green lights at all times or flashing white and blue lights on stationary trailers under certain conditions and prohibiting the use of a mobile telephone while operating a motor vehicle in a school zone or a road construction zone.",
     "long_title": "AN ACT concerning traffic regulations; relating to lighting equipment on vehicles; permitting highway construction and maintenance vehicles to display flashing amber, white and green lights in road construction zones and flashing blue and white lights on stationary trailers under certain conditions; prohibiting the use of a mobile telephone while operating a motor vehicle in a school zone or a road construction zone; amending K.S.A. 8-1729 and 8-1731 and K.S.A. 2025 Supp. 8-2118 and repealing the existing sections.",
     "summary": "Permitting highway construction and maintenance vehicles in road construction zones to display flashing amber, white or green lights at all times or flashing white and blue lights on stationary trailers under certain conditions and prohibiting the use of a mobile telephone while operating a motor vehicle in a school zone or a road construction zone.",
-    "status": "Dead / Failed",
-    "measure_state": "dead",
+    "status": "Introduced",
+    "measure_state": "introduced",
     "sponsors": [
       {
         "name": "House Committee on Transportation",
@@ -41556,10 +41567,11 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2522_02_0000.pdf",
       "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2522/hb2522_01_0000.pdf",
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/supp_note_hb2522_01_0000.pdf",
-      "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2522/hb2522_00_0000.pdf"
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/year2/ready_for_publication/hb_2522/hb2522_00_0000.pdf",
+      "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2522_00_0000/fisc_note_hb2522_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:38.089312+00:00"
+    "enriched_at": "2026-11-16T22:28:52.203161+00:00"
   },
   "HB2523": {
     "bill_number": "HB2523",
@@ -41625,7 +41637,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2523_00_0000/fisc_note_hb2523_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:38.968610+00:00"
+    "enriched_at": "2026-11-16T22:28:53.086559+00:00"
   },
   "HB2524": {
     "bill_number": "HB2524",
@@ -41851,7 +41863,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2524_00_0000/fisc_note_hb2524_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:39.867667+00:00"
+    "enriched_at": "2026-11-16T22:28:53.982179+00:00"
   },
   "HB2525": {
     "bill_number": "HB2525",
@@ -41909,7 +41921,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2525_00_0000/fisc_note_hb2525_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:40.736541+00:00"
+    "enriched_at": "2026-11-16T22:28:54.856403+00:00"
   },
   "HB2526": {
     "bill_number": "HB2526",
@@ -41967,15 +41979,15 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2526_00_0000/fisc_note_hb2526_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:41.605928+00:00"
+    "enriched_at": "2026-11-16T22:28:55.739535+00:00"
   },
   "HB2527": {
     "bill_number": "HB2527",
     "short_title": "Prohibiting certain sex offenders from entering onto school property or attending school activities, prohibiting courts from assigning a defendant to work release if the defendant is required to register as a sex offender for certain crimes and prohibiting the secretary of corrections from granting an inmate leave from confinement except for specified purposes if theinmate is required to register as a sex offender for certain crimes or is serving a sentence for certain crimes that require registration as a sex offender.",
     "long_title": "AN ACT concerning sex offenders; making it unlawful for certain adult sex offenders to enter onto certain school property or attend certain school activities and creating criminal penalties for violation thereof; relating to release from confinement; prohibiting courts from assigning a defendant to work release if the defendant is required to register as a sex offender for certain crimes; prohibiting the secretary of corrections from granting an inmate leave from confinement except for specified purposes if the inmate is required to register as a sex offender for certain crimes or is serving a sentence for certain crimes that require registration as a sex offender; amending K.S.A. 22-4901, 22-4902 and 75-5267 and K.S.A. 2025 Supp. 21-6604 and repealing the existing sections.",
     "summary": "Prohibiting certain sex offenders from entering onto school property or attending school activities, prohibiting courts from assigning a defendant to work release if the defendant is required to register as a sex offender for certain crimes and prohibiting the secretary of corrections from granting an inmate leave from confinement except for specified purposes if theinmate is required to register as a sex offender for certain crimes or is serving a sentence for certain crimes that require registration as a sex offender.",
-    "status": "Dead / Failed",
-    "measure_state": "dead",
+    "status": "Introduced",
+    "measure_state": "introduced",
     "sponsors": [
       {
         "name": "House Committee on Corrections and Juvenile Justice",
@@ -42299,7 +42311,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2527_00_0000/fisc_note_hb2527_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:42.507699+00:00"
+    "enriched_at": "2026-11-16T22:28:56.640569+00:00"
   },
   "HB2528": {
     "bill_number": "HB2528",
@@ -42731,7 +42743,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2528_00_0000/fisc_note_hb2528_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:43.423736+00:00"
+    "enriched_at": "2026-11-16T22:28:57.537346+00:00"
   },
   "HB2529": {
     "bill_number": "HB2529",
@@ -42797,7 +42809,7 @@
       "https://kslegislature.gov/bills/download/?apn=b2025_26/ds_docs_li/fisc_note_hb2529_00_0000/fisc_note_hb2529_00_0000.pdf"
     ],
     "source": "kansas_api",
-    "enriched_at": "2026-11-15T17:58:44.306864+00:00"
+    "enriched_at": "2026-11-16T22:28:58.440237+00:00"
   },
   "HB2530": {
     "bill_number": "HB2530",
