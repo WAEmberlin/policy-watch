@@ -1,22 +1,22 @@
 {
-  "week_start": "2026-11-05T15:17:12.415729-06:00",
-  "week_end": "2026-11-12T15:17:12.415729-06:00",
+  "week_start": "2026-11-10T17:21:30.621208-06:00",
+  "week_end": "2026-11-17T17:21:30.621208-06:00",
   "item_counts": {
-    "federal": 143,
+    "federal": 140,
     "ks": 0,
     "co": 0,
     "az": 0,
-    "ut": 0,
+    "ut": 4,
     "me": 0,
     "ne": 0,
     "md": 0,
     "pa": 0,
-    "ma": 3,
+    "ma": 4,
     "wv": 0,
-    "tn": 6,
-    "nc": 0,
+    "tn": 2,
+    "nc": 3,
     "mo": 0,
-    "ia": 0,
+    "ia": 1,
     "ga": 0,
     "ky": 0
   },
@@ -26,18 +26,18 @@
       "label": "Congress / Federal",
       "recap_lines": [
         "Congress / Federal:",
-        "HR 2347: Survivor Justice Tax Prevention Act",
-        "   Cloture motion on the measure presented in Senate.",
-        "HR 8552: Veterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026",
-        "   Passed Senate without amendment by Voice Vote.",
-        "HR 1013: Retirement Fairness for Charities and Educational Institutions Act of 2025",
-        "   Motion to reconsider laid on the table Agreed to without objection.",
-        "   Plus 3 immigration, 11 healthcare, 6 education, 23 economic, 21 defense, 5 environmental, 2 technology, 9 tax, 6 infrastructure bills, and 44 others.",
-        "10 hearings scheduled."
+        "S 2887: Route 66 National Historic Trail Designation Act",
+        "   Message on Senate action sent to the House.",
+        "S 3493: Carson City Public Land Correction Act",
+        "   Message on Senate action sent to the House.",
+        "S 1353: A bill to extend the authority for modifications to the Second Division Memorial in the District of Columbia.",
+        "   Message on Senate action sent to the House.",
+        "   Plus 3 immigration, 10 healthcare, 10 education, 19 economic, 12 defense, 2 environmental, 4 technology, 7 tax, 6 infrastructure bills, and 50 others.",
+        "14 hearings scheduled."
       ],
-      "item_count": 143,
+      "item_count": 140,
       "veterans_highlight": {
-        "summary": "HR 8552: Veterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026; HRES 1247: Providing for consideration of the bill (H.R. 2102) to amend title 10, United States Code, to provide for concurrent receipt of...; HR 10371: To direct the Associate Administrator for Veterans Business Development of the Small Business Administration to ensure compliance...; plus 29 more",
+        "summary": "HR 8552: Veterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026; HRES 1247: Providing for consideration of the bill (H.R. 2102) to amend title 10, United States Code, to provide for concurrent receipt of...; HR 10371: To direct the Associate Administrator for Veterans Business Development of the Small Business Administration to ensure compliance...; plus 15 more",
         "items": [
           {
             "type": "bill",
@@ -55,7 +55,7 @@
             "url": "https://www.congress.gov/bill/119th-congress/house-bill/10371"
           }
         ],
-        "total_matches": 32
+        "total_matches": 18
       }
     },
     {
@@ -86,9 +86,10 @@
       "id": "ut",
       "label": "Utah",
       "recap_lines": [
-        "Utah: No new activity this week."
+        "Utah:",
+        "   4 hearings."
       ],
-      "item_count": 0
+      "item_count": 4
     },
     {
       "id": "me",
@@ -127,9 +128,9 @@
       "label": "Massachusetts",
       "recap_lines": [
         "Massachusetts:",
-        "   2 votes."
+        "   1 committee actions, 1 votes."
       ],
-      "item_count": 3
+      "item_count": 4
     },
     {
       "id": "wv",
@@ -144,17 +145,18 @@
       "label": "Tennessee",
       "recap_lines": [
         "Tennessee:",
-        "   6 bills introduced."
+        "   2 bills introduced."
       ],
-      "item_count": 6
+      "item_count": 2
     },
     {
       "id": "nc",
       "label": "North Carolina",
       "recap_lines": [
-        "North Carolina: No new activity this week."
+        "North Carolina:",
+        "   3 bills updated."
       ],
-      "item_count": 0
+      "item_count": 3
     },
     {
       "id": "mo",
@@ -168,9 +170,10 @@
       "id": "ia",
       "label": "Iowa",
       "recap_lines": [
-        "Iowa: No new activity this week."
+        "Iowa:",
+        "   1 bills updated."
       ],
-      "item_count": 0
+      "item_count": 1
     },
     {
       "id": "ga",
@@ -189,8 +192,8 @@
       "item_count": 0
     }
   ],
-  "script": "PolicyWatch weekly overview for November 05 through November 12, 2026.\n\nCongress / Federal:\nHR 2347: Survivor Justice Tax Prevention Act\nVeterans & Military highlight: HR 8552: Veterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026; HRES 1247: Providing for consideration of the bill (H.R..\n   Cloture motion on the measure presented in Senate.\nHR 8552: Veterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026\n   Passed Senate without amendment by Voice Vote.\nHR 1013: Retirement Fairness for Charities and Educational Institutions Act of 2025\n   Motion to reconsider laid on the table Agreed to without objection.\n   Plus 3 immigration, 11 healthcare, 6 education, 23 economic, 21 defense, 5 environmental, 2 technology, 9 tax, 6 infrastructure bills, and 44 others.\n10 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   2 votes.\n\nWest Virginia: No new activity this week.\n\nTennessee:\n   6 bills introduced.\n\nNorth Carolina: No new activity this week.\n\nMissouri: No new activity this week.\n\nIowa: No new activity this week.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nExplore full details at PolicyWatch.",
-  "generated_at": "2026-11-12T15:17:12.415729-06:00",
+  "script": "PolicyWatch weekly overview for November 10 through November 17, 2026.\n\nCongress / Federal:\nS 2887: Route 66 National Historic Trail Designation Act\nVeterans & Military highlight: HR 8552: Veterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026; HRES 1247: Providing for consideration of the bill (H.R..\n   Message on Senate action sent to the House.\nS 3493: Carson City Public Land Correction Act\n   Message on Senate action sent to the House.\nS 1353: A bill to extend the authority for modifications to the Second Division Memorial in the District of Columbia.\n   Message on Senate action sent to the House.\n   Plus 3 immigration, 10 healthcare, 10 education, 19 economic, 12 defense, 2 environmental, 4 technology, 7 tax, 6 infrastructure bills, and 50 others.\n14 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah:\n   4 hearings.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   1 committee actions, 1 votes.\n\nWest Virginia: No new activity this week.\n\nTennessee:\n   2 bills introduced.\n\nNorth Carolina:\n   3 bills updated.\n\nMissouri: No new activity this week.\n\nIowa:\n   1 bills updated.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nExplore full details at PolicyWatch.",
+  "generated_at": "2026-11-17T17:21:30.621208-06:00",
   "audio_available": false,
   "audio_file": null
 }
