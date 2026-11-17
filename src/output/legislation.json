@@ -318,7 +318,7 @@
     "latest_action_date": "2026-11-16T00:00:00",
     "actions": [
       {
-        "text": "Considered by Senate.",
+        "text": "Considered by Senate. (consideration: CR S5679)",
         "actionDate": "2026-11-16",
         "type": "Floor"
       },
@@ -552,7 +552,12 @@
     "cosponsors": [],
     "actions": [
       {
-        "text": "Passed Senate with an amendment by Unanimous Consent.",
+        "text": "Message on Senate action sent to the House.",
+        "actionDate": "2026-11-16",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed Senate with an amendment by Unanimous Consent. (consideration: CR S5297-5298)",
         "actionDate": "2026-09-30",
         "type": "Floor"
       },
@@ -729,6 +734,17 @@
     "cosponsors": [],
     "actions": [
       {
+        "text": "Passed Senate without amendment by Unanimous Consent.",
+        "actionDate": "2026-11-16",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent.",
+        "actionDate": "2026-11-16",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
         "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 675.",
         "actionDate": "2026-09-22",
         "type": "Calendars"
@@ -884,7 +900,18 @@
     "latest_action_date": "2026-11-16T00:00:00",
     "actions": [
       {
-        "text": "Received in the Senate.",
+        "text": "Passed Senate without amendment by Unanimous Consent.",
+        "actionDate": "2026-11-16",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent.",
+        "actionDate": "2026-11-16",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Received in the Senate, read twice.",
         "actionDate": "2026-09-17",
         "type": "IntroReferral"
       },
@@ -896,7 +923,7 @@
         "actionCode": "H38310"
       },
       {
-        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote.",
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H5936-5937)",
         "actionDate": "2026-09-16",
         "type": "Floor",
         "actionTime": "15:24:30",
@@ -917,7 +944,7 @@
         "actionCode": "H8D000"
       },
       {
-        "text": "Considered under suspension of the rules.",
+        "text": "Considered under suspension of the rules. (consideration: CR H5936-5938)",
         "actionDate": "2026-09-16",
         "type": "Floor",
         "actionTime": "15:14:53",
@@ -1004,7 +1031,40 @@
     "cosponsors": [],
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 719.",
     "latest_action_date": "2026-11-16T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 719.",
+        "actionDate": "2026-11-16",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Reported by Senator Cruz with an amendment in the nature of a substitute. With written report No. 119-163.",
+        "actionDate": "2026-11-16",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Reported by Senator Cruz with an amendment in the nature of a substitute. With written report No. 119-163.",
+        "actionDate": "2026-11-16",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-09-16",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+        "actionDate": "2026-07-13",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2026-07-13",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 719.",
@@ -1037,6 +1097,33 @@
     "sponsor_district": "",
     "cosponsors": [],
     "actions": [
+      {
+        "text": "Passed Senate without amendment by Unanimous Consent.",
+        "actionDate": "2026-11-16",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent.",
+        "actionDate": "2026-11-16",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 568.",
+        "actionDate": "2026-09-14",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Reported by Senator Paul without amendment. Without written report.",
+        "actionDate": "2026-09-14",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Homeland Security and Governmental Affairs. Reported by Senator Paul without amendment. Without written report.",
+        "actionDate": "2026-09-14",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
       {
         "text": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
         "actionDate": "2026-08-06",
@@ -1073,7 +1160,40 @@
     "cosponsors": [],
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 718.",
     "latest_action_date": "2026-11-16T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 718.",
+        "actionDate": "2026-11-16",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Reported by Senator Cruz with an amendment in the nature of a substitute. With written report No. 119-162.",
+        "actionDate": "2026-11-16",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Reported by Senator Cruz with an amendment in the nature of a substitute. With written report No. 119-162.",
+        "actionDate": "2026-11-16",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-04-14",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+        "actionDate": "2026-01-08",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2026-01-08",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 718.",
@@ -1099,7 +1219,40 @@
     "cosponsors": [],
     "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 716.",
     "latest_action_date": "2026-11-16T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 716.",
+        "actionDate": "2026-11-16",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Reported by Senator Cruz with an amendment in the nature of a substitute. With written report No. 119-161.",
+        "actionDate": "2026-11-16",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Reported by Senator Cruz with an amendment in the nature of a substitute. With written report No. 119-161.",
+        "actionDate": "2026-11-16",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Commerce, Science, and Transportation. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-04-14",
+        "type": "Committee"
+      },
+      {
+        "text": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+        "actionDate": "2025-05-08",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2025-05-08",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 716.",
@@ -1131,7 +1284,126 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Read twice. Placed on Senate Legislative Calendar under General Orders. Calendar No. 717.",
+        "actionDate": "2026-11-16",
+        "type": "Calendars"
+      },
+      {
+        "text": "Received in the Senate.",
+        "actionDate": "2025-12-16",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2025-12-15",
+        "type": "Floor",
+        "actionTime": "16:02:37",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H5873-5874)",
+        "actionDate": "2025-12-15",
+        "type": "Floor",
+        "actionTime": "16:02:35",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill Agreed to by voice vote. (text: CR H5873-5874)",
+        "actionDate": "2025-12-15",
+        "type": "Floor",
+        "actionTime": "16:02:35",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 2876.",
+        "actionDate": "2025-12-15",
+        "type": "Floor",
+        "actionTime": "15:54:47",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H5873-5875)",
+        "actionDate": "2025-12-15",
+        "type": "Floor",
+        "actionTime": "15:54:45",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Stauber moved to suspend the rules and pass the bill.",
+        "actionDate": "2025-12-15",
+        "type": "Floor",
+        "actionTime": "15:54:36",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 246.",
+        "actionDate": "2025-09-15",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported by the Committee on Natural Resources. H. Rept. 119-290.",
+        "actionDate": "2025-09-15",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported by the Committee on Natural Resources. H. Rept. 119-290.",
+        "actionDate": "2025-09-15",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported by Unanimous Consent.",
+        "actionDate": "2025-06-25",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-06-25",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Subcommittee on Federal Lands Discharged",
+        "actionDate": "2025-06-25",
+        "type": "Committee",
+        "actionCode": "H25000"
+      },
+      {
+        "text": "Subcommittee Hearings Held",
+        "actionDate": "2025-04-29",
+        "type": "Committee",
+        "actionCode": "H21000"
+      },
+      {
+        "text": "Referred to the Subcommittee on Federal Lands.",
+        "actionDate": "2025-04-23",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
+        "text": "Referred to the House Committee on Natural Resources.",
+        "actionDate": "2025-04-10",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-04-10",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-04-10",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Read twice. Placed on Senate Legislative Calendar under General Orders. Calendar No. 717.",
@@ -1151,7 +1423,19 @@
     "cosponsors": [],
     "latest_action": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
     "latest_action_date": "2026-11-16T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
+        "actionDate": "2026-11-16",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2026-11-16",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
@@ -1177,7 +1461,19 @@
     "cosponsors": [],
     "latest_action": "Read twice and referred to the Committee on Finance.",
     "latest_action_date": "2026-11-16T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Read twice and referred to the Committee on Finance.",
+        "actionDate": "2026-11-16",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2026-11-16",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Read twice and referred to the Committee on Finance.",
@@ -1203,7 +1499,19 @@
     "cosponsors": [],
     "latest_action": "Read twice and referred to the Committee on the Judiciary.",
     "latest_action_date": "2026-11-16T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Read twice and referred to the Committee on the Judiciary.",
+        "actionDate": "2026-11-16",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2026-11-16",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Read twice and referred to the Committee on the Judiciary.",
@@ -1229,7 +1537,19 @@
     "cosponsors": [],
     "latest_action": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
     "latest_action_date": "2026-11-16T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+        "actionDate": "2026-11-16",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2026-11-16",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
@@ -1255,7 +1575,19 @@
     "cosponsors": [],
     "latest_action": "Read twice and referred to the Committee on the Judiciary.",
     "latest_action_date": "2026-11-16T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Read twice and referred to the Committee on the Judiciary.",
+        "actionDate": "2026-11-16",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Introduced in Senate",
+        "actionDate": "2026-11-16",
+        "type": "IntroReferral",
+        "actionCode": "10000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Read twice and referred to the Committee on the Judiciary.",
@@ -483186,6 +483518,32 @@
     "last_synced_at": "2026-10-06T21:56:42.249385+00:00",
     "official_title": "To prohibit Federal funds from being made available to entities that refuse to provide treatment based on COVID-19 vaccination status.",
     "short_title": "COVID\u201319 Vaccination Non-Discrimination Act"
+  },
+  {
+    "bill_number": "1392",
+    "bill_type": "HR",
+    "title": "Improving Mental Healthcare in the Re-Entry System Act of 2025",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on the Judiciary.",
+    "latest_action_date": "2025-02-14T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on the Judiciary.",
+    "votes": [],
+    "introduced_date": "2025-02-14T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/1392",
+    "published": "2025-02-14T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-17T14:55:14.296739+00:00",
+    "official_title": "To provide funding to the Bureau of Prisons, States, and localities to carry out mental health screenings and provide referrals to mental healthcare providers for individuals in prison or jail.",
+    "short_title": "Improving Mental Healthcare in the Re-Entry System Act of 2025"
   },
   {
     "bill_number": "77",
