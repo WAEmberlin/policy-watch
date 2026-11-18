@@ -1,5 +1,35 @@
 [
   {
+    "bill_type": "HR",
+    "bill_number": "9600",
+    "congress": 119,
+    "date": "2026-11-18",
+    "chamber": "House",
+    "result": "Passed",
+    "yeas": 365,
+    "nays": 36,
+    "tally_text": "Passed 365\u201336",
+    "motion": "On Motion to Suspend the Rules and Pass",
+    "url": "https://www.congress.gov/votes/house/119-2/325",
+    "roll_number": 325,
+    "session": 2
+  },
+  {
+    "bill_type": "HR",
+    "bill_number": "8483",
+    "congress": 119,
+    "date": "2026-11-17",
+    "chamber": "House",
+    "result": "Passed",
+    "yeas": 398,
+    "nays": 0,
+    "tally_text": "Passed 398\u20130",
+    "motion": "On Motion to Suspend the Rules and Pass, as Amended",
+    "url": "https://www.congress.gov/votes/house/119-2/324",
+    "roll_number": 324,
+    "session": 2
+  },
+  {
     "bill_type": "HRES",
     "bill_number": "1247",
     "congress": 119,
