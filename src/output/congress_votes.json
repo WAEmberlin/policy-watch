@@ -1,6 +1,36 @@
 [
   {
     "bill_type": "HR",
+    "bill_number": "2347",
+    "congress": 119,
+    "date": "2026-11-20",
+    "chamber": "Senate",
+    "result": "Passed",
+    "yeas": 62,
+    "nays": 33,
+    "tally_text": "Passed 62\u201333",
+    "motion": "Passed Senate with an amendment by Yea-Nay Vote. 62 - 33. Record Vote Number: 270.",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/2347",
+    "roll_number": 270,
+    "session": 2
+  },
+  {
+    "bill_type": "HR",
+    "bill_number": "4464",
+    "congress": 119,
+    "date": "2026-11-19",
+    "chamber": "House",
+    "result": "Passed",
+    "yeas": 401,
+    "nays": 0,
+    "tally_text": "Passed 401\u20130",
+    "motion": "On Motion to Suspend the Rules and Pass",
+    "url": "https://www.congress.gov/votes/house/119-2/327",
+    "roll_number": 327,
+    "session": 2
+  },
+  {
+    "bill_type": "HR",
     "bill_number": "9600",
     "congress": 119,
     "date": "2026-11-18",
