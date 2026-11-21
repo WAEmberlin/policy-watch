@@ -19,7 +19,8 @@ IMPACT_LEVELS = ("red", "yellow", "green")
 #         behavioral health crisis services, housing, survivor/burial,
 #         GI Bill, retroactive veteran benefits, combat / war powers
 #   YELLOW — employment preference, licensing, courts & diversion, generic mental health,
-#            military spouse, VA study / report directives
+#            military spouse, VA study / report directives, TRICARE / active-duty care,
+#            military-dependent education, tuition assistance
 #   GREEN — recognition, memorials, honor resolutions, VA committee referrals
 #           with no higher-impact keyword (default for veteran-related unmatched bills)
 #
@@ -48,6 +49,9 @@ SCORING_FACTORS: Dict[str, List[str]] = {
         "sexual trauma", "intimate partner violence", "domestic violence",
         "suicidal ideation", "suicide",
         "behavioral health crisis", "crisis services expansion",
+        # Active-duty / TRICARE access is moderate, not VA clinical red:
+        "tricare",
+        "specialty care referral", "specialty care referrals",
     ],
     "housing_homelessness": [
         "veteran housing", "homeless veteran", "shelter veteran",
@@ -64,9 +68,12 @@ SCORING_FACTORS: Dict[str, List[str]] = {
         "veteran hiring preference", "veterans hiring preference",
         "veteran employment preference", "veterans employment preference",
         "military spouse",
+        "military dependent", "military dependents",
+        "dependents of members",
         # Gated:
         "hiring preference", "employment preference",
         "licensing", "certification", "apprenticeship",
+        "tuition assistance", "educational continuity",
     ],
     "criminal_justice_courts": [
         "veterans court", "veteran court",
@@ -114,6 +121,8 @@ CONTEXT_GATED_KEYWORDS = frozenset({
     "retroactive compensation",
     "hiring preference", "employment preference",
     "licensing", "certification", "apprenticeship",
+    "tuition assistance", "educational continuity",
+    "specialty care referral", "specialty care referrals",
     "diversion", "treatment court", "justice outreach",
     "recognition", "memorial", "honor", "honoring", "ceremonial", "commemorative",
     "designate", "memorial highway", "memorial day",
@@ -151,6 +160,8 @@ YELLOW_SIGNALS = [
     *SCORING_FACTORS["criminal_justice_courts"],
     *SCORING_FACTORS["studies_reports"],
     "mental health",
+    "tricare",
+    "specialty care referral", "specialty care referrals",
 ]
 
 GREEN_SIGNALS = [
@@ -204,7 +215,8 @@ GENERIC_BILL_RE = re.compile(r"^([A-Z]+)\s*(\d+)$", re.IGNORECASE)
 
 VETERAN_MARKERS = [
     "veteran", "veterans", "military", "armed forces", "national guard",
-    "servicemember", "service member", "title 38", "gi bill",
+    "servicemember", "service member", "title 38", "title 10", "gi bill",
+    "tricare",
     "va health", "va healthcare", "va benefit", "va clinic", "va medical",
     "va appropriations", "milcon-va",
     "military sexual trauma",
