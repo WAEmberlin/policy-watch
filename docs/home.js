@@ -43,6 +43,7 @@ const PolicyWatchHome = (() => {
     const VETERANS_STRONG_KEYWORDS = [
         'veteran', 'veterans', 'military', 'armed forces', 'armed services',
         'national guard', 'servicemember', 'service member', 'veterans affairs',
+        'title 10', 'tricare',
         'military sexual trauma',
         'committee on veterans', "veterans' affairs committee",
         'veterans affairs committee', 'veterans and military affairs',
@@ -776,7 +777,8 @@ const PolicyWatchHome = (() => {
     // RED: benefits, disability ratings, VA healthcare, MST/IPV/suicide,
     //      behavioral health crisis services, housing, GI Bill, combat / war powers
     // YELLOW: employment preference, licensing, courts & diversion, generic mental health,
-    //         VA study / report directives
+    //         VA study / report directives, TRICARE / active-duty care,
+    //         military-dependent education, tuition assistance
     // GREEN: recognition, memorials, honor resolutions, VA committee referrals with no
     //        higher-impact keyword (default when veteran-related but unmatched).
     // Context-gated generics never establish veteran-relatedness alone; see CONTEXT_GATED.
@@ -817,6 +819,9 @@ const PolicyWatchHome = (() => {
         'veteran employment preference', 'veterans employment preference',
         'hiring preference', 'employment preference',
         'military spouse', 'licensing', 'certification', 'apprenticeship',
+        'military dependent', 'military dependents', 'dependents of members',
+        'tuition assistance', 'educational continuity',
+        'tricare', 'specialty care referral', 'specialty care referrals',
         'veterans court', 'veteran court',
         'veterans treatment court', 'veteran treatment court',
         'diversion', 'treatment court',
@@ -848,6 +853,8 @@ const PolicyWatchHome = (() => {
         'retroactive compensation',
         'hiring preference', 'employment preference',
         'licensing', 'certification', 'apprenticeship',
+        'tuition assistance', 'educational continuity',
+        'specialty care referral', 'specialty care referrals',
         'diversion', 'treatment court', 'justice outreach',
         'recognition', 'memorial', 'honor', 'honoring', 'ceremonial', 'commemorative',
         'designate', 'memorial highway', 'memorial day',
@@ -880,7 +887,7 @@ const PolicyWatchHome = (() => {
 
     function textHasVeteranContext(hay) {
         const markers = VETERANS_STRONG_KEYWORDS.concat([
-            'title 38', 'gi bill', 'servicemember', 'service member',
+            'title 38', 'title 10', 'gi bill', 'tricare', 'servicemember', 'service member',
             'va health', 'va healthcare', 'va benefit', 'va clinic', 'va medical',
             'va appropriations', 'milcon-va',
         ]);
@@ -961,7 +968,7 @@ const PolicyWatchHome = (() => {
         if (!hay.trim()) return null;
 
         const markers = VETERANS_STRONG_KEYWORDS.concat([
-            'title 38', 'gi bill', 'servicemember', 'service member',
+            'title 38', 'title 10', 'gi bill', 'tricare', 'servicemember', 'service member',
             'va health', 'va healthcare', 'va benefit', 'va clinic', 'va medical',
             'va appropriations', 'milcon-va',
         ]);

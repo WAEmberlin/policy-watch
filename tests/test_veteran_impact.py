@@ -191,6 +191,54 @@ def test_classify_yellow_from_veterans_court():
     assert "Criminal Justice / Courts" in result["factors"]
 
 
+def test_classify_yellow_from_tricare_specialty_care():
+    result = classify_veteran_impact(
+        "S 5773. A bill to amend title 10, United States Code, to expedite "
+        "specialty care referrals for members of the Armed Forces and beneficiaries "
+        "under the TRICARE program"
+    )
+    assert result is not None
+    assert result["level"] == "yellow"
+    assert "tricare" in result["reason"].lower() or "specialty care" in result["reason"].lower()
+
+
+def test_classify_yellow_from_military_dependent_education():
+    result = classify_veteran_impact(
+        "To direct the Secretary of Defense to establish a pilot program to provide "
+        "educational continuity services to eligible dependents of members of the Armed "
+        "Forces. Bill: HR 11083"
+    )
+    assert result is not None
+    assert result["level"] == "yellow"
+    assert "Employment & Education" in result["factors"]
+
+
+def test_classify_yellow_from_title_10_tuition_assistance():
+    result = classify_veteran_impact(
+        "To amend title 10, United States Code, to require the Secretary of Homeland "
+        "Security to maintain an annual limit on the amount of tuition assistance available. "
+        "Bill: HR 11078"
+    )
+    assert result is not None
+    assert result["level"] == "yellow"
+    assert "tuition assistance" in result["reason"].lower()
+
+
+def test_generic_tuition_assistance_not_veteran():
+    assert classify_veteran_impact(
+        "Establish an annual limit on the amount of tuition assistance available "
+        "to state employees"
+    ) is None
+
+
+def test_title_10_procurement_without_personnel_benefit_stays_green():
+    result = classify_veteran_impact(
+        "To amend title 10, United States Code, relating to procurement of naval vessels"
+    )
+    assert result is not None
+    assert result["level"] == "green"
+
+
 def test_classify_yellow_from_military_spouse():
     result = classify_veteran_impact("Military spouse licensing reciprocity for veterans families")
     assert result is not None
