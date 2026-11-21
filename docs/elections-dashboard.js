@@ -236,6 +236,46 @@ const PolicyWatchElections = (() => {
                 { date: '2026-11-03', label: 'General Election' },
             ],
         },
+        {
+            id: 'tx',
+            name: 'Texas',
+            badgeClass: 'bg-orange-100 text-orange-900',
+            calendarUrl: 'https://www.sos.texas.gov/elections/voter/important-election-dates.shtml',
+            calendarLabel: 'Election dates (Texas SOS)',
+            resultsUrl: 'https://results.texas-election.com/',
+            resultsLabel: 'Texas election results',
+            dates: [
+                { date: '2026-03-03', label: 'Primary Election' },
+                { date: '2026-05-26', label: 'Primary runoff (if needed)' },
+                { date: '2026-11-03', label: 'General Election' },
+            ],
+        },
+        {
+            id: 'ct',
+            name: 'Connecticut',
+            badgeClass: 'bg-blue-100 text-blue-900',
+            calendarUrl: 'https://portal.ct.gov/sots/election-services/calendars--important-dates',
+            calendarLabel: 'Election calendar (Connecticut SOTS)',
+            resultsUrl: 'https://portal.ct.gov/sots/election-services/election-results',
+            resultsLabel: 'Connecticut election results',
+            dates: [
+                { date: '2026-08-11', label: 'Primary Election' },
+                { date: '2026-11-03', label: 'General Election' },
+            ],
+        },
+        {
+            id: 'va',
+            name: 'Virginia',
+            badgeClass: 'bg-indigo-100 text-indigo-900',
+            calendarUrl: 'https://www.elections.virginia.gov/casting-a-ballot/calendars-schedules/',
+            calendarLabel: 'Election calendar (Virginia ELECT)',
+            resultsUrl: 'https://enr.elections.virginia.gov/',
+            resultsLabel: 'Virginia election results',
+            dates: [
+                { date: '2026-06-16', label: 'Primary Election' },
+                { date: '2026-11-03', label: 'General Election' },
+            ],
+        },
     ];
 
     function parseLocalDate(dateStr) {

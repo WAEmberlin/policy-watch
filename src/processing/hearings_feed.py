@@ -33,6 +33,9 @@ STATE_HEARING_LABELS = {
     "IA": "State (Iowa)",
     "GA": "State (Georgia)",
     "KY": "State (Kentucky)",
+    "TX": "State (Texas)",
+    "CT": "State (Connecticut)",
+    "VA": "State (Virginia)",
 }
 
 

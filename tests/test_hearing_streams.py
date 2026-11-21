@@ -21,6 +21,10 @@ def _load_livestreams():
 def test_infer_hearing_state_from_source_label():
     hearing = {"source": "State (Colorado)"}
     assert infer_hearing_state(hearing) == "CO"
+    assert infer_hearing_state({"source": "State (Texas)"}) == "TX"
+    assert infer_hearing_state({"source": "State (Connecticut)"}) == "CT"
+    assert infer_hearing_state({"source": "State (Virginia)"}) == "VA"
+    assert infer_hearing_state({"source": "State (West Virginia)"}) == "WV"
 
 
 def test_openstates_event_stream_url_from_media():

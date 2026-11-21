@@ -23,6 +23,9 @@ SOURCE_STATE_HINTS = {
     "iowa": "IA",
     "georgia": "GA",
     "kentucky": "KY",
+    "texas": "TX",
+    "connecticut": "CT",
+    "virginia": "VA",
 }
 
 _STREAM_NOTE_HINTS = ("stream", "video", "live", "watch", "broadcast", "webcast")

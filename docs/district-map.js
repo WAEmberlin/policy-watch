@@ -223,6 +223,39 @@
         us_senate: { file: 'ky-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
       },
     },
+    TX: {
+      name: 'Texas',
+      center: [31.0, -99.0],
+      zoom: 6,
+      chambers: {
+        house: { file: 'tx-sld-lower.geojson', chamber: 'house', label: 'Texas House', note: '150 districts' },
+        senate: { file: 'tx-sld-upper.geojson', chamber: 'senate', label: 'Texas Senate', note: '31 districts' },
+        us_house: { file: 'tx-cd119.geojson', chamber: 'us_house', label: 'U.S. House', note: '38 districts' },
+        us_senate: { file: 'tx-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
+      },
+    },
+    CT: {
+      name: 'Connecticut',
+      center: [41.6, -72.7],
+      zoom: 8,
+      chambers: {
+        house: { file: 'ct-sld-lower.geojson', chamber: 'house', label: 'Connecticut House', note: '151 districts' },
+        senate: { file: 'ct-sld-upper.geojson', chamber: 'senate', label: 'Connecticut Senate', note: '36 districts' },
+        us_house: { file: 'ct-cd119.geojson', chamber: 'us_house', label: 'U.S. House', note: '5 districts' },
+        us_senate: { file: 'ct-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
+      },
+    },
+    VA: {
+      name: 'Virginia',
+      center: [37.5, -79.0],
+      zoom: 7,
+      chambers: {
+        house: { file: 'va-sld-lower.geojson', chamber: 'house', label: 'Virginia House of Delegates', note: '100 districts' },
+        senate: { file: 'va-sld-upper.geojson', chamber: 'senate', label: 'Virginia Senate', note: '40 districts' },
+        us_house: { file: 'va-cd119.geojson', chamber: 'us_house', label: 'U.S. House', note: '11 districts' },
+        us_senate: { file: 'va-state.geojson', chamber: 'us_senate', label: 'U.S. Senate', note: 'statewide', statewide: true },
+      },
+    },
   };
 
   function normalizeChamber(chamber) {

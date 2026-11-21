@@ -102,6 +102,9 @@ const PolicyWatchExpansion = (() => {
         IA: 'Iowa',
         GA: 'Georgia',
         KY: 'Kentucky',
+        TX: 'Texas',
+        CT: 'Connecticut',
+        VA: 'Virginia',
     };
 
     /**

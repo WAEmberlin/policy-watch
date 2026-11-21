@@ -149,6 +149,33 @@ states:
     enrichment: openstates_detail
     enabled: true
 
+  - code: tx
+    name: Texas
+    level: state
+    sources:
+      - openstates
+    openstates_jurisdiction: ocd-jurisdiction/country:us/state:tx/government
+    enrichment: openstates_detail
+    enabled: true
+
+  - code: ct
+    name: Connecticut
+    level: state
+    sources:
+      - openstates
+    openstates_jurisdiction: ocd-jurisdiction/country:us/state:ct/government
+    enrichment: openstates_detail
+    enabled: true
+
+  - code: va
+    name: Virginia
+    level: state
+    sources:
+      - openstates
+    openstates_jurisdiction: ocd-jurisdiction/country:us/state:va/government
+    enrichment: openstates_detail
+    enabled: true
+
 federal:
   sources:
     - congress
@@ -178,8 +205,8 @@ kansas_api:
 enrichment:
   # Kansas: official REST API (RSS stays primary ingest)
   kansas_api: ks
-  # CO/AZ/UT/ME/NE/MD/PA/MA/WV/TN/NC/MO/IA/GA/KY: Open States detail re-fetch for sponsors/votes
-  openstates_detail: [co, az, ut, me, ne, md, pa, ma, wv, tn, nc, mo, ia, ga, ky]
+  # CO/AZ/UT/ME/NE/MD/PA/MA/WV/TN/NC/MO/IA/GA/KY/TX/CT/VA: Open States detail re-fetch for sponsors/votes
+  openstates_detail: [co, az, ut, me, ne, md, pa, ma, wv, tn, nc, mo, ia, ga, ky, tx, ct, va]
 
 topic_dashboards:
   - id: veterans

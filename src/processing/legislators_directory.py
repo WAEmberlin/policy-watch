@@ -54,6 +54,9 @@ _DEFAULT_ENABLED_STATES: List[Dict[str, str]] = [
     {"code": "ia", "name": "Iowa"},
     {"code": "ga", "name": "Georgia"},
     {"code": "ky", "name": "Kentucky"},
+    {"code": "tx", "name": "Texas"},
+    {"code": "ct", "name": "Connecticut"},
+    {"code": "va", "name": "Virginia"},
 ]
 
 

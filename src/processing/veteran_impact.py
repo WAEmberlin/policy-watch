@@ -293,6 +293,9 @@ def infer_item_state(item: Dict[str, Any]) -> str:
         ("IA", "iowa"),
         ("GA", "georgia"),
         ("KY", "kentucky"),
+        ("TX", "texas"),
+        ("CT", "connecticut"),
+        ("VA", "virginia"),
     ):
         if name in src:
             return code
