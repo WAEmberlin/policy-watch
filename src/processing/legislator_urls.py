@@ -36,6 +36,9 @@ _STATE_PROFILE_DOMAINS = {
     "IA": ("legis.iowa.gov",),
     "GA": ("legis.ga.gov",),
     "KY": ("legislature.ky.gov",),
+    "TX": ("capitol.texas.gov", "house.texas.gov", "senate.texas.gov"),
+    "CT": ("cga.ct.gov", "ct.gov"),
+    "VA": ("virginiageneralassembly.gov", "lis.virginia.gov", "virginia.gov", "house.virginia.gov"),
     "FEDERAL": ("congress.gov", "house.gov", "senate.gov"),
 }
 

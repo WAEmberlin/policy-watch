@@ -21,6 +21,8 @@ from processing.district_join import (  # noqa: E402
 def test_normalize_chamber_variants():
     assert normalize_chamber("Representative") == "house"
     assert normalize_chamber("lower") == "house"
+    assert normalize_chamber("House of Delegates") == "house"
+    assert normalize_chamber("Delegate") == "house"
     assert normalize_chamber("Senator") == "senate"
     assert normalize_chamber("legislature") == "senate"
     assert normalize_chamber("upper") == "senate"
@@ -95,15 +97,34 @@ def test_nebraska_legislature_chamber_join():
 
 
 def test_geojson_join_coverage_report():
-    """Optional integration check when GeoJSON and site data are present."""
-    site_path = ROOT / "docs" / "site_data.json"
+    """Optional integration check when GeoJSON and legislator data are present."""
     geo_dir = ROOT / "docs" / "data" / "geo"
     delegation_path = ROOT / "data" / "federal" / "delegation.json"
-    if not site_path.exists() or not geo_dir.exists():
+    directory_path = ROOT / "docs" / "legislators_directory.json"
+    normalized_path = ROOT / "data" / "normalized" / "legislators.json"
+    site_path = ROOT / "docs" / "site_data.json"
+    if not geo_dir.exists():
         return
 
-    site = json.loads(site_path.read_text(encoding="utf-8"))
-    legislators = list(site.get("search_index", {}).get("legislators", []))
+    legislators: list = []
+    for path in (directory_path, normalized_path, site_path):
+        if not path.exists():
+            continue
+        data = json.loads(path.read_text(encoding="utf-8"))
+        if isinstance(data, list):
+            legislators = list(data)
+            break
+        if isinstance(data, dict):
+            if data.get("legislators"):
+                legislators = list(data["legislators"])
+                break
+            search = (data.get("search_index") or {}).get("legislators")
+            if search:
+                legislators = list(search)
+                break
+    if not legislators:
+        return
+
     if delegation_path.exists():
         delegation = json.loads(delegation_path.read_text(encoding="utf-8"))
         seen = {leg.get("id") for leg in legislators if leg.get("id")}
@@ -123,6 +144,12 @@ def test_geojson_join_coverage_report():
         ("tx", "cd119", "TX", "us_house"),
         ("ct", "cd119", "CT", "us_house"),
         ("va", "cd119", "VA", "us_house"),
+        ("tx", "sld-lower", "TX", "house"),
+        ("ct", "sld-lower", "CT", "house"),
+        ("va", "sld-lower", "VA", "house"),
+        ("tx", "sld-upper", "TX", "senate"),
+        ("ct", "sld-upper", "CT", "senate"),
+        ("va", "sld-upper", "VA", "senate"),
     ]
 
     for prefix, suffix, state, chamber in layers:

@@ -12,6 +12,9 @@
     'state representative': true,
     'state rep': true,
     rep: true,
+    delegate: true,
+    'house of delegates': true,
+    'member of the house of delegates': true,
   };
 
   var SENATE_CHAMBERS = {
@@ -325,7 +328,12 @@
   }
 
   function partyColor(party) {
-    return PARTY_COLORS[party] || DEFAULT_DISTRICT_COLOR;
+    var raw = String(party || '');
+    if (/democrat/i.test(raw)) return PARTY_COLORS.Democratic;
+    if (/republican/i.test(raw)) return PARTY_COLORS.Republican;
+    if (/libertarian/i.test(raw)) return PARTY_COLORS.Libertarian;
+    if (/independent/i.test(raw)) return PARTY_COLORS.Independent;
+    return PARTY_COLORS[raw] || DEFAULT_DISTRICT_COLOR;
   }
 
   function partyFill(party) {
@@ -451,7 +459,7 @@
             );
           };
 
-    return fetchFn('legislators_directory.json')
+    return fetchFn('legislators_directory.json?v=txlegs1')
       .then(function (res) {
         if (!res.ok) throw new Error('legislators_directory.json HTTP ' + res.status);
         return res.json();
@@ -742,7 +750,7 @@
     setStatus('Loading map data…');
     Promise.all([
       loadLegislatorsDirectory(),
-      loadJson('data/federal/delegation.json?v=ky1').catch(function () {
+      loadJson('data/federal/delegation.json?v=txctva1').catch(function () {
         return [];
       }),
     ])

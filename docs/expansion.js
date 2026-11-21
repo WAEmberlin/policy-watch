@@ -23,7 +23,7 @@ const PolicyWatchExpansion = (() => {
      */
     async function loadLegislatorsDirectory() {
         try {
-            const res = await policywatchFetch('legislators_directory.json');
+            const res = await policywatchFetch('legislators_directory.json?v=txlegs1');
             if (res.ok) {
                 const data = await res.json();
                 if (data && (data.legislators_directory || Array.isArray(data.legislators))) {

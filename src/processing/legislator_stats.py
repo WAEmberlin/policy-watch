@@ -48,7 +48,7 @@ def _normalize_chamber(chamber: str) -> str:
     if not chamber:
         return "Unknown"
     lower = chamber.lower()
-    if lower in {"lower", "house", "h", "assembly"}:
+    if lower in {"lower", "house", "h", "assembly", "delegate", "house of delegates"}:
         return "House"
     if lower in {"upper", "senate", "s"}:
         return "Senate"
