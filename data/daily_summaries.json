@@ -9977,5 +9977,34 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-11-20": {
+    "date": "2026-11-20",
+    "generated_at": "2026-11-21T07:46:24.716428+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "On November 20, 2026, Kansas's legislature did not pass any bills in either the House or Senate. In contrast, the U.S. Congress had a notable day with the House of Representatives passing bill HR 10167. This legislation instructs the Secretary of the Treasury to cease the production of the penny and mandates that cash transactions be rounded to the nearest 5 cents. The bill was subsequently signed by the President.",
+    "counts": {
+      "total": 1,
+      "kansas_house": 0,
+      "kansas_senate": 0,
+      "congress_house": 1,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [],
+      "senate": []
+    },
+    "congress": {
+      "house": [
+        {
+          "bill": "HR 10167",
+          "short_title": "To direct the Secretary of the Treasury to stop minting the penny, to require cash transactions to be rounded up or down to the nearest 5 cents, and for other purposes.",
+          "action": "Signed by President.",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/10167"
+        }
+      ],
+      "senate": []
+    }
   }
 }
