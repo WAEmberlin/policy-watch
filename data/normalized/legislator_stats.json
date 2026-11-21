@@ -57,6 +57,29 @@
       "average_age": 54.0,
       "race_available": false
     },
+    "CT": {
+      "total": 187,
+      "party": {
+        "Democratic": 127,
+        "Republican": 60
+      },
+      "gender": {
+        "Female": 67,
+        "Male": 120
+      },
+      "chamber": {
+        "House": 151,
+        "Senate": 36
+      },
+      "age_buckets": {
+        "under_40": 11,
+        "40_59": 37,
+        "60_plus": 33,
+        "unknown": 106
+      },
+      "average_age": 55.3,
+      "race_available": false
+    },
     "GA": {
       "total": 236,
       "party": {
@@ -347,6 +370,30 @@
       "average_age": 58.7,
       "race_available": false
     },
+    "TX": {
+      "total": 178,
+      "party": {
+        "Republican": 104,
+        "Democratic": 74
+      },
+      "gender": {
+        "Male": 117,
+        "Female": 60,
+        "X": 1
+      },
+      "chamber": {
+        "House": 148,
+        "Senate": 30
+      },
+      "age_buckets": {
+        "under_40": 6,
+        "40_59": 75,
+        "60_plus": 59,
+        "unknown": 38
+      },
+      "average_age": 57.6,
+      "race_available": false
+    },
     "UT": {
       "total": 107,
       "party": {
@@ -373,6 +420,29 @@
         "unknown": 86
       },
       "average_age": 59.9,
+      "race_available": false
+    },
+    "VA": {
+      "total": 139,
+      "party": {
+        "Democratic": 84,
+        "Republican": 55
+      },
+      "gender": {
+        "Male": 83,
+        "Female": 56
+      },
+      "chamber": {
+        "Senate": 40,
+        "House": 99
+      },
+      "age_buckets": {
+        "under_40": 3,
+        "40_59": 44,
+        "60_plus": 33,
+        "unknown": 59
+      },
+      "average_age": 57.3,
       "race_available": false
     },
     "WV": {

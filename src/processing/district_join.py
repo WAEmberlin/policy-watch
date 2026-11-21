@@ -5,7 +5,17 @@ from __future__ import annotations
 from typing import Any, Dict, List, Optional
 
 HOUSE_CHAMBERS = frozenset(
-    {"representative", "lower", "house", "state representative", "state rep", "rep"}
+    {
+        "representative",
+        "lower",
+        "house",
+        "state representative",
+        "state rep",
+        "rep",
+        "delegate",
+        "house of delegates",
+        "member of the house of delegates",
+    }
 )
 SENATE_CHAMBERS = frozenset(
     {"senator", "upper", "senate", "state senator", "sen", "legislature"}
