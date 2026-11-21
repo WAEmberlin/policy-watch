@@ -71,6 +71,18 @@ digests:
     name: Kentucky
     subject_prefix: "Kentucky PolicyWatch"
 
+  - id: tx
+    name: Texas
+    subject_prefix: "Texas PolicyWatch"
+
+  - id: ct
+    name: Connecticut
+    subject_prefix: "Connecticut PolicyWatch"
+
+  - id: va
+    name: Virginia
+    subject_prefix: "Virginia PolicyWatch"
+
   - id: federal
     name: Federal
     subject_prefix: "Federal PolicyWatch"

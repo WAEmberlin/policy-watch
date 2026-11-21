@@ -27,6 +27,12 @@ data/georgia/*
 !data/georgia/README.md
 data/kentucky/*
 !data/kentucky/README.md
+data/texas/*
+!data/texas/README.md
+data/connecticut/*
+!data/connecticut/README.md
+data/virginia/*
+!data/virginia/README.md
 
 # Large generated artifacts live on Cloudflare R2 (not git)
 docs/site_data.json

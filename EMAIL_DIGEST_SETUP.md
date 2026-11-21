@@ -30,6 +30,9 @@ When a digest includes veteran-related bills, a **Veteran Legislation** section 
 | `ia` | Iowa PolicyWatch — … | Iowa first, then federal |
 | `ga` | Georgia PolicyWatch — … | Georgia first, then federal |
 | `ky` | Kentucky PolicyWatch — … | Kentucky first, then federal |
+| `tx` | Texas PolicyWatch — … | Texas first, then federal |
+| `ct` | Connecticut PolicyWatch — … | Connecticut first, then federal |
+| `va` | Virginia PolicyWatch — … | Virginia first, then federal |
 | `federal` | Federal PolicyWatch — … | U.S. Congress only |
 | `all` | PolicyWatch — All States — … | All states (alphabetical), then federal at bottom |
 | `federal_vets` | Federal Veteran PolicyWatch — … | U.S. Congress **veteran bills only** |
@@ -82,6 +85,9 @@ Paste JSON like this (use real addresses — this is an example only):
   "ia": ["iowa-person@example.com"],
   "ga": ["georgia-person@example.com"],
   "ky": ["kentucky-person@example.com"],
+  "tx": ["texas-person@example.com"],
+  "ct": ["connecticut-person@example.com"],
+  "va": ["virginia-person@example.com"],
   "federal": ["congress-watcher@example.com"],
   "all": ["you@example.com", "team-lead@example.com"],
   "federal_vets": ["veteran-congress@example.com"],

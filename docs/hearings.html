@@ -97,6 +97,9 @@ tailwind.config = {
                             <option value="IA">Iowa</option>
                             <option value="GA">Georgia</option>
                             <option value="KY">Kentucky</option>
+                            <option value="TX">Texas</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="VA">Virginia</option>
                         </select>
                     </div>
                     <div class="flex items-center gap-2">
@@ -176,6 +179,9 @@ tailwind.config = {
                             <option value="IA">Iowa</option>
                             <option value="GA">Georgia</option>
                             <option value="KY">Kentucky</option>
+                            <option value="TX">Texas</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="VA">Virginia</option>
                         </select>
                     </div>
                     <div class="flex items-center gap-2">
@@ -222,7 +228,7 @@ tailwind.config = {
 <script src="a11y.js"></script>
 <script src="data-config.js"></script>
 <script src="data-url.js"></script>
-<script src="shell.js?v=cfwa1"></script>
+<script src="shell.js?v=txctva1"></script>
 <script src="stream-utils.js"></script>
 <script>
 PolicyWatchShell.init({
@@ -287,7 +293,7 @@ function getYearFromDate(dateStr) {
 const STATE_LABELS = {
     KS: "Kansas", CO: "Colorado", AZ: "Arizona", UT: "Utah", ME: "Maine", NE: "Nebraska",
     MD: "Maryland", PA: "Pennsylvania", MA: "Massachusetts", WV: "West Virginia",
-    TN: "Tennessee", NC: "North Carolina", MO: "Missouri", IA: "Iowa", GA: "Georgia", KY: "Kentucky", Federal: "Federal",
+    TN: "Tennessee", NC: "North Carolina", MO: "Missouri", IA: "Iowa", GA: "Georgia", KY: "Kentucky", TX: "Texas", CT: "Connecticut", VA: "Virginia", Federal: "Federal",
 };
 const STATE_BADGE_COLORS = {
     KS: "bg-emerald-500",
@@ -306,6 +312,9 @@ const STATE_BADGE_COLORS = {
     IA: "bg-stone-500",
     GA: "bg-red-600",
     KY: "bg-green-700",
+    TX: "bg-orange-600",
+    CT: "bg-blue-700",
+    VA: "bg-indigo-600",
     Federal: "bg-civic-blue",
 };
 
@@ -330,6 +339,9 @@ function inferHearingState(hearing) {
     if (source.includes("iowa")) return "IA";
     if (source.includes("georgia")) return "GA";
     if (source.includes("kentucky")) return "KY";
+    if (source.includes("texas")) return "TX";
+    if (source.includes("connecticut")) return "CT";
+    if (source.includes("virginia")) return "VA";
     return "";
 }
 

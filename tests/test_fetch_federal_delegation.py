@@ -18,6 +18,12 @@ def test_kentucky_is_a_federal_delegation_target():
     assert "KY" in TARGET_STATES
 
 
+def test_texas_connecticut_virginia_are_federal_delegation_targets():
+    assert "TX" in TARGET_STATES
+    assert "CT" in TARGET_STATES
+    assert "VA" in TARGET_STATES
+
+
 def test_merge_delegation_replaces_requested_state_only():
     existing = [
         {"state": "KS", "chamber": "U.S. Senator", "district": "", "name": "Jerry Moran"},
@@ -63,3 +69,17 @@ def test_committed_delegation_includes_kentucky_house_and_senate():
     assert len(senators) == 2
     districts = {str(member.get("district") or "") for member in reps}
     assert districts == {str(n) for n in range(1, 7)}
+
+
+def test_committed_delegation_includes_texas_connecticut_virginia():
+    path = ROOT / "docs" / "data" / "federal" / "delegation.json"
+    if not path.exists():
+        return
+    members = json.loads(path.read_text(encoding="utf-8"))
+    expected = {"TX": 38, "CT": 5, "VA": 11}
+    for state, house_seats in expected.items():
+        rows = [member for member in members if member.get("state") == state]
+        reps = [member for member in rows if member.get("chamber") == "U.S. Representative"]
+        senators = [member for member in rows if member.get("chamber") == "U.S. Senator"]
+        assert house_seats - 1 <= len(reps) <= house_seats
+        assert len(senators) == 2

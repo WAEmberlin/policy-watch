@@ -138,6 +138,15 @@
             <button class="nav-link" id="tab-kentucky" data-bs-toggle="tab" data-bs-target="#pane-kentucky" type="button" role="tab">Kentucky</button>
           </li>
           <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-texas" data-bs-toggle="tab" data-bs-target="#pane-texas" type="button" role="tab">Texas</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-connecticut" data-bs-toggle="tab" data-bs-target="#pane-connecticut" type="button" role="tab">Connecticut</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-virginia" data-bs-toggle="tab" data-bs-target="#pane-virginia" type="button" role="tab">Virginia</button>
+          </li>
+          <li class="nav-item" role="presentation">
             <button class="nav-link" id="tab-house" data-bs-toggle="tab" data-bs-target="#pane-house" type="button" role="tab">US House</button>
           </li>
           <li class="nav-item" role="presentation">
@@ -998,6 +1007,184 @@
             </div>
           </div>
 
+          <!-- ---------- Texas ---------- -->
+          <div class="tab-pane fade" id="pane-texas" role="tabpanel">
+            <ul class="nav nav-tabs mb-3" id="texasSubTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#texas-senate-pane" type="button" role="tab">Senate Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#texas-house-pane" type="button" role="tab">House Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#texas-committees-pane" type="button" role="tab">Committees</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="texasSubTabContent">
+              <div class="tab-pane fade show active" id="texas-senate-pane" role="tabpanel">
+                <div id="tx-senate-floor">
+                  <h2 class="h5 fw-bold mb-2">Texas Senate Floor</h2>
+                  <p class="text-body-secondary mb-2">Texas Senate floor proceedings stream on the official Senate live video page when the chamber is in session.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://senate.texas.gov/av-live.php" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Watch on Texas Senate Live</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="tx-senate-floor" aria-label="Play Texas Senate floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light">
+                    <div class="embed-wrapper" data-stream-id="tx-senate-floor" style="min-height: 280px;">
+                      <iframe loading="lazy" title="Texas Senate Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="embed-placeholder">Click Play here to watch on PolicyWatch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="texas-house-pane" role="tabpanel">
+                <div id="tx-house-floor">
+                  <h2 class="h5 fw-bold mb-2">Texas House Floor</h2>
+                  <p class="text-body-secondary mb-2">Texas House floor proceedings stream on the official House video page when the chamber is in session.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://house.texas.gov/videos" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Watch on Texas House Video</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="tx-house-floor" aria-label="Play Texas House floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light">
+                    <div class="embed-wrapper" data-stream-id="tx-house-floor" style="min-height: 280px;">
+                      <iframe loading="lazy" title="Texas House Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="embed-placeholder">Click Play here to watch on PolicyWatch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="texas-committees-pane" role="tabpanel">
+                <div id="tx-committees">
+                  <h2 class="h5 fw-bold mb-2">Texas Committee Hearings</h2>
+                  <p class="text-body-secondary mb-2">Committee hearings appear on the House video page and Senate live broadcasts when meetings are in progress.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://house.texas.gov/videos" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">Texas House Video</a>
+                    <a href="https://senate.texas.gov/av-live.php" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">Texas Senate Live</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---------- Connecticut ---------- -->
+          <div class="tab-pane fade" id="pane-connecticut" role="tabpanel">
+            <ul class="nav nav-tabs mb-3" id="connecticutSubTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#connecticut-senate-pane" type="button" role="tab">Senate Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#connecticut-house-pane" type="button" role="tab">House Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#connecticut-committees-pane" type="button" role="tab">Committees</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="connecticutSubTabContent">
+              <div class="tab-pane fade show active" id="connecticut-senate-pane" role="tabpanel">
+                <div id="ct-senate-floor">
+                  <h2 class="h5 fw-bold mb-2">Connecticut Senate Floor</h2>
+                  <p class="text-body-secondary mb-2">Connecticut Senate floor proceedings stream on CT-N when the chamber is in session.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://ct-n.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Watch on CT-N</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="ct-senate-floor" aria-label="Play Connecticut Senate floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light">
+                    <div class="embed-wrapper" data-stream-id="ct-senate-floor" style="min-height: 280px;">
+                      <iframe loading="lazy" title="Connecticut Senate Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="embed-placeholder">Click Play here to watch on PolicyWatch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="connecticut-house-pane" role="tabpanel">
+                <div id="ct-house-floor">
+                  <h2 class="h5 fw-bold mb-2">Connecticut House Floor</h2>
+                  <p class="text-body-secondary mb-2">Connecticut House floor proceedings stream on CT-N when the chamber is in session.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://ct-n.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Watch on CT-N</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="ct-house-floor" aria-label="Play Connecticut House floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light">
+                    <div class="embed-wrapper" data-stream-id="ct-house-floor" style="min-height: 280px;">
+                      <iframe loading="lazy" title="Connecticut House Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="embed-placeholder">Click Play here to watch on PolicyWatch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="connecticut-committees-pane" role="tabpanel">
+                <div id="ct-committees">
+                  <h2 class="h5 fw-bold mb-2">Connecticut Committee Hearings</h2>
+                  <p class="text-body-secondary mb-2">Committee hearings stream on CT-N and the General Assembly broadcast page when meetings are in progress.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://ct-n.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">CT-N</a>
+                    <a href="https://www.cga.ct.gov/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">Connecticut General Assembly</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---------- Virginia ---------- -->
+          <div class="tab-pane fade" id="pane-virginia" role="tabpanel">
+            <ul class="nav nav-tabs mb-3" id="virginiaSubTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#virginia-senate-pane" type="button" role="tab">Senate Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#virginia-house-pane" type="button" role="tab">House Floor</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#virginia-committees-pane" type="button" role="tab">Committees</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="virginiaSubTabContent">
+              <div class="tab-pane fade show active" id="virginia-senate-pane" role="tabpanel">
+                <div id="va-senate-floor">
+                  <h2 class="h5 fw-bold mb-2">Virginia Senate Floor</h2>
+                  <p class="text-body-secondary mb-2">Virginia Senate floor proceedings stream on the Senate YouTube channel when the chamber is in session.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://www.youtube.com/@SenateofVirginia" target="_blank" rel="noopener noreferrer" class="btn btn-danger btn-sm">Watch on YouTube – Senate of Virginia</a>
+                    <a href="https://vga.virginia.gov/engage/live-streaming-archives/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Virginia live streaming</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="va-senate-floor" aria-label="Play Virginia Senate floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light">
+                    <div class="embed-wrapper" data-stream-id="va-senate-floor" style="min-height: 280px;">
+                      <iframe loading="lazy" title="Virginia Senate Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="embed-placeholder">Click Play here to watch on PolicyWatch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="virginia-house-pane" role="tabpanel">
+                <div id="va-house-floor">
+                  <h2 class="h5 fw-bold mb-2">Virginia House of Delegates Floor</h2>
+                  <p class="text-body-secondary mb-2">House of Delegates floor proceedings stream on the official House video dashboard when the chamber is in session.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://video.house.virginia.gov/live" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Watch on Virginia House Video</a>
+                    <button type="button" class="btn btn-primary btn-sm play-here-btn" data-stream-id="va-house-floor" aria-label="Play Virginia House floor stream here"><span aria-hidden="true">▶</span> Play here</button>
+                  </div>
+                  <div class="rounded border bg-light">
+                    <div class="embed-wrapper" data-stream-id="va-house-floor" style="min-height: 280px;">
+                      <iframe loading="lazy" title="Virginia House of Delegates Floor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="embed-placeholder">Click Play here to watch on PolicyWatch</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="virginia-committees-pane" role="tabpanel">
+                <div id="va-committees">
+                  <h2 class="h5 fw-bold mb-2">Virginia Committee Hearings</h2>
+                  <p class="text-body-secondary mb-2">Committee hearings appear on the House video dashboard and Senate live streams when meetings are in progress.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-2 stream-actions">
+                    <a href="https://video.house.virginia.gov/live" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">Virginia House Video</a>
+                    <a href="https://vga.virginia.gov/engage/live-streaming-archives/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">Virginia live streaming</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- ---------- US House ---------- -->
           <div class="tab-pane fade" id="pane-house" role="tabpanel">
             <!-- Secondary tabs: House Floor | Committees -->
@@ -1221,7 +1408,7 @@
   <script src="a11y.js"></script>
   <script src="data-config.js"></script>
   <script src="data-url.js"></script>
-  <script src="shell.js?v=cfwa1"></script>
+  <script src="shell.js?v=txctva1"></script>
   <script>PolicyWatchShell.init({ page: 'live' });</script>
   <!-- Live streams config, Live Now bar, lazy-load, and goToTarget (defer = non-blocking parse) -->
   <script src="live-streams.js" defer></script>

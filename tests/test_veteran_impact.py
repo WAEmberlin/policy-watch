@@ -529,6 +529,10 @@ def test_resolve_federal_feed_item():
 def test_infer_item_state_from_source():
     assert infer_item_state({"source": "State (Utah)"}) == "UT"
     assert infer_item_state({"source": "Congress.gov API", "level": "federal"}) == "Federal"
+    assert infer_item_state({"source": "State (Texas)"}) == "TX"
+    assert infer_item_state({"source": "State (Connecticut)"}) == "CT"
+    assert infer_item_state({"source": "State (Virginia)"}) == "VA"
+    assert infer_item_state({"source": "State (West Virginia)"}) == "WV"
 
 
 def test_ma_h2463_funeral_vaccine_not_veteran():

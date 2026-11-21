@@ -563,6 +563,100 @@ streams:
     youtube_url: https://www.youtube.com/@KYLRCCommitteeMeetings
     external_url: https://legislature.ky.gov/Legislative-Calendar
 
+  # ——— Texas ———
+  - id: tx-senate-floor
+    title: Texas Senate Floor
+    state: TX
+    jurisdiction: texas
+    type: floor
+    target_id: tx-senate-floor
+    tab_pane: pane-texas
+    external_url: https://senate.texas.gov/av-live.php
+    youtube_url: https://senate.texas.gov/av-live.php
+
+  - id: tx-house-floor
+    title: Texas House Floor
+    state: TX
+    jurisdiction: texas
+    type: floor
+    target_id: tx-house-floor
+    tab_pane: pane-texas
+    external_url: https://house.texas.gov/videos
+    youtube_url: https://house.texas.gov/videos
+
+  - id: tx-committees
+    title: Texas Legislature Committees
+    state: TX
+    jurisdiction: texas
+    type: committee
+    target_id: tx-committees
+    tab_pane: pane-texas
+    external_url: https://house.texas.gov/videos
+    youtube_url: https://senate.texas.gov/av-live.php
+
+  # ——— Connecticut ———
+  - id: ct-senate-floor
+    title: Connecticut Senate Floor
+    state: CT
+    jurisdiction: connecticut
+    type: floor
+    target_id: ct-senate-floor
+    tab_pane: pane-connecticut
+    external_url: https://ct-n.com/
+    youtube_url: https://ct-n.com/
+
+  - id: ct-house-floor
+    title: Connecticut House Floor
+    state: CT
+    jurisdiction: connecticut
+    type: floor
+    target_id: ct-house-floor
+    tab_pane: pane-connecticut
+    external_url: https://ct-n.com/
+    youtube_url: https://ct-n.com/
+
+  - id: ct-committees
+    title: Connecticut General Assembly Committees
+    state: CT
+    jurisdiction: connecticut
+    type: committee
+    target_id: ct-committees
+    tab_pane: pane-connecticut
+    external_url: https://www.cga.ct.gov/
+    youtube_url: https://ct-n.com/
+
+  # ——— Virginia ———
+  - id: va-senate-floor
+    title: Virginia Senate Floor
+    state: VA
+    jurisdiction: virginia
+    type: floor
+    target_id: va-senate-floor
+    tab_pane: pane-virginia
+    youtube_channel_id: UC9r1OpPhTY1VmL05bemQD0w
+    youtube_url: https://www.youtube.com/@SenateofVirginia
+    external_url: https://vga.virginia.gov/engage/live-streaming-archives/
+
+  - id: va-house-floor
+    title: Virginia House of Delegates Floor
+    state: VA
+    jurisdiction: virginia
+    type: floor
+    target_id: va-house-floor
+    tab_pane: pane-virginia
+    external_url: https://video.house.virginia.gov/live
+    youtube_url: https://video.house.virginia.gov/live
+
+  - id: va-committees
+    title: Virginia General Assembly Committees
+    state: VA
+    jurisdiction: virginia
+    type: committee
+    target_id: va-committees
+    tab_pane: pane-virginia
+    external_url: https://video.house.virginia.gov/live
+    youtube_url: https://vga.virginia.gov/engage/live-streaming-archives/
+
   # ——— U.S. House ———
   - id: us-house-floor
     title: US House Floor
@@ -677,4 +771,7 @@ state_floor_stream:
   IA: ia-senate-floor
   GA: ga-house-floor
   KY: ky-house-floor
+  TX: tx-house-floor
+  CT: ct-house-floor
+  VA: va-house-floor
   Federal: us-house-floor

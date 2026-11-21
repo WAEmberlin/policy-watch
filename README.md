@@ -42,6 +42,9 @@ Mirror: [https://waemberlin.github.io/policy-watch/](https://waemberlin.github.i
 | IA | Iowa |
 | GA | Georgia |
 | KY | Kentucky |
+| TX | Texas |
+| CT | Connecticut |
+| VA | Virginia |
 
 Configured in [`config/states.yaml`](config/states.yaml).
 
