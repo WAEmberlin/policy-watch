@@ -1,24 +1,27 @@
 {
-  "week_start": "2026-11-10T17:21:30.621208-06:00",
-  "week_end": "2026-11-17T17:21:30.621208-06:00",
+  "week_start": "2026-11-15T22:12:45.742374-06:00",
+  "week_end": "2026-11-22T22:12:45.742374-06:00",
   "item_counts": {
-    "federal": 140,
+    "federal": 380,
     "ks": 0,
     "co": 0,
     "az": 0,
-    "ut": 4,
+    "ut": 18,
     "me": 0,
     "ne": 0,
     "md": 0,
     "pa": 0,
-    "ma": 4,
+    "ma": 1,
     "wv": 0,
-    "tn": 2,
-    "nc": 3,
+    "tn": 0,
+    "nc": 0,
     "mo": 0,
     "ia": 1,
     "ga": 0,
-    "ky": 0
+    "ky": 0,
+    "tx": 0,
+    "ct": 0,
+    "va": 222
   },
   "sections": [
     {
@@ -26,36 +29,36 @@
       "label": "Congress / Federal",
       "recap_lines": [
         "Congress / Federal:",
-        "S 2887: Route 66 National Historic Trail Designation Act",
+        "HR 10167: To direct the Secretary of the Treasury to stop minting the penny, to require cash transactions to be rounded up or down to the nearest 5 cents, and for other purposes.",
+        "   Signed by President.",
+        "S 4448: Accelerating Broadband Permits Act of 2026",
         "   Message on Senate action sent to the House.",
-        "S 3493: Carson City Public Land Correction Act",
+        "S 4538: Washington\u2019s Trail\u20141753 National Historic Trail Feasibility Study Act of 2026",
         "   Message on Senate action sent to the House.",
-        "S 1353: A bill to extend the authority for modifications to the Second Division Memorial in the District of Columbia.",
-        "   Message on Senate action sent to the House.",
-        "   Plus 3 immigration, 10 healthcare, 10 education, 19 economic, 12 defense, 2 environmental, 4 technology, 7 tax, 6 infrastructure bills, and 50 others.",
-        "14 hearings scheduled."
+        "   Plus 6 immigration, 53 healthcare, 26 education, 38 economic, 21 defense, 10 environmental, 11 technology, 29 tax, 9 infrastructure bills, and 131 others.",
+        "43 hearings scheduled."
       ],
-      "item_count": 140,
+      "item_count": 380,
       "veterans_highlight": {
-        "summary": "HR 8552: Veterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026; HRES 1247: Providing for consideration of the bill (H.R. 2102) to amend title 10, United States Code, to provide for concurrent receipt of...; HR 10371: To direct the Associate Administrator for Veterans Business Development of the Small Business Administration to ensure compliance...; plus 15 more",
+        "summary": "S 4445: Veterans Protection from Fraud Act of 2026; HR 10159: To authorize the Secretary of the Army to convey to the State of North Carolina a certain parcel of real property located at Fort...; HR 8469: Military Construction, Veterans Affairs, and Related Agencies Appropriations Act, 2027; plus 36 more",
         "items": [
           {
             "type": "bill",
-            "title": "HR 8552: Veterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/8552"
+            "title": "S 4445: Veterans Protection from Fraud Act of 2026",
+            "url": "https://www.congress.gov/bill/119th-congress/senate-bill/4445"
           },
           {
             "type": "bill",
-            "title": "HRES 1247: Providing for consideration of the bill (H.R. 2102) to amend title 10, United States Code, to provide for concurrent receipt of...",
-            "url": "https://www.congress.gov/bill/119th-congress/house-resolution/1247"
+            "title": "HR 10159: To authorize the Secretary of the Army to convey to the State of North Carolina a certain parcel of real property located at Fort...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10159"
           },
           {
             "type": "bill",
-            "title": "HR 10371: To direct the Associate Administrator for Veterans Business Development of the Small Business Administration to ensure compliance...",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10371"
+            "title": "HR 8469: Military Construction, Veterans Affairs, and Related Agencies Appropriations Act, 2027",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/8469"
           }
         ],
-        "total_matches": 18
+        "total_matches": 39
       }
     },
     {
@@ -87,9 +90,9 @@
       "label": "Utah",
       "recap_lines": [
         "Utah:",
-        "   4 hearings."
+        "   18 hearings."
       ],
-      "item_count": 4
+      "item_count": 18
     },
     {
       "id": "me",
@@ -128,9 +131,9 @@
       "label": "Massachusetts",
       "recap_lines": [
         "Massachusetts:",
-        "   1 committee actions, 1 votes."
+        "   1 bills updated."
       ],
-      "item_count": 4
+      "item_count": 1
     },
     {
       "id": "wv",
@@ -144,19 +147,17 @@
       "id": "tn",
       "label": "Tennessee",
       "recap_lines": [
-        "Tennessee:",
-        "   2 bills introduced."
+        "Tennessee: No new activity this week."
       ],
-      "item_count": 2
+      "item_count": 0
     },
     {
       "id": "nc",
       "label": "North Carolina",
       "recap_lines": [
-        "North Carolina:",
-        "   3 bills updated."
+        "North Carolina: No new activity this week."
       ],
-      "item_count": 3
+      "item_count": 0
     },
     {
       "id": "mo",
@@ -190,10 +191,56 @@
         "Kentucky: No new activity this week."
       ],
       "item_count": 0
+    },
+    {
+      "id": "tx",
+      "label": "Texas",
+      "recap_lines": [
+        "Texas: No new activity this week."
+      ],
+      "item_count": 0
+    },
+    {
+      "id": "ct",
+      "label": "Connecticut",
+      "recap_lines": [
+        "Connecticut: No new activity this week."
+      ],
+      "item_count": 0
+    },
+    {
+      "id": "va",
+      "label": "Virginia",
+      "recap_lines": [
+        "Virginia:",
+        "   222 committee actions."
+      ],
+      "item_count": 222,
+      "veterans_highlight": {
+        "summary": "HB 1018: Veterans & Defense Affairs, Sec. of; study to recommend plan to guide legislation rel. to veterans.; HB 85: Va.-specific postsecondary transition counselor certificate program; development and establishment.; HB 1268: Veterans' Services Protection Act; created, prohibited practices, penalty.",
+        "items": [
+          {
+            "type": "bill",
+            "title": "HB 1018: Veterans & Defense Affairs, Sec. of; study to recommend plan to guide legislation rel. to veterans.",
+            "url": "https://lis.blob.core.windows.net/files/1228698.HTML"
+          },
+          {
+            "type": "bill",
+            "title": "HB 85: Va.-specific postsecondary transition counselor certificate program; development and establishment.",
+            "url": "https://lis.blob.core.windows.net/files/1231345.HTML"
+          },
+          {
+            "type": "bill",
+            "title": "HB 1268: Veterans' Services Protection Act; created, prohibited practices, penalty.",
+            "url": "https://lis.blob.core.windows.net/files/1230406.HTML"
+          }
+        ],
+        "total_matches": 3
+      }
     }
   ],
-  "script": "PolicyWatch weekly overview for November 10 through November 17, 2026.\n\nCongress / Federal:\nS 2887: Route 66 National Historic Trail Designation Act\nVeterans & Military highlight: HR 8552: Veterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026; HRES 1247: Providing for consideration of the bill (H.R..\n   Message on Senate action sent to the House.\nS 3493: Carson City Public Land Correction Act\n   Message on Senate action sent to the House.\nS 1353: A bill to extend the authority for modifications to the Second Division Memorial in the District of Columbia.\n   Message on Senate action sent to the House.\n   Plus 3 immigration, 10 healthcare, 10 education, 19 economic, 12 defense, 2 environmental, 4 technology, 7 tax, 6 infrastructure bills, and 50 others.\n14 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah:\n   4 hearings.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   1 committee actions, 1 votes.\n\nWest Virginia: No new activity this week.\n\nTennessee:\n   2 bills introduced.\n\nNorth Carolina:\n   3 bills updated.\n\nMissouri: No new activity this week.\n\nIowa:\n   1 bills updated.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nExplore full details at PolicyWatch.",
-  "generated_at": "2026-11-17T17:21:30.621208-06:00",
+  "script": "PolicyWatch weekly overview for November 15 through November 22, 2026.\n\nCongress / Federal:\nHR 10167: To direct the Secretary of the Treasury to stop minting the penny, to require cash transactions to be rounded up or down to the nearest 5 cents, and for other purposes.\nVeterans & Military highlight: S 4445: Veterans Protection from Fraud Act of 2026; HR 10159: To authorize the Secretary of the Army to convey to the State of North Carolina a certain parcel of real property located at Fort...; HR 8469: Military....\n   Signed by President.\nS 4448: Accelerating Broadband Permits Act of 2026\n   Message on Senate action sent to the House.\nS 4538: Washington\u2019s Trail\u20141753 National Historic Trail Feasibility Study Act of 2026\n   Message on Senate action sent to the House.\n   Plus 6 immigration, 53 healthcare, 26 education, 38 economic, 21 defense, 10 environmental, 11 technology, 29 tax, 9 infrastructure bills, and 131 others.\n43 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah:\n   18 hearings.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   1 bills updated.\n\nWest Virginia: No new activity this week.\n\nTennessee: No new activity this week.\n\nNorth Carolina: No new activity this week.\n\nMissouri: No new activity this week.\n\nIowa:\n   1 bills updated.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nTexas: No new activity this week.\n\nConnecticut: No new activity this week.\n\nVirginia:\n   222 committee actions.\nVeterans & Military highlight: HB 1018: Veterans & Defense Affairs, Sec. of; study to recommend plan to guide legislation rel. to veterans.; HB 85: Va.-specific postsecondary transition counselor certificate program; development and establishment.;....\n\nExplore full details at PolicyWatch.",
+  "generated_at": "2026-11-22T22:12:45.742374-06:00",
   "audio_available": false,
   "audio_file": null
 }
