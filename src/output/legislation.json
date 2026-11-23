@@ -2383,6 +2383,18 @@
     "latest_action_date": "2026-11-20T00:00:00",
     "actions": [
       {
+        "text": "Signed by President.",
+        "actionDate": "2026-11-20",
+        "type": "President",
+        "actionCode": "E30000"
+      },
+      {
+        "text": "Signed by President.",
+        "actionDate": "2026-11-20",
+        "type": "BecameLaw",
+        "actionCode": "36000"
+      },
+      {
         "text": "Presented to President.",
         "actionDate": "2026-11-20",
         "type": "Floor",
@@ -4154,6 +4166,328 @@
     "last_synced_at": "2026-11-21T13:09:33.879864+00:00",
     "official_title": "A bill to convert the program of public financing of presidential election campaigns to a program for providing grants to States for enhancing the security of election systems, and for other purposes.",
     "short_title": "A bill to convert the program of public financing of presidential election campaigns to a program for providing grants to States for enhancing the security of election systems, and for other purposes."
+  },
+  {
+    "bill_number": "5284",
+    "bill_type": "HR",
+    "title": "Claiming Age Clarity Act",
+    "summary": "",
+    "sponsor_name": "",
+    "latest_action": "Signed by President.",
+    "latest_action_date": "2026-11-20T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/5284",
+    "published": "2025-09-10T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "official_title": "To require the Social Security Administration to make changes to the social security terminology used in the rules, regulation, guidance, or other materials of the Administration.",
+    "short_title": "Claiming Age Clarity Act",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "actions": [
+      {
+        "text": "Presented to President.",
+        "actionDate": "2026-11-12",
+        "type": "Floor",
+        "actionCode": "E20000"
+      },
+      {
+        "text": "Presented to President.",
+        "actionDate": "2026-11-12",
+        "type": "President",
+        "actionCode": "28000"
+      },
+      {
+        "text": "Message on Senate action sent to the House.",
+        "actionDate": "2026-10-14",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed Senate without amendment by Unanimous Consent. (consideration: CR S5184)",
+        "actionDate": "2026-09-29",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent. (consideration: CR S5184)",
+        "actionDate": "2026-09-29",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Senate Committee on Finance discharged by Unanimous Consent.",
+        "actionDate": "2026-09-29",
+        "type": "Discharge"
+      },
+      {
+        "text": "Senate Committee on Finance discharged by Unanimous Consent.",
+        "actionDate": "2026-09-29",
+        "type": "Committee",
+        "actionCode": "14500"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Finance.",
+        "actionDate": "2025-12-02",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2025-12-01",
+        "type": "Floor",
+        "actionTime": "16:56:56",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H4937)",
+        "actionDate": "2025-12-01",
+        "type": "Floor",
+        "actionTime": "16:56:52",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H4937)",
+        "actionDate": "2025-12-01",
+        "type": "Floor",
+        "actionTime": "16:56:52",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 5284.",
+        "actionDate": "2025-12-01",
+        "type": "Floor",
+        "actionTime": "16:47:10",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H4937-4938)",
+        "actionDate": "2025-12-01",
+        "type": "Floor",
+        "actionTime": "16:47:09",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Smith (MO) moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2025-12-01",
+        "type": "Floor",
+        "actionTime": "16:46:52",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 283.",
+        "actionDate": "2025-10-03",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Ways and Means. H. Rept. 119-330.",
+        "actionDate": "2025-10-03",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Ways and Means. H. Rept. 119-330.",
+        "actionDate": "2025-10-03",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 41 - 1.",
+        "actionDate": "2025-09-17",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-09-17",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Ways and Means.",
+        "actionDate": "2025-09-10",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-09-10",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-09-10",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Signed by President.",
+    "votes": [],
+    "introduced_date": "2025-09-10T00:00:00",
+    "last_synced_at": "2026-11-23T15:23:27.730800+00:00"
+  },
+  {
+    "bill_number": "8352",
+    "bill_type": "HR",
+    "title": "Criminal History Access Act of 2026",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Signed by President.",
+    "latest_action_date": "2026-11-20T00:00:00",
+    "actions": [
+      {
+        "text": "Presented to President.",
+        "actionDate": "2026-11-12",
+        "type": "Floor",
+        "actionCode": "E20000"
+      },
+      {
+        "text": "Presented to President.",
+        "actionDate": "2026-11-12",
+        "type": "President",
+        "actionCode": "28000"
+      },
+      {
+        "text": "Message on Senate action sent to the House.",
+        "actionDate": "2026-10-14",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed Senate without amendment by Unanimous Consent. (consideration: CR S5299)",
+        "actionDate": "2026-09-30",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent.",
+        "actionDate": "2026-09-30",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Senate Committee on the Judiciary discharged by Unanimous Consent.",
+        "actionDate": "2026-09-30",
+        "type": "Discharge"
+      },
+      {
+        "text": "Senate Committee on the Judiciary discharged by Unanimous Consent.",
+        "actionDate": "2026-09-30",
+        "type": "Committee",
+        "actionCode": "14500"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on the Judiciary.",
+        "actionDate": "2026-05-13",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-05-12",
+        "type": "Floor",
+        "actionTime": "17:03:46",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H3370-3371)",
+        "actionDate": "2026-05-12",
+        "type": "Floor",
+        "actionTime": "17:03:09",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H3370-3371)",
+        "actionDate": "2026-05-12",
+        "type": "Floor",
+        "actionTime": "17:03:09",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 8352.",
+        "actionDate": "2026-05-12",
+        "type": "Floor",
+        "actionTime": "16:53:39",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H3370-3372)",
+        "actionDate": "2026-05-12",
+        "type": "Floor",
+        "actionTime": "16:53:37",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Schmidt moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2026-05-12",
+        "type": "Floor",
+        "actionTime": "16:53:18",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 553.",
+        "actionDate": "2026-05-04",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Judiciary. H. Rept. 119-636.",
+        "actionDate": "2026-05-04",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Judiciary. H. Rept. 119-636.",
+        "actionDate": "2026-05-04",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported (Amended) by Voice Vote.",
+        "actionDate": "2026-04-22",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2026-04-22",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on the Judiciary.",
+        "actionDate": "2026-04-16",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-04-16",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-04-16",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Signed by President.",
+    "votes": [],
+    "introduced_date": "2026-04-16T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8352",
+    "published": "2026-04-16T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-23T15:23:27.730800+00:00",
+    "official_title": "To authorize peace officer standards and training agencies to access criminal history records, and for other purposes.",
+    "short_title": "Criminal History Access Act of 2026"
   },
   {
     "bill_number": "2347",
@@ -22014,167 +22348,6 @@
     "last_synced_at": "2026-11-13T12:29:59.857798+00:00"
   },
   {
-    "bill_number": "5284",
-    "bill_type": "HR",
-    "title": "Claiming Age Clarity Act",
-    "summary": "",
-    "sponsor_name": "",
-    "latest_action": "Presented to President.",
-    "latest_action_date": "2026-11-12T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/5284",
-    "published": "2025-09-10T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "official_title": "To require the Social Security Administration to make changes to the social security terminology used in the rules, regulation, guidance, or other materials of the Administration.",
-    "short_title": "Claiming Age Clarity Act",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "actions": [
-      {
-        "text": "Presented to President.",
-        "actionDate": "2026-11-12",
-        "type": "Floor",
-        "actionCode": "E20000"
-      },
-      {
-        "text": "Presented to President.",
-        "actionDate": "2026-11-12",
-        "type": "President",
-        "actionCode": "28000"
-      },
-      {
-        "text": "Message on Senate action sent to the House.",
-        "actionDate": "2026-10-14",
-        "type": "Floor"
-      },
-      {
-        "text": "Passed Senate without amendment by Unanimous Consent. (consideration: CR S5184)",
-        "actionDate": "2026-09-29",
-        "type": "Floor"
-      },
-      {
-        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent. (consideration: CR S5184)",
-        "actionDate": "2026-09-29",
-        "type": "Floor",
-        "actionCode": "17000"
-      },
-      {
-        "text": "Senate Committee on Finance discharged by Unanimous Consent.",
-        "actionDate": "2026-09-29",
-        "type": "Discharge"
-      },
-      {
-        "text": "Senate Committee on Finance discharged by Unanimous Consent.",
-        "actionDate": "2026-09-29",
-        "type": "Committee",
-        "actionCode": "14500"
-      },
-      {
-        "text": "Received in the Senate and Read twice and referred to the Committee on Finance.",
-        "actionDate": "2025-12-02",
-        "type": "IntroReferral"
-      },
-      {
-        "text": "Motion to reconsider laid on the table Agreed to without objection.",
-        "actionDate": "2025-12-01",
-        "type": "Floor",
-        "actionTime": "16:56:56",
-        "actionCode": "H38310"
-      },
-      {
-        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H4937)",
-        "actionDate": "2025-12-01",
-        "type": "Floor",
-        "actionTime": "16:56:52",
-        "actionCode": "H37300"
-      },
-      {
-        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H4937)",
-        "actionDate": "2025-12-01",
-        "type": "Floor",
-        "actionTime": "16:56:52",
-        "actionCode": "8000"
-      },
-      {
-        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 5284.",
-        "actionDate": "2025-12-01",
-        "type": "Floor",
-        "actionTime": "16:47:10",
-        "actionCode": "H8D000"
-      },
-      {
-        "text": "Considered under suspension of the rules. (consideration: CR H4937-4938)",
-        "actionDate": "2025-12-01",
-        "type": "Floor",
-        "actionTime": "16:47:09",
-        "actionCode": "H30000"
-      },
-      {
-        "text": "Mr. Smith (MO) moved to suspend the rules and pass the bill, as amended.",
-        "actionDate": "2025-12-01",
-        "type": "Floor",
-        "actionTime": "16:46:52",
-        "actionCode": "H30300"
-      },
-      {
-        "text": "Placed on the Union Calendar, Calendar No. 283.",
-        "actionDate": "2025-10-03",
-        "type": "Calendars",
-        "actionCode": "H12410"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Ways and Means. H. Rept. 119-330.",
-        "actionDate": "2025-10-03",
-        "type": "Committee",
-        "actionCode": "H12200"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Ways and Means. H. Rept. 119-330.",
-        "actionDate": "2025-10-03",
-        "type": "Committee",
-        "actionCode": "5000"
-      },
-      {
-        "text": "Ordered to be Reported in the Nature of a Substitute (Amended) by the Yeas and Nays: 41 - 1.",
-        "actionDate": "2025-09-17",
-        "type": "Committee",
-        "actionCode": "H19000"
-      },
-      {
-        "text": "Committee Consideration and Mark-up Session Held",
-        "actionDate": "2025-09-17",
-        "type": "Committee",
-        "actionCode": "H15001"
-      },
-      {
-        "text": "Referred to the House Committee on Ways and Means.",
-        "actionDate": "2025-09-10",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2025-09-10",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2025-09-10",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Presented to President.",
-    "votes": [],
-    "introduced_date": "2025-09-10T00:00:00",
-    "last_synced_at": "2026-11-13T12:29:59.857798+00:00"
-  },
-  {
     "bill_number": "5359",
     "bill_type": "S",
     "title": "Pennington County Land Conveyance Act",
@@ -25580,167 +25753,6 @@
     "last_synced_at": "2026-11-13T18:07:38.101815+00:00",
     "official_title": "To prohibit the construction of data centers on Federal land, and for other purposes.",
     "short_title": "To prohibit the construction of data centers on Federal land, and for other purposes."
-  },
-  {
-    "bill_number": "8352",
-    "bill_type": "HR",
-    "title": "Criminal History Access Act of 2026",
-    "summary": "",
-    "sponsor_name": "",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "latest_action": "Presented to President.",
-    "latest_action_date": "2026-11-12T00:00:00",
-    "actions": [
-      {
-        "text": "Presented to President.",
-        "actionDate": "2026-11-12",
-        "type": "Floor",
-        "actionCode": "E20000"
-      },
-      {
-        "text": "Presented to President.",
-        "actionDate": "2026-11-12",
-        "type": "President",
-        "actionCode": "28000"
-      },
-      {
-        "text": "Message on Senate action sent to the House.",
-        "actionDate": "2026-10-14",
-        "type": "Floor"
-      },
-      {
-        "text": "Passed Senate without amendment by Unanimous Consent. (consideration: CR S5299)",
-        "actionDate": "2026-09-30",
-        "type": "Floor"
-      },
-      {
-        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent.",
-        "actionDate": "2026-09-30",
-        "type": "Floor",
-        "actionCode": "17000"
-      },
-      {
-        "text": "Senate Committee on the Judiciary discharged by Unanimous Consent.",
-        "actionDate": "2026-09-30",
-        "type": "Discharge"
-      },
-      {
-        "text": "Senate Committee on the Judiciary discharged by Unanimous Consent.",
-        "actionDate": "2026-09-30",
-        "type": "Committee",
-        "actionCode": "14500"
-      },
-      {
-        "text": "Received in the Senate and Read twice and referred to the Committee on the Judiciary.",
-        "actionDate": "2026-05-13",
-        "type": "IntroReferral"
-      },
-      {
-        "text": "Motion to reconsider laid on the table Agreed to without objection.",
-        "actionDate": "2026-05-12",
-        "type": "Floor",
-        "actionTime": "17:03:46",
-        "actionCode": "H38310"
-      },
-      {
-        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H3370-3371)",
-        "actionDate": "2026-05-12",
-        "type": "Floor",
-        "actionTime": "17:03:09",
-        "actionCode": "H37300"
-      },
-      {
-        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H3370-3371)",
-        "actionDate": "2026-05-12",
-        "type": "Floor",
-        "actionTime": "17:03:09",
-        "actionCode": "8000"
-      },
-      {
-        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 8352.",
-        "actionDate": "2026-05-12",
-        "type": "Floor",
-        "actionTime": "16:53:39",
-        "actionCode": "H8D000"
-      },
-      {
-        "text": "Considered under suspension of the rules. (consideration: CR H3370-3372)",
-        "actionDate": "2026-05-12",
-        "type": "Floor",
-        "actionTime": "16:53:37",
-        "actionCode": "H30000"
-      },
-      {
-        "text": "Mr. Schmidt moved to suspend the rules and pass the bill, as amended.",
-        "actionDate": "2026-05-12",
-        "type": "Floor",
-        "actionTime": "16:53:18",
-        "actionCode": "H30300"
-      },
-      {
-        "text": "Placed on the Union Calendar, Calendar No. 553.",
-        "actionDate": "2026-05-04",
-        "type": "Calendars",
-        "actionCode": "H12410"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Judiciary. H. Rept. 119-636.",
-        "actionDate": "2026-05-04",
-        "type": "Committee",
-        "actionCode": "H12200"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Judiciary. H. Rept. 119-636.",
-        "actionDate": "2026-05-04",
-        "type": "Committee",
-        "actionCode": "5000"
-      },
-      {
-        "text": "Ordered to be Reported (Amended) by Voice Vote.",
-        "actionDate": "2026-04-22",
-        "type": "Committee",
-        "actionCode": "H19000"
-      },
-      {
-        "text": "Committee Consideration and Mark-up Session Held",
-        "actionDate": "2026-04-22",
-        "type": "Committee",
-        "actionCode": "H15001"
-      },
-      {
-        "text": "Referred to the House Committee on the Judiciary.",
-        "actionDate": "2026-04-16",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-04-16",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-04-16",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Presented to President.",
-    "votes": [],
-    "introduced_date": "2026-04-16T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/8352",
-    "published": "2026-04-16T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-11-13T23:53:48.305749+00:00",
-    "official_title": "To authorize peace officer standards and training agencies to access criminal history records, and for other purposes.",
-    "short_title": "Criminal History Access Act of 2026"
   },
   {
     "bill_number": "1430",
