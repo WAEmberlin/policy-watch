@@ -10072,5 +10072,64 @@
       "house": [],
       "senate": []
     }
+  },
+  "2026-11-24": {
+    "date": "2026-11-24",
+    "generated_at": "2026-11-25T09:10:45.475897+00:00",
+    "model": "phi-3:mini",
+    "prompt_version": "v1",
+    "summary": "On November 24, 2026, no bills were passed in the Kansas Legislature. In the U.S. Congress, five House bills were presented to the President. These included HR 2400 (Pit River Land Transfer Act of 2025), HR 7834 (Safe Cloud Storage Act), HR 7866 (American Lending Fairness Act of 2026), HR 7030 (Securing Facilities for Mental Health Services Act), and HR 4936 (TRAPS Act). Additionally, HR 1653 (Civil Investigative Demand Reform Act of 2025) was placed on the Union Calendar.",
+    "counts": {
+      "total": 6,
+      "kansas_house": 0,
+      "kansas_senate": 0,
+      "congress_house": 6,
+      "congress_senate": 0
+    },
+    "kansas": {
+      "house": [],
+      "senate": []
+    },
+    "congress": {
+      "house": [
+        {
+          "bill": "HR 2400",
+          "short_title": "Pit River Land Transfer Act of 2025",
+          "action": "Presented to President.",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/2400"
+        },
+        {
+          "bill": "HR 7834",
+          "short_title": "Safe Cloud Storage Act",
+          "action": "Presented to President.",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/7834"
+        },
+        {
+          "bill": "HR 7866",
+          "short_title": "American Lending Fairness Act of 2026",
+          "action": "Placed on the Union Calendar, Calendar No. 788.",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/7866"
+        },
+        {
+          "bill": "HR 7030",
+          "short_title": "Securing Facilities for Mental Health Services Act",
+          "action": "Placed on the Union Calendar, Calendar No. 787.",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/7030"
+        },
+        {
+          "bill": "HR 4936",
+          "short_title": "TRAPS Act",
+          "action": "Placed on the Union Calendar, Calendar No. 784.",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/4936"
+        },
+        {
+          "bill": "HR 1653",
+          "short_title": "Civil Investigative Demand Reform Act of 2025",
+          "action": "Placed on the Union Calendar, Calendar No. 785.",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/1653"
+        }
+      ],
+      "senate": []
+    }
   }
 }
