@@ -1681,6 +1681,18 @@
     "cosponsors": [],
     "actions": [
       {
+        "text": "Presented to President.",
+        "actionDate": "2026-11-24",
+        "type": "Floor",
+        "actionCode": "E20000"
+      },
+      {
+        "text": "Presented to President.",
+        "actionDate": "2026-11-24",
+        "type": "President",
+        "actionCode": "28000"
+      },
+      {
         "text": "Message on Senate action sent to the House.",
         "actionDate": "2026-11-18",
         "type": "Floor"
@@ -1862,6 +1874,18 @@
     "latest_action_date": "2026-11-24T00:00:00",
     "actions": [
       {
+        "text": "Presented to President.",
+        "actionDate": "2026-11-24",
+        "type": "Floor",
+        "actionCode": "E20000"
+      },
+      {
+        "text": "Presented to President.",
+        "actionDate": "2026-11-24",
+        "type": "President",
+        "actionCode": "28000"
+      },
+      {
         "text": "Message on Senate action sent to the House.",
         "actionDate": "2026-11-18",
         "type": "Floor"
@@ -2016,7 +2040,56 @@
     "cosponsors": [],
     "latest_action": "Placed on the Union Calendar, Calendar No. 789.",
     "latest_action_date": "2026-11-24T00:00:00",
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 789.",
+        "actionDate": "2026-11-24",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Financial Services. H. Rept. 119-894.",
+        "actionDate": "2026-11-24",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Financial Services. H. Rept. 119-894.",
+        "actionDate": "2026-11-24",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported (Amended) by the Yeas and Nays: 28 - 21.",
+        "actionDate": "2026-09-16",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2026-09-16",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Financial Services.",
+        "actionDate": "2026-05-21",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-05-21",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-05-21",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on the Union Calendar, Calendar No. 789.",
@@ -2048,13 +2121,520 @@
     "sponsor_state": "",
     "sponsor_district": "",
     "cosponsors": [],
-    "actions": [],
+    "actions": [
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 786.",
+        "actionDate": "2026-11-24",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Financial Services. H. Rept. 119-891.",
+        "actionDate": "2026-11-24",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Financial Services. H. Rept. 119-891.",
+        "actionDate": "2026-11-24",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported (Amended) by the Yeas and Nays: 47 - 2.",
+        "actionDate": "2026-09-16",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2026-09-16",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on Financial Services.",
+        "actionDate": "2025-10-31",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-10-31",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-10-31",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
     "committees": [],
     "policy_areas": [],
     "status": "Placed on the Union Calendar, Calendar No. 786.",
     "votes": [],
     "introduced_date": "2025-10-31T00:00:00",
     "last_synced_at": "2026-11-26T02:04:41.568563+00:00"
+  },
+  {
+    "bill_number": "2400",
+    "bill_type": "HR",
+    "title": "Pit River Land Transfer Act of 2026",
+    "summary": "",
+    "sponsor_name": "",
+    "latest_action": "Presented to President.",
+    "latest_action_date": "2026-11-24T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/2400",
+    "published": "2025-03-27T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "official_title": "To take certain Federal land in the State of California into trust for the benefit of the Pit River Tribe.",
+    "short_title": "Pit River Land Transfer Act of 2025",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "actions": [
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-11-17",
+        "type": "ResolvingDifferences",
+        "actionTime": "17:23:56",
+        "actionCode": "H41931"
+      },
+      {
+        "text": "On motion that the House suspend the rules and agree to the Senate amendment Agreed to by voice vote. (text: CR H6247-6248)",
+        "actionDate": "2026-11-17",
+        "type": "ResolvingDifferences",
+        "actionTime": "17:23:55",
+        "actionCode": "H41610"
+      },
+      {
+        "text": "Resolving differences -- House actions: On motion that the House suspend the rules and agree to the Senate amendment Agreed to by voice vote. (text: CR H6247-6248)",
+        "actionDate": "2026-11-17",
+        "type": "NotUsed",
+        "actionCode": "19500"
+      },
+      {
+        "text": "DEBATE - The House proceeded with 40 minutes of debate on the motion to suspend the rules and agree to the Senate amendment to H.R. 2400.",
+        "actionDate": "2026-11-17",
+        "type": "Floor",
+        "actionTime": "17:20:04",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Mr. Westerman moved that the House suspend the rules and agree to the Senate amendment. (consideration: CR H6247-6248)",
+        "actionDate": "2026-11-17",
+        "type": "ResolvingDifferences",
+        "actionTime": "17:19:50",
+        "actionCode": "H40140"
+      },
+      {
+        "text": "Message on Senate action sent to the House.",
+        "actionDate": "2026-11-16",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed Senate with an amendment by Unanimous Consent. (consideration: CR S5297-5298)",
+        "actionDate": "2026-09-30",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate with an amendment by Unanimous Consent.",
+        "actionDate": "2026-09-30",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 676.",
+        "actionDate": "2026-09-22",
+        "type": "Calendars"
+      },
+      {
+        "text": "Committee on Indian Affairs. Reported by Senator Murkowski with an amendment in the nature of a substitute. With written report No. 119-147.",
+        "actionDate": "2026-09-22",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Indian Affairs. Reported by Senator Murkowski with an amendment in the nature of a substitute. With written report No. 119-147.",
+        "actionDate": "2026-09-22",
+        "type": "Committee",
+        "actionCode": "14000"
+      },
+      {
+        "text": "Committee on Indian Affairs. Ordered to be reported with an amendment in the nature of a substitute favorably.",
+        "actionDate": "2026-08-05",
+        "type": "Committee"
+      },
+      {
+        "text": "Committee on Indian Affairs. Hearings held.",
+        "actionDate": "2026-06-03",
+        "type": "Committee"
+      },
+      {
+        "text": "Received in the Senate and Read twice and referred to the Committee on Indian Affairs.",
+        "actionDate": "2025-12-16",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2025-12-15",
+        "type": "Floor",
+        "actionTime": "17:27:07",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H5886-5887)",
+        "actionDate": "2025-12-15",
+        "type": "Floor",
+        "actionTime": "17:27:00",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H5886-5887)",
+        "actionDate": "2025-12-15",
+        "type": "Floor",
+        "actionTime": "17:27:00",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 2400.",
+        "actionDate": "2025-12-15",
+        "type": "Floor",
+        "actionTime": "17:20:27",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H5886-5888)",
+        "actionDate": "2025-12-15",
+        "type": "Floor",
+        "actionTime": "17:20:25",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Mr. Stauber moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2025-12-15",
+        "type": "Floor",
+        "actionTime": "17:20:05",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 245.",
+        "actionDate": "2025-09-15",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Natural Resources. H. Rept. 119-289.",
+        "actionDate": "2025-09-15",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Natural Resources. H. Rept. 119-289.",
+        "actionDate": "2025-09-15",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported (Amended) by Unanimous Consent.",
+        "actionDate": "2025-07-23",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2025-07-23",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Subcommittee on Indian and Insular Affairs Discharged",
+        "actionDate": "2025-07-23",
+        "type": "Committee",
+        "actionCode": "H25000"
+      },
+      {
+        "text": "Subcommittee Hearings Held",
+        "actionDate": "2025-04-30",
+        "type": "Committee",
+        "actionCode": "H21000"
+      },
+      {
+        "text": "Referred to the Subcommittee on Indian and Insular Affairs.",
+        "actionDate": "2025-04-23",
+        "type": "Committee",
+        "actionCode": "H11000"
+      },
+      {
+        "text": "Referred to the House Committee on Natural Resources.",
+        "actionDate": "2025-03-27",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-03-27",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2025-03-27",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Presented to President.",
+    "votes": [],
+    "introduced_date": "2025-03-27T00:00:00",
+    "last_synced_at": "2026-11-26T11:29:46.882908+00:00"
+  },
+  {
+    "bill_number": "7834",
+    "bill_type": "HR",
+    "title": "Safe Cloud Storage Act",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Presented to President.",
+    "latest_action_date": "2026-11-24T00:00:00",
+    "actions": [
+      {
+        "text": "Message on Senate action sent to the House.",
+        "actionDate": "2026-11-17",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed Senate without amendment by Unanimous Consent. (consideration: CR S5701)",
+        "actionDate": "2026-11-16",
+        "type": "Floor"
+      },
+      {
+        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent.",
+        "actionDate": "2026-11-16",
+        "type": "Floor",
+        "actionCode": "17000"
+      },
+      {
+        "text": "Received in the Senate, read twice.",
+        "actionDate": "2026-09-17",
+        "type": "IntroReferral"
+      },
+      {
+        "text": "Motion to reconsider laid on the table Agreed to without objection.",
+        "actionDate": "2026-09-16",
+        "type": "Floor",
+        "actionTime": "15:24:42",
+        "actionCode": "H38310"
+      },
+      {
+        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H5936-5937)",
+        "actionDate": "2026-09-16",
+        "type": "Floor",
+        "actionTime": "15:24:30",
+        "actionCode": "H37300"
+      },
+      {
+        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote.",
+        "actionDate": "2026-09-16",
+        "type": "Floor",
+        "actionTime": "15:24:30",
+        "actionCode": "8000"
+      },
+      {
+        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 7834.",
+        "actionDate": "2026-09-16",
+        "type": "Floor",
+        "actionTime": "15:14:54",
+        "actionCode": "H8D000"
+      },
+      {
+        "text": "Considered under suspension of the rules. (consideration: CR H5936-5938)",
+        "actionDate": "2026-09-16",
+        "type": "Floor",
+        "actionTime": "15:14:53",
+        "actionCode": "H30000"
+      },
+      {
+        "text": "Ms. Lee (FL) moved to suspend the rules and pass the bill, as amended.",
+        "actionDate": "2026-09-16",
+        "type": "Floor",
+        "actionTime": "15:14:38",
+        "actionCode": "H30300"
+      },
+      {
+        "text": "Placed on the Union Calendar, Calendar No. 703.",
+        "actionDate": "2026-09-08",
+        "type": "Calendars",
+        "actionCode": "H12410"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Judiciary. H. Rept. 119-804.",
+        "actionDate": "2026-09-08",
+        "type": "Committee",
+        "actionCode": "H12200"
+      },
+      {
+        "text": "Reported (Amended) by the Committee on Judiciary. H. Rept. 119-804.",
+        "actionDate": "2026-09-08",
+        "type": "Committee",
+        "actionCode": "5000"
+      },
+      {
+        "text": "Ordered to be Reported (Amended) by the Yeas and Nays: 24 - 0.",
+        "actionDate": "2026-07-15",
+        "type": "Committee",
+        "actionCode": "H19000"
+      },
+      {
+        "text": "Committee Consideration and Mark-up Session Held",
+        "actionDate": "2026-07-15",
+        "type": "Committee",
+        "actionCode": "H15001"
+      },
+      {
+        "text": "Referred to the House Committee on the Judiciary.",
+        "actionDate": "2026-03-05",
+        "type": "IntroReferral",
+        "actionCode": "H11100"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-03-05",
+        "type": "IntroReferral",
+        "actionCode": "Intro-H"
+      },
+      {
+        "text": "Introduced in House",
+        "actionDate": "2026-03-05",
+        "type": "IntroReferral",
+        "actionCode": "1000"
+      }
+    ],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Presented to President.",
+    "votes": [],
+    "introduced_date": "2026-03-05T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/7834",
+    "published": "2026-03-05T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-26T11:29:46.882908+00:00",
+    "official_title": "To limit liability for certain entities storing child sexual abuse material for law enforcement agencies, and for other purposes.",
+    "short_title": "Safe Cloud Storage Act"
+  },
+  {
+    "bill_number": "7866",
+    "bill_type": "HR",
+    "title": "American Lending Fairness Act of 2026",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Placed on the Union Calendar, Calendar No. 788.",
+    "latest_action_date": "2026-11-24T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Placed on the Union Calendar, Calendar No. 788.",
+    "votes": [],
+    "introduced_date": "2026-03-09T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/7866",
+    "published": "2026-03-09T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-26T11:29:46.882908+00:00",
+    "official_title": "To restore and clarify the intent of the Federal interest rate exportation parity for State-chartered banks by allowing States to opt out of preemption only with respect to loans made by their own chartered institutions, and for other purposes.",
+    "short_title": "American Lending Fairness Act of 2026"
+  },
+  {
+    "bill_number": "7030",
+    "bill_type": "HR",
+    "title": "Securing Facilities for Mental Health Services Act",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Placed on the Union Calendar, Calendar No. 787.",
+    "latest_action_date": "2026-11-24T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Placed on the Union Calendar, Calendar No. 787.",
+    "votes": [],
+    "introduced_date": "2026-01-13T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/7030",
+    "published": "2026-01-13T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-26T11:29:46.882908+00:00",
+    "official_title": "To amend section 242 of the National Housing Act to provide parity with respect to access to the mortgage insurance for hospitals program for licensed hospitals, and for other purposes.",
+    "short_title": "Securing Facilities for Mental Health Services Act"
+  },
+  {
+    "bill_number": "4936",
+    "bill_type": "HR",
+    "title": "TRAPS Act",
+    "summary": "",
+    "sponsor_name": "",
+    "latest_action": "Placed on the Union Calendar, Calendar No. 784.",
+    "latest_action_date": "2026-11-24T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/4936",
+    "published": "2025-08-08T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "official_title": "To establish a Task Force for Recognizing and Averting Payment Scams, and for other purposes.",
+    "short_title": "TRAPS Act",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Placed on the Union Calendar, Calendar No. 784.",
+    "votes": [],
+    "introduced_date": "2025-08-08T00:00:00",
+    "last_synced_at": "2026-11-26T11:29:46.882908+00:00"
+  },
+  {
+    "bill_number": "1653",
+    "bill_type": "HR",
+    "title": "Civil Investigative Demand Reform Act of 2026",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Placed on the Union Calendar, Calendar No. 785.",
+    "latest_action_date": "2026-11-24T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Placed on the Union Calendar, Calendar No. 785.",
+    "votes": [],
+    "introduced_date": "2025-02-27T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/1653",
+    "published": "2025-02-27T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-26T11:29:46.882908+00:00",
+    "official_title": "To reform the civil investigative demand process of the Bureau of Consumer Financial Protection.",
+    "short_title": "Civil Investigative Demand Reform Act of 2025"
   },
   {
     "bill_number": "8552",
@@ -18451,360 +19031,6 @@
     "last_synced_at": "2026-11-18T14:35:32.639359+00:00",
     "official_title": "A bill to establish the Fort Ontario Holocaust Refugee Shelter National Historical Park in the State of New York as a unit of the National Park System, and for other purposes.",
     "short_title": "Fort Ontario Holocaust Refugee Shelter National Historical Park Establishment Act"
-  },
-  {
-    "bill_number": "2400",
-    "bill_type": "HR",
-    "title": "Pit River Land Transfer Act of 2026",
-    "summary": "",
-    "sponsor_name": "",
-    "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
-    "latest_action_date": "2026-11-17T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/2400",
-    "published": "2025-03-27T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "official_title": "To take certain Federal land in the State of California into trust for the benefit of the Pit River Tribe.",
-    "short_title": "Pit River Land Transfer Act of 2025",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "actions": [
-      {
-        "text": "Motion to reconsider laid on the table Agreed to without objection.",
-        "actionDate": "2026-11-17",
-        "type": "ResolvingDifferences",
-        "actionTime": "17:23:56",
-        "actionCode": "H41931"
-      },
-      {
-        "text": "On motion that the House suspend the rules and agree to the Senate amendment Agreed to by voice vote. (text: CR H6247-6248)",
-        "actionDate": "2026-11-17",
-        "type": "ResolvingDifferences",
-        "actionTime": "17:23:55",
-        "actionCode": "H41610"
-      },
-      {
-        "text": "Resolving differences -- House actions: On motion that the House suspend the rules and agree to the Senate amendment Agreed to by voice vote. (text: CR H6247-6248)",
-        "actionDate": "2026-11-17",
-        "type": "NotUsed",
-        "actionCode": "19500"
-      },
-      {
-        "text": "DEBATE - The House proceeded with 40 minutes of debate on the motion to suspend the rules and agree to the Senate amendment to H.R. 2400.",
-        "actionDate": "2026-11-17",
-        "type": "Floor",
-        "actionTime": "17:20:04",
-        "actionCode": "H8D000"
-      },
-      {
-        "text": "Mr. Westerman moved that the House suspend the rules and agree to the Senate amendment. (consideration: CR H6247-6248)",
-        "actionDate": "2026-11-17",
-        "type": "ResolvingDifferences",
-        "actionTime": "17:19:50",
-        "actionCode": "H40140"
-      },
-      {
-        "text": "Message on Senate action sent to the House.",
-        "actionDate": "2026-11-16",
-        "type": "Floor"
-      },
-      {
-        "text": "Passed Senate with an amendment by Unanimous Consent. (consideration: CR S5297-5298)",
-        "actionDate": "2026-09-30",
-        "type": "Floor"
-      },
-      {
-        "text": "Passed/agreed to in Senate: Passed Senate with an amendment by Unanimous Consent.",
-        "actionDate": "2026-09-30",
-        "type": "Floor",
-        "actionCode": "17000"
-      },
-      {
-        "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 676.",
-        "actionDate": "2026-09-22",
-        "type": "Calendars"
-      },
-      {
-        "text": "Committee on Indian Affairs. Reported by Senator Murkowski with an amendment in the nature of a substitute. With written report No. 119-147.",
-        "actionDate": "2026-09-22",
-        "type": "Committee"
-      },
-      {
-        "text": "Committee on Indian Affairs. Reported by Senator Murkowski with an amendment in the nature of a substitute. With written report No. 119-147.",
-        "actionDate": "2026-09-22",
-        "type": "Committee",
-        "actionCode": "14000"
-      },
-      {
-        "text": "Committee on Indian Affairs. Ordered to be reported with an amendment in the nature of a substitute favorably.",
-        "actionDate": "2026-08-05",
-        "type": "Committee"
-      },
-      {
-        "text": "Committee on Indian Affairs. Hearings held.",
-        "actionDate": "2026-06-03",
-        "type": "Committee"
-      },
-      {
-        "text": "Received in the Senate and Read twice and referred to the Committee on Indian Affairs.",
-        "actionDate": "2025-12-16",
-        "type": "IntroReferral"
-      },
-      {
-        "text": "Motion to reconsider laid on the table Agreed to without objection.",
-        "actionDate": "2025-12-15",
-        "type": "Floor",
-        "actionTime": "17:27:07",
-        "actionCode": "H38310"
-      },
-      {
-        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H5886-5887)",
-        "actionDate": "2025-12-15",
-        "type": "Floor",
-        "actionTime": "17:27:00",
-        "actionCode": "H37300"
-      },
-      {
-        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H5886-5887)",
-        "actionDate": "2025-12-15",
-        "type": "Floor",
-        "actionTime": "17:27:00",
-        "actionCode": "8000"
-      },
-      {
-        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 2400.",
-        "actionDate": "2025-12-15",
-        "type": "Floor",
-        "actionTime": "17:20:27",
-        "actionCode": "H8D000"
-      },
-      {
-        "text": "Considered under suspension of the rules. (consideration: CR H5886-5888)",
-        "actionDate": "2025-12-15",
-        "type": "Floor",
-        "actionTime": "17:20:25",
-        "actionCode": "H30000"
-      },
-      {
-        "text": "Mr. Stauber moved to suspend the rules and pass the bill, as amended.",
-        "actionDate": "2025-12-15",
-        "type": "Floor",
-        "actionTime": "17:20:05",
-        "actionCode": "H30300"
-      },
-      {
-        "text": "Placed on the Union Calendar, Calendar No. 245.",
-        "actionDate": "2025-09-15",
-        "type": "Calendars",
-        "actionCode": "H12410"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Natural Resources. H. Rept. 119-289.",
-        "actionDate": "2025-09-15",
-        "type": "Committee",
-        "actionCode": "H12200"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Natural Resources. H. Rept. 119-289.",
-        "actionDate": "2025-09-15",
-        "type": "Committee",
-        "actionCode": "5000"
-      },
-      {
-        "text": "Ordered to be Reported (Amended) by Unanimous Consent.",
-        "actionDate": "2025-07-23",
-        "type": "Committee",
-        "actionCode": "H19000"
-      },
-      {
-        "text": "Committee Consideration and Mark-up Session Held",
-        "actionDate": "2025-07-23",
-        "type": "Committee",
-        "actionCode": "H15001"
-      },
-      {
-        "text": "Subcommittee on Indian and Insular Affairs Discharged",
-        "actionDate": "2025-07-23",
-        "type": "Committee",
-        "actionCode": "H25000"
-      },
-      {
-        "text": "Subcommittee Hearings Held",
-        "actionDate": "2025-04-30",
-        "type": "Committee",
-        "actionCode": "H21000"
-      },
-      {
-        "text": "Referred to the Subcommittee on Indian and Insular Affairs.",
-        "actionDate": "2025-04-23",
-        "type": "Committee",
-        "actionCode": "H11000"
-      },
-      {
-        "text": "Referred to the House Committee on Natural Resources.",
-        "actionDate": "2025-03-27",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2025-03-27",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2025-03-27",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Motion to reconsider laid on the table Agreed to without objection.",
-    "votes": [],
-    "introduced_date": "2025-03-27T00:00:00",
-    "last_synced_at": "2026-11-18T14:35:32.639359+00:00"
-  },
-  {
-    "bill_number": "7834",
-    "bill_type": "HR",
-    "title": "Safe Cloud Storage Act",
-    "summary": "",
-    "sponsor_name": "",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "latest_action": "Message on Senate action sent to the House.",
-    "latest_action_date": "2026-11-17T00:00:00",
-    "actions": [
-      {
-        "text": "Message on Senate action sent to the House.",
-        "actionDate": "2026-11-17",
-        "type": "Floor"
-      },
-      {
-        "text": "Passed Senate without amendment by Unanimous Consent. (consideration: CR S5701)",
-        "actionDate": "2026-11-16",
-        "type": "Floor"
-      },
-      {
-        "text": "Passed/agreed to in Senate: Passed Senate without amendment by Unanimous Consent.",
-        "actionDate": "2026-11-16",
-        "type": "Floor",
-        "actionCode": "17000"
-      },
-      {
-        "text": "Received in the Senate, read twice.",
-        "actionDate": "2026-09-17",
-        "type": "IntroReferral"
-      },
-      {
-        "text": "Motion to reconsider laid on the table Agreed to without objection.",
-        "actionDate": "2026-09-16",
-        "type": "Floor",
-        "actionTime": "15:24:42",
-        "actionCode": "H38310"
-      },
-      {
-        "text": "On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote. (text: CR H5936-5937)",
-        "actionDate": "2026-09-16",
-        "type": "Floor",
-        "actionTime": "15:24:30",
-        "actionCode": "H37300"
-      },
-      {
-        "text": "Passed/agreed to in House: On motion to suspend the rules and pass the bill, as amended Agreed to by voice vote.",
-        "actionDate": "2026-09-16",
-        "type": "Floor",
-        "actionTime": "15:24:30",
-        "actionCode": "8000"
-      },
-      {
-        "text": "DEBATE - The House proceeded with forty minutes of debate on H.R. 7834.",
-        "actionDate": "2026-09-16",
-        "type": "Floor",
-        "actionTime": "15:14:54",
-        "actionCode": "H8D000"
-      },
-      {
-        "text": "Considered under suspension of the rules. (consideration: CR H5936-5938)",
-        "actionDate": "2026-09-16",
-        "type": "Floor",
-        "actionTime": "15:14:53",
-        "actionCode": "H30000"
-      },
-      {
-        "text": "Ms. Lee (FL) moved to suspend the rules and pass the bill, as amended.",
-        "actionDate": "2026-09-16",
-        "type": "Floor",
-        "actionTime": "15:14:38",
-        "actionCode": "H30300"
-      },
-      {
-        "text": "Placed on the Union Calendar, Calendar No. 703.",
-        "actionDate": "2026-09-08",
-        "type": "Calendars",
-        "actionCode": "H12410"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Judiciary. H. Rept. 119-804.",
-        "actionDate": "2026-09-08",
-        "type": "Committee",
-        "actionCode": "H12200"
-      },
-      {
-        "text": "Reported (Amended) by the Committee on Judiciary. H. Rept. 119-804.",
-        "actionDate": "2026-09-08",
-        "type": "Committee",
-        "actionCode": "5000"
-      },
-      {
-        "text": "Ordered to be Reported (Amended) by the Yeas and Nays: 24 - 0.",
-        "actionDate": "2026-07-15",
-        "type": "Committee",
-        "actionCode": "H19000"
-      },
-      {
-        "text": "Committee Consideration and Mark-up Session Held",
-        "actionDate": "2026-07-15",
-        "type": "Committee",
-        "actionCode": "H15001"
-      },
-      {
-        "text": "Referred to the House Committee on the Judiciary.",
-        "actionDate": "2026-03-05",
-        "type": "IntroReferral",
-        "actionCode": "H11100"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-03-05",
-        "type": "IntroReferral",
-        "actionCode": "Intro-H"
-      },
-      {
-        "text": "Introduced in House",
-        "actionDate": "2026-03-05",
-        "type": "IntroReferral",
-        "actionCode": "1000"
-      }
-    ],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Message on Senate action sent to the House.",
-    "votes": [],
-    "introduced_date": "2026-03-05T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/7834",
-    "published": "2026-03-05T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-11-18T14:35:32.639359+00:00",
-    "official_title": "To limit liability for certain entities storing child sexual abuse material for law enforcement agencies, and for other purposes.",
-    "short_title": "Safe Cloud Storage Act"
   },
   {
     "bill_number": "3296",
@@ -98338,58 +98564,6 @@
     "short_title": "Consumer Financial Protection Accountability and Reform Act of 2026"
   },
   {
-    "bill_number": "7866",
-    "bill_type": "HR",
-    "title": "American Lending Fairness Act of 2026",
-    "summary": "",
-    "sponsor_name": "",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 31 - 18.",
-    "latest_action_date": "2026-09-16T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 31 - 18.",
-    "votes": [],
-    "introduced_date": "2026-03-09T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/7866",
-    "published": "2026-03-09T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-09-18T10:18:35.383165+00:00",
-    "official_title": "To restore and clarify the intent of the Federal interest rate exportation parity for State-chartered banks by allowing States to opt out of preemption only with respect to loans made by their own chartered institutions, and for other purposes.",
-    "short_title": "American Lending Fairness Act of 2026"
-  },
-  {
-    "bill_number": "7030",
-    "bill_type": "HR",
-    "title": "Securing Facilities for Mental Health Services Act",
-    "summary": "",
-    "sponsor_name": "",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 49 - 0.",
-    "latest_action_date": "2026-09-16T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 49 - 0.",
-    "votes": [],
-    "introduced_date": "2026-01-13T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/7030",
-    "published": "2026-01-13T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-09-18T10:18:35.383165+00:00",
-    "official_title": "To amend section 242 of the National Housing Act to provide parity with respect to access to the mortgage insurance for hospitals program for licensed hospitals, and for other purposes.",
-    "short_title": "Securing Facilities for Mental Health Services Act"
-  },
-  {
     "bill_number": "6470",
     "bill_type": "HR",
     "title": "Increasing Baseline Updates Act",
@@ -98468,32 +98642,6 @@
     "last_synced_at": "2026-09-18T10:18:35.383165+00:00"
   },
   {
-    "bill_number": "4936",
-    "bill_type": "HR",
-    "title": "TRAPS Act",
-    "summary": "",
-    "sponsor_name": "",
-    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 49 - 0.",
-    "latest_action_date": "2026-09-16T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/4936",
-    "published": "2025-08-08T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "official_title": "To establish a Task Force for Recognizing and Averting Payment Scams, and for other purposes.",
-    "short_title": "TRAPS Act",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "actions": [],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 49 - 0.",
-    "votes": [],
-    "introduced_date": "2025-08-08T00:00:00",
-    "last_synced_at": "2026-09-18T10:18:35.383165+00:00"
-  },
-  {
     "bill_number": "4093",
     "bill_type": "HR",
     "title": "Apples to Apples Comparison Act of 2025",
@@ -98518,32 +98666,6 @@
     "last_synced_at": "2026-09-18T10:18:35.383165+00:00",
     "official_title": "To amend title XVIII of the Social Security Act to require the Secretary of Health and Human Services to publish information on expenditures under the Medicare program, and for other purposes.",
     "short_title": "Apples to Apples Comparison Act of 2025"
-  },
-  {
-    "bill_number": "1653",
-    "bill_type": "HR",
-    "title": "Civil Investigative Demand Reform Act of 2025",
-    "summary": "",
-    "sponsor_name": "",
-    "sponsor_party": "",
-    "sponsor_state": "",
-    "sponsor_district": "",
-    "cosponsors": [],
-    "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 29 - 20.",
-    "latest_action_date": "2026-09-16T00:00:00",
-    "actions": [],
-    "committees": [],
-    "policy_areas": [],
-    "status": "Ordered to be Reported (Amended) by the Yeas and Nays: 29 - 20.",
-    "votes": [],
-    "introduced_date": "2025-02-27T00:00:00",
-    "url": "https://www.congress.gov/bill/119th-congress/house-bill/1653",
-    "published": "2025-02-27T00:00:00",
-    "source": "Congress.gov API",
-    "congress": 119,
-    "last_synced_at": "2026-09-18T10:18:35.383165+00:00",
-    "official_title": "To reform the civil investigative demand process of the Bureau of Consumer Financial Protection.",
-    "short_title": "Civil Investigative Demand Reform Act of 2025"
   },
   {
     "bill_number": "8255",
@@ -481737,6 +481859,32 @@
     "last_synced_at": "2026-11-26T02:04:41.568563+00:00",
     "official_title": "Making appropriations for the salaries and expenses of certain U.S. Customs and Border Protection employees working during a Government shutdown in fiscal year 2025, and for other purposes.",
     "short_title": "Pay Our Border Patrol and Customs Agents Act of 2025"
+  },
+  {
+    "bill_number": "1934",
+    "bill_type": "HR",
+    "title": "ProTECT Act of 2025",
+    "summary": "",
+    "sponsor_name": "",
+    "sponsor_party": "",
+    "sponsor_state": "",
+    "sponsor_district": "",
+    "cosponsors": [],
+    "latest_action": "Referred to the House Committee on Natural Resources.",
+    "latest_action_date": "2025-03-06T00:00:00",
+    "actions": [],
+    "committees": [],
+    "policy_areas": [],
+    "status": "Referred to the House Committee on Natural Resources.",
+    "votes": [],
+    "introduced_date": "2025-03-06T00:00:00",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/1934",
+    "published": "2025-03-06T00:00:00",
+    "source": "Congress.gov API",
+    "congress": 119,
+    "last_synced_at": "2026-11-26T11:29:46.882908+00:00",
+    "official_title": "To amend the Endangered Species Act of 1973 to prohibit the taking for a trophy of any endangered or threatened species of fish or wildlife in the United States and the importation of endangered and threatened species trophies into the United States, and for other purposes.",
+    "short_title": "ProTECT Act of 2025"
   },
   {
     "bill_number": "1893",
