@@ -1,27 +1,27 @@
 {
-  "week_start": "2026-11-15T22:12:45.742374-06:00",
-  "week_end": "2026-11-22T22:12:45.742374-06:00",
+  "week_start": "2026-11-20T22:26:34.028249-06:00",
+  "week_end": "2026-11-27T22:26:34.028249-06:00",
   "item_counts": {
-    "federal": 380,
+    "federal": 39,
     "ks": 0,
     "co": 0,
     "az": 0,
-    "ut": 18,
+    "ut": 0,
     "me": 0,
     "ne": 0,
     "md": 0,
     "pa": 0,
-    "ma": 1,
+    "ma": 57,
     "wv": 0,
-    "tn": 0,
+    "tn": 3,
     "nc": 0,
     "mo": 0,
-    "ia": 1,
+    "ia": 0,
     "ga": 0,
     "ky": 0,
-    "tx": 0,
+    "tx": 16,
     "ct": 0,
-    "va": 222
+    "va": 0
   },
   "sections": [
     {
@@ -29,36 +29,35 @@
       "label": "Congress / Federal",
       "recap_lines": [
         "Congress / Federal:",
-        "HR 10167: To direct the Secretary of the Treasury to stop minting the penny, to require cash transactions to be rounded up or down to the nearest 5 cents, and for other purposes.",
-        "   Signed by President.",
-        "S 4448: Accelerating Broadband Permits Act of 2026",
+        "HR 2347: Survivor Justice Tax Prevention Act",
         "   Message on Senate action sent to the House.",
-        "S 4538: Washington\u2019s Trail\u20141753 National Historic Trail Feasibility Study Act of 2026",
-        "   Message on Senate action sent to the House.",
-        "   Plus 6 immigration, 53 healthcare, 26 education, 38 economic, 21 defense, 10 environmental, 11 technology, 29 tax, 9 infrastructure bills, and 131 others.",
-        "43 hearings scheduled."
+        "HR 2302: Shingle Springs Band of Miwok Indians Land Transfer Act of 2025",
+        "   Presented to President.",
+        "HR 10234: To require the Securities and Exchange Commission to create forms for non-variable registered annuities and life insurance products, and for other purposes.",
+        "   Placed on the Union Calendar, Calendar No. 790.",
+        "   Plus 4 healthcare, 3 education, 3 economic, 3 defense, 2 technology, 1 infrastructure bills, and 20 others."
       ],
-      "item_count": 380,
+      "item_count": 39,
       "veterans_highlight": {
-        "summary": "S 4445: Veterans Protection from Fraud Act of 2026; HR 10159: To authorize the Secretary of the Army to convey to the State of North Carolina a certain parcel of real property located at Fort...; HR 8469: Military Construction, Veterans Affairs, and Related Agencies Appropriations Act, 2027; plus 36 more",
+        "summary": "HR 11155: To amend title 38, United States Code, to establish a presumption that sarcoidosis is a service-connected disease for certain...; HR 11156: To direct the Secretary of Veterans Affairs to seek to enter into an agreement with the National Academies of Sciences,...; HR 11162: Collaborative Combat Aircraft Sustainment and Readiness Assessment Act of 2026; plus 2 more",
         "items": [
           {
             "type": "bill",
-            "title": "S 4445: Veterans Protection from Fraud Act of 2026",
-            "url": "https://www.congress.gov/bill/119th-congress/senate-bill/4445"
+            "title": "HR 11155: To amend title 38, United States Code, to establish a presumption that sarcoidosis is a service-connected disease for certain...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/11155"
           },
           {
             "type": "bill",
-            "title": "HR 10159: To authorize the Secretary of the Army to convey to the State of North Carolina a certain parcel of real property located at Fort...",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/10159"
+            "title": "HR 11156: To direct the Secretary of Veterans Affairs to seek to enter into an agreement with the National Academies of Sciences,...",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/11156"
           },
           {
             "type": "bill",
-            "title": "HR 8469: Military Construction, Veterans Affairs, and Related Agencies Appropriations Act, 2027",
-            "url": "https://www.congress.gov/bill/119th-congress/house-bill/8469"
+            "title": "HR 11162: Collaborative Combat Aircraft Sustainment and Readiness Assessment Act of 2026",
+            "url": "https://www.congress.gov/bill/119th-congress/house-bill/11162"
           }
         ],
-        "total_matches": 39
+        "total_matches": 5
       }
     },
     {
@@ -89,10 +88,9 @@
       "id": "ut",
       "label": "Utah",
       "recap_lines": [
-        "Utah:",
-        "   18 hearings."
+        "Utah: No new activity this week."
       ],
-      "item_count": 18
+      "item_count": 0
     },
     {
       "id": "me",
@@ -131,9 +129,9 @@
       "label": "Massachusetts",
       "recap_lines": [
         "Massachusetts:",
-        "   1 bills updated."
+        "   8 committee actions, 4 hearings, 4 votes."
       ],
-      "item_count": 1
+      "item_count": 57
     },
     {
       "id": "wv",
@@ -147,9 +145,10 @@
       "id": "tn",
       "label": "Tennessee",
       "recap_lines": [
-        "Tennessee: No new activity this week."
+        "Tennessee:",
+        "   3 bills introduced."
       ],
-      "item_count": 0
+      "item_count": 3
     },
     {
       "id": "nc",
@@ -171,10 +170,9 @@
       "id": "ia",
       "label": "Iowa",
       "recap_lines": [
-        "Iowa:",
-        "   1 bills updated."
+        "Iowa: No new activity this week."
       ],
-      "item_count": 1
+      "item_count": 0
     },
     {
       "id": "ga",
@@ -196,9 +194,10 @@
       "id": "tx",
       "label": "Texas",
       "recap_lines": [
-        "Texas: No new activity this week."
+        "Texas:",
+        "   1 committee actions."
       ],
-      "item_count": 0
+      "item_count": 16
     },
     {
       "id": "ct",
@@ -212,35 +211,13 @@
       "id": "va",
       "label": "Virginia",
       "recap_lines": [
-        "Virginia:",
-        "   222 committee actions."
+        "Virginia: No new activity this week."
       ],
-      "item_count": 222,
-      "veterans_highlight": {
-        "summary": "HB 1018: Veterans & Defense Affairs, Sec. of; study to recommend plan to guide legislation rel. to veterans.; HB 85: Va.-specific postsecondary transition counselor certificate program; development and establishment.; HB 1268: Veterans' Services Protection Act; created, prohibited practices, penalty.",
-        "items": [
-          {
-            "type": "bill",
-            "title": "HB 1018: Veterans & Defense Affairs, Sec. of; study to recommend plan to guide legislation rel. to veterans.",
-            "url": "https://lis.blob.core.windows.net/files/1228698.HTML"
-          },
-          {
-            "type": "bill",
-            "title": "HB 85: Va.-specific postsecondary transition counselor certificate program; development and establishment.",
-            "url": "https://lis.blob.core.windows.net/files/1231345.HTML"
-          },
-          {
-            "type": "bill",
-            "title": "HB 1268: Veterans' Services Protection Act; created, prohibited practices, penalty.",
-            "url": "https://lis.blob.core.windows.net/files/1230406.HTML"
-          }
-        ],
-        "total_matches": 3
-      }
+      "item_count": 0
     }
   ],
-  "script": "PolicyWatch weekly overview for November 15 through November 22, 2026.\n\nCongress / Federal:\nHR 10167: To direct the Secretary of the Treasury to stop minting the penny, to require cash transactions to be rounded up or down to the nearest 5 cents, and for other purposes.\nVeterans & Military highlight: S 4445: Veterans Protection from Fraud Act of 2026; HR 10159: To authorize the Secretary of the Army to convey to the State of North Carolina a certain parcel of real property located at Fort...; HR 8469: Military....\n   Signed by President.\nS 4448: Accelerating Broadband Permits Act of 2026\n   Message on Senate action sent to the House.\nS 4538: Washington\u2019s Trail\u20141753 National Historic Trail Feasibility Study Act of 2026\n   Message on Senate action sent to the House.\n   Plus 6 immigration, 53 healthcare, 26 education, 38 economic, 21 defense, 10 environmental, 11 technology, 29 tax, 9 infrastructure bills, and 131 others.\n43 hearings scheduled.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah:\n   18 hearings.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   1 bills updated.\n\nWest Virginia: No new activity this week.\n\nTennessee: No new activity this week.\n\nNorth Carolina: No new activity this week.\n\nMissouri: No new activity this week.\n\nIowa:\n   1 bills updated.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nTexas: No new activity this week.\n\nConnecticut: No new activity this week.\n\nVirginia:\n   222 committee actions.\nVeterans & Military highlight: HB 1018: Veterans & Defense Affairs, Sec. of; study to recommend plan to guide legislation rel. to veterans.; HB 85: Va.-specific postsecondary transition counselor certificate program; development and establishment.;....\n\nExplore full details at PolicyWatch.",
-  "generated_at": "2026-11-22T22:12:45.742374-06:00",
+  "script": "PolicyWatch weekly overview for November 20 through November 27, 2026.\n\nCongress / Federal:\nHR 2347: Survivor Justice Tax Prevention Act\nVeterans & Military highlight: HR 11155: To amend title 38, United States Code, to establish a presumption that sarcoidosis is a service-connected disease for certain...; HR 11156: To direct the Secretary of Veterans Affairs to seek to enter into an....\n   Message on Senate action sent to the House.\nHR 2302: Shingle Springs Band of Miwok Indians Land Transfer Act of 2025\n   Presented to President.\nHR 10234: To require the Securities and Exchange Commission to create forms for non-variable registered annuities and life insurance products, and for other purposes.\n   Placed on the Union Calendar, Calendar No. 790.\n   Plus 4 healthcare, 3 education, 3 economic, 3 defense, 2 technology, 1 infrastructure bills, and 20 others.\n\nKansas: No new activity this week.\n\nColorado: No new activity this week.\n\nArizona: No new activity this week.\n\nUtah: No new activity this week.\n\nMaine: No new activity this week.\n\nNebraska: No new activity this week.\n\nMaryland: No new activity this week.\n\nPennsylvania: No new activity this week.\n\nMassachusetts:\n   8 committee actions, 4 hearings, 4 votes.\n\nWest Virginia: No new activity this week.\n\nTennessee:\n   3 bills introduced.\n\nNorth Carolina: No new activity this week.\n\nMissouri: No new activity this week.\n\nIowa: No new activity this week.\n\nGeorgia: No new activity this week.\n\nKentucky: No new activity this week.\n\nTexas:\n   1 committee actions.\n\nConnecticut: No new activity this week.\n\nVirginia: No new activity this week.\n\nExplore full details at PolicyWatch.",
+  "generated_at": "2026-11-27T22:26:34.028249-06:00",
   "audio_available": false,
   "audio_file": null
 }
